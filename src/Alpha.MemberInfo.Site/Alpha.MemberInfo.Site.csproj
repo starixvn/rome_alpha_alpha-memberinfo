@@ -182,17 +182,10 @@
   <ItemGroup>
     <Content Include="App_Data\SPNames\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="assets\Allbet.css" />
     <Content Include="assets\bundles\default.css" />
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
     </Content>
-    <Content Include="assets\styles\images\1F.gif" />
-    <Content Include="assets\styles\images\1L.gif" />
-    <Content Include="assets\styles\images\firstGoal.gif" />
-    <Content Include="assets\styles\images\green-star.gif" />
-    <Content Include="assets\styles\images\lastGoal.gif" />
-    <Content Include="assets\styles\images\note_title.gif" />
     <Content Include="assets\styles\site.css">
       <DependentUpon>site.scss</DependentUpon>
     </Content>
@@ -337,6 +330,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\scripts\" />
+    <Folder Include="assets\styles\images\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
