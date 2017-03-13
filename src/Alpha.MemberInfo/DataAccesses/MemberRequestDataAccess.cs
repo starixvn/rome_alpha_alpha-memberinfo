@@ -9,19 +9,19 @@
 
     public interface MemberRequestDataAccess
     {
-        IEnumerable<MemberRequest> GetMemberRequest(MemberRequestCriteria criteria);
+        IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestCriteria criteria);
     }
 
     public class MemberRequestDataAccessImpl : MemberRequestDataAccess
     {
-        public IEnumerable<MemberRequest> GetMemberRequest(MemberRequestCriteria criteria)
+        public IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestCriteria criteria)
         {
             if (criteria == null)
             {
                 throw new ArgumentNullException(nameof(criteria), "Criteria cannot be null");
             }
 
-            var memberRequestData = new List<MemberRequest>();
+            var memberRequestData = new List<MemberRequestModel>();
 
             using (var db = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
@@ -39,9 +39,9 @@
 
             return memberRequestData;
         }
-        private MemberRequest BuildMemberRequest(IDataReader reader)
+        private MemberRequestModel BuildMemberRequest(IDataReader reader)
         {
-            var memberRequest = new MemberRequest(
+            var memberRequest = new MemberRequestModel(
                    username: "Username",
                    enable: true,
                    balance: reader.ToDecimal("balance"),

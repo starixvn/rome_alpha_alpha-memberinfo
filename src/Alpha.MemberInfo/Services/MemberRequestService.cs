@@ -9,7 +9,7 @@
 
     public interface MemberRequestService
     {
-        IEnumerable<MemberRequest> GetMemberRequest(MemberRequestParam param);
+        IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestParam param);
     }
 
     public class MemberRequestServiceImpl : MemberRequestService
@@ -21,7 +21,7 @@
             this.dataAccess = dataAccess;
         }
 
-        public IEnumerable<MemberRequest> GetMemberRequest(MemberRequestParam param)
+        public IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestParam param)
         {
             if (param == null)
             {

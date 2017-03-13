@@ -1,11 +1,15 @@
 ﻿namespace Alpha.MemberInfo.Site.ViewModels.MemberRequest
 {
-    using Requests.MemberRequest;
+    using System.Collections.Generic;
+    using MemberInfo.Models;
 
     public class MemberRequestViewModel
     {
-        public MemberRequestViewModel(MemberRequestQuery message)
+        public MemberRequestViewModel(IEnumerable<MemberRequestModel> memberRequestData)
         {
+            MemberRequestData = memberRequestData;
         }
+
+        public IEnumerable<MemberRequestModel> MemberRequestData { get; }
     }
 }
