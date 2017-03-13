@@ -194,6 +194,7 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
+    <Content Include="Views\MemberRequests\Index.cshtml" />
     <None Include="Web.uat2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </None>
@@ -268,6 +269,7 @@
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Global.asax.cs">
