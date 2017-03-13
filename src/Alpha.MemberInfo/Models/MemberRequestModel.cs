@@ -16,7 +16,6 @@
             AvailableCredit = availableCredit;
         }
         
-        
         public string Username { get; }
 
         public bool Enable { get; }

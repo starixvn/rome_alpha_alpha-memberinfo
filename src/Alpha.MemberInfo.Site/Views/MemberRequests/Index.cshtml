@@ -1,3 +1,41 @@
-﻿<div>
-    Hello Member Requests
-</div>
+﻿@model MemberRequestViewModel
+
+@{
+    ViewBag.Title = "Member Request";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th><input type="checkbox"/></th>
+            <th>Username</th>
+            <th>Balance</th>
+            <th>Outstanding</th>
+            <th>Available Credit</th>
+        </tr>
+    </thead>
+
+
+    @*@if (Model.MemberRequestData.Any())
+    {
+        int i = 1;
+        <tbody>
+            @foreach (var memberRequest in Model.MemberRequestData)
+            {
+                <tr>
+                    <td>@i++</td>
+                    <td><input type="checkbox" /></td>
+                    <td>@memberRequest.Username</td>
+                    <td>@memberRequest.Balance</td>
+                    <td>@memberRequest.Outstanding</td>
+                    <td>@memberRequest.AvailableCredit</td>
+                </tr>
+            }
+        </tbody>
+    }
+    else
+    {
+        @NoInformation.Render(6)
+    }*@
+</table>

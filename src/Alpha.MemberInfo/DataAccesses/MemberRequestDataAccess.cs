@@ -23,31 +23,36 @@
 
             var memberRequestData = new List<MemberRequestModel>();
 
-            using (var db = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+            for (int i = 0; i < 5; i++)
             {
-                using (var reader = db.ExecuteReader(criteria))
-                {
-                    if (reader != null)
-                    {
-                        while (reader.Read())
-                        {
-                            memberRequestData.Add(BuildMemberRequest(reader));
-                        }
-                    }
-                }
+                memberRequestData.Add(BuildMemberRequest(i));
             }
+
+            ////using (var db = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+            ////{
+            ////    using (var reader = db.ExecuteReader(criteria))
+            ////    {
+            ////        if (reader != null)
+            ////        {
+            ////            while (reader.Read())
+            ////            {
+            ////                memberRequestData.Add(BuildMemberRequest(reader));
+            ////            }
+            ////        }
+            ////    }
+            ////}
 
             return memberRequestData;
         }
-        private MemberRequestModel BuildMemberRequest(IDataReader reader)
+       //// private MemberRequestModel BuildMemberRequest(IDataReader reader)
+         private MemberRequestModel BuildMemberRequest(int i)
         {
             var memberRequest = new MemberRequestModel(
                    username: "Username",
                    enable: true,
-                   balance: reader.ToDecimal("balance"),
-                   outstanding: 1455,
-                   availableCredit: 45662
-                );
+                   balance: 45678 + (i * 44), //// reader.ToDecimal("balance"),
+                   outstanding: 1455 + (i * 44),
+                   availableCredit: 45662 + (i * 44));
 
             return memberRequest;
         }

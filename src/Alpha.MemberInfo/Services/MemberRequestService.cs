@@ -28,13 +28,11 @@
                 throw new ArgumentNullException(nameof(param));
             }
 
-
             var criteria = new MemberRequestCriteria();
 
             var memberRequestData = dataAccess.GetMemberRequest(criteria);
 
             return memberRequestData;
         }
-
     }
 }

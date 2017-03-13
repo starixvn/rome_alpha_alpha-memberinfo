@@ -9,6 +9,8 @@
     using MediatR;
     using MemberInfo.Models;
     using Models;
+    using Reports.DataAccesses;
+    using Services;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
@@ -50,6 +52,8 @@
 
             container.RegisterCollection(typeof(INotificationHandler<>), assemblies);
             container.RegisterCollection(typeof(IAsyncNotificationHandler<>), assemblies);
+
+            container.RegisterCollection(typeof(IPipelineBehavior<,>), assemblies);
             container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
             container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
         }
@@ -62,12 +66,16 @@
         private static void RegisterDataAccesses(Container container)
         {
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
+
+            container.RegisterSingleton<MemberRequestDataAccess, MemberRequestDataAccessImpl>();
         }
 
         private static void RegisterServices(Container container)
         {
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
+
+            container.RegisterSingleton<MemberRequestService, MemberRequestServiceImpl>();
         }
     }
 }

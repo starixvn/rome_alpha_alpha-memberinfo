@@ -195,6 +195,7 @@
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
     <Content Include="Views\MemberRequests\Index.cshtml" />
+    <Content Include="App_Code\Components\NoInformation.cshtml" />
     <None Include="Web.uat2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </None>
@@ -283,7 +284,9 @@
     <Compile Include="ViewModels\MemberRequestViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Views\Shared\NoInformation.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
