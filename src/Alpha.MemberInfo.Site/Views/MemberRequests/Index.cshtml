@@ -1,10 +1,17 @@
 ﻿@model MemberRequestViewModel
 
-@{
-    ViewBag.Title = "Member Request";
-}
+<div class="page-title">
+    <span class="pull-left">Member Request</ span >
+</div>
 
-<table>
+<form class="form-inline filter role="form" id="report-form">
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn-submit" />
+    </div>
+</form>
+
+
+<table class="tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover tablesorter" >
     <thead>
         <tr>
             <th>No.</th>
@@ -17,25 +24,27 @@
     </thead>
 
 
-    @*@if (Model.MemberRequestData.Any())
+    @if (Model.MemberRequestData.Any())
     {
-        int i = 1;
+        int index = 1;
         <tbody>
             @foreach (var memberRequest in Model.MemberRequestData)
             {
                 <tr>
-                    <td>@i++</td>
+                    <td>@index</td>
                     <td><input type="checkbox" /></td>
                     <td>@memberRequest.Username</td>
                     <td>@memberRequest.Balance</td>
                     <td>@memberRequest.Outstanding</td>
                     <td>@memberRequest.AvailableCredit</td>
                 </tr>
+
+                index++;
             }
         </tbody>
     }
     else
     {
         @NoInformation.Render(6)
-    }*@
+    }
 </table>
