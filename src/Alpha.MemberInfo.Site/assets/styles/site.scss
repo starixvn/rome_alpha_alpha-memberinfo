@@ -1,5 +1,12 @@
 ﻿@import "variables";
 
-.demo {
-    font-size: large;
+.page-title {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+
+#tbl-report {
+    margin-top: 12px;
+    text-align: right;
 }

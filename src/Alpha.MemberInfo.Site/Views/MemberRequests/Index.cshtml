@@ -1,25 +1,19 @@
 ﻿@model MemberRequestViewModel
 
 <div class="page-title">
-    <span class="pull-left">Member Request</ span >
+    <span class="pull-left">@Resources.MemberRequest</ span >
 </div>
 
-<form class="form-inline filter role="form" id="report-form">
-    <div class="form-group">
-        <input type="submit" value="Submit" class="btn-submit" />
-    </div>
-</form>
 
-
-<table class="tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover tablesorter" >
+<table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover tablesorter" >
     <thead>
         <tr>
-            <th>No.</th>
+            <th>@Resources.No</th>
             <th><input type="checkbox"/></th>
-            <th>Username</th>
-            <th>Balance</th>
-            <th>Outstanding</th>
-            <th>Available Credit</th>
+            <th>@Resources.Username</th>
+            <th>@Resources.Balance</th>
+            <th>@Resources.Outstanding</th>
+            <th>@Resources.AvailableCredit</th>
         </tr>
     </thead>
 
