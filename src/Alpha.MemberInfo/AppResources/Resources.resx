@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllProducts" xml:space="preserve">
+    <value>All Products</value>
+  </data>
   <data name="AvailableCredit" xml:space="preserve">
     <value>Available Credit</value>
   </data>
@@ -134,6 +137,15 @@
   </data>
   <data name="Outstanding" xml:space="preserve">
     <value>Outstanding</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>selected</value>
+  </data>
+  <data name="SelectProducts" xml:space="preserve">
+    <value>Select Products</value>
+  </data>
+  <data name="ThereIsNoProduct" xml:space="preserve">
+    <value>There is no Product.</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>

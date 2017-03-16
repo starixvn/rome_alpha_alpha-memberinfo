@@ -10,3 +10,71 @@
     margin-top: 12px;
     text-align: right;
 }
+
+.filter {
+    display: table;
+    width: 100%;
+    clear: both;
+
+    .multiselect .multiselect-selected-text {
+        width: 130px;
+    }
+
+    .icon-excel, .icon-back {
+        cursor: pointer;
+        color: #1f7244;
+        font-size: 19px;
+        vertical-align: middle;
+        height: 28px;
+        float: left;
+
+        &:before {
+            position: relative;
+            top: 5px;
+        }
+    }
+
+    .icon-back {
+        margin-left: 20px;
+        font-size: 20px;
+    }
+
+    select.select-multiple {
+        height: 28px;
+        width: 160px;
+    }
+
+    .error, .btn-group button.multiselect.error {
+        border: 1px solid #e9322d;
+        padding: 4px 10px;
+    }
+
+    select.dropdown-daterange {
+        width: 160px;
+    }
+
+    .input-group.date .form-control {
+        -webkit-appearance: none;
+    }
+
+    .daterange-picker .input-group.date {
+        width: 128px;
+    }
+
+    .daterange-container {
+        vertical-align: top;
+    }
+
+    .form-group {
+        .btn-submit, .btn-group {
+            float: left;
+        }
+
+        &.daterange-picker {
+            //margin-bottom: 0;
+            .ui_nexdatepicker_edit_field, .ui_nexdatepicker_lbl_field {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

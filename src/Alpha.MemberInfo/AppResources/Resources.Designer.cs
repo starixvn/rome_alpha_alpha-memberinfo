@@ -61,6 +61,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Products.
+        /// </summary>
+        public static string AllProducts {
+            get {
+                return ResourceManager.GetString("AllProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Available Credit.
         /// </summary>
         public static string AvailableCredit {
@@ -111,6 +120,33 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Outstanding {
             get {
                 return ResourceManager.GetString("Outstanding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to selected.
+        /// </summary>
+        public static string Selected {
+            get {
+                return ResourceManager.GetString("Selected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Products.
+        /// </summary>
+        public static string SelectProducts {
+            get {
+                return ResourceManager.GetString("SelectProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no Product..
+        /// </summary>
+        public static string ThereIsNoProduct {
+            get {
+                return ResourceManager.GetString("ThereIsNoProduct", resourceCulture);
             }
         }
         

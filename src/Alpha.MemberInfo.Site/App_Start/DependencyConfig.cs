@@ -9,6 +9,7 @@
     using MediatR;
     using MemberInfo.Models;
     using Models;
+    using RemotingRef;
     using Reports.DataAccesses;
     using Services;
     using SimpleInjector;
@@ -16,6 +17,7 @@
     using SimpleInjector.Integration.Web.Mvc;
     using Sunplus.Agent.Model.Base;
     using Sunplus.Agent.Model.Entities;
+    using Sunplus.Agent.Model.Entities.Permission;
 
     public static class DependencyConfig
     {
@@ -75,6 +77,13 @@
             container.RegisterSingleton<IUser, User>();
 
             container.RegisterSingleton<MemberRequestService, MemberRequestServiceImpl>();
+
+            container.Register<ProductService>(
+               () => new ProductServiceImpl(
+                   container.GetInstance<IDynamicRepository>(),
+                   UserPermission.HasPermissionOnProduct,
+                   new CacheRefServiceImpl().GetProductName),
+               Lifestyle.Singleton);
         }
     }
 }
