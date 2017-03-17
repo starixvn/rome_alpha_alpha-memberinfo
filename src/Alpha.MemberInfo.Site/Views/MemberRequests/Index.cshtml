@@ -1,14 +1,35 @@
 ﻿@model MemberRequestViewModel
 
-<div class="page-title">
-    <span class="pull-left">@Resources.MemberRequest</ span >
+<div id="page_main">
+    <div id="header_main"><div>@Resources.MemberRequest</div></div>
 </div>
 
-@*<form class="form-inline filter role="form" id="report-form">
-    @ProductMultiSelection.Render(Model.ProductMultiSelectionViewModel)
+<div id="box_header">
+    <div class="msg msg-warning">You're disabled on this product. Please contact upline to enable for you</div>
+    <form class="form-inline demo-form-inline filter" role="form">
+        <div class="form-group">
+            <select id="product">
+                <option value="0" selected="selected">Casino</option>
+                <option value="1">Macau Games</option>
+                <option value="2">Fishing World</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <input type="button" class="btn-default" value="Enable" disabled />       
+        </div>
+    </form>
+</div>
+
+@*<div class="page-title">
+    <span class="pull-left">@Resources.MemberRequest</span>
+</div>*@
+
+@*<form class="form-inline filter" role="form" id="report-form">
+        @ProductMultiSelection.Render(Model.ProductMultiSelectionViewModel)
 </form>*@
 
-<table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover tablesorter" >
+<table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-hover tablesorter" >
     <thead>
         <tr>
             <th>@Resources.No</th>
