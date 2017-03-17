@@ -8,6 +8,7 @@
     using Auth.Filters;
     using Configurations;
     using Fanex.Data;
+    using Helpers;
     using ONEbook.UM.Filters;
     using Web;
     using Web.Helpers;
@@ -36,6 +37,8 @@
                 .Run();
 
             ShareSession.Init();
+
+            ModelBinders.Binders.DefaultBinder = new QueryEntityModelBinder();
 
             GlobalFilters.Filters.Add(new CheckUMFilter());
             GlobalFilters.Filters.Add(new CheckBelongingFilter());

@@ -4,21 +4,17 @@
     using MemberInfo.Models;
     using ViewModels.MemberRequest;
 
-    public class MemberRequestQuery : IRequest<MemberRequestViewModel>
+    public class MemberRequestQuery :
+        MemberInfoBaseQuery,
+        IRequest<MemberRequestViewModel>
     {
         public MemberRequestQuery()
         {
         }
 
-        public MemberRequestQuery(IUser viewer)
+        public MemberRequestQuery(IUser viewer) : base(viewer)
         {
-            CustId = viewer.Id;
-            CustName = viewer.Name;
         }
-
-        public int CustId { get; set; }
-
-        public string CustName { get; set; }
 
         public string UserSelectedProductIds { get; set; }
     }
