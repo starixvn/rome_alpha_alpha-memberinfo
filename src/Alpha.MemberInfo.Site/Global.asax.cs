@@ -25,9 +25,7 @@
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             DependencyConfig.Init();
-
-            AppSettings.Verify();
-
+     
             DbSettingProviderManager
                 .StartNewSession()
                 .UseDefaultConnectionStringProvider()
@@ -35,6 +33,8 @@
                     resourcePath: AppSettings.StoreProcedurePath,
                     enableWatching: true)
                 .Run();
+
+            AppSettings.Verify();
 
             ShareSession.Init();
 

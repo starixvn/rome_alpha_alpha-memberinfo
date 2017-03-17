@@ -77,13 +77,6 @@
             container.RegisterSingleton<IUser, User>();
 
             container.RegisterSingleton<MemberRequestService, MemberRequestServiceImpl>();
-
-            container.Register<ProductService>(
-               () => new ProductServiceImpl(
-                   container.GetInstance<IDynamicRepository>(),
-                   UserPermission.HasPermissionOnProduct,
-                   new CacheRefServiceImpl().GetProductName),
-               Lifestyle.Singleton);
         }
     }
 }

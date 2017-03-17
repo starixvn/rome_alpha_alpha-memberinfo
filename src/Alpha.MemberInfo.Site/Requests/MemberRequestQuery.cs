@@ -16,6 +16,6 @@
         {
         }
 
-        public string UserSelectedProductIds { get; set; }
+        public int UserSelectedProductId { get; set; }
     }
 }
