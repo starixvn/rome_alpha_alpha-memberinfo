@@ -1,14 +1,35 @@
 ﻿@import "variables";
 
+body {
+    background: transparent;
+}
+
 .page-title {
     display: table;
     width: 100%;
     position: relative;
 }
 
+.msg {
+    margin-bottom: 0;
+}
+
 #tbl-report {
     margin-top: 12px;
-    text-align: right;
+    width: 750px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+input[type="checkbox"] {
+    margin-right: 0;
+}
+
+input[type="button"][disabled]{
+    opacity: .4;
+    cursor: not-allowed;
 }
 
 .filter {
