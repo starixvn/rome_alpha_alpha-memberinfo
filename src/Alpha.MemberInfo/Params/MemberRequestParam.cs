@@ -1,8 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Params
 {
-    public class MemberRequestParam
+    public class MemberRequestsParam
     {
-        public MemberRequestParam()
+        public MemberRequestsParam()
         {
         }
     }

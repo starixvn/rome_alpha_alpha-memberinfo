@@ -9,15 +9,14 @@
     using MediatR;
     using MemberInfo.Models;
     using Models;
-    using RemotingRef;
     using Reports.DataAccesses;
     using Services;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
     using Sunplus.Agent.Model.Base;
+    using Sunplus.Agent.Model.Casino;
     using Sunplus.Agent.Model.Entities;
-    using Sunplus.Agent.Model.Entities.Permission;
 
     public static class DependencyConfig
     {
@@ -76,7 +75,8 @@
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
 
-            container.RegisterSingleton<MemberRequestService, MemberRequestServiceImpl>();
+            container.RegisterPerWebRequest<CasinoService, CasinoServiceImpl>();
+            container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();   
         }
     }
 }

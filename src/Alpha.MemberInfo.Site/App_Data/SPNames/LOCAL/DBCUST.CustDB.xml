@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Functions>
+  <Function Name="Member Requests">
+    <Setting Key="Age_UpdateCasinoStatus" SpName="Acc_UpdCSStatus" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" TimeOut="600"/>
+  </Function>>
+</Functions>

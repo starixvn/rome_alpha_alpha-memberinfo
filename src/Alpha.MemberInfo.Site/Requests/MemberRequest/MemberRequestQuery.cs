@@ -4,18 +4,20 @@
     using MemberInfo.Models;
     using ViewModels.MemberRequest;
 
-    public class MemberRequestQuery :
+    public class MemberRequestsQuery :
         MemberInfoBaseQuery,
         IRequest<MemberRequestViewModel>
     {
-        public MemberRequestQuery()
+        public MemberRequestsQuery()
         {
         }
 
-        public MemberRequestQuery(IUser viewer) : base(viewer)
+        public MemberRequestsQuery(IUser viewer) : base(viewer)
         {
         }
 
         public int UserSelectedProductId { get; set; }
+
+        public bool DisabledUserSelectedProduct { get; set; }
     }
 }

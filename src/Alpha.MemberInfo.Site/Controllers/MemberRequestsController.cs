@@ -17,11 +17,27 @@
         }
 
         [HttpGet]
-        public ActionResult Index(MemberRequestQuery message)
+        public ActionResult Index(ProductQuery message)
         {
             var viewModel = mediator.Send(message);
 
             return View(viewModel);
+        }
+
+        [HttpGet]
+        public ActionResult Members(MemberRequestsQuery message)
+        {
+            var viewModel = mediator.Send(message);
+
+            return PartialView(viewModel);
+        }
+
+        [HttpPost]
+        public JsonResult EnableProduct(EnableProductCommand message)
+        {
+            var viewModel = mediator.Send(message);
+
+            return Json(viewModel);
         }
     }
 }

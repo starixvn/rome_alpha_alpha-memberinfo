@@ -1,4 +1,4 @@
-﻿namespace Alpha.Reports.Criteria.WinLoss
+﻿namespace Alpha.Reports.Criteria.MemberRequest
 {
     using Fanex.Data.Repository;
 

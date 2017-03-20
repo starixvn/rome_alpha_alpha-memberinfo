@@ -3,13 +3,18 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using Criteria.WinLoss;
+    using Criteria.MemberRequest;
     using Fanex.Common.Extensions;
+    using MemberInfo.AppResources;
     using MemberInfo.Models;
 
     public interface MemberRequestDataAccess
     {
         IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestCriteria criteria);
+
+        IEnumerable<Result> EnableProduct(EnableProductCriteria criteria);
+
+        Result EnableCasino(EnableCasinoCriteria criteria);
     }
 
     public class MemberRequestDataAccessImpl : MemberRequestDataAccess
@@ -44,8 +49,14 @@
 
             return memberRequestData;
         }
-       //// private MemberRequestModel BuildMemberRequest(IDataReader reader)
-         private MemberRequestModel BuildMemberRequest(int i)
+
+        public IEnumerable<Result> EnableProduct(EnableProductCriteria criteria)
+        {
+            throw new NotImplementedException();
+        }
+
+        //// private MemberRequestModel BuildMemberRequest(IDataReader reader)
+        private MemberRequestModel BuildMemberRequest(int i)
         {
             var memberRequest = new MemberRequestModel(
                    username: "Username",
@@ -55,6 +66,30 @@
                    availableCredit: 45662 + (i * 44));
 
             return memberRequest;
+        }
+
+        public Result EnableCasino(EnableCasinoCriteria criteria)
+        {
+
+            if (criteria == null)
+            {
+                throw new ArgumentNullException(nameof(criteria), "Criteria cannot be null");
+            }
+
+            using (var db = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
+            {
+                db.ExecuteNonQuery(criteria.GetSpParams());
+                var outputParams = db.GetOuputParams();
+                var code = (int)outputParams["errcode"];
+
+                return new Result
+                {
+                    Code = code,
+                    Message = code == 0
+                        ? Resources.UpdatedSuccessfully
+                        : outputParams["errmsg"].ToString()
+                };
+            }
         }
     }
 }

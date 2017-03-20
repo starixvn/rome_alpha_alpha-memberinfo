@@ -1,0 +1,39 @@
+﻿@model MemberRequestViewModel
+<div>@Model.SelectedProductId</div>
+<table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-hover tablesorter">
+    <thead>
+        <tr>
+            <th>@Resources.No</th>
+            <th><input id="select-all" type="checkbox" @(Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) /></th>
+            <th>@Resources.Username</th>
+            <th>@Resources.Balance</th>
+            <th>@Resources.Outstanding</th>
+            <th>@Resources.AvailableCredit</th>
+        </tr>
+    </thead>
+
+
+    @if (Model.MemberRequestData.Any())
+    {
+        int index = 1 + Model.SelectedProductId;
+        <tbody>
+            @foreach (var memberRequest in Model.MemberRequestData)
+            {
+                <tr>
+                    <td>@index</td>
+                    <td><input class="checkbox" type="checkbox" @(!memberRequest.Sync || Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) /></td>
+                    <td>@memberRequest.Username</td>
+                    <td>@memberRequest.Balance</td>
+                    <td>@memberRequest.Outstanding</td>
+                    <td>@memberRequest.AvailableCredit</td>
+                </tr>
+
+                index++;
+            }
+        </tbody>
+    }
+    else
+    {
+        @NoInformation.Render(6)
+    }
+</table>
