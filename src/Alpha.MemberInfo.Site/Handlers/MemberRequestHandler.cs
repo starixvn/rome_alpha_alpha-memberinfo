@@ -51,7 +51,14 @@
 
         public IEnumerable<Result> Handle(EnableProductCommand message)
         {
-            return service.EnableProduct(new EnableProductParam());
+            return service.EnableProduct(new EnableProductParam(
+                message.CustIds,
+                string.Empty,
+                message.ViewerId,
+                string.Empty,
+                0,
+                string.Empty,
+                "E"));
         }
     }
 }

@@ -50,14 +50,33 @@
 
         public IEnumerable<Result> EnableProduct(EnableProductParam param)
         {
-            var results = new List<Result>
+
+            List<string> userInfoList = param.CustIds.Split(',').ToList();
+            var results = new List<Result>();
+            foreach (string userInfo in userInfoList)
             {
-                Result.CreateErrorResult("successfully", 0),
-                Result.CreateErrorResult("customer 1 is fail", 105),
-                Result.CreateErrorResult("customer 2 is fail", 201),
-            };
+                var custId = Converter.ToInt(userInfo.Split('-')[0]);
+                var criteria = new EnableCasinoCriteria
+                (
+                    custId,
+                    param.ActorId,
+                    param.SubAccId,
+                    param.LoginIP,
+                    param.Language);
+
+                var updateResult = dataAccess.EnableCasino(criteria);
+                results.Add(updateResult);
+            }
 
             return results;
+            //var results = new List<Result>
+            //{
+            //    Result.CreateErrorResult("successfully", 0),
+            //    Result.CreateErrorResult("customer 1 is fail", 105),
+            //    Result.CreateErrorResult("customer 2 is fail", 201),
+            //};
+
+            //return results;
         }
 
         public IEnumerable<Result> EnableCasino(EnableCasinoParam param)

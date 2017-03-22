@@ -5,7 +5,7 @@
         <tr>
             <th>@Resources.No</th>
             <th><input id="select-all" type="checkbox" @(Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) /></th>
-            <th>@Resources.Username</th>
+            <th class="text-left">@Resources.Username</th>
             <th>@Resources.Balance</th>
             <th>@Resources.Outstanding</th>
             <th>@Resources.AvailableCredit</th>
@@ -20,12 +20,13 @@
             @foreach (var memberRequest in Model.MemberRequestData)
             {
                 <tr>
-                    <td>@index</td>
-                    <td><input class="checkbox" type="checkbox" @(!memberRequest.Sync || Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) /></td>
+                    <td class="text-center">@index</td>
+                    <td class="text-center"><input data-userInfo="@($"{memberRequest.CustId}-{memberRequest.Username}")"
+                               class="checkbox" type="checkbox" @(!memberRequest.Sync || Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) /></td>
                     <td>@memberRequest.Username</td>
-                    <td>@memberRequest.Balance</td>
-                    <td>@memberRequest.Outstanding</td>
-                    <td>@memberRequest.AvailableCredit</td>
+                    <td class="text-right">@memberRequest.Balance</td>
+                    <td class="text-right">@memberRequest.Outstanding</td>
+                    <td class="text-right">@memberRequest.AvailableCredit</td>
                 </tr>
 
                 index++;

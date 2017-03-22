@@ -3,6 +3,7 @@
     public class MemberRequestModel
     {
         public MemberRequestModel(
+            int custId,
             string username,
             bool sync,
             bool enable,
@@ -10,6 +11,7 @@
             decimal outstanding,
             decimal availableCredit)
         {
+            CustId = custId;
             Username = username;
             Sync = sync;
             Enable = enable;
@@ -18,6 +20,8 @@
             AvailableCredit = availableCredit;
         }
         
+        public int CustId { get; }
+
         public string Username { get; }
 
         public bool Sync { get; }

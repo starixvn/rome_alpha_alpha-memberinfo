@@ -263,11 +263,16 @@
     <Content Include="App_Data\SPNames\Local\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBCUST.CustDB.xml" />
     <Content Include="App_Data\SPNames\Local\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="assets\styles\site.css">
-      <DependentUpon>site.scss</DependentUpon>
+    <Content Include="assets\bundles\member-info.css" />
+    <Content Include="assets\bundles\member-info.min.css">
+      <DependentUpon>member-info.css</DependentUpon>
     </Content>
-    <Content Include="assets\styles\site.min.css">
-      <DependentUpon>site.css</DependentUpon>
+    <Content Include="assets\bundles\member-requests\member-requests.js" />
+    <Content Include="assets\styles\member-info.css">
+      <DependentUpon>member-info.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\member-info.min.css">
+      <DependentUpon>member-info.css</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
@@ -437,7 +442,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="App_Data\AuthorizationSection.config" />
-    <Content Include="assets\styles\site.scss" />
+    <Content Include="assets\styles\member-info.scss" />
     <Content Include="assets\styles\_variables.scss" />
     <Content Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />

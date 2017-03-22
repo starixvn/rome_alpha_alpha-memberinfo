@@ -25,7 +25,7 @@ class MemberRequests {
             self.$('.btn-default').prop("disabled", disableProduct);
 
             if (disableProduct) {
-                self.$('#status-message-content').removeClass("msg-success").removeClass("msg-error").addClass("msg-warning").empty().html(self.$("#warningMessage").val()).show();
+                self.$('#status-message-content').show().removeClass("msg-success").removeClass("msg-error").addClass("msg-warning").empty().html(self.$("#warningMessage").val());
             }
             else {
                 self.$('#status-message-content').hide();
@@ -47,7 +47,7 @@ class MemberRequests {
         this.cacheDOMElements();
 
         this.$selectAll.change(function () {
-            var status = this.checked;
+            let status = this.checked;
             self.$('.checkbox').each(function () {
                 if (!this.disabled) {
                     this.checked = status;
@@ -62,12 +62,23 @@ class MemberRequests {
         });
     };
 
+    toggleEnabledButton = () => {
+        let disabled = this.$('input.checkbox:checked').length > 0 ? false : true;
+        this.$('.btn-default').prop("disabled", disabled);
+    };
+
     enableProduct = () => {
         let self = this;
         let $component = this.$("#status-message-content");
+
+        let userInfo = "";
+        this.$('input.checkbox:checked').each(function () {
+            userInfo += self.$(this).attr("data-userInfo") + ",";
+        });
+
         let ajaxSetting: JQueryAjaxSettings = {
             method: 'POST',
-            data: { CustIds: "125,1456,15678,1234", UserSelectedProductId: 5 },
+            data: { CustIds: userInfo, UserSelectedProductId: 5 },
             dataType: 'json',
             url: self.$("#enableProductUrl").val(),
             cache: false,
@@ -76,9 +87,9 @@ class MemberRequests {
 
                 let html = "";
                 if (typeof results != 'undefined') {
-                    var length = results.length;
-                    var isError = false;
-                    for (var i = 0; i < length; i++) {
+                    let length = results.length;
+                    let isError = false;
+                    for (let i = 0; i < length; i++) {
                         if (!results[i].IsSuccessful) {
                             isError = true;
                             html += '<div>' + results[i].Message + '</div>';
@@ -100,13 +111,11 @@ class MemberRequests {
     }
 
     showSuccessfullyMessage = ($messageContainer: any, successfullyMessage: string) => {
-        $messageContainer.removeClass('msg-error');
-        $messageContainer.addClass('msg-success').empty().html(successfullyMessage);
+        $messageContainer.removeClass('msg-error').addClass('msg-success').empty().html(successfullyMessage);
     };
 
     showFailMessage = ($messageContainer: any, failMessage: string) => {
-        $messageContainer.removeClass('msg-success');
-        $messageContainer.addClass('msg-error').empty().html(failMessage);
+        $messageContainer.removeClass('msg-success').addClass('msg-error').empty().html(failMessage);
     };
 
     renderData = () => {
@@ -133,36 +142,7 @@ class MemberRequests {
         }
 
     }
-
-    toggleEnabledButton = () => {
-        let disabled = this.$('input.checkbox:checked').length > 0 ? false : true;
-        this.$('.btn-default').prop("disabled", disabled);
-    };
-
-    private loadInfo = (id: string, productId: string, disableProduct: boolean, handleOnSuccessLoading: any) => {
-        let $component = this.$(id),
-            url = $component.attr('action-url');
-
-        if (url !== '' && typeof url !== 'undefined') {
-
-            //const ajaxSettings = this.createAjaxSettings(url + "?UserSelectedProductId=" + productId + "&DisabledUserSelectedProduct=" + disableProduct, 'GET', $component, handleOnSuccessLoading);
-
-           let ajaxSetting: JQueryAjaxSettings = {
-               method: 'GET',
-               data: { UserSelectedProductId: productId, DisabledUserSelectedProduct: disableProduct },
-                url: url,
-                cache: false,
-                success: (responseHtml) => {
-                    $component.html(responseHtml);
-                    handleOnSuccessLoading();
-                }
-            };
-
-           this.$.ajax(ajaxSetting);
-        }
-    }
 }
-
 
 const memberRequests = new MemberRequests(
     $,

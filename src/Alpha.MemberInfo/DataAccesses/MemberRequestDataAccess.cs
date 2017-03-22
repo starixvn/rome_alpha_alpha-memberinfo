@@ -59,6 +59,7 @@
         private MemberRequestModel BuildMemberRequest(int i)
         {
             var memberRequest = new MemberRequestModel(
+                   custId: 125 + (i * 44),
                    username: "Username",
                    sync: (i % 2 == 1) ? true : false,
                    enable: true,
@@ -71,6 +72,7 @@
 
         public Result EnableCasino(EnableCasinoCriteria criteria)
         {
+            return Result.CreateErrorResult("enable prouct fail", 150);
 
             if (criteria == null)
             {
