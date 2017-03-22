@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Alpha.RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.RemotingRef.1.0.0.1\lib\net40\Alpha.RemotingRef.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CasinoLibrary, Version=1.0.2.13, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CasinoLibrary.1.0.2.13\lib\net40\CasinoLibrary.dll</HintPath>
       <Private>True</Private>
@@ -81,6 +85,10 @@
       <HintPath>..\..\packages\CasinoLibrary.1.0.2.13\lib\net40\HandHistoryLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ILogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ILogger.1.0.0.0\lib\net40\ILogger.dll</HintPath>
       <Private>True</Private>
@@ -111,6 +119,14 @@
     </Reference>
     <Reference Include="NetUtility, Version=1.0.4199.22106, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NetUtility.1.0.4199.22106\lib\net40\NetUtility.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RemotingRef.1.0.0.13\lib\net40\RemotingRef.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.2.3, Culture=neutral, processorArchitecture=MSIL">
@@ -156,15 +172,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
+    <Compile Include="Constants\ProductId.cs" />
     <Compile Include="Criteria\MemberRequest\EnableCasinoCriteria.cs" />
-    <Compile Include="Criteria\MemberRequest\EnableProductCriteria.cs" />
     <Compile Include="Criteria\MemberRequest\MemberRequestCriteria.cs" />
+    <Compile Include="Criteria\MemberRequest\PlayForFunProductCriteria.cs" />
     <Compile Include="DataAccesses\MemberRequestDataAccess.cs" />
     <Compile Include="DataAccesses\ObjectDbFactory.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\IUser.cs" />
     <Compile Include="Models\MemberRequestModel.cs" />
+    <Compile Include="Models\PlayForFunProduct.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\UserLevel.cs" />

@@ -3,10 +3,15 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Constants;
+    using Criteria.MemberRequest;
+    using Criteria.PlayForFun;
+    using Fanex.Caching;
     using Fanex.Common;
+    using Fanex.Data.Repository;
     using Models;
     using Params;
-    using Reports.Criteria.MemberRequest;
+    using RemotingRef;
     using Reports.DataAccesses;
     using Sunplus.Agent.Model.BL.Casino;
     using Sunplus.Agent.Model.Casino;
@@ -18,19 +23,47 @@
         IEnumerable<Result> EnableProduct(EnableProductParam param);
 
         IEnumerable<Result> EnableCasino(EnableCasinoParam param);
+
+        IEnumerable<PlayForFunProduct> SupportedProduct(int custId);
     }
 
     public class MemberRequestServiceImpl : MemberRequestService
     {
         private readonly MemberRequestDataAccess dataAccess;
         private readonly CasinoService casinoService;
+        private readonly IDynamicRepository repository;
+        private readonly CacheRefService cacheRefService;
+        private readonly IUser user;
 
         public MemberRequestServiceImpl(
             MemberRequestDataAccess dataAccess,
-            CasinoService casinoService)
+            CasinoService casinoService,
+            IDynamicRepository dynamicRepository,
+            IUser user,
+            CacheRefService cacheRefService)
         {
+            this.cacheRefService = cacheRefService;
             this.dataAccess = dataAccess;
             this.casinoService = casinoService;
+            this.user = user;
+            repository = dynamicRepository;
+        }
+
+        public IEnumerable<PlayForFunProduct> SupportedProduct(int custId)
+        {
+            var playForFunProducts = ConfiguredCacheService.GetOrSet(
+                $"PlayForFunProductsCacheKey-{custId}",
+                () => repository.Fetch<PlayForFunProduct>(new PlayForFunProductCriteria(custId)),
+                new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));
+
+            return playForFunProducts
+                .Where(product => IsShowProduct(product.Id))
+                .Select(product => product);
+        }
+
+        public bool IsShowProduct(int productId)
+        {
+            return productId != ProductId.FishingWorld || !user.GetHideProduct(productId);
         }
 
         public IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestsParam param)
@@ -40,9 +73,11 @@
                 throw new ArgumentNullException(nameof(param));
             }
 
-            var criteria = new MemberRequestCriteria();
+            //var criteria = new MemberRequestCriteria();
 
-            var memberRequestData = dataAccess.GetMemberRequest(criteria);
+            //var memberRequestData = dataAccess.GetMemberRequest(new MemberRequestCriteria(param.CustId, param.ProductId));
+
+            var memberRequestData = repository.Fetch<MemberRequestModel>(new MemberRequestCriteria(param.CustId, param.ProductId));
 
             return memberRequestData;
         }
@@ -50,41 +85,34 @@
 
         public IEnumerable<Result> EnableProduct(EnableProductParam param)
         {
+            List<string> userInfoList = param.MembersInfo.Split(',').ToList();
+            var results = new List<Result>();
+            //foreach (string userInfo in userInfoList)
+            //{
+            //    var custId = Converter.ToInt(userInfo.Split('-')[0]);
+            //    var criteria = new EnableCasinoCriteria
+            //    (
+            //        custId,
+            //        param.ActorId,
+            //        param.SubAccId,
+            //        param.LoginIP,
+            //        param.Language);
 
+            //    var updateResult = dataAccess.EnableCasino(criteria);
+            //    results.Add(updateResult);
+            //}
+
+            return results;
+        }
+
+        public IEnumerable<Result> EnableCasino(EnableCasinoParam param)
+        {
             List<string> userInfoList = param.CustIds.Split(',').ToList();
             var results = new List<Result>();
             foreach (string userInfo in userInfoList)
             {
                 var custId = Converter.ToInt(userInfo.Split('-')[0]);
-                var criteria = new EnableCasinoCriteria
-                (
-                    custId,
-                    param.ActorId,
-                    param.SubAccId,
-                    param.LoginIP,
-                    param.Language);
 
-                var updateResult = dataAccess.EnableCasino(criteria);
-                results.Add(updateResult);
-            }
-
-            return results;
-            //var results = new List<Result>
-            //{
-            //    Result.CreateErrorResult("successfully", 0),
-            //    Result.CreateErrorResult("customer 1 is fail", 105),
-            //    Result.CreateErrorResult("customer 2 is fail", 201),
-            //};
-
-            //return results;
-        }
-
-        public IEnumerable<Result> EnableCasino(EnableCasinoParam param)
-        {
-            List<int> custIds = param.CustIds.Split(',').Select(custId => Converter.ToInt(custId)).ToList();
-            var results = new List<Result>();
-            foreach (int custId in custIds)
-            {
                 var criteria = new EnableCasinoCriteria
                 (
                     custId,

@@ -5,45 +5,35 @@
 
     public class MemberInfoBaseQuery
     {
+        private readonly IUser actor;
+
         internal MemberInfoBaseQuery()
         {
         }
 
-        protected MemberInfoBaseQuery(IUser viewer)
+        protected MemberInfoBaseQuery(IUser actor)
         {
-            // Default data, if query string had data, then get from query string.
-            CustId = viewer.Id;
-            CustName = viewer.Name;
-            CustLevelId = viewer.LevelId;
-
-            Language = viewer.Language;
-
-            ViewerId = viewer.Id;
-            ViewerLevelId = viewer.LevelId;
-            ViewerLevel = Enumeration.FromValue<UserLevel>(ViewerLevelId);
+            this.actor = actor;
         }
 
-        public string Language { get; }
+        public int ActorId => actor.Id;
 
-        public int CustId { get; set; }
+        public int ActorSubAccId => actor.SubAccId;
 
-        public string CustName { get; set; }
+        public string ActorName => actor.Name;
 
-        public byte CustLevelId { get; set; }
+        public byte ActorLevelId => actor.LevelId;
 
-        public virtual UserLevel CustLevel => Enumeration.FromValue<UserLevel>(CustLevelId);
+        public virtual UserLevel ActorLevel => Enumeration.FromValue<UserLevel>(ActorLevelId);
 
-        public int ViewerId { get; }
+        public string Language => actor.Language;
 
-        public byte ViewerLevelId { get; }
-
-        public virtual UserLevel ViewerLevel { get; }
+        public string IP => actor.IP;
 
         public virtual bool IsValid()
-            => CustId > 0
-            && !string.IsNullOrWhiteSpace(CustName)
-            && ViewerId > 0
-            && ViewerLevel.IsEqualOrUplineOf(CustLevel)
+            => ActorId > 0
+            && !string.IsNullOrWhiteSpace(ActorName)
+            && ActorLevel.IsEqualOrUplineOf(ActorLevel)
             && !string.IsNullOrWhiteSpace(Language);
     }
 }

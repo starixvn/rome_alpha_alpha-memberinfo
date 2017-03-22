@@ -3,16 +3,14 @@
     public class EnableProductParam
     {
         public EnableProductParam(
-         string custIds,
-         string username,
+         string membersInfo,
          int actorId,
          string actorName,
          int subAccId,
          string loginIP,
          string language)
         {
-            CustIds = custIds;
-            Username = username;
+            MembersInfo = membersInfo;
             ActorId = actorId;
             ActorName = actorName;
             SubAccId = subAccId;
@@ -20,9 +18,7 @@
             Language = language;
         }
 
-        public string CustIds { get; }
-
-        public string Username { get; }
+        public string MembersInfo { get; }
 
         public int ActorId { get; }
 

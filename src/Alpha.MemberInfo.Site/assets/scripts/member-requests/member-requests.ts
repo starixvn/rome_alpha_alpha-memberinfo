@@ -1,7 +1,7 @@
 ﻿/// <reference path="../components/sort.ts" />
 
 "use strict";
-
+declare var bootbox: any;
 class MemberRequests {
     $: JQueryStatic;
     $selectAll: JQuery;
@@ -22,7 +22,7 @@ class MemberRequests {
 
         this.$("#dropdown-product").change(function () {
             let disableProduct = self.$('select#dropdown-product option:selected').attr('data-disabled') == "True";
-            self.$('.btn-default').prop("disabled", disableProduct);
+            self.$('.btn-default').prop("disabled", true);
 
             if (disableProduct) {
                 self.$('#status-message-content').show().removeClass("msg-success").removeClass("msg-error").addClass("msg-warning").empty().html(self.$("#warningMessage").val());
@@ -34,7 +34,7 @@ class MemberRequests {
             self.renderData();
         })
 
-        this.$("#enable-product").on("click", this.enableProduct);
+        this.$("#enable-product").on("click", this.confirmMessage);
     };
 
     cacheDOMElements = () => {
@@ -66,6 +66,15 @@ class MemberRequests {
         let disabled = this.$('input.checkbox:checked').length > 0 ? false : true;
         this.$('.btn-default').prop("disabled", disabled);
     };
+
+    confirmMessage = () => {
+        let self = this;
+        bootbox.confirm("are you sure want to enable this product.", function (result) {
+            if (result) {
+                self.enableProduct();
+            }
+        });
+    }
 
     enableProduct = () => {
         let self = this;

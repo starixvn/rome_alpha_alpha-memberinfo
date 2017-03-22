@@ -16,7 +16,7 @@
         {
         }
 
-        public string CustIds { get; set; }
+        public string MembersInfo { get; set; }
 
         public int UserSelectedProductId { get; set; }
     }

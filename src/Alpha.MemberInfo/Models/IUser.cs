@@ -9,5 +9,11 @@
         string Language { get; }
 
         byte LevelId { get; }
+
+        int SubAccId { get; }
+
+        string IP { get; }
+
+        bool GetHideProduct(int productId);
     }
 }

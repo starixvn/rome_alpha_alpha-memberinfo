@@ -18,26 +18,15 @@
 
         [HttpGet]
         public ActionResult Index(ProductQuery message)
-        {
-            var viewModel = mediator.Send(message);
-
-            return View(viewModel);
-        }
+            => View(mediator.Send(message));
 
         [HttpGet]
         public ActionResult Members(MemberRequestsQuery message)
-        {
-            var viewModel = mediator.Send(message);
+            => PartialView(mediator.Send(message));
 
-            return PartialView(viewModel);
-        }
 
         [HttpPost]
         public JsonResult EnableProduct(EnableProductCommand message)
-        {
-            var viewModel = mediator.Send(message);
-
-            return Json(viewModel);
-        }
+            => Json(mediator.Send(message));
     }
 }

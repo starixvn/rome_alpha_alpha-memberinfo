@@ -11,16 +11,14 @@
             bool disabledUserSelectedProduct)
         {
             MemberRequestData = memberRequestData;
-
             SelectedProductId = selectedProductId;
-
             DisabledUserSelectedProduct = disabledUserSelectedProduct;
         }
 
         public IEnumerable<MemberRequestModel> MemberRequestData { get; }
 
-        public int SelectedProductId { get; set; }
+        public int SelectedProductId { get; }
 
-        public bool DisabledUserSelectedProduct { get; set; }
+        public bool DisabledUserSelectedProduct { get; }
     }
 }

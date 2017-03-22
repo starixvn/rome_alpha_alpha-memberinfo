@@ -258,16 +258,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SPNames\Internal\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Local\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBCUST.CustDB.xml" />
     <Content Include="App_Data\SPNames\Local\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\default.css" />
+    <Content Include="assets\bundles\default.min.css">
+      <DependentUpon>default.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\member-info.css" />
     <Content Include="assets\bundles\member-info.min.css">
       <DependentUpon>member-info.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\member-requests\member-requests.js" />
+    <Content Include="assets\bundles\member-requests\member-requests.min.js">
+      <DependentUpon>member-requests.js</DependentUpon>
+    </Content>
     <Content Include="assets\styles\member-info.css">
       <DependentUpon>member-info.scss</DependentUpon>
     </Content>
@@ -425,7 +434,6 @@
     <Compile Include="Helpers\QueryEntityModelBinder.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requests\MemberRequest\EnableCasinoCommand.cs" />
     <Compile Include="Requests\MemberRequest\ProductQuery.cs" />
     <Compile Include="Requests\MemberRequest\EnableProductCommand.cs" />
     <Compile Include="Requests\MemberRequest\MemberRequestQuery.cs" />

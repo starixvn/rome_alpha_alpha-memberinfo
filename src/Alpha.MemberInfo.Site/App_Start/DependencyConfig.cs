@@ -9,6 +9,7 @@
     using MediatR;
     using MemberInfo.Models;
     using Models;
+    using RemotingRef;
     using Reports.DataAccesses;
     using Services;
     using SimpleInjector;
@@ -75,6 +76,7 @@
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
 
+            container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<CasinoService, CasinoServiceImpl>();
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();   
         }

@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Models
 {
+    using System;
     using MemberInfo.Models;
     using Sunplus.Agent.Model.Entities;
 
@@ -19,5 +20,11 @@
         public string Language => userSession.Language;
 
         public byte LevelId => userSession.RoleId;
+
+        public int SubAccId => userSession.SubAccId;
+
+        public string IP => userSession.UserLoginIp;
+
+        public bool GetHideProduct(int productId) => userSession.GetHideProduct(productId);
     }
 }

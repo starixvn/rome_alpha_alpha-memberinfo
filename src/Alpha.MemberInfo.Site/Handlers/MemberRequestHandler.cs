@@ -23,13 +23,14 @@
 
         public ProductsViewModel Handle(ProductQuery message)
         {
-            var products = new List<Product>
+            var products = new List<PlayForFunProduct>
             {
-                new Product(5, "Casino", false),
-                new Product(6, "Fishing World", true),
-                new Product(7, "Macau Games", true)
+                new PlayForFunProduct(6, "Casino", false),
+                new PlayForFunProduct(24, "Fishing World", true),
+                new PlayForFunProduct(14, "Macau Games", true)
             };
 
+            //var products = service.SupportedProduct(message.CustId);
             var viewModel = new ProductsViewModel(products, message.UserSelectedProductId);
             return viewModel;
         }
@@ -41,22 +42,20 @@
                 throw new ArgumentNullException(nameof(message));
             }
 
-            var param = new MemberRequestsParam();
+            var param = new MemberRequestsParam(message.ActorId, message.UserSelectedProductId);
             var memberRequestData = service.GetMemberRequest(param);
 
             var viewModel = new MemberRequestViewModel(memberRequestData, message.UserSelectedProductId, message.DisabledUserSelectedProduct);
-
             return viewModel;
         }
 
         public IEnumerable<Result> Handle(EnableProductCommand message)
         {
             return service.EnableProduct(new EnableProductParam(
-                message.CustIds,
-                string.Empty,
-                message.ViewerId,
-                string.Empty,
-                0,
+                message.MembersInfo,
+                message.ActorId,
+                message.ActorName,
+                message.ActorSubAccId,
                 string.Empty,
                 "E"));
         }
