@@ -88,6 +88,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You&apos;re disabled on this product. Please contact upline to enable for you..
+        /// </summary>
+        public static string EnabledMemberRequestsWarning {
+            get {
+                return ResourceManager.GetString("EnabledMemberRequestsWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updated Fail!.
+        /// </summary>
+        public static string FailyMessage {
+            get {
+                return ResourceManager.GetString("FailyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Member Request.
         /// </summary>
         public static string MemberRequest {
@@ -138,6 +156,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string SelectProducts {
             get {
                 return ResourceManager.GetString("SelectProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updated successfully!.
+        /// </summary>
+        public static string SuccessfullyMessage {
+            get {
+                return ResourceManager.GetString("SuccessfullyMessage", resourceCulture);
             }
         }
         

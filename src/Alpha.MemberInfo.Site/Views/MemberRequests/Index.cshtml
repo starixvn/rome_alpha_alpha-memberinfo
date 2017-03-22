@@ -11,7 +11,7 @@
 </div>
 
 <div id="box_header">
-     <div class="msg msg-warning display-none">@Resources.EnabledMemberRequestsWarning</div>
+     <div id="status-message-content" class="msg msg-warning display-none"></div>
 
     <form class="form-inline demo-form-inline filter" role="form">
         <div class="form-group">
@@ -26,14 +26,18 @@
                 @Html.ValidationMessageFor(model => model.SelectedProductId)*@
             </div>
         <div class="form-group">
-            <input type="button" class="btn-default" value="Enable" disabled />
+            <input id="enable-product" type="button" class="btn-default" value="Enable" disabled />
         </div>
     </form>
 </div>
 
 <div id="member-requests" action-url="@Url.Action("Members", "MemberRequests")">
+    
 </div>
-
+@Html.Hidden("enableProductUrl", Url.Action("EnableProduct", "MemberRequests"))
+@Html.Hidden("successfullyMessage", Resources.SuccessfullyMessage)
+@Html.Hidden("failyMessage", Resources.FailyMessage)
+@Html.Hidden("warningMessage", Resources.EnabledMemberRequestsWarning)
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/member-requests/member-requests")
 }

@@ -60,6 +60,7 @@
         {
             var memberRequest = new MemberRequestModel(
                    username: "Username",
+                   sync: (i % 2 == 1) ? true : false,
                    enable: true,
                    balance: 45678 + (i * 44), //// reader.ToDecimal("balance"),
                    outstanding: 1455 + (i * 44),

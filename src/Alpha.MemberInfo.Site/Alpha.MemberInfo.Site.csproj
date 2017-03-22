@@ -263,10 +263,6 @@
     <Content Include="App_Data\SPNames\Local\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBCUST.CustDB.xml" />
     <Content Include="App_Data\SPNames\Local\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="assets\bundles\member-requests\member-requests.js" />
-    <Content Include="assets\bundles\member-requests\member-requests.min.js">
-      <DependentUpon>member-requests.js</DependentUpon>
-    </Content>
     <Content Include="assets\styles\site.css">
       <DependentUpon>site.scss</DependentUpon>
     </Content>

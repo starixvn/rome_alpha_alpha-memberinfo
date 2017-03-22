@@ -50,7 +50,14 @@
 
         public IEnumerable<Result> EnableProduct(EnableProductParam param)
         {
-            throw new NotImplementedException();
+            var results = new List<Result>
+            {
+                Result.CreateErrorResult("successfully", 0),
+                Result.CreateErrorResult("customer 1 is fail", 105),
+                Result.CreateErrorResult("customer 2 is fail", 201),
+            };
+
+            return results;
         }
 
         public IEnumerable<Result> EnableCasino(EnableCasinoParam param)

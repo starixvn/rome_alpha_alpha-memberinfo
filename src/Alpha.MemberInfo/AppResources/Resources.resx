@@ -153,4 +153,13 @@
   <data name="UpdatedSuccessfully" xml:space="preserve">
     <value>Updated successfully!</value>
   </data>
+  <data name="EnabledMemberRequestsWarning" xml:space="preserve">
+    <value>You're disabled on this product. Please contact upline to enable for you.</value>
+  </data>
+  <data name="FailyMessage" xml:space="preserve">
+    <value>Updated Fail!</value>
+  </data>
+  <data name="SuccessfullyMessage" xml:space="preserve">
+    <value>Updated successfully!</value>
+  </data>
 </root>
