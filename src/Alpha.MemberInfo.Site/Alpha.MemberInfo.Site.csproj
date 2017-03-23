@@ -106,8 +106,20 @@
       <HintPath>..\..\packages\CasinoLibrary.1.0.2.13\lib\net40\HandHistoryLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="IBCCrypt, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IBCCrypt.1.1.0.0\lib\IBCCrypt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IBCDBLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IBCDBLibrary.1.0.0.0\lib\net40\IBCDBLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
+      <HintPath>..\..\packages\IBCFile.1.0.0.0\lib\net40\IBCFile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IBCUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Utils.1.0.0\lib\net40\IBCUtils.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ILogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -265,6 +277,7 @@
     <Content Include="App_Data\SPNames\Local\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBCust.CustDB.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Local\DBLOG.bodb_CustomerLog.xml" />
     <Content Include="App_Data\SPNames\Local\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="assets\bundles\default.css" />
     <Content Include="assets\bundles\default.min.css">
@@ -275,9 +288,6 @@
       <DependentUpon>member-info.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\member-requests\member-requests.js" />
-    <Content Include="assets\bundles\member-requests\member-requests.min.js">
-      <DependentUpon>member-requests.js</DependentUpon>
-    </Content>
     <Content Include="assets\styles\member-info.css">
       <DependentUpon>member-info.scss</DependentUpon>
     </Content>

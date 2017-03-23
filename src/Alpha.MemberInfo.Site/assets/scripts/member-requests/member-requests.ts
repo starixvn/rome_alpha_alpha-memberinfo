@@ -93,6 +93,8 @@ class MemberRequests {
 
     renderData = () => {
         let self = this;
+        this.clearMessageContent();
+        this.$messageContent.hide();
         let memberRequestUrl = self.$tableContent.attr('action-url');
 
         if (memberRequestUrl !== '' && typeof memberRequestUrl !== 'undefined') {
@@ -123,8 +125,9 @@ class MemberRequests {
     enableProduct = () => {
         let self = this;
         let ajaxSetting: JQueryAjaxSettings = {
+            contentType: 'application/json; charset=utf-8',
             method: 'POST',
-            data: { MembersInfo: self.getMemberInfoParam(), UserSelectedProductId: self.getProductId() },
+            data: JSON.stringify({ Members: self.getMemberInfoParam(), UserSelectedProductId: self.getProductId() }),
             dataType: 'json',
             url: self.$enableProductUrl,
             cache: false,
@@ -142,6 +145,7 @@ class MemberRequests {
 
                     if (!isError) {
                         self.showSuccessfullyMessage();
+                        setTimeout(self.renderData, 5000);
                     } else {
                         self.showFailMessage(message);
                     }
@@ -159,10 +163,13 @@ class MemberRequests {
         let membersInfoArray = [];
 
         this.$('input.checkbox:checked').each(function () {
-            membersInfoArray.push(self.$(this).attr("data-userInfo"));
+            membersInfoArray.push({
+                custId: self.$(this).attr("data-custId"),
+                username: self.$(this).attr("data-username")
+            });
         });
 
-        return membersInfoArray.toString();
+        return membersInfoArray;
     };
 
     getMemberNames = () => {

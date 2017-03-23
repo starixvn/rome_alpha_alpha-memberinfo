@@ -1,7 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.ViewModels.MemberRequest
 {
     using System.Collections.Generic;
-    using MemberInfo.Models;
+    using MemberInfo.Models.MemberRequests;
 
     public class MemberRequestViewModel
     {

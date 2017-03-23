@@ -2,7 +2,7 @@
 {
     using System;
     using MemberInfo.AppResources;
-    using MemberInfo.Criteria.MemberRequest;
+    using MemberInfo.Criteria.MemberRequests;
     using MemberInfo.Models;
 
     public interface MemberRequestDataAccess

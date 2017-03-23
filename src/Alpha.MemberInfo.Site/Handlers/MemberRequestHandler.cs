@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using MediatR;
     using MemberInfo.Models;
+    using MemberInfo.Models.MemberRequests;
     using Params;
     using Requests.MemberRequest;
     using Services;
@@ -30,7 +31,7 @@
                 new PlayForFunProduct(14, "Macau Games", true)
             };
 
-            //var products = service.SupportedProduct(message.CustId);
+            ////var products = service.SupportedProduct(message.CustId);
             var viewModel = new ProductsViewModel(products, message.UserSelectedProductId);
             return viewModel;
         }
@@ -49,14 +50,14 @@
             return viewModel;
         }
 
-        public IEnumerable<Result> Handle(EnableProductCommand message)
+        public IEnumerable<Result> Handle(EnableProductCommand comand)
         {
             return service.EnableProduct(new EnableProductParam(
-                message.UserSelectedProductId,
-                message.MembersInfo,
-                message.ActorId,
-                message.ActorName,
-                message.ActorSubAccId,
+                comand.UserSelectedProductId,
+                comand.Members,
+                comand.ActorId,
+                comand.ActorName,
+                comand.ActorSubAccId,
                 string.Empty,
                 "E"));
         }

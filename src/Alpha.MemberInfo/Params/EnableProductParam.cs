@@ -1,10 +1,13 @@
-﻿namespace Alpha.MemberInfo.Params
+﻿using System.Collections.Generic;
+using Alpha.MemberInfo.Models.MemberRequests;
+
+namespace Alpha.MemberInfo.Params
 {
     public class EnableProductParam
     {
         public EnableProductParam(
          int productId,
-         string membersInfo,
+         IEnumerable<MemberRequestModel> members,
          int actorId,
          string actorName,
          int subAccId,
@@ -12,7 +15,7 @@
          string language)
         {
             ProductId = productId;
-            MembersInfo = membersInfo;
+            Members = members;
             ActorId = actorId;
             ActorName = actorName;
             SubAccId = subAccId;
@@ -22,7 +25,7 @@
 
         public int ProductId { get; }
 
-        public string MembersInfo { get; }
+        public IEnumerable<MemberRequestModel> Members { get; }
 
         public int ActorId { get; }
 

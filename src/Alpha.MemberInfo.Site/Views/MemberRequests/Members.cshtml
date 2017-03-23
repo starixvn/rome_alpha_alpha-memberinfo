@@ -21,7 +21,7 @@
                 <tr>
                     <td class="text-center">@index</td>
                     <td class="text-center">
-                        <input data-userInfo="@($"{memberRequest.CustId}-{memberRequest.Username}")"
+                        <input data-custId="@memberRequest.CustId"
                          data-username="@memberRequest.Username"
                          class="checkbox" type="checkbox"
                          @(!memberRequest.Sync || Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) />

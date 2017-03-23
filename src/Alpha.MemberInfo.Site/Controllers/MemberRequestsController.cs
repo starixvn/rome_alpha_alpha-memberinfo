@@ -25,7 +25,7 @@
             => PartialView(mediator.Send(message));
 
         [HttpPost]
-        public JsonResult EnableProduct(EnableProductCommand message)
-            => Json(mediator.Send(message));
+        public JsonResult EnableProduct(EnableProductCommand command)
+            => Json(mediator.Send(command));
     }
 }

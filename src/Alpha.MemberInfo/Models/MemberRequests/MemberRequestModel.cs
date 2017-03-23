@@ -1,10 +1,9 @@
-﻿namespace Alpha.MemberInfo.Models
+﻿namespace Alpha.MemberInfo.Models.MemberRequests
 {
     public class MemberRequestModel
     {
         public MemberRequestModel()
         {
-            
         }
 
         public MemberRequestModel(
@@ -23,9 +22,9 @@
             AvailableCredit = availableCredit;
         }
         
-        public int CustId { get; }
+        public int CustId { get; set; }
 
-        public string Username { get; }
+        public string Username { get; set; }
 
         public bool Sync { get; }
 

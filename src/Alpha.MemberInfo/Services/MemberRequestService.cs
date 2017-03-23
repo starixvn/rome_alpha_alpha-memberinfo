@@ -4,12 +4,12 @@
     using System.Collections.Generic;
     using System.Linq;
     using Constants;
-    using Criteria.MemberRequest;
-    using Criteria.PlayForFun;
+    using Criteria.MemberRequests;
+    using Criteria.MemberRequests;
     using Fanex.Caching;
-    using Fanex.Common;
     using Fanex.Data.Repository;
     using Models;
+    using Models.MemberRequests;
     using Params;
     using RemotingRef;
     using Reports.DataAccesses;
@@ -73,7 +73,7 @@
 
         public IEnumerable<Result> EnableProduct(EnableProductParam param)
         {
-            switch(param.ProductId)
+            switch (param.ProductId)
             {
                 case ProductId.Casino:
                     return EnableCasino(param);
@@ -84,27 +84,24 @@
 
         internal IEnumerable<Result> EnableCasino(EnableProductParam param)
         {
-            List<string> userInfoList = param.MembersInfo.Split(',').ToList();
             var results = new List<Result>();
 
-            foreach (string userInfo in userInfoList)
+            foreach (var member in param.Members)
             {
-                var custId = Converter.ToInt(userInfo.Split('-')[0]);
-                var criteria = new EnableCasinoCriteria
-                (
-                    custId,
-                    userInfo.Split('-')[1],
-                    param.ActorId,
-                    param.SubAccId,
-                    param.LoginIP,
-                    param.Language);
+                var criteria = new EnableCasinoCriteria(
+                                    member.CustId,
+                                    member.Username,
+                                    param.ActorId,
+                                    param.SubAccId,
+                                    param.LoginIP,
+                                    param.Language);
 
                 var updateResult = dataAccess.EnableCasino(criteria);
                 results.Add(updateResult);
 
                 if (updateResult.IsSuccessful)
                 {
-                    SyncCasinoStatus(custId, param.LoginIP, param.ActorId, param.ActorName);
+                    SyncCasinoStatus(member.CustId, param.LoginIP, param.ActorId, param.ActorName);
                 }
             }
 
@@ -131,6 +128,5 @@
         {
             return productId != ProductId.FishingWorld || !user.GetHideProduct(productId);
         }
-
     }
 }

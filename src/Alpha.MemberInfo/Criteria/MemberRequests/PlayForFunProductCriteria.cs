@@ -1,4 +1,4 @@
-﻿namespace Alpha.MemberInfo.Criteria.PlayForFun
+﻿namespace Alpha.MemberInfo.Criteria.MemberRequests
 {
     using Fanex.Data.Repository;
 

@@ -173,16 +173,16 @@
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Constants\ProductId.cs" />
-    <Compile Include="Criteria\MemberRequest\EnableCasinoCriteria.cs" />
-    <Compile Include="Criteria\MemberRequest\MemberRequestCriteria.cs" />
-    <Compile Include="Criteria\MemberRequest\PlayForFunProductCriteria.cs" />
+    <Compile Include="Criteria\MemberRequests\EnableCasinoCriteria.cs" />
+    <Compile Include="Criteria\MemberRequests\MemberRequestCriteria.cs" />
+    <Compile Include="Criteria\MemberRequests\PlayForFunProductCriteria.cs" />
     <Compile Include="DataAccesses\MemberRequestDataAccess.cs" />
     <Compile Include="DataAccesses\ObjectDbFactory.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\IUser.cs" />
-    <Compile Include="Models\MemberRequestModel.cs" />
-    <Compile Include="Models\PlayForFunProduct.cs" />
+    <Compile Include="Models\MemberRequests\MemberRequestModel.cs" />
+    <Compile Include="Models\MemberRequests\PlayForFunProduct.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\UserLevel.cs" />

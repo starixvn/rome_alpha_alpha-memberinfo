@@ -1,4 +1,4 @@
-﻿namespace Alpha.MemberInfo.Models
+﻿namespace Alpha.MemberInfo.Models.MemberRequests
 {
     public class PlayForFunProduct : Product
     {

@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using MediatR;
     using MemberInfo.Models;
+    using MemberInfo.Models.MemberRequests;
 
     public class EnableProductCommand :
         MemberInfoBaseQuery,
@@ -16,7 +17,7 @@
         {
         }
 
-        public string MembersInfo { get; set; }
+        public IEnumerable<MemberRequestModel> Members { get; set; }
 
         public int UserSelectedProductId { get; set; }
     }
