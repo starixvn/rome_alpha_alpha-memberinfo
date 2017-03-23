@@ -24,7 +24,6 @@
         public ActionResult Members(MemberRequestsQuery message)
             => PartialView(mediator.Send(message));
 
-
         [HttpPost]
         public JsonResult EnableProduct(EnableProductCommand message)
             => Json(mediator.Send(message));

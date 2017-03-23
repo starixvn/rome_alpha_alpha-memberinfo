@@ -18,13 +18,11 @@
 
     public interface MemberRequestService
     {
+        IEnumerable<PlayForFunProduct> SupportedProduct(int custId);
+
         IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestsParam param);
 
-        IEnumerable<Result> EnableProduct(EnableProductParam param);
-
-        IEnumerable<Result> EnableCasino(EnableCasinoParam param);
-
-        IEnumerable<PlayForFunProduct> SupportedProduct(int custId);
+        IEnumerable<Result> EnableProduct(EnableProductParam param); 
     }
 
     public class MemberRequestServiceImpl : MemberRequestService
@@ -58,14 +56,10 @@
 
             return playForFunProducts
                 .Where(product => IsShowProduct(product.Id))
-                .Select(product => product);
+                .Select(product => product)
+                .OrderBy(product => product.Id);
         }
-
-        public bool IsShowProduct(int productId)
-        {
-            return productId != ProductId.FishingWorld || !user.GetHideProduct(productId);
-        }
-
+ 
         public IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestsParam param)
         {
             if (param == null)
@@ -73,49 +67,33 @@
                 throw new ArgumentNullException(nameof(param));
             }
 
-            //var criteria = new MemberRequestCriteria();
-
-            //var memberRequestData = dataAccess.GetMemberRequest(new MemberRequestCriteria(param.CustId, param.ProductId));
-
-            var memberRequestData = repository.Fetch<MemberRequestModel>(new MemberRequestCriteria(param.CustId, param.ProductId));
-
-            return memberRequestData;
+            var criteria = new MemberRequestCriteria(param.CustId, param.ProductId);
+            return repository.Fetch<MemberRequestModel>(criteria).OrderBy(member => member.Username);
         }
-
 
         public IEnumerable<Result> EnableProduct(EnableProductParam param)
         {
-            List<string> userInfoList = param.MembersInfo.Split(',').ToList();
-            var results = new List<Result>();
-            //foreach (string userInfo in userInfoList)
-            //{
-            //    var custId = Converter.ToInt(userInfo.Split('-')[0]);
-            //    var criteria = new EnableCasinoCriteria
-            //    (
-            //        custId,
-            //        param.ActorId,
-            //        param.SubAccId,
-            //        param.LoginIP,
-            //        param.Language);
+            switch(param.ProductId)
+            {
+                case ProductId.Casino:
+                    return EnableCasino(param);
+            }
 
-            //    var updateResult = dataAccess.EnableCasino(criteria);
-            //    results.Add(updateResult);
-            //}
-
-            return results;
+            return Enumerable.Empty<Result>();
         }
 
-        public IEnumerable<Result> EnableCasino(EnableCasinoParam param)
+        internal IEnumerable<Result> EnableCasino(EnableProductParam param)
         {
-            List<string> userInfoList = param.CustIds.Split(',').ToList();
+            List<string> userInfoList = param.MembersInfo.Split(',').ToList();
             var results = new List<Result>();
+
             foreach (string userInfo in userInfoList)
             {
                 var custId = Converter.ToInt(userInfo.Split('-')[0]);
-
                 var criteria = new EnableCasinoCriteria
                 (
                     custId,
+                    userInfo.Split('-')[1],
                     param.ActorId,
                     param.SubAccId,
                     param.LoginIP,
@@ -126,22 +104,14 @@
 
                 if (updateResult.IsSuccessful)
                 {
-                    SyncCasinoStatus(
-                        custId,
-                        param.LoginIP,
-                        param.ActorId,
-                        param.ActorName);
+                    SyncCasinoStatus(custId, param.LoginIP, param.ActorId, param.ActorName);
                 }
             }
 
             return results;
         }
 
-        private void SyncCasinoStatus(
-           int custId,
-           string ip, 
-           int actorId, 
-           string actorName)
+        internal void SyncCasinoStatus(int custId, string ip, int actorId, string actorName)
         {
             var isCustomerExist = casinoService.Customer.CheckCustSetting(custId);
             if (isCustomerExist)
@@ -156,5 +126,11 @@
                     CasinoBO.AgentSystem);
             }
         }
+
+        internal bool IsShowProduct(int productId)
+        {
+            return productId != ProductId.FishingWorld || !user.GetHideProduct(productId);
+        }
+
     }
 }

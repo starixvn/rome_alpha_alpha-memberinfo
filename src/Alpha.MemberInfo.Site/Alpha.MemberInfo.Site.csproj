@@ -260,10 +260,11 @@
   <ItemGroup>
     <Content Include="App_Data\SPNames\Internal\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBAGE.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Local\DBCUST.CustDB.xml" />
+    <Content Include="App_Data\SPNames\Local\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="assets\bundles\default.css" />
     <Content Include="assets\bundles\default.min.css">
@@ -497,6 +498,7 @@
     <Folder Include="App_Data\SPNames\Pro\" />
     <Folder Include="App_Data\SPNames\SIT\" />
     <Folder Include="App_Data\SPNames\UAT\" />
+    <Folder Include="assets\scripts\components\" />
     <Folder Include="assets\styles\images\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
@@ -507,7 +509,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="assets\scripts\components\sort.ts" />
     <TypeScriptCompile Include="assets\scripts\member-requests\member-requests.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />

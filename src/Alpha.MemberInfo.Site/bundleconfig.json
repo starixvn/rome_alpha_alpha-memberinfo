@@ -8,7 +8,6 @@
   {
     "outputFileName": "assets/bundles/member-requests/member-requests.js",
     "inputFiles": [
-      "assets/scripts/components/sort.js",
       "assets/scripts/member-requests/member-requests.js"
     ]
   }

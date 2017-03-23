@@ -12,7 +12,7 @@
             <select id="dropdown-product" name="dropdown-product">
                 @foreach (var product in Model.Products)
                 {
-                    <option value="@product.Id" data-disabled="@product.IsDisable" @(product.Id.Equals(Model.SelectedProductId) ? " selected=\"selected\"" : string.Empty)>@product.Name</option>
+                    <option value="@product.Id" data-productname="@product.Name" data-disabled="@product.IsDisable" @(product.Id.Equals(Model.SelectedProductId) ? " selected=\"selected\"" : string.Empty)>@product.Name</option>
                 }
             </select>
 

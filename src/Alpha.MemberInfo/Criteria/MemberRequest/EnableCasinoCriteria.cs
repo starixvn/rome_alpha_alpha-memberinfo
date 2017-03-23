@@ -1,17 +1,20 @@
 ﻿namespace Alpha.MemberInfo.Criteria.MemberRequest
 {
+    using Fanex.Data;
     using Fanex.Data.Repository;
 
     public class EnableCasinoCriteria : CriteriaBase
     {
         public EnableCasinoCriteria(
             int custId,
+            string custName,
             int userId,
             int subAccId,
             string loginIP,
             string language)
         {
             CustId = custId;
+            CustName = custName;
             UserId = userId;
             SubAccId = subAccId;
             LoginIP = loginIP;
@@ -19,6 +22,9 @@
         }
 
         public int CustId { get; }
+
+        [SpParam(Ignored = true)]
+        public string CustName { get; }
 
         public int UserId { get; }
 

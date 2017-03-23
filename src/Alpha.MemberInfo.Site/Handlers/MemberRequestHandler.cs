@@ -52,6 +52,7 @@
         public IEnumerable<Result> Handle(EnableProductCommand message)
         {
             return service.EnableProduct(new EnableProductParam(
+                message.UserSelectedProductId,
                 message.MembersInfo,
                 message.ActorId,
                 message.ActorName,

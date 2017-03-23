@@ -107,3 +107,12 @@ input[type="button"][disabled]{
     top: 10%;
     left: 10%;
 }
+
+#box_header {
+    margin-top: 12px;
+    width: 750px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}

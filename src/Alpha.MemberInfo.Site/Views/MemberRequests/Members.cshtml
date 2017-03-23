@@ -20,8 +20,12 @@
             {
                 <tr>
                     <td class="text-center">@index</td>
-                    <td class="text-center"><input data-userInfo="@($"{memberRequest.CustId}-{memberRequest.Username}")"
-                               class="checkbox" type="checkbox" @(!memberRequest.Sync || Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) /></td>
+                    <td class="text-center">
+                        <input data-userInfo="@($"{memberRequest.CustId}-{memberRequest.Username}")"
+                         data-username="@memberRequest.Username"
+                         class="checkbox" type="checkbox"
+                         @(!memberRequest.Sync || Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) />
+                    </td>
                     <td>@memberRequest.Username</td>
                     <td class="text-right">@FormatNumber(memberRequest.Balance)</td>
                     <td class="text-right">@FormatNumber(memberRequest.Outstanding)</td>

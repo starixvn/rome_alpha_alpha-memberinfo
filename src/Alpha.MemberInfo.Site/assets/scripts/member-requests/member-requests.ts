@@ -1,52 +1,69 @@
-﻿/// <reference path="../components/sort.ts" />
-
-"use strict";
+﻿"use strict";
 declare var bootbox: any;
 class MemberRequests {
     $: JQueryStatic;
-    $selectAll: JQuery;
+    $dropdownContent: JQuery;
+    $messageContent: JQuery;
+    $enableButton: JQuery;
+    $enableProductUrl: string;
+    $tableContent: JQuery;
 
-    sortComponent: SortComponent;
+    $selectedAll: JQuery
 
-    constructor(
-        $: JQueryStatic,
-        sortComponent: SortComponent) {
+    $successfullyMessage: string;
+    $failMessage: string;
+    $waringMessage: string;
+
+    $successfullyMessageClass: string;
+    $failMessageClass: string;
+    $waringMessageClass: string;
+
+    constructor($: JQueryStatic) {
         this.$ = $;
-        this.sortComponent = sortComponent;
     }
 
     init = () => {
-        let self = this;
-
+        this.registerEventsForFilter();
         this.renderData();
+    };
 
-        this.$("#dropdown-product").change(function () {
-            let disableProduct = self.$('select#dropdown-product option:selected').attr('data-disabled') == "True";
-            self.$('.btn-default').prop("disabled", true);
+    cacheFilterDOMElements = () => {
+        this.$dropdownContent = this.$('#dropdown-product');
+        this.$messageContent = this.$('#status-message-content');
+        this.$enableButton = this.$('#enable-product');
+        this.$enableProductUrl = this.$("#enableProductUrl").val();
+        this.$tableContent = this.$("#member-requests");
 
-            if (disableProduct) {
-                self.$('#status-message-content').show().removeClass("msg-success").removeClass("msg-error").addClass("msg-warning").empty().html(self.$("#warningMessage").val());
-            }
-            else {
-                self.$('#status-message-content').hide();
-            }
+        this.$successfullyMessage = this.$("#successfullyMessage").val();
+        this.$failMessage = this.$("#failyMessage").val();
+        this.$waringMessage = this.$("#warningMessage").val();
 
+        this.$successfullyMessageClass = "msg-success";
+        this.$failMessageClass = "msg-error";
+        this.$waringMessageClass = "msg-warning";
+    };
+
+    registerEventsForFilter = () => {
+        let self = this;
+        this.cacheFilterDOMElements();
+        this.$dropdownContent.change(function () {
+            self.setEnabledButtonStatus(true);
+            self.isDisabledProduct() ? self.showWarningMessage() : self.$messageContent.hide();
             self.renderData();
         })
 
-        this.$("#enable-product").on("click", this.confirmMessage);
+        this.$enableButton.on("click", this.confirmMessage);
     };
 
-    cacheDOMElements = () => {
-        this.$selectAll = this.$('#select-all');
+    cacheTableDOMElements = () => {
+        this.$selectedAll = this.$('#select-all');
     };
 
-    registerEvents = () => {
+    registerEventsForTable = () => {
         let self = this;
+        this.cacheTableDOMElements();
 
-        this.cacheDOMElements();
-
-        this.$selectAll.change(function () {
+        this.$selectedAll.change(function () {
             let status = this.checked;
             self.$('.checkbox').each(function () {
                 if (!this.disabled) {
@@ -62,14 +79,41 @@ class MemberRequests {
         });
     };
 
-    toggleEnabledButton = () => {
-        let disabled = this.$('input.checkbox:checked').length > 0 ? false : true;
-        this.$('.btn-default').prop("disabled", disabled);
-    };
+    toggleEnabledButton = () => this.setEnabledButtonStatus(this.$('input.checkbox:checked').length > 0 ? false : true);
+
+    setEnabledButtonStatus = (isDisabled) => this.$enableButton.prop("disabled", isDisabled);
+
+    getProductId = () => this.$('select#dropdown-product option:selected').val();
+
+    getProductName = () => this.$('select#dropdown-product option:selected').attr('data-productname');
+
+    isDisabledProduct = () => this.$('select#dropdown-product option:selected').attr('data-disabled') == "True";
+
+    createMessageContainer = (message: string) => "<div>" + message + "</div>";
+
+    renderData = () => {
+        let self = this;
+        let memberRequestUrl = self.$tableContent.attr('action-url');
+
+        if (memberRequestUrl !== '' && typeof memberRequestUrl !== 'undefined') {
+            let ajaxSetting: JQueryAjaxSettings = {
+                method: 'GET',
+                data: { UserSelectedProductId: self.getProductId(), DisabledUserSelectedProduct: self.isDisabledProduct() },
+                url: memberRequestUrl,
+                cache: false,
+                success: (responseHtml) => {
+                    self.$tableContent.html(responseHtml);
+                    self.registerEventsForTable();
+                }
+            };
+
+            this.$.ajax(ajaxSetting);
+        }
+    }
 
     confirmMessage = () => {
         let self = this;
-        bootbox.confirm("are you sure want to enable this product.", function (result) {
+        bootbox.confirm("Are you sure to enable Product " + this.getProductName() + " for user " + this.getMemberNames() + " ?", function (result) {
             if (result) {
                 self.enableProduct();
             }
@@ -78,40 +122,31 @@ class MemberRequests {
 
     enableProduct = () => {
         let self = this;
-        let $component = this.$("#status-message-content");
-
-        let userInfo = "";
-        this.$('input.checkbox:checked').each(function () {
-            userInfo += self.$(this).attr("data-userInfo") + ",";
-        });
-
         let ajaxSetting: JQueryAjaxSettings = {
             method: 'POST',
-            data: { CustIds: userInfo, UserSelectedProductId: 5 },
+            data: { MembersInfo: self.getMemberInfoParam(), UserSelectedProductId: self.getProductId() },
             dataType: 'json',
-            url: self.$("#enableProductUrl").val(),
+            url: self.$enableProductUrl,
             cache: false,
             success: (results) => {
-                $component.empty().show().removeClass('msg-warning');
-
-                let html = "";
+                let message = "";
                 if (typeof results != 'undefined') {
                     let length = results.length;
                     let isError = false;
                     for (let i = 0; i < length; i++) {
                         if (!results[i].IsSuccessful) {
                             isError = true;
-                            html += '<div>' + results[i].Message + '</div>';
+                            message += self.createMessageContainer(results[i].Message);
                         }
                     }
 
                     if (!isError) {
-                        self.showSuccessfullyMessage($component, self.$("#successfullyMessage").val());
+                        self.showSuccessfullyMessage();
                     } else {
-                        self.showFailMessage($component, html);
+                        self.showFailMessage(message);
                     }
                 } else {
-                    self.showSuccessfullyMessage($component, self.$("#failyMessage").val());
+                    self.showFailMessage(self.$failMessage);
                 }
             }
         };
@@ -119,43 +154,47 @@ class MemberRequests {
         this.$.ajax(ajaxSetting);
     }
 
-    showSuccessfullyMessage = ($messageContainer: any, successfullyMessage: string) => {
-        $messageContainer.removeClass('msg-error').addClass('msg-success').empty().html(successfullyMessage);
-    };
-
-    showFailMessage = ($messageContainer: any, failMessage: string) => {
-        $messageContainer.removeClass('msg-success').addClass('msg-error').empty().html(failMessage);
-    };
-
-    renderData = () => {
+    getMemberInfoParam = () => {
         let self = this;
-        let productId = this.$('select#dropdown-product option:selected').val();
-        let disableProduct = this.$('select#dropdown-product option:selected').attr('data-disabled') == "True";
-       
-        let $component = this.$("#member-requests");
-        let url = $component.attr('action-url');
+        let membersInfoArray = [];
 
-        if (url !== '' && typeof url !== 'undefined') {
-            let ajaxSetting: JQueryAjaxSettings = {
-                method: 'GET',
-                data: { UserSelectedProductId: productId, DisabledUserSelectedProduct: disableProduct },
-                url: $component.attr('action-url'),
-                cache: false,
-                success: (responseHtml) => {
-                    $component.html(responseHtml);
-                    self.registerEvents();
-                }
-            };
+        this.$('input.checkbox:checked').each(function () {
+            membersInfoArray.push(self.$(this).attr("data-userInfo"));
+        });
 
-            this.$.ajax(ajaxSetting);
-        }
+        return membersInfoArray.toString();
+    };
 
-    }
+    getMemberNames = () => {
+        let self = this;
+        let memberArray = [];
+
+        this.$('input.checkbox:checked').each(function () {
+            memberArray.push(self.$(this).attr("data-username"));
+        });
+
+        return memberArray.join(', ');
+    };
+
+    showSuccessfullyMessage = () => {
+        this.clearMessageContent();
+        this.$messageContent.show().addClass(this.$successfullyMessageClass).html(this.$successfullyMessage);
+    };
+
+    showFailMessage = (failMessage: string) => {
+        this.clearMessageContent();
+        this.$messageContent.show().addClass(this.$failMessageClass).html(failMessage);
+    };
+
+    showWarningMessage = () => {
+        this.clearMessageContent();
+        this.$messageContent.show().addClass(this.$waringMessageClass).html(this.$waringMessage);
+    };
+
+    clearMessageContent = () => this.$messageContent.removeClass(this.$successfullyMessageClass).removeClass(this.$failMessageClass).removeClass(this.$waringMessageClass).empty();
 }
 
-const memberRequests = new MemberRequests(
-    $,
-    new SortComponent($));
+const memberRequests = new MemberRequests($);
 
 $(function () {
     memberRequests.init();
