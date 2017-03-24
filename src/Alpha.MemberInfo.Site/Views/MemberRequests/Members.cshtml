@@ -27,15 +27,14 @@
                          @(!memberRequest.Sync || Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) />
                     </td>
                     <td>
-                        <a href="@Model.BuildProductSettingUrl(Model.SelectedProductId, memberRequest.CustId, memberRequest.Username)"
-                           class="downline-link")>
+                        <div class="link">
                             @memberRequest.Username
-                        </a>
+                        </div>
                     </td>
 
-                    @HtmlHelpers.RenderNumberCell(memberRequest.Balance)
-                    @HtmlHelpers.RenderNumberCell(memberRequest.Outstanding)
-                    @HtmlHelpers.RenderNumberCell(memberRequest.AvailableCredit)
+                    @HtmlHelpers.RenderNumberCell(memberRequest.Balance, "text-right")
+                    @HtmlHelpers.RenderNumberCell(memberRequest.Outstanding, "text-right")
+                    @HtmlHelpers.RenderNumberCell(memberRequest.AvailableCredit, "text-right")
                 </tr>
 
                 index++;
@@ -47,8 +46,3 @@
         @NoInformation.Render(6)
     }
 </table>
-
-@helper FormatNumber(decimal value)
-{
-    @value.ToString($"#,##0.00")
-}

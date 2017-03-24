@@ -1,11 +1,11 @@
 ﻿@model ProductsViewModel
 
 <div class="page-title">
-   <span class="pull-left">@Resources.MemberRequest</span>
+    <span class="pull-left">@Resources.MemberRequest</span>
 </div>
 
 <div id="box_header">
-     <div id="status-message-content" class="msg msg-warning display-none"></div>
+    <div id="status-message-content" class="msg msg-warning display-none"></div>
 
     <form class="form-inline demo-form-inline filter" role="form">
         <div class="form-group">
@@ -15,18 +15,16 @@
                     <option value="@product.Id" data-productname="@product.Name" data-disabled="@product.IsDisable" @(product.Id.Equals(Model.SelectedProductId) ? " selected=\"selected\"" : string.Empty)>@product.Name</option>
                 }
             </select>
-
-                @*@Html.DropDownListFor(model => model.SelectedProductId, Model.Products)
-                @Html.ValidationMessageFor(model => model.SelectedProductId)*@
-            </div>
+        </div>
         <div class="form-group">
             <input id="enable-product" type="button" class="btn-default" value="Enable" disabled />
         </div>
     </form>
 </div>
 
-<div id="member-requests" action-url="@Url.Action("Members", "MemberRequests")"/>
+<div id="member-requests" action-url="@Url.Action("Members", "MemberRequests")" />
 
+@Html.Hidden("memberRequestRootUrl", Url.Action("Index", "MemberRequests"))
 @Html.Hidden("enableProductUrl", Url.Action("EnableProduct", "MemberRequests"))
 @Html.Hidden("successfullyMessage", Resources.SuccessfullyMessage)
 @Html.Hidden("failyMessage", Resources.FailyMessage)

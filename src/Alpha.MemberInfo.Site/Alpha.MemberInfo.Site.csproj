@@ -288,6 +288,9 @@
       <DependentUpon>member-info.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\member-requests\member-requests.js" />
+    <Content Include="assets\bundles\member-requests\member-requests.min.js">
+      <DependentUpon>member-requests.js</DependentUpon>
+    </Content>
     <Content Include="assets\styles\member-info.css">
       <DependentUpon>member-info.scss</DependentUpon>
     </Content>
@@ -309,6 +312,8 @@
     <Content Include="typings\globals\storejs\typings.json" />
     <Content Include="Views\MemberRequests\Members.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
+    <Content Include="App_Code\Components\OpenPopup.cshtml" />
+    <Content Include="Views\MemberRequests\Index - Copy.cshtml" />
     <None Include="Web.ConnectionStrings.backupMNL.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
     </None>

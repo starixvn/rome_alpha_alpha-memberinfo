@@ -27,8 +27,9 @@ body {
     }
 
 }
-a {
+.link {
     color: #045ace;
+    cursor: pointer;
     &:hover{
         color: #F60; 
     }
@@ -127,3 +128,4 @@ input[type="button"][disabled]{
         width: 100%;
     }
 }
+

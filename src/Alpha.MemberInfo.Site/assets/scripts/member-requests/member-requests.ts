@@ -1,12 +1,16 @@
 ﻿"use strict";
 declare var bootbox: any;
+
 class MemberRequests {
     $: JQueryStatic;
     $dropdownContent: JQuery;
     $messageContent: JQuery;
     $enableButton: JQuery;
     $enableProductUrl: string;
+    $memberRequestRootUrl: string;
     $tableContent: JQuery;
+    $settingLink: JQuery;
+    $oldMainRootPath: string;
 
     $selectedAll: JQuery
 
@@ -17,9 +21,11 @@ class MemberRequests {
     $successfullyMessageClass: string;
     $failMessageClass: string;
     $waringMessageClass: string;
+    topWindow: any;
 
-    constructor($: JQueryStatic) {
+    constructor($: JQueryStatic, topWindow: any) {
         this.$ = $;
+        this.topWindow = topWindow;
     }
 
     init = () => {
@@ -32,6 +38,7 @@ class MemberRequests {
         this.$messageContent = this.$('#status-message-content');
         this.$enableButton = this.$('#enable-product');
         this.$enableProductUrl = this.$("#enableProductUrl").val();
+        this.$memberRequestRootUrl = this.$("#memberRequestRootUrl").val()
         this.$tableContent = this.$("#member-requests");
 
         this.$successfullyMessage = this.$("#successfullyMessage").val();
@@ -41,6 +48,8 @@ class MemberRequests {
         this.$successfullyMessageClass = "msg-success";
         this.$failMessageClass = "msg-error";
         this.$waringMessageClass = "msg-warning";
+
+        this.$oldMainRootPath = this.$("#OldMainRootPath").val()
     };
 
     registerEventsForFilter = () => {
@@ -57,6 +66,7 @@ class MemberRequests {
 
     cacheTableDOMElements = () => {
         this.$selectedAll = this.$('#select-all');
+        this.$settingLink = this.$('.link');
     };
 
     registerEventsForTable = () => {
@@ -77,6 +87,13 @@ class MemberRequests {
         this.$('.checkbox').change(function () {
             self.toggleEnabledButton();
         });
+
+        this.$settingLink.on("click", function () {
+            let username = self.$(this).parent().text();
+            self.topWindow.$("#account-info-header").click();
+            self.topWindow.$("#accountinfo-content").contents().find("#txtUsername").val(username);
+            self.topWindow.$("#accountinfo-content").contents().find(".icon-search").click();
+        });
     };
 
     toggleEnabledButton = () => this.setEnabledButtonStatus(this.$('input.checkbox:checked').length > 0 ? false : true);
@@ -91,10 +108,11 @@ class MemberRequests {
 
     createMessageContainer = (message: string) => "<div>" + message + "</div>";
 
+    refreshPage = (productId: number) => window.location.href = this.$memberRequestRootUrl + "?UserSelectedProductId=" + productId;
+
     renderData = () => {
-        let self = this;
-        this.clearMessageContent();
-        this.$messageContent.hide();
+        this.$.blockUI();
+        let self = this; 
         let memberRequestUrl = self.$tableContent.attr('action-url');
 
         if (memberRequestUrl !== '' && typeof memberRequestUrl !== 'undefined') {
@@ -106,6 +124,7 @@ class MemberRequests {
                 success: (responseHtml) => {
                     self.$tableContent.html(responseHtml);
                     self.registerEventsForTable();
+                    this.$.unblockUI();
                 }
             };
 
@@ -123,6 +142,7 @@ class MemberRequests {
     }
 
     enableProduct = () => {
+        this.$.blockUI();
         let self = this;
         let ajaxSetting: JQueryAjaxSettings = {
             contentType: 'application/json; charset=utf-8',
@@ -145,13 +165,14 @@ class MemberRequests {
 
                     if (!isError) {
                         self.showSuccessfullyMessage();
-                        setTimeout(self.renderData, 5000);
+                        setTimeout(self.refreshPage, 5000);
                     } else {
                         self.showFailMessage(message);
                     }
                 } else {
                     self.showFailMessage(self.$failMessage);
                 }
+                this.$.unblockUI();
             }
         };
 
@@ -201,7 +222,7 @@ class MemberRequests {
     clearMessageContent = () => this.$messageContent.removeClass(this.$successfullyMessageClass).removeClass(this.$failMessageClass).removeClass(this.$waringMessageClass).empty();
 }
 
-const memberRequests = new MemberRequests($);
+const memberRequests = new MemberRequests($, window.top);
 
 $(function () {
     memberRequests.init();

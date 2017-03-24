@@ -5,7 +5,6 @@
     using System.Linq;
     using Constants;
     using Criteria.MemberRequests;
-    using Criteria.MemberRequests;
     using Fanex.Caching;
     using Fanex.Data.Repository;
     using Models;

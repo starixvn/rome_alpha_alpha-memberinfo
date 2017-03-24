@@ -24,14 +24,7 @@
 
         public ProductsViewModel Handle(ProductQuery message)
         {
-            var products = new List<PlayForFunProduct>
-            {
-                new PlayForFunProduct(6, "Casino", false),
-                new PlayForFunProduct(24, "Fishing World", true),
-                new PlayForFunProduct(14, "Macau Games", true)
-            };
-
-            ////var products = service.SupportedProduct(message.CustId);
+            var products = service.SupportedProduct(message.ActorId);
             var viewModel = new ProductsViewModel(products, message.UserSelectedProductId);
             return viewModel;
         }
@@ -50,14 +43,14 @@
             return viewModel;
         }
 
-        public IEnumerable<Result> Handle(EnableProductCommand comand)
+        public IEnumerable<Result> Handle(EnableProductCommand message)
         {
             return service.EnableProduct(new EnableProductParam(
-                comand.UserSelectedProductId,
-                comand.Members,
-                comand.ActorId,
-                comand.ActorName,
-                comand.ActorSubAccId,
+                message.UserSelectedProductId,
+                message.Members,
+                message.ActorId,
+                message.ActorName,
+                message.ActorSubAccId,
                 string.Empty,
                 "E"));
         }
