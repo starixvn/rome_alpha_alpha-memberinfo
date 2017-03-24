@@ -162,4 +162,7 @@
   <data name="SuccessfullyMessage" xml:space="preserve">
     <value>Updated successfully!</value>
   </data>
+  <data name="NoPermissionAccessPage" xml:space="preserve">
+    <value>Sorry, You don't have permission to access this page.</value>
+  </data>
 </root>

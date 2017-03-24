@@ -17,5 +17,7 @@
         }
 
         public int UserSelectedProductId { get; set; }
+
+        public override bool IsValid() => base.IsValid() && CustLevel.IsAgentLevel();
     }
 }

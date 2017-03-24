@@ -133,6 +133,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, You don&apos;t have permission to access this page..
+        /// </summary>
+        public static string NoPermissionAccessPage {
+            get {
+                return ResourceManager.GetString("NoPermissionAccessPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Outstanding.
         /// </summary>
         public static string Outstanding {

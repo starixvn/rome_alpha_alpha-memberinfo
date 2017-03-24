@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using MediatR;
     using MemberInfo.Models;
-    using MemberInfo.Models.MemberRequests;
     using Params;
     using Requests.MemberRequest;
     using Services;
@@ -24,7 +23,7 @@
 
         public ProductsViewModel Handle(ProductQuery message)
         {
-            var products = service.SupportedProduct(message.ActorId);
+            var products = service.SupportedProduct(message.CustId);
             var viewModel = new ProductsViewModel(products, message.UserSelectedProductId);
             return viewModel;
         }
@@ -36,10 +35,10 @@
                 throw new ArgumentNullException(nameof(message));
             }
 
-            var param = new MemberRequestsParam(message.ActorId, message.UserSelectedProductId);
+            var param = new MemberRequestsParam(message.CustId, message.UserSelectedProductId);
             var memberRequestData = service.GetMemberRequest(param);
 
-            var viewModel = new MemberRequestViewModel(memberRequestData, message.UserSelectedProductId, message.DisabledUserSelectedProduct, message.ActorId);
+            var viewModel = new MemberRequestViewModel(memberRequestData, message.UserSelectedProductId, message.DisabledUserSelectedProduct, message.CustId);
             return viewModel;
         }
 
@@ -48,9 +47,9 @@
             return service.EnableProduct(new EnableProductParam(
                 message.UserSelectedProductId,
                 message.Members,
-                message.ActorId,
-                message.ActorName,
-                message.ActorSubAccId,
+                message.ViewerId,
+                message.ViewerName,
+                message.ViewerSubAccId,
                 string.Empty,
                 "E"));
         }

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Functions>
+  <Function Name="PlayForFun">
+    <Setting Key="Age_Rpt_PlayForFun_ProductSel" SpName="Age_Rpt_PlayForFun_ProductSel" DbName="DBACC.bodb02.BODBDownlineNet" Plain="0">
+      <Mapping DataField="ProductId" ObjectProperty="Id" />
+      <Mapping DataField="ProductName" ObjectProperty="Name" />
+      <!--<Mapping DataField="IsDisable" ObjectProperty="IsDisable" />-->
+    </Setting>
+
+    <Setting Key="Age_CustomerSelMemberRequestDetail" SpName="Age_CustomerSelMemberRequestDetail" DbName="DBACC.bodb02.BODBDownlineNet" Plain="0">
+      <Mapping DataField="CustId" ObjectProperty="CustId" />
+      <Mapping DataField="Username" ObjectProperty="Username" />
+      <Mapping DataField="IsSync" ObjectProperty="Sync" />
+      <Mapping DataField="OutStanding" ObjectProperty="Outstanding" />
+      <Mapping DataField="Balance" ObjectProperty="Balance" />
+      <Mapping DataField="BetCredit" ObjectProperty="AvailableCredit" />
+    </Setting>
+  </Function>
+</Functions>
