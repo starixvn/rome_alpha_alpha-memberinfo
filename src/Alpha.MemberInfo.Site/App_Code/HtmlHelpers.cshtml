@@ -1,0 +1,17 @@
+﻿@helper FormatNumber(decimal value)
+{
+    @value.ToString($"#,##0.00")
+}
+
+@helper FormatNumber(int value)
+{
+    @value.ToString($"#,##0")
+}
+
+
+@helper RenderNumberCell(decimal cellValue, string cellClass = "")
+{
+    <td class="@(cellValue < 0 ? "negative-value" : string.Empty) @cellClass">
+        @FormatNumber(cellValue)
+    </td>
+}}

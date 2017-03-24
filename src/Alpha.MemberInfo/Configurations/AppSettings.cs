@@ -34,5 +34,7 @@
                 throw new ConfigurationErrorsException($"{keyName} is null or whitespace");
             }
         }
+
+        public static string OldMainAppPath => ConfigurationManager.AppSettings["OldMainAppPath"];
     }
 }

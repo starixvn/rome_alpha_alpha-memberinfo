@@ -158,6 +158,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -180,6 +181,8 @@
     <Compile Include="DataAccesses\ObjectDbFactory.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\AppPathHelper.cs" />
+    <Compile Include="Helpers\MicroSites.cs" />
     <Compile Include="Models\IUser.cs" />
     <Compile Include="Models\MemberRequests\MemberRequestModel.cs" />
     <Compile Include="Models\MemberRequests\PlayForFunProduct.cs" />

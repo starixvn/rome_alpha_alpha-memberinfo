@@ -46,7 +46,7 @@
             var param = new MemberRequestsParam(message.ActorId, message.UserSelectedProductId);
             var memberRequestData = service.GetMemberRequest(param);
 
-            var viewModel = new MemberRequestViewModel(memberRequestData, message.UserSelectedProductId, message.DisabledUserSelectedProduct);
+            var viewModel = new MemberRequestViewModel(memberRequestData, message.UserSelectedProductId, message.DisabledUserSelectedProduct, message.ActorId);
             return viewModel;
         }
 

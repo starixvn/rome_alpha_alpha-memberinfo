@@ -25,13 +25,13 @@
     </form>
 </div>
 
-<div id="member-requests" action-url="@Url.Action("Members", "MemberRequests")">
-    
-</div>
+<div id="member-requests" action-url="@Url.Action("Members", "MemberRequests")"/>
+
 @Html.Hidden("enableProductUrl", Url.Action("EnableProduct", "MemberRequests"))
 @Html.Hidden("successfullyMessage", Resources.SuccessfullyMessage)
 @Html.Hidden("failyMessage", Resources.FailyMessage)
 @Html.Hidden("warningMessage", Resources.EnabledMemberRequestsWarning)
+
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/member-requests/member-requests")
 }

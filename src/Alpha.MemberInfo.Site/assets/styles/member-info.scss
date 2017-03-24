@@ -21,6 +21,17 @@ body {
     @media (max-width: 768px) {
         width: 100%;
     }
+
+    .negative-value{
+        color: #e92819;
+    }
+
+}
+a {
+    color: #045ace;
+    &:hover{
+        color: #F60; 
+    }
 }
 
 input[type="checkbox"] {

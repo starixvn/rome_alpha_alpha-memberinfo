@@ -26,10 +26,16 @@
                          class="checkbox" type="checkbox"
                          @(!memberRequest.Sync || Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) />
                     </td>
-                    <td>@memberRequest.Username</td>
-                    <td class="text-right">@FormatNumber(memberRequest.Balance)</td>
-                    <td class="text-right">@FormatNumber(memberRequest.Outstanding)</td>
-                    <td class="text-right">@FormatNumber(memberRequest.AvailableCredit)</td>
+                    <td>
+                        <a href="@Model.BuildProductSettingUrl(Model.SelectedProductId, memberRequest.CustId, memberRequest.Username)"
+                           class="downline-link")>
+                            @memberRequest.Username
+                        </a>
+                    </td>
+
+                    @HtmlHelpers.RenderNumberCell(memberRequest.Balance)
+                    @HtmlHelpers.RenderNumberCell(memberRequest.Outstanding)
+                    @HtmlHelpers.RenderNumberCell(memberRequest.AvailableCredit)
                 </tr>
 
                 index++;
