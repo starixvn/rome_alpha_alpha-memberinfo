@@ -312,6 +312,116 @@
     <Content Include="App_Code\HtmlHelpers.cshtml" />
     <Content Include="App_Code\Components\OpenPopup.cshtml" />
     <Content Include="Views\Shared\InvalidPage.cshtml" />
+    <Content Include="Web.config" />
+    <None Include="Web.local.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\DependencyConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\MemberRequestsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SiteBaseController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Handlers\MemberRequestHandler.cs" />
+    <Compile Include="Helpers\QueryEntityModelBinder.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\MemberRequest\ProductQuery.cs" />
+    <Compile Include="Requests\MemberRequest\EnableProductCommand.cs" />
+    <Compile Include="Requests\MemberRequest\MemberRequestQuery.cs" />
+    <Compile Include="Requests\MemberInfoBaseQuery.cs" />
+    <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
+    <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="Views\Shared\NoInformation.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="App_Data\AuthorizationSection.config" />
+    <Content Include="assets\styles\member-info.scss" />
+    <Content Include="assets\styles\_variables.scss" />
+    <Content Include="bundleconfig.json" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.backupMNL.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.backupMNL2.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.backupMNLExNap.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.backupMNLExNap2.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.backupMNLNap.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.backupMNLNap2.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.config" />
+    <None Include="Web.AppSettings.local.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.napexternal.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.napexternal2.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.napinternal.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.napinternal2.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.pro.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.pro2.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.sit.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.sit2.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.uat.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.AppSettings.uat2.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </None>
+    <None Include="Web.backupMNL.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </None>
+    <None Include="Web.backupMNL2.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </None>
+    <None Include="Web.backupMNLExNap.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </None>
+    <None Include="Web.backupMNLExNap2.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </None>
+    <None Include="Web.backupMNLNap.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </None>
+    <None Include="Web.backupMNLNap2.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </None>
     <None Include="Web.ConnectionStrings.backupMNL.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -365,119 +475,9 @@
     <None Include="Web.ConnectionStrings.uat2.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
     </None>
-    <None Include="Web.uat2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNL.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNL2.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLExNap.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLExNap2.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLNap.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLNap2.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napexternal.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napexternal2.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napinternal.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napinternal2.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.pro.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.pro2.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.sit.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.sit2.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.uat.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.uat2.config">
-      <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNL.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNL2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLExNap.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLExNap2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLNap.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLNap2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <Content Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="App_Start\DependencyConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\MemberRequestsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SiteBaseController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Handlers\MemberRequestHandler.cs" />
-    <Compile Include="Helpers\QueryEntityModelBinder.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requests\MemberRequest\ProductQuery.cs" />
-    <Compile Include="Requests\MemberRequest\EnableProductCommand.cs" />
-    <Compile Include="Requests\MemberRequest\MemberRequestQuery.cs" />
-    <Compile Include="Requests\MemberInfoBaseQuery.cs" />
-    <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
-    <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="packages.config" />
-    <Content Include="Views\Shared\NoInformation.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="App_Data\AuthorizationSection.config" />
-    <Content Include="assets\styles\member-info.scss" />
-    <Content Include="assets\styles\_variables.scss" />
-    <Content Include="bundleconfig.json" />
-    <None Include="compilerconfig.json" />
-    <None Include="compilerconfig.json.defaults">
-      <DependentUpon>compilerconfig.json</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="Web.local.config" />
     <None Include="Web.napexternal.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </None>
@@ -493,11 +493,11 @@
     <None Include="Web.pro.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <None Include="Web.pro2.config">
       <DependentUpon>Web.local.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.sit.config">
       <DependentUpon>Web.local.config</DependentUpon>
@@ -506,6 +506,9 @@
       <DependentUpon>Web.local.config</DependentUpon>
     </None>
     <None Include="Web.uat.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </None>
+    <None Include="Web.uat2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </None>
   </ItemGroup>
