@@ -324,81 +324,81 @@
     <Content Include="App_Code\HtmlHelpers.cshtml" />
     <Content Include="App_Code\Components\OpenPopup.cshtml" />
     <Content Include="Views\Shared\InvalidPage.cshtml" />
-    <None Include="Web.ConnectionStrings.backupMNLNap2.config">
+    <Content Include="Web.ConnectionStrings.backupMNLNap2.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.local.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.local.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.napexternal.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.napexternal.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.napexternal2.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.napexternal2.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.napinternal.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.napinternal.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.napinternal2.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.napinternal2.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.pro.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.pro.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.pro2.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.pro2.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.sit.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.sit.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.sit2.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.sit2.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.uat.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.uat.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.uat2.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.uat2.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.uat2.config">
+    </Content>
+    <Content Include="Web.uat2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNL.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNL.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNL2.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNL2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLExNap.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNLExNap.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLExNap2.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNLExNap2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLNap.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNLNap.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.backupMNLNap2.config">
+    </Content>
+    <Content Include="Web.AppSettings.backupMNLNap2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNL.config">
+    </Content>
+    <Content Include="Web.backupMNL.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNL2.config">
+    </Content>
+    <Content Include="Web.backupMNL2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLExNap.config">
+    </Content>
+    <Content Include="Web.backupMNLExNap.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLExNap2.config">
+    </Content>
+    <Content Include="Web.backupMNLExNap2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLNap.config">
+    </Content>
+    <Content Include="Web.backupMNLNap.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.backupMNLNap2.config">
+    </Content>
+    <Content Include="Web.backupMNLNap2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
