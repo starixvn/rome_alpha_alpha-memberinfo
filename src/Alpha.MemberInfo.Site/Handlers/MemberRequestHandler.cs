@@ -23,6 +23,11 @@
 
         public ProductsViewModel Handle(ProductQuery message)
         {
+            if (message == null)
+            {
+                throw new ArgumentNullException(nameof(message));
+            }
+
             var products = service.SupportedProduct(message.CustId);
             var viewModel = new ProductsViewModel(products, message.UserSelectedProductId);
             return viewModel;
@@ -44,6 +49,11 @@
 
         public IEnumerable<Result> Handle(EnableProductCommand message)
         {
+            if (message == null)
+            {
+                throw new ArgumentNullException(nameof(message));
+            }
+
             return service.EnableProduct(new EnableProductParam(
                 message.UserSelectedProductId,
                 message.Members,
