@@ -4,10 +4,9 @@
     <Setting Key="Age_Rpt_PlayForFun_ProductSel" SpName="Age_Rpt_PlayForFun_ProductSel" DbName="DBACC.bodb02.BODBDownlineNet" Plain="0">
       <Mapping DataField="ProductId" ObjectProperty="Id" />
       <Mapping DataField="ProductName" ObjectProperty="Name" />
-      <!--<Mapping DataField="IsDisable" ObjectProperty="IsDisable" />-->
     </Setting>
 
-    <Setting Key="Age_CustomerSelMemberRequestDetail" SpName="Age_CustomerSelMemberRequestDetail" DbName="DBACC.bodb02.BODBDownlineNet" Plain="0">
+    <Setting Key="Age_PlayForFun_MemberRequest_Detail" SpName="Age_PlayForFun_MemberRequest_Detail" DbName="DBACC.bodb02.BODBDownlineNet" Plain="0">
       <Mapping DataField="CustId" ObjectProperty="CustId" />
       <Mapping DataField="Username" ObjectProperty="Username" />
       <Mapping DataField="IsSync" ObjectProperty="Sync" />

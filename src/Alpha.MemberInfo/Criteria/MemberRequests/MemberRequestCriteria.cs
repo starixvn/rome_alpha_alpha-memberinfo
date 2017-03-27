@@ -16,7 +16,7 @@
 
         public int ProductId { get; }
 
-        public override string GetSettingKey() => "Age_CustomerSelMemberRequestDetail";
+        public override string GetSettingKey() => "Age_PlayForFun_MemberRequest_Detail";
 
         public override bool IsValid() => CustId > 0 && ProductId > 0;
     }
