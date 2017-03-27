@@ -296,11 +296,17 @@
     <Content Include="App_Data\SPNames\UAT\DBLOG.bodb_CustomerLog.xml" />
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="assets\bundles\default.css" />
-    <Content Include="assets\bundles\default.min.css" />
+    <Content Include="assets\bundles\default.min.css">
+      <DependentUpon>default.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\member-info.css" />
-    <Content Include="assets\bundles\member-info.min.css" />
+    <Content Include="assets\bundles\member-info.min.css">
+      <DependentUpon>member-info.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\member-requests\member-requests.js" />
-    <Content Include="assets\bundles\member-requests\member-requests.min.js" />
+    <Content Include="assets\bundles\member-requests\member-requests.min.js">
+      <DependentUpon>member-requests.js</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
     <Content Include="Views\MemberRequests\Index.cshtml" />
@@ -428,10 +434,10 @@
     <Content Include="assets\styles\member-info.scss" />
     <Content Include="assets\styles\_variables.scss" />
     <Content Include="bundleconfig.json" />
-    <None Include="compilerconfig.json" />
-    <None Include="compilerconfig.json.defaults">
+    <Content Include="compilerconfig.json" />
+    <Content Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
-    </None>
+    </Content>
     <None Include="Web.ConnectionStrings.backupMNL.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
     </None>
@@ -579,6 +585,16 @@
     <Error Condition="!Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets'))" />
   </Target>
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>cd $(ProjectDir)
+cd ..
+cd ..
+cd build
+BuildTask.Release
+      if not exist "$(WebProjectOutputDir)\bin\Roslyn" md "$(WebProjectOutputDir)\bin\Roslyn"
+      start /MIN xcopy /s /y /R "$(OutDir)roslyn\*.*" "$(WebProjectOutputDir)\bin\Roslyn"
+</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
