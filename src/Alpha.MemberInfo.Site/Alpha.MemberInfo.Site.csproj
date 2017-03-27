@@ -438,90 +438,90 @@
     <Content Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
-    <None Include="Web.ConnectionStrings.backupMNL.config">
+    <Content Include="Web.ConnectionStrings.backupMNL.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.backupMNL2.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.backupMNL2.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.backupMNLExNap.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.backupMNLExNap.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.backupMNLExNap2.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.backupMNLExNap2.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.backupMNLNap.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.backupMNLNap.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
-    </None>
-    <None Include="Web.napexternal.config">
+    </Content>
+    <Content Include="Web.napexternal.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.napexternal2.config">
+    </Content>
+    <Content Include="Web.napexternal2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.napinternal.config">
+    </Content>
+    <Content Include="Web.napinternal.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.napinternal2.config">
+    </Content>
+    <Content Include="Web.napinternal2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.pro.config">
+    </Content>
+    <Content Include="Web.pro.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.pro2.config">
+    </Content>
+    <Content Include="Web.pro2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.sit.config">
+    </Content>
+    <Content Include="Web.sit.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.sit2.config">
+    </Content>
+    <Content Include="Web.sit2.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.uat.config">
+    </Content>
+    <Content Include="Web.uat.config">
       <DependentUpon>Web.local.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.config" />
-    <None Include="Web.AppSettings.local.config">
+    </Content>
+    <Content Include="Web.AppSettings.config" />
+    <Content Include="Web.AppSettings.local.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napexternal.config">
+    </Content>
+    <Content Include="Web.AppSettings.napexternal.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napexternal2.config">
+    </Content>
+    <Content Include="Web.AppSettings.napexternal2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napinternal.config">
+    </Content>
+    <Content Include="Web.AppSettings.napinternal.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.napinternal2.config">
+    </Content>
+    <Content Include="Web.AppSettings.napinternal2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.pro.config">
+    </Content>
+    <Content Include="Web.AppSettings.pro.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.pro2.config">
+    </Content>
+    <Content Include="Web.AppSettings.pro2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.sit.config">
+    </Content>
+    <Content Include="Web.AppSettings.sit.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.sit2.config">
+    </Content>
+    <Content Include="Web.AppSettings.sit2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.uat.config">
+    </Content>
+    <Content Include="Web.AppSettings.uat.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.AppSettings.uat2.config">
+    </Content>
+    <Content Include="Web.AppSettings.uat2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
-    </None>
-    <None Include="Web.ConnectionStrings.config" />
-    <None Include="Web.Debug.config">
+    </Content>
+    <Content Include="Web.ConnectionStrings.config" />
+    <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.local.config" />
-    <None Include="Web.Release.config">
+    </Content>
+    <Content Include="Web.local.config" />
+    <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\scripts\components\" />
