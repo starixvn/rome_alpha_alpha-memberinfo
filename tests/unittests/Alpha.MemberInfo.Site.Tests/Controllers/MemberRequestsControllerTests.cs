@@ -23,7 +23,7 @@
         }
 
         [Fact]
-        public void EnteredResult_Always_CallsMediatorSendEnteredResultQuery()
+        public void Index_Always_CallsMediatorProductQuery()
         {
             // Arrange
             var message = new ProductQuery(userFixture.User);

@@ -295,12 +295,6 @@
     <Content Include="App_Data\SPNames\UAT\DBCUST.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBLOG.bodb_CustomerLog.xml" />
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="assets\styles\member-info.css">
-      <DependentUpon>member-info.scss</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\member-info.min.css">
-      <DependentUpon>member-info.css</DependentUpon>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
     <Content Include="Views\MemberRequests\Index.cshtml" />
