@@ -42,6 +42,6 @@
 
         public override string GetSettingKey() => "Age_UpdateCasinoStatus";
 
-        public override bool IsValid() => true;
+        public override bool IsValid() => CustId > 0 && UserId > 0 && !string.IsNullOrWhiteSpace(CustName);
     }
 }

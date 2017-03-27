@@ -3,6 +3,7 @@
     using System;
     using MemberInfo.AppResources;
     using MemberInfo.Criteria.MemberRequests;
+    using MemberInfo.DataAccesses;
     using MemberInfo.Models;
 
     public interface MemberRequestDataAccess

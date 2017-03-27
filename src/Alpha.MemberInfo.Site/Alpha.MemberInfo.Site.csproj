@@ -296,13 +296,9 @@
     <Content Include="App_Data\SPNames\UAT\DBLOG.bodb_CustomerLog.xml" />
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="assets\bundles\default.css" />
-    <Content Include="assets\bundles\default.min.css">
-      <DependentUpon>default.css</DependentUpon>
-    </Content>
+    <Content Include="assets\bundles\default.min.css"/>
     <Content Include="assets\bundles\member-info.css" />
-    <Content Include="assets\bundles\member-info.min.css">
-      <DependentUpon>member-info.css</DependentUpon>
-    </Content>
+    <Content Include="assets\bundles\member-info.min.css"/>
     <Content Include="assets\bundles\member-requests\member-requests.js" />
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
       <DependentUpon>member-requests.js</DependentUpon>
@@ -332,6 +328,7 @@
     <Content Include="Views\Shared\InvalidPage.cshtml" />
     <None Include="Web.ConnectionStrings.backupMNL.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web.ConnectionStrings.backupMNL2.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>

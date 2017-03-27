@@ -1,4 +1,4 @@
-﻿namespace Alpha.Reports.DataAccesses
+﻿namespace Alpha.MemberInfo.DataAccesses
 {
     using System;
     using Fanex.Data;

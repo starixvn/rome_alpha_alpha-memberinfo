@@ -18,6 +18,6 @@
 
         public override string GetSettingKey() => "Age_CustomerSelMemberRequestDetail";
 
-        public override bool IsValid() => true;
+        public override bool IsValid() => CustId > 0 && ProductId > 0;
     }
 }
