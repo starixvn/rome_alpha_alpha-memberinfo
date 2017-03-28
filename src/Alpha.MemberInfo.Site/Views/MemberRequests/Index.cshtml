@@ -8,14 +8,8 @@
     <div id="status-message-content" class="msg msg-warning display-none"></div>
 
     <form class="form-inline demo-form-inline filter" role="form">
-        <div class="form-group">
-            <select id="dropdown-product" name="dropdown-product">
-                @foreach (var product in Model.Products)
-                {
-                    <option value="@product.Id" data-productname="@product.Name" data-disabled="@product.IsDisable" @(product.Id.Equals(Model.SelectedProductId) ? " selected=\"selected\"" : string.Empty)>@product.Name</option>
-                }
-            </select>
-        </div>
+        @ProductSingleSelection.Render(Model.ProductMultiSelectionViewModel)
+
         <div class="form-group">
             <input id="enable-product" type="button" class="btn-default" value="Enable" disabled />
         </div>
@@ -29,6 +23,7 @@
 @Html.Hidden("successfullyMessage", Resources.SuccessfullyMessage)
 @Html.Hidden("failyMessage", Resources.FailyMessage)
 @Html.Hidden("warningMessage", Resources.EnabledMemberRequestsWarning)
+@Html.Hidden("enableProductConfirmMessage", Resources.EnableProductConfirmMessage)
 
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/member-requests/member-requests")

@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
     using MediatR;
     using MemberInfo.Models;
     using Params;
@@ -29,7 +31,10 @@
             }
 
             var products = service.SupportedProduct(message.CustId);
-            var viewModel = new ProductsViewModel(products, message.UserSelectedProductId);
+            var viewModel = new ProductsViewModel(
+                            message.UserSelectedProductId,
+                            BuildProductSelectListItems(new List<int> { message.UserSelectedProductId }, products));
+
             return viewModel;
         }
 
@@ -62,6 +67,29 @@
                 message.ViewerSubAccId,
                 string.Empty,
                 "E"));
+        }
+
+        protected internal IEnumerable<SelectListItem> BuildProductSelectListItems(
+          IEnumerable<int> userSelectedProductIds,
+          IEnumerable<Product> products)
+        {
+            if (products == null
+                || !products.Any())
+            {
+                return Enumerable.Empty<SelectListItem>();
+            }
+
+            return products.Select(product =>
+            {
+                var productSelectListItem = new SelectListItem
+                {
+                    Text = product.DisplayName,
+                    Value = product.Id.ToString(),
+                    Selected = userSelectedProductIds.Contains(product.Id)
+                };
+
+                return productSelectListItem;
+            });
         }
     }
 }

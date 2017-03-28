@@ -420,6 +420,7 @@
     <Compile Include="Requests\MemberRequest\EnableProductCommand.cs" />
     <Compile Include="Requests\MemberRequest\MemberRequestQuery.cs" />
     <Compile Include="Requests\MemberInfoBaseQuery.cs" />
+    <Compile Include="ViewModels\Components\ProductMultiSelectionViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
   </ItemGroup>
@@ -550,6 +551,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\Components\ProductSingleSelection.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

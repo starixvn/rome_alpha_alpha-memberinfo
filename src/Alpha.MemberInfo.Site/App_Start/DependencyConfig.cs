@@ -10,7 +10,6 @@
     using MemberInfo.Models;
     using Models;
     using RemotingRef;
-    using Reports.DataAccesses;
     using Services;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
@@ -67,8 +66,6 @@
         private static void RegisterDataAccesses(Container container)
         {
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
-
-            container.RegisterSingleton<MemberRequestDataAccess, MemberRequestDataAccessImpl>();
         }
 
         private static void RegisterServices(Container container)

@@ -97,6 +97,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure to enable Product getProductName for user getMemberNames ?.
+        /// </summary>
+        public static string EnableProductConfirmMessage {
+            get {
+                return ResourceManager.GetString("EnableProductConfirmMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Updated Fail!.
         /// </summary>
         public static string FailyMessage {

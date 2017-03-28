@@ -3,9 +3,13 @@
     using Fanex.Data;
     using Fanex.Data.Repository;
 
-    public class EnableCasinoCriteria : CriteriaBase
+    public class EnableCasinoCommand : NonQueryCommand
     {
-        public EnableCasinoCriteria(
+        public EnableCasinoCommand()
+        {
+        }
+
+        public EnableCasinoCommand(
             int custId,
             string custName,
             int userId,
@@ -39,6 +43,10 @@
         public bool Synccs => true;
 
         public bool EnableDownline => false;
+
+        public int ErrCode { get; set; }
+
+        public string ErrMsg { get; set; }
 
         public override string GetSettingKey() => "Age_UpdateCasinoStatus";
 

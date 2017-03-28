@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using AppResources;
     using Constants;
     using Criteria.MemberRequests;
     using Fanex.Caching;
@@ -11,13 +12,12 @@
     using Models.MemberRequests;
     using Params;
     using RemotingRef;
-    using Reports.DataAccesses;
     using Sunplus.Agent.Model.BL.Casino;
     using Sunplus.Agent.Model.Casino;
 
     public interface MemberRequestService
     {
-        IEnumerable<PlayForFunProduct> SupportedProduct(int custId);
+        IEnumerable<Product> SupportedProduct(int custId);
 
         IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestsParam param);
 
@@ -26,27 +26,24 @@
 
     public class MemberRequestServiceImpl : MemberRequestService
     {
-        private readonly MemberRequestDataAccess dataAccess;
         private readonly CasinoService casinoService;
         private readonly IDynamicRepository repository;
         private readonly CacheRefService cacheRefService;
         private readonly IUser user;
 
         public MemberRequestServiceImpl(
-            MemberRequestDataAccess dataAccess,
             CasinoService casinoService,
             IDynamicRepository dynamicRepository,
             IUser user,
             CacheRefService cacheRefService)
         {
             this.cacheRefService = cacheRefService;
-            this.dataAccess = dataAccess;
             this.casinoService = casinoService;
             this.user = user;
             repository = dynamicRepository;
         }
 
-        public IEnumerable<PlayForFunProduct> SupportedProduct(int custId)
+        public IEnumerable<Product> SupportedProduct(int custId)
         {
             var playForFunProducts = ConfiguredCacheService.GetOrSet(
                 $"PlayForFunProductsCacheKey-{custId}",
@@ -55,7 +52,7 @@
 
             return playForFunProducts
                 .Where(product => IsShowProduct(product.Id))
-                .Select(product => product)
+                .Select(product => new Product(product.Id, string.Empty, cacheRefService.GetProductName))
                 .OrderBy(product => product.Id);
         }
  
@@ -81,21 +78,20 @@
             return Enumerable.Empty<Result>();
         }
 
-        internal IEnumerable<Result> EnableCasino(EnableProductParam param)
+        public IEnumerable<Result> EnableCasino(EnableProductParam param)
         {
             var results = new List<Result>();
 
             foreach (var member in param.Members)
             {
-                var criteria = new EnableCasinoCriteria(
-                                    member.CustId,
-                                    member.Username,
-                                    param.ActorId,
-                                    param.SubAccId,
-                                    param.LoginIP,
-                                    param.Language);
+                var updateResult = ExcuteCasinoCommand(new EnableCasinoCommand(
+                                        member.CustId,
+                                        member.Username,
+                                        param.ActorId,
+                                        param.SubAccId,
+                                        param.LoginIP,
+                                        param.Language));
 
-                var updateResult = dataAccess.EnableCasino(criteria);
                 results.Add(updateResult);
 
                 if (updateResult.IsSuccessful)
@@ -105,6 +101,19 @@
             }
 
             return results;
+        }
+
+        internal Result ExcuteCasinoCommand(EnableCasinoCommand command)
+        {
+            repository.Execute(command);
+
+            return new Result
+                {
+                    Code = command.ErrCode,
+                    Message = command.ErrCode == 0
+                        ? Resources.UpdatedSuccessfully
+                        : $"{command.CustName} {command.ErrMsg}"
+                };
         }
 
         internal void SyncCasinoStatus(int custId, string ip, int actorId, string actorName)

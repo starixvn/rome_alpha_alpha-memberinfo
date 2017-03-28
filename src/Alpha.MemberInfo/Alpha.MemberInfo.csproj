@@ -189,7 +189,6 @@
     <Compile Include="Criteria\MemberRequests\EnableCasinoCriteria.cs" />
     <Compile Include="Criteria\MemberRequests\MemberRequestCriteria.cs" />
     <Compile Include="Criteria\MemberRequests\PlayForFunProductCriteria.cs" />
-    <Compile Include="DataAccesses\MemberRequestDataAccess.cs" />
     <Compile Include="DataAccesses\ObjectDbFactory.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="GlobalSuppressions.cs" />

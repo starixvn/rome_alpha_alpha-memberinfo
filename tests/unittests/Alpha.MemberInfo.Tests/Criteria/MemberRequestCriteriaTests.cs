@@ -10,7 +10,7 @@
         public void MemberRequestCriteria_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var expectedSettingKey = "Age_CustomerSelMemberRequestDetail";
+            var expectedSettingKey = "Age_PlayForFun_MemberRequest_Detail";
             var criteria = new MemberRequestCriteria(15, 6);
 
             // Act

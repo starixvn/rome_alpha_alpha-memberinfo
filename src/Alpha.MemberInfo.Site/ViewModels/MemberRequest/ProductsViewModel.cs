@@ -1,20 +1,25 @@
 ﻿namespace Alpha.MemberInfo.Site.ViewModels.MemberRequest
 {
     using System.Collections.Generic;
-    using MemberInfo.Models.MemberRequests;
+    using System.Web.Mvc;
+    using Components;
+    using MemberInfo.Models;
 
     public class ProductsViewModel
     {
         public ProductsViewModel(
-            IEnumerable<PlayForFunProduct> products,
-            int selectedProductId)
+            int selectedProductId,
+            IEnumerable<SelectListItem> products)
         {
             Products = products;
             SelectedProductId = selectedProductId;
         }
 
-        public IEnumerable<PlayForFunProduct> Products { get; }
-
         public int SelectedProductId { get; }
+
+        public IEnumerable<SelectListItem> Products { get; }
+
+        public ProductMultiSelectionViewModel ProductMultiSelectionViewModel =>
+           new ProductMultiSelectionViewModel(Products, SelectedProductId.ToString());
     }
 }

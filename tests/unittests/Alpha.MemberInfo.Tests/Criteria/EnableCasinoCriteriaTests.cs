@@ -11,7 +11,7 @@
         {
             // Arrange
             var expectedSettingKey = "Age_UpdateCasinoStatus";
-            var criteria = new EnableCasinoCriteria(15, "Username", 260, 0, "192.168.1.1", "E");
+            var criteria = new EnableCasinoCommand(15, "Username", 260, 0, "192.168.1.1", "E");
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -24,7 +24,7 @@
         public void IsValid_Always_ReturnsTrue()
         {
             // Arrange
-            var criteria = new EnableCasinoCriteria(15, "Username", 260, 0, "192.168.1.1", "E");
+            var criteria = new EnableCasinoCommand(15, "Username", 260, 0, "192.168.1.1", "E");
 
             // Act
             var actualIsValid = criteria.IsValid();

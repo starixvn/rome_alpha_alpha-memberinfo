@@ -17,6 +17,7 @@ class MemberRequests {
     $successfullyMessage: string;
     $failMessage: string;
     $waringMessage: string;
+    $confirmMessage: string;
 
     $successfullyMessageClass: string;
     $failMessageClass: string;
@@ -44,6 +45,7 @@ class MemberRequests {
         this.$successfullyMessage = this.$("#successfullyMessage").val();
         this.$failMessage = this.$("#failyMessage").val();
         this.$waringMessage = this.$("#warningMessage").val();
+        this.$confirmMessage = this.$("#enableProductConfirmMessage").val();
 
         this.$successfullyMessageClass = "msg-success";
         this.$failMessageClass = "msg-error";
@@ -134,7 +136,11 @@ class MemberRequests {
 
     confirmMessage = () => {
         let self = this;
-        bootbox.confirm("Are you sure to enable Product " + this.getProductName() + " for user " + this.getMemberNames() + " ?", function (result) {
+        var productNameRep = /getProductName/gi;
+        var memberNamesRep = /getMemberNames/gi;
+        let confirmMessage = this.$confirmMessage.replace(productNameRep, this.getProductName());
+            
+        bootbox.confirm(confirmMessage.replace(memberNamesRep, this.getMemberNames()) , function (result) {
             if (result) {
                 self.enableProduct();
             }
