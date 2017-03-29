@@ -18,7 +18,7 @@
 
     public interface MemberRequestService
     {
-        IEnumerable<Product> SupportedProduct(int custId);
+        IEnumerable<Product> GetPlayForFunProduct(int custId);
 
         IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestsParam param);
 
@@ -44,16 +44,16 @@
             repository = dynamicRepository;
         }
 
-        public IEnumerable<Product> SupportedProduct(int custId)
+        public IEnumerable<Product> GetPlayForFunProduct(int custId)
         {
             var playForFunProducts = ConfiguredCacheService.GetOrSet(
                 $"PlayForFunProductsCacheKey-{custId}",
-                () => repository.Fetch<PlayForFunProduct>(new PlayForFunProductCriteria(custId)),
+                () => repository.Fetch<Product>(new PlayForFunProductCriteria(custId)),
                 new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));
 
             return playForFunProducts
                 .Where(product => IsShowProduct(product.Id))
-                .Select(product => new Product(product.Id, string.Empty, cacheRefService.GetProductName))
+                .Select(product => product)
                 .OrderBy(product => product.Id);
         }
 

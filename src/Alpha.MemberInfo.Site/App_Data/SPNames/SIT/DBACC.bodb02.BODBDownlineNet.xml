@@ -12,7 +12,7 @@
       <Mapping DataField="IsSync" ObjectProperty="Sync" />
       <Mapping DataField="OutStanding" ObjectProperty="Outstanding" />
       <Mapping DataField="Balance" ObjectProperty="Balance" />
-      <Mapping DataField="BetCredit" ObjectProperty="AvailableCredit" />
+      <Mapping DataField="BetCredit" ObjectProperty="BetCredit" />
     </Setting>
   </Function>
 </Functions>

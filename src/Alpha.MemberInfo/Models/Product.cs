@@ -4,21 +4,21 @@
 
     public class Product
     {
-        public Product(int id, string name)
+        public Product()
+        {
+        }
+
+        public Product(int id, string name, bool isDisable)
         {
             Id = id;
             Name = name;
-        }
-
-        internal Product(int id, string name, Func<int, string> getProductDisplayName) : this(id, name)
-        {
-            DisplayName = getProductDisplayName == null ? name : getProductDisplayName(id);
+            IsDisable = isDisable;
         }
 
         public int Id { get; }
 
         public string Name { get; }
 
-        public string DisplayName { get; }
+        public bool IsDisable { get; }
     }
 }

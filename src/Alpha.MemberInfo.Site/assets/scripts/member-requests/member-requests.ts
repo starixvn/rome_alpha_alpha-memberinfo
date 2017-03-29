@@ -31,6 +31,7 @@ class MemberRequests {
 
     init = () => {
         this.registerEventsForFilter();
+        this.isDisabledProduct() ? this.showWarningMessage() : this.$messageContent.hide();
         this.renderData();
     };
 

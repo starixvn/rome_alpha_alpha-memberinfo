@@ -46,12 +46,12 @@
             int custId = 12;
 
             // Act
-            service.SupportedProduct(custId);
+            service.GetPlayForFunProduct(custId);
 
             // Assert
             service
                 .Received()
-                .SupportedProduct(Arg.Is<int>(inputCustId => inputCustId.Equals(custId)));
+                .GetPlayForFunProduct(Arg.Is<int>(inputCustId => inputCustId.Equals(custId)));
         }
 
         [Fact]

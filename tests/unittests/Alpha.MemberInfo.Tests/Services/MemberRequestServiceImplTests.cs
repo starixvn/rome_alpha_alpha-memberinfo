@@ -45,11 +45,11 @@
             user.GetHideProduct(Arg.Any<int>()).Returns(true);
 
             dynamicRepository = Substitute.For<IDynamicRepository>();
-            dynamicRepository.Fetch<PlayForFunProduct>(Arg.Any<PlayForFunProductCriteria>()).Returns(new List<PlayForFunProduct>
+            dynamicRepository.Fetch<Product>(Arg.Any<PlayForFunProductCriteria>()).Returns(new List<Product>
             {
-                new PlayForFunProduct(6, string.Empty, false),
-                new PlayForFunProduct(22, string.Empty, false),
-                new PlayForFunProduct(24, string.Empty, false)
+                new Product(6, "Casino", false),
+                new Product(22, "Fishing word", true),
+                new Product(24, "Macau Games", true)
             });
             dynamicRepository.Execute(Arg.Any<EnableCasinoCommand>());
 
@@ -68,12 +68,12 @@
             user.GetHideProduct(ProductId.FishingWorld).Returns(true);
             var expectedProductList = new List<Product>
             {
-                new Product(6, string.Empty,  cacheRefService.GetProductName),
-                new Product(22, string.Empty,  cacheRefService.GetProductName)
+                new Product(6, "Casino", false),
+                new Product(22, "Fishing word", true)
             };
 
             // Act
-            var actualProducts = serviceImpl.SupportedProduct(custId).ToList();
+            var actualProducts = serviceImpl.GetPlayForFunProduct(custId).ToList();
 
             // Assert
             var result = compareLogic.Compare(expectedProductList, actualProducts);
@@ -88,13 +88,13 @@
             user.GetHideProduct(ProductId.FishingWorld).Returns(false);
             var expectedProductList = new List<Product>
             {
-                new Product(6, string.Empty,  cacheRefService.GetProductName),
-                new Product(22, string.Empty,  cacheRefService.GetProductName),
-                new Product(24, string.Empty,  cacheRefService.GetProductName)
+                new Product(6, "Casino", false),
+                new Product(22, "Fishing word", true),
+                new Product(24, "Macau Games", true)
             };
 
             // Act
-            var actualProducts = serviceImpl.SupportedProduct(custId).ToList();
+            var actualProducts = serviceImpl.GetPlayForFunProduct(custId).ToList();
 
             // Assert
             var result = compareLogic.Compare(expectedProductList, actualProducts);

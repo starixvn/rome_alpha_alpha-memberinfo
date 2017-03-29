@@ -30,7 +30,7 @@
                 throw new ArgumentNullException(nameof(message));
             }
 
-            var products = service.SupportedProduct(message.CustId);
+            var products = service.GetPlayForFunProduct(message.CustId);
             var viewModel = new ProductsViewModel(
                             message.UserSelectedProductId,
                             BuildProductSelectListItems(new List<int> { message.UserSelectedProductId }, products));
@@ -85,9 +85,10 @@
             {
                 var productSelectListItem = new SelectListItem
                 {
-                    Text = product.DisplayName,
+                    Text = product.Name,
                     Value = product.Id.ToString(),
-                    Selected = userSelectedProductIds.Contains(product.Id)
+                    Selected = userSelectedProductIds.Contains(product.Id),
+                    Disabled = product.IsDisable
                 };
 
                 return productSelectListItem;
