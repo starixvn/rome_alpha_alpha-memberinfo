@@ -95,8 +95,11 @@ class MemberRequests {
         this.$settingLink.on("click", function () {
             let username = self.$(this).parent().text();
             self.topWindow.$("#account-info-header").click();
-            self.topWindow.$("#accountinfo-content").contents().find("#txtUsername").val(username);
-            self.topWindow.$("#accountinfo-content").contents().find(".icon-search").click();
+            setTimeout(function () {
+                self.topWindow.$("#accountinfo-content").contents().find("#txtUsername").val(username);
+                self.topWindow.$("#accountinfo-content").contents().find(".icon-search").click();
+            }, 300);
+           
         });
     };
 
