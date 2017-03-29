@@ -2,9 +2,9 @@
 {
     public class PersonalMessage
     {
-        public PersonalMessage(int id)
+        public PersonalMessage(decimal id)
         {
-            Id = id;
+            Id = (int)id;
         }
 
         public int Id { get; }
