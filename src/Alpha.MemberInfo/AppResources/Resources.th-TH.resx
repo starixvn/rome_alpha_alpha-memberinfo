@@ -123,6 +123,9 @@
   <data name="BetCredit" xml:space="preserve">
     <value>เครดิตสำหรับการวางเดิมพัน</value>
   </data>
+  <data name="Enable" xml:space="preserve">
+    <value>เปิดใช้งาน</value>
+  </data>
   <data name="NoInformationIsAvailable" xml:space="preserve">
     <value>ไม่มีข้อมูล</value>
   </data>

@@ -168,4 +168,7 @@
   <data name="EnableProductConfirmMessage" xml:space="preserve">
     <value>Are you sure to enable Product getProductName for user getMemberNames ?</value>
   </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
 </root>

@@ -88,6 +88,7 @@ class MemberRequests {
 
         this.$('.checkbox').change(function () {
             self.toggleEnabledButton();
+            self.toggleSelectAllCheckbox();
         });
 
         this.$settingLink.on("click", function () {
@@ -96,6 +97,11 @@ class MemberRequests {
             self.topWindow.$("#accountinfo-content").contents().find("#txtUsername").val(username);
             self.topWindow.$("#accountinfo-content").contents().find(".icon-search").click();
         });
+    };
+
+    toggleSelectAllCheckbox = () => {
+        var isSelectAll = this.$('input.checkbox').not(":checked").not(":disabled").length > 0 ? false : true;
+        this.$selectedAll.prop('checked', isSelectAll);
     };
 
     toggleEnabledButton = () => this.setEnabledButtonStatus(this.$('input.checkbox:checked').length > 0 ? false : true);

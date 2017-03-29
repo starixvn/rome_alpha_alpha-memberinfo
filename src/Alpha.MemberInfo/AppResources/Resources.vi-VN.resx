@@ -120,6 +120,9 @@
   <data name="BetCredit" xml:space="preserve">
     <value>Hạn mức khả dụng</value>
   </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Cho phép</value>
+  </data>
   <data name="NoInformationIsAvailable" xml:space="preserve">
     <value>Thông tin chưa được cập nhật</value>
   </data>
