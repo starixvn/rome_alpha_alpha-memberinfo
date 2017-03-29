@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Constants;
+    using Criteria;
     using Criteria.MemberRequests;
     using Fanex.Data.Repository;
     using Fixtures;
@@ -54,7 +55,7 @@
 
             cacheRefService = Substitute.For<CacheRefService>();
             cacheRefService.GetProductName(Arg.Any<int>()).Returns(callInfo => "Product " + callInfo.Args()[0]);
-             
+
             serviceImpl = new MemberRequestServiceImpl(casinoService, dynamicRepository, user, cacheRefService);
             compareLogic = new CompareLogic();
         }
@@ -146,6 +147,61 @@
                     && inputParam.SubAccId.Equals(param.SubAccId)
                     && inputParam.LoginIP.Equals(param.LoginIP)
                     && inputParam.Language.Equals(param.Language)));
+        }
+
+        [Fact]
+        public void EnableCasino_UpdateSuccessfully_InsertPersonalMessage()
+        {
+            // Arrange
+            var param = new EnableProductParam(
+                ProductId.Casino,
+                new List<MemberRequestModel> { new MemberRequestModel() },
+                actorId: 3,
+                actorName: "agent01",
+                subAccId: 4,
+                loginIP: string.Empty,
+                language: "en");
+            dynamicRepository.Get<PersonalMessage>(Arg.Any<InsertPersonalMessageCriteria>()).Returns(new PersonalMessage(0));
+
+            var expectedMessage =
+                $"Dear user,\r\n" +
+                "We would like to inform that your request to enable the product Product 6 has been completed. Now you can place bet on the product.\r\n" +
+                "Thank you";
+
+            var expectedCriteria = new InsertPersonalMessageCriteria(expectedMessage, 3);
+
+            // Act
+            serviceImpl.EnableCasino(param);
+
+            // Assert
+            dynamicRepository.Received()
+                .Get<PersonalMessage>(Arg.Is<InsertPersonalMessageCriteria>(criteria => compareLogic.Compare(expectedCriteria, criteria).AreEqual));
+        }
+
+        [Fact]
+        public void EnableCasino_UpdateSuccessfully_SetPersonalMessageTarget()
+        {
+            // Arrange
+            var param = new EnableProductParam(
+                ProductId.Casino,
+                new List<MemberRequestModel> { new MemberRequestModel(1, "member01", false, 0, 0, 0) },
+                actorId: 3,
+                actorName: "agent01",
+                subAccId: 4,
+                loginIP: string.Empty,
+                language: "en");
+
+            var messageId = 1073788442;
+            dynamicRepository.Get<PersonalMessage>(Arg.Any<InsertPersonalMessageCriteria>()).Returns(new PersonalMessage(messageId));
+
+            var expectedCriteria = new InsertPersonalMessageTargetCriteria(1073788442, 1, "member01", false, "0");
+
+            // Act
+            serviceImpl.EnableCasino(param);
+
+            // Assert
+            dynamicRepository.Received().Get<bool>(Arg.Is<InsertPersonalMessageTargetCriteria>(criteria =>
+                compareLogic.Compare(expectedCriteria, criteria).AreEqual));
         }
     }
 }

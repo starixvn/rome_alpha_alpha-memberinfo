@@ -23,6 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>..\..\build\AnalysisRules\FanexRules.Error.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>618</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -185,7 +186,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
+    <Compile Include="Constants\PersonalMessageType.cs" />
     <Compile Include="Constants\ProductId.cs" />
+    <Compile Include="Criteria\InsertPersonalMessageCriteria.cs" />
+    <Compile Include="Criteria\InsertPersonalMessageTargetCriteria.cs" />
     <Compile Include="Criteria\MemberRequests\EnableCasinoCriteria.cs" />
     <Compile Include="Criteria\MemberRequests\MemberRequestCriteria.cs" />
     <Compile Include="Criteria\MemberRequests\PlayForFunProductCriteria.cs" />
@@ -197,6 +201,7 @@
     <Compile Include="Models\IUser.cs" />
     <Compile Include="Models\MemberRequests\MemberRequestModel.cs" />
     <Compile Include="Models\MemberRequests\PlayForFunProduct.cs" />
+    <Compile Include="Models\PersonalMessage.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\UserLevel.cs" />

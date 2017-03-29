@@ -171,4 +171,9 @@
   <data name="Enable" xml:space="preserve">
     <value>Enable</value>
   </data>
+  <data name="EnableProductPrivateMessage" xml:space="preserve">
+    <value>Dear user,
+We would like to inform that your request to enable the product {0} has been completed. Now you can place bet on the product.
+Thank you</value>
+  </data>
 </root>

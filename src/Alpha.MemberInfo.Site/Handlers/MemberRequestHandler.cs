@@ -14,7 +14,7 @@
     public class MemberRequestHandler :
         IRequestHandler<ProductQuery, ProductsViewModel>,
         IRequestHandler<MemberRequestsQuery, MemberRequestViewModel>,
-        IRequestHandler<EnableProductCommand, IEnumerable<Result>>     
+        IRequestHandler<EnableProductCommand, IEnumerable<Result>>
     {
         private readonly MemberRequestService service;
 
@@ -59,7 +59,7 @@
                 throw new ArgumentNullException(nameof(message));
             }
 
-            return service.EnableProduct(new EnableProductParam(
+            var enableResult = service.EnableProduct(new EnableProductParam(
                 message.UserSelectedProductId,
                 message.Members,
                 message.ViewerId,
@@ -67,6 +67,8 @@
                 message.ViewerSubAccId,
                 string.Empty,
                 "E"));
+
+            return enableResult;
         }
 
         protected internal IEnumerable<SelectListItem> BuildProductSelectListItems(

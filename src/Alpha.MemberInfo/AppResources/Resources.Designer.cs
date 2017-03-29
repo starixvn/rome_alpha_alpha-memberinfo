@@ -115,6 +115,17 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dear user,
+        ///We would like to inform that your request to enable the product {0} has been completed. Now you can place bet on the product.
+        ///Thank you.
+        /// </summary>
+        public static string EnableProductPrivateMessage {
+            get {
+                return ResourceManager.GetString("EnableProductPrivateMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Updated Fail !.
         /// </summary>
         public static string FailyMessage {

@@ -5,6 +5,7 @@
     using System.Linq;
     using AppResources;
     using Constants;
+    using Criteria;
     using Criteria.MemberRequests;
     using Fanex.Caching;
     using Fanex.Data.Repository;
@@ -21,7 +22,7 @@
 
         IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestsParam param);
 
-        IEnumerable<Result> EnableProduct(EnableProductParam param); 
+        IEnumerable<Result> EnableProduct(EnableProductParam param);
     }
 
     public class MemberRequestServiceImpl : MemberRequestService
@@ -55,7 +56,7 @@
                 .Select(product => new Product(product.Id, string.Empty, cacheRefService.GetProductName))
                 .OrderBy(product => product.Id);
         }
- 
+
         public IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestsParam param)
         {
             if (param == null)
@@ -85,22 +86,30 @@
             foreach (var member in param.Members)
             {
                 var updateResult = ExcuteCasinoCommand(new EnableCasinoCommand(
-                                        member.CustId,
-                                        member.Username,
-                                        param.ActorId,
-                                        param.SubAccId,
-                                        param.LoginIP,
-                                        param.Language));
+                    member.CustId,
+                    member.Username,
+                    param.ActorId,
+                    param.SubAccId,
+                    param.LoginIP,
+                    param.Language));
 
                 results.Add(updateResult);
 
                 if (updateResult.IsSuccessful)
                 {
                     SyncCasinoStatus(member.CustId, param.LoginIP, param.ActorId, param.ActorName);
+                    InsertPersonalMessage(member, param.ProductId);
                 }
             }
 
             return results;
+        }
+
+        private void InsertPersonalMessage(MemberRequestModel member, int productId)
+        {
+            var message = string.Format(Resources.EnableProductPrivateMessage, cacheRefService.GetProductName(productId));
+            var rawData = repository.Get<PersonalMessage>(new InsertPersonalMessageCriteria(message, PersonalMessageType.EnableProduct));
+            repository.Get<bool>(new InsertPersonalMessageTargetCriteria(rawData.Id, member.CustId, member.Username, false, "0"));
         }
 
         internal Result ExcuteCasinoCommand(EnableCasinoCommand command)
@@ -108,12 +117,12 @@
             repository.Execute(command);
 
             return new Result
-                {
-                    Code = command.ErrCode,
-                    Message = command.ErrCode == 0
+            {
+                Code = command.ErrCode,
+                Message = command.ErrCode == 0
                         ? Resources.UpdatedSuccessfully
                         : $"{command.CustName}: {command.ErrMsg}"
-                };
+            };
         }
 
         internal void SyncCasinoStatus(int custId, string ip, int actorId, string actorName)
