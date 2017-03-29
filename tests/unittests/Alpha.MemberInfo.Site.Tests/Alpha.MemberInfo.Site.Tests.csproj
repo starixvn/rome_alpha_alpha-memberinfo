@@ -163,6 +163,7 @@
     <Compile Include="Controllers\MemberRequestsControllerTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="Fixtures\UserFixture.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Handlers\MemberRequestsHandlerTests.cs" />
     <Compile Include="Models\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
