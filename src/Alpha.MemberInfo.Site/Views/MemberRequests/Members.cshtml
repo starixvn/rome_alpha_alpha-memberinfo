@@ -7,7 +7,7 @@
             <th class="text-left">@Resources.Username</th>
             <th>@Resources.Balance</th>
             <th>@Resources.Outstanding</th>
-            <th>@Resources.AvailableCredit</th>
+            <th>@Resources.BetCredit</th>
         </tr>
     </thead>
 
@@ -34,7 +34,7 @@
 
                     @HtmlHelpers.RenderNumberCell(memberRequest.Balance, "text-right")
                     @HtmlHelpers.RenderNumberCell(memberRequest.Outstanding, "text-right")
-                    @HtmlHelpers.RenderNumberCell(memberRequest.AvailableCredit, "text-right")
+                    @HtmlHelpers.RenderNumberCell(memberRequest.BetCredit, "text-right")
                 </tr>
 
                 index++;

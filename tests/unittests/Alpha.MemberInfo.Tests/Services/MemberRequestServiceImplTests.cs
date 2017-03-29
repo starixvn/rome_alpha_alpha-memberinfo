@@ -121,7 +121,7 @@
                     sync: true,
                     balance: 123,
                     outstanding: 236,
-                    availableCredit: 12)
+                    betCredit: 12)
             };
 
             var param = new EnableProductParam(

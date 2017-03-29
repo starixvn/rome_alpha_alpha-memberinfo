@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Balance" xml:space="preserve">
+    <value>ยอดเงิน</value>
+  </data>
+  <data name="BetCredit" xml:space="preserve">
+    <value>เครดิตสำหรับการวางเดิมพัน</value>
+  </data>
   <data name="NoInformationIsAvailable" xml:space="preserve">
     <value>ไม่มีข้อมูล</value>
+  </data>
+  <data name="NoPermissionAccessPage" xml:space="preserve">
+    <value>ขออภัยคุณไม่ได้รับอนุญาติให้เข้าหน้านี้</value>
+  </data>
+  <data name="Outstanding" xml:space="preserve">
+    <value>การเดิมพันที่ยังไม่สิ้นสุด</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>ชื่อผู้ใช้ระบบ</value>
   </data>
 </root>

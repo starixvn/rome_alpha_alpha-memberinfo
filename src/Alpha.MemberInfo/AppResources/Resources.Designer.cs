@@ -70,20 +70,20 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Available Credit.
-        /// </summary>
-        public static string AvailableCredit {
-            get {
-                return ResourceManager.GetString("AvailableCredit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Balance.
         /// </summary>
         public static string Balance {
             get {
                 return ResourceManager.GetString("Balance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bet Credit.
+        /// </summary>
+        public static string BetCredit {
+            get {
+                return ResourceManager.GetString("BetCredit", resourceCulture);
             }
         }
         
@@ -106,20 +106,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Updated Fail!.
+        ///   Looks up a localized string similar to Updated Fail !.
         /// </summary>
         public static string FailyMessage {
             get {
                 return ResourceManager.GetString("FailyMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Member Request.
-        /// </summary>
-        public static string MemberRequest {
-            get {
-                return ResourceManager.GetString("MemberRequest", resourceCulture);
             }
         }
         
@@ -160,6 +151,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Play For Fun - Member Request.
+        /// </summary>
+        public static string PlayForFunMemberRequest {
+            get {
+                return ResourceManager.GetString("PlayForFunMemberRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to selected.
         /// </summary>
         public static string Selected {
@@ -178,7 +178,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Updated successfully!.
+        ///   Looks up a localized string similar to Updated successfully !.
         /// </summary>
         public static string SuccessfullyMessage {
             get {

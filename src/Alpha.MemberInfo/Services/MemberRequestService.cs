@@ -112,7 +112,7 @@
                     Code = command.ErrCode,
                     Message = command.ErrCode == 0
                         ? Resources.UpdatedSuccessfully
-                        : $"{command.CustName} {command.ErrMsg}"
+                        : $"{command.CustName}: {command.ErrMsg}"
                 };
         }
 

@@ -120,14 +120,14 @@
   <data name="AllProducts" xml:space="preserve">
     <value>All Products</value>
   </data>
-  <data name="AvailableCredit" xml:space="preserve">
-    <value>Available Credit</value>
+  <data name="BetCredit" xml:space="preserve">
+    <value>Bet Credit</value>
   </data>
   <data name="Balance" xml:space="preserve">
     <value>Balance</value>
   </data>
-  <data name="MemberRequest" xml:space="preserve">
-    <value>Member Request</value>
+  <data name="PlayForFunMemberRequest" xml:space="preserve">
+    <value>Play For Fun - Member Request</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No.</value>
@@ -157,10 +157,10 @@
     <value>You're disabled on this product. Please contact upline to enable for you.</value>
   </data>
   <data name="FailyMessage" xml:space="preserve">
-    <value>Updated Fail!</value>
+    <value>Updated Fail !</value>
   </data>
   <data name="SuccessfullyMessage" xml:space="preserve">
-    <value>Updated successfully!</value>
+    <value>Updated successfully !</value>
   </data>
   <data name="NoPermissionAccessPage" xml:space="preserve">
     <value>Sorry, You don't have permission to access this page.</value>

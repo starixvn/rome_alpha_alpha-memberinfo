@@ -12,14 +12,14 @@
             bool sync,
             decimal balance,
             decimal outstanding,
-            decimal availableCredit)
+            decimal betCredit)
         {
             CustId = custId;
             Username = username;
             Sync = sync;
             Balance = balance;
             Outstanding = outstanding;
-            AvailableCredit = availableCredit;
+            BetCredit = betCredit;
         }
         
         public int CustId { get; set; }
@@ -32,6 +32,6 @@
 
         public decimal Outstanding { get; }
 
-        public decimal AvailableCredit { get; }
+        public decimal BetCredit { get; }
     }
 }
