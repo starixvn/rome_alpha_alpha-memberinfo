@@ -2,6 +2,6 @@
 {
     public static class PersonalMessageType
     {
-        public const int EnableProduct = 3;
+        public const int EnableProduct = 1;
     }
 }
