@@ -92,14 +92,16 @@ class MemberRequests {
             self.toggleSelectAllCheckbox();
         });
 
-        this.$settingLink.on("click", function () {
+        this.$settingLink.on("click", function (event) {
             let username = self.$(this).parent().text();
+            self.topWindow.menuBar.collapseLeftPanel();
             self.topWindow.$("#account-info-header").click();
             setTimeout(function () {
                 self.topWindow.$("#accountinfo-content").contents().find("#txtUsername").val(username);
                 self.topWindow.$("#accountinfo-content").contents().find(".icon-search").click();
             }, 300);
-           
+
+            event.stopPropagation();
         });
     };
 
