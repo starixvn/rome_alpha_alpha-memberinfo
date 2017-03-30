@@ -65,8 +65,8 @@
                 message.ViewerId,
                 message.ViewerName,
                 message.ViewerSubAccId,
-                string.Empty,
-                "E"));
+                message.IP,
+                message.Language));
 
             return enableResult;
         }
