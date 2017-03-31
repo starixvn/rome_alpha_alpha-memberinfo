@@ -35,6 +35,8 @@
 
         public string ViewerName => viewer.Name;
 
+        public bool CanUpdateAccount => viewer.CanUpdateAccount;
+
         public byte ViewerLevelId => viewer.LevelId;
 
         public virtual UserLevel ActorLevel => Enumeration.FromValue<UserLevel>(ViewerLevelId);

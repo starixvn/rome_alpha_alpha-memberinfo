@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Components;
-    using MemberInfo.Models;
 
     public class ProductsViewModel
     {

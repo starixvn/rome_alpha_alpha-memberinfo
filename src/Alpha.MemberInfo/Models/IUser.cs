@@ -14,6 +14,8 @@
 
         string IP { get; }
 
+        bool CanUpdateAccount { get; }
+
         bool GetHideProduct(int productId);
     }
 }

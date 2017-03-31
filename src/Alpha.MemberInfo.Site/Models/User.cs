@@ -25,6 +25,8 @@
 
         public string IP => userSession.UserLoginIp;
 
+        public bool CanUpdateAccount => userSession.SubPageAccess.UpdateAccount;
+
         public bool GetHideProduct(int productId) => userSession.GetHideProduct(productId);
     }
 }

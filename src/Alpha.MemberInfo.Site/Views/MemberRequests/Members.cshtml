@@ -3,7 +3,7 @@
     <thead>
         <tr>
             <th>@Resources.No</th>
-            <th><input id="select-all" type="checkbox" @(Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) /></th>
+            <th><input id="select-all" type="checkbox" @(Model.DisabledUserSelectedProduct || !Model.CanUpdateAccount ? "disabled" : string.Empty) /></th>
             <th class="text-left">@Resources.Username</th>
             <th>@Resources.Balance</th>
             <th>@Resources.Outstanding</th>
@@ -24,7 +24,7 @@
                         <input data-custId="@memberRequest.CustId"
                          data-username="@memberRequest.Username"
                          class="checkbox" type="checkbox"
-                         @(!memberRequest.Sync || Model.DisabledUserSelectedProduct ? "disabled" : string.Empty) />
+                         @(!memberRequest.Sync || Model.DisabledUserSelectedProduct || !Model.CanUpdateAccount ? "disabled" : string.Empty) />
                     </td>
                     <td>
                         <div class="link">

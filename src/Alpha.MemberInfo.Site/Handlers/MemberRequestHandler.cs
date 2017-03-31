@@ -48,7 +48,13 @@
             var param = new MemberRequestsParam(message.CustId, message.UserSelectedProductId);
             var memberRequestData = service.GetMemberRequest(param);
 
-            var viewModel = new MemberRequestViewModel(memberRequestData, message.UserSelectedProductId, message.DisabledUserSelectedProduct, message.CustId);
+            var viewModel = new MemberRequestViewModel(
+                memberRequestData, 
+                message.UserSelectedProductId, 
+                message.DisabledUserSelectedProduct, 
+                message.CustId,
+                message.CanUpdateAccount);
+
             return viewModel;
         }
 

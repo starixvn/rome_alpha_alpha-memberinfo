@@ -18,6 +18,7 @@ class MemberRequests {
     $failMessage: string;
     $waringMessage: string;
     $confirmMessage: string;
+    $noPermissionAccessPage: string;
 
     $successfullyMessageClass: string;
     $failMessageClass: string;
@@ -47,6 +48,7 @@ class MemberRequests {
         this.$failMessage = this.$("#failyMessage").val();
         this.$waringMessage = this.$("#warningMessage").val();
         this.$confirmMessage = this.$("#enableProductConfirmMessage").val();
+        this.$noPermissionAccessPage = this.$("#noPermissionAccessPage").val();
 
         this.$successfullyMessageClass = "msg-success";
         this.$failMessageClass = "msg-error";
@@ -170,32 +172,42 @@ class MemberRequests {
             url: self.$enableProductUrl,
             cache: false,
             success: (results) => {
-                let message = "";
-                if (typeof results != 'undefined') {
-                    let length = results.length;
-                    let isError = false;
-                    for (let i = 0; i < length; i++) {
-                        if (!results[i].IsSuccessful) {
-                            isError = true;
-                            message += self.createMessageContainer(results[i].Message);
-                        }
-                    }
-
-                    if (!isError) {
-                        self.showSuccessfullyMessage();
-                        setTimeout(self.refreshPage, 5000);
-                    } else {
-                        self.showFailMessage(message);
-                    }
-                } else {
-                    self.showFailMessage(self.$failMessage);
-                }
-                this.$.unblockUI();
+                self.showEnableProductResults(results);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                self.showFailMessage(self.$noPermissionAccessPage);
+            },
+            complete: function (data) {
+                self.$.unblockUI();
             }
         };
 
         this.$.ajax(ajaxSetting);
     }
+
+    showEnableProductResults = (results) => {
+        let self = this;
+        let message = "";
+        if (typeof results != 'undefined') {
+            let length = results.length;
+            let isError = false;
+            for (let i = 0; i < length; i++) {
+                if (!results[i].IsSuccessful) {
+                    isError = true;
+                    message += self.createMessageContainer(results[i].Message);
+                }
+            }
+
+            if (!isError) {
+                self.showSuccessfullyMessage();
+                setTimeout(self.refreshPage, 5000);
+            } else {
+                self.showFailMessage(message);
+            }
+        } else {
+            self.showFailMessage(self.$failMessage);
+        }               
+    };
 
     getMemberInfoParam = () => {
         let self = this;

@@ -9,12 +9,14 @@
             IEnumerable<MemberRequestModel> memberRequestData,
             int selectedProductId,
             bool disabledUserSelectedProduct,
-            int actorId)
+            int actorId,
+            bool canUpdateAccount)
         {
             MemberRequestData = memberRequestData;
             SelectedProductId = selectedProductId;
             DisabledUserSelectedProduct = disabledUserSelectedProduct;
             ActorId = actorId;
+            CanUpdateAccount = canUpdateAccount;
         }
 
         public int ActorId { get; }
@@ -22,6 +24,8 @@
         public IEnumerable<MemberRequestModel> MemberRequestData { get; }
 
         public int SelectedProductId { get; }
+
+        public bool CanUpdateAccount { get; }
 
         public bool DisabledUserSelectedProduct { get; }
     }
