@@ -15,14 +15,13 @@
     <form class="form-inline demo-form-inline filter" role="form">
         @ProductSingleSelection.Render(Model.ProductMultiSelectionViewModel)
         <div class="form-group">
-            <span id="icon-excel" class="icon-excel" title="@Resources.Refresh"></span>
+            <span id="icon-refresh" class="icon-refresh" title="@Resources.Refresh"></span>
         </div>
     </form>
 </div>
+<div id="box-content"></div>
 
-<div id="member-requests" action-url="@Url.Action("Members", "MemberRequests")" />
-
-@Html.Hidden("memberRequestRootUrl", Url.Action("Index", "MemberRequests"))
+@Html.Hidden("memberRequestUrl", Url.Action("Members", "MemberRequests"))
 @Html.Hidden("disabledProductWarningMessage", Resources.DisabledProductWarning)
 @Html.Hidden("noSettingWarning", Resources.NoSettingWarning)
 

@@ -5,6 +5,7 @@
     using System.Linq;
     using Constants;
     using Criteria.MemberRequests;
+    using DataAccesses;
     using Fanex.Data.Repository;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
@@ -12,8 +13,6 @@
     using Models;
     using NSubstitute;
     using Params;
-    using RemotingRef;
-    using Sunplus.Agent.Model.Casino;
     using Xunit;
 
     [Trait("Category", "MemberRequests")]
@@ -22,7 +21,7 @@
     {
         private readonly MemberRequestServiceImpl serviceImpl;
         private readonly IDynamicRepository dynamicRepository;
-        private readonly CasinoService casinoService;
+        private readonly CasinoDataAccess casinoDataAccess;
         private readonly CompareLogic compareLogic;
         private readonly IUser user;
         private readonly AnyValueCreatorFixture anyValueCreatorFixture;
@@ -30,7 +29,7 @@
         public MemberRequestServiceImplTests(AnyValueCreatorFixture anyValueCreatorFixture)
         {
             this.anyValueCreatorFixture = anyValueCreatorFixture;
-            casinoService = Substitute.For<CasinoService>();
+            casinoDataAccess = Substitute.For<CasinoDataAccess>();
 
             user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)2);
@@ -49,7 +48,7 @@
                 new Product(24, "Macau Games", true)
             });
 
-            serviceImpl = new MemberRequestServiceImpl(casinoService, dynamicRepository, user);
+            serviceImpl = new MemberRequestServiceImpl(dynamicRepository, user, casinoDataAccess);
             compareLogic = new CompareLogic();
         }
 

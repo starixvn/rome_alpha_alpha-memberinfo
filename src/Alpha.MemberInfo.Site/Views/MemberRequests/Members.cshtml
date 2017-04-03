@@ -21,15 +21,17 @@
                 <tr>
                     <td class="text-center">@index</td>
                     <td>
-                        <div class="link">
+                        <div class="link view-member-info-link">
                             @memberRequest.Username
                         </div>
                     </td>
                     <td class="text-center">
-                        <input data-custId="@memberRequest.CustId"
-                               data-username="@memberRequest.Username"
-                               class="checkbox" type="checkbox"
-                               @(!memberRequest.Sync || Model.DisabledUserSelectedProduct || !Model.CanUpdateAccount ? "disabled" : string.Empty) />
+                        <span data-custId="@memberRequest.CustId"
+                              data-username="@memberRequest.Username"
+                              class="action-edit-setting @(memberRequest.Sync ? "icon-edit" : "icon-sync")"
+                              @(Model.DisabledUserSelectedProduct || !Model.CanUpdateAccount ? "disabled" : string.Empty)>
+                        </span>
+                        @(memberRequest.Sync ? Resources.Edit : Resources.Sync))
                     </td>
 
                     @HtmlHelpers.RenderNumberCell(memberRequest.Balance, "text-right")

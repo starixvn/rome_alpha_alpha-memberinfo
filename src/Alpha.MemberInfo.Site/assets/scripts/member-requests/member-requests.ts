@@ -9,6 +9,12 @@ class MemberRequests {
     disabledProductWarningMessage: string;
     noSettingWarning: string;
 
+    memberRequestUrl: string;
+    $boxContent: JQuery;
+
+    $accountInfoHeader: JQuery;
+    $accountInfoContent: JQuery;
+
     constructor($: JQueryStatic, topWindow: any) {
         this.$ = $;
         this.topWindow = topWindow;
@@ -21,6 +27,7 @@ class MemberRequests {
     };
     registerEvents = () => {
         this.$dropdownProduct.change(this.changeProduct);
+        this.$("#icon-refresh").click(this.loadMemberRequests);
     };
 
     cacheDOMElements = () => {
@@ -30,15 +37,20 @@ class MemberRequests {
         this.disabledProductWarningMessage = this.$("#disabledProductWarningMessage").val();
         this.noSettingWarning = this.$("#noSettingWarning").val();
 
+        this.memberRequestUrl = this.$("#memberRequestUrl").val();
+        this.$boxContent = this.$("#box-content");
+
+        this.$accountInfoHeader = this.topWindow.$("#account-info-header");
+        this.$accountInfoContent = this.topWindow.$("#accountinfo-content").contents();
     };
     changeProduct = () => {
         this.updateWarningMessage();
-        this.renderData();
+        this.loadMemberRequests();
     };
 
     convertAttributeToBool = (attrValue: string) => !!attrValue && attrValue.toString().toLowerCase() === "true";
     updateWarningMessage = () => {
-        var selectedProduct = this.$("#dropdown-product option:selected");
+        var selectedProduct = this.getSelectedProduct();
         var isDisable = this.convertAttributeToBool(selectedProduct.data("disabled"));
         var hasSetting = this.convertAttributeToBool(selectedProduct.data("has-setting"));
 
@@ -50,27 +62,54 @@ class MemberRequests {
             this.$msgWarning.addClass("hide");
         }
     };
-    renderData = () => {
-        //this.$.blockUI();
-        //let self = this;
-        //let memberRequestUrl = self.$tableContent.attr('action-url');
+    loadMemberRequests = () => {
+        this.$.blockUI();
 
-        //if (memberRequestUrl !== '' && typeof memberRequestUrl !== 'undefined') {
-        //        let ajaxSetting: JQueryAjaxSettings = {
-        //            method: 'GET',
-        //            data: { UserSelectedProductId: self.getProductId(), DisabledUserSelectedProduct: self.isDisabledProduct() },
-        //            url: memberRequestUrl,
-        //            cache: false,
-        //            success: (responseHtml) => {
-        //                self.$tableContent.html(responseHtml);
-        //                self.registerEventsForTable();
-        //                this.$.unblockUI();
-        //            }
-        //        };
+        var selectedProduct = this.getSelectedProduct();
+        var param = {
+            UserSelectedProductId: selectedProduct.val(),
+            DisabledUserSelectedProduct: this.convertAttributeToBool(selectedProduct.data("disabled"))
+        };
 
-        //        this.$.ajax(ajaxSetting);
-        //    }
-    }
+        this.$.ajax({
+            method: "GET",
+            data: param,
+            url: this.memberRequestUrl,
+            cache: false,
+            success: this.renderMemberRequests
+        });
+    };
+    renderMemberRequests = (html: string) => {
+        this.$boxContent.html(html);
+        this.registerEventsForTable();
+        this.$.unblockUI();
+    };
+    getSelectedProduct = () => this.$dropdownProduct.find("option:selected");
+    registerEventsForTable = () => {
+        let $infoLinks = this.$(".view-member-info-link");
+        $infoLinks.on("click", this.viewMemberInfo);
+
+        let $editSettingLink = this.$(".action-edit-setting");
+        let self = this;
+        $editSettingLink.on("click", function () {
+            let $this = self.$(this);
+            this.editSetting($this.data("custId"), $this.data("username"));
+        });
+    };
+    viewMemberInfo = (event: any) => {
+        let username = this.$(this).parent().text();
+        this.topWindow.menuBar.collapseLeftPanel();
+        this.$accountInfoHeader.click();
+        setTimeout(function () {
+            this.$accountInfoContent.find("#txtUsername").val(username);
+            this.$accountInfoContent.find(".icon-search").click();
+        }, 300);
+
+        event.stopPropagation();
+    };
+    editSetting = (custId: number, username: string) => {
+
+    };
 }
 
 const memberRequests = new MemberRequests($, window.top);

@@ -22,16 +22,17 @@ body {
         width: 100%;
     }
 
-    .negative-value{
+    .negative-value {
         color: #e92819;
     }
-
 }
+
 .link {
     color: #045ace;
     cursor: pointer;
-    &:hover{
-        color: #F60; 
+
+    &:hover {
+        color: #F60;
     }
 }
 
@@ -40,7 +41,7 @@ input[type="checkbox"] {
     display: inherit;
 }
 
-input[type="button"][disabled]{
+input[type="button"][disabled] {
     opacity: .4;
     cursor: not-allowed;
 }
@@ -73,7 +74,7 @@ input[type="button"][disabled]{
         font-size: 20px;
     }
 
-    select.select-multiple {
+    .select-multiple {
         height: 28px;
         width: 160px;
     }
@@ -83,20 +84,8 @@ input[type="button"][disabled]{
         padding: 4px 10px;
     }
 
-    select.dropdown-daterange {
+    .dropdown-daterange {
         width: 160px;
-    }
-
-    .input-group.date .form-control {
-        -webkit-appearance: none;
-    }
-
-    .daterange-picker .input-group.date {
-        width: 128px;
-    }
-
-    .daterange-container {
-        vertical-align: top;
     }
 
     .form-group {
@@ -111,8 +100,6 @@ input[type="button"][disabled]{
             }
         }
     }
-
-   
 }
 
 .bootbox-confirm .modal-dialog {
@@ -128,4 +115,3 @@ input[type="button"][disabled]{
         width: 100%;
     }
 }
-
