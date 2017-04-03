@@ -4,14 +4,12 @@
     using System.Collections.Generic;
     using System.Linq;
     using Constants;
-    using Criteria;
     using Criteria.MemberRequests;
     using Fanex.Data.Repository;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
     using MemberInfo.Services;
     using Models;
-    using Models.MemberRequests;
     using NSubstitute;
     using Params;
     using RemotingRef;
@@ -25,7 +23,6 @@
         private readonly MemberRequestServiceImpl serviceImpl;
         private readonly IDynamicRepository dynamicRepository;
         private readonly CasinoService casinoService;
-        private readonly CacheRefService cacheRefService;
         private readonly CompareLogic compareLogic;
         private readonly IUser user;
         private readonly AnyValueCreatorFixture anyValueCreatorFixture;
@@ -51,12 +48,8 @@
                 new Product(22, "Fishing word", true),
                 new Product(24, "Macau Games", true)
             });
-            dynamicRepository.Execute(Arg.Any<EnableCasinoCommand>());
 
-            cacheRefService = Substitute.For<CacheRefService>();
-            cacheRefService.GetProductName(Arg.Any<int>()).Returns(callInfo => "Product " + callInfo.Args()[0]);
-
-            serviceImpl = new MemberRequestServiceImpl(casinoService, dynamicRepository, user, cacheRefService);
+            serviceImpl = new MemberRequestServiceImpl(casinoService, dynamicRepository, user);
             compareLogic = new CompareLogic();
         }
 
@@ -110,98 +103,5 @@
             // Act & Assert
             Assert.Throws<ArgumentNullException>(() => serviceImpl.GetMemberRequest(nullParam));
         }
-
-        public void EnableCasino_ExistedMember_CallEnableCasino()
-        {
-            // Arrange
-            var members = new List<MemberRequestModel>
-            {
-                new MemberRequestModel(
-                    custId: 12,
-                    username: "member01",
-                    sync: true,
-                    balance: 123,
-                    outstanding: 236,
-                    betCredit: 12)
-            };
-
-            var param = new EnableProductParam(
-                 productId: ProductId.Casino,
-                 members: members,
-                 actorId: 16,
-                 actorName: "Username",
-                 subAccId: 0,
-                 loginIP: "192.168.1.1",
-                 language: "E");
-
-            // Act 
-            serviceImpl.EnableProduct(param);
-
-            // Assert
-            serviceImpl
-                .Received()
-                .EnableCasino(Arg.Is<EnableProductParam>(
-                    inputParam => inputParam.ProductId.Equals(param.ProductId)
-                    && inputParam.ActorId.Equals(param.ActorId)
-                    && inputParam.ActorName.Equals(param.ActorName)
-                    && inputParam.SubAccId.Equals(param.SubAccId)
-                    && inputParam.LoginIP.Equals(param.LoginIP)
-                    && inputParam.Language.Equals(param.Language)));
-        }
-
-        ////[Fact]
-        ////public void EnableCasino_UpdateSuccessfully_InsertPersonalMessage()
-        ////{
-        ////    // Arrange
-        ////    var param = new EnableProductParam(
-        ////        ProductId.Casino,
-        ////        new List<MemberRequestModel> { new MemberRequestModel() },
-        ////        actorId: 3,
-        ////        actorName: "agent01",
-        ////        subAccId: 4,
-        ////        loginIP: string.Empty,
-        ////        language: "en");
-        ////    dynamicRepository.Get<PersonalMessage>(Arg.Any<InsertPersonalMessageCriteria>()).Returns(new PersonalMessage(0));
-
-        ////    var expectedMessage =
-        ////        $"Dear user,\r\n" +
-        ////        "We would like to inform that your request to enable the product Product 6 has been completed. Now you can place bet on the product.\r\n" +
-        ////        "Thank you";
-
-        ////    var expectedCriteria = new InsertPersonalMessageCriteria(expectedMessage, 3);
-
-        ////    // Act
-        ////    serviceImpl.EnableCasino(param);
-
-        ////    // Assert
-        ////    dynamicRepository.Received()
-        ////        .Get<PersonalMessage>(Arg.Is<InsertPersonalMessageCriteria>(criteria => compareLogic.Compare(expectedCriteria, criteria).AreEqual));
-        ////}
-
-        ////[Fact]
-        ////public void EnableCasino_UpdateSuccessfully_SetPersonalMessageTarget()
-        ////{
-        ////    // Arrange
-        ////    var param = new EnableProductParam(
-        ////        ProductId.Casino,
-        ////        new List<MemberRequestModel> { new MemberRequestModel(1, "member01", false, 0, 0, 0) },
-        ////        actorId: 3,
-        ////        actorName: "agent01",
-        ////        subAccId: 4,
-        ////        loginIP: string.Empty,
-        ////        language: "en");
-
-        ////    var messageId = 1073788442;
-        ////    dynamicRepository.Get<PersonalMessage>(Arg.Any<InsertPersonalMessageCriteria>()).Returns(new PersonalMessage(messageId));
-
-        ////    var expectedCriteria = new InsertPersonalMessageTargetCriteria(1073788442, 1, "member01", false, "0");
-
-        ////    // Act
-        ////    serviceImpl.EnableCasino(param);
-
-        ////    // Assert
-        ////    dynamicRepository.Received().Get<bool>(Arg.Is<InsertPersonalMessageTargetCriteria>(criteria =>
-        ////        compareLogic.Compare(expectedCriteria, criteria).AreEqual));
-        ////}
     }
 }

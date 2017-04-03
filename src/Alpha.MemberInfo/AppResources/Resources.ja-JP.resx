@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -131,5 +131,11 @@
   </data>
   <data name="Username" xml:space="preserve">
     <value>ユーザー名</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編集</value>
   </data>
 </root>

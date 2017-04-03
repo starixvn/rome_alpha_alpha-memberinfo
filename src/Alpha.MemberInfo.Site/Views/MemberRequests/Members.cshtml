@@ -3,8 +3,8 @@
     <thead>
         <tr>
             <th>@Resources.No</th>
-            <th><input id="select-all" type="checkbox" @(Model.DisabledUserSelectedProduct || !Model.CanUpdateAccount ? "disabled" : string.Empty) /></th>
             <th class="text-left">@Resources.Username</th>
+            <th>@Resources.Action</th>
             <th>@Resources.Balance</th>
             <th>@Resources.Outstanding</th>
             <th>@Resources.BetCredit</th>
@@ -20,16 +20,16 @@
             {
                 <tr>
                     <td class="text-center">@index</td>
-                    <td class="text-center">
-                        <input data-custId="@memberRequest.CustId"
-                         data-username="@memberRequest.Username"
-                         class="checkbox" type="checkbox"
-                         @(!memberRequest.Sync || Model.DisabledUserSelectedProduct || !Model.CanUpdateAccount ? "disabled" : string.Empty) />
-                    </td>
                     <td>
                         <div class="link">
                             @memberRequest.Username
                         </div>
+                    </td>
+                    <td class="text-center">
+                        <input data-custId="@memberRequest.CustId"
+                               data-username="@memberRequest.Username"
+                               class="checkbox" type="checkbox"
+                               @(!memberRequest.Sync || Model.DisabledUserSelectedProduct || !Model.CanUpdateAccount ? "disabled" : string.Empty) />
                     </td>
 
                     @HtmlHelpers.RenderNumberCell(memberRequest.Balance, "text-right")

@@ -5,6 +5,7 @@
     using System.Reflection;
     using System.Web.Mvc;
     using Controllers;
+    using DataAccesses;
     using Fanex.Data.Repository;
     using MediatR;
     using MemberInfo.Models;
@@ -60,12 +61,13 @@
 
         private static IEnumerable<Assembly> GetAssemblies()
         {
-            yield return typeof(HomeController).Assembly;
+            yield return typeof(SiteBaseController).Assembly;
         }
 
         private static void RegisterDataAccesses(Container container)
         {
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
+            container.Register<CasinoDataAccess, CasinoDataAccessImpl>(Lifestyle.Singleton);
         }
 
         private static void RegisterServices(Container container)
@@ -75,7 +77,7 @@
 
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<CasinoService, CasinoServiceImpl>();
-            container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();   
+            container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
         }
     }
 }

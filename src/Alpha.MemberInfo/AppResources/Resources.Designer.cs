@@ -61,6 +61,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        public static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Products.
         /// </summary>
         public static string AllProducts {
@@ -88,49 +97,20 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable.
-        /// </summary>
-        public static string Enable {
-            get {
-                return ResourceManager.GetString("Enable", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to You&apos;re disabled on this product. Please contact upline to enable for you..
         /// </summary>
-        public static string EnabledMemberRequestsWarning {
+        public static string DisabledProductWarning {
             get {
-                return ResourceManager.GetString("EnabledMemberRequestsWarning", resourceCulture);
+                return ResourceManager.GetString("DisabledProductWarning", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure to enable Product getProductName for user getMemberNames ?.
+        ///   Looks up a localized string similar to Edit.
         /// </summary>
-        public static string EnableProductConfirmMessage {
+        public static string Edit {
             get {
-                return ResourceManager.GetString("EnableProductConfirmMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dear user,
-        ///We would like to inform that your request to enable the product {0} has been completed. Now you can place bet on the product.
-        ///Thank you.
-        /// </summary>
-        public static string EnableProductPrivateMessage {
-            get {
-                return ResourceManager.GetString("EnableProductPrivateMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Updated Fail !.
-        /// </summary>
-        public static string FailyMessage {
-            get {
-                return ResourceManager.GetString("FailyMessage", resourceCulture);
+                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
@@ -153,11 +133,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sorry, You don&apos;t have permission to access this page..
+        ///   Looks up a localized string similar to Product settings have not been configured for your account yet, please contact your upline..
         /// </summary>
-        public static string NoPermissionAccessPage {
+        public static string NoSettingWarning {
             get {
-                return ResourceManager.GetString("NoPermissionAccessPage", resourceCulture);
+                return ResourceManager.GetString("NoSettingWarning", resourceCulture);
             }
         }
         
@@ -180,6 +160,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to selected.
         /// </summary>
         public static string Selected {
@@ -198,11 +187,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Updated successfully !.
+        ///   Looks up a localized string similar to Setting configuration is required prior to this product betting availability..
         /// </summary>
-        public static string SuccessfullyMessage {
+        public static string SettingRequiredWarning {
             get {
-                return ResourceManager.GetString("SuccessfullyMessage", resourceCulture);
+                return ResourceManager.GetString("SettingRequiredWarning", resourceCulture);
             }
         }
         
@@ -212,15 +201,6 @@ namespace Alpha.MemberInfo.AppResources {
         public static string ThereIsNoProduct {
             get {
                 return ResourceManager.GetString("ThereIsNoProduct", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Updated successfully!.
-        /// </summary>
-        public static string UpdatedSuccessfully {
-            get {
-                return ResourceManager.GetString("UpdatedSuccessfully", resourceCulture);
             }
         }
         

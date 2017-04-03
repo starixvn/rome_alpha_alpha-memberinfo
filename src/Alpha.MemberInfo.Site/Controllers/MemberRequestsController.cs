@@ -2,9 +2,7 @@
 {
     using System.Web.Mvc;
     using System.Web.SessionState;
-    using AppResources;
     using MediatR;
-    using MemberInfo.Models;
     using Requests.MemberRequest;
     using Web;
 
@@ -39,17 +37,6 @@
             }
 
             return PartialView(mediator.Send(message));
-        }
-
-        [HttpPost]
-        public JsonResult EnableProduct(EnableProductCommand command)
-        {
-            if (command != null && !command.IsValid())
-            {
-                return Json(Result.CreateErrorResult(Resources.NoPermissionAccessPage, 101));
-            }
-
-            return Json(mediator.Send(command));
         }
     }
 }

@@ -6,7 +6,13 @@
         <select id="dropdown-product">
             @foreach (var product in model.Products)
             {
-                <option value="@product.Value" data-productname="@product.Text" data-disabled="@product.Disabled" @(product.Selected ? " selected=\"selected\"" : string.Empty)>@product.Text</option>
+                <option value="@product.Value"
+                        data-productname="@product.Text"
+                        data-disabled="@product.Disabled"
+                        data-has-setting="@product.HasSetting"
+                        @(product.Selected ? " selected=\"selected\"" : string.Empty)>
+                    @product.Text
+                </option>
             }
         </select>
         <input type="hidden" name="UserSelectedProductId" id="UserSelectedProductId" value="@model.UserSelectedProductIds" />

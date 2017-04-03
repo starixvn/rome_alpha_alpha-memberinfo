@@ -150,30 +150,22 @@
   <data name="Username" xml:space="preserve">
     <value>Username</value>
   </data>
-  <data name="UpdatedSuccessfully" xml:space="preserve">
-    <value>Updated successfully!</value>
-  </data>
-  <data name="EnabledMemberRequestsWarning" xml:space="preserve">
+  <data name="DisabledProductWarning" xml:space="preserve">
     <value>You're disabled on this product. Please contact upline to enable for you.</value>
   </data>
-  <data name="FailyMessage" xml:space="preserve">
-    <value>Updated Fail !</value>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
   </data>
-  <data name="SuccessfullyMessage" xml:space="preserve">
-    <value>Updated successfully !</value>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
   </data>
-  <data name="NoPermissionAccessPage" xml:space="preserve">
-    <value>Sorry, You don't have permission to access this page.</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
-  <data name="EnableProductConfirmMessage" xml:space="preserve">
-    <value>Are you sure to enable Product getProductName for user getMemberNames ?</value>
+  <data name="SettingRequiredWarning" xml:space="preserve">
+    <value>Setting configuration is required prior to this product betting availability.</value>
   </data>
-  <data name="Enable" xml:space="preserve">
-    <value>Enable</value>
-  </data>
-  <data name="EnableProductPrivateMessage" xml:space="preserve">
-    <value>Dear user,
-We would like to inform that your request to enable the product {0} has been completed. Now you can place bet on the product.
-Thank you</value>
+  <data name="NoSettingWarning" xml:space="preserve">
+    <value>Product settings have not been configured for your account yet, please contact your upline.</value>
   </data>
 </root>

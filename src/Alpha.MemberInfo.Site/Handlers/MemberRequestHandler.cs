@@ -1,20 +1,18 @@
 ﻿namespace Alpha.MemberInfo.Site.Handlers.MemberRequest
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Web.Mvc;
     using MediatR;
     using MemberInfo.Models;
     using Params;
     using Requests.MemberRequest;
     using Services;
+    using ViewModels;
     using ViewModels.MemberRequest;
 
     public class MemberRequestHandler :
         IRequestHandler<ProductQuery, ProductsViewModel>,
-        IRequestHandler<MemberRequestsQuery, MemberRequestViewModel>,
-        IRequestHandler<EnableProductCommand, IEnumerable<Result>>
+        IRequestHandler<MemberRequestsQuery, MemberRequestViewModel>
     {
         private readonly MemberRequestService service;
 
@@ -25,77 +23,48 @@
 
         public ProductsViewModel Handle(ProductQuery message)
         {
-            if (message == null)
-            {
-                throw new ArgumentNullException(nameof(message));
-            }
-
             var products = service.GetPlayForFunProduct(message.CustId);
             var viewModel = new ProductsViewModel(
-                            message.UserSelectedProductId,
-                            BuildProductSelectListItems(new List<int> { message.UserSelectedProductId }, products));
+                message.UserSelectedProductId,
+                BuildProductsViewModel(new List<int> { message.UserSelectedProductId }, products, message));
 
             return viewModel;
         }
 
         public MemberRequestViewModel Handle(MemberRequestsQuery message)
         {
-            if (message == null)
-            {
-                throw new ArgumentNullException(nameof(message));
-            }
-
             var param = new MemberRequestsParam(message.CustId, message.UserSelectedProductId);
             var memberRequestData = service.GetMemberRequest(param);
 
             var viewModel = new MemberRequestViewModel(
-                memberRequestData, 
-                message.UserSelectedProductId, 
-                message.DisabledUserSelectedProduct, 
+                memberRequestData,
+                message.UserSelectedProductId,
+                message.DisabledUserSelectedProduct,
                 message.CustId,
                 message.CanUpdateAccount);
 
             return viewModel;
         }
 
-        public IEnumerable<Result> Handle(EnableProductCommand message)
-        {
-            if (message == null)
-            {
-                throw new ArgumentNullException(nameof(message));
-            }
-
-            var enableResult = service.EnableProduct(new EnableProductParam(
-                message.UserSelectedProductId,
-                message.Members,
-                message.ViewerId,
-                message.ViewerName,
-                message.ViewerSubAccId,
-                message.IP,
-                message.Language));
-
-            return enableResult;
-        }
-
-        protected internal IEnumerable<SelectListItem> BuildProductSelectListItems(
-          IEnumerable<int> userSelectedProductIds,
-          IEnumerable<Product> products)
+        protected internal IEnumerable<ProductViewModel> BuildProductsViewModel(
+            IEnumerable<int> userSelectedProductIds,
+            IEnumerable<Product> products,
+            ProductQuery message)
         {
             if (products == null
                 || !products.Any())
             {
-                return Enumerable.Empty<SelectListItem>();
+                return Enumerable.Empty<ProductViewModel>();
             }
 
             return products.Select(product =>
             {
-                var productSelectListItem = new SelectListItem
-                {
-                    Text = product.Name,
-                    Value = product.Id.ToString(),
-                    Selected = userSelectedProductIds.Contains(product.Id),
-                    Disabled = product.IsDisable
-                };
+                var productSelectListItem = new ProductViewModel(
+                    product.Name,
+                    product.Id.ToString(),
+                    userSelectedProductIds.Contains(product.Id),
+                    product.IsDisable,
+                    service.HasSetting(new ProductSettingParam(product.Id, message.CustId, message.CustName)));
 
                 return productSelectListItem;
             });

@@ -3,18 +3,14 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using AppResources;
     using Constants;
-    using Criteria;
     using Criteria.MemberRequests;
+    using DataAccesses;
     using Fanex.Caching;
     using Fanex.Data.Repository;
     using Models;
     using Models.MemberRequests;
     using Params;
-    using RemotingRef;
-    using Sunplus.Agent.Model.BL.Casino;
-    using Sunplus.Agent.Model.Casino;
 
     public interface MemberRequestService
     {
@@ -22,26 +18,23 @@
 
         IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestsParam param);
 
-        IEnumerable<Result> EnableProduct(EnableProductParam param);
+        bool HasSetting(ProductSettingParam productSettingParam);
     }
 
     public class MemberRequestServiceImpl : MemberRequestService
     {
-        private readonly CasinoService casinoService;
         private readonly IDynamicRepository repository;
-        private readonly CacheRefService cacheRefService;
         private readonly IUser user;
+        private readonly CasinoDataAccess casinoDataAccess;
 
         public MemberRequestServiceImpl(
-            CasinoService casinoService,
             IDynamicRepository dynamicRepository,
             IUser user,
-            CacheRefService cacheRefService)
+            CasinoDataAccess casinoDataAccess)
         {
-            this.cacheRefService = cacheRefService;
-            this.casinoService = casinoService;
             this.user = user;
             repository = dynamicRepository;
+            this.casinoDataAccess = casinoDataAccess;
         }
 
         public IEnumerable<Product> GetPlayForFunProduct(int custId)
@@ -68,77 +61,23 @@
             return repository.Fetch<MemberRequestModel>(criteria).OrderBy(member => member.Username);
         }
 
-        public IEnumerable<Result> EnableProduct(EnableProductParam param)
+        public bool HasSetting(ProductSettingParam productSettingParam)
         {
-            switch (param.ProductId)
+            var hasSettingFuncs = new Dictionary<int, Func<ProductSettingParam, bool>>
             {
-                case ProductId.Casino:
-                    return EnableCasino(param);
-            }
-
-            return Enumerable.Empty<Result>();
-        }
-
-        public IEnumerable<Result> EnableCasino(EnableProductParam param)
-        {
-            var results = new List<Result>();
-
-            foreach (var member in param.Members)
-            {
-                var updateResult = ExcuteCasinoCommand(new EnableCasinoCommand(
-                    member.CustId,
-                    member.Username,
-                    param.ActorId,
-                    param.SubAccId,
-                    param.LoginIP,
-                    param.Language));
-
-                results.Add(updateResult);
-
-                if (updateResult.IsSuccessful)
-                {
-                    SyncCasinoStatus(member.CustId, param.LoginIP, param.ActorId, param.ActorName);
-                    InsertPersonalMessage(member, param.ProductId);
-                }
-            }
-
-            return results;
-        }
-
-        private void InsertPersonalMessage(MemberRequestModel member, int productId)
-        {
-            var message = string.Format(Resources.EnableProductPrivateMessage, cacheRefService.GetProductName(productId));
-            var rawData = repository.Get<PersonalMessage>(new InsertPersonalMessageCriteria(message, PersonalMessageType.EnableProduct));
-            repository.Get<bool>(new InsertPersonalMessageTargetCriteria(rawData.Id, member.CustId, member.Username, false, "0"));
-        }
-
-        internal Result ExcuteCasinoCommand(EnableCasinoCommand command)
-        {
-            repository.Execute(command);
-
-            return new Result
-            {
-                Code = command.ErrCode,
-                Message = command.ErrCode == 0
-                        ? Resources.UpdatedSuccessfully
-                        : $"{command.CustName}: {command.ErrMsg}"
+                [ProductId.Casino] = HasCasinoSetting
             };
+
+            return hasSettingFuncs[productSettingParam.ProductId](productSettingParam);
         }
 
-        internal void SyncCasinoStatus(int custId, string ip, int actorId, string actorName)
+        public bool HasCasinoSetting(ProductSettingParam productSettingParam)
         {
-            var isCustomerExist = casinoService.Customer.CheckCustSetting(custId);
-            if (isCustomerExist)
-            {
-                casinoService.Customer.UpdateCustEnableCasino(
-                    custId,
-                    true,
-                    false,
-                    ip,
-                    actorId,
-                    actorName,
-                    CasinoBO.AgentSystem);
-            }
+            var gameKinds = casinoDataAccess.GameKinds(productSettingParam.CustId);
+            var rngGame = gameKinds.FirstOrDefault(gameKind => gameKind.Id == CasinoGameKind.RNGGame);
+
+            return rngGame != null
+                && (rngGame.PositionTaking != 0 || rngGame.Commission != 0);
         }
 
         internal bool IsShowProduct(int productId)

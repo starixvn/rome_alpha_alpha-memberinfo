@@ -5,13 +5,17 @@
 </div>
 
 <div id="box_header">
-    <div id="status-message-content" class="msg msg-warning display-none"></div>
+    <div class="msg msg-info">
+        @Resources.SettingRequiredWarning
+    </div>
+    <div id="msg-warning" class="msg msg-warning hide">
+        @Resources.SettingRequiredWarning
+    </div>
 
     <form class="form-inline demo-form-inline filter" role="form">
         @ProductSingleSelection.Render(Model.ProductMultiSelectionViewModel)
-
         <div class="form-group">
-            <input id="enable-product" type="button" class="btn-default" value="@Resources.Enable" disabled />
+            <span id="icon-excel" class="icon-excel" title="@Resources.Refresh"></span>
         </div>
     </form>
 </div>
@@ -19,12 +23,8 @@
 <div id="member-requests" action-url="@Url.Action("Members", "MemberRequests")" />
 
 @Html.Hidden("memberRequestRootUrl", Url.Action("Index", "MemberRequests"))
-@Html.Hidden("enableProductUrl", Url.Action("EnableProduct", "MemberRequests"))
-@Html.Hidden("successfullyMessage", Resources.SuccessfullyMessage)
-@Html.Hidden("failyMessage", Resources.FailyMessage)
-@Html.Hidden("warningMessage", Resources.EnabledMemberRequestsWarning)
-@Html.Hidden("enableProductConfirmMessage", Resources.EnableProductConfirmMessage)
-@Html.Hidden("noPermissionAccessPage", Resources.NoPermissionAccessPage)
+@Html.Hidden("disabledProductWarningMessage", Resources.DisabledProductWarning)
+@Html.Hidden("noSettingWarning", Resources.NoSettingWarning)
 
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/member-requests/member-requests")
