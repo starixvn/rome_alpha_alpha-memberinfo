@@ -14,6 +14,10 @@ body {
     margin-bottom: 0;
 }
 
+.icon-refresh, .icon-edit {
+    margin-right: 5px;
+}
+
 #tbl-report {
     //margin-top: 12px;
     width: 750px;
@@ -50,6 +54,7 @@ input[type="button"][disabled] {
     display: table;
     width: 100%;
     clear: both;
+    padding-top: 0;
 
     .multiselect .multiselect-selected-text {
         width: 130px;
@@ -89,6 +94,9 @@ input[type="button"][disabled] {
     }
 
     .form-group {
+        margin-bottom: 0;
+        padding-bottom: 0;
+
         .btn-submit, .btn-group {
             float: left;
         }
@@ -97,6 +105,24 @@ input[type="button"][disabled] {
             //margin-bottom: 0;
             .ui_nexdatepicker_edit_field, .ui_nexdatepicker_lbl_field {
                 margin-bottom: 15px;
+            }
+        }
+
+        &.pull-right {
+            margin-right: 0;
+
+            .btn-refresh {
+                margin-right: 0;
+                display: inline-block;
+                line-height: 28px;
+                padding-left: 7px;
+                padding-right: 10px;
+            }
+
+            .icon-refresh2 {
+                font-size: 20px;
+                vertical-align: middle;
+                margin-right: 3px;
             }
         }
     }
@@ -118,4 +144,9 @@ input[type="button"][disabled] {
 
 .edit-setting {
     cursor: pointer;
+
+    &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
