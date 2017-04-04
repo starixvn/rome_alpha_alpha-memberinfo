@@ -8,6 +8,7 @@
   {
     "outputFileName": "assets/bundles/member-requests/member-requests.js",
     "inputFiles": [
+      "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/member-requests/member-requests.js"
     ]
   }

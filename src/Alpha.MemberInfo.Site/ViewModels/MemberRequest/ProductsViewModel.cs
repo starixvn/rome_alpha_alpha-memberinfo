@@ -6,12 +6,16 @@
     public class ProductsViewModel
     {
         public ProductsViewModel(
+            int viewId,
             int selectedProductId,
             IEnumerable<ProductViewModel> products)
         {
+            ViewerId = viewId;
             Products = products;
             SelectedProductId = selectedProductId;
         }
+
+        public int ViewerId { get; }
 
         public int SelectedProductId { get; }
 

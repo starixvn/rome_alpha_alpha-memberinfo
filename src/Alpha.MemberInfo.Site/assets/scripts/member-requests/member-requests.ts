@@ -1,8 +1,10 @@
-﻿"use strict";
+﻿/// <reference path="../components/single-selection-dropdown.ts" />
+"use strict";
 
 class MemberRequests {
     $: JQueryStatic;
     topWindow: any;
+    singleSelectionDropdownComponent: SingleSelectionDropdownComponent;
 
     $dropdownProduct: JQuery;
     $msgWarning: JQuery;
@@ -13,20 +15,28 @@ class MemberRequests {
     $boxContent: JQuery;
 
     $accountInfoHeader: JQuery;
+    $sideBar: JQuery;
     $accountInfoContent: JQuery;
+    viewerId: number;
 
-    constructor($: JQueryStatic, topWindow: any) {
+    constructor(
+        $: JQueryStatic,
+        topWindow: any,
+        singleSelectionDropdownComponent: SingleSelectionDropdownComponent) {
         this.$ = $;
         this.topWindow = topWindow;
+        this.singleSelectionDropdownComponent = singleSelectionDropdownComponent;
     }
 
     init = () => {
         this.cacheDOMElements();
+        this.singleSelectionDropdownComponent.render(
+            new SingleSelectionDropdownOption("dropdown-product", "UserSelectedProductId", this.changeProduct));
+
         this.registerEvents();
         this.changeProduct();
     };
     registerEvents = () => {
-        this.$dropdownProduct.change(this.changeProduct);
         this.$("#icon-refresh").click(this.loadMemberRequests);
     };
 
@@ -41,7 +51,8 @@ class MemberRequests {
         this.$boxContent = this.$("#box-content");
 
         this.$accountInfoHeader = this.topWindow.$("#account-info-header");
-        this.$accountInfoContent = this.topWindow.$("#accountinfo-content").contents();
+        this.$sideBar = this.topWindow.$(".sidebar");
+        this.viewerId = this.$("#viewerId").val();
     };
     changeProduct = () => {
         this.updateWarningMessage();
@@ -86,33 +97,45 @@ class MemberRequests {
     };
     getSelectedProduct = () => this.$dropdownProduct.find("option:selected");
     registerEventsForTable = () => {
-        let $infoLinks = this.$(".view-member-info-link");
-        $infoLinks.on("click", this.viewMemberInfo);
-
-        let $editSettingLink = this.$(".action-edit-setting");
         let self = this;
+
+        let $infoLinks = this.$(".view-member-info-link");
+        $infoLinks.on("click", function (event: any) {
+            self.viewMemberInfo(self.$(this));
+
+            event.stopPropagation();
+        });
+
+        let $editSettingLink = this.$(".edit-setting:not([disabled])");
         $editSettingLink.on("click", function () {
             let $this = self.$(this);
-            this.editSetting($this.data("custId"), $this.data("username"));
+            self.editSetting($this.data("custid"), $this.data("username"));
         });
     };
-    viewMemberInfo = (event: any) => {
-        let username = this.$(this).parent().text();
-        this.topWindow.menuBar.collapseLeftPanel();
+    viewMemberInfo = (element: JQuery) => {
+        let self = this;
+
+        let username = element.text();
+
+        if (this.$sideBar.hasClass("collapsed") ||
+            this.$sideBar.hasClass("hidden-mobile")) {
+            this.topWindow.menuBar.collapseLeftPanel();
+        }
+
         this.$accountInfoHeader.click();
         setTimeout(function () {
-            this.$accountInfoContent.find("#txtUsername").val(username);
-            this.$accountInfoContent.find(".icon-search").click();
+            self.$accountInfoContent = self.topWindow.$("#accountinfo-content").contents();
+            self.$accountInfoContent.find("#txtUsername").val(username);
+            self.$accountInfoContent.find(".icon-search").click();
         }, 300);
-
-        event.stopPropagation();
     };
     editSetting = (custId: number, username: string) => {
-
+        var url = "CustomerSetting/Casino/Member/EditMember/" + custId + "/ " + this.viewerId + "?username=" + username;
+        this.topWindow.popupManager.openByRelativeUrl(url, "", 1160);
     };
 }
 
-const memberRequests = new MemberRequests($, window.top);
+const memberRequests = new MemberRequests($, window.top, new SingleSelectionDropdownComponent($));
 
 $(() => {
     memberRequests.init();

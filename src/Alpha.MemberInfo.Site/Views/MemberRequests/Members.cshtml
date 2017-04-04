@@ -26,12 +26,17 @@
                         </div>
                     </td>
                     <td class="text-center">
-                        <span data-custId="@memberRequest.CustId"
+                        <span data-custid="@memberRequest.CustId"
                               data-username="@memberRequest.Username"
-                              class="action-edit-setting @(memberRequest.Sync ? "icon-edit" : "icon-sync")"
-                              @(Model.DisabledUserSelectedProduct || !Model.CanUpdateAccount ? "disabled" : string.Empty)>
+                              class="edit-setting @(memberRequest.Sync ? "icon-edit" : "icon-sync") "
+                              @(Model.CanEdit ? string.Empty : "disabled")>
                         </span>
-                        @(memberRequest.Sync ? Resources.Edit : Resources.Sync))
+                        <span data-custid="@memberRequest.CustId"
+                              data-username="@memberRequest.Username"
+                              class="edit-setting"
+                              @(Model.CanEdit ? string.Empty : "disabled")>
+                            @(memberRequest.Sync ? Resources.Edit : Resources.Sync)
+                        </span>
                     </td>
 
                     @HtmlHelpers.RenderNumberCell(memberRequest.Balance, "text-right")

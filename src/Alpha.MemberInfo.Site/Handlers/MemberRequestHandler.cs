@@ -25,6 +25,7 @@
         {
             var products = service.GetPlayForFunProduct(message.CustId);
             var viewModel = new ProductsViewModel(
+                message.ViewerId,
                 message.UserSelectedProductId,
                 BuildProductsViewModel(new List<int> { message.UserSelectedProductId }, products, message));
 

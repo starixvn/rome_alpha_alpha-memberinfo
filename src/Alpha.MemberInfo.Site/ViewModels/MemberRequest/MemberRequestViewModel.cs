@@ -28,5 +28,7 @@
         public bool CanUpdateAccount { get; }
 
         public bool DisabledUserSelectedProduct { get; }
+
+        public bool CanEdit => !DisabledUserSelectedProduct && CanUpdateAccount;
     }
 }

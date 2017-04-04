@@ -24,6 +24,7 @@
 @Html.Hidden("memberRequestUrl", Url.Action("Members", "MemberRequests"))
 @Html.Hidden("disabledProductWarningMessage", Resources.DisabledProductWarning)
 @Html.Hidden("noSettingWarning", Resources.NoSettingWarning)
+@Html.Hidden("viewerId", Model.ViewerId)
 
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/member-requests/member-requests")

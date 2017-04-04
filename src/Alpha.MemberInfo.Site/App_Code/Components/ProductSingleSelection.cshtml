@@ -10,9 +10,7 @@
                         data-productname="@product.Text"
                         data-disabled="@product.Disabled"
                         data-has-setting="@product.HasSetting"
-                        @(product.Selected ? " selected=\"selected\"" : string.Empty)>
-                    @product.Text
-                </option>
+                        @(product.Selected ? " selected=\"selected\"" : string.Empty)>@product.Text</option>
             }
         </select>
         <input type="hidden" name="UserSelectedProductId" id="UserSelectedProductId" value="@model.UserSelectedProductIds" />
