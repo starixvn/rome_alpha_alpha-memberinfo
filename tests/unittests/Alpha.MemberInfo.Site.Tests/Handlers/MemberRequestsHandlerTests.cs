@@ -28,16 +28,6 @@
         }
 
         [Fact]
-        public void HandlerProductQuery_NullMessage_ThrowsArgumentNullException()
-        {
-            // Arrange
-            ProductQuery nullMessage = null;
-
-            // Act &  Assert
-            Assert.Throws<ArgumentNullException>(() => handler.Handle(nullMessage));
-        }
-
-        [Fact]
         public void HandlerProductQuery_CallSupportedProductService()
         {
             // Arrange
@@ -50,16 +40,6 @@
             service
                 .Received()
                 .GetPlayForFunProduct(Arg.Is<int>(inputCustId => inputCustId.Equals(custId)));
-        }
-
-        [Fact]
-        public void HandlerMemberRequestsQuery_NullMessage_ThrowsArgumentNullException()
-        {
-            // Arrange
-            MemberRequestsQuery nullMessage = null;
-
-            // Act &  Assert
-            Assert.Throws<ArgumentNullException>(() => handler.Handle(nullMessage));
         }
 
         [Fact]
