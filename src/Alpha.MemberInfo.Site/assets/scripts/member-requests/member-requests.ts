@@ -52,7 +52,7 @@ class MemberRequests {
 
         this.$accountInfoHeader = this.topWindow.$("#account-info-header");
         this.$sideBar = this.topWindow.$(".sidebar");
-        this.viewerId = this.$("#viewerId").val();
+        this.viewerId = parseInt(this.$("#viewerId").val(), 0);
     };
     changeProduct = () => {
         this.updateWarningMessage();
@@ -130,7 +130,7 @@ class MemberRequests {
         }, 300);
     };
     editSetting = (custId: number, username: string) => {
-        var url = "CustomerSetting/Casino/Member/EditMember/" + custId + "/ " + this.viewerId + "?username=" + username;
+        var url = "CustomerSetting/Casino/Member/EditMember/" + custId + "/" + this.viewerId + "?username=" + username;
         this.topWindow.popupManager.openByRelativeUrl(url, "", 1160);
         this.topWindow.clearPopupSubtitle();
     };
