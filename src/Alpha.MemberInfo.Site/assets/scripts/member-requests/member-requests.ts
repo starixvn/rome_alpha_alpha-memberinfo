@@ -8,6 +8,7 @@ class MemberRequests {
 
     $dropdownProduct: JQuery;
     $msgWarning: JQuery;
+    $msgInfo: JQuery;
     disabledProductWarningMessage: string;
     noSettingWarning: string;
 
@@ -38,13 +39,14 @@ class MemberRequests {
         this.changeProduct();
     };
     registerEvents = () => {
-        this.$("#icon-refresh").click(this.loadMemberRequests);
+        this.$("#icon-refresh").click(this.refreshPage);
     };
 
     cacheDOMElements = () => {
         this.$dropdownProduct = this.$("#dropdown-product");
 
         this.$msgWarning = this.$("#msg-warning");
+        this.$msgInfo = this.$("#msg-info");
         this.disabledProductWarningMessage = this.$("#disabledProductWarningMessage").val();
         this.noSettingWarning = this.$("#noSettingWarning").val();
 
@@ -71,6 +73,7 @@ class MemberRequests {
             this.$msgWarning.html(this.disabledProductWarningMessage).removeClass("hide");
         } else if (!hasSetting) {
             this.$msgWarning.html(this.noSettingWarning).removeClass("hide");
+            this.$msgInfo.addClass("hide");
         } else {
             this.$msgWarning.addClass("hide");
         }
@@ -135,6 +138,9 @@ class MemberRequests {
         var url = this.editSettingUrl + "/" + custId + "/" + this.viewerId + "?username=" + username;
         this.topWindow.popupManager.openByRelativeUrl(url, "", 1160);
         this.topWindow.clearPopupSubtitle();
+    };
+    refreshPage = () => {
+        location.reload();
     };
 }
 

@@ -35,6 +35,6 @@
             }
         }
 
-        public static string OldMainAppPath => ConfigurationManager.AppSettings["OldMainAppPath"];
+        public static string OldMainAppPath => GetConfigValue("OldMainAppPath");
     }
 }
