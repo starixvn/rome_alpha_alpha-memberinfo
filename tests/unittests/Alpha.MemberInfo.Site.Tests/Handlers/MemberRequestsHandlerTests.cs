@@ -17,12 +17,10 @@
     public class MemberRequestsHandlerTests
     {
         private readonly MemberRequestService service;
-        private readonly MemberRequestHandler handler;
 
         public MemberRequestsHandlerTests(UserFixture userFixture)
         {
             service = Substitute.For<MemberRequestService>();
-            handler = new MemberRequestHandler(service);
             Thread.CurrentThread.CurrentCulture = new CultureInfo(LanguageCode.English);
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
         }
