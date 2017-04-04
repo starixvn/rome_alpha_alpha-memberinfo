@@ -132,6 +132,7 @@ class MemberRequests {
     editSetting = (custId: number, username: string) => {
         var url = "CustomerSetting/Casino/Member/EditMember/" + custId + "/ " + this.viewerId + "?username=" + username;
         this.topWindow.popupManager.openByRelativeUrl(url, "", 1160);
+        this.topWindow.clearPopupSubtitle();
     };
 }
 
