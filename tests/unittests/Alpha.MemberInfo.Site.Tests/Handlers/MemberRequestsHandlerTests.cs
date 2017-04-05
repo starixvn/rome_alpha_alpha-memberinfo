@@ -1,15 +1,21 @@
 ﻿namespace Alpha.MemberInfo.Site.Tests.Handlers.MemberRequests
 {
-    using System;
+    using System.Collections.Generic;
     using System.Globalization;
+    using System.Linq;
     using System.Threading;
     using Constants;
+    using Extensions;
     using Fixtures;
+    using MemberInfo.Models;
+    using MemberInfo.Models.MemberRequests;
     using NSubstitute;
     using Params;
     using Requests.MemberRequest;
     using Services;
     using Site.Handlers.MemberRequest;
+    using ViewModels;
+    using ViewModels.MemberRequest;
     using Xunit;
 
     [Trait("Category", "MemberRequests")]
@@ -17,44 +23,115 @@
     public class MemberRequestsHandlerTests
     {
         private readonly MemberRequestService service;
+        private readonly MemberRequestHandler handler;
+        private readonly IUser user;
 
         public MemberRequestsHandlerTests(UserFixture userFixture)
         {
+            user = userFixture.User;
             service = Substitute.For<MemberRequestService>();
+            service.HasSetting(Arg.Any<ProductSettingParam>()).Returns(true);
+            service.GetMemberRequest(Arg.Any<MemberRequestsParam>()).Returns(Enumerable.Empty<MemberRequestModel>());
+
+            handler = new MemberRequestHandler(service);
+
             Thread.CurrentThread.CurrentCulture = new CultureInfo(LanguageCode.English);
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
         }
 
         [Fact]
-        public void HandlerProductQuery_CallSupportedProductService()
+        public void HandlerProductQuery_Always_ReturnsCorrectViewModel()
         {
             // Arrange
-            int custId = 12;
+            var message = new ProductQuery(user)
+            {
+                UserSelectedProductId = ProductId.Casino
+            };
+
+            service.GetPlayForFunProduct(Arg.Any<int>()).Returns(new List<Product>
+            {
+                new Product(ProductId.Casino, "Casino", false)
+            });
+
+            var expectedViewModel = new ProductsViewModel(
+                message.ViewerId,
+                message.UserSelectedProductId,
+                new List<ProductViewModel>
+                {
+                    new ProductViewModel("Casino", ProductId.Casino.ToString(), true, false, true)
+                });
 
             // Act
-            service.GetPlayForFunProduct(custId);
+            var actualViewModel = handler.Handle(message);
 
             // Assert
-            service
-                .Received()
-                .GetPlayForFunProduct(Arg.Is<int>(inputCustId => inputCustId.Equals(custId)));
+            AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
 
         [Fact]
-        public void HandlerMemberRequestsQuery_CallGetMemberRequestsService()
+        public void HandlerProductQuery_EmptyProduct_ReturnsCorrectViewModel()
         {
             // Arrange
-            MemberRequestsParam param = new MemberRequestsParam(12, 6);
+            var message = new ProductQuery(user);
+
+            service.GetPlayForFunProduct(Arg.Any<int>()).Returns(Enumerable.Empty<Product>());
+
+            var expectedViewModel = new ProductsViewModel(
+                message.ViewerId,
+                message.UserSelectedProductId,
+                Enumerable.Empty<ProductViewModel>());
 
             // Act
-            service.GetMemberRequest(param);
+            var actualViewModel = handler.Handle(message);
 
             // Assert
-            service
-                .Received()
-                .GetMemberRequest(Arg.Is<MemberRequestsParam>(
-                    inputParam => inputParam.CustId.Equals(param.CustId)
-                    && inputParam.ProductId.Equals(param.ProductId)));
+            AssertExtension.Equal(expectedViewModel, actualViewModel);
+        }
+
+        [Fact]
+        public void HandlerProductQuery_NullProduct_ReturnsCorrectViewModel()
+        {
+            // Arrange
+            var message = new ProductQuery(user);
+
+            IEnumerable<Product> products = null;
+            service.GetPlayForFunProduct(Arg.Any<int>()).Returns(products);
+
+            var expectedViewModel = new ProductsViewModel(
+                message.ViewerId,
+                message.UserSelectedProductId,
+                Enumerable.Empty<ProductViewModel>());
+
+            // Act
+            var actualViewModel = handler.Handle(message);
+
+            // Assert
+            AssertExtension.Equal(expectedViewModel, actualViewModel);
+        }
+
+        [Fact]
+        public void HandlerMemberRequestsQuery_Always_ReturnsCorrectViewModel()
+        {
+            // Arrange
+            var message = new MemberRequestsQuery(user)
+            {
+                UserSelectedProductId = ProductId.Casino,
+                DisabledUserSelectedProduct = false,
+                CustId = 1
+            };
+
+            var expectedViewModel = new MemberRequestViewModel(
+                Enumerable.Empty<MemberRequestModel>(),
+                ProductId.Casino,
+                false,
+                1,
+                message.CanUpdateAccount);
+
+            // Act
+            var actualViewModel = handler.Handle(message);
+
+            // Assert
+            AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
     }
 }

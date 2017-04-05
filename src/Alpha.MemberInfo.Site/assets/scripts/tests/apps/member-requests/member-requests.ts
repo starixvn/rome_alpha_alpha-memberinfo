@@ -1,0 +1,311 @@
+﻿describe("MemberRequests", () => {
+    const jQueryFake = $;
+    const singleSelectionDropdownComponent = new SingleSelectionDropdownComponent(jQueryFake);
+    let topWindow: any;
+
+    let memberRequests: MemberRequests;
+
+    let template = {
+        normal: `<body>
+                    <select id="dropdown-product">
+                        <option value="6"
+                                data-productname="Casino"
+                                data-disabled="false"
+                                data-has-setting="true"></option>
+                    </select>
+                    <button id="icon-refresh"></button>
+                    <div id="msg-warning"></div>
+                    <div id="msg-info"></div>
+                    <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                    <input id="noSettingWarning" value="noSettingWarning" />
+                    <input id="memberRequestUrl" value="memberRequestUrl" />
+                    <div id="box-content"></div>
+                    <div id="account-info-header"></div>
+                    <div class="sidebar"></div>
+                    <input id="viewerId" value="1" />
+                    <input id="editSettingUrl" value="editSettingUrl" />
+                 </body>`
+    };
+
+    beforeEach(() => {
+        topWindow = {
+            $: jQueryFake
+        };
+
+        memberRequests = new MemberRequests(jQueryFake, topWindow, singleSelectionDropdownComponent);
+
+        spyOn(singleSelectionDropdownComponent, "render");
+    });
+
+    describe("_init", () => {
+        beforeEach(() => {
+            // arrange
+            setFixtures(template.normal);
+            spyOn(memberRequests, "cacheDOMElements");
+            spyOn(memberRequests, "registerEvents");
+            spyOn(memberRequests, "changeProduct");
+
+            // act
+            memberRequests.init();
+        });
+
+        it("_Always_Calls cacheDOMElements", () => {
+            expect(memberRequests.cacheDOMElements).toHaveBeenCalled();
+        });
+        it("_Always_Calls registerEvents", () => {
+            expect(memberRequests.registerEvents).toHaveBeenCalled();
+        });
+        it("_Always_Calls changeProduct", () => {
+            expect(memberRequests.changeProduct).toHaveBeenCalled();
+        });
+        it("_Always_Calls singleSelectionDropdownComponent.render", () => {
+            expect(singleSelectionDropdownComponent.render).toHaveBeenCalledWith(
+                new SingleSelectionDropdownOption("dropdown-product", "UserSelectedProductId", memberRequests.changeProduct));
+        });
+    });
+    describe("_registerEvents", () => {
+        beforeEach(() => {
+            // arrange
+            setFixtures(template.normal);
+            spyOn(memberRequests, "refreshPage");
+
+            // act
+            memberRequests.registerEvents();
+        });
+        it("_Always_Bind refresh event", () => {
+            // act
+            memberRequests.$("#icon-refresh").click();
+
+            // assert
+            expect(memberRequests.refreshPage).toHaveBeenCalled();
+        });
+    });
+    describe("_cacheDOMElements", () => {
+        it("_Always_All neccessary elements are cached", () => {
+            // arrange
+            setFixtures(template.normal);
+
+            // act
+            memberRequests.cacheDOMElements();
+
+            // assert
+            expect(memberRequests.$dropdownProduct).toBeDefined();
+            expect(memberRequests.$msgWarning).toBeDefined();
+            expect(memberRequests.$msgInfo).toBeDefined();
+
+            expect(memberRequests.disabledProductWarningMessage).toBe("disabledProductWarningMessage");
+            expect(memberRequests.noSettingWarning).toBe("noSettingWarning");
+            expect(memberRequests.memberRequestUrl).toBe("memberRequestUrl");
+
+            expect(memberRequests.$boxContent).toBeDefined();
+            expect(memberRequests.$accountInfoHeader).toBeDefined();
+            expect(memberRequests.$sideBar).toBeDefined();
+
+            expect(memberRequests.viewerId).toBe(1);
+            expect(memberRequests.editSettingUrl).toBe("editSettingUrl");
+        });
+    });
+
+    describe("_changeProduct", () => {
+        beforeEach(() => {
+            // arrange
+            setFixtures(template.normal);
+            spyOn(memberRequests, "updateWarningMessage");
+            spyOn(memberRequests, "loadMemberRequests");
+
+            // act
+            memberRequests.changeProduct();
+        });
+        it("_Always_Calls updateWarningMessage", () => {
+            // assert
+            expect(memberRequests.updateWarningMessage).toHaveBeenCalled();
+        });
+        it("_Always_Calls loadMemberRequests", () => {
+            // assert
+            expect(memberRequests.loadMemberRequests).toHaveBeenCalled();
+        });
+    });
+    describe("_convertAttributeToBool", () => {
+        let convertAttributeToBoolTestCase = (attributeValue: string, expectedValue: boolean) => {
+            // act
+            let actualValue = memberRequests.convertAttributeToBool(attributeValue);
+
+            // assert
+            expect(actualValue).toEqual(expectedValue);
+        };
+
+        it("_Null Attribute -> Returns False", () => {
+            convertAttributeToBoolTestCase(null, false);
+        });
+        it("_Empty Value -> Returns False", () => {
+            convertAttributeToBoolTestCase("", false);
+        });
+        it("_Not True Value -> Returns False", () => {
+            convertAttributeToBoolTestCase("False", false);
+            convertAttributeToBoolTestCase(" ", false);
+            convertAttributeToBoolTestCase("  ", false);
+        });
+        it("_True Value -> Returns True", () => {
+            convertAttributeToBoolTestCase("true", true);
+            convertAttributeToBoolTestCase("True", true);
+        });
+    });
+    describe("_updateWarningMessage", () => {
+        it("_Disable Product And Has Setting_Show Message Warning and Hide Message Info", () => {
+            // arrange
+            setFixtures(`<body>
+                            <select id="dropdown-product">
+                                <option value="6"
+                                        data-productname="Casino"
+                                        data-disabled="true"
+                                        data-has-setting="true"></option>
+                            </select>
+                             <div id="msg-warning"></div>
+                             <div id="msg-info"></div>
+                            <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                          </body>`);
+            memberRequests.cacheDOMElements();
+
+            // act
+            memberRequests.updateWarningMessage();
+
+            // assert
+            expect(memberRequests.$msgWarning.html()).toBe("disabledProductWarningMessage");
+            expect(memberRequests.$msgWarning.hasClass("hide")).toBeFalsy();
+            expect(memberRequests.$msgInfo.hasClass("hide")).toBeTruthy();
+        });
+        it("_Disable Product And Not Have Setting_Show Message Warning and Hide Message Info", () => {
+            // arrange
+            setFixtures(`<body>
+                            <select id="dropdown-product">
+                                <option value="6"
+                                        data-productname="Casino"
+                                        data-disabled="true"
+                                        data-has-setting="false"></option>
+                            </select>
+                             <div id="msg-warning"></div>
+                             <div id="msg-info"></div>
+                            <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                          </body>`);
+            memberRequests.cacheDOMElements();
+
+            // act
+            memberRequests.updateWarningMessage();
+
+            // assert
+            expect(memberRequests.$msgWarning.html()).toBe("disabledProductWarningMessage");
+            expect(memberRequests.$msgWarning.hasClass("hide")).toBeFalsy();
+            expect(memberRequests.$msgInfo.hasClass("hide")).toBeTruthy();
+        });
+        it("_Enable Product And Has Setting_Show Message Info and Hide Message Warning", () => {
+            // arrange
+            setFixtures(`<body>
+                            <select id="dropdown-product">
+                                <option value="6"
+                                        data-productname="Casino"
+                                        data-disabled="false"
+                                        data-has-setting="true"></option>
+                            </select>
+                             <div id="msg-warning"></div>
+                             <div id="msg-info"></div>
+                            <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                          </body>`);
+            memberRequests.cacheDOMElements();
+
+            // act
+            memberRequests.updateWarningMessage();
+
+            // assert
+            expect(memberRequests.$msgWarning.hasClass("hide")).toBeTruthy();
+            expect(memberRequests.$msgInfo.hasClass("hide")).toBeFalsy();
+        });
+        it("_Enable Product And Not Have Setting_Show Message Warning and Hide Message Info", () => {
+            // arrange
+            setFixtures(`<body>
+                            <select id="dropdown-product">
+                                <option value="6"
+                                        data-productname="Casino"
+                                        data-disabled="false"
+                                        data-has-setting="false"></option>
+                            </select>
+                             <div id="msg-warning"></div>
+                             <div id="msg-info"></div>
+                             <input id="noSettingWarning" value="noSettingWarning" />
+                          </body>`);
+            memberRequests.cacheDOMElements();
+
+            // act
+            memberRequests.updateWarningMessage();
+
+            // assert
+            expect(memberRequests.$msgWarning.html()).toBe("noSettingWarning");
+            expect(memberRequests.$msgWarning.hasClass("hide")).toBeFalsy();
+            expect(memberRequests.$msgInfo.hasClass("hide")).toBeTruthy();
+        });
+    });
+    describe("_loadMemberRequests", () => {
+        it("_Always_Block UI and Call Ajax", () => {
+            // arrange
+            setFixtures(template.normal);
+            spyOn(jQueryFake, "blockUI");
+            spyOn(jQueryFake, "ajax");
+            memberRequests.cacheDOMElements();
+
+            // act
+            memberRequests.loadMemberRequests();
+
+            // assert
+            expect(jQueryFake.blockUI).toHaveBeenCalled();
+            expect(jQueryFake.ajax).toHaveBeenCalledWith({
+                method: "GET",
+                data: {
+                    UserSelectedProductId: "6",
+                    DisabledUserSelectedProduct: false
+                },
+                url: memberRequests.memberRequestUrl,
+                cache: false,
+                success: memberRequests.renderMemberRequests
+            });
+        });
+    });
+    describe("_renderMemberRequests", () => {
+        beforeEach(() => {
+            // arrange
+            setFixtures(template.normal);
+            spyOn(memberRequests, "registerEventsForTable");
+            spyOn(jQueryFake, "unblockUI");
+            memberRequests.cacheDOMElements();
+
+            // act
+            memberRequests.renderMemberRequests("Member Request Content");
+        });
+        it("_Always_Sets Content to box Content", () => {
+            // assert
+            expect(memberRequests.$boxContent.html()).toBe("Member Request Content");
+        });
+        it("_Always_Calls registerEventsForTable", () => {
+            // assert
+            expect(memberRequests.registerEventsForTable).toHaveBeenCalled();
+        });
+        it("_Always_Calls $.unblockUI", () => {
+            // assert
+            expect(jQueryFake.unblockUI).toHaveBeenCalled();
+        });
+    });
+    describe("_getSelectedProduct", () => {
+        it("Always_Returns correct value", () => {
+            // arrange
+            setFixtures(template.normal);
+            memberRequests.cacheDOMElements();
+            let expectedValue = "6";
+
+            // act
+            let actualValue = memberRequests.getSelectedProduct();
+
+            // assert
+            expect(actualValue.val()).toBe(expectedValue);
+        });
+    });
+    describe("_registerEventsForTable", () => {
+    });
+});

@@ -51,5 +51,33 @@
             // Assert
             Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);
         }
+
+        [Fact]
+        public void Members_Always_CallsMemberRequestsQuery()
+        {
+            // Arrange
+            var message = new MemberRequestsQuery(userFixture.User);
+
+            // Act
+            controller.Members(message);
+
+            // Assert
+            mediator.Received().Send(message);
+        }
+
+        [Fact]
+        public void Members_QueryIsNotValid_ReturnInvalidPageView()
+        {
+            // Arrange
+            var user = Substitute.For<IUser>();
+            user.Id.Returns(0);
+            var message = new MemberRequestsQuery(user);
+
+            // Act
+            var actualView = controller.Members(message) as ViewResult;
+
+            // Assert
+            Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);
+        }
     }
 }

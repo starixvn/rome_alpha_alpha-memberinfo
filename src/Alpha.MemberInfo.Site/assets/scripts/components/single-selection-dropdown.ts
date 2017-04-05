@@ -1,7 +1,4 @@
-﻿
-
-
-"use strict";
+﻿"use strict";
 interface JQuery {
     multiselect(option: any): void;
 }

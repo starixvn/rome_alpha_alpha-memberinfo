@@ -50,8 +50,11 @@ namespace Alpha.MemberInfo.Tests.Configurations
                 ["StoreProcedurePath"] = storeProcedurePath
             };
 
+            // Act
+            Exception actualExcelption = ExceptionRecorder.Record(() => AppSettings.Verify());
+
             // Act & Assert
-            Assert.Throws<ConfigurationErrorsException>(() => AppSettings.Verify());
+            Assert.True(actualExcelption is ConfigurationErrorsException);
         }
 
         [Fact]

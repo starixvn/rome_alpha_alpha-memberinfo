@@ -1,0 +1,40 @@
+﻿{
+  "Framework": "jasmine",
+  "EnableCodeCoverage": "true",
+  "Compile": {
+    "Mode": "External",
+    "Extensions": [ ".ts" ]
+  },
+  "CodeCoverageExcludes": [
+    "*\\libs\\*"
+  ],
+  "CodeCoverageIgnores": [
+    "*\\tests\\*"
+  ],
+
+  "CodeCoverageExecutionMode": "Manual",
+  "References": [
+    { "Path": "libs/jquery/jquery-1.11.3.js" },
+    { "Path": "libs/jasmine.js" },
+    { "Path": "libs/jasmine-jquery.js" },
+
+    { "Path": "libs/bootstrap/dropdown.js" },
+    { "Path": "libs/bootstrap/modal.js" },
+    { "Path": "libs/jquery/blockUI.js" },
+
+    { "Path": "libs/bootstrap/multiselect.js" },
+
+    { "Path": "../components/single-selection-dropdown.ts" },
+    { "Path": "../member-requests/member-requests.ts" }
+  ],
+  "Tests": [
+    {
+      "Path": "apps/components",
+      "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
+    },
+    {
+      "Path": "apps/member-requests",
+      "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
+    }
+  ]
+}

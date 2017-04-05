@@ -71,11 +71,13 @@ class MemberRequests {
 
         if (isDisable) {
             this.$msgWarning.html(this.disabledProductWarningMessage).removeClass("hide");
+            this.$msgInfo.addClass("hide");
         } else if (!hasSetting) {
             this.$msgWarning.html(this.noSettingWarning).removeClass("hide");
             this.$msgInfo.addClass("hide");
         } else {
             this.$msgWarning.addClass("hide");
+            this.$msgInfo.removeClass("hide");
         }
     };
     loadMemberRequests = () => {

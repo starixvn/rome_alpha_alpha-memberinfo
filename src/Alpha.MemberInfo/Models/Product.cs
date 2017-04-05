@@ -1,14 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Models
 {
-    using System;
-
     public class Product
     {
-        public Product()
-        {
-        }
-
-        public Product(int id, string name, bool isDisable)
+        public Product(byte id, string name, bool isDisable)
         {
             Id = id;
             Name = name;

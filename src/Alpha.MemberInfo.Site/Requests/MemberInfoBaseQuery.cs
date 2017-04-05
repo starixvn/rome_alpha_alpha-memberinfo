@@ -31,10 +31,6 @@
 
         public int ViewerId => viewer.Id;
 
-        public int ViewerSubAccId => viewer.SubAccId;
-
-        public string ViewerName => viewer.Name;
-
         public bool CanUpdateAccount => viewer.CanUpdateAccount;
 
         public byte ViewerLevelId => viewer.LevelId;
@@ -42,8 +38,6 @@
         public virtual UserLevel ActorLevel => Enumeration.FromValue<UserLevel>(ViewerLevelId);
 
         public string Language => viewer.Language;
-
-        public string IP => viewer.IP;
 
         public virtual bool IsValid()
             => CustId > 0

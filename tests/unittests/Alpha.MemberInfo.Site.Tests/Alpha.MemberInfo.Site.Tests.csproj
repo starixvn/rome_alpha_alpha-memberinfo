@@ -71,8 +71,8 @@
       <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NSubstitute, Version=2.0.2.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
@@ -158,10 +158,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collections\AnyValueCreatorCollection.cs" />
     <Compile Include="Collections\UserCollection.cs" />
+    <Compile Include="Constants\ProductId.cs" />
     <Compile Include="Controllers\MemberRequestsControllerTests.cs" />
-    <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
+    <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Fixtures\UserFixture.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Handlers\MemberRequestsHandlerTests.cs" />
