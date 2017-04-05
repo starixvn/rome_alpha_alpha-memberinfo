@@ -108,9 +108,7 @@ class MemberRequests {
 
         let $infoLinks = this.$(".view-member-info-link");
         $infoLinks.on("click", function (event: any) {
-            self.viewMemberInfo(self.$(this));
-
-            event.stopPropagation();
+            self.viewMemberInfo(event, self.$(this));
         });
 
         let $editSettingLink = this.$(".edit-setting:not([disabled])");
@@ -119,7 +117,7 @@ class MemberRequests {
             self.editSetting($this.data("custid"), $this.data("username"));
         });
     };
-    viewMemberInfo = (element: JQuery) => {
+    viewMemberInfo = (event: any, element: JQuery) => {
         let self = this;
 
         let username = element.text();
@@ -135,6 +133,8 @@ class MemberRequests {
             self.$accountInfoContent.find("#txtUsername").val(username);
             self.$accountInfoContent.find(".icon-search").click();
         }, 300);
+
+        event.stopPropagation();
     };
     editSetting = (custId: number, username: string) => {
         var url = this.editSettingUrl + "/" + custId + "/" + this.viewerId + "?username=" + username;

@@ -7,6 +7,7 @@
 
     let template = {
         normal: `<body>
+                    <iframe id="accountinfo-content"></iframe>
                     <select id="dropdown-product">
                         <option value="6"
                                 data-productname="Casino"
@@ -19,17 +20,120 @@
                     <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
                     <input id="noSettingWarning" value="noSettingWarning" />
                     <input id="memberRequestUrl" value="memberRequestUrl" />
-                    <div id="box-content"></div>
+                    <div id="box-content">
+                        <table>
+                            <tr>
+                                  <td id="view-member-info-link" class="view-member-info-link"></td>
+                                  <td id="edit-setting" class="edit-setting"
+                                        data-custid="1"
+                                        data-username="member01"></td>
+                            </tr>
+                        </table>
+                    </div>
                     <div id="account-info-header"></div>
                     <div class="sidebar"></div>
                     <input id="viewerId" value="1" />
                     <input id="editSettingUrl" value="editSettingUrl" />
-                 </body>`
+                 </body>`,
+        collapsedSidebar: `<body>
+                                <div class="sidebar collapsed"></div>
+                                <select id="dropdown-product">
+                                    <option value="6"
+                                            data-productname="Casino"
+                                            data-disabled="false"
+                                            data-has-setting="true"></option>
+                                </select>
+                                <button id="icon-refresh"></button>
+                                <div id="msg-warning"></div>
+                                <div id="msg-info"></div>
+                                <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                                <input id="noSettingWarning" value="noSettingWarning" />
+                                <input id="memberRequestUrl" value="memberRequestUrl" />
+                                <div id="box-content">
+                                    <table>
+                                        <tr>
+                                              <td id="view-member-info-link" class="view-member-info-link"></td>
+                                              <td id="edit-setting" class="edit-setting"
+                                                    data-custid="1"
+                                                    data-username="member01"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="account-info-header"></div>
+                                <div class="sidebar"></div>
+                                <input id="viewerId" value="1" />
+                                <input id="editSettingUrl" value="editSettingUrl" />
+                             </body>`,
+        hiddenMobileSidebar: `<body>
+                                <div class="sidebar hidden-mobile"></div>
+                                <select id="dropdown-product">
+                                    <option value="6"
+                                            data-productname="Casino"
+                                            data-disabled="false"
+                                            data-has-setting="true"></option>
+                                </select>
+                                <button id="icon-refresh"></button>
+                                <div id="msg-warning"></div>
+                                <div id="msg-info"></div>
+                                <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                                <input id="noSettingWarning" value="noSettingWarning" />
+                                <input id="memberRequestUrl" value="memberRequestUrl" />
+                                <div id="box-content">
+                                    <table>
+                                        <tr>
+                                              <td id="view-member-info-link" class="view-member-info-link"></td>
+                                              <td id="edit-setting" class="edit-setting"
+                                                    data-custid="1"
+                                                    data-username="member01"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="account-info-header"></div>
+                                <div class="sidebar"></div>
+                                <input id="viewerId" value="1" />
+                                <input id="editSettingUrl" value="editSettingUrl" />
+                             </body>`,
+        expandedSidebar: `<body>
+                            <div class="sidebar"></div>
+                            <select id="dropdown-product">
+                                <option value="6"
+                                        data-productname="Casino"
+                                        data-disabled="false"
+                                        data-has-setting="true"></option>
+                            </select>
+                            <button id="icon-refresh"></button>
+                            <div id="msg-warning"></div>
+                            <div id="msg-info"></div>
+                            <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                            <input id="noSettingWarning" value="noSettingWarning" />
+                            <input id="memberRequestUrl" value="memberRequestUrl" />
+                            <div id="box-content">
+                                <table>
+                                    <tr>
+                                            <td id="view-member-info-link" class="view-member-info-link"></td>
+                                            <td id="edit-setting" class="edit-setting"
+                                                data-custid="1"
+                                                data-username="member01"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="account-info-header"></div>
+                            <div class="sidebar"></div>
+                            <input id="viewerId" value="1" />
+                            <input id="editSettingUrl" value="editSettingUrl" />
+                            </body>`
     };
 
     beforeEach(() => {
         topWindow = {
-            $: jQueryFake
+            $: jQueryFake,
+            menuBar: {
+                collapseLeftPanel: jasmine.any(Function)
+            },
+            popupManager: {
+                openByRelativeUrl: jasmine.any(Function)
+            },
+            clearPopupSubtitle: jasmine.any(Function)
         };
 
         memberRequests = new MemberRequests(jQueryFake, topWindow, singleSelectionDropdownComponent);
@@ -307,5 +411,123 @@
         });
     });
     describe("_registerEventsForTable", () => {
+        beforeEach(() => {
+            // arrange
+            setFixtures(template.normal);
+            spyOn(memberRequests, "viewMemberInfo");
+            spyOn(memberRequests, "editSetting");
+            memberRequests.cacheDOMElements();
+
+            // act
+            memberRequests.registerEventsForTable();
+        });
+        it("Always_Bind viewMemberInfo event", () => {
+            // act
+            $("#view-member-info-link").click();
+
+            // assert
+            expect(memberRequests.viewMemberInfo).toHaveBeenCalled();
+        });
+        it("Always_Bind editSetting event", () => {
+            // act
+            $("#edit-setting").click();
+
+            // assert
+            expect(memberRequests.editSetting).toHaveBeenCalledWith(1, "member01");
+        });
+    });
+    describe("_viewMemberInfo", () => {
+        let event = { stopPropagation: jasmine.createSpy("stopPropagation", () => null) };
+
+        it("_Side Bar Collapsed_Expand Side Bar", () => {
+            // arrange
+            setFixtures(template.collapsedSidebar);
+            memberRequests.cacheDOMElements();
+            spyOn(topWindow.menuBar, "collapseLeftPanel");
+
+            // act
+            memberRequests.viewMemberInfo(event, $("#view-member-info-link"));
+
+            // assert
+            expect(topWindow.menuBar.collapseLeftPanel).toHaveBeenCalled();
+        });
+        it("_Side Bar hidden-mobile_Expand Side Bar", () => {
+            // arrange
+            setFixtures(template.hiddenMobileSidebar);
+            memberRequests.cacheDOMElements();
+            spyOn(topWindow.menuBar, "collapseLeftPanel");
+
+            // act
+            memberRequests.viewMemberInfo(event, $("#view-member-info-link"));
+
+            // assert
+            expect(topWindow.menuBar.collapseLeftPanel).toHaveBeenCalled();
+        });
+        it("_Side Bar Expanded_Not Call collapseLeftPanel", () => {
+            // arrange
+            setFixtures(template.expandedSidebar);
+            memberRequests.cacheDOMElements();
+            spyOn(topWindow.menuBar, "collapseLeftPanel");
+
+            // act
+            memberRequests.viewMemberInfo(event, $("#view-member-info-link"));
+
+            // assert
+            expect(topWindow.menuBar.collapseLeftPanel).not.toHaveBeenCalled();
+        });
+        it("_Always_Click Account Info", () => {
+            // arrange
+            setFixtures(template.normal);
+            memberRequests.cacheDOMElements();
+            spyOn(memberRequests.$accountInfoHeader, "click");
+
+            // act
+            memberRequests.viewMemberInfo(event, $("#view-member-info-link"));
+
+            // assert
+            expect(memberRequests.$accountInfoHeader.click).toHaveBeenCalled();
+        });
+        it("_Always_stopPropagation", () => {
+            // arrange
+            jasmine.clock().install();
+            setFixtures(template.normal);
+            memberRequests.cacheDOMElements();
+
+            // act
+            memberRequests.viewMemberInfo(event, $("#view-member-info-link"));
+            jasmine.clock().tick(301);
+
+            // assert
+            expect(event.stopPropagation).toHaveBeenCalled();
+            jasmine.clock().uninstall();
+        });
+    });
+    describe("_editSetting", () => {
+        it("_Always_Show Popup;Clear Popup Subtitle", () => {
+            // arrange
+            setFixtures(template.normal);
+            memberRequests.cacheDOMElements();
+            spyOn(topWindow.popupManager, "openByRelativeUrl");
+            spyOn(topWindow, "clearPopupSubtitle");
+
+            // act
+            memberRequests.editSetting(1, "member01");
+
+            // assert
+            expect(topWindow.popupManager.openByRelativeUrl).toHaveBeenCalledWith("editSettingUrl/1/1?username=member01", "", 1160);
+            expect(topWindow.clearPopupSubtitle).toHaveBeenCalled();
+        });
+    });
+    describe("_refreshPage", () => {
+        it("_Always_Reload location", () => {
+            // arrange
+            spyOn(location, "reload");
+
+            // act
+            memberRequests.refreshPage();
+
+            // assert
+            expect(location.reload).toHaveBeenCalled();
+        });
     });
 });
