@@ -65,7 +65,7 @@
                     product.Id.ToString(),
                     userSelectedProductIds.Contains(product.Id),
                     product.IsDisable,
-                    service.HasSetting(new ProductSettingParam(product.Id, message.CustId, message.CustName)));
+                    !product.IsDisable && service.HasSetting(new ProductSettingParam(product.Id, message.CustId, message.CustName)));
 
                 return productSelectListItem;
             });
