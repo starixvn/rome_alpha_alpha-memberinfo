@@ -489,17 +489,14 @@
         });
         it("_Always_stopPropagation", () => {
             // arrange
-            jasmine.clock().install();
             setFixtures(template.normal);
             memberRequests.cacheDOMElements();
 
             // act
             memberRequests.viewMemberInfo(event, $("#view-member-info-link"));
-            jasmine.clock().tick(501);
 
             // assert
             expect(event.stopPropagation).toHaveBeenCalled();
-            jasmine.clock().uninstall();
         });
     });
     describe("_editSetting", () => {

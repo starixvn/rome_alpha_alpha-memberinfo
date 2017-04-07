@@ -128,11 +128,13 @@ class MemberRequests {
         }
 
         this.$accountInfoHeader.click();
-        setTimeout(function () {
-            self.$accountInfoContent = self.topWindow.$("#accountinfo-content").contents();
-            self.$accountInfoContent.find("#txtUsername").val(username);
-            self.$accountInfoContent.find(".icon-search").click();
-        }, 500);
+        this.$accountInfoContent = this.topWindow.$("#accountinfo-content");
+        this.$accountInfoContent.on("load", () => {
+            var contents = self.$accountInfoContent.contents();
+            contents.find("#txtUsername").val(username);
+            contents.find(".icon-search").click();
+            self.$accountInfoContent.off("load");
+        });
 
         event.stopPropagation();
     };
