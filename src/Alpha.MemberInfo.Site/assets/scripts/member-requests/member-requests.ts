@@ -132,7 +132,7 @@ class MemberRequests {
             self.$accountInfoContent = self.topWindow.$("#accountinfo-content").contents();
             self.$accountInfoContent.find("#txtUsername").val(username);
             self.$accountInfoContent.find(".icon-search").click();
-        }, 300);
+        }, 500);
 
         event.stopPropagation();
     };

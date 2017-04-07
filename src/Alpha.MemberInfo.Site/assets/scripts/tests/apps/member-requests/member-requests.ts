@@ -495,7 +495,7 @@
 
             // act
             memberRequests.viewMemberInfo(event, $("#view-member-info-link"));
-            jasmine.clock().tick(301);
+            jasmine.clock().tick(501);
 
             // assert
             expect(event.stopPropagation).toHaveBeenCalled();
