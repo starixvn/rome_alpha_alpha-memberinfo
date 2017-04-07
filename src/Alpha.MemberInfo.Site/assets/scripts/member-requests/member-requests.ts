@@ -121,8 +121,6 @@ class MemberRequests {
         });
     };
     viewMemberInfo = (event: any, element: JQuery) => {
-        let self = this;
-
         let username = element.text();
 
         if (this.$sideBar.hasClass("collapsed") ||
