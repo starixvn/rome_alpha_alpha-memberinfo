@@ -145,7 +145,7 @@ input[type="button"][disabled] {
 .edit-setting {
     cursor: pointer;
 
-    &.disabled {
+    &[disabled] {
         opacity: 0.5;
         cursor: not-allowed;
     }
