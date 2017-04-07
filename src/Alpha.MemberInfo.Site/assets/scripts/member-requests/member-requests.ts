@@ -21,6 +21,9 @@ class MemberRequests {
     viewerId: number;
     editSettingUrl: string;
 
+    isFirstTimeViewCustInfo = true;
+    viewedCustName: string;
+
     constructor(
         $: JQueryStatic,
         topWindow: any,
@@ -129,12 +132,16 @@ class MemberRequests {
 
         this.$accountInfoHeader.click();
         this.$accountInfoContent = this.topWindow.$("#accountinfo-content");
-        this.$accountInfoContent.on("load", () => {
-            var contents = self.$accountInfoContent.contents();
-            contents.find("#txtUsername").val(username);
-            contents.find(".icon-search").click();
-            self.$accountInfoContent.off("load");
-        });
+        this.viewedCustName = username;
+
+        if (this.isFirstTimeViewCustInfo) {
+            this.$accountInfoContent.on("load", this.bindLoadCustInfoEvent);
+            this.isFirstTimeViewCustInfo = false;
+        } else {
+            setTimeout(() => {
+                this.searchCustInfo(username);
+            }, 300);
+        }
 
         event.stopPropagation();
     };
@@ -145,6 +152,15 @@ class MemberRequests {
     };
     refreshPage = () => {
         location.reload();
+    };
+    bindLoadCustInfoEvent = () => {
+        this.searchCustInfo(this.viewedCustName);
+        this.$accountInfoContent.off("load", this.bindLoadCustInfoEvent);
+    };
+    searchCustInfo = (username: string) => {
+        var contents = this.$accountInfoContent.contents();
+        contents.find("#txtUsername").val(username);
+        contents.find(".icon-search").click();
     };
 }
 
