@@ -39,10 +39,7 @@
 
         public IEnumerable<Product> GetPlayForFunProduct(int custId)
         {
-            var playForFunProducts = ConfiguredCacheService.GetOrSet(
-                $"PlayForFunProductsCacheKey-{custId}",
-                () => repository.Fetch<Product>(new PlayForFunProductCriteria(custId)),
-                new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));
+            var playForFunProducts = repository.Fetch<Product>(new PlayForFunProductCriteria(custId));
 
             return playForFunProducts
                 .Where(product => IsShowProduct(product.Id))
