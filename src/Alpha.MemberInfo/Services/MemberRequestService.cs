@@ -53,8 +53,6 @@
                 throw new ArgumentNullException(nameof(param));
             }
 
-            return Enumerable.Empty<MemberRequestModel>();
-
             var criteria = new MemberRequestCriteria(param.CustId, param.ProductId);
             return repository.Fetch<MemberRequestModel>(criteria).OrderBy(member => member.Username);
         }
@@ -71,8 +69,6 @@
 
         public bool HasCasinoSetting(ProductSettingParam productSettingParam)
         {
-            return false;
-
             var gameKinds = casinoDataAccess.GameKinds(productSettingParam.CustId);
             var rngGame = gameKinds.FirstOrDefault(gameKind => gameKind.Id == CasinoGameKind.RNGGame);
 
