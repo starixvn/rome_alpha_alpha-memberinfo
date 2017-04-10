@@ -71,6 +71,8 @@
 
         public bool HasCasinoSetting(ProductSettingParam productSettingParam)
         {
+            return false;
+
             var gameKinds = casinoDataAccess.GameKinds(productSettingParam.CustId);
             var rngGame = gameKinds.FirstOrDefault(gameKind => gameKind.Id == CasinoGameKind.RNGGame);
 
