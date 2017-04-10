@@ -6,7 +6,6 @@
     using Constants;
     using Criteria.MemberRequests;
     using DataAccesses;
-    using Fanex.Caching;
     using Fanex.Data.Repository;
     using Models;
     using Models.MemberRequests;
