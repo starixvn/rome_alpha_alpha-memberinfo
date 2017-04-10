@@ -53,6 +53,8 @@
                 throw new ArgumentNullException(nameof(param));
             }
 
+            return Enumerable.Empty<MemberRequestModel>();
+
             var criteria = new MemberRequestCriteria(param.CustId, param.ProductId);
             return repository.Fetch<MemberRequestModel>(criteria).OrderBy(member => member.Username);
         }
