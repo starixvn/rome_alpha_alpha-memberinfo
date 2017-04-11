@@ -163,7 +163,7 @@
     <value>Edit</value>
   </data>
   <data name="SettingRequiredWarning" xml:space="preserve">
-    <value>Setting configuration is required prior to this product betting availability.</value>
+    <value>To enable the product, setting configuration is required.</value>
   </data>
   <data name="NoSettingWarning" xml:space="preserve">
     <value>Product settings have not been configured for your account yet, please contact your upline.</value>

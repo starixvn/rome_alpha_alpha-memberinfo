@@ -187,7 +187,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Setting configuration is required prior to this product betting availability..
+        ///   Looks up a localized string similar to To enable the product, setting configuration is required..
         /// </summary>
         public static string SettingRequiredWarning {
             get {
