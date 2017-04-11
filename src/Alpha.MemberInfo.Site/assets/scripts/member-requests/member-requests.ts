@@ -24,6 +24,8 @@ class MemberRequests {
     isFirstTimeViewCustInfo = true;
     viewedCustName: string;
 
+    $tableReport: JQuery;
+
     constructor(
         $: JQueryStatic,
         topWindow: any,
@@ -62,12 +64,18 @@ class MemberRequests {
         this.editSettingUrl = this.$("#editSettingUrl").val();
     };
     changeProduct = () => {
-        this.updateWarningMessage();
         this.loadMemberRequests();
     };
 
     convertAttributeToBool = (attrValue: string) => !!attrValue && attrValue.toString().toLowerCase() === "true";
     updateWarningMessage = () => {
+        let hasData = this.convertAttributeToBool(this.$tableReport.data("has-data"));
+        if (!hasData) {
+            this.$msgWarning.addClass("hide");
+            this.$msgInfo.addClass("hide");
+            return;
+        }
+
         var selectedProduct = this.getSelectedProduct();
         var isDisable = this.convertAttributeToBool(selectedProduct.data("disabled"));
         var hasSetting = this.convertAttributeToBool(selectedProduct.data("has-setting"));
@@ -102,7 +110,10 @@ class MemberRequests {
     };
     renderMemberRequests = (html: string) => {
         this.$boxContent.html(html);
+
+        this.$tableReport = this.$("#tbl-report");
         this.registerEventsForTable();
+        this.updateWarningMessage();
         this.$.unblockUI();
     };
     getSelectedProduct = () => this.$dropdownProduct.find("option:selected");

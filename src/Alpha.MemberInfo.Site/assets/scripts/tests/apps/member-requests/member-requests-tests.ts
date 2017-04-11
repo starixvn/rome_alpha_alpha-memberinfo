@@ -220,10 +220,6 @@
             // act
             memberRequests.changeProduct();
         });
-        it("_Always_Calls updateWarningMessage", () => {
-            // assert
-            expect(memberRequests.updateWarningMessage).toHaveBeenCalled();
-        });
         it("_Always_Calls loadMemberRequests", () => {
             // assert
             expect(memberRequests.loadMemberRequests).toHaveBeenCalled();
@@ -255,6 +251,30 @@
         });
     });
     describe("_updateWarningMessage", () => {
+        it("_No Hide Message Warning and Message Info", () => {
+            // arrange
+            setFixtures(`<body>
+                            <select id="dropdown-product">
+                                <option value="6"
+                                        data-productname="Casino"
+                                        data-disabled="true"
+                                        data-has-setting="true"></option>
+                            </select>
+                             <div id="msg-warning"></div>
+                             <div id="msg-info"></div>
+                            <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                            <table id="tbl-report" data-has-data="false"></table>
+                          </body>`);
+            memberRequests.cacheDOMElements();
+            memberRequests.$tableReport = memberRequests.$("#tbl-report");
+
+            // act
+            memberRequests.updateWarningMessage();
+
+            // assert
+            expect(memberRequests.$msgWarning.hasClass("hide")).toBeTruthy();
+            expect(memberRequests.$msgInfo.hasClass("hide")).toBeTruthy();
+        });
         it("_Disable Product And Has Setting_Show Message Warning and Hide Message Info", () => {
             // arrange
             setFixtures(`<body>
@@ -267,8 +287,10 @@
                              <div id="msg-warning"></div>
                              <div id="msg-info"></div>
                             <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                            <table id="tbl-report" data-has-data="true"></table>
                           </body>`);
             memberRequests.cacheDOMElements();
+            memberRequests.$tableReport = memberRequests.$("#tbl-report");
 
             // act
             memberRequests.updateWarningMessage();
@@ -290,8 +312,10 @@
                              <div id="msg-warning"></div>
                              <div id="msg-info"></div>
                             <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                            <table id="tbl-report" data-has-data="true"></table>
                           </body>`);
             memberRequests.cacheDOMElements();
+            memberRequests.$tableReport = memberRequests.$("#tbl-report");
 
             // act
             memberRequests.updateWarningMessage();
@@ -313,8 +337,10 @@
                              <div id="msg-warning"></div>
                              <div id="msg-info"></div>
                             <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
+                            <table id="tbl-report" data-has-data="true"></table>
                           </body>`);
             memberRequests.cacheDOMElements();
+            memberRequests.$tableReport = memberRequests.$("#tbl-report");
 
             // act
             memberRequests.updateWarningMessage();
@@ -335,8 +361,10 @@
                              <div id="msg-warning"></div>
                              <div id="msg-info"></div>
                              <input id="noSettingWarning" value="noSettingWarning" />
+                            <table id="tbl-report" data-has-data="true"></table>
                           </body>`);
             memberRequests.cacheDOMElements();
+            memberRequests.$tableReport = memberRequests.$("#tbl-report");
 
             // act
             memberRequests.updateWarningMessage();
