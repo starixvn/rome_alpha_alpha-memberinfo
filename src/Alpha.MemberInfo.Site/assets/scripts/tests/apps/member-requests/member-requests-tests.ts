@@ -15,6 +15,7 @@
                                 data-has-setting="true"></option>
                     </select>
                     <button id="icon-refresh"></button>
+                    <button id="icon-information"></button>
                     <div id="msg-warning"></div>
                     <div id="msg-info"></div>
                     <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
@@ -131,7 +132,8 @@
                 collapseLeftPanel: jasmine.any(Function)
             },
             popupManager: {
-                openByRelativeUrl: jasmine.any(Function)
+                openByRelativeUrl: jasmine.any(Function),
+                open: jasmine.any(Function)
             },
             clearPopupSubtitle: jasmine.any(Function)
         };
@@ -172,6 +174,7 @@
             // arrange
             setFixtures(template.normal);
             spyOn(memberRequests, "refreshPage");
+            spyOn(memberRequests, "showGuidelines");
 
             // act
             memberRequests.registerEvents();
@@ -182,6 +185,13 @@
 
             // assert
             expect(memberRequests.refreshPage).toHaveBeenCalled();
+        });
+        it("_Always_Bind show Guidelines event", () => {
+            // act
+            memberRequests.$("#icon-information").click();
+
+            // assert
+            expect(memberRequests.showGuidelines).toHaveBeenCalled();
         });
     });
     describe("_cacheDOMElements", () => {
@@ -553,6 +563,25 @@
 
             // assert
             expect(location.reload).toHaveBeenCalled();
+        });
+    });
+    describe("_showGuidelines", () => {
+        it("_Always_Show guidelines", () => {
+            // arrange
+            spyOn(topWindow.popupManager, "open");
+            memberRequests.guidelinesUrl = "guidelinesUrl";
+            memberRequests.guidelinesTitle = "guidelinesTitle";
+
+            // act
+            memberRequests.showGuidelines();
+
+            // assert
+            expect(topWindow.popupManager.open).toHaveBeenCalledWith(
+                "guidelinesUrl",
+                "guidelinesTitle",
+                900,
+                600,
+                "popup-guidelines");
         });
     });
 });

@@ -171,4 +171,7 @@
   <data name="Sync" xml:space="preserve">
     <value>Sync</value>
   </data>
+  <data name="PlayForFunGuidelines" xml:space="preserve">
+    <value>Play For Fun - Guidelines</value>
+  </data>
 </root>

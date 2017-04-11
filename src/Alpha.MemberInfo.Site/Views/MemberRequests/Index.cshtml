@@ -2,6 +2,7 @@
 
 <div class="page-title">
     <span class="pull-left">@Resources.PlayForFunMemberRequest</span>
+    <span id="icon-information" class="icon-information-outline pull-right"></span>
 </div>
 
 <div id="box_header">
@@ -29,6 +30,8 @@
 @Html.Hidden("noSettingWarning", Resources.NoSettingWarning)
 @Html.Hidden("viewerId", Model.ViewerId)
 @Html.Hidden("editSettingUrl", "CustomerSetting/Casino/Member/EditMember")
+@Html.Hidden("GuidelineUrl", AppPathHelper.GetAppPath(Alpha.MemberInfo.Configurations.AppSettings.MainAppPath, "~/MemberRequests/Guidelines"))
+@Html.Hidden("PlayForFunGuide", Resources.PlayForFunGuidelines)
 
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/member-requests/member-requests")

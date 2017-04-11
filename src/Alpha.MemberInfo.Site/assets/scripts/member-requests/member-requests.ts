@@ -25,6 +25,8 @@ class MemberRequests {
     viewedCustName: string;
 
     $tableReport: JQuery;
+    guidelinesTitle: string;
+    guidelinesUrl: string;
 
     constructor(
         $: JQueryStatic,
@@ -45,6 +47,7 @@ class MemberRequests {
     };
     registerEvents = () => {
         this.$("#icon-refresh").click(this.refreshPage);
+        this.$("#icon-information").on("click", this.showGuidelines);
     };
 
     cacheDOMElements = () => {
@@ -62,6 +65,9 @@ class MemberRequests {
         this.$sideBar = this.topWindow.$(".sidebar");
         this.viewerId = parseInt(this.$("#viewerId").val(), 0);
         this.editSettingUrl = this.$("#editSettingUrl").val();
+
+        this.guidelinesTitle = this.$('#PlayForFunGuide').val();
+        this.guidelinesUrl = this.$('#GuidelineUrl').val();
     };
     changeProduct = () => {
         this.loadMemberRequests();
@@ -170,6 +176,9 @@ class MemberRequests {
         var contents = this.$accountInfoContent.contents();
         contents.find("#txtUsername").val(username);
         contents.find(".icon-search").click();
+    };
+    showGuidelines = () => {
+        this.topWindow.popupManager.open(this.guidelinesUrl, this.guidelinesTitle, 900, 600, "popup-guidelines");
     };
 }
 

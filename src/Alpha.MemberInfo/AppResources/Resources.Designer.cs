@@ -151,6 +151,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Play For Fun - Guidelines.
+        /// </summary>
+        public static string PlayForFunGuidelines {
+            get {
+                return ResourceManager.GetString("PlayForFunGuidelines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Play For Fun - Member Request.
         /// </summary>
         public static string PlayForFunMemberRequest {
