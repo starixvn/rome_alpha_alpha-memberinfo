@@ -145,13 +145,13 @@
     <value>Select Products</value>
   </data>
   <data name="ThereIsNoProduct" xml:space="preserve">
-    <value>There is no Product.</value>
+    <value>There is no product.</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
   </data>
   <data name="DisabledProductWarning" xml:space="preserve">
-    <value>You're disabled on this product. Please contact upline to enable for you.</value>
+    <value>This product is disabled, please contact upline to enable for you.</value>
   </data>
   <data name="Action" xml:space="preserve">
     <value>Action</value>

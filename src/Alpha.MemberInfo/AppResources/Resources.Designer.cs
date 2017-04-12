@@ -97,7 +97,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You&apos;re disabled on this product. Please contact upline to enable for you..
+        ///   Looks up a localized string similar to This product is disabled, please contact upline to enable for you..
         /// </summary>
         public static string DisabledProductWarning {
             get {
@@ -214,7 +214,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is no Product..
+        ///   Looks up a localized string similar to There is no product..
         /// </summary>
         public static string ThereIsNoProduct {
             get {
