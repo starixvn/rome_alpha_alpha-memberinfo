@@ -141,4 +141,31 @@
   <data name="Edit" xml:space="preserve">
     <value>修改</value>
   </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>所有产品</value>
+  </data>
+  <data name="NoSettingWarning" xml:space="preserve">
+    <value>产品设定还未配置，请您联系您的上线</value>
+  </data>
+  <data name="DisabledProductWarning" xml:space="preserve">
+    <value>您被禁用此产品。请您联系您的上线以便开启</value>
+  </data>
+  <data name="SelectProducts" xml:space="preserve">
+    <value>选择产品</value>
+  </data>
+  <data name="ThereIsNoProduct" xml:space="preserve">
+    <value>没有产品</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>编号.</value>
+  </data>
+  <data name="PlayForFunMemberRequest" xml:space="preserve">
+    <value>免费试玩 - 会员要求</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>选定</value>
+  </data>
+  <data name="SettingRequiredWarning" xml:space="preserve">
+    <value>此产品必需在可用于投注前做设定配置</value>
+  </data>
 </root>

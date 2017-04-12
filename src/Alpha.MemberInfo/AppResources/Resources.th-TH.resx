@@ -141,4 +141,31 @@
   <data name="Edit" xml:space="preserve">
     <value>แก้ไข</value>
   </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>สินค้าทั้งหมด</value>
+  </data>
+  <data name="NoSettingWarning" xml:space="preserve">
+    <value>การตั้งค่าสินค้ายังไม่ได้รับการกำหนดค่าสำหรับบัญชีของคุณโปรดติดต่ออัพไลน์ของคุณ</value>
+  </data>
+  <data name="DisabledProductWarning" xml:space="preserve">
+    <value>คุณปิดการใช้งานเกี่ยวกับผลิตภัณฑ์นี้. กรุณาติดต่ออัพไลน์ของคุณเพื่อเปิดงานใช้งานให้คุณ</value>
+  </data>
+  <data name="SelectProducts" xml:space="preserve">
+    <value>เลือกผลิตภัณฑ์</value>
+  </data>
+  <data name="ThereIsNoProduct" xml:space="preserve">
+    <value>ไม่มีสินค้า</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>เลขที่.</value>
+  </data>
+  <data name="PlayForFunMemberRequest" xml:space="preserve">
+    <value>ทดลองเล่นฟรี - คำขอสมาชิก</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>เลือก</value>
+  </data>
+  <data name="SettingRequiredWarning" xml:space="preserve">
+    <value>การตั้งค่าการกำหนดค่าที่จำเป็นก่อนที่จะมีความพร้อมในการเดิมพันผลิตภัณฑ์นี้</value>
+  </data>
 </root>
