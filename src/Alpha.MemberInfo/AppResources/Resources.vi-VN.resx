@@ -138,4 +138,37 @@
   <data name="Edit" xml:space="preserve">
     <value>Tùy chỉnh</value>
   </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>Tất cả sản phẩm</value>
+  </data>
+  <data name="NoSettingWarning" xml:space="preserve">
+    <value>Tài khoản của bạn chưa được cấu hình các thiết lập cho sản phẩm này, vui lòng liên hệ với cấp trên,</value>
+  </data>
+  <data name="SettingRequiredWarning" xml:space="preserve">
+    <value>Cần cấu hình các thiết lập trước khi kích hoạt sản phẩm.</value>
+  </data>
+  <data name="DisabledProductWarning" xml:space="preserve">
+    <value>Sản phẩm này hiện đang khoá. Vui lòng liên lạc với cấp trên để kích hoạt sản phẩm.</value>
+  </data>
+  <data name="Sync" xml:space="preserve">
+    <value>Đồng bộ</value>
+  </data>
+  <data name="SelectProducts" xml:space="preserve">
+    <value>Lựa chọn sản phẩm</value>
+  </data>
+  <data name="ThereIsNoProduct" xml:space="preserve">
+    <value>Không có sản phẩm nào</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Đã chọn</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="PlayForFunMemberRequest" xml:space="preserve">
+    <value>Chơi Thử - Yêu cầu kích hoạt</value>
+  </data>
+  <data name="PlayForFunGuidelines" xml:space="preserve">
+    <value>Chơi thử - Hướng dẫn</value>
+  </data>
 </root>
