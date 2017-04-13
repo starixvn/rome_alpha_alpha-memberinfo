@@ -168,4 +168,10 @@
   <data name="SettingRequiredWarning" xml:space="preserve">
     <value>การตั้งค่าการกำหนดค่าที่จำเป็นก่อนที่จะมีความพร้อมในการเดิมพันผลิตภัณฑ์นี้</value>
   </data>
+  <data name="Sync" xml:space="preserve">
+    <value>ซิงโครไนซ์</value>
+  </data>
+  <data name="PlayForFunGuidelines" xml:space="preserve">
+    <value>ทดลองเล่นฟรี-คู่มือ</value>
+  </data>
 </root>
