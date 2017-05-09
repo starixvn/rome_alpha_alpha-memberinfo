@@ -409,6 +409,7 @@
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Constants\LanguageCode.cs" />
+    <Compile Include="Controllers\BaioAnnouncementController.cs" />
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Global.asax.cs">
@@ -562,6 +563,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\scripts\tests\chutzpah.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BaioAnnouncement\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
