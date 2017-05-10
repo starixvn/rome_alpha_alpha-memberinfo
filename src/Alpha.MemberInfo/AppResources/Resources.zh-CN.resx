@@ -174,4 +174,19 @@
   <data name="PlayForFunGuidelines" xml:space="preserve">
     <value>免费试玩-指南</value>
   </data>
+  <data name="BetSettingFollows" xml:space="preserve">
+    <value>Bet Setting Follows</value>
+  </data>
+  <data name="CommissionSettingFollows" xml:space="preserve">
+    <value>Commission Setting Follows</value>
+  </data>
+  <data name="NewBetType" xml:space="preserve">
+    <value>New Bet Type</value>
+  </data>
+  <data name="PositionTakingSettingFollows" xml:space="preserve">
+    <value>Position Taking Setting Follows</value>
+  </data>
+  <data name="NewBetTypeEffectDate" xml:space="preserve">
+    <value>New bet types of Basketball with effect from 05/18/2017:</value>
+  </data>
 </root>
