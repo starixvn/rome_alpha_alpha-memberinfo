@@ -187,6 +187,6 @@
     <value>Position Taking Setting Follows</value>
   </data>
   <data name="NewBetTypeEffectDate" xml:space="preserve">
-    <value>New bet types of Basketball with effect from 05/18/2017:</value>
+    <value>New bet types of Basketball with effect from {0}:</value>
   </data>
 </root>

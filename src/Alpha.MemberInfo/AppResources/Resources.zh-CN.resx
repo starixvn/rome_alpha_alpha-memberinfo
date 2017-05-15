@@ -175,18 +175,18 @@
     <value>免费试玩-指南</value>
   </data>
   <data name="BetSettingFollows" xml:space="preserve">
-    <value>Bet Setting Follows</value>
+    <value>投注设定复制跟随</value>
   </data>
   <data name="CommissionSettingFollows" xml:space="preserve">
-    <value>Commission Setting Follows</value>
+    <value>佣金设定复制跟随</value>
   </data>
   <data name="NewBetType" xml:space="preserve">
-    <value>New Bet Type</value>
+    <value>新投注类别</value>
   </data>
   <data name="PositionTakingSettingFollows" xml:space="preserve">
-    <value>Position Taking Setting Follows</value>
+    <value>占成数设定复制跟随</value>
   </data>
   <data name="NewBetTypeEffectDate" xml:space="preserve">
-    <value>New bet types of Basketball with effect from 05/18/2017:</value>
+    <value>篮球的新投注类别将于{0}开始生效</value>
   </data>
 </root>

@@ -142,7 +142,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New bet types of Basketball with effect from 05/18/2017:.
+        ///   Looks up a localized string similar to New bet types of Basketball with effect from {0}:.
         /// </summary>
         public static string NewBetTypeEffectDate {
             get {
