@@ -34,8 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.RemotingRef.1.0.0.1\lib\net40\Alpha.RemotingRef.dll</HintPath>
+    <Reference Include="Alpha.RemotingRef, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.RemotingRef.1.0.0.2-beta1\lib\net40\Alpha.RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CasinoLibrary, Version=1.0.2.14, Culture=neutral, processorArchitecture=MSIL">
