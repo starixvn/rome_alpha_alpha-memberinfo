@@ -174,4 +174,19 @@
   <data name="PlayForFunGuidelines" xml:space="preserve">
     <value>ทดลองเล่นฟรี-คู่มือ</value>
   </data>
+  <data name="BetSettingFollows" xml:space="preserve">
+    <value>การตั้งค่าเดิมพันคัดลอกดังต่อไปนี้</value>
+  </data>
+  <data name="CommissionSettingFollows" xml:space="preserve">
+    <value>การตั้งค่าคอมมิชชั่นคัดลอกดังต่อไปนี้</value>
+  </data>
+  <data name="NewBetType" xml:space="preserve">
+    <value>ประเภทการเดิมพันใหม่</value>
+  </data>
+  <data name="PositionTakingSettingFollows" xml:space="preserve">
+    <value>การตั้งค่าแบ่งสู้คัดลอกดังต่อไปนี้</value>
+  </data>
+  <data name="NewBetTypeEffectDate" xml:space="preserve">
+    <value>ประเภทเดิมพันใหม่ของบาสเกตบอล มีผลตั้งแต่{0}</value>
+  </data>
 </root>

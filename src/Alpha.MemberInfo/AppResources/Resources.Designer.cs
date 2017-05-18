@@ -97,6 +97,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bet Setting Follows.
+        /// </summary>
+        public static string BetSettingFollows {
+            get {
+                return ResourceManager.GetString("BetSettingFollows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Commission Setting Follows.
+        /// </summary>
+        public static string CommissionSettingFollows {
+            get {
+                return ResourceManager.GetString("CommissionSettingFollows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This product is disabled, please contact upline to enable for you..
         /// </summary>
         public static string DisabledProductWarning {
@@ -111,6 +129,24 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Bet Type.
+        /// </summary>
+        public static string NewBetType {
+            get {
+                return ResourceManager.GetString("NewBetType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New bet types of Basketball with effect from {0}:.
+        /// </summary>
+        public static string NewBetTypeEffectDate {
+            get {
+                return ResourceManager.GetString("NewBetTypeEffectDate", resourceCulture);
             }
         }
         
@@ -165,6 +201,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string PlayForFunMemberRequest {
             get {
                 return ResourceManager.GetString("PlayForFunMemberRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position Taking Setting Follows.
+        /// </summary>
+        public static string PositionTakingSettingFollows {
+            get {
+                return ResourceManager.GetString("PositionTakingSettingFollows", resourceCulture);
             }
         }
         

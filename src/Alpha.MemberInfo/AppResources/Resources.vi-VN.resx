@@ -171,4 +171,19 @@
   <data name="PlayForFunGuidelines" xml:space="preserve">
     <value>Chơi thử - Hướng dẫn</value>
   </data>
+  <data name="BetSettingFollows" xml:space="preserve">
+    <value>Thiết lập Giới Hạn Cược theo</value>
+  </data>
+  <data name="CommissionSettingFollows" xml:space="preserve">
+    <value>Thiết lập Hoa Hồng theo</value>
+  </data>
+  <data name="NewBetType" xml:space="preserve">
+    <value>Loại cược mới</value>
+  </data>
+  <data name="PositionTakingSettingFollows" xml:space="preserve">
+    <value>Thiết lập Position Taking theo</value>
+  </data>
+  <data name="NewBetTypeEffectDate" xml:space="preserve">
+    <value>Các loại cược mới của Bóng Rổ sẽ có hiệu lực từ {0}:</value>
+  </data>
 </root>

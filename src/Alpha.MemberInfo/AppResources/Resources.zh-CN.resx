@@ -174,4 +174,19 @@
   <data name="PlayForFunGuidelines" xml:space="preserve">
     <value>免费试玩-指南</value>
   </data>
+  <data name="BetSettingFollows" xml:space="preserve">
+    <value>投注设定复制跟随</value>
+  </data>
+  <data name="CommissionSettingFollows" xml:space="preserve">
+    <value>佣金设定复制跟随</value>
+  </data>
+  <data name="NewBetType" xml:space="preserve">
+    <value>新投注类别</value>
+  </data>
+  <data name="PositionTakingSettingFollows" xml:space="preserve">
+    <value>占成数设定复制跟随</value>
+  </data>
+  <data name="NewBetTypeEffectDate" xml:space="preserve">
+    <value>篮球的新投注类别将于{0}开始生效</value>
+  </data>
 </root>
