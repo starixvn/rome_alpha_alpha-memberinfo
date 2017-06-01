@@ -2,5 +2,9 @@
   {
     "outputFile": "assets/bundles/member-info.css",
     "inputFile": "assets/styles/member-info.scss"
+  },
+  {
+    "outputFile": "assets/bundles/agency-cash-balance.css",
+    "inputFile": "assets/styles/agency-cash-balance.scss"
   }
 ]
