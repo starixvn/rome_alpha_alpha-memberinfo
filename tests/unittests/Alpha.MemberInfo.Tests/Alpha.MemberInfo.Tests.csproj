@@ -207,6 +207,7 @@
     <Compile Include="Constants\RoleId.cs" />
     <Compile Include="Criteria\PlayForFunProductCriteriaTests.cs" />
     <Compile Include="Criteria\MemberRequestCriteriaTests.cs" />
+    <Compile Include="Criteria\Transfer\GetCashBalanceTransferCriteriaTests.cs" />
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="Models\ResultTests.cs" />
     <Compile Include="Models\UserLevelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CashBalanceTransferServiceImplTests.cs" />
     <Compile Include="Services\MemberRequestServiceImplTests.cs" />
     <Compile Include="TestCases\UserLevelTestCases.cs" />
   </ItemGroup>

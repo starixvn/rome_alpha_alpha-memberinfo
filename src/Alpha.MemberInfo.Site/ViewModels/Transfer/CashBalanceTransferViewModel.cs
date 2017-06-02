@@ -6,25 +6,29 @@ namespace Alpha.MemberInfo.Site.ViewModels.Transfer
     {
         public CashBalanceTransferViewModel(
             decimal uplineCashBalance,
+            int custId,
             string userName,
+            UserLevel custUserLevel,
             decimal cashBalance,
             decimal outstanding,
-            decimal givenCredit,
-            UserLevel uplineUserLevel)
+            decimal givenCredit)
         {
             UplineCashBalance = uplineCashBalance;
+            CustId = custId;
             UserName = userName;
+            CustUserLevel = custUserLevel;
             CashBalance = cashBalance;
             Outstanding = outstanding;
             GivenCredit = givenCredit;
-            UplineUserLevel = uplineUserLevel;
         }
 
         public decimal UplineCashBalance { get; }
 
-        public UserLevel UplineUserLevel { get; }
+        public int CustId { get; }
 
         public string UserName { get; }
+
+        public UserLevel CustUserLevel { get; }
 
         public decimal CashBalance { get; }
 

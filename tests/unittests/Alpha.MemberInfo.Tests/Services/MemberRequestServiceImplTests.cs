@@ -4,12 +4,12 @@
     using System.Collections.Generic;
     using System.Linq;
     using Constants;
-    using Criteria.MemberRequests;
     using DataAccesses;
     using Extensions;
     using Fanex.Data.Repository;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
+    using MemberInfo.Criteria.MemberRequests;
     using MemberInfo.Models;
     using MemberInfo.Models.MemberRequests;
     using MemberInfo.Services;

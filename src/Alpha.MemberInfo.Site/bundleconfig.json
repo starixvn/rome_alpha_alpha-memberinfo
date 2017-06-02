@@ -11,5 +11,11 @@
       "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/member-requests/member-requests.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/transfer/cash-balance.js",
+    "inputFiles": [
+      "assets/scripts/transfer/cash-balance.js"
+    ]
   }
 ]

@@ -237,6 +237,32 @@ namespace Alpha.MemberInfo.Tests.Models
             Assert.Throws<ArgumentOutOfRangeException>(() => userLevel.GetDirectDownLineLevel());
         }
 
+        [Theory]
+        [InlineData(RoleId.Master, RoleId.Super)]
+        [InlineData(RoleId.Agent, RoleId.Master)]
+        [InlineData(RoleId.Member, RoleId.Agent)]
+        public void GetDirectUplineLevel_SMALevel_ReturnsDirectDownline(byte roleId, byte expectedDirectUplineRoleId)
+        {
+            // Arrange
+            var userLevel = Enumeration.FromValue<UserLevel>(roleId);
+
+            // Act
+            var actualDirectDownlineRoleId = userLevel.GetDirectUplineLevel().Value;
+
+            // Assert
+            Assert.Equal(expectedDirectUplineRoleId, actualDirectDownlineRoleId);
+        }
+
+        [Fact]
+        public void GetDirectUplineLevel_MemberLevel_ThrowsArgumentOutOfRangeException()
+        {
+            // Arrange
+            var userLevel = Enumeration.FromValue<UserLevel>(RoleId.Super);
+
+            // Act & Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => userLevel.GetDirectUplineLevel());
+        }
+
         [Fact]
         public void IsUplineOf_GapBetweenTwoLevelsLessThan1_ReturnsFalse()
         {

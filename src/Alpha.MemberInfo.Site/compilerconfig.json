@@ -4,7 +4,7 @@
     "inputFile": "assets/styles/member-info.scss"
   },
   {
-    "outputFile": "assets/bundles/agency-cash-balance.css",
-    "inputFile": "assets/styles/agency-cash-balance.scss"
+    "outputFile": "assets/bundles/cash-balance.css",
+    "inputFile": "assets/styles/cash-balance.scss"
   }
 ]
