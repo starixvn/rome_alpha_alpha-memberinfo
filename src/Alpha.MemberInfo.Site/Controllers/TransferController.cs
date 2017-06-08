@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.SessionState;
+using Alpha.Auth.Configurations;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Requests.Transfer;
 using MediatR;
@@ -23,7 +24,7 @@ namespace Alpha.MemberInfo.Site.Controllers
         [HttpGet]
         public async Task<ActionResult> CashBalance(CashBalanceTransferQuery message)
         {
-            if (message == null || !message.IsValid())
+            if (message == null || !message.IsValid() || !userSession.IsInternal)
             {
                 return View(InvalidPageViewPath);
             }
@@ -36,17 +37,19 @@ namespace Alpha.MemberInfo.Site.Controllers
         {
             Result result;
 
-            if (command == null || !command.IsValid())
+            if (command == null || !command.IsValid() || !userSession.IsInternal)
             {
-                result = new Result { Code = 400, Message = "Bad Request." };
+                result = Result.CreateErrorResult("Bad Request.", 400);
             }
             else
             {
                 command.UplineId = userSession.CustId;
+                command.SuperIdsTransferTotal = AppSettings.GetConfigValue("");
                 command.SubAccId = userSession.SubAccId;
                 command.IP = userSession.UserLoginIp;
+                command.LanguageKey = userSession.LangKey;
 
-                result = new Result();//await mediator.SendAsync(command);
+                result = await mediator.SendAsync(command);
             }
 
             return Json(result, JsonRequestBehavior.DenyGet);

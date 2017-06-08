@@ -121,16 +121,16 @@
     <value>Agent</value>
   </data>
   <data name="Amount" xml:space="preserve">
-    <value>Amount</value>
+    <value>Số lượng</value>
   </data>
   <data name="AvailableRangeTransfer" xml:space="preserve">
     <value>You can transfer from {0} to {1}</value>
   </data>
   <data name="CashBalance" xml:space="preserve">
-    <value>Cash Balance</value>
+    <value>Số dư tài khoản</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
-    <value>Given Credit</value>
+    <value>Hạn mức được cấp</value>
   </data>
   <data name="Information" xml:space="preserve">
     <value>Information</value>
@@ -142,15 +142,18 @@
     <value>Member</value>
   </data>
   <data name="OutstandingShortcut" xml:space="preserve">
-    <value>Out. Txn</value>
+    <value>Giao dịch chưa xử lý</value>
   </data>
   <data name="Super" xml:space="preserve">
     <value>Super</value>
   </data>
   <data name="TransferButton" xml:space="preserve">
-    <value>Transfer</value>
+    <value>Chuyển khoản</value>
+  </data>
+  <data name="TransferSuccessfully" xml:space="preserve">
+    <value>Chuyển khoản thành công</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Username</value>
+    <value>Tên đăng nhập</value>
   </data>
 </root>

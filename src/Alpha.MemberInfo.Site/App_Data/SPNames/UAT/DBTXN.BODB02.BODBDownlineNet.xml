@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Functions>
+  <Function Name="Transfer">
+    <Setting Key="Age_Transfer_Ins_Member" SpName="Age_Transfer_Ins_Member" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
+  </Function>
+</Functions>

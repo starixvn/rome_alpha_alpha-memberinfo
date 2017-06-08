@@ -165,6 +165,7 @@
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Fixtures\UserFixture.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Handlers\CashBalanceTransferHandlerTests.cs" />
     <Compile Include="Handlers\MemberRequestsHandlerTests.cs" />
     <Compile Include="Models\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

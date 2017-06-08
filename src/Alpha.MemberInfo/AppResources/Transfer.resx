@@ -150,6 +150,9 @@
   <data name="TransferButton" xml:space="preserve">
     <value>Transfer</value>
   </data>
+  <data name="TransferSuccessfully" xml:space="preserve">
+    <value>Transfer successfully</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
   </data>

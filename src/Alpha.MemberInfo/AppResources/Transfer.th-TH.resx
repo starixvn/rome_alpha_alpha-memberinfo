@@ -118,39 +118,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Agent" xml:space="preserve">
-    <value>Agent</value>
+    <value>ตัวแทน</value>
   </data>
   <data name="Amount" xml:space="preserve">
-    <value>Amount</value>
+    <value>จำนวนเงิน</value>
   </data>
   <data name="AvailableRangeTransfer" xml:space="preserve">
     <value>You can transfer from {0} to {1}</value>
   </data>
   <data name="CashBalance" xml:space="preserve">
-    <value>Cash Balance</value>
+    <value>ยอดเงินสด</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
-    <value>Given Credit</value>
+    <value>เครดิตทั้งหมด</value>
   </data>
   <data name="Information" xml:space="preserve">
-    <value>Information</value>
+    <value>ข้อมูล</value>
   </data>
   <data name="Master" xml:space="preserve">
-    <value>Master</value>
+    <value>ตัวแทนหลัก</value>
   </data>
   <data name="Member" xml:space="preserve">
-    <value>Member</value>
+    <value>สมาชิก</value>
   </data>
   <data name="OutstandingShortcut" xml:space="preserve">
-    <value>Out. Txn</value>
+    <value>transaction ที่ยังไม่ได้คำนวณ</value>
   </data>
   <data name="Super" xml:space="preserve">
-    <value>Super</value>
+    <value>สูงสุด</value>
   </data>
   <data name="TransferButton" xml:space="preserve">
-    <value>Transfer</value>
+    <value>ตั้งค่าใหม่</value>
+  </data>
+  <data name="TransferSuccessfully" xml:space="preserve">
+    <value>การโอนเงินเสร็จสมบูรณ์</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Username</value>
+    <value>ชื่อผู้ใช้ระบบ</value>
   </data>
 </root>

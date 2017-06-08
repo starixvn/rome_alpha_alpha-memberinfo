@@ -160,6 +160,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Transfer successfully.
+        /// </summary>
+        public static string TransferSuccessfully {
+            get {
+                return ResourceManager.GetString("TransferSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string Username {

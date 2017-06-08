@@ -208,6 +208,7 @@
     <Compile Include="Criteria\PlayForFunProductCriteriaTests.cs" />
     <Compile Include="Criteria\MemberRequestCriteriaTests.cs" />
     <Compile Include="Criteria\Transfer\GetCashBalanceTransferCriteriaTests.cs" />
+    <Compile Include="Criteria\Transfer\UpdateCashBalanceTransferCriteriaTests.cs" />
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />

@@ -15,11 +15,13 @@ namespace Alpha.MemberInfo.Services
         Task<CashBalanceTransfer> GetCashBalanceTransferAsync(int custId);
 
         Task<Result> UpdateCashBalanceTransferAsync(
+            int uplineId,
             int custId,
             decimal amount,
-            int userId,
+            string superIdsTransferTotal,
             int subAccId,
-            string ip);
+            string ip,
+            string languageKey);
     }
 
     public class CashBalanceTransferServiceImpl : CashBalanceTransferService
@@ -39,20 +41,29 @@ namespace Alpha.MemberInfo.Services
         }
 
         public async Task<Result> UpdateCashBalanceTransferAsync(
+            int uplineId,
             int custId,
             decimal amount,
-            int userId,
+            string superIdsTransferTotal,
             int subAccId,
-            string ip)
+            string ip,
+            string languageKey)
         {
-            var criteria = new UpdateCashBalanceTransferCriteria(custId, amount, userId, subAccId, ip);
+            var criteria = new UpdateCashBalanceTransferCriteria(
+                uplineId,
+                custId,
+                amount,
+                superIdsTransferTotal,
+                subAccId,
+                ip,
+                languageKey);
 
             await repository.ExecuteAsync(criteria);
 
             return new Result
             {
                 Code = criteria.ErrCode,
-                Message = criteria.ErrMsg
+                Message = criteria.ErrCode == 0 ? AppResources.Transfer.TransferSuccessfully : criteria.ErrMsg
             };
         }
     }

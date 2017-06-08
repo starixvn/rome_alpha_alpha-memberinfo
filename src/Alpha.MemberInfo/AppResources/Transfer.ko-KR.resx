@@ -118,39 +118,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Agent" xml:space="preserve">
-    <value>Agent</value>
+    <value>에이전트</value>
   </data>
   <data name="Amount" xml:space="preserve">
-    <value>Amount</value>
+    <value>총액</value>
   </data>
   <data name="AvailableRangeTransfer" xml:space="preserve">
     <value>You can transfer from {0} to {1}</value>
   </data>
   <data name="CashBalance" xml:space="preserve">
-    <value>Cash Balance</value>
+    <value>현금</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
-    <value>Given Credit</value>
+    <value>주어진 크레딧</value>
   </data>
   <data name="Information" xml:space="preserve">
-    <value>Information</value>
+    <value>안내</value>
   </data>
   <data name="Master" xml:space="preserve">
-    <value>Master</value>
+    <value>마스터</value>
   </data>
   <data name="Member" xml:space="preserve">
-    <value>Member</value>
+    <value>회원</value>
   </data>
   <data name="OutstandingShortcut" xml:space="preserve">
-    <value>Out. Txn</value>
+    <value>아웃스텐딩  거래</value>
   </data>
   <data name="Super" xml:space="preserve">
-    <value>Super</value>
+    <value>슈퍼</value>
   </data>
   <data name="TransferButton" xml:space="preserve">
-    <value>Transfer</value>
+    <value>전송</value>
+  </data>
+  <data name="TransferSuccessfully" xml:space="preserve">
+    <value>전송 성공</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Username</value>
+    <value>사용자 이름</value>
   </data>
 </root>

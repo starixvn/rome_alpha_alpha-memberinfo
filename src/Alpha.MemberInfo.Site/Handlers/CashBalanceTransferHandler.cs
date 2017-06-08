@@ -36,11 +36,13 @@ namespace Alpha.MemberInfo.Site.Handlers
         public async Task<Result> Handle(CashBalanceTransferCommand command)
         {
             return await service.UpdateCashBalanceTransferAsync(
-                command.CustId, 
-                command.Amount, 
                 command.UplineId,
+                command.CustId,
+                command.Amount,
+                command.SuperIdsTransferTotal, 
                 command.SubAccId,
-                command.IP);
+                command.IP,
+                command.LanguageKey);
         }
     }
 }

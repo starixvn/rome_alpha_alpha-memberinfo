@@ -13,6 +13,7 @@ class CashBalance {
     $formTransfer: JQuery;
     $amount: JQuery;
     $custId: JQuery;
+    $token: JQuery;
 
     constructor(
         $: JQueryStatic,
@@ -36,6 +37,7 @@ class CashBalance {
         this.$formTransfer = this.$("#form-transfer");
         this.$amount = this.$("#amount");
         this.$custId = this.$("#custId");
+        this.$token = this.$('input[name="__RequestVerificationToken"]', this.$formTransfer)
     };
 
     registerEvents = () => {
@@ -73,6 +75,7 @@ class CashBalance {
         }
 
         let amount = parseFloat(amountValue.replace(/\,/g, ""));
+
         if (amount !== this.oldAmount) {
             this.oldAmount = amount;
             this.$amount.val(amount.toLocaleString());
@@ -84,8 +87,7 @@ class CashBalance {
             this.availableAmountFrom <= amount && amount <= this.availableAmountTo;
 
         if (isValidAmount) {
-            this.$msgContent.html("");
-            this.$msgContainer.addClass("hidden");
+            this.hideMessage();
         }
         else {
             this.showMessage(500, "You only allow to transfer from " +
@@ -98,8 +100,7 @@ class CashBalance {
     };
 
     showMessage = (code, message) => {
-        this.$msgContent.removeClass();
-        this.$msgContent.html(message);
+        this.$msgContent.removeClass().html(message);
 
         if (code === 0) {
             this.$msgContent.addClass("msg msg-success");
@@ -109,6 +110,11 @@ class CashBalance {
         }
 
         this.$msgContainer.removeClass("hidden");
+    };
+
+    hideMessage = () => {
+        this.$msgContent.removeClass().html("");
+        this.$msgContainer.addClass("hidden");
     };
 
     doTransfer = (e) => {
@@ -124,10 +130,8 @@ class CashBalance {
             return;
         }
 
-        let token = self.$('input[name="__RequestVerificationToken"]', self.$formTransfer).val();
-
         let postParams = {
-            __RequestVerificationToken: token,
+            __RequestVerificationToken: this.$token.val(),
             custId: self.$custId.val(),
             amount: amount
         };
@@ -144,8 +148,9 @@ class CashBalance {
     };
 }
 
-const cashBalance = new CashBalance($, window.top, parseFloat($("#availableAmountFrom").val()), parseFloat($("#availableAmountTo").val()));
-
 $(() => {
+    let amountFrom = parseFloat($("#availableAmountFrom").val());
+    let amountTo = parseFloat($("#availableAmountTo").val());
+    let cashBalance = new CashBalance($, window.top, amountFrom, amountTo);
     cashBalance.init();
 });

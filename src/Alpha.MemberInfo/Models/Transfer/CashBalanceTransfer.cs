@@ -16,10 +16,10 @@ namespace Alpha.MemberInfo.Models.Transfer
 
         public decimal UplineCashBalance { get; set; }
 
-        public decimal CashBalance { get; }
+        public decimal CashBalance { get; set; }
 
-        public decimal Outstanding { get; }
+        public decimal Outstanding { get; set; }
 
-        public decimal GivenCredit { get; }
+        public decimal GivenCredit { get; set; }
     }
 }
