@@ -7,9 +7,9 @@ using Fanex.Data.Repository;
 
 namespace Alpha.MemberInfo.Criteria.Transfer
 {
-    public class UpdateCashBalanceTransferCriteria : CriteriaBase
+    public abstract class AddCashBalanceTransferCriteria : NonQueryCommand
     {
-        public UpdateCashBalanceTransferCriteria(
+        protected AddCashBalanceTransferCriteria(
             int uplineId,
             int custId,
             decimal amount,
@@ -21,12 +21,12 @@ namespace Alpha.MemberInfo.Criteria.Transfer
         {
         }
 
-        public UpdateCashBalanceTransferCriteria(
+        protected AddCashBalanceTransferCriteria(
             int fromCustId,
             string toCustIds,
             decimal amount,
-            bool isAllDayBalTransfer,
-            bool isMultipleTransfer,
+            bool isCashTransfer,
+            bool isFullTransfer,
             string custStatus,
             string superIdsTransferTotal,
             int creator,
@@ -37,8 +37,8 @@ namespace Alpha.MemberInfo.Criteria.Transfer
             FromCustId = fromCustId;
             ToCustIds = toCustIds;
             Amount = amount;
-            IsAllDayBalTransfer = isAllDayBalTransfer;
-            IsMultipleTransfer = isMultipleTransfer;
+            IsCashTransfer = isCashTransfer;
+            IsFullTransfer = isFullTransfer;
             CustStatus = custStatus;
             SuperIdsTransferTotal = superIdsTransferTotal;
             Creator = creator;
@@ -55,9 +55,9 @@ namespace Alpha.MemberInfo.Criteria.Transfer
 
         public decimal Amount { get; }
 
-        public bool IsAllDayBalTransfer { get; set; }
+        public bool IsCashTransfer { get; set; }
 
-        public bool IsMultipleTransfer { get; set; }
+        public bool IsFullTransfer { get; set; }
 
         public string CustStatus { get; set; }
 
@@ -69,18 +69,15 @@ namespace Alpha.MemberInfo.Criteria.Transfer
 
         public string IP { get; set; }
 
-        public string ErrMsg { get; set; }
-
-        public int ErrCode { get; }
-
         public string Language { get; set; }
 
-        public override string GetSettingKey() => "Age_Transfer_Ins_Member";
+        public string ErrMsg { get; set; }
+
+        public int ErrCode { get; set; }
 
         public override bool IsValid() => FromCustId > 0 &&
             !string.IsNullOrWhiteSpace(ToCustIds) &&
-            Amount != 0 &&
             Creator > 0 &&
-            !string.IsNullOrWhiteSpace(IP);
+            !string.IsNullOrEmpty(IP);
     }
 }

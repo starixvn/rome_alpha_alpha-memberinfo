@@ -14,14 +14,16 @@ namespace Alpha.MemberInfo.Services
     {
         Task<CashBalanceTransfer> GetCashBalanceTransferAsync(int custId);
 
-        Task<Result> UpdateCashBalanceTransferAsync(
+        Task<Result> AddCashBalanceTransferAsync(
             int uplineId,
             int custId,
             decimal amount,
             string superIdsTransferTotal,
             int subAccId,
             string ip,
-            string languageKey);
+            string languageKey,
+            bool isAllDayBalTransfer,
+            UserLevel currentUserLevel);
     }
 
     public class CashBalanceTransferServiceImpl : CashBalanceTransferService
@@ -40,23 +42,27 @@ namespace Alpha.MemberInfo.Services
             return await repository.GetAsync<CashBalanceTransfer>(criteria);
         }
 
-        public async Task<Result> UpdateCashBalanceTransferAsync(
+        public async Task<Result> AddCashBalanceTransferAsync(
             int uplineId,
             int custId,
             decimal amount,
             string superIdsTransferTotal,
             int subAccId,
             string ip,
-            string languageKey)
+            string languageKey,
+            bool isAllDayBalTransfer,
+            UserLevel currentUserLevel)
         {
-            var criteria = new UpdateCashBalanceTransferCriteria(
+            var criteria = GetAddCashBalanceTransferCriteria(
                 uplineId,
                 custId,
                 amount,
                 superIdsTransferTotal,
                 subAccId,
                 ip,
-                languageKey);
+                languageKey,
+                isAllDayBalTransfer,
+                currentUserLevel);
 
             await repository.ExecuteAsync(criteria);
 
@@ -65,6 +71,57 @@ namespace Alpha.MemberInfo.Services
                 Code = criteria.ErrCode,
                 Message = criteria.ErrCode == 0 ? AppResources.Transfer.TransferSuccessfully : criteria.ErrMsg
             };
+        }
+
+        private AddCashBalanceTransferCriteria GetAddCashBalanceTransferCriteria(
+            int uplineId,
+            int custId,
+            decimal amount,
+            string superIdsTransferTotal,
+            int subAccId,
+            string ip,
+            string languageKey,
+            bool isAllDayBalTransfer,
+            UserLevel currentUserLevel)
+        {
+            if (currentUserLevel.IsSuperLevel())
+            {
+                return new AddMasterCashBalanceTransferCriteria(
+                    uplineId,
+                    custId,
+                    amount,
+                    superIdsTransferTotal,
+                    subAccId,
+                    ip,
+                    languageKey);
+            }
+
+            if (currentUserLevel.IsMasterLevel())
+            {
+                return new AddAgentCashBalanceTransferCriteria(
+                    uplineId,
+                    custId,
+                    amount,
+                    superIdsTransferTotal,
+                    subAccId,
+                    ip,
+                    languageKey);
+            }
+
+            if (currentUserLevel.IsAgentLevel())
+            {
+                return new AddMemberCashBalanceTransferCriteria(
+                    uplineId,
+                    custId,
+                    amount,
+                    superIdsTransferTotal,
+                    subAccId,
+                    ip,
+                    languageKey,
+                    isAllDayBalTransfer);
+            }
+
+            throw new InvalidOperationException("Invalid UserLevel.");
         }
     }
 }

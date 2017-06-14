@@ -124,10 +124,13 @@
     <value>金額</value>
   </data>
   <data name="AvailableRangeTransfer" xml:space="preserve">
-    <value>You can transfer from {0} to {1}</value>
+    <value>Amount to transfer must be between {0} and {1}.</value>
   </data>
   <data name="CashBalance" xml:space="preserve">
     <value>現金余額</value>
+  </data>
+  <data name="ConfirmTransfer" xml:space="preserve">
+    <value>是否確定轉帳?</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
     <value>信用額度</value>
@@ -140,6 +143,9 @@
   </data>
   <data name="Member" xml:space="preserve">
     <value>會員</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>您沒有使用此功能的權限</value>
   </data>
   <data name="OutstandingShortcut" xml:space="preserve">
     <value>未完成交易</value>

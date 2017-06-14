@@ -79,7 +79,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can transfer from {0} to {1}.
+        ///   Looks up a localized string similar to Amount to transfer must be between {0} and {1}..
         /// </summary>
         public static string AvailableRangeTransfer {
             get {
@@ -93,6 +93,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string CashBalance {
             get {
                 return ResourceManager.GetString("CashBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to transfer?.
+        /// </summary>
+        public static string ConfirmTransfer {
+            get {
+                return ResourceManager.GetString("ConfirmTransfer", resourceCulture);
             }
         }
         
@@ -129,6 +138,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Member {
             get {
                 return ResourceManager.GetString("Member", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are not authorized on this function..
+        /// </summary>
+        public static string NotAuthorized {
+            get {
+                return ResourceManager.GetString("NotAuthorized", resourceCulture);
             }
         }
         

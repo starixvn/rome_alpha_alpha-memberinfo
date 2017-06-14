@@ -124,10 +124,13 @@
     <value>총액</value>
   </data>
   <data name="AvailableRangeTransfer" xml:space="preserve">
-    <value>You can transfer from {0} to {1}</value>
+    <value>Amount to transfer must be between {0} and {1}.</value>
   </data>
   <data name="CashBalance" xml:space="preserve">
     <value>현금</value>
+  </data>
+  <data name="ConfirmTransfer" xml:space="preserve">
+    <value>전송하시겠습니까?</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
     <value>주어진 크레딧</value>
@@ -140,6 +143,9 @@
   </data>
   <data name="Member" xml:space="preserve">
     <value>회원</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>해당 기능에 대한 권한이 없습니다.</value>
   </data>
   <data name="OutstandingShortcut" xml:space="preserve">
     <value>아웃스텐딩  거래</value>

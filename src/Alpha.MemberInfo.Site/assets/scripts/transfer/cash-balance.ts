@@ -6,7 +6,10 @@ class CashBalance {
 
     availableAmountFrom: number;
     availableAmountTo: number;
+    note: string;
     oldAmount: number = 0;
+    transferNote: string;
+    confirmTransfer: string;
 
     $msgContainer: JQuery;
     $msgContent: JQuery;
@@ -15,15 +18,9 @@ class CashBalance {
     $custId: JQuery;
     $token: JQuery;
 
-    constructor(
-        $: JQueryStatic,
-        topWindow: any,
-        amountFrom: number,
-        amountTo: number) {
+    constructor($: JQueryStatic, topWindow: any) {
         this.$ = $;
         this.topWindow = topWindow;
-        this.availableAmountFrom = amountFrom;
-        this.availableAmountTo = amountTo;
     }
 
     init = () => {
@@ -38,6 +35,11 @@ class CashBalance {
         this.$amount = this.$("#amount");
         this.$custId = this.$("#custId");
         this.$token = this.$('input[name="__RequestVerificationToken"]', this.$formTransfer)
+
+        this.availableAmountFrom = parseFloat(this.$("#availableAmountFrom").val());
+        this.availableAmountTo = parseFloat(this.$("#availableAmountTo").val());
+        this.transferNote = this.$("#transferNote").val();
+        this.confirmTransfer = this.$("#confirmTransfer").val();
     };
 
     registerEvents = () => {
@@ -47,8 +49,8 @@ class CashBalance {
     };
 
     amountKeyDown = (e) => {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if (this.$.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+        // Allow: backspace, delete, tab, escape, enter, - and .
+        if (this.$.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190, 189, 109]) !== -1 ||
             // Allow: Ctrl/cmd+A
             (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
             // Allow: Ctrl/cmd+C
@@ -70,33 +72,20 @@ class CashBalance {
     amountKeyUp = (e) => {
         let amountValue = this.$amount.val();
 
-        if (amountValue.length === 0) {
+        if (amountValue.length === 0 || amountValue === "-") {
             return;
         }
 
         let amount = parseFloat(amountValue.replace(/\,/g, ""));
 
-        if (amount !== this.oldAmount) {
+        if (!isNaN(amount) && amount !== this.oldAmount) {
             this.oldAmount = amount;
-            this.$amount.val(amount.toLocaleString());
+            this.$amount.val(this.toString4Digits(amount));
         }
     };
 
-    validateAmountAndShowErrorMessage = (amount): boolean => {
-        let isValidAmount = amount !== 0 &&
-            this.availableAmountFrom <= amount && amount <= this.availableAmountTo;
-
-        if (isValidAmount) {
-            this.hideMessage();
-        }
-        else {
-            this.showMessage(500, "You only allow to transfer from " +
-                this.availableAmountFrom.toFixed(2).toLocaleString() +
-                " to " +
-                this.availableAmountTo.toFixed(2).toLocaleString());
-        }
-
-        return isValidAmount;
+    validateAmount = (amount): boolean => {
+        return this.availableAmountFrom <= amount && amount <= this.availableAmountTo;
     };
 
     showMessage = (code, message) => {
@@ -117,15 +106,47 @@ class CashBalance {
         this.$msgContainer.addClass("hidden");
     };
 
+    toFloat2Digits = (value): number => {
+        if (value >= 0) {
+            return Math.round(value * 100) / 100;
+        }
+
+        return (Math.ceil(value * 100) / 100) + 0.01;
+    };
+
+    toString4Digits = (value): string => {
+        return value.toLocaleString("en-US", { maximumFractionDigits: 4 })
+    };
+
     doTransfer = (e) => {
         e.preventDefault();
 
         let self = this;
         self.$.blockUI();
+
+        let confirmMessage = "";
         let amountValue = self.$amount.val();
         let amount = amountValue.length === 0 ? 0 : parseFloat(amountValue.replace(/\,/g, ""));
-        
-        if (!self.validateAmountAndShowErrorMessage(amount)) {
+
+        if (self.availableAmountFrom !== 0 && amount === self.toFloat2Digits(self.availableAmountFrom)) {
+            amount = self.availableAmountFrom;
+            confirmMessage = "Transfer amount is " + self.toString4Digits(amount) + "\n";
+        }
+        else if (self.availableAmountTo !== 0 && amount === self.toFloat2Digits(self.availableAmountTo)) {
+            amount = self.availableAmountTo;
+            confirmMessage = "Transfer amount is " + self.toString4Digits(amount) + "\n";
+        }
+
+        if (confirmMessage.length === 0 && !self.validateAmount(amount)) {
+            this.showMessage(403, this.transferNote);
+            self.$.unblockUI();
+            return;
+        }
+
+        this.hideMessage();
+        confirmMessage += self.confirmTransfer;
+
+        if (!confirm(confirmMessage)) {
             self.$.unblockUI();
             return;
         }
@@ -138,7 +159,10 @@ class CashBalance {
 
         let successFunction = function (data) {
             self.showMessage(data.Code, data.Message);
-            setTimeout(function () { location.reload(); }, 3000);
+
+            if (data.Code === 0) {
+                setTimeout(function () { location.reload(); }, 3000);
+            }
         };
 
         self.$.post(self.$formTransfer.attr("action"), postParams, successFunction, "json")
@@ -149,8 +173,6 @@ class CashBalance {
 }
 
 $(() => {
-    let amountFrom = parseFloat($("#availableAmountFrom").val());
-    let amountTo = parseFloat($("#availableAmountTo").val());
-    let cashBalance = new CashBalance($, window.top, amountFrom, amountTo);
+    let cashBalance = new CashBalance($, window.top);
     cashBalance.init();
 });

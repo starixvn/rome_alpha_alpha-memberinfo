@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="Transfer">
+    <Setting Key="Age_Transfer_Ins_Master" SpName="Age_Transfer_Ins_Master" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_Transfer_Ins_Agent" SpName="Age_Transfer_Ins_Agent" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_Transfer_Ins_Member" SpName="Age_Transfer_Ins_Member" DbName="DBTXN.BODB02.BODBDownlineNetView" Plain="0" />
   </Function>
 </Functions>

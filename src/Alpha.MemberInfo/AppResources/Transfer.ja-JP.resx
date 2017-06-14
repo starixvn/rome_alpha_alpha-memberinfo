@@ -124,10 +124,13 @@
     <value>金額</value>
   </data>
   <data name="AvailableRangeTransfer" xml:space="preserve">
-    <value>You can transfer from {0} to {1}</value>
+    <value>Amount to transfer must be between {0} and {1}.</value>
   </data>
   <data name="CashBalance" xml:space="preserve">
     <value>現金残高</value>
+  </data>
+  <data name="ConfirmTransfer" xml:space="preserve">
+    <value>送金してよろしいですか?</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
     <value>貸付金額</value>
@@ -140,6 +143,9 @@
   </data>
   <data name="Member" xml:space="preserve">
     <value>メンバー</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>You are not authorized on this function.</value>
   </data>
   <data name="OutstandingShortcut" xml:space="preserve">
     <value>未払い取り引き</value>

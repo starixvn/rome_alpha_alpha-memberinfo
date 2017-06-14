@@ -56,5 +56,19 @@ namespace Alpha.MemberInfo.Site.ViewModels.Transfer
                 return UplineCashBalance > 0 ? UplineCashBalance : 0;
             }
         }
+
+        public string Note
+        {
+            get
+            {
+                string amountFrom = TransferAmountFrom == 0 ? "0" : TransferAmountFrom.ToString($"#,##0.0000");
+                string amountTo = TransferAmountTo == 0 ? "0" : TransferAmountTo.ToString($"#,##0.0000");
+
+                return string.Format(
+                    AppResources.Transfer.AvailableRangeTransfer,
+                    amountFrom,
+                    amountTo);
+            }
+        }
     }
 }

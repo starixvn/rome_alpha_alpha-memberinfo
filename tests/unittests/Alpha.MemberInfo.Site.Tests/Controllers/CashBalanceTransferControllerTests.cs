@@ -29,7 +29,7 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
         {
             // Arrange
             var message = new CashBalanceTransferQuery { CustId = 1176083 };
-            userSession.IsInternal.Returns(true);
+            userSession.IsAllDayBalTransfer.Returns(true);
 
             // Act
             await controller.CashBalance(message);
@@ -58,7 +58,7 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
         {
             // Arrange
             var message = new CashBalanceTransferQuery { CustId = 1176083 };
-            userSession.IsInternal.Returns(false);
+            userSession.IsAllDayBalTransfer.Returns(false);
 
             // Act
             var actualView = await controller.CashBalance(message) as ViewResult;
@@ -73,7 +73,7 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
             // Arrange
             var command = new CashBalanceTransferCommand { CustId = 1176083, Amount = 1101240.32M };
 
-            userSession.IsInternal.Returns(true);
+            userSession.IsAllDayBalTransfer.Returns(true);
             userSession.CustId.Returns(1176070);
             userSession.SubAccId.Returns(0);
             userSession.UserLoginIp.Returns("127.0.0.1");
@@ -112,7 +112,7 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
             var command = new CashBalanceTransferCommand { CustId = 1176083, Amount = 1101240.32M };
             var expectedResult = Result.CreateErrorResult("Bad Request.", 400);
 
-            userSession.IsInternal.Returns(false);
+            userSession.IsAllDayBalTransfer.Returns(false);
 
             // Act
             var actualResult = await controller.CashBalance(command) as JsonResult;

@@ -124,10 +124,13 @@
     <value>จำนวนเงิน</value>
   </data>
   <data name="AvailableRangeTransfer" xml:space="preserve">
-    <value>You can transfer from {0} to {1}</value>
+    <value>Amount to transfer must be between {0} and {1}.</value>
   </data>
   <data name="CashBalance" xml:space="preserve">
     <value>ยอดเงินสด</value>
+  </data>
+  <data name="ConfirmTransfer" xml:space="preserve">
+    <value>คุณแน่ใจว่าคุณต้องการโอนเงิน?</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
     <value>เครดิตทั้งหมด</value>
@@ -140,6 +143,9 @@
   </data>
   <data name="Member" xml:space="preserve">
     <value>สมาชิก</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>คุณไม่มีอำนาจในการเข้าใช้งานฟังก์ชันนี้</value>
   </data>
   <data name="OutstandingShortcut" xml:space="preserve">
     <value>transaction ที่ยังไม่ได้คำนวณ</value>

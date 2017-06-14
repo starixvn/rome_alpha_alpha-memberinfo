@@ -25,7 +25,9 @@
     { "Path": "libs/bootstrap/multiselect.js" },
 
     { "Path": "../components/single-selection-dropdown.ts" },
-    { "Path": "../member-requests/member-requests.ts" }
+    { "Path": "../member-requests/member-requests.ts" },
+
+    { "Path": "../transfer/cash-balance.ts" }
   ],
   "Tests": [
     {
@@ -34,6 +36,10 @@
     },
     {
       "Path": "apps/member-requests",
+      "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
+    },
+    {
+      "Path": "apps/transfer",
       "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
     }
   ]

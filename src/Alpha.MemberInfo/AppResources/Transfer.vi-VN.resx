@@ -124,10 +124,13 @@
     <value>Số lượng</value>
   </data>
   <data name="AvailableRangeTransfer" xml:space="preserve">
-    <value>You can transfer from {0} to {1}</value>
+    <value>Amount to transfer must be between {0} and {1}.</value>
   </data>
   <data name="CashBalance" xml:space="preserve">
     <value>Số dư tài khoản</value>
+  </data>
+  <data name="ConfirmTransfer" xml:space="preserve">
+    <value>Bạn có chắc muốn chuyển khoản?</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
     <value>Hạn mức được cấp</value>
@@ -140,6 +143,9 @@
   </data>
   <data name="Member" xml:space="preserve">
     <value>Member</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Bạn không được cho phép sử dụng chức năng này.</value>
   </data>
   <data name="OutstandingShortcut" xml:space="preserve">
     <value>Giao dịch chưa xử lý</value>

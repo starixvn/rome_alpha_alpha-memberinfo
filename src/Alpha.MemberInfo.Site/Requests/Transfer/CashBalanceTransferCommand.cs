@@ -19,6 +19,10 @@ namespace Alpha.MemberInfo.Site.Requests.Transfer
 
         public string LanguageKey { get; set; }
 
-        public bool IsValid() => CustId > 0 && Amount != 0;
+        public bool IsAllDayBalTransfer { get; set; }
+
+        public UserLevel CurrentUserLevel { get; set; }
+
+        public bool IsValid() => CustId > 0;
     }
 }

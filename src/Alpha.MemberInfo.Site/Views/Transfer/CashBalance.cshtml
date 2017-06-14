@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Cash Balance Transfer</title>
+    <title>@Transfer.TransferButton</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="~/favico.ico" />
     @StaticResources.AssetStyles.RenderCommon("/bundles/common/common")
@@ -54,23 +54,21 @@
                     @Html.AntiForgeryToken()
                     <div class="form-group">
                         <label for="amount">@Transfer.Amount</label>
-                        <input type="text" class="textbox hasBorder text-right" id="amount" maxlength="20" autocomplete="off" autofocus>
-                    </div>
-                    <div class="form-group">
+                        <input type="text" class="textbox hasBorder text-right" id="amount" maxlength="22" autocomplete="off" autofocus>
                         <button type="submit" class="btn-submit">@Transfer.TransferButton</button>
                     </div>
                 }
             </div>
             <div class="row">
-                <div class="col-xs-12 note">
-                    @string.Format(Transfer.AvailableRangeTransfer, HtmlHelpers.FormatNumber(Model.TransferAmountFrom), HtmlHelpers.FormatNumber(Model.TransferAmountTo))
-                </div>
+                <div class="col-xs-12 note">@Model.Note</div>
             </div>
         </div>
     </div>
     <input type="hidden" id="custId" value="@Model.CustId" />
     <input type="hidden" id="availableAmountFrom" value="@Model.TransferAmountFrom" />
     <input type="hidden" id="availableAmountTo" value="@Model.TransferAmountTo" />
+    <input type="hidden" id="transferNote" value="@Model.Note" />
+    <input type="hidden" id="confirmTransfer" value="@Transfer.ConfirmTransfer" />
     @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
     @StaticResources.RenderScripts("~/assets/bundles/transfer/cash-balance")
 </body>
