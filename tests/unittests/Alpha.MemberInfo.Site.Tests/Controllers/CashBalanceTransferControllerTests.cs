@@ -73,10 +73,13 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
             // Arrange
             var command = new CashBalanceTransferCommand { CustId = 1176083, Amount = 1101240.32M };
 
-            userSession.IsAllDayBalTransfer.Returns(true);
             userSession.CustId.Returns(1176070);
             userSession.SubAccId.Returns(0);
             userSession.UserLoginIp.Returns("127.0.0.1");
+            userSession.LangKey.Returns("E");
+            userSession.RoleId.Returns((byte)4);
+            userSession.IsAllDayBalTransfer.Returns(true);
+            userSession.IsInternal.Returns(false);
 
             // Act
             await controller.CashBalance(command);

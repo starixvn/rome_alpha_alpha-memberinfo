@@ -37,7 +37,7 @@
         topWindow = {
         };
 
-        cashBalance = new CashBalance(jQueryFake, topWindow, amountFrom, amountTo);
+        cashBalance = new CashBalance(jQueryFake, topWindow);
 
         ////spyOn(singleSelectionDropdownComponent, "render");
     });
