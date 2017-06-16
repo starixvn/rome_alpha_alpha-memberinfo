@@ -7,40 +7,20 @@ using Fanex.Data.Repository;
 
 namespace Alpha.MemberInfo.Criteria.Transfer
 {
-    public abstract class AddCashBalanceTransferCriteria : NonQueryCommand
+    public class AddCashBalanceTransferCriteria : NonQueryCommand
     {
-        protected AddCashBalanceTransferCriteria(
-            int uplineId,
-            int custId,
-            decimal amount,
-            string superIdsTransferTotal,
-            int subAccId,
-            string ip,
-            string languageKey)
-            : this(uplineId, custId.ToString(), amount, true, false, string.Empty, superIdsTransferTotal, uplineId, subAccId, ip, languageKey)
-        {
-        }
-
-        protected AddCashBalanceTransferCriteria(
+        public AddCashBalanceTransferCriteria(
             int fromCustId,
-            string toCustIds,
+            int toCustId,
             decimal amount,
-            bool isCashTransfer,
-            bool isFullTransfer,
-            string custStatus,
-            string superIdsTransferTotal,
             int creator,
             int subAccId,
             string ip,
             string languageKey)
         {
             FromCustId = fromCustId;
-            ToCustIds = toCustIds;
+            ToCustId = toCustId;
             Amount = amount;
-            IsCashTransfer = isCashTransfer;
-            IsFullTransfer = isFullTransfer;
-            CustStatus = custStatus;
-            SuperIdsTransferTotal = superIdsTransferTotal;
             Creator = creator;
             SubAccId = subAccId;
             IP = ip;
@@ -51,17 +31,9 @@ namespace Alpha.MemberInfo.Criteria.Transfer
 
         public int FromCustId { get; }
 
-        public string ToCustIds { get; }
+        public int ToCustId { get; }
 
         public decimal Amount { get; }
-
-        public bool IsCashTransfer { get; set; }
-
-        public bool IsFullTransfer { get; set; }
-
-        public string CustStatus { get; set; }
-
-        public string SuperIdsTransferTotal { get; }
 
         public int Creator { get; }
 
@@ -71,12 +43,15 @@ namespace Alpha.MemberInfo.Criteria.Transfer
 
         public string Language { get; set; }
 
-        public string ErrMsg { get; set; }
-
         public int ErrCode { get; set; }
 
-        public override bool IsValid() => FromCustId > 0 &&
-            !string.IsNullOrWhiteSpace(ToCustIds) &&
+        public string ErrMsg { get; set; }
+
+        public override string GetSettingKey() => "Age_Transfer_CashBalance_Ins";
+
+        public override bool IsValid() =>
+            FromCustId > 0 &&
+            ToCustId > 0 &&
             Creator > 0 &&
             !string.IsNullOrEmpty(IP);
     }

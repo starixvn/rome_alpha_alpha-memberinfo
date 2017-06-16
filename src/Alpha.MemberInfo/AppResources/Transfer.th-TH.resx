@@ -153,6 +153,9 @@
   <data name="Super" xml:space="preserve">
     <value>สูงสุด</value>
   </data>
+  <data name="TransferAmountIs" xml:space="preserve">
+    <value>Transfer amount is</value>
+  </data>
   <data name="TransferButton" xml:space="preserve">
     <value>ตั้งค่าใหม่</value>
   </data>

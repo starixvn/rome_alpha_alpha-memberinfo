@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
+using Alpha.MemberInfo.AppResources;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Controllers;
 using Alpha.MemberInfo.Site.Requests.Transfer;
@@ -54,7 +55,7 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
         }
 
         [Fact]
-        public async Task CashBalance_QueryIsAllDayBalTransfer_ReturnInvalidPageView()
+        public async Task CashBalance_QueryInvalidIsAllDayBalTransfer_ReturnInvalidPageView()
         {
             // Arrange
             var message = new CashBalanceTransferQuery { CustId = 1176083 };
@@ -73,13 +74,12 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
             // Arrange
             var command = new CashBalanceTransferCommand { CustId = 1176083, Amount = 1101240.32M };
 
+            userSession.IsAllDayBalTransfer.Returns(true);
+            userSession.IsInternal.Returns(false);
             userSession.CustId.Returns(1176070);
             userSession.SubAccId.Returns(0);
             userSession.UserLoginIp.Returns("127.0.0.1");
             userSession.LangKey.Returns("E");
-            userSession.RoleId.Returns((byte)4);
-            userSession.IsAllDayBalTransfer.Returns(true);
-            userSession.IsInternal.Returns(false);
 
             // Act
             await controller.CashBalance(command);
@@ -91,7 +91,6 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
         [Theory]
         [InlineData(-1176083, 1101240.32)]
         [InlineData(0, 1101240.32)]
-        [InlineData(1176083, 0)]
         public async Task CashBalance_CommandIsNotValid_ReturnBadRequestResult(int custId, decimal amount)
         {
             // Arrange
@@ -109,13 +108,33 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
         }
 
         [Fact]
-        public async Task CashBalance_CommandIsAllDayBalTransfer_ReturnBadRequestResult()
+        public async Task CashBalance_CommandInvalidIsAllDayBalTransfer_ReturnBadRequestResult()
         {
             // Arrange
             var command = new CashBalanceTransferCommand { CustId = 1176083, Amount = 1101240.32M };
             var expectedResult = Result.CreateErrorResult("Bad Request.", 400);
 
             userSession.IsAllDayBalTransfer.Returns(false);
+
+            // Act
+            var actualResult = await controller.CashBalance(command) as JsonResult;
+
+            // Assert
+            var actualData = (Result)actualResult.Data;
+
+            Assert.True(actualData.Code == expectedResult.Code &&
+                actualData.Message == expectedResult.Message);
+        }
+
+        [Fact]
+        public async Task CashBalance_CommandIsInternal_ReturnBadRequestResult()
+        {
+            // Arrange
+            var command = new CashBalanceTransferCommand { CustId = 1176083, Amount = 1101240.32M };
+            var expectedResult = Result.CreateErrorResult(Transfer.NotAuthorized, 403);
+
+            userSession.IsAllDayBalTransfer.Returns(true);
+            userSession.IsInternal.Returns(true);
 
             // Act
             var actualResult = await controller.CashBalance(command) as JsonResult;

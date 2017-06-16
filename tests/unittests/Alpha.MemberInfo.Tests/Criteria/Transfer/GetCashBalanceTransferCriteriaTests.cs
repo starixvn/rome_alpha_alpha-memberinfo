@@ -20,11 +20,24 @@ namespace Alpha.MemberInfo.Tests.Criteria.Transfer
             Assert.Equal(expectedSettingKey, actualSettingKey);
         }
 
+        [Fact]
+        public void IsValid_Always_ReturnsTrue()
+        {
+            // Arrange
+            var criteria = new GetCashBalanceTransferCriteria(1176083);
+            bool expectedResult = true;
+
+            // Act
+            var actualIsValid = criteria.IsValid();
+
+            // Assert
+            Assert.Equal(expectedResult, actualIsValid);
+        }
+
         [Theory]
         [InlineData(-1176083, false)]
         [InlineData(0, false)]
-        [InlineData(1176083, true)]
-        public void IsValid_Always_ReturnsTrue(int custId, bool expectedResult)
+        public void IsInvalid_Always_ReturnsFalse(int custId, bool expectedResult)
         {
             // Arrange
             var criteria = new GetCashBalanceTransferCriteria(custId);

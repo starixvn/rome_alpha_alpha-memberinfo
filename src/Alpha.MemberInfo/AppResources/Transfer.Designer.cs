@@ -169,6 +169,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Transfer amount is.
+        /// </summary>
+        public static string TransferAmountIs {
+            get {
+                return ResourceManager.GetString("TransferAmountIs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Transfer.
         /// </summary>
         public static string TransferButton {

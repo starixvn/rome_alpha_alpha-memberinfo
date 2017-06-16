@@ -153,6 +153,9 @@
   <data name="Super" xml:space="preserve">
     <value>Super</value>
   </data>
+  <data name="TransferAmountIs" xml:space="preserve">
+    <value>Transfer amount is</value>
+  </data>
   <data name="TransferButton" xml:space="preserve">
     <value>送金</value>
   </data>

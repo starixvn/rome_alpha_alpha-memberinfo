@@ -39,12 +39,10 @@ namespace Alpha.MemberInfo.Site.Handlers
                 command.UplineId,
                 command.CustId,
                 command.Amount,
-                command.SuperIdsTransferTotal,
+                command.UplineId,
                 command.SubAccId,
                 command.IP,
-                command.LanguageKey,
-                command.IsAllDayBalTransfer,
-                command.CurrentUserLevel);
+                command.LanguageKey);
         }
     }
 }

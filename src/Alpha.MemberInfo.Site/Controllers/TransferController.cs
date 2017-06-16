@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.SessionState;
-using Alpha.MemberInfo.Enumerations;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Requests.Transfer;
 using MediatR;
@@ -48,12 +47,9 @@ namespace Alpha.MemberInfo.Site.Controllers
             else
             {
                 command.UplineId = userSession.CustId;
-                command.SuperIdsTransferTotal = Sunplus.Agent.Model.BL.Definitions.AppSettings.AllowedListSuperAccounts;
                 command.SubAccId = userSession.SubAccId;
-                command.IP = userSession.UserLoginIp ?? "127.0.0.1";
+                command.IP = userSession.UserLoginIp;
                 command.LanguageKey = userSession.LangKey;
-                command.IsAllDayBalTransfer = userSession.IsAllDayBalTransfer;
-                command.CurrentUserLevel = Enumeration.FromValue<UserLevel>(userSession.RoleId);
 
                 result = await mediator.SendAsync(command);
             }
