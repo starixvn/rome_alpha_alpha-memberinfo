@@ -157,6 +157,14 @@ class CashBalance {
         return validationObject;
     };
 
+    afterAddTransferSuccessfully = (data: any) => {
+        this.showMessage(data.Code, data.Message);
+
+        if (data.Code === 0) {
+            setTimeout(function () { location.reload(); }, 3000);
+        }
+    };
+
     doTransfer = (e: any) => {
         e.preventDefault();
 
@@ -184,15 +192,7 @@ class CashBalance {
             amount: validationObject.amount
         };
 
-        let successFunction: any = function (data: any) {
-            self.showMessage(data.Code, data.Message);
-
-            if (data.Code === 0) {
-                setTimeout(function () { location.reload(); }, 3000);
-            }
-        };
-
-        self.$.post(self.$formTransfer.attr("action"), postParams, successFunction, "json")
+        self.$.post(self.$formTransfer.attr("action"), postParams, self.afterAddTransferSuccessfully, "json")
             .always(function () {
                 self.$.unblockUI();
             });

@@ -336,4 +336,68 @@
             expect(validationObject.code).toBe(0);
         });
     });
+
+    describe("_afterAddTransferSuccessfully", () => {
+        it("_Code = 0 -> Show Successful Message", () => {
+            // arrange
+            spyOn(cashBalance, "showMessage");
+
+            let data: any = { Code: 0, Message: "Transfer successfully." };
+
+            // act
+            cashBalance.afterAddTransferSuccessfully(data);
+
+            // assert
+            expect(cashBalance.showMessage).toHaveBeenCalledWith(data.Code, data.Message);
+        });
+
+        it("_Code != 0 -> Show Error Message", () => {
+            // arrange
+            spyOn(cashBalance, "showMessage");
+
+            let data: any = { Code: 400, Message: "Bad request." };
+
+            // act
+            cashBalance.afterAddTransferSuccessfully(data);
+
+            // assert
+            expect(cashBalance.showMessage).toHaveBeenCalledWith(data.Code, data.Message);
+        });
+
+        it("_Code = 0 -> Reload Page After 3 seconds", () => {
+            // arrange
+            jasmine.clock().install();
+            spyOn(location, "reload");
+
+            setFixtures(template.normal);
+            cashBalance.cacheDOMElements();
+
+            let data: any = { Code: 0, Message: "Transfer successfully." };
+
+            // act
+            cashBalance.afterAddTransferSuccessfully(data);
+            jasmine.clock().tick(3001);
+
+            // assert
+            expect(location.reload).toHaveBeenCalled();
+
+            jasmine.clock().uninstall();
+        });
+
+        it("_Code != 0 -> Do NOT Reload Page", () => {
+            // arrange
+            spyOn(location, "reload");
+
+            setFixtures(template.normal);
+            cashBalance.cacheDOMElements();
+
+            let data: any = { Code: 400, Message: "Bad request." };
+
+            // act
+            cashBalance.afterAddTransferSuccessfully(data);
+
+            // assert
+            expect(location.reload).not.toHaveBeenCalled();
+        });
+    });
 });
