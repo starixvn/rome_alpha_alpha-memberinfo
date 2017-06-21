@@ -555,6 +555,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Views\Transfer\Hint.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\styles\images\" />

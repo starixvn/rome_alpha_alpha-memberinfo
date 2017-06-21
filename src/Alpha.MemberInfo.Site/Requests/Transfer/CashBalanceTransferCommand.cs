@@ -17,6 +17,6 @@ namespace Alpha.MemberInfo.Site.Requests.Transfer
 
         public string LanguageKey { get; set; }
 
-        public bool IsValid() => CustId > 0;
+        public bool IsValid() => CustId > 0 && Amount != 0;
     }
 }

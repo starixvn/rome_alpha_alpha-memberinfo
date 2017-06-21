@@ -87,7 +87,7 @@ class CashBalance {
     };
 
     validateAmount = (amount: number): boolean => {
-        return this.availableAmountFrom <= amount && amount <= this.availableAmountTo;
+        return this.availableAmountFrom <= amount && amount <= this.availableAmountTo && amount !== 0;
     };
 
     showMessage = (code: number, message: string) => {

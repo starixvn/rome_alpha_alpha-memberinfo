@@ -154,6 +154,14 @@
             // assert
             expect(isValid).toBeFalsy();
         });
+
+        it("_Amount = 0 -> false", () => {
+            // act
+            let isValid: boolean = cashBalance.validateAmount(0);
+
+            // assert
+            expect(isValid).toBeFalsy();
+        });
     });
 
     describe("_showMessage", () => {

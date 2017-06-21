@@ -53,6 +53,7 @@ namespace Alpha.MemberInfo.Criteria.Transfer
             FromCustId > 0 &&
             ToCustId > 0 &&
             Creator > 0 &&
-            !string.IsNullOrEmpty(IP);
+            !string.IsNullOrEmpty(IP) &&
+            Amount != 0;
     }
 }

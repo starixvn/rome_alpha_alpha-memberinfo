@@ -56,5 +56,16 @@ namespace Alpha.MemberInfo.Site.Controllers
 
             return Json(result, JsonRequestBehavior.DenyGet);
         }
+
+        [HttpGet]
+        public ActionResult Hint()
+        {
+            if (!userSession.IsAllDayBalTransfer)
+            {
+                return View(InvalidPageViewPath);
+            }
+
+            return View();
+        }
     }
 }

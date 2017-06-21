@@ -38,6 +38,7 @@ namespace Alpha.MemberInfo.Tests.Criteria.Transfer
         [InlineData(-1176070, 1176083, 1101240.32, "127.0.0.1", false)]
         [InlineData(1176070, -1176083, 1101240.32, "127.0.0.1", false)]
         [InlineData(1176070, 1176083, 1101240.32, null, false)]
+        [InlineData(1176070, 1176083, 0, "127.0.0.1", false)]
         public void IsInvalid_Always_ReturnsFalse(int uplineId, int custId, decimal amount, string ip, bool expectedResult)
         {
             // Arrange

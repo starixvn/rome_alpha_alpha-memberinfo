@@ -91,6 +91,7 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
         [Theory]
         [InlineData(-1176083, 1101240.32)]
         [InlineData(0, 1101240.32)]
+        [InlineData(1176083, 0)]
         public async Task CashBalance_CommandIsNotValid_ReturnBadRequestResult(int custId, decimal amount)
         {
             // Arrange
@@ -144,6 +145,32 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
 
             Assert.True(actualData.Code == expectedResult.Code &&
                 actualData.Message == expectedResult.Message);
+        }
+
+        [Fact]
+        public void Hint_Always_ReturnValidPageView()
+        {
+            // Arrange
+            userSession.IsAllDayBalTransfer.Returns(true);
+
+            // Act
+            var actualView = controller.Hint() as ViewResult;
+
+            // Assert
+            Assert.Equal(string.Empty, actualView.ViewName);
+        }
+
+        [Fact]
+        public void Hint_InvalidIsAllDayBalTransfer_ReturnInvalidPageView()
+        {
+            // Arrange
+            userSession.IsAllDayBalTransfer.Returns(false);
+
+            // Act
+            var actualView = controller.Hint() as ViewResult;
+
+            // Assert
+            Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);
         }
     }
 }
