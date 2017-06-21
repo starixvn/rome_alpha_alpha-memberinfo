@@ -161,7 +161,12 @@ class CashBalance {
         this.showMessage(data.Code, data.Message);
 
         if (data.Code === 0) {
-            setTimeout(function () { location.reload(); }, 3000);
+            let self = this;
+
+            setTimeout(function () {
+                self.topWindow.main.location.reload(true);
+                self.topWindow.popupManager.close();
+            }, 3000);
         }
     };
 
