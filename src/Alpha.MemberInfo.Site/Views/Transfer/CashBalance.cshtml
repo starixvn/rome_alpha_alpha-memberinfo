@@ -74,7 +74,7 @@
                     @Html.AntiForgeryToken()
                     <div class="form-group">
                         <label for="amount">@Transfer.Amount</label>
-                        <input type="text" class="textbox hasBorder text-right" id="amount" maxlength="22" autocomplete="off" autofocus>
+                        <input type="text" class="textbox hasBorder text-right" id="amount" maxlength="22" autocomplete="off">
                         <button type="submit" class="btn-submit" @(disableTransfer ? "disabled=disabled" : string.Empty)>@Transfer.TransferButton</button>
                     </div>
                 }

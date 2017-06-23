@@ -6,7 +6,6 @@ class CashBalance {
 
     availableAmountFrom: number;
     availableAmountTo: number;
-    note: string;
     oldAmount: number = 0;
     availableRangeTransfer: string;
     confirmTransfer: string;
@@ -27,6 +26,7 @@ class CashBalance {
     init = () => {
         this.cacheDOMElements();
         this.registerEvents();
+        this.$amount.focus();
     };
 
     cacheDOMElements = () => {
