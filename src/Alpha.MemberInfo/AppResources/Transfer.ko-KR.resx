@@ -135,6 +135,12 @@
   <data name="GivenCredit" xml:space="preserve">
     <value>주어진 크레딧</value>
   </data>
+  <data name="HintNotAvailableToTransfer" xml:space="preserve">
+    <value>Cash balance is not available to transfer.</value>
+  </data>
+  <data name="HintRangeTransfer" xml:space="preserve">
+    <value>You can transfer from {0} to {1}.</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>안내</value>
   </data>

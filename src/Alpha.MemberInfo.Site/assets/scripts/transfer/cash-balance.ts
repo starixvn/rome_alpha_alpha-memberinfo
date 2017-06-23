@@ -8,7 +8,7 @@ class CashBalance {
     availableAmountTo: number;
     note: string;
     oldAmount: number = 0;
-    transferNote: string;
+    availableRangeTransfer: string;
     confirmTransfer: string;
     transferAmountIs: string;
 
@@ -39,7 +39,7 @@ class CashBalance {
 
         this.availableAmountFrom = parseFloat(this.$("#availableAmountFrom").val());
         this.availableAmountTo = parseFloat(this.$("#availableAmountTo").val());
-        this.transferNote = this.$("#transferNote").val();
+        this.availableRangeTransfer = this.$("#availableRangeTransfer").val();
         this.confirmTransfer = this.$("#confirmTransfer").val();
         this.transferAmountIs = this.$("#transferAmountIs").val();
     };
@@ -144,7 +144,7 @@ class CashBalance {
 
         if (confirmMessage.length === 0 && !this.validateAmount(amount)) {
             validationObject.code = 400;
-            validationObject.message = this.transferNote;
+            validationObject.message = this.availableRangeTransfer;
         } else {
             validationObject.code = 0;
 

@@ -115,6 +115,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cash balance is not available to transfer..
+        /// </summary>
+        public static string HintNotAvailableToTransfer {
+            get {
+                return ResourceManager.GetString("HintNotAvailableToTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can transfer from {0} to {1}..
+        /// </summary>
+        public static string HintRangeTransfer {
+            get {
+                return ResourceManager.GetString("HintRangeTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
         public static string Information {

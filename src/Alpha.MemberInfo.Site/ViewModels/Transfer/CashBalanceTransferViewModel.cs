@@ -40,12 +40,9 @@ namespace Alpha.MemberInfo.Site.ViewModels.Transfer
         {
             get
             {
-                if (CashBalance > 0)
-                {
-                    return -(CashBalance - Outstanding);
-                }
+                decimal amountFrom = CashBalance - Outstanding;
 
-                return 0;
+                return amountFrom > 0 ? amountFrom * -1 : 0;
             }
         }
 
@@ -54,20 +51,6 @@ namespace Alpha.MemberInfo.Site.ViewModels.Transfer
             get
             {
                 return UplineCashBalance > 0 ? UplineCashBalance : 0;
-            }
-        }
-
-        public string Note
-        {
-            get
-            {
-                string amountFrom = TransferAmountFrom == 0 ? "0" : TransferAmountFrom.ToString($"#,##0.0000");
-                string amountTo = TransferAmountTo == 0 ? "0" : TransferAmountTo.ToString($"#,##0.0000");
-
-                return string.Format(
-                    AppResources.Transfer.AvailableRangeTransfer,
-                    amountFrom,
-                    amountTo);
             }
         }
     }

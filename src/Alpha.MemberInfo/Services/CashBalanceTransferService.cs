@@ -50,6 +50,8 @@ namespace Alpha.MemberInfo.Services
             string ip,
             string languageKey)
         {
+            amount *= -1;
+
             var criteria = new AddCashBalanceTransferCriteria(
                 fromCustId,
                 toCustId,
