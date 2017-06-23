@@ -26,7 +26,6 @@ class CashBalance {
     init = () => {
         this.cacheDOMElements();
         this.registerEvents();
-        this.$amount.focus();
     };
 
     cacheDOMElements = () => {
@@ -42,6 +41,8 @@ class CashBalance {
         this.availableRangeTransfer = this.$("#availableRangeTransfer").val();
         this.confirmTransfer = this.$("#confirmTransfer").val();
         this.transferAmountIs = this.$("#transferAmountIs").val();
+
+        this.$amount.focus();
     };
 
     registerEvents = () => {
