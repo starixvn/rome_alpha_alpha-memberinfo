@@ -161,7 +161,11 @@ class CashBalance {
     afterAddTransferSuccessfully = (data: any) => {
         this.showMessage(data.Code, data.Message);
 
-        if (data.Code === 0) {
+        if (data.Code === 105) {
+            setTimeout(function () {
+                location.reload(true);
+            }, 3000);
+        } else if (data.Code === 0) {
             let self = this;
 
             setTimeout(function () {
@@ -174,31 +178,32 @@ class CashBalance {
     doTransfer = (e: any) => {
         e.preventDefault();
 
-        let self: any = this;
-        self.$.blockUI();
+        this.$.blockUI();
 
-        let validationObject: any = self.getValidationObject();
+        let validationObject: any = this.getValidationObject();
 
         if (validationObject.code !== 0) {
             this.showMessage(validationObject.code, validationObject.message);
-            self.$.unblockUI();
+            this.$.unblockUI();
             return;
         }
 
         this.hideMessage();
 
         if (!confirm(validationObject.message)) {
-            self.$.unblockUI();
+            this.$.unblockUI();
             return;
         }
 
         let postParams: any = {
             __RequestVerificationToken: this.$token.val(),
-            custId: self.$custId.val(),
+            custId: this.$custId.val(),
             amount: validationObject.amount
         };
 
-        self.$.post(self.$formTransfer.attr("action"), postParams, self.afterAddTransferSuccessfully, "json")
+        var self = this;
+
+        this.$.post(this.$formTransfer.attr("action"), postParams, this.afterAddTransferSuccessfully, "json")
             .always(function () {
                 self.$.unblockUI();
             });
