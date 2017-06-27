@@ -1,29 +1,9 @@
 ﻿@{
     Layout = null;
 }
-@using Alpha.MemberInfo.Models;
 @using Alpha.MemberInfo.Site.ViewModels.Transfer;
 @model CashBalanceTransferViewModel
-@{
-    string hint,
-        amountFrom,
-        amountTo,
-        availableRangeTransfer = string.Empty;
-    bool disableTransfer = true;
 
-    if (Model.TransferAmountFrom == 0 && Model.TransferAmountTo == 0)
-    {
-        hint = Transfer.HintNotAvailableToTransfer;
-    }
-    else
-    {
-        amountFrom = Model.TransferAmountFrom == 0 ? "0" : Model.TransferAmountFrom.ToString($"#,##0.0000");
-        amountTo = Model.TransferAmountTo == 0 ? "0" : Model.TransferAmountTo.ToString($"#,##0.0000");
-        hint = string.Format(Transfer.HintRangeTransfer, amountFrom, amountTo);
-        availableRangeTransfer = string.Format(Transfer.AvailableRangeTransfer, amountFrom, amountTo);
-        disableTransfer = false;
-    }
-}
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="~/favico.ico" />
     @StaticResources.AssetStyles.RenderCommon("/bundles/common/common")
-    @StaticResources.RenderStyles("~/assets/bundles/cash-balance")
+    @StaticResources.RenderStyles("~/assets/bundles/transfer")
 </head>
 <body>
     <div class="container-fluid cash-balance">
@@ -42,13 +22,13 @@
         </div>
         <div class="section">
             <div class="row">
-                <div class="col-xs-5 col-sm-3 col-lg-2 ex-text">@GetUserLevelDisplayName(Model.CustUserLevel.GetDirectUplineLevel()) @Transfer.CashBalance:</div>
+                <div class="col-xs-5 col-sm-3 col-lg-2 ex-text">@Model.UplineLevelName @Transfer.CashBalance:</div>
                 <div class="col-xs-7 col-sm-9 col-lg-10">@HtmlHelpers.FormatNumber(Model.UplineCashBalance)</div>
             </div>
         </div>
         <div class="section">
             <div class="row">
-                <div class="col-xs-12 ex-text">@GetUserLevelDisplayName(Model.CustUserLevel) @Transfer.Information:</div>
+                <div class="col-xs-12 ex-text">@Model.CustLevelName @Transfer.Information:</div>
             </div>
             <div class="row">
                 <div class="col-xs-5 col-sm-3 col-lg-2">@Transfer.Username</div>
@@ -75,48 +55,22 @@
                     <div class="form-group">
                         <label for="amount">@Transfer.Amount</label>
                         <input type="text" class="textbox hasBorder text-right" id="amount" maxlength="22" autocomplete="off">
-                        <button type="submit" class="btn-submit" @(disableTransfer ? "disabled=disabled" : string.Empty)>@Transfer.TransferButton</button>
+                        <button type="submit" class="btn-submit" @(Model.DisableTransfer ? "disabled=disabled" : string.Empty)>@Transfer.TransferButton</button>
                     </div>
                 }
             </div>
             <div class="row">
-                <div class="col-xs-12 note">@hint</div>
+                <div class="col-xs-12 note">@Model.Hint</div>
             </div>
         </div>
     </div>
     <input type="hidden" id="custId" value="@Model.CustId" />
     <input type="hidden" id="availableAmountFrom" value="@Model.TransferAmountFrom" />
     <input type="hidden" id="availableAmountTo" value="@Model.TransferAmountTo" />
-    <input type="hidden" id="availableRangeTransfer" value="@availableRangeTransfer" />
+    <input type="hidden" id="availableRangeTransfer" value="@Model.AvailableRangeTransfer" />
     <input type="hidden" id="confirmTransfer" value="@Transfer.ConfirmTransfer" />
     <input type="hidden" id="transferAmountIs" value="@Transfer.TransferAmountIs" />
     @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
     @StaticResources.RenderScripts("~/assets/bundles/transfer/cash-balance")
 </body>
 </html>
-@functions {
-    private string GetUserLevelDisplayName(UserLevel userLevel)
-    {
-        if (userLevel.IsSuperLevel())
-        {
-            return Transfer.Super;
-        }
-
-        if (userLevel.IsMasterLevel())
-        {
-            return Transfer.Master;
-        }
-
-        if (userLevel.IsAgentLevel())
-        {
-            return Transfer.Agent;
-        }
-
-        if (userLevel.IsMemberLevel())
-        {
-            return Transfer.Member;
-        }
-
-        return string.Empty;
-    }
-}

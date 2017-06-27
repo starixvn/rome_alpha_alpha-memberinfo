@@ -5,18 +5,26 @@ namespace Alpha.MemberInfo.Site.Requests.Transfer
 {
     public class CashBalanceTransferCommand : IAsyncRequest<Result>
     {
+        public CashBalanceTransferCommand(IUser user)
+        {
+            UplineId = user.Id;
+            SubAccId = user.SubAccId;
+            IP = user.IP;
+            LanguageKey = user.LanguageKey;
+        }
+
         public int CustId { get; set; }
 
         public decimal Amount { get; set; }
 
-        public int UplineId { get; set; }
+        public int UplineId { get; }
 
-        public int SubAccId { get; set; }
+        public int SubAccId { get; }
 
-        public string IP { get; set; }
+        public string IP { get; }
 
-        public string LanguageKey { get; set; }
+        public string LanguageKey { get; }
 
-        public bool IsValid() => CustId > 0 && Amount != 0;
+        public bool IsValid() => CustId > 0 && Amount != 0 && UplineId > 0;
     }
 }

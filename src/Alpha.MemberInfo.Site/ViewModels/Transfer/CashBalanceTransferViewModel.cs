@@ -20,9 +20,44 @@ namespace Alpha.MemberInfo.Site.ViewModels.Transfer
             CashBalance = cashBalance;
             Outstanding = outstanding;
             GivenCredit = givenCredit;
+
+            TransferAmountFrom = CashBalance - Outstanding;
+            TransferAmountFrom = TransferAmountFrom > 0 ? TransferAmountFrom * -1 : 0;
+            TransferAmountTo = UplineCashBalance > 0 ? UplineCashBalance : 0;
+
+            DisableTransfer = TransferAmountFrom == 0 && TransferAmountTo == 0;
+
+            if (DisableTransfer)
+            {
+                Hint = AppResources.Transfer.HintNotAvailableToTransfer;
+            }
+            else
+            {
+                string amountFrom = Format4Digits(TransferAmountFrom);
+                string amountTo = Format4Digits(TransferAmountTo);
+
+                Hint = string.Format(AppResources.Transfer.HintRangeTransfer, amountFrom, amountTo);
+                AvailableRangeTransfer = string.Format(AppResources.Transfer.AvailableRangeTransfer, amountFrom, amountTo);
+            }
+        }
+
+        public string UplineLevelName
+        {
+            get
+            {
+                return GetUserLevelDisplayName(CustUserLevel.GetDirectUplineLevel());
+            }
         }
 
         public decimal UplineCashBalance { get; }
+
+        public string CustLevelName
+        {
+            get
+            {
+                return GetUserLevelDisplayName(CustUserLevel);
+            }
+        }
 
         public int CustId { get; }
 
@@ -36,22 +71,44 @@ namespace Alpha.MemberInfo.Site.ViewModels.Transfer
 
         public decimal GivenCredit { get; }
 
-        public decimal TransferAmountFrom
-        {
-            get
-            {
-                decimal amountFrom = CashBalance - Outstanding;
+        public decimal TransferAmountFrom { get; }
 
-                return amountFrom > 0 ? amountFrom * -1 : 0;
-            }
+        public decimal TransferAmountTo { get; }
+
+        public string Hint { get; }
+
+        public string AvailableRangeTransfer { get; }
+
+        public bool DisableTransfer { get; }
+
+        private string Format4Digits(decimal value)
+        {
+            return value == 0 ? "0" : value.ToString("N4");
         }
 
-        public decimal TransferAmountTo
+        private string GetUserLevelDisplayName(UserLevel userLevel)
         {
-            get
+            if (userLevel.IsSuperLevel())
             {
-                return UplineCashBalance > 0 ? UplineCashBalance : 0;
+                return AppResources.Transfer.Super;
             }
+
+            if (userLevel.IsMasterLevel())
+            {
+                return AppResources.Transfer.Master;
+            }
+
+            if (userLevel.IsAgentLevel())
+            {
+                return AppResources.Transfer.Agent;
+            }
+
+            if (userLevel.IsMemberLevel())
+            {
+                return AppResources.Transfer.Member;
+            }
+
+            return string.Empty;
         }
     }
 }

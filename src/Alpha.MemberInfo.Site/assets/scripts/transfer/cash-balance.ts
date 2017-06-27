@@ -92,20 +92,15 @@ class CashBalance {
     };
 
     showMessage = (code: number, message: string) => {
-        this.$msgContent.removeClass().html(message);
+        var className = code === 0 ? "msg msg-success" : "msg msg-error";
 
-        if (code === 0) {
-            this.$msgContent.addClass("msg msg-success");
-        } else {
-            this.$msgContent.addClass("msg msg-error");
-        }
-
+        this.$msgContent.removeClass().html(message).addClass(className);
         this.$msgContainer.removeClass("hidden");
     };
 
     hideMessage = () => {
-        this.$msgContent.removeClass().html("");
         this.$msgContainer.addClass("hidden");
+        this.$msgContent.removeClass().html("");
     };
 
     countDecimals = (value: number): number => {

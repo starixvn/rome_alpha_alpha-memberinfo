@@ -38,7 +38,7 @@ namespace Alpha.MemberInfo.Site.Controllers
 
             if (command == null || !command.IsValid() || !userSession.IsAllDayBalTransfer)
             {
-                result = Result.CreateErrorResult("Bad Request.", 400);
+                result = Result.CreateErrorResult(AppResources.Transfer.BadRequest, 400);
             }
             else if (userSession.IsInternal)
             {
@@ -46,11 +46,6 @@ namespace Alpha.MemberInfo.Site.Controllers
             }
             else
             {
-                command.UplineId = userSession.CustId;
-                command.SubAccId = userSession.SubAccId;
-                command.IP = userSession.UserLoginIp;
-                command.LanguageKey = userSession.LangKey;
-
                 result = await mediator.SendAsync(command);
             }
 
@@ -60,12 +55,7 @@ namespace Alpha.MemberInfo.Site.Controllers
         [HttpGet]
         public ActionResult Hint()
         {
-            if (!userSession.IsAllDayBalTransfer)
-            {
-                return View(InvalidPageViewPath);
-            }
-
-            return View();
+            return !userSession.IsAllDayBalTransfer ? View(InvalidPageViewPath) : View();
         }
     }
 }

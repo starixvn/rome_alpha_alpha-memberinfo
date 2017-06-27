@@ -16,11 +16,13 @@ namespace Alpha.MemberInfo.Site.Tests.Handlers
     [Trait("Category", "Transfer")]
     public class CashBalanceTransferHandlerTests
     {
+        private readonly IUser user;
         private readonly CashBalanceTransferService service;
         private readonly CashBalanceTransferHandler handler;
 
         public CashBalanceTransferHandlerTests()
         {
+            user = Substitute.For<IUser>();
             service = Substitute.For<CashBalanceTransferService>();
             handler = new CashBalanceTransferHandler(service);
         }
@@ -31,16 +33,14 @@ namespace Alpha.MemberInfo.Site.Tests.Handlers
             // Arrange
             int custId = 1176083;
             var message = new CashBalanceTransferQuery { CustId = custId };
-            var cashBalanceTransfer = new CashBalanceTransfer
-            {
-                CustId = 1176083,
-                UserName = "master1",
-                RoleId = 3,
-                UplineCashBalance = 67599433.9247M,
-                CashBalance = 1101240.3283M,
-                Outstanding = 342552.00M,
-                GivenCredit = 900000002.00M
-            };
+            var cashBalanceTransfer = new CashBalanceTransfer(
+                1176083,
+                "master1",
+                3,
+                67599433.9247M,
+                1101240.3283M,
+                342552.00M,
+                900000002.00M);
 
             var expectedViewModel = new CashBalanceTransferViewModel(
                 cashBalanceTransfer.UplineCashBalance,
@@ -66,14 +66,15 @@ namespace Alpha.MemberInfo.Site.Tests.Handlers
             // Arrange
             var expectedResult = new Result { Message = Transfer.TransferSuccessfully };
 
-            var command = new CashBalanceTransferCommand
+            user.Id.Returns(1176070);
+            user.SubAccId.Returns(0);
+            user.IP.Returns("127.0.0.1");
+            user.LanguageKey.Returns("E");
+
+            var command = new CashBalanceTransferCommand(user)
             {
                 CustId = 1176083,
-                Amount = 1101240.32M,
-                UplineId = 1176070,
-                SubAccId = 0,
-                IP = "127.0.0.1",
-                LanguageKey = "E"
+                Amount = 1101240.32M
             };
 
             service.AddCashBalanceTransferAsync(

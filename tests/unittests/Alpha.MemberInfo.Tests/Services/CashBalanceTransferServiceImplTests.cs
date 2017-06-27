@@ -34,16 +34,14 @@ namespace Alpha.MemberInfo.Tests.Services
         {
             // Arrange
             var custId = 1176083;
-            var cashBalanceTransfer = new CashBalanceTransfer
-            {
-                CustId = custId,
-                UserName = "master1",
-                RoleId = 3,
-                UplineCashBalance = 67599433.9247M,
-                CashBalance = 1101240.3283M,
-                Outstanding = 342552.00M,
-                GivenCredit = 900000002.00M
-            };
+            var cashBalanceTransfer = new CashBalanceTransfer(
+                custId,
+                "master1",
+                3,
+                67599433.9247M,
+                1101240.3283M,
+                342552.00M,
+                900000002.00M);
 
             dynamicRepository.GetAsync<CashBalanceTransfer>(Arg.Any<GetCashBalanceTransferCriteria>())
                 .Returns(cashBalanceTransfer);
@@ -105,7 +103,7 @@ namespace Alpha.MemberInfo.Tests.Services
         [InlineData(-1176070, 1176083, "127.0.0.1")]
         [InlineData(1176070, -1176083, "127.0.0.1")]
         [InlineData(1176070, 1176083, null)]
-        public async Task AddCashBalanceTransferAsync_InValidParams_ReturnsTransferSuccessfully(int uplineId, int custId, string ip)
+        public async Task AddCashBalanceTransferAsync_InvalidParams_ReturnsErrorCodeFromSP(int uplineId, int custId, string ip)
         {
             // Arrange
             var expectedResult = new Result();

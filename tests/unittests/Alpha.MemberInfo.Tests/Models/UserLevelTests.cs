@@ -241,20 +241,20 @@ namespace Alpha.MemberInfo.Tests.Models
         [InlineData(RoleId.Master, RoleId.Super)]
         [InlineData(RoleId.Agent, RoleId.Master)]
         [InlineData(RoleId.Member, RoleId.Agent)]
-        public void GetDirectUplineLevel_SMALevel_ReturnsDirectDownline(byte roleId, byte expectedDirectUplineRoleId)
+        public void GetDirectUplineLevel_MAMbLevel_ReturnsDirectUpline(byte roleId, byte expectedDirectUplineRoleId)
         {
             // Arrange
             var userLevel = Enumeration.FromValue<UserLevel>(roleId);
 
             // Act
-            var actualDirectDownlineRoleId = userLevel.GetDirectUplineLevel().Value;
+            var actualDirectUplineRoleId = userLevel.GetDirectUplineLevel().Value;
 
             // Assert
-            Assert.Equal(expectedDirectUplineRoleId, actualDirectDownlineRoleId);
+            Assert.Equal(expectedDirectUplineRoleId, actualDirectUplineRoleId);
         }
 
         [Fact]
-        public void GetDirectUplineLevel_MemberLevel_ThrowsArgumentOutOfRangeException()
+        public void GetDirectUplineLevel_SuperLevel_ThrowsArgumentOutOfRangeException()
         {
             // Arrange
             var userLevel = Enumeration.FromValue<UserLevel>(RoleId.Super);

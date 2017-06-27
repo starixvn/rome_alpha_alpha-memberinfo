@@ -4,7 +4,11 @@
     "inputFile": "assets/styles/member-info.scss"
   },
   {
-    "outputFile": "assets/bundles/cash-balance.css",
-    "inputFile": "assets/styles/cash-balance.scss"
+    "outputFile": "assets/bundles/transfer.css",
+    "inputFile": "assets/styles/transfer.scss"
+  },
+  {
+    "outputFile": "assets/bundles/transfer-hint.css",
+    "inputFile": "assets/styles/transfer-hint.scss"
   }
 ]

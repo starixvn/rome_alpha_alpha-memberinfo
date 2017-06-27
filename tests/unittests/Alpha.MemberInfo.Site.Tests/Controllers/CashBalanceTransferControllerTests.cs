@@ -16,12 +16,14 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
     {
         private readonly IMediator mediator;
         private readonly IUserSession userSession;
+        private readonly IUser user;
         private readonly TransferController controller;
 
         public CashBalanceTransferControllerTests()
         {
             mediator = Substitute.For<IMediator>();
             userSession = Substitute.For<IUserSession>();
+            user = Substitute.For<IUser>();
             controller = new TransferController(mediator, userSession);
         }
 
@@ -72,14 +74,19 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
         public async Task CashBalance_Always_CallsMediatorCashBalanceTransferCommand()
         {
             // Arrange
-            var command = new CashBalanceTransferCommand { CustId = 1176083, Amount = 1101240.32M };
+            user.Id.Returns(1176070);
+            user.SubAccId.Returns(0);
+            user.IP.Returns("127.0.0.1");
+            user.LanguageKey.Returns("E");
+
+            var command = new CashBalanceTransferCommand(user)
+            {
+                CustId = 1176083,
+                Amount = 1101240.32M
+            };
 
             userSession.IsAllDayBalTransfer.Returns(true);
             userSession.IsInternal.Returns(false);
-            userSession.CustId.Returns(1176070);
-            userSession.SubAccId.Returns(0);
-            userSession.UserLoginIp.Returns("127.0.0.1");
-            userSession.LangKey.Returns("E");
 
             // Act
             await controller.CashBalance(command);
@@ -89,14 +96,26 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
         }
 
         [Theory]
-        [InlineData(-1176083, 1101240.32)]
-        [InlineData(0, 1101240.32)]
-        [InlineData(1176083, 0)]
-        public async Task CashBalance_CommandIsNotValid_ReturnBadRequestResult(int custId, decimal amount)
+        [InlineData(-1176083, 1101240.32, 1176070)]
+        [InlineData(0, 1101240.32, 1176070)]
+        [InlineData(1176083, 0, 1176070)]
+        [InlineData(1176083, 101240.32, -1176070)]
+        [InlineData(1176083, 101240.32, 0)]
+        public async Task CashBalance_CommandIsNotValid_ReturnBadRequestResult(int custId, decimal amount, int uplineId)
         {
             // Arrange
-            var command = new CashBalanceTransferCommand { CustId = custId, Amount = amount };
-            var expectedResult = Result.CreateErrorResult("Bad Request.", 400);
+            user.Id.Returns(uplineId);
+            user.SubAccId.Returns(0);
+            user.IP.Returns("127.0.0.1");
+            user.LanguageKey.Returns("E");
+
+            var command = new CashBalanceTransferCommand(user)
+            {
+                CustId = custId,
+                Amount = amount
+            };
+
+            var expectedResult = Result.CreateErrorResult(Transfer.BadRequest, 400);
 
             // Act
             var actualResult = await controller.CashBalance(command) as JsonResult;
@@ -112,8 +131,18 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
         public async Task CashBalance_CommandInvalidIsAllDayBalTransfer_ReturnBadRequestResult()
         {
             // Arrange
-            var command = new CashBalanceTransferCommand { CustId = 1176083, Amount = 1101240.32M };
-            var expectedResult = Result.CreateErrorResult("Bad Request.", 400);
+            user.Id.Returns(1176070);
+            user.SubAccId.Returns(0);
+            user.IP.Returns("127.0.0.1");
+            user.LanguageKey.Returns("E");
+
+            var command = new CashBalanceTransferCommand(user)
+            {
+                CustId = 1176083,
+                Amount = 1101240.32M
+            };
+
+            var expectedResult = Result.CreateErrorResult(Transfer.BadRequest, 400);
 
             userSession.IsAllDayBalTransfer.Returns(false);
 
@@ -131,7 +160,17 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
         public async Task CashBalance_CommandIsInternal_ReturnBadRequestResult()
         {
             // Arrange
-            var command = new CashBalanceTransferCommand { CustId = 1176083, Amount = 1101240.32M };
+            user.Id.Returns(1176070);
+            user.SubAccId.Returns(0);
+            user.IP.Returns("127.0.0.1");
+            user.LanguageKey.Returns("E");
+
+            var command = new CashBalanceTransferCommand(user)
+            {
+                CustId = 1176083,
+                Amount = 1101240.32M
+            };
+
             var expectedResult = Result.CreateErrorResult(Transfer.NotAuthorized, 403);
 
             userSession.IsAllDayBalTransfer.Returns(true);

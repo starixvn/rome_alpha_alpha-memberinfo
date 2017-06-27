@@ -8,18 +8,40 @@ namespace Alpha.MemberInfo.Models.Transfer
 {
     public class CashBalanceTransfer
     {
-        public int CustId { get; set; }
+        public CashBalanceTransfer()
+        {
+        }
 
-        public string UserName { get; set; }
+        public CashBalanceTransfer(
+            int custId,
+            string userName,
+            byte roleId,
+            decimal uplineCashBalance,
+            decimal cashBalance,
+            decimal outstanding,
+            decimal givenCredit)
+        {
+            CustId = custId;
+            UserName = userName;
+            RoleId = roleId;
+            UplineCashBalance = uplineCashBalance;
+            CashBalance = cashBalance;
+            Outstanding = outstanding;
+            GivenCredit = givenCredit;
+        }
 
-        public byte RoleId { get; set; }
+        public int CustId { get; }
 
-        public decimal UplineCashBalance { get; set; }
+        public string UserName { get; }
 
-        public decimal CashBalance { get; set; }
+        public byte RoleId { get; }
 
-        public decimal Outstanding { get; set; }
+        public decimal UplineCashBalance { get; }
 
-        public decimal GivenCredit { get; set; }
+        public decimal CashBalance { get; }
+
+        public decimal Outstanding { get; }
+
+        public decimal GivenCredit { get; }
     }
 }

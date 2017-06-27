@@ -126,6 +126,9 @@
   <data name="AvailableRangeTransfer" xml:space="preserve">
     <value>Amount to transfer must be between {0} and {1}.</value>
   </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Bad Request.</value>
+  </data>
   <data name="CashBalance" xml:space="preserve">
     <value>Cash Balance</value>
   </data>
