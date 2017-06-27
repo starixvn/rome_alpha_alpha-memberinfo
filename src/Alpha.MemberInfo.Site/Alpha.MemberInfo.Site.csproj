@@ -304,10 +304,6 @@
     <Content Include="App_Data\SPNames\UAT\DBLOG.bodb_CustomerLog.xml" />
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.BODB02.BODBDownlineNet.xml" />
-    <Content Include="assets\bundles\cash-balance.css" />
-    <Content Include="assets\bundles\cash-balance.min.css">
-      <DependentUpon>cash-balance.css</DependentUpon>
-    </Content>
     <Content Include="assets\bundles\default.css" />
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
