@@ -316,6 +316,14 @@
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
       <DependentUpon>member-requests.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\transfer-hint.css" />
+    <Content Include="assets\bundles\transfer-hint.min.css">
+      <DependentUpon>transfer-hint.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\transfer.css" />
+    <Content Include="assets\bundles\transfer.min.css">
+      <DependentUpon>transfer.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\transfer\cash-balance.js" />
     <Content Include="assets\bundles\transfer\cash-balance.min.js">
       <DependentUpon>cash-balance.js</DependentUpon>
@@ -328,6 +336,7 @@
     <Content Include="assets\scripts\tests\libs\jquery\blockUI.js" />
     <Content Include="assets\scripts\tests\libs\jquery\cookie.js" />
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
+    <Content Include="assets\styles\transfer-hint.scss" />
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
     <Content Include="Views\MemberRequests\Index.cshtml" />
@@ -464,6 +473,7 @@
     <Content Include="bundleconfig.json" />
     <Content Include="compilerconfig.json" />
     <Content Include="App_Data\securitycode.json" />
+    <Content Include="assets\styles\transfer.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
