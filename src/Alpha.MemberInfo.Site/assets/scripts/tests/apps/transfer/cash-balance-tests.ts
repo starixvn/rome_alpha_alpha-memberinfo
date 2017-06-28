@@ -293,7 +293,7 @@
 
         it("_ComparedValue < 0 -> Returns true", () => {
             // arrange
-            let amount: number = -194585.87;
+            let amount: number = -194585.89;
             let comparedValue: number = -194585.8811;
 
             // act
@@ -313,7 +313,7 @@
 
         it("_Amount < FromValue -> Code = 400", () => {
             // arrange
-            cashBalance.$amount.val("-194585.89");
+            cashBalance.$amount.val("-194585.90");
 
             // act
             let validationObject: any = cashBalance.getValidationObject();

@@ -110,10 +110,14 @@ class CashBalance {
     };
 
     amountEqualTo = (amount: number, comparedValue: number): boolean => {
+        console.log(Math.ceil(amount * 100));
+        console.log(Math.ceil(comparedValue * 100));
+        console.log(Math.ceil(comparedValue * 100) + 1);
+
         if (comparedValue !== 0 && amount !== comparedValue && this.countDecimals(amount) === 2) {
             return comparedValue > 0 ?
                 Math.round(amount * 100) === Math.round(comparedValue * 100) :
-                Math.ceil(amount * 100) === Math.ceil(comparedValue * 100) + 1;
+                Math.ceil(amount * 100) === Math.ceil(comparedValue * 100) - 1;
         }
 
         return false;
