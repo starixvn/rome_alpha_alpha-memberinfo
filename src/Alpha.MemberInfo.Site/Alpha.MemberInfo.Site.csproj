@@ -562,6 +562,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Transfer\Hint.cshtml" />
+    <Content Include="Views\Transfer\Hint.zh-TW.cshtml" />
+    <Content Include="Views\Transfer\Hint.th-TH.cshtml" />
+    <Content Include="Views\Transfer\Hint.zh-CN.cshtml" />
+    <Content Include="Views\Transfer\_HintLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\styles\images\" />

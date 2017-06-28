@@ -186,17 +186,38 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
                 actualData.Message == expectedResult.Message);
         }
 
-        [Fact]
-        public void Hint_Always_ReturnValidPageView()
+        [Theory]
+        [InlineData("zh-TW")]
+        [InlineData("zh-CN")]
+        [InlineData("th-TH")]
+        public void Hint_ValidLanguages_ReturnPageView(string language)
         {
             // Arrange
             userSession.IsAllDayBalTransfer.Returns(true);
+            userSession.Language.Returns(language);
 
             // Act
             var actualView = controller.Hint() as ViewResult;
 
             // Assert
-            Assert.Equal(string.Empty, actualView.ViewName);
+            Assert.Equal("Hint." + language, actualView.ViewName);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData("vi-VN")]
+        [InlineData("abcdef")]
+        public void Hint_InvalidLanguages_ReturnPageView(string language)
+        {
+            // Arrange
+            userSession.IsAllDayBalTransfer.Returns(true);
+            userSession.Language.Returns(language);
+
+            // Act
+            var actualView = controller.Hint() as ViewResult;
+
+            // Assert
+            Assert.Equal("Hint", actualView.ViewName);
         }
 
         [Fact]

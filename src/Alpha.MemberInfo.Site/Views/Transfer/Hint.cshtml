@@ -1,35 +1,20 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Transfer/_HintLayout.cshtml";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Hint</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="~/favico.ico" />
-    @StaticResources.AssetStyles.RenderCommon("/bundles/common/common")
-    @StaticResources.RenderStyles("~/assets/bundles/transfer-hint")
-</head>
-<body>
-    <div class="hint">
-        <p>Transfer with Yesterday Balance</p>
-        <ul>
-            <li>Yesterday Balance can only be fully transferred.</li>
-            <li>Transfer can only be performed when the account's yesterday balance is not zero.</li>
-        </ul>
-        <p>Transfer with Cash Balance</p>
-        <ul>
-            <li>For negative transfer: the transfer value should not exceed (Downline's Cash Balance – Outstanding).</li>
-            <li>For positive transfer: the transfer value should not exceed your Cash Balance value.</li>
-            <li>"Cash Balance" phrase will be noted in transfer details accordingly.</li>
-        </ul>
-        <p>Remark</p>
-        <ul>
-            <li>You can make as many transactions as you wish per day (for both Yesterday Balance and Cash Balance).</li>
-            <li>To ensure the accuracy of data while being processed, all transfer transaction cannot be executed at that time.</li>
-        </ul>
-    </div>
-</body>
-</html>
+
+<p>Transfer with Yesterday Balance</p>
+<ul>
+    <li>Yesterday Balance can only be fully transferred.</li>
+    <li>Transfer can only be performed when the account's yesterday balance is not zero.</li>
+</ul>
+<p>Transfer with Cash Balance</p>
+<ul>
+    <li>For negative transfer: the transfer value should not exceed (Downline's Cash Balance – Outstanding).</li>
+    <li>For positive transfer: the transfer value should not exceed your Cash Balance value.</li>
+    <li>"Cash Balance" phrase will be noted in transfer details accordingly.</li>
+</ul>
+<p>Remark</p>
+<ul>
+    <li>You can make as many transactions as you wish per day (for both Yesterday Balance and Cash Balance).</li>
+    <li>To ensure the accuracy of data while being processed, all transfer transaction cannot be executed at that time.</li>
+</ul>

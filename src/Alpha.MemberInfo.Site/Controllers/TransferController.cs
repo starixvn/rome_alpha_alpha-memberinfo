@@ -55,7 +55,26 @@ namespace Alpha.MemberInfo.Site.Controllers
         [HttpGet]
         public ActionResult Hint()
         {
-            return !userSession.IsAllDayBalTransfer ? View(InvalidPageViewPath) : View();
+            return !userSession.IsAllDayBalTransfer ?
+                View(InvalidPageViewPath) :
+                View(GetHintViewNameByLanguage());
+        }
+
+        [NonAction]
+        private string GetHintViewNameByLanguage()
+        {
+            string language = userSession.Language;
+
+            switch (language)
+            {
+                case "zh-TW":
+                case "zh-CN":
+                case "th-TH":
+                    return $"Hint.{language}";
+
+                default:
+                    return "Hint";
+            }
         }
     }
 }
