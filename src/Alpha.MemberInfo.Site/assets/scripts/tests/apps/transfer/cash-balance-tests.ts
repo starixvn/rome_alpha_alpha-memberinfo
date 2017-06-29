@@ -38,6 +38,7 @@
 
     beforeEach(() => {
         topWindow = {
+            OnPopupComplete: jasmine.any(Function)
         };
 
         cashBalance = new CashBalance(jQueryFake, topWindow);
@@ -269,8 +270,20 @@
 
         it("_ComparedValue > 0 -> Returns true", () => {
             // arrange
-            let amount: number = 248417.24;
-            let comparedValue: number = 248417.2422;
+            let amount: number = 248417.16;
+            let comparedValue: number = 248417.1589;
+
+            // act
+            let actual: boolean = cashBalance.amountEqualTo(amount, comparedValue);
+
+            // assert
+            expect(actual).toBeTruthy();
+        });
+
+        it("_ComparedValue > 0 -> Returns true", () => {
+            // arrange
+            let amount: number = 248417.5;
+            let comparedValue: number = 248417.4999;
 
             // act
             let actual: boolean = cashBalance.amountEqualTo(amount, comparedValue);
@@ -295,6 +308,18 @@
             // arrange
             let amount: number = -194585.89;
             let comparedValue: number = -194585.8811;
+
+            // act
+            let actual: boolean = cashBalance.amountEqualTo(amount, comparedValue);
+
+            // assert
+            expect(actual).toBeTruthy();
+        });
+
+        it("_ComparedValue < 0 -> Returns true", () => {
+            // arrange
+            let amount: number = -194585.6;
+            let comparedValue: number = -194585.5999;
 
             // act
             let actual: boolean = cashBalance.amountEqualTo(amount, comparedValue);
@@ -348,7 +373,9 @@
     describe("_afterAddTransferSuccessfully", () => {
         it("_Code = 0 -> Show Successful Message", () => {
             // arrange
-            spyOn(cashBalance, "showMessage");
+            setFixtures(template.normal);
+            cashBalance.cacheDOMElements();
+            spyOn(topWindow, "OnPopupComplete");
 
             let data: any = { Code: 0, Message: "Transfer successfully." };
 
@@ -356,7 +383,7 @@
             cashBalance.afterAddTransferSuccessfully(data);
 
             // assert
-            expect(cashBalance.showMessage).toHaveBeenCalledWith(data.Code, data.Message);
+            expect(cashBalance.topWindow.OnPopupComplete).toHaveBeenCalled();
         });
 
         it("_Code != 0 -> Show Error Message", () => {

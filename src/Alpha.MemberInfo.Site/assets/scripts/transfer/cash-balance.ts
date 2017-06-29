@@ -92,7 +92,7 @@ class CashBalance {
     };
 
     showMessage = (code: number, message: string) => {
-        var className = code === 0 ? "msg msg-success" : "msg msg-error";
+        var className: string = code === 0 ? "msg msg-success" : "msg msg-error";
 
         this.$msgContent.removeClass().html(message).addClass(className);
         this.$msgContainer.removeClass("hidden");
@@ -110,14 +110,14 @@ class CashBalance {
     };
 
     amountEqualTo = (amount: number, comparedValue: number): boolean => {
-        console.log(Math.ceil(amount * 100));
-        console.log(Math.ceil(comparedValue * 100));
-        console.log(Math.ceil(comparedValue * 100) + 1);
+        if (comparedValue !== 0 && amount !== comparedValue) {
+            let decimals: number = this.countDecimals(amount);
 
-        if (comparedValue !== 0 && amount !== comparedValue && this.countDecimals(amount) === 2) {
-            return comparedValue > 0 ?
-                Math.round(amount * 100) === Math.round(comparedValue * 100) :
-                Math.ceil(amount * 100) === Math.ceil(comparedValue * 100) - 1;
+            if (decimals === 1 || decimals === 2) {
+                return comparedValue > 0 ?
+                    Math.round(amount * 100) === Math.round(comparedValue * 100) :
+                    Math.ceil(amount * 100) === Math.ceil(comparedValue * 100) - 1;
+            }
         }
 
         return false;
@@ -195,7 +195,7 @@ class CashBalance {
             amount: validationObject.amount
         };
 
-        var self = this;
+        var self: any = this;
 
         this.$.post(this.$formTransfer.attr("action"), postParams, this.afterAddTransferSuccessfully, "json")
             .always(function () {
