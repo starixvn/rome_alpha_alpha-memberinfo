@@ -70,10 +70,10 @@ namespace Alpha.MemberInfo.Site.Controllers
                 case "zh-TW":
                 case "zh-CN":
                 case "th-TH":
-                    return $"Hint.{language}";
+                    return $"{nameof(Hint)}.{language}";
 
                 default:
-                    return "Hint";
+                    return nameof(Hint);
             }
         }
     }
