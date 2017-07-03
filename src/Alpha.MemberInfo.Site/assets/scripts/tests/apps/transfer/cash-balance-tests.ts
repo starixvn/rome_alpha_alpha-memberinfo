@@ -368,6 +368,28 @@
             // assert
             expect(validationObject.code).toBe(0);
         });
+
+        it("_Amount = FromValue -> Code = 0", () => {
+            // arrange
+            cashBalance.$amount.val("-194585.89");
+
+            // act
+            let validationObject: any = cashBalance.getValidationObject();
+
+            // assert
+            expect(validationObject.code).toBe(0);
+        });
+
+        it("_Amount = ToValue -> Code = 0", () => {
+            // arrange
+            cashBalance.$amount.val("248417.24");
+
+            // act
+            let validationObject: any = cashBalance.getValidationObject();
+
+            // assert
+            expect(validationObject.code).toBe(0);
+        });
     });
 
     describe("_afterAddTransferSuccessfully", () => {
@@ -386,20 +408,7 @@
             expect(cashBalance.topWindow.OnPopupComplete).toHaveBeenCalled();
         });
 
-        it("_Code != 0 -> Show Error Message", () => {
-            // arrange
-            spyOn(cashBalance, "showMessage");
-
-            let data: any = { Code: 400, Message: "Bad request." };
-
-            // act
-            cashBalance.afterAddTransferSuccessfully(data);
-
-            // assert
-            expect(cashBalance.showMessage).toHaveBeenCalledWith(data.Code, data.Message);
-        });
-
-        /*it("_Code = 0 -> Reload Page After 3 seconds", () => {
+        it("_Code = 105 -> Show Error Message & Reload Page After 3 seconds", () => {
             // arrange
             jasmine.clock().install();
             spyOn(location, "reload");
@@ -407,17 +416,17 @@
             setFixtures(template.normal);
             cashBalance.cacheDOMElements();
 
-            let data: any = { Code: 0, Message: "Transfer successfully." };
+            let data: any = { Code: 105, Message: "" };
 
             // act
             cashBalance.afterAddTransferSuccessfully(data);
             jasmine.clock().tick(3001);
 
             // assert
-            expect(cashBalance.topWindow.main.location.reload).toHaveBeenCalled();
+            expect(location.reload).toHaveBeenCalled();
 
             jasmine.clock().uninstall();
-        });*/
+        });
 
         it("_Code != 0 -> Do NOT Reload Page", () => {
             // arrange
@@ -433,6 +442,60 @@
 
             // assert
             expect(location.reload).not.toHaveBeenCalled();
+        });
+    });
+
+    describe("_doTransfer", () => {
+        it("_ValidationObject.Code != 0 -> Show Error Message", () => {
+            // arrange
+            setFixtures(template.normal);
+            cashBalance.cacheDOMElements();
+            cashBalance.$amount.val("250,417.24");
+            let e: any = { preventDefault: function () { } };
+
+            spyOn(cashBalance, "showMessage");
+
+            // act
+            cashBalance.doTransfer(e);
+
+            // assert
+            expect(cashBalance.showMessage).toHaveBeenCalled();
+        });
+
+        it("_ValidationObject.Code = 0 & Confirm Transfer Cancel -> Do Nothing", () => {
+            // arrange
+            setFixtures(template.normal);
+            cashBalance.cacheDOMElements();
+            cashBalance.$amount.val("100,000.00");
+            let e: any = { preventDefault: function () { } };
+
+            spyOn(window, "confirm").and.returnValue(false);
+            spyOn(jQueryFake, "unblockUI").and.returnValue(false);
+
+            // act
+            cashBalance.doTransfer(e);
+
+            // assert
+            expect(window.confirm).toHaveBeenCalled();
+            expect(jQueryFake.unblockUI).toHaveBeenCalled();
+        });
+
+        it("_ValidationObject.Code = 0 & Confirm Transfer OK -> Make a Post", () => {
+            // arrange
+            setFixtures(template.normal);
+            cashBalance.cacheDOMElements();
+            cashBalance.$amount.val("100,000.00");
+            let e: any = { preventDefault: function () { } };
+
+            spyOn(window, "confirm").and.returnValue(true);
+            spyOn(jQueryFake, "post").and.callThrough();
+
+            // act
+            cashBalance.doTransfer(e);
+
+            // assert
+            expect(window.confirm).toHaveBeenCalled();
+            expect(jQueryFake.post).toHaveBeenCalled();
         });
     });
 });
