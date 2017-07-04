@@ -145,7 +145,7 @@
     <value>信用額度</value>
   </data>
   <data name="HintNotAvailableToTransfer" xml:space="preserve">
-    <value>Cash balance is not available to transfer.</value>
+    <value>轉賬現金余額不足</value>
   </data>
   <data name="HintRangeTransfer" xml:space="preserve">
     <value>You can transfer from {0} to {1}.</value>

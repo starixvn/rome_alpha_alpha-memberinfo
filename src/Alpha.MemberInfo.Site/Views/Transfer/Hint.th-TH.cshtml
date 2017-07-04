@@ -2,19 +2,27 @@
     Layout = "~/Views/Transfer/_HintLayout.cshtml";
 }
 
-<p>Transfer with Yesterday Balance</p>
+<p>โอนยอดคงเหลือเมื่อวาน</p>
 <ul>
-    <li>Yesterday Balance can only be fully transferred.</li>
-    <li>Transfer can only be performed when the account's yesterday balance is not zero.</li>
+    <li>สามารถโอน"ยอดคงเหลือเมื่อวาน"เป็นจำนวนเต็มเท่านั้น</li>
+    <li>จะสามารถทำการโอนเงินได้เมื่อยอดเงินคงเหลือเมือวานของสมาชิกไม่เป็นศูนย์</li>
 </ul>
-<p>Transfer with Cash Balance</p>
+<p>โอนโดยยอดเงินสดคงเหลือ</p>
 <ul>
-    <li>For negative transfer: the transfer value should not exceed (Downline's Cash Balance – Outstanding).</li>
-    <li>For positive transfer: the transfer value should not exceed your Cash Balance value.</li>
-    <li>"Cash Balance" phrase will be noted in transfer details accordingly.</li>
+    <li>สำหรับโอนยอดเงินที่ติดลบ：ยอดเงินการโอนต้องไม่เกิน (ยอดคงเหลือเงินสด–รายการคงค้างของดาวไลน์)</li>
+    <li>สำหรับการโอนเงินที่เป็นบวก：ยอดเงินการโอนต้องไม่เกินยอดคงเหลือเงินสดของคุณ</li>
+    <li>"ยอดเงินสดคงเหลือ" ก็จะมีการระบุไว้ในรายละเอียดการโอน</li>
 </ul>
-<p>Remark</p>
+<p>หมายเหตุ</p>
 <ul>
-    <li>You can make as many transactions as you wish per day (for both Yesterday Balance and Cash Balance).</li>
-    <li>To ensure the accuracy of data while being processed, all transfer transaction cannot be executed at that time.</li>
+    @if (!string.IsNullOrEmpty(Model.AllowTransfer))
+    {
+        <li>@Html.Raw(Model.AllowTransfer)</li>
+    }
+    @if (!string.IsNullOrEmpty(Model.WarningTransfer))
+    {
+        <li>@Html.Raw(Model.WarningTransfer)</li>
+    }
+    <li>คุณสามารถทำรายการได้มากเท่าที่ต้องการต่อวัน (ทั้งยอดคงเหลือเมื่อวานและยอดคงเหลือเงินสด)</li>
+    <li>เพื่อให้มั่นใจถึงความถูกต้องของข้อมูลขณะประมวลผลธุรกรรมโอนเงินทั้งหมดไม่สามารถดำเนินการได้ในขณะนั้น</li>
 </ul>

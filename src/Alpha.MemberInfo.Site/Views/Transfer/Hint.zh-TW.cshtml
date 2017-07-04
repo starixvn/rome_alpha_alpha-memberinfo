@@ -2,19 +2,27 @@
     Layout = "~/Views/Transfer/_HintLayout.cshtml";
 }
 
-<p>Transfer with Yesterday Balance</p>
+<p>以昨天余額轉賬</p>
 <ul>
-    <li>Yesterday Balance can only be fully transferred.</li>
-    <li>Transfer can only be performed when the account's yesterday balance is not zero.</li>
+    <li>昨天余額只能全數轉賬</li>
+    <li>只有在會員的昨天余額不為零時才能進行轉賬</li>
 </ul>
-<p>Transfer with Cash Balance</p>
+<p>以現金余額轉賬</p>
 <ul>
-    <li>For negative transfer: the transfer value should not exceed (Downline's Cash Balance – Outstanding).</li>
-    <li>For positive transfer: the transfer value should not exceed your Cash Balance value.</li>
-    <li>"Cash Balance" phrase will be noted in transfer details accordingly.</li>
+    <li>負數轉賬：轉賬數額不能超過（下線現金未完成交易額）。</li>
+    <li>正數轉賬：轉賬數額不能超過您的現金余額</li>
+    <li>"現金余額" 將在轉賬細節中註明</li>
 </ul>
-<p>Remark</p>
+<p>備註</p>
 <ul>
-    <li>You can make as many transactions as you wish per day (for both Yesterday Balance and Cash Balance).</li>
-    <li>To ensure the accuracy of data while being processed, all transfer transaction cannot be executed at that time.</li>
+    @if (!string.IsNullOrEmpty(Model.AllowTransfer))
+    {
+        <li>@Html.Raw(Model.AllowTransfer)</li>
+    }
+    @if (!string.IsNullOrEmpty(Model.WarningTransfer))
+    {
+        <li>@Html.Raw(Model.WarningTransfer)</li>
+    }
+    <li>您可以根據自己的需要每天做無限次交易（包括昨天余額和現金余額）。</li>
+    <li>為了確保處理數據時的準確性，所有交易均無法進行。</li>
 </ul>
