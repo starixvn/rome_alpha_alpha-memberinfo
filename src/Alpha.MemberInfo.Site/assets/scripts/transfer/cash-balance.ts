@@ -55,7 +55,7 @@ class CashBalance {
 
     amountKeyDown = (e: any) => {
         // allow: backspace, delete, tab, escape, enter, - and .
-        if (this.$.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190, 231, 189, 109]) !== -1 ||
+        if (this.$.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190, 231, 189, 109, 173]) !== -1 ||
             // allow: Ctrl/cmd+A
             (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
             // allow: Ctrl/cmd+C
