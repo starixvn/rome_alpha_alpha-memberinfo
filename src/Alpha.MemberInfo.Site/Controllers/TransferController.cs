@@ -53,18 +53,21 @@ namespace Alpha.MemberInfo.Site.Controllers
         }
 
         [HttpGet]
-        public ActionResult Hint()
+        public async Task<ActionResult> Hint(HintTransferQuery message)
         {
-            return !userSession.IsAllDayBalTransfer ?
-                View(InvalidPageViewPath) :
-                View(GetHintViewNameByLanguage());
+            if (message == null || !message.IsValid() || !userSession.IsAllDayBalTransfer)
+            {
+                return View(InvalidPageViewPath);
+            }
+
+            var viewModel = await mediator.SendAsync(message);
+
+            return View(GetHintViewNameByLanguage(message.Language), viewModel);
         }
 
         [NonAction]
-        private string GetHintViewNameByLanguage()
+        private string GetHintViewNameByLanguage(string language)
         {
-            string language = userSession.Language;
-
             switch (language)
             {
                 case "zh-TW":

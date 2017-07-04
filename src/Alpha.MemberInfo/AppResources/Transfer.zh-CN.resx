@@ -120,6 +120,9 @@
   <data name="Agent" xml:space="preserve">
     <value>代理</value>
   </data>
+  <data name="AllowTransfer" xml:space="preserve">
+    <value>您的转账设定为</value>
+  </data>
   <data name="Amount" xml:space="preserve">
     <value>金额</value>
   </data>
@@ -131,6 +134,12 @@
   </data>
   <data name="ConfirmTransfer" xml:space="preserve">
     <value>是否确定转账?</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>每天</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>星期五</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
     <value>信用额度</value>
@@ -144,11 +153,17 @@
   <data name="Information" xml:space="preserve">
     <value>资料</value>
   </data>
+  <data name="InvalidValue" xml:space="preserve">
+    <value>数值无效</value>
+  </data>
   <data name="Master" xml:space="preserve">
     <value>总代理</value>
   </data>
   <data name="Member" xml:space="preserve">
     <value>会员</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>星期一</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>您没有使用此功能的权限</value>
@@ -156,8 +171,17 @@
   <data name="OutstandingShortcut" xml:space="preserve">
     <value>未完成交易</value>
   </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>星期六</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>星期日</value>
+  </data>
   <data name="Super" xml:space="preserve">
     <value>超级</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>星期四</value>
   </data>
   <data name="TransferAmountIs" xml:space="preserve">
     <value>Transfer amount is</value>
@@ -168,7 +192,16 @@
   <data name="TransferSuccessfully" xml:space="preserve">
     <value>成功转账</value>
   </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>星期二</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>用户名</value>
+  </data>
+  <data name="WarningMultipleTransfer" xml:space="preserve">
+    <value>注意: 若昨天余额被全数转账, 被 &lt;font class="highlight"&gt;特别显示&lt;/font&gt; 会员的投注金额将显示负数。因此, 他们的输额有可能超过信用额度。</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>星期三</value>
   </data>
 </root>

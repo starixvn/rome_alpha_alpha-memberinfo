@@ -10,7 +10,8 @@ namespace Alpha.MemberInfo.Site.Handlers
 {
     public class CashBalanceTransferHandler :
         IAsyncRequestHandler<CashBalanceTransferQuery, CashBalanceTransferViewModel>,
-        IAsyncRequestHandler<CashBalanceTransferCommand, Result>
+        IAsyncRequestHandler<CashBalanceTransferCommand, Result>,
+        IAsyncRequestHandler<HintTransferQuery, HintTransferViewModel>
     {
         private readonly CashBalanceTransferService service;
 
@@ -43,6 +44,13 @@ namespace Alpha.MemberInfo.Site.Handlers
                 command.SubAccId,
                 command.IP,
                 command.LanguageKey);
+        }
+
+        public async Task<HintTransferViewModel> Handle(HintTransferQuery message)
+        {
+            string allowTransfer = await service.GetAllowTransfer(message.CustId);
+
+            return new HintTransferViewModel(allowTransfer, message.ShowWarningTransfer);
         }
     }
 }

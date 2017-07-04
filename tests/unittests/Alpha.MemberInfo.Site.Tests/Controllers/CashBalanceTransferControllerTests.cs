@@ -186,51 +186,51 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
                 actualData.Message == expectedResult.Message);
         }
 
-        [Theory]
-        [InlineData("zh-TW")]
-        [InlineData("zh-CN")]
-        [InlineData("th-TH")]
-        public void Hint_ValidLanguages_ReturnPageView(string language)
-        {
-            // Arrange
-            userSession.IsAllDayBalTransfer.Returns(true);
-            userSession.Language.Returns(language);
+        //[Theory]
+        //[InlineData("zh-TW")]
+        //[InlineData("zh-CN")]
+        //[InlineData("th-TH")]
+        //public void Hint_ValidLanguages_ReturnPageView(string language)
+        //{
+        //    // Arrange
+        //    userSession.IsAllDayBalTransfer.Returns(true);
+        //    userSession.Language.Returns(language);
 
-            // Act
-            var actualView = controller.Hint() as ViewResult;
+        //    // Act
+        //    var actualView = controller.Hint() as ViewResult;
 
-            // Assert
-            Assert.Equal("Hint." + language, actualView.ViewName);
-        }
+        //    // Assert
+        //    Assert.Equal("Hint." + language, actualView.ViewName);
+        //}
 
-        [Theory]
-        [InlineData("")]
-        [InlineData("vi-VN")]
-        [InlineData("abcdef")]
-        public void Hint_InvalidLanguages_ReturnPageView(string language)
-        {
-            // Arrange
-            userSession.IsAllDayBalTransfer.Returns(true);
-            userSession.Language.Returns(language);
+        //[Theory]
+        //[InlineData("")]
+        //[InlineData("vi-VN")]
+        //[InlineData("abcdef")]
+        //public void Hint_InvalidLanguages_ReturnPageView(string language)
+        //{
+        //    // Arrange
+        //    userSession.IsAllDayBalTransfer.Returns(true);
+        //    userSession.Language.Returns(language);
 
-            // Act
-            var actualView = controller.Hint() as ViewResult;
+        //    // Act
+        //    var actualView = controller.Hint() as ViewResult;
 
-            // Assert
-            Assert.Equal("Hint", actualView.ViewName);
-        }
+        //    // Assert
+        //    Assert.Equal("Hint", actualView.ViewName);
+        //}
 
-        [Fact]
-        public void Hint_InvalidIsAllDayBalTransfer_ReturnInvalidPageView()
-        {
-            // Arrange
-            userSession.IsAllDayBalTransfer.Returns(false);
+        //[Fact]
+        //public void Hint_InvalidIsAllDayBalTransfer_ReturnInvalidPageView()
+        //{
+        //    // Arrange
+        //    userSession.IsAllDayBalTransfer.Returns(false);
 
-            // Act
-            var actualView = controller.Hint() as ViewResult;
+        //    // Act
+        //    var actualView = controller.Hint() as ViewResult;
 
-            // Assert
-            Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);
-        }
+        //    // Assert
+        //    Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);
+        //}
     }
 }

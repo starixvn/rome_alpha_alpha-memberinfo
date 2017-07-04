@@ -270,6 +270,7 @@
     <Compile Include="Criteria\MemberRequests\PlayForFunProductCriteria.cs" />
     <Compile Include="Criteria\Transfer\GetCashBalanceTransferCriteria.cs" />
     <Compile Include="Criteria\Transfer\AddCashBalanceTransferCriteria.cs" />
+    <Compile Include="Criteria\Transfer\GetTransferOptionCriteria.cs" />
     <Compile Include="DataAccesses\CasinoDataAccess.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="GlobalSuppressions.cs" />

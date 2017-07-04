@@ -10,6 +10,7 @@ class CashBalance {
     availableRangeTransfer: string;
     confirmTransfer: string;
     transferAmountIs: string;
+    invalidValue: string;
 
     $msgContainer: JQuery;
     $msgContent: JQuery;
@@ -41,6 +42,7 @@ class CashBalance {
         this.availableRangeTransfer = this.$("#availableRangeTransfer").val();
         this.confirmTransfer = this.$("#confirmTransfer").val();
         this.transferAmountIs = this.$("#transferAmountIs").val();
+        this.invalidValue = this.$("#invalidValue").val();
 
         this.$amount.focus();
     };
@@ -127,11 +129,22 @@ class CashBalance {
         return value.toLocaleString("en-US", { maximumFractionDigits: 4 });
     };
 
+    isNumeric = (value: string) => {
+        var regExp = /^-?(\d+|\d+\.\d*|\d*\.\d+)$/;
+        return value.match(regExp);
+    };
+
     getValidationObject = (): any => {
         let validationObject: any = {};
+        let amountValue: string = this.$amount.val();
+
+        if(amountValue.length !== 0 && !this.isNumeric(amountValue)) {
+            validationObject.code = 400;
+            validationObject.message = this.invalidValue;
+            return validationObject;
+        }
 
         let confirmMessage: string = "";
-        let amountValue: string = this.$amount.val();
         let amount: number = amountValue.length === 0 ? 0 : parseFloat(amountValue.replace(/\,/g, ""));
 
         if (this.amountEqualTo(amount, this.availableAmountFrom)) {

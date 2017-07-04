@@ -27,7 +27,7 @@ namespace Alpha.MemberInfo.Tests.Configurations
             var excpectedStoreProcedurePath = storeProcedurePath;
             AppSettings.AppSettingValues = new NameValueCollection
             {
-                ["StoreProcedurePath"] = storeProcedurePath
+                ["StoredProcedurePath"] = storeProcedurePath
             };
 
             // Act
@@ -47,7 +47,7 @@ namespace Alpha.MemberInfo.Tests.Configurations
             // Arrange
             AppSettings.AppSettingValues = new NameValueCollection
             {
-                ["StoreProcedurePath"] = storeProcedurePath
+                ["StoredProcedurePath"] = storeProcedurePath
             };
 
             // Act
@@ -64,7 +64,7 @@ namespace Alpha.MemberInfo.Tests.Configurations
             var storeProcedurePath = anyValueCreatorFixture.Create<string>();
             AppSettings.AppSettingValues = new NameValueCollection
             {
-                ["StoreProcedurePath"] = storeProcedurePath
+                ["StoredProcedurePath"] = storeProcedurePath
             };
 
             // Act

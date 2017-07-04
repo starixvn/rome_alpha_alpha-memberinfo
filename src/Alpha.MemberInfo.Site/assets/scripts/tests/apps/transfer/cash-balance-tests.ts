@@ -33,6 +33,7 @@
                     <input type="hidden" id="availableRangeTransfer" value="Amount to transfer must be between -194,585.88 and 248,417.24." />
                     <input type="hidden" id="confirmTransfer" value="Are you sure you want to transfer?" />
                     <input type="hidden" id="transferAmountIs" value="Transfer amount is" />
+                    <input type="hidden" id="invalidValue" value="Invalid value." />
                 </body>`
     };
 

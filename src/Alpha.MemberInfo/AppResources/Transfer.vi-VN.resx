@@ -120,6 +120,9 @@
   <data name="Agent" xml:space="preserve">
     <value>Agent</value>
   </data>
+  <data name="AllowTransfer" xml:space="preserve">
+    <value>Bạn được phép chuyển khoản vào:</value>
+  </data>
   <data name="Amount" xml:space="preserve">
     <value>Số lượng</value>
   </data>
@@ -131,6 +134,12 @@
   </data>
   <data name="ConfirmTransfer" xml:space="preserve">
     <value>Bạn có chắc muốn chuyển khoản?</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>Hằng ngày</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Thứ 6</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
     <value>Hạn mức được cấp</value>
@@ -144,11 +153,17 @@
   <data name="Information" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="InvalidValue" xml:space="preserve">
+    <value>Giá trị không có thực.</value>
+  </data>
   <data name="Master" xml:space="preserve">
     <value>Master</value>
   </data>
   <data name="Member" xml:space="preserve">
     <value>Member</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Thứ 2</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Bạn không được cho phép sử dụng chức năng này.</value>
@@ -156,8 +171,17 @@
   <data name="OutstandingShortcut" xml:space="preserve">
     <value>Giao dịch chưa xử lý</value>
   </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Thứ 7</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Chủ nhật</value>
+  </data>
   <data name="Super" xml:space="preserve">
     <value>Super</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>Thứ 5</value>
   </data>
   <data name="TransferAmountIs" xml:space="preserve">
     <value>Transfer amount is</value>
@@ -168,7 +192,16 @@
   <data name="TransferSuccessfully" xml:space="preserve">
     <value>Chuyển khoản thành công</value>
   </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>Thứ 3</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Tên đăng nhập</value>
+  </data>
+  <data name="WarningMultipleTransfer" xml:space="preserve">
+    <value>Cảnh báo: nếu số tiền bị chuyển khoản tối đa &lt;font class="highlight"&gt;highlighted&lt;/font&gt;những thành viên dưới đây sẻ bi âm hạn mức khả dụng và do đó họ có thể thua nhiều hơn hạn mức tín dụng dụng được cấp</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>Thứ 4</value>
   </data>
 </root>

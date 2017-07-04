@@ -120,6 +120,9 @@
   <data name="Agent" xml:space="preserve">
     <value>エージェント</value>
   </data>
+  <data name="AllowTransfer" xml:space="preserve">
+    <value>You are allowed to transfer on</value>
+  </data>
   <data name="Amount" xml:space="preserve">
     <value>金額</value>
   </data>
@@ -131,6 +134,12 @@
   </data>
   <data name="ConfirmTransfer" xml:space="preserve">
     <value>送金してよろしいですか?</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Friday</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
     <value>貸付金額</value>
@@ -144,11 +153,17 @@
   <data name="Information" xml:space="preserve">
     <value>情報</value>
   </data>
+  <data name="InvalidValue" xml:space="preserve">
+    <value>Invalid value.</value>
+  </data>
   <data name="Master" xml:space="preserve">
     <value>マスター</value>
   </data>
   <data name="Member" xml:space="preserve">
     <value>メンバー</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Monday</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>You are not authorized on this function.</value>
@@ -156,8 +171,17 @@
   <data name="OutstandingShortcut" xml:space="preserve">
     <value>未払い取り引き</value>
   </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
   <data name="Super" xml:space="preserve">
     <value>Super</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>Thursday</value>
   </data>
   <data name="TransferAmountIs" xml:space="preserve">
     <value>Transfer amount is</value>
@@ -168,7 +192,16 @@
   <data name="TransferSuccessfully" xml:space="preserve">
     <value>Transfer successfully</value>
   </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>ユーザー名</value>
+  </data>
+  <data name="WarningMultipleTransfer" xml:space="preserve">
+    <value>Warning: if balance is full transfered, the &lt;font class="highlight"&gt;highlighted&lt;/font&gt; members below will have negative bet credit and consequently, they might lose more than their given credit.</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>Wednesday</value>
   </data>
 </root>

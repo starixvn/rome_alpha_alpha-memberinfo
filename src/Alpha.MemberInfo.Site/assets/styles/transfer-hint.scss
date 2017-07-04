@@ -1,4 +1,6 @@
 ﻿$p-color: #045ace;
+$table-td-hover-color: #f8eb95;
+$text-red-color: #9d1c1c;
 
 body {
     background: transparent;
@@ -14,4 +16,8 @@ body {
         list-style: initial;
         padding-left: 40px;
     }
+}
+.highlight {
+    background: $table-td-hover-color;
+    color: $text-red-color;
 }

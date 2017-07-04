@@ -120,6 +120,9 @@
   <data name="Agent" xml:space="preserve">
     <value>ตัวแทน</value>
   </data>
+  <data name="AllowTransfer" xml:space="preserve">
+    <value>คุณได้รับอนุญาติให้ทำการโอน</value>
+  </data>
   <data name="Amount" xml:space="preserve">
     <value>จำนวนเงิน</value>
   </data>
@@ -131,6 +134,12 @@
   </data>
   <data name="ConfirmTransfer" xml:space="preserve">
     <value>คุณแน่ใจว่าคุณต้องการโอนเงิน?</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>รายวัน</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>วันศุกร์</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
     <value>เครดิตทั้งหมด</value>
@@ -144,11 +153,17 @@
   <data name="Information" xml:space="preserve">
     <value>ข้อมูล</value>
   </data>
+  <data name="InvalidValue" xml:space="preserve">
+    <value>มูลค่าไม่ถูกต้อง</value>
+  </data>
   <data name="Master" xml:space="preserve">
     <value>ตัวแทนหลัก</value>
   </data>
   <data name="Member" xml:space="preserve">
     <value>สมาชิก</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>วันจันทร์</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>คุณไม่มีอำนาจในการเข้าใช้งานฟังก์ชันนี้</value>
@@ -156,8 +171,17 @@
   <data name="OutstandingShortcut" xml:space="preserve">
     <value>transaction ที่ยังไม่ได้คำนวณ</value>
   </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>วันเสาร์</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>วันอาทิตย์</value>
+  </data>
   <data name="Super" xml:space="preserve">
     <value>สูงสุด</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>วันพฤหัส</value>
   </data>
   <data name="TransferAmountIs" xml:space="preserve">
     <value>Transfer amount is</value>
@@ -168,7 +192,16 @@
   <data name="TransferSuccessfully" xml:space="preserve">
     <value>การโอนเงินเสร็จสมบูรณ์</value>
   </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>วันอังคาร</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>ชื่อผู้ใช้ระบบ</value>
+  </data>
+  <data name="WarningMultipleTransfer" xml:space="preserve">
+    <value>คำเตือน :  หากโอนยอดเงินเต็ม สมาชิกด้านล่างที่ไฮไลต์อาจมียอดเงินวางเดิมพันติดลบ ฉะนั้นสมาชิกอาจจะมียอดเสียมากกว่าเครดิตของเขาเอง</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>วันพุธ</value>
   </data>
 </root>
