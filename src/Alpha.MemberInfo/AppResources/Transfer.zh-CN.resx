@@ -199,7 +199,7 @@
     <value>用户名</value>
   </data>
   <data name="WarningMultipleTransfer" xml:space="preserve">
-    <value>注意: 若昨天余额被全数转账, 被 &lt;font class="highlight"&gt;特别显示&lt;/font&gt; 会员的投注金额将显示负数。因此, 他们的输额有可能超过信用额度。</value>
+    <value>注意： 若已转账 “昨天余额” ，以下重点显示的会员投注额度将会出现负数，此会员有可能会输超过他的信用额度</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
     <value>星期三</value>

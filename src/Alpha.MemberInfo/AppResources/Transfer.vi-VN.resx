@@ -199,7 +199,7 @@
     <value>Tên đăng nhập</value>
   </data>
   <data name="WarningMultipleTransfer" xml:space="preserve">
-    <value>Cảnh báo: nếu số tiền bị chuyển khoản tối đa &lt;font class="highlight"&gt;highlighted&lt;/font&gt;những thành viên dưới đây sẻ bi âm hạn mức khả dụng và do đó họ có thể thua nhiều hơn hạn mức tín dụng dụng được cấp</value>
+    <value>Warning: if yesterday balance is full transfered, the highlighted members below will have negative bet credit and consequently, they might lose more than their given credit.</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
     <value>Thứ 4</value>

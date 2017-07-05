@@ -199,7 +199,7 @@
     <value>ユーザー名</value>
   </data>
   <data name="WarningMultipleTransfer" xml:space="preserve">
-    <value>Warning: if balance is full transfered, the &lt;font class="highlight"&gt;highlighted&lt;/font&gt; members below will have negative bet credit and consequently, they might lose more than their given credit.</value>
+    <value>Warning: if yesterday balance is full transfered, the highlighted members below will have negative bet credit and consequently, they might lose more than their given credit.</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
     <value>Wednesday</value>

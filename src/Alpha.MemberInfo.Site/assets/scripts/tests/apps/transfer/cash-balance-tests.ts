@@ -271,8 +271,8 @@
 
         it("_ComparedValue > 0 -> Returns true", () => {
             // arrange
-            let amount: number = 248417.16;
-            let comparedValue: number = 248417.1589;
+            let amount: number = 248417.25;
+            let comparedValue: number = 248417.2402;
 
             // act
             let actual: boolean = cashBalance.amountEqualTo(amount, comparedValue);

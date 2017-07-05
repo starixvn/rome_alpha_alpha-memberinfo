@@ -313,7 +313,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Warning: if balance is full transfered, the &lt;font class=&quot;highlight&quot;&gt;highlighted&lt;/font&gt; members below will have negative bet credit and consequently, they might lose more than their given credit..
+        ///   Looks up a localized string similar to Warning: if yesterday balance is full transfered, the highlighted members below will have negative bet credit and consequently, they might lose more than their given credit..
         /// </summary>
         public static string WarningMultipleTransfer {
             get {
