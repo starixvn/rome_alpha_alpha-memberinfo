@@ -48,7 +48,13 @@ namespace Alpha.MemberInfo.Site.Handlers
 
         public async Task<HintTransferViewModel> Handle(HintTransferQuery message)
         {
-            string allowTransfer = await service.GetAllowTransfer(message.CustId);
+            string allowTransfer = string.Empty;
+            var userRole = Enumeration.FromValue<UserLevel>(message.RoleId);
+
+            if (userRole.IsNotSuperLevel())
+            {
+                allowTransfer = await service.GetAllowTransfer(message.CustId);
+            }
 
             return new HintTransferViewModel(allowTransfer, message.ShowWarningTransfer);
         }

@@ -9,10 +9,13 @@ namespace Alpha.MemberInfo.Site.Requests.Transfer
         public HintTransferQuery(IUser user)
         {
             CustId = user.Id;
+            RoleId = user.LevelId;
             Language = user.Language;
         }
 
         public int CustId { get; }
+
+        public byte RoleId { get; }
 
         public string Language { get; }
 
