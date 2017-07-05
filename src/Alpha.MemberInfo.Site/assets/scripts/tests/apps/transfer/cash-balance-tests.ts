@@ -396,7 +396,7 @@
 
         it("_Amount > ToValue -> Code = 400", () => {
             // arrange
-            cashBalance.$amount.val("248417.25");
+            cashBalance.$amount.val("248417.26");
 
             // act
             let validationObject: any = cashBalance.getValidationObject();

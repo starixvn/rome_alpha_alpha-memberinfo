@@ -12,14 +12,14 @@ using Xunit;
 namespace Alpha.MemberInfo.Site.Tests.Controllers
 {
     [Trait("Category", "Transfer")]
-    public class CashBalanceTransferControllerTests
+    public class TransferControllerTests
     {
         private readonly IMediator mediator;
         private readonly IUserSession userSession;
         private readonly IUser user;
         private readonly TransferController controller;
 
-        public CashBalanceTransferControllerTests()
+        public TransferControllerTests()
         {
             mediator = Substitute.For<IMediator>();
             userSession = Substitute.For<IUserSession>();
@@ -186,51 +186,61 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
                 actualData.Message == expectedResult.Message);
         }
 
-        //[Theory]
-        //[InlineData("zh-TW")]
-        //[InlineData("zh-CN")]
-        //[InlineData("th-TH")]
-        //public void Hint_ValidLanguages_ReturnPageView(string language)
-        //{
-        //    // Arrange
-        //    userSession.IsAllDayBalTransfer.Returns(true);
-        //    userSession.Language.Returns(language);
+        [Theory]
+        [InlineData("zh-TW")]
+        [InlineData("zh-CN")]
+        [InlineData("th-TH")]
+        public async Task Hint_ValidLanguages_ReturnPageView(string language)
+        {
+            // Arrange
+            userSession.IsAllDayBalTransfer.Returns(true);
+            user.Language.Returns(language);
+            user.Id.Returns(1176070);
 
-        //    // Act
-        //    var actualView = controller.Hint() as ViewResult;
+            var message = new HintTransferQuery(user);
 
-        //    // Assert
-        //    Assert.Equal("Hint." + language, actualView.ViewName);
-        //}
+            // Act
+            var actualView = await controller.Hint(message) as ViewResult;
 
-        //[Theory]
-        //[InlineData("")]
-        //[InlineData("vi-VN")]
-        //[InlineData("abcdef")]
-        //public void Hint_InvalidLanguages_ReturnPageView(string language)
-        //{
-        //    // Arrange
-        //    userSession.IsAllDayBalTransfer.Returns(true);
-        //    userSession.Language.Returns(language);
+            // Assert
+            Assert.Equal("Hint." + language, actualView.ViewName);
+        }
 
-        //    // Act
-        //    var actualView = controller.Hint() as ViewResult;
+        [Theory]
+        [InlineData("")]
+        [InlineData("vi-VN")]
+        [InlineData("abcdef")]
+        public async Task Hint_InvalidLanguages_ReturnPageView(string language)
+        {
+            // Arrange
+            userSession.IsAllDayBalTransfer.Returns(true);
+            user.Language.Returns(language);
+            user.Id.Returns(1176070);
 
-        //    // Assert
-        //    Assert.Equal("Hint", actualView.ViewName);
-        //}
+            var message = new HintTransferQuery(user);
 
-        //[Fact]
-        //public void Hint_InvalidIsAllDayBalTransfer_ReturnInvalidPageView()
-        //{
-        //    // Arrange
-        //    userSession.IsAllDayBalTransfer.Returns(false);
+            // Act
+            var actualView = await controller.Hint(message) as ViewResult;
 
-        //    // Act
-        //    var actualView = controller.Hint() as ViewResult;
+            // Assert
+            Assert.Equal("Hint", actualView.ViewName);
+        }
 
-        //    // Assert
-        //    Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);
-        //}
+        [Fact]
+        public async Task Hint_InvalidIsAllDayBalTransfer_ReturnInvalidPageView()
+        {
+            // Arrange
+            userSession.IsAllDayBalTransfer.Returns(false);
+            user.Language.Returns("en-US");
+            user.Id.Returns(1176070);
+
+            var message = new HintTransferQuery(user);
+
+            // Act
+            var actualView = await controller.Hint(message) as ViewResult;
+
+            // Assert
+            Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);
+        }
     }
 }
