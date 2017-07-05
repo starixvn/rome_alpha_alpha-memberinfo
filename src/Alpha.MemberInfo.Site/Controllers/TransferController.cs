@@ -73,6 +73,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                 case "zh-TW":
                 case "zh-CN":
                 case "th-TH":
+                case "vi-VN":
                     return $"{nameof(Hint)}.{language}";
 
                 default:

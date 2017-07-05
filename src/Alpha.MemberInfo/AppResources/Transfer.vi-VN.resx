@@ -145,7 +145,7 @@
     <value>Hạn mức được cấp</value>
   </data>
   <data name="HintNotAvailableToTransfer" xml:space="preserve">
-    <value>Cash balance is not available to transfer.</value>
+    <value>Lượng tiền trong Số dư tài khoản không đủ để thực hiện giao dịch.</value>
   </data>
   <data name="HintRangeTransfer" xml:space="preserve">
     <value>You can transfer from {0} to {1}.</value>
@@ -199,7 +199,7 @@
     <value>Tên đăng nhập</value>
   </data>
   <data name="WarningMultipleTransfer" xml:space="preserve">
-    <value>Warning: if yesterday balance is full transfered, the highlighted members below will have negative bet credit and consequently, they might lose more than their given credit.</value>
+    <value>Cảnh báo: nếu thực hiện giao dịch với Tổng số tiền giao dịch, những thành viên được tô đậm dưới đây sẽ bị âm hạn mức khả dụng và do đó họ có thể thua nhiều hơn hạn mức tín dụng được cấp.</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
     <value>Thứ 4</value>

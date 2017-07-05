@@ -475,7 +475,9 @@
     <Content Include="Web.uat.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-    <Content Include="Web.AppSettings.config" />
+    <Content Include="Web.AppSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.AppSettings.local.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
@@ -521,6 +523,7 @@
     <Content Include="Views\Transfer\Hint.th-TH.cshtml" />
     <Content Include="Views\Transfer\Hint.zh-CN.cshtml" />
     <Content Include="Views\Transfer\_HintLayout.cshtml" />
+    <Content Include="Views\Transfer\Hint.vi-VN.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\styles\images\" />
