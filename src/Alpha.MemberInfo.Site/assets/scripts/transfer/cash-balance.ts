@@ -130,6 +130,7 @@ class CashBalance {
     };
 
     isNumeric = (value: string) => {
+        value = value.replace(/\,/g, "");
         var regExp = /^-?(\d+|\d+\.\d*|\d*\.\d+)$/;
         return value.match(regExp);
     };

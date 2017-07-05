@@ -330,11 +330,57 @@
         });
     });
 
+    describe("_isNumeric", () => {
+        it("_Valid Negative Number -> Returns true", () => {
+            // arrange
+            let value: string = "-123.98";
+
+            // act
+            let actual = cashBalance.isNumeric(value);
+
+            // assert
+            expect(actual).toBeTruthy();
+        });
+
+        it("_Valid Positive Number -> Returns true", () => {
+            // arrange
+            let value: string = "123.98";
+
+            // act
+            let actual = cashBalance.isNumeric(value);
+
+            // assert
+            expect(actual).toBeTruthy();
+        });
+
+        it("_Invalid Number -> Returns false", () => {
+            // arrange
+            let value: string = "123.98abcd";
+
+            // act
+            let actual = cashBalance.isNumeric(value);
+
+            // assert
+            expect(actual).toBeFalsy();
+        });
+    });
+
     describe("_getValidationObject", () => {
         beforeEach(() => {
             // arrange
             setFixtures(template.normal);
             cashBalance.cacheDOMElements();
+        });
+
+        it("_Amount is Invalid -> Code = 400", () => {
+            // arrange
+            cashBalance.$amount.val("123.98abcdef");
+
+            // act
+            let validationObject: any = cashBalance.getValidationObject();
+
+            // assert
+            expect(validationObject.code).toBe(400);
         });
 
         it("_Amount < FromValue -> Code = 400", () => {
