@@ -121,7 +121,7 @@
     <value>에이전트</value>
   </data>
   <data name="AllowTransfer" xml:space="preserve">
-    <value>당신의 전송을 허용합니다.</value>
+    <value>You are allowed to transfer on</value>
   </data>
   <data name="Amount" xml:space="preserve">
     <value>총액</value>
@@ -136,10 +136,10 @@
     <value>전송하시겠습니까?</value>
   </data>
   <data name="Daily" xml:space="preserve">
-    <value>매일</value>
+    <value>Daily</value>
   </data>
   <data name="Friday" xml:space="preserve">
-    <value>금요일</value>
+    <value>Friday</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
     <value>주어진 크레딧</value>
@@ -163,7 +163,7 @@
     <value>회원</value>
   </data>
   <data name="Monday" xml:space="preserve">
-    <value>월요일</value>
+    <value>Monday</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>해당 기능에 대한 권한이 없습니다.</value>
@@ -172,16 +172,16 @@
     <value>아웃스텐딩  거래</value>
   </data>
   <data name="Saturday" xml:space="preserve">
-    <value>토요일</value>
+    <value>Saturday</value>
   </data>
   <data name="Sunday" xml:space="preserve">
-    <value>일요일</value>
+    <value>Sunday</value>
   </data>
   <data name="Super" xml:space="preserve">
     <value>슈퍼</value>
   </data>
   <data name="Thursday" xml:space="preserve">
-    <value>목요일</value>
+    <value>Thursday</value>
   </data>
   <data name="TransferAmountIs" xml:space="preserve">
     <value>Transfer amount is</value>
@@ -193,7 +193,7 @@
     <value>전송 성공</value>
   </data>
   <data name="Tuesday" xml:space="preserve">
-    <value>화요일</value>
+    <value>Tuesday</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>사용자 이름</value>
@@ -202,6 +202,6 @@
     <value>Warning: if yesterday balance is full transfered, the highlighted members below will have negative bet credit and consequently, they might lose more than their given credit.</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
-    <value>수요일</value>
+    <value>Wednesday</value>
   </data>
 </root>
