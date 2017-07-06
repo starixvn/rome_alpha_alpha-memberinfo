@@ -78,6 +78,8 @@
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<CasinoService, CasinoServiceImpl>();
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
+
+            container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();
         }
     }
 }

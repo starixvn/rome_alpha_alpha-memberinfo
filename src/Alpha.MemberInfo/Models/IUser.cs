@@ -8,6 +8,8 @@
 
         string Language { get; }
 
+        string LanguageKey { get; }
+
         byte LevelId { get; }
 
         int SubAccId { get; }

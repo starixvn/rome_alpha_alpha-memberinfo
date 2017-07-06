@@ -1,0 +1,77 @@
+﻿@{
+    Layout = null;
+}
+@using Alpha.MemberInfo.Site.ViewModels.Transfer;
+@model CashBalanceTransferViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@Transfer.TransferButton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="~/favico.ico" />
+    @StaticResources.AssetStyles.RenderCommon("/bundles/common/common")
+    @StaticResources.RenderStyles("~/assets/bundles/transfer")
+</head>
+<body>
+    <div class="container-fluid cash-balance">
+        <div id="status-message" class="msg-content hidden">
+            <div id="status-message-content" class="msg msg-error"></div>
+        </div>
+        <div class="section">
+            <div class="row">
+                <div class="col-xs-5 col-sm-3 col-lg-2 ex-text">@Model.UplineLevelName @Transfer.CashBalance:</div>
+                <div class="col-xs-7 col-sm-9 col-lg-10">@HtmlHelpers.FormatNumber(Model.UplineCashBalance)</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="row">
+                <div class="col-xs-12 ex-text">@Model.CustLevelName @Transfer.Information:</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-3 col-lg-2">@Transfer.Username</div>
+                <div class="col-xs-7 col-sm-9 col-lg-10">@Model.UserName</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-3 col-lg-2">@Transfer.CashBalance</div>
+                <div class="col-xs-7 col-sm-9 col-lg-10">@HtmlHelpers.FormatNumber(Model.CashBalance)</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-3 col-lg-2">@Transfer.OutstandingShortcut</div>
+                <div class="col-xs-7 col-sm-9 col-lg-10">@HtmlHelpers.FormatNumber(Model.Outstanding)</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-3 col-lg-2">@Transfer.GivenCredit</div>
+                <div class="col-xs-7 col-sm-9 col-lg-10">@HtmlHelpers.FormatNumber(Model.GivenCredit)</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="row">
+                @using (Html.BeginForm("CashBalance", "Transfer", FormMethod.Post, new { @class = "form-inline col-xs-12", role = "form", id = "form-transfer" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label for="amount">@Transfer.Amount</label>
+                        <input type="text" class="textbox hasBorder text-right" id="amount" maxlength="22" autocomplete="off">
+                        <button type="submit" class="btn-submit" @(Model.DisableTransfer ? "disabled=disabled" : string.Empty)>@Transfer.TransferButton</button>
+                    </div>
+                }
+            </div>
+            <div class="row">
+                <div class="col-xs-12 note">@Model.Hint</div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="custId" value="@Model.CustId" />
+    <input type="hidden" id="availableAmountFrom" value="@Model.TransferAmountFrom" />
+    <input type="hidden" id="availableAmountTo" value="@Model.TransferAmountTo" />
+    <input type="hidden" id="availableRangeTransfer" value="@Model.AvailableRangeTransfer" />
+    <input type="hidden" id="confirmTransfer" value="@Transfer.ConfirmTransfer" />
+    <input type="hidden" id="transferAmountIs" value="@Transfer.TransferAmountIs" />
+    <input type="hidden" id="invalidValue" value="@Transfer.InvalidValue" />
+    @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
+    @StaticResources.RenderScripts("~/assets/bundles/transfer/cash-balance")
+</body>
+</html>

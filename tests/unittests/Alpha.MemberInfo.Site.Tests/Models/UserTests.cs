@@ -18,6 +18,7 @@
             userSession.Language.Returns("en-US");
             userSession.SubAccId.Returns(0);
             userSession.UserLoginIp.Returns("192.168.1.1");
+            userSession.LangKey.Returns("E");
 
             // Act
             var user = new User(userSession);
@@ -29,7 +30,8 @@
                 && user.LevelId == 2
                 && user.Language == "en-US"
                 && user.SubAccId == 0
-                && user.IP == "192.168.1.1");
+                && user.IP == "192.168.1.1"
+                && user.LanguageKey == "E");
         }
 
         [Fact]

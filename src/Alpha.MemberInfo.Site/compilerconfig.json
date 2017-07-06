@@ -2,5 +2,13 @@
   {
     "outputFile": "assets/bundles/member-info.css",
     "inputFile": "assets/styles/member-info.scss"
+  },
+  {
+    "outputFile": "assets/bundles/transfer.css",
+    "inputFile": "assets/styles/transfer.scss"
+  },
+  {
+    "outputFile": "assets/bundles/transfer-hint.css",
+    "inputFile": "assets/styles/transfer-hint.scss"
   }
 ]

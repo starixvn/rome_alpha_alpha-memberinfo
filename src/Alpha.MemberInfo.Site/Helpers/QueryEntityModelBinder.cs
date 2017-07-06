@@ -2,28 +2,23 @@
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
     using System.Web.Mvc;
     using MemberInfo.Models;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;
-    using Requests;
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Utilities;
 
     public class QueryEntityModelBinder : DefaultModelBinder
     {
         private static readonly Type[] IUserType = { typeof(IUser) };
-        private static readonly Type MemberInfoBaseQueryType = typeof(MemberInfoBaseQuery);
 
         protected override object CreateModel(
             ControllerContext controllerContext,
             ModelBindingContext bindingContext,
             Type modelType)
         {
-            if (modelType != null
-                && MemberInfoBaseQueryType.IsAssignableFrom(modelType)
-                && modelType.GetConstructor(IUserType) != null)
+            if (modelType != null && modelType.GetConstructor(IUserType) != null)
             {
                 return CreateInstanceOfAssignableReportBaseQuery(modelType);
             }

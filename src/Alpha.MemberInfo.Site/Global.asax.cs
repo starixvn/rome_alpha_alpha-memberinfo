@@ -8,6 +8,7 @@
     using Auth.Filters;
     using Configurations;
     using Fanex.Data;
+    using Fanex.Data.OldConnectionStringProvider;
     using Helpers;
     using ONEbook.UM.Filters;
     using Web;
@@ -25,10 +26,10 @@
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             DependencyConfig.Init();
-     
+
             DbSettingProviderManager
                 .StartNewSession()
-                .UseDefaultConnectionStringProvider()
+                .Use(new OldConnectionStringProvider())
                 .UseDefaultDbSettingProvider(
                     resourcePath: AppSettings.StoreProcedurePath,
                     enableWatching: true)
