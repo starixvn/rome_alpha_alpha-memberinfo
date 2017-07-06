@@ -118,7 +118,7 @@ class CashBalance {
             if (decimals === 1 || decimals === 2) {
                 return comparedValue > 0 ?
                     Math.floor(amount * 100) === Math.ceil(comparedValue * 100):
-                    Math.ceil(amount * 100) === Math.ceil(comparedValue * 100) - 1;
+                    Math.floor(amount * 100) === Math.floor(comparedValue * 100);
             }
         }
 
