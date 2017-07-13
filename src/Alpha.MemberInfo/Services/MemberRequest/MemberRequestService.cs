@@ -1,11 +1,10 @@
-﻿namespace Alpha.MemberInfo.Services
+﻿namespace Alpha.MemberInfo.Services.MemberRequest
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using Constants;
     using Criteria.MemberRequests;
-    using DataAccesses;
     using Fanex.Data.Repository;
     using Models;
     using Models.MemberRequests;
@@ -17,23 +16,29 @@
 
         IEnumerable<MemberRequestModel> GetMemberRequest(MemberRequestsParam param);
 
-        bool HasSetting(ProductSettingParam productSettingParam);
+        GetSettingResult GetSetting(ProductSettingParam productSettingParam);
+
+        bool IsSync(int productId);
     }
 
     public class MemberRequestServiceImpl : MemberRequestService
     {
         private readonly IDynamicRepository repository;
         private readonly IUser user;
-        private readonly CasinoDataAccess casinoDataAccess;
+        private readonly Dictionary<int, Func<ProductSettingParam, GetSettingResult>> getSettingFuncs;
 
         public MemberRequestServiceImpl(
             IDynamicRepository dynamicRepository,
             IUser user,
-            CasinoDataAccess casinoDataAccess)
+            CasinoCustomer casinoCustomer)
         {
             this.user = user;
             repository = dynamicRepository;
-            this.casinoDataAccess = casinoDataAccess;
+
+            getSettingFuncs = new Dictionary<int, Func<ProductSettingParam, GetSettingResult>>
+            {
+                [ProductId.Casino] = casinoCustomer.GetSetting
+            };
         }
 
         public IEnumerable<Product> GetPlayForFunProduct(int custId)
@@ -57,23 +62,14 @@
             return repository.Fetch<MemberRequestModel>(criteria).OrderBy(member => member.Username);
         }
 
-        public bool HasSetting(ProductSettingParam productSettingParam)
+        public GetSettingResult GetSetting(ProductSettingParam productSettingParam)
         {
-            var hasSettingFuncs = new Dictionary<int, Func<ProductSettingParam, bool>>
-            {
-                [ProductId.Casino] = HasCasinoSetting
-            };
-
-            return hasSettingFuncs[productSettingParam.ProductId](productSettingParam);
+            return getSettingFuncs[productSettingParam.ProductId](productSettingParam);
         }
 
-        public bool HasCasinoSetting(ProductSettingParam productSettingParam)
+        public bool IsSync(int productId)
         {
-            var gameKinds = casinoDataAccess.GameKinds(productSettingParam.CustId);
-            var rngGame = gameKinds.FirstOrDefault(gameKind => gameKind.Id == CasinoGameKind.RNGGame);
-
-            return rngGame != null
-                && (rngGame.PositionTaking != 0 || rngGame.Commission != 0);
+            return productId != ProductId.Casino || user.GetSyncedProduct(productId);
         }
 
         internal bool IsShowProduct(int productId)

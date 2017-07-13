@@ -4,9 +4,10 @@
     using System.Linq;
     using MediatR;
     using MemberInfo.Models;
+    using MemberInfo.Models.MemberRequests;
     using Params;
     using Requests.MemberRequest;
-    using Services;
+    using Services.MemberRequest;
     using ViewModels;
     using ViewModels.MemberRequest;
 
@@ -60,12 +61,17 @@
 
             return products.Select(product =>
             {
+                var isDisable = !service.IsSync(product.Id) || product.IsDisable;
+                var setting = isDisable
+                ? new GetSettingResult(false, 0, string.Empty)
+                : service.GetSetting(new ProductSettingParam(product.Id, message.CustId, message.CustName));
+
                 var productSelectListItem = new ProductViewModel(
                     product.Name,
                     product.Id.ToString(),
                     userSelectedProductIds.Contains(product.Id),
-                    product.IsDisable,
-                    !product.IsDisable && service.HasSetting(new ProductSettingParam(product.Id, message.CustId, message.CustName)));
+                    isDisable,
+                    setting);
 
                 return productSelectListItem;
             });

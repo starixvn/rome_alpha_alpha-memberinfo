@@ -208,7 +208,6 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
 
         [Theory]
         [InlineData("")]
-        [InlineData("vi-VN")]
         [InlineData("abcdef")]
         public async Task Hint_InvalidLanguages_ReturnPageView(string language)
         {

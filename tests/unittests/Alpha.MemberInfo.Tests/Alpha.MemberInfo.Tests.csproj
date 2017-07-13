@@ -231,7 +231,10 @@
     <Compile Include="Models\UserLevelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CashBalanceTransferServiceImplTests.cs" />
-    <Compile Include="Services\MemberRequestServiceImplTests.cs" />
+    <Compile Include="Services\MemberRequest\CasinoCustomerImplErrorMock.cs" />
+    <Compile Include="Services\MemberRequest\CasinoCustomerImplMock.cs" />
+    <Compile Include="Services\MemberRequest\CasinoCustomerImplTests.cs" />
+    <Compile Include="Services\MemberRequest\MemberRequestServiceImplTests.cs" />
     <Compile Include="TestCases\UserLevelTestCases.cs" />
   </ItemGroup>
   <ItemGroup>
