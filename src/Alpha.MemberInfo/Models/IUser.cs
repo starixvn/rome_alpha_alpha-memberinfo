@@ -19,5 +19,7 @@
         bool CanUpdateAccount { get; }
 
         bool GetHideProduct(int productId);
+
+        bool GetSyncedProduct(int productId);
     }
 }

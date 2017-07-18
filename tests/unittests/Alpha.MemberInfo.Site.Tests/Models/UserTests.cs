@@ -50,5 +50,22 @@
             // Assert
             Assert.Equal(expectedHide, actualHide);
         }
+
+        [Fact]
+        public void GetSyncedProduct_Always_ReturnsCorrectStatus()
+        {
+            // Arrange
+            var userSession = Substitute.For<IUserSession>();
+            userSession.GetSyncedProduct(Arg.Any<int>()).Returns(true);
+            var user = new User(userSession);
+            var productId = 1;
+            var expectedSync = true;
+
+            // Act
+            var actualSync = user.GetSyncedProduct(productId);
+
+            // Assert
+            Assert.Equal(expectedSync, actualSync);
+        }
     }
 }

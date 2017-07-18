@@ -9,7 +9,9 @@
                 <option value="@product.Value"
                         data-productname="@product.Text"
                         data-disabled="@product.Disabled"
-                        data-has-setting="@product.HasSetting"
+                        data-has-setting="@product.Setting.HasSetting"
+                        data-error-code="@product.Setting.ErrorCode"
+                        data-error-message="@product.Setting.ErrorMessage"
                         @(product.Selected ? " selected=\"selected\"" : string.Empty)>@product.Text</option>
             }
         </select>

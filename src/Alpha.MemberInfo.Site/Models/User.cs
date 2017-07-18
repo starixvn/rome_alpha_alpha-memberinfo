@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.Models
 {
-    using System;
     using MemberInfo.Models;
     using Sunplus.Agent.Model.Entities;
 
@@ -30,5 +29,7 @@
         public bool CanUpdateAccount => userSession.SubPageAccess.UpdateAccount;
 
         public bool GetHideProduct(int productId) => userSession.GetHideProduct(productId);
+
+        public bool GetSyncedProduct(int productId) => userSession.GetSyncedProduct(productId);
     }
 }

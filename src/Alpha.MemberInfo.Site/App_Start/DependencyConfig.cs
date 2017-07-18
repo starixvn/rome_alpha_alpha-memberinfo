@@ -5,13 +5,13 @@
     using System.Reflection;
     using System.Web.Mvc;
     using Controllers;
-    using DataAccesses;
     using Fanex.Data.Repository;
     using MediatR;
     using MemberInfo.Models;
     using Models;
     using RemotingRef;
     using Services;
+    using Services.MemberRequest;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
@@ -67,7 +67,6 @@
         private static void RegisterDataAccesses(Container container)
         {
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
-            container.Register<CasinoDataAccess, CasinoDataAccessImpl>(Lifestyle.Singleton);
         }
 
         private static void RegisterServices(Container container)
@@ -77,6 +76,8 @@
 
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<CasinoService, CasinoServiceImpl>();
+            container.RegisterPerWebRequest<CasinoCustomer, CasinoCustomerImpl>();
+
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
 
             container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();

@@ -75,27 +75,33 @@ class MemberRequests {
 
     convertAttributeToBool = (attrValue: string) => !!attrValue && attrValue.toString().toLowerCase() === "true";
     updateWarningMessage = () => {
-        let hasData = this.convertAttributeToBool(this.$tableReport.data("has-data"));
-        if (!hasData) {
-            this.$msgWarning.addClass("hide");
-            this.$msgInfo.addClass("hide");
-            return;
-        }
-
         var selectedProduct = this.getSelectedProduct();
         var isDisable = this.convertAttributeToBool(selectedProduct.data("disabled"));
-        var hasSetting = this.convertAttributeToBool(selectedProduct.data("has-setting"));
 
         if (isDisable) {
             this.$msgWarning.html(this.disabledProductWarningMessage).removeClass("hide");
             this.$msgInfo.addClass("hide");
-        } else if (!hasSetting) {
+            return;
+        }
+
+        let errorCode = parseInt(selectedProduct.data("error-code"), 0);
+
+        if (errorCode !== 0) {
+            this.$msgWarning.html(selectedProduct.data("error-message")).removeClass("hide");
+            this.$msgInfo.addClass("hide");
+            return;
+        }
+
+        var hasSetting = this.convertAttributeToBool(selectedProduct.data("has-setting"));
+
+        if (!hasSetting) {
             this.$msgWarning.html(this.noSettingWarning).removeClass("hide");
             this.$msgInfo.addClass("hide");
-        } else {
-            this.$msgWarning.addClass("hide");
-            this.$msgInfo.removeClass("hide");
+            return;
         }
+
+        this.$msgWarning.addClass("hide");
+        this.$msgInfo.removeClass("hide");
     };
     loadMemberRequests = () => {
         this.$.blockUI();

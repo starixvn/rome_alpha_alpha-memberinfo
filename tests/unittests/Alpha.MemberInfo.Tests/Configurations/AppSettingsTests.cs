@@ -91,5 +91,23 @@ namespace Alpha.MemberInfo.Tests.Configurations
             // Assert
             Assert.Equal(excpectedOldMainAppPath, actualOldMainAppPath);
         }
+
+        [Fact]
+        public void MainAppPath_Always_ReturnsValueFromConfig()
+        {
+            // Arrange
+            var mainAppPath = anyValueCreatorFixture.Create<string>();
+            var excpectedMainAppPath = mainAppPath;
+            AppSettings.AppSettingValues = new NameValueCollection
+            {
+                ["MainAppPath"] = mainAppPath
+            };
+
+            // Act
+            var actualMainAppPath = AppSettings.MainAppPath;
+
+            // Assert
+            Assert.Equal(excpectedMainAppPath, actualMainAppPath);
+        }
     }
 }

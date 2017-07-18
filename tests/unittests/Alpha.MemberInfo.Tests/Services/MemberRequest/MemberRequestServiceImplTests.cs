@@ -1,10 +1,9 @@
-﻿namespace Alpha.MemberInfo.Tests.Services.MemberRequestService
+﻿namespace Alpha.MemberInfo.Tests.Services.MemberRequest
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using Constants;
-    using DataAccesses;
     using Extensions;
     using Fanex.Data.Repository;
     using Fixtures;
@@ -12,7 +11,7 @@
     using MemberInfo.Criteria.MemberRequests;
     using MemberInfo.Models;
     using MemberInfo.Models.MemberRequests;
-    using MemberInfo.Services;
+    using MemberInfo.Services.MemberRequest;
     using NSubstitute;
     using Params;
     using Xunit;
@@ -26,12 +25,12 @@
         private readonly IUser user;
         private readonly AnyValueCreatorFixture anyValueCreatorFixture;
         private readonly IEnumerable<MemberRequestModel> memberRequests;
-        private readonly CasinoDataAccess casinoDataAccess;
+        private readonly CasinoCustomer casinoCustomer;
 
         public MemberRequestServiceImplTests(AnyValueCreatorFixture anyValueCreatorFixture)
         {
             this.anyValueCreatorFixture = anyValueCreatorFixture;
-            casinoDataAccess = Substitute.For<CasinoDataAccess>();
+            casinoCustomer = Substitute.For<CasinoCustomer>();
 
             user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)2);
@@ -58,12 +57,12 @@
 
             dynamicRepository.Fetch<MemberRequestModel>(Arg.Any<MemberRequestCriteria>()).Returns(memberRequests);
 
-            serviceImpl = new MemberRequestServiceImpl(dynamicRepository, user, casinoDataAccess);
+            serviceImpl = new MemberRequestServiceImpl(dynamicRepository, user, casinoCustomer);
             compareLogic = new CompareLogic();
         }
 
         [Fact]
-        public void SupportedProduct_HideFishingWorld_ReturnsCorrectList()
+        public void GetPlayForFunProduct_HideFishingWorld_ReturnsCorrectList()
         {
             // Arrange
             var custId = anyValueCreatorFixture.Create<int>();
@@ -83,7 +82,7 @@
         }
 
         [Fact]
-        public void SupportedProduct_ShowFishingWorld_ReturnsCorrectList()
+        public void GetPlayForFunProduct_ShowFishingWorld_ReturnsCorrectList()
         {
             // Arrange
             var custId = anyValueCreatorFixture.Create<int>();
@@ -128,85 +127,60 @@
         }
 
         [Fact]
-        public void HasCasinoSetting_NotHaveRNGCasinoGameKind_ReturnsFalse()
+        public void GetSetting_Casino_ReturnsCorrectSetting()
         {
             // Arrange
-            var param = anyValueCreatorFixture.Create<ProductSettingParam>();
-            casinoDataAccess.GameKinds(Arg.Any<int>()).Returns(Enumerable.Empty<CasinoGameKindModel>());
+            var setting = anyValueCreatorFixture.Create<GetCasinoSettingResult>();
+            casinoCustomer.GetSetting(Arg.Any<ProductSettingParam>()).Returns(setting);
+            var param = new ProductSettingParam(6, 1, string.Empty);
+            var expectedSetting = setting;
 
             // Act
-            var actualHasCasinoSetting = serviceImpl.HasCasinoSetting(param);
+            var actualSetting = serviceImpl.GetSetting(param);
 
             // Assert
-            Assert.False(actualHasCasinoSetting);
+            Assert.True(compareLogic.Compare(expectedSetting, actualSetting).AreEqual);
         }
 
         [Fact]
-        public void HasCasinoSetting_RNGCasinoPTAndCommIs0_ReturnsFalse()
+        public void IsSync_NotCasino_ReturnsTrue()
         {
             // Arrange
-            var param = anyValueCreatorFixture.Create<ProductSettingParam>();
-            casinoDataAccess.GameKinds(Arg.Any<int>()).Returns(new List<CasinoGameKindModel>
-            {
-                new CasinoGameKindModel(CasinoGameKind.RNGGame, 0, 0)
-            });
+            var productId = 1;
 
             // Act
-            var actualHasCasinoSetting = serviceImpl.HasCasinoSetting(param);
+            var actualIsSync = serviceImpl.IsSync(productId);
 
             // Assert
-            Assert.False(actualHasCasinoSetting);
+            Assert.True(actualIsSync);
         }
 
         [Fact]
-        public void HasCasinoSetting_PTIsSet_ReturnsFalse()
+        public void IsSync_CasinoNotSync_ReturnsFalse()
         {
             // Arrange
-            var param = anyValueCreatorFixture.Create<ProductSettingParam>();
-            casinoDataAccess.GameKinds(Arg.Any<int>()).Returns(new List<CasinoGameKindModel>
-            {
-                new CasinoGameKindModel(CasinoGameKind.RNGGame, 1, 0)
-            });
+            var productId = 6;
+            user.GetSyncedProduct(Arg.Is<int>(p => p == 6)).Returns(false);
 
             // Act
-            var actualHasCasinoSetting = serviceImpl.HasCasinoSetting(param);
+            var actualIsSync = serviceImpl.IsSync(productId);
 
             // Assert
-            Assert.True(actualHasCasinoSetting);
+            Assert.False(actualIsSync);
         }
 
         [Fact]
-        public void HasCasinoSetting_CommIsSet_ReturnsFalse()
+        public void IsSync_CasinoSync_ReturnsFalse()
         {
             // Arrange
-            var param = anyValueCreatorFixture.Create<ProductSettingParam>();
-            casinoDataAccess.GameKinds(Arg.Any<int>()).Returns(new List<CasinoGameKindModel>
-            {
-                new CasinoGameKindModel(CasinoGameKind.RNGGame, 0, 1)
-            });
+            var productId = 6;
+            user.GetSyncedProduct(Arg.Is<int>(p => p == 6)).Returns(true);
 
             // Act
-            var actualHasCasinoSetting = serviceImpl.HasCasinoSetting(param);
+            var actualIsSync = serviceImpl.IsSync(productId);
 
             // Assert
-            Assert.True(actualHasCasinoSetting);
-        }
-
-        [Fact]
-        public void HasSetting_CasinoSetting_ReturnsCorrectValue()
-        {
-            // Arrange
-            var param = new ProductSettingParam(ProductId.Casino, 0, string.Empty);
-            casinoDataAccess.GameKinds(Arg.Any<int>()).Returns(new List<CasinoGameKindModel>
-            {
-                new CasinoGameKindModel(CasinoGameKind.RNGGame, 0, 1)
-            });
-
-            // Act
-            var actualHasCasinoSetting = serviceImpl.HasSetting(param);
-
-            // Assert
-            Assert.True(actualHasCasinoSetting);
+            Assert.True(actualIsSync);
         }
     }
 }

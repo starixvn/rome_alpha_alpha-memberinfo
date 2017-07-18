@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Alpha.MemberInfo.Models.MemberRequests;
 
 namespace Alpha.MemberInfo.Site.ViewModels
 {
@@ -9,15 +10,16 @@ namespace Alpha.MemberInfo.Site.ViewModels
             string value,
             bool selected,
             bool disabled,
-            bool hasSetting)
+            GetSettingResult setting)
         {
             Text = text;
             Value = value;
             Selected = selected;
             Disabled = disabled;
-            HasSetting = hasSetting;
+
+            Setting = setting;
         }
 
-        public bool HasSetting { get; }
+        public GetSettingResult Setting { get; }
     }
 }

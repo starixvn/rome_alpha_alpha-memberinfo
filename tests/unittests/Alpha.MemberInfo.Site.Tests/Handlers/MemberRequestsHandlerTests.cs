@@ -12,7 +12,7 @@
     using NSubstitute;
     using Params;
     using Requests.MemberRequest;
-    using Services;
+    using Services.MemberRequest;
     using Site.Handlers.MemberRequest;
     using ViewModels;
     using ViewModels.MemberRequest;
@@ -25,13 +25,16 @@
         private readonly MemberRequestService service;
         private readonly MemberRequestHandler handler;
         private readonly IUser user;
+        private readonly GetSettingResult setting;
 
         public MemberRequestsHandlerTests(UserFixture userFixture)
         {
             user = userFixture.User;
             service = Substitute.For<MemberRequestService>();
-            service.HasSetting(Arg.Any<ProductSettingParam>()).Returns(true);
+            setting = new GetSettingResult(true, 0, string.Empty);
+            service.GetSetting(Arg.Any<ProductSettingParam>()).Returns(setting);
             service.GetMemberRequest(Arg.Any<MemberRequestsParam>()).Returns(Enumerable.Empty<MemberRequestModel>());
+            service.IsSync(Arg.Any<int>()).Returns(true);
 
             handler = new MemberRequestHandler(service);
 
@@ -58,7 +61,7 @@
                 message.UserSelectedProductId,
                 new List<ProductViewModel>
                 {
-                    new ProductViewModel("Casino", ProductId.Casino.ToString(), true, false, true)
+                    new ProductViewModel("Casino", ProductId.Casino.ToString(), true, false, setting)
                 });
 
             // Act
