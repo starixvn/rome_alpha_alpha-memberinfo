@@ -1,4 +1,4 @@
-﻿<Functions>
+﻿<Functions SiteId="105" SiteName="Alpha">
   <Function Name="Transfer">
     <Setting Key="Acc_CustomerSelTransferOption" SpName="Acc_CustomerSelTransferOption" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
