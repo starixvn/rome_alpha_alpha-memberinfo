@@ -34,16 +34,16 @@ namespace Alpha.MemberInfo.Site.Handlers
                 model.GivenCredit);
         }
 
-        public async Task<Result> Handle(CashBalanceTransferCommand command)
+        public async Task<Result> Handle(CashBalanceTransferCommand message)
         {
             return await service.AddCashBalanceTransferAsync(
-                command.UplineId,
-                command.CustId,
-                command.Amount,
-                command.UplineId,
-                command.SubAccId,
-                command.IP,
-                command.LanguageKey);
+                message.UplineId,
+                message.CustId,
+                message.Amount,
+                message.UplineId,
+                message.SubAccId,
+                message.IP,
+                message.LanguageKey);
         }
 
         public async Task<HintTransferViewModel> Handle(HintTransferQuery message)

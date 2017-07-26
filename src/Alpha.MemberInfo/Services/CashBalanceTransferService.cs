@@ -113,14 +113,9 @@ namespace Alpha.MemberInfo.Services
                     day = day.Substring(3);
                 }
 
-                if (charArray[7] == '1')
-                {
-                    transferTime += " " + day;
-                }
-                else
-                {
-                    transferTime += " " + Transfer.Daily;
-                }
+                transferTime += charArray[7] == '1' ?
+                    " " + day :
+                    " " + Transfer.Daily;
             }
 
             return transferTime;
