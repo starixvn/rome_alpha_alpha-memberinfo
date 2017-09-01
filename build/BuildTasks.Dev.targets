@@ -5,7 +5,7 @@
          InitialTargets="MyTargets">
   
   <Target Name="MyTargets">
-	<Exec Command="Nuget\NuGet restore ..\Alpha.MemberInfo.sln"/>
+	<Exec Command="..\tools\Nuget\NuGet restore ..\Alpha.MemberInfo.sln"/>
 
 	<MSBuild 
 	Projects="..\Alpha.MemberInfo.sln" 
