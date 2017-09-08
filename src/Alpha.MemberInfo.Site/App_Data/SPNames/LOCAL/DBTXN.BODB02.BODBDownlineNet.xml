@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Functions SiteId="105" SiteName="Alpha">
+<Functions SiteId="105" SiteName="Member Information">
   <Function Name="Transfer">
     <Setting Key="Age_Transfer_CashBalance_Ins" SpName="Age_Transfer_CashBalance_Ins" DbName="DBTXN.BODB02.BODBDownlineNet" Plain="0" />
   </Function>
