@@ -141,6 +141,9 @@
   <data name="Daily" xml:space="preserve">
     <value>Daily</value>
   </data>
+  <data name="ErrorConcurrentTransfer" xml:space="preserve">
+    <value>The transfer has been proceeding by {0}</value>
+  </data>
   <data name="Friday" xml:space="preserve">
     <value>Friday</value>
   </data>

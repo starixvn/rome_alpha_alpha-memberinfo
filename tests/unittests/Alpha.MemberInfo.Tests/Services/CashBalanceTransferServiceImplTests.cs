@@ -90,6 +90,7 @@ namespace Alpha.MemberInfo.Tests.Services
                 1176083,
                 1101240.32M,
                 1176070,
+                "Admin1",
                 0,
                 "127.0.0.1",
                 "E");
@@ -119,6 +120,7 @@ namespace Alpha.MemberInfo.Tests.Services
                 criteria.ToCustId,
                 criteria.Amount,
                 criteria.Creator,
+                "Admin1",
                 criteria.SubAccId,
                 criteria.IP,
                 criteria.Language);

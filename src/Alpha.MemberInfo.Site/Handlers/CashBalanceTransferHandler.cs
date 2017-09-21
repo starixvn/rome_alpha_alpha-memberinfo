@@ -41,6 +41,7 @@ namespace Alpha.MemberInfo.Site.Handlers
                 message.CustId,
                 message.Amount,
                 message.UplineId,
+                message.UplineName,
                 message.SubAccId,
                 message.IP,
                 message.LanguageKey);

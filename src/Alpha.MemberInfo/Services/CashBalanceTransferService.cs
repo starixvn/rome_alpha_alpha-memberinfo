@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Alpha.MemberInfo.AppResources;
+﻿using Alpha.MemberInfo.AppResources;
 using Alpha.MemberInfo.Criteria.Transfer;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Models.Transfer;
 using Fanex.Data.Repository;
+using Sunplus.Agent.Model.Transfer.Constants;
+using Sunplus.Agent.Model.Transfer.Extensions;
+using Sunplus.Agent.Model.Transfer.Models;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Alpha.MemberInfo.Services
 {
@@ -20,6 +21,7 @@ namespace Alpha.MemberInfo.Services
             int toCustId,
             decimal amount,
             int creator,
+            string creatorName,
             int subAccId,
             string ip,
             string languageKey);
@@ -48,10 +50,27 @@ namespace Alpha.MemberInfo.Services
             int toCustId,
             decimal amount,
             int creator,
+            string creatorName,
             int subAccId,
             string ip,
             string languageKey)
         {
+            string cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, creator);
+            TransferCacheService cacheService = new TransferCacheServiceImplement();
+            List<TransferCacheModel> custIdCache = cacheService.Get(cacheKey) ?? new List<TransferCacheModel>();
+            var concurrentTrasfer = cacheService.CacheContains(custIdCache, toCustId);
+            if (concurrentTrasfer != null)
+            {
+                return new Result
+                {
+                    Code = 105,
+                    Message = string.Format(TransferConstants.ConcurrentSingleTransferResultMessage, concurrentTrasfer.AdminName)
+            };
+            }
+
+            cacheService.CacheAdd(custIdCache, toCustId, creator, creatorName);
+            cacheService.Set(cacheKey, custIdCache);
+
             amount *= -1;
 
             var criteria = new AddCashBalanceTransferCriteria(
@@ -64,7 +83,7 @@ namespace Alpha.MemberInfo.Services
                 languageKey);
 
             await repository.ExecuteAsync(criteria);
-
+            cacheService.CacheRemoveSuccessTransferCustIds(cacheKey, new List<int>() { toCustId });
             return new Result
             {
                 Code = criteria.ErrCode,
