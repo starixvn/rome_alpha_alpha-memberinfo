@@ -13,7 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{38180993
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.MemberInfo.Tests", "tests\unittests\Alpha.MemberInfo.Tests\Alpha.MemberInfo.Tests.csproj", "{40837E4A-DF8A-480B-A3F5-0788114035CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.MemberInfo.Site.Tests", "tests.\unittests\Alpha.MemberInfo.Site.Tests\Alpha.MemberInfo.Site.Tests.csproj", "{3FE29494-CB1E-4ACE-B30F-393CFBD13716}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.MemberInfo.Site.Tests", "tests\unittests\Alpha.MemberInfo.Site.Tests\Alpha.MemberInfo.Site.Tests.csproj", "{3FE29494-CB1E-4ACE-B30F-393CFBD13716}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{095186A9-6D5A-447E-8A4B-ACB3C131DC22}"
+	ProjectSection(SolutionItems) = preProject
+		SonarQube\Alpha-MemberInfoCSharp.ruleset = SonarQube\Alpha-MemberInfoCSharp.ruleset
+		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

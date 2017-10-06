@@ -71,12 +71,10 @@ namespace Alpha.MemberInfo.Services
             cacheService.CacheAdd(custIdCache, toCustId, creator, creatorName);
             cacheService.Set(cacheKey, custIdCache);
 
-            amount *= -1;
-
             var criteria = new AddCashBalanceTransferCriteria(
                 fromCustId,
                 toCustId,
-                amount,
+                amount * -1,
                 creator,
                 subAccId,
                 ip,

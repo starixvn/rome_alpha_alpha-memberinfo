@@ -81,12 +81,12 @@ namespace Alpha.MemberInfo.Site.ViewModels.Transfer
 
         public bool DisableTransfer { get; }
 
-        private string Format4Digits(decimal value)
+        private static string Format4Digits(decimal value)
         {
             return value == 0 ? "0" : value.ToString("N4");
         }
 
-        private string GetUserLevelDisplayName(UserLevel userLevel)
+        private static string GetUserLevelDisplayName(UserLevel userLevel)
         {
             if (userLevel.IsSuperLevel())
             {
