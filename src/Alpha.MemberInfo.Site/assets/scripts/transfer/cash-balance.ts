@@ -17,6 +17,7 @@ class CashBalance {
     $formTransfer: JQuery;
     $amount: JQuery;
     $custId: JQuery;
+    $userName: JQuery;
     $token: JQuery;
 
     constructor($: JQueryStatic, topWindow: any) {
@@ -117,7 +118,7 @@ class CashBalance {
 
             if (decimals === 1 || decimals === 2) {
                 return comparedValue > 0 ?
-                    Math.floor(amount * 100) === Math.ceil(comparedValue * 100):
+                    Math.floor(amount * 100) === Math.ceil(comparedValue * 100) :
                     Math.floor(amount * 100) === Math.floor(comparedValue * 100);
             }
         }
@@ -139,7 +140,7 @@ class CashBalance {
         let validationObject: any = {};
         let amountValue: string = this.$amount.val();
 
-        if(amountValue.length !== 0 && !this.isNumeric(amountValue)) {
+        if (amountValue.length !== 0 && !this.isNumeric(amountValue)) {
             validationObject.code = 400;
             validationObject.message = this.invalidValue;
             return validationObject;

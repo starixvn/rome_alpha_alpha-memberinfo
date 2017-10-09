@@ -11,6 +11,7 @@ namespace Alpha.MemberInfo.Site.Requests.Transfer
             SubAccId = user.SubAccId;
             IP = user.IP;
             LanguageKey = user.LanguageKey;
+            UplineName = user.SubAccId > 0 ? user.SubAccName : user.Name;
         }
 
         public int CustId { get; set; }
@@ -18,6 +19,8 @@ namespace Alpha.MemberInfo.Site.Requests.Transfer
         public decimal Amount { get; set; }
 
         public int UplineId { get; }
+
+        public string UplineName { get; }
 
         public int SubAccId { get; }
 

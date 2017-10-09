@@ -133,6 +133,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The transfer has been proceeding by {0}.
+        /// </summary>
+        public static string ErrorConcurrentTransfer {
+            get {
+                return ResourceManager.GetString("ErrorConcurrentTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Friday.
         /// </summary>
         public static string Friday {

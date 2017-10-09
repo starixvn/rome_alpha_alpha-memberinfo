@@ -14,6 +14,8 @@
 
         int SubAccId { get; }
 
+        string SubAccName { get; }
+
         string IP { get; }
 
         bool CanUpdateAccount { get; }

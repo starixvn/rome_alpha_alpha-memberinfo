@@ -24,6 +24,8 @@
 
         public int SubAccId => userSession.SubAccId;
 
+        public string SubAccName => userSession.SubUserName;
+
         public string IP => userSession.UserLoginIp;
 
         public bool CanUpdateAccount => userSession.SubPageAccess.UpdateAccount;

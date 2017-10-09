@@ -82,6 +82,7 @@ namespace Alpha.MemberInfo.Site.Tests.Handlers
                 command.CustId,
                 command.Amount,
                 command.UplineId,
+                command.UplineName,
                 command.SubAccId,
                 command.IP,
                 command.LanguageKey).Returns(expectedResult);
