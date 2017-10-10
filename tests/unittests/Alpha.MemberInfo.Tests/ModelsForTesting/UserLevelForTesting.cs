@@ -1,8 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Alpha.MemberInfo.Models;
-
-namespace Alpha.MemberInfo.Tests.ModelsForTesting
+﻿namespace Alpha.MemberInfo.Tests.ModelsForTesting
 {
+    using System.Diagnostics.CodeAnalysis;
+    using Alpha.MemberInfo.Models;
+
     public class UserLevelForTesting : UserLevel
     {
         [SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes", Justification = "Reviewed!")]

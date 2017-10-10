@@ -1,17 +1,16 @@
-﻿using Alpha.MemberInfo.AppResources;
-using Alpha.MemberInfo.Criteria.Transfer;
-using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Models.Transfer;
-using Fanex.Data.Repository;
-using Sunplus.Agent.Model.Transfer.Constants;
-using Sunplus.Agent.Model.Transfer.Extensions;
-using Sunplus.Agent.Model.Transfer.Models;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Alpha.MemberInfo.Services
+﻿namespace Alpha.MemberInfo.Services
 {
+    using System.Text;
+    using System.Threading.Tasks;
+    using Alpha.MemberInfo.AppResources;
+    using Alpha.MemberInfo.Criteria.Transfer;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Models.Transfer;
+    using Fanex.Data.Repository;
+    using Sunplus.Agent.Model.Transfer.Constants;
+    using Sunplus.Agent.Model.Transfer.Extensions;
+    using Sunplus.Agent.Model.Transfer.Models;
+    using System.Collections.Generic;
     public interface CashBalanceTransferService
     {
         Task<CashBalanceTransfer> GetCashBalanceTransferAsync(int custId);

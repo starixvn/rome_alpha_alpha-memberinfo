@@ -6,11 +6,7 @@
     public class MemberInfoBaseQuery
     {
         private readonly IUser viewer;
-
-        internal MemberInfoBaseQuery()
-        {
-        }
-
+       
         protected MemberInfoBaseQuery(IUser viewer)
         {
             this.viewer = viewer;

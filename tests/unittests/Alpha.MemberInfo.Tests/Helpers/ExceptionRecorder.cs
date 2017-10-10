@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Alpha.MemberInfo.Tests.Helpers
+﻿namespace Alpha.MemberInfo.Tests.Helpers
 {
+    using System;
+
     public static class ExceptionRecorder
     {
         public static Exception Record(Action action)

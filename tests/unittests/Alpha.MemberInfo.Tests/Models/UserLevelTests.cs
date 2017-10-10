@@ -1,13 +1,12 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using Alpha.MemberInfo.Enumerations;
-using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Tests.Constants;
-using Alpha.MemberInfo.Tests.TestCases;
-using Xunit;
-
-namespace Alpha.MemberInfo.Tests.Models
+﻿namespace Alpha.MemberInfo.Tests.Models
 {
+    using System;
+    using Alpha.MemberInfo.Enumerations;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Tests.Constants;
+    using Alpha.MemberInfo.Tests.TestCases;
+    using Xunit;
+
     public class UserLevelTests
     {
         [Fact]

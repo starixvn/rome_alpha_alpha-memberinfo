@@ -1,16 +1,16 @@
-﻿using System.Threading.Tasks;
-using System.Web.Mvc;
-using Alpha.MemberInfo.AppResources;
-using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Site.Controllers;
-using Alpha.MemberInfo.Site.Requests.Transfer;
-using MediatR;
-using NSubstitute;
-using Sunplus.Agent.Model.Entities;
-using Xunit;
-
-namespace Alpha.MemberInfo.Site.Tests.Controllers
+﻿namespace Alpha.MemberInfo.Site.Tests.Controllers
 {
+    using System.Threading.Tasks;
+    using System.Web.Mvc;
+    using Alpha.MemberInfo.AppResources;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Controllers;
+    using Alpha.MemberInfo.Site.Requests.Transfer;
+    using MediatR;
+    using NSubstitute;
+    using Sunplus.Agent.Model.Entities;
+    using Xunit;
+
     [Trait("Category", "Transfer")]
     public class TransferControllerTests
     {

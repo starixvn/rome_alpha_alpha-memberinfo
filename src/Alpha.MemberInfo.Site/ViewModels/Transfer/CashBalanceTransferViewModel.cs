@@ -1,7 +1,7 @@
-﻿using Alpha.MemberInfo.Models;
-
-namespace Alpha.MemberInfo.Site.ViewModels.Transfer
+﻿namespace Alpha.MemberInfo.Site.ViewModels.Transfer
 {
+    using Alpha.MemberInfo.Models;
+
     public class CashBalanceTransferViewModel
     {
         public CashBalanceTransferViewModel(
@@ -103,12 +103,7 @@ namespace Alpha.MemberInfo.Site.ViewModels.Transfer
                 return AppResources.Transfer.Agent;
             }
 
-            if (userLevel.IsMemberLevel())
-            {
-                return AppResources.Transfer.Member;
-            }
-
-            return string.Empty;
+            return AppResources.Transfer.Member;
         }
     }
 }

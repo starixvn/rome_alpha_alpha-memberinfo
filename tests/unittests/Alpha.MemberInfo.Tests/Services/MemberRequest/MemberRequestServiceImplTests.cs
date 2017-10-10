@@ -11,9 +11,9 @@
     using MemberInfo.Criteria.MemberRequests;
     using MemberInfo.Models;
     using MemberInfo.Models.MemberRequests;
+    using MemberInfo.Params;
     using MemberInfo.Services.MemberRequest;
     using NSubstitute;
-    using Params;
     using Xunit;
 
     [Trait("Category", "MemberRequests")]

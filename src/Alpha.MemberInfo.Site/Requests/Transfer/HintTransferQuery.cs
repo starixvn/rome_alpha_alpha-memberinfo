@@ -1,9 +1,9 @@
-﻿using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Site.ViewModels.Transfer;
-using MediatR;
-
-namespace Alpha.MemberInfo.Site.Requests.Transfer
+﻿namespace Alpha.MemberInfo.Site.Requests.Transfer
 {
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.ViewModels.Transfer;
+    using MediatR;
+
     public class HintTransferQuery : IAsyncRequest<HintTransferViewModel>
     {
         public HintTransferQuery(IUser user)

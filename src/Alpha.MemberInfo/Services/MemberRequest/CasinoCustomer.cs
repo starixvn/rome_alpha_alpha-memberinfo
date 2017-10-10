@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Models.MemberRequests;
-using Alpha.MemberInfo.Params;
-using CasinoLibrary.SBAgent;
-using Fanex.Common;
-
-namespace Alpha.MemberInfo.Services.MemberRequest
+﻿namespace Alpha.MemberInfo.Services.MemberRequest
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Linq;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Models.MemberRequests;
+    using Alpha.MemberInfo.Params;
+    using CasinoLibrary.SBAgent;
+    using Fanex.Common;
+
     public interface CasinoCustomer
     {
         GetCasinoSettingResult GetSetting(ProductSettingParam productSettingParam);

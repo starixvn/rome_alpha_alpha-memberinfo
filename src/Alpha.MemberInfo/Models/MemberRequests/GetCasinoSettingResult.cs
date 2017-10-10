@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Alpha.MemberInfo.Constants;
-
-namespace Alpha.MemberInfo.Models.MemberRequests
+﻿namespace Alpha.MemberInfo.Models.MemberRequests
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Alpha.MemberInfo.Constants;
+
     public class GetCasinoSettingResult : GetSettingResult
     {
         public GetCasinoSettingResult(

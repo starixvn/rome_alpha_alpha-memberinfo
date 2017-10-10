@@ -1,18 +1,19 @@
-﻿using System;
-using System.Threading.Tasks;
-using Alpha.MemberInfo.Criteria.Transfer;
-using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Models.Transfer;
-using Alpha.MemberInfo.Services;
-using Alpha.MemberInfo.Tests.Fixtures;
-using Fanex.Data.Repository;
-using KellermanSoftware.CompareNetObjects;
-using NSubstitute;
-using NSubstitute.ExceptionExtensions;
-using Xunit;
-
-namespace Alpha.MemberInfo.Tests.Services
+﻿namespace Alpha.MemberInfo.Tests.Services
 {
+    using System;
+    using System.Threading.Tasks;
+    using Alpha.MemberInfo.AppResources;
+    using Alpha.MemberInfo.Criteria.Transfer;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Models.Transfer;
+    using Alpha.MemberInfo.Services;
+    using Alpha.MemberInfo.Tests.Fixtures;
+    using Fanex.Data.Repository;
+    using KellermanSoftware.CompareNetObjects;
+    using NSubstitute;
+    using NSubstitute.ExceptionExtensions;
+    using Xunit;
+
     [Trait("Category", "Transfer")]
     [Collection("AnyValueCreatorCollection")]
     public class CashBalanceTransferServiceImplTests
@@ -36,8 +37,8 @@ namespace Alpha.MemberInfo.Tests.Services
             var custId = 1176083;
             var cashBalanceTransfer = new CashBalanceTransfer(
                 custId,
-                "master1",
                 3,
+                "master1",                
                 67599433.9247M,
                 1101240.3283M,
                 342552.00M,
@@ -127,6 +128,62 @@ namespace Alpha.MemberInfo.Tests.Services
 
             // Assert
             Assert.True(actualData.Code == expectedResult.Code);
+        }
+
+        [Fact]
+        public async Task GetAllowTransfer_NoData_ReturnAllowTransferText()
+        {
+            //// Arrange
+            dynamicRepository.ExecuteAsync(Arg.Any<GetTransferOptionCriteria>()).Returns(Task.CompletedTask);
+
+            //// Act
+            var act = await serviceImpl.GetAllowTransfer(263);
+
+            //// Assert
+            Assert.Equal(Transfer.AllowTransfer, act);
+        }
+
+        [Fact]
+        public async Task GetAllowTransfer_Daily_ReturnDailyText()
+        {
+            //// Arrange
+            dynamicRepository.ExecuteAsync(Arg.Any<GetTransferOptionCriteria>()).Returns(x =>
+            {
+                ((GetTransferOptionCriteria)x[0]).TransferOption = "00000000";
+
+                return Task.CompletedTask;
+            });
+
+            var expected = $"{Transfer.AllowTransfer} {Transfer.Daily}";
+
+            //// Act
+            var act = await serviceImpl.GetAllowTransfer(263);
+
+            //// Assert
+            Assert.Equal(expected, act);
+        }
+
+        [Theory]
+        [InlineData("10000001", "Sunday")]
+        [InlineData("11000001", "Monday - Sunday")]
+        [InlineData("01000001", "Monday")]
+        public async Task GetAllowTransfer_HasAllowTransfer_ReturnCorrectText(string transferOption, string text)
+        {
+            //// Arrange
+            dynamicRepository.ExecuteAsync(Arg.Any<GetTransferOptionCriteria>()).Returns(x =>
+            {
+                ((GetTransferOptionCriteria)x[0]).TransferOption = transferOption;
+
+                return Task.CompletedTask;
+            });
+
+            var expected = $"{Transfer.AllowTransfer} {text}";
+
+            //// Act
+            var act = await serviceImpl.GetAllowTransfer(263);
+
+            //// Assert
+            Assert.Equal(expected, act);
         }
     }
 }

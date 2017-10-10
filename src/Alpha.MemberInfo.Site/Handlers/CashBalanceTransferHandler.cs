@@ -1,13 +1,13 @@
-﻿using System.Threading.Tasks;
-using Alpha.MemberInfo.Enumerations;
-using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Services;
-using Alpha.MemberInfo.Site.Requests.Transfer;
-using Alpha.MemberInfo.Site.ViewModels.Transfer;
-using MediatR;
-
-namespace Alpha.MemberInfo.Site.Handlers
+﻿namespace Alpha.MemberInfo.Site.Handlers
 {
+    using System.Threading.Tasks;
+    using Alpha.MemberInfo.Enumerations;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services;
+    using Alpha.MemberInfo.Site.Requests.Transfer;
+    using Alpha.MemberInfo.Site.ViewModels.Transfer;
+    using MediatR;
+
     public class CashBalanceTransferHandler :
         IAsyncRequestHandler<CashBalanceTransferQuery, CashBalanceTransferViewModel>,
         IAsyncRequestHandler<CashBalanceTransferCommand, Result>,
