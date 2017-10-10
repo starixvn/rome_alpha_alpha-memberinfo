@@ -448,9 +448,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Handlers\CashBalanceTransferHandler.cs" />
     <Compile Include="Handlers\MemberRequestHandler.cs" />
-    <Compile Include="Helpers\QueryEntityModelBinder.cs">
-      <SonarQubeExclude>true</SonarQubeExclude>
-    </Compile>
+    <Compile Include="Helpers\QueryEntityModelBinder.cs"/>
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\MemberRequest\ProductQuery.cs" />
