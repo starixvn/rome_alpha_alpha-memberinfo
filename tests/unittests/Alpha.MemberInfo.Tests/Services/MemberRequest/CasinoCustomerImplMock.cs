@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Services.MemberRequest;
-
-namespace Alpha.MemberInfo.Tests.Services.MemberRequest
+﻿namespace Alpha.MemberInfo.Tests.Services.MemberRequest
 {
+    using System.Collections.Generic;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services.MemberRequest;
+
     public class CasinoCustomerImplMock : CasinoCustomerImpl
     {
         private IEnumerable<CasinoGameKindModel> gameKinds;

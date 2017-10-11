@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Alpha.MemberInfo.Enumerations;
-using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Tests.ModelsForTesting;
-using Xunit;
-
-namespace Alpha.MemberInfo.Tests.Enumerations
+﻿namespace Alpha.MemberInfo.Tests.Enumerations
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Alpha.MemberInfo.Enumerations;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Tests.ModelsForTesting;
+    using Xunit;
+
     public class EnumerationTests
     {
         [Theory]

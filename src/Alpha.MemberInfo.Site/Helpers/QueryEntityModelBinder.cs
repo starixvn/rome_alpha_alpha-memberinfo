@@ -4,10 +4,6 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Web.Mvc;
     using MemberInfo.Models;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
-    using Sunplus.Agent.Model.Entities;
-    using Sunplus.Agent.Utilities;
 
     public class QueryEntityModelBinder : DefaultModelBinder
     {
@@ -45,19 +41,6 @@
         protected virtual object CallBaseBindModel(
            ControllerContext controllerContext,
            ModelBindingContext bindingContext)
-            => base.BindModel(controllerContext, bindingContext);
-
-        protected virtual void LogWarning(JsonException ex)
-        {
-            Logs.WriteWarn(ex, UserSession.Current.CustId);
-        }
-
-        public void HandleDeserializationError(object sender, ErrorEventArgs errorArgs)
-        {
-            if (errorArgs.ErrorContext.Error.Message.Contains(".CustLevelId'"))
-            {
-                errorArgs.ErrorContext.Handled = true;
-            }
-        }
+            => base.BindModel(controllerContext, bindingContext);       
     }
 }

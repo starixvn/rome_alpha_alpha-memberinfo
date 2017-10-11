@@ -1,7 +1,7 @@
-﻿using Alpha.MemberInfo.Models;
-
-namespace Alpha.MemberInfo.Site.ViewModels.Transfer
+﻿namespace Alpha.MemberInfo.Site.ViewModels.Transfer
 {
+    using Alpha.MemberInfo.Models;
+
     public class CashBalanceTransferViewModel
     {
         public CashBalanceTransferViewModel(
@@ -81,12 +81,12 @@ namespace Alpha.MemberInfo.Site.ViewModels.Transfer
 
         public bool DisableTransfer { get; }
 
-        private string Format4Digits(decimal value)
+        private static string Format4Digits(decimal value)
         {
             return value == 0 ? "0" : value.ToString("N4");
         }
 
-        private string GetUserLevelDisplayName(UserLevel userLevel)
+        private static string GetUserLevelDisplayName(UserLevel userLevel)
         {
             if (userLevel.IsSuperLevel())
             {
@@ -103,12 +103,7 @@ namespace Alpha.MemberInfo.Site.ViewModels.Transfer
                 return AppResources.Transfer.Agent;
             }
 
-            if (userLevel.IsMemberLevel())
-            {
-                return AppResources.Transfer.Member;
-            }
-
-            return string.Empty;
+            return AppResources.Transfer.Member;
         }
     }
 }

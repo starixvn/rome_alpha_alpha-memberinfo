@@ -14,8 +14,8 @@
     using Requests.MemberRequest;
     using Services.MemberRequest;
     using Site.Handlers.MemberRequest;
-    using ViewModels;
-    using ViewModels.MemberRequest;
+    using Site.ViewModels;
+    using Site.ViewModels.MemberRequest;
     using Xunit;
 
     [Trait("Category", "MemberRequests")]

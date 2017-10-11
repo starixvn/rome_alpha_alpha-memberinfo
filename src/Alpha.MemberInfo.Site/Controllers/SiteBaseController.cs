@@ -1,7 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Controllers
 {
     using System.Diagnostics.CodeAnalysis;
-    using System.Web.Mvc;
     using MediatR;
     using Web;
 
@@ -13,11 +12,6 @@
         protected SiteBaseController(IMediator mediator)
         {
             this.mediator = mediator;
-        }
-
-        protected ActionResult View<TResponse>(IRequest<TResponse> message)
-        {
-            return View(mediator.Send(message));
-        }
+        }        
     }
 }

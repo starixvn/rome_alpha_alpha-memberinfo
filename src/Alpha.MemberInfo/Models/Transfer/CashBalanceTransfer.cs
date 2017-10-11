@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Alpha.MemberInfo.Models.Transfer
+﻿namespace Alpha.MemberInfo.Models.Transfer
 {
     public class CashBalanceTransfer
     {
         public CashBalanceTransfer()
         {
+
         }
 
         public CashBalanceTransfer(
             int custId,
-            string userName,
             byte roleId,
+            string userName,            
             decimal uplineCashBalance,
             decimal cashBalance,
             decimal outstanding,

@@ -1,8 +1,8 @@
-﻿using Alpha.MemberInfo.Criteria.Transfer;
-using Xunit;
-
-namespace Alpha.MemberInfo.Tests.Criteria.Transfer
+﻿namespace Alpha.MemberInfo.Tests.Criteria.Transfer
 {
+    using Alpha.MemberInfo.Criteria.Transfer;
+    using Xunit;
+
     [Trait("Category", "Transfer")]
     public class GetCashBalanceTransferCriteriaTests
     {

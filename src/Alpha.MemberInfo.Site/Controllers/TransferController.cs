@@ -1,13 +1,13 @@
-﻿using System.Threading.Tasks;
-using System.Web.Mvc;
-using System.Web.SessionState;
-using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Site.Requests.Transfer;
-using MediatR;
-using Sunplus.Agent.Model.Entities;
-
-namespace Alpha.MemberInfo.Site.Controllers
+﻿namespace Alpha.MemberInfo.Site.Controllers
 {
+    using System.Threading.Tasks;
+    using System.Web.Mvc;
+    using System.Web.SessionState;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Requests.Transfer;
+    using MediatR;
+    using Sunplus.Agent.Model.Entities;
+
     [SessionState(SessionStateBehavior.Default)]
     public class TransferController : SiteBaseController
     {

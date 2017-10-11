@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using Xunit;
-
-namespace Alpha.MemberInfo.Tests.Extensions
+﻿namespace Alpha.MemberInfo.Tests.Extensions
 {
+    using Newtonsoft.Json;
+    using Xunit;
+
     public static class AssertExtension
     {
         public static void Equal<T>(T expected, T actual)

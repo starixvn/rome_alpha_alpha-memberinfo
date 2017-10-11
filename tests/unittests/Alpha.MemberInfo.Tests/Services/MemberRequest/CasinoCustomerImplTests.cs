@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Alpha.MemberInfo.Constants;
-using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Models.MemberRequests;
-using Alpha.MemberInfo.Params;
-using Alpha.MemberInfo.Services.MemberRequest;
-using Alpha.MemberInfo.Tests.Fixtures;
-using KellermanSoftware.CompareNetObjects;
-using Xunit;
-
-namespace Alpha.MemberInfo.Tests.Services.MemberRequest
+﻿namespace Alpha.MemberInfo.Tests.Services.MemberRequest
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Alpha.MemberInfo.Constants;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Models.MemberRequests;
+    using Alpha.MemberInfo.Params;
+    using Alpha.MemberInfo.Tests.Fixtures;
+    using KellermanSoftware.CompareNetObjects;
+    using Xunit;
+
     [Trait("Category", "MemberRequests")]
     [Collection("AnyValueCreatorCollection")]
     public class CasinoCustomerImplTests

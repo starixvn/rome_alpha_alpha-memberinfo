@@ -35,7 +35,7 @@
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\..\tools\AnalysisRules\FanexRules.Error.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Alpha.MemberInfo.Site.Debug.ruleset</CodeAnalysisRuleSet>
     <NoWarn>618</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -45,6 +45,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Alpha.MemberInfo.Site.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Alpha.Auth, Version=3.0.1.4, Culture=neutral, processorArchitecture=MSIL">
@@ -370,7 +371,7 @@
     <Content Include="Web.uat2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-	<Content Include="Web.uat3.config">
+    <Content Include="Web.uat3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
     <Content Include="Web.AppSettings.backupMNL.config">
@@ -379,7 +380,7 @@
     <Content Include="Web.AppSettings.backupMNL2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-	<Content Include="Web.AppSettings.backupMNL3.config">
+    <Content Include="Web.AppSettings.backupMNL3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
     <Content Include="Web.AppSettings.backupMNLExNap.config">
@@ -388,7 +389,7 @@
     <Content Include="Web.AppSettings.backupMNLExNap2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-	<Content Include="Web.AppSettings.backupMNLExNap3.config">
+    <Content Include="Web.AppSettings.backupMNLExNap3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
     <Content Include="Web.AppSettings.backupMNLNap.config">
@@ -397,7 +398,7 @@
     <Content Include="Web.AppSettings.backupMNLNap2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-	<Content Include="Web.AppSettings.backupMNLNap3.config">
+    <Content Include="Web.AppSettings.backupMNLNap3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
     <Content Include="Web.backupMNL.config">
@@ -406,7 +407,7 @@
     <Content Include="Web.backupMNL2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-	<Content Include="Web.backupMNL3.config">
+    <Content Include="Web.backupMNL3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
     <Content Include="Web.backupMNLExNap.config">
@@ -415,7 +416,7 @@
     <Content Include="Web.backupMNLExNap2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-	<Content Include="Web.backupMNLExNap3.config">
+    <Content Include="Web.backupMNLExNap3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
     <Content Include="Web.backupMNLNap.config">
@@ -424,26 +425,30 @@
     <Content Include="Web.backupMNLNap2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-	<Content Include="Web.backupMNLNap3.config">
+    <Content Include="Web.backupMNLNap3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\DependencyConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\DependencyConfig.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Constants\LanguageCode.cs" />
-    <Compile Include="Controllers\BaioAnnouncementController.cs" />
     <Compile Include="Controllers\TransferController.cs" />
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Global.asax.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Handlers\CashBalanceTransferHandler.cs" />
     <Compile Include="Handlers\MemberRequestHandler.cs" />
-    <Compile Include="Helpers\QueryEntityModelBinder.cs" />
+    <Compile Include="Helpers\QueryEntityModelBinder.cs"/>
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\MemberRequest\ProductQuery.cs" />
@@ -474,6 +479,8 @@
     <Content Include="compilerconfig.json" />
     <Content Include="App_Data\securitycode.json" />
     <Content Include="assets\styles\transfer.scss" />
+    <Content Include="Alpha.MemberInfo.Site.Debug.ruleset" />
+    <Content Include="Alpha.MemberInfo.Site.ruleset" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -483,7 +490,7 @@
     <Content Include="Web.napexternal2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-	<Content Include="Web.napexternal3.config">
+    <Content Include="Web.napexternal3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
     <Content Include="Web.napinternal.config">
@@ -492,7 +499,7 @@
     <Content Include="Web.napinternal2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-	<Content Include="Web.napinternal3.config">
+    <Content Include="Web.napinternal3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
     <Content Include="Web.pro.config">
@@ -501,7 +508,7 @@
     <Content Include="Web.pro2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-	<Content Include="Web.pro3.config">
+    <Content Include="Web.pro3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
     <Content Include="Web.sit.config">
@@ -510,7 +517,7 @@
     <Content Include="Web.sit2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-	<Content Include="Web.sit3.config">
+    <Content Include="Web.sit3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
     <Content Include="Web.uat.config">
@@ -528,7 +535,7 @@
     <Content Include="Web.AppSettings.napexternal2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-	<Content Include="Web.AppSettings.napexternal3.config">
+    <Content Include="Web.AppSettings.napexternal3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
     <Content Include="Web.AppSettings.napinternal.config">
@@ -537,7 +544,7 @@
     <Content Include="Web.AppSettings.napinternal2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-	<Content Include="Web.AppSettings.napinternal3.config">
+    <Content Include="Web.AppSettings.napinternal3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
     <Content Include="Web.AppSettings.pro.config">
@@ -546,7 +553,7 @@
     <Content Include="Web.AppSettings.pro2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-	<Content Include="Web.AppSettings.pro3.config">
+    <Content Include="Web.AppSettings.pro3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
     <Content Include="Web.AppSettings.sit.config">
@@ -555,7 +562,7 @@
     <Content Include="Web.AppSettings.sit2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-	<Content Include="Web.AppSettings.sit3.config">
+    <Content Include="Web.AppSettings.sit3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
     <Content Include="Web.AppSettings.uat.config">
@@ -564,7 +571,7 @@
     <Content Include="Web.AppSettings.uat2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-	<Content Include="Web.AppSettings.uat3.config">
+    <Content Include="Web.AppSettings.uat3.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
     <Content Include="Web.Debug.config">
@@ -619,11 +626,13 @@
     <Content Include="assets\scripts\tests\chutzpah.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\BaioAnnouncement\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Transfer\CashBalance.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup> 
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,8 +1,8 @@
-﻿using Alpha.MemberInfo.Models;
-using MediatR;
-
-namespace Alpha.MemberInfo.Site.Requests.Transfer
+﻿namespace Alpha.MemberInfo.Site.Requests.Transfer
 {
+    using Alpha.MemberInfo.Models;
+    using MediatR;
+
     public class CashBalanceTransferCommand : IAsyncRequest<Result>
     {
         public CashBalanceTransferCommand(IUser user)

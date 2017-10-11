@@ -1,9 +1,9 @@
-﻿using Alpha.MemberInfo.Models;
-using Alpha.MemberInfo.Tests.Extensions;
-using Xunit;
-
-namespace Alpha.MemberInfo.Tests.Models
+﻿namespace Alpha.MemberInfo.Tests.Models
 {
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Tests.Extensions;
+    using Xunit;
+
     public class ResultTests
     {
         [Theory]

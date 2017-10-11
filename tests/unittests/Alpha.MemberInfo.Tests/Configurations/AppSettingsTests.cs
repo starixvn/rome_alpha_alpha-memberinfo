@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Specialized;
-using System.Configuration;
-using Alpha.MemberInfo.Configurations;
-using Alpha.MemberInfo.Tests.Fixtures;
-using Alpha.MemberInfo.Tests.Helpers;
-using Xunit;
-
-namespace Alpha.MemberInfo.Tests.Configurations
+﻿namespace Alpha.MemberInfo.Tests.Configurations
 {
+    using System;
+    using System.Collections.Specialized;
+    using System.Configuration;
+    using Alpha.MemberInfo.Configurations;
+    using Alpha.MemberInfo.Tests.Fixtures;
+    using Alpha.MemberInfo.Tests.Helpers;
+    using Xunit;
+
     [Trait("Category", "BaseFunction")]
     [Collection("AnyValueCreatorCollection")]
     public class AppSettingsTests

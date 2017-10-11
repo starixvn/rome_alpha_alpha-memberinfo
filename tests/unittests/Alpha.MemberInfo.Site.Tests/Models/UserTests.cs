@@ -67,5 +67,21 @@
             // Assert
             Assert.Equal(expectedSync, actualSync);
         }
+
+        [Fact]
+        public void CanUpdateAccount_Always_ExpectedValue()
+        {
+            //// Arrange
+            var expectedValue = true;
+            var userSession = Substitute.For<IUserSession>();
+            userSession.SubPageAccess.Returns(new PageAccess { UpdateAccount = expectedValue });
+            var user = new User(userSession);
+
+            //// Act
+            var act = user.CanUpdateAccount;
+
+            //// Assert
+            Assert.Equal(expectedValue, act);
+        }
     }
 }

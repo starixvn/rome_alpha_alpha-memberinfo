@@ -1,8 +1,8 @@
-﻿using System.Web.Mvc;
-using Alpha.MemberInfo.Models.MemberRequests;
-
-namespace Alpha.MemberInfo.Site.ViewModels
+﻿namespace Alpha.MemberInfo.Site.ViewModels
 {
+    using System.Web.Mvc;
+    using Alpha.MemberInfo.Models.MemberRequests;
+
     public class ProductViewModel : SelectListItem
     {
         public ProductViewModel(
