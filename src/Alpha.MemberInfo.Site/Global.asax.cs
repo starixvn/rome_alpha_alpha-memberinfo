@@ -1,19 +1,22 @@
 ﻿namespace Alpha.MemberInfo.Site
 {
+    using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
     using System.Reflection;
-    using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
     using App_Start;
     using Auth.Filters;
     using Configurations;
     using Fanex.Data;
+    using Fanex.Data.CrossCutting.WrappingException;
     using Fanex.Data.OldConnectionStringProvider;
+    using Fanex.Logging.Extensions.Database;
+    using Fanex.Logging.Extensions.Web;
     using Helpers;
     using ONEbook.UM.Filters;
     using Sunplus.Agent.Model.Entities;
-    using Sunplus.Agent.Utilities;
     using Web;
     using Web.Helpers;
 
@@ -33,9 +36,8 @@
             DbSettingProviderManager
                 .StartNewSession()
                 .Use(new OldConnectionStringProvider())
-                .UseDefaultDbSettingProvider(
-                    resourcePath: AppSettings.StoreProcedurePath,
-                    enableWatching: true)
+                .UseDefaultDbSettingProvider(resourcePath: AppSettings.StoreProcedurePath, enableWatching: true)
+                .Use((settingKey, commandTimeout) => new WrappingExceptionObjectDb(settingKey, commandTimeout))
                 .Run();
 
             AppSettings.Verify();
@@ -48,19 +50,31 @@
             GlobalFilters.Filters.Add(new CheckBelongingFilter());
 
             StaticResources.Init(GetBuildVersion());
+
+            var loggingConfiguration = new LoggingConfiguration()
+                .UseGetDbExceptionInfo(DatabaseInfoGetters.GetDbExceptionInfo);
+
+            ExceptionHandler.UseConfig(loggingConfiguration);
         }
 
         protected void Application_Error()
         {
-            var ex = Server.GetLastError().GetBaseException();
-            var isIgnoreError = Request.IsLocal ||
-                ex is HttpException ||
-                ex.Message.Contains("Extend Token Error UserID");
-
-            if (!isIgnoreError)
+            if (Request.IsLocal)
             {
-                Logs.FilterInfoWarnOrError(ex, UserSession.Current.CustId);
+                return;
             }
+
+            Exception ex = Server.GetLastError();
+            var currentCustomer = UserSession.Current;
+
+            ExceptionHandler.Handle(ex,
+                new Dictionary<string, object>
+                {
+                    ["CustId"] = currentCustomer?.CustId,
+                    ["CustName"] = currentCustomer?.UserName,
+                    ["SubAccountName"] = currentCustomer?.SubUserName,
+                    ["AdminName"] = currentCustomer?.AdminName
+                });
         }
 
         private static string GetBuildVersion()
