@@ -9,7 +9,7 @@
 
 	<MSBuild 
 	Projects="..\Alpha.MemberInfo.sln" 
-	Properties="RunXunitTests=true;RunNunitTests=true;TreatWarningsAsErrors=true;RunCodeAnalysis=true;StyleCopEnabled=true;RunJSUnitTests=true" />
+	Properties="RunXunitTests=true;RunNunitTests=true;TreatWarningsAsErrors=true;RunJSUnitTests=true" />
   </Target>
   
 </Project>

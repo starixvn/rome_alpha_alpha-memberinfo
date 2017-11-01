@@ -11,6 +11,8 @@
     using Sunplus.Agent.Model.Transfer.Extensions;
     using Sunplus.Agent.Model.Transfer.Models;
     using System.Collections.Generic;
+    using System;
+
     public interface CashBalanceTransferService
     {
         Task<CashBalanceTransfer> GetCashBalanceTransferAsync(int custId);
@@ -79,8 +81,15 @@
                 ip,
                 languageKey);
 
-            await repository.ExecuteAsync(criteria);
-            cacheService.CacheRemoveSuccessTransferCustIds(cacheKey, new List<int>() { toCustId });
+            try
+            {
+                await repository.ExecuteAsync(criteria);
+            }
+            finally
+            {
+                cacheService.CacheRemoveSuccessTransferCustIds(cacheKey, new List<int> { toCustId });
+            }
+
             return new Result
             {
                 Code = criteria.ErrCode,

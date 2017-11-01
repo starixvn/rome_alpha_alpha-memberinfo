@@ -1,5 +1,6 @@
 {
   "ServerUri": " http://sonarqube.nexdev.net",
+  "Organization": null,
   "ProjectKey": "Alpha-MemberInfo",
   "Profiles": {
     "CSharp": {
