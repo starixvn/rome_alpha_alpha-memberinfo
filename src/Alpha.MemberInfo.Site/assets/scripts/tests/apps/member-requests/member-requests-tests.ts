@@ -589,20 +589,4 @@
                 "popup-guidelines");
         });
     });
-    describe("_bindLoadCustInfoEvent", () => {
-        it("_Always_searchCustInfo", () => {
-            // arrange
-            setFixtures(template.normal);
-            memberRequests.cacheDOMElements();
-            spyOn(memberRequests, "searchCustInfo");
-            memberRequests.$accountInfoContent = $("#account-info-content");
-            memberRequests.viewedCustName = "ViewedCustName";
-
-            // act
-            memberRequests.bindLoadCustInfoEvent();
-
-            // assert
-            expect(memberRequests.searchCustInfo).toHaveBeenCalledWith("ViewedCustName");
-        });
-    });
 });

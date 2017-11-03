@@ -156,7 +156,7 @@ class MemberRequests {
         this.viewedCustName = username;
 
         if (this.isFirstTimeViewCustInfo) {
-            this.$accountInfoContent.on("load", this.bindLoadCustInfoEvent);
+            this.searchCustInfo(username);
             this.isFirstTimeViewCustInfo = false;
         } else {
             setTimeout(() => {
@@ -173,10 +173,6 @@ class MemberRequests {
     };
     refreshPage = () => {
         location.reload();
-    };
-    bindLoadCustInfoEvent = () => {
-        this.searchCustInfo(this.viewedCustName);
-        this.$accountInfoContent.off("load", this.bindLoadCustInfoEvent);
     };
     searchCustInfo = (username: string) => {
         var contents = this.$accountInfoContent.contents();
