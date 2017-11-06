@@ -164,7 +164,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.2-logextension01\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
+      <HintPath>..\..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.2\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.1.6, Culture=neutral, processorArchitecture=MSIL">
@@ -172,7 +172,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Transfer, Version=3.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Transfer.3.0.0.5-logextension01\lib\net40\Sunplus.Agent.Model.Transfer.dll</HintPath>
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Transfer.3.0.0.5\lib\net40\Sunplus.Agent.Model.Transfer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.7, Culture=neutral, processorArchitecture=MSIL">
