@@ -7,7 +7,8 @@
 
     let template = {
         normal: `<body>
-                    <iframe id="accountinfo-content"></iframe>
+                    <iframe id="accountinfo-content">
+                    </iframe>
                     <select id="dropdown-product">
                         <option value="6"
                                 data-productname="Casino"
@@ -21,13 +22,6 @@
                     <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
                     <input id="noSettingWarning" value="noSettingWarning" />
                     <input id="memberRequestUrl" value="memberRequestUrl" />
-                    <iframe id="account-info-content">
-                        <html>
-                            <body>
-                                <input id="txtUsername" value="Username" />
-                            </body>
-                        </html>
-                    </iframe>
                     <div id="box-content">
                         <table>
                             <tr>
@@ -524,13 +518,13 @@
             expect(event.stopPropagation).toHaveBeenCalled();
         });
 
-        it("_Always_Search Cust Info", () => {
+        it("_Account Info Is Loaded_Search Cust Info", () => {
             // arrange
             jasmine.clock().install();
 
             setFixtures(template.normal);
             memberRequests.cacheDOMElements();
-            memberRequests.isFirstTimeViewCustInfo = false;
+            spyOn(memberRequests, "isLoadedAccountInfo").and.returnValue(true);
             spyOn(memberRequests, "searchCustInfo");
 
             // act
@@ -540,6 +534,21 @@
             // assert
             expect(memberRequests.searchCustInfo).toHaveBeenCalledWith("ViewedCustName");
             jasmine.clock().uninstall();
+        });
+    });
+    describe("_isLoadedAccountInfo", () => {
+        it("_Could not find txtUsername_Returns false", () => {
+            // arrange
+            setFixtures(template.normal);
+            memberRequests.cacheDOMElements();
+            memberRequests.$accountInfoHeader.click();
+            memberRequests.$accountInfoContent = memberRequests.topWindow.$("#accountinfo-content");
+
+            // act
+            var actualValue = memberRequests.isLoadedAccountInfo();
+
+            // assert
+            expect(actualValue).toBeFalsy();
         });
     });
     describe("_editSetting", () => {

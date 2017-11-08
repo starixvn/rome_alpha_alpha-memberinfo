@@ -21,7 +21,6 @@ class MemberRequests {
     viewerId: number;
     editSettingUrl: string;
 
-    isFirstTimeViewCustInfo = true;
     viewedCustName: string;
 
     $tableReport: JQuery;
@@ -155,16 +154,18 @@ class MemberRequests {
         this.$accountInfoContent = this.topWindow.$("#accountinfo-content");
         this.viewedCustName = username;
 
-        if (this.isFirstTimeViewCustInfo) {
-            this.searchCustInfo(username);
-            this.isFirstTimeViewCustInfo = false;
-        } else {
+        if (this.isLoadedAccountInfo()) {
             setTimeout(() => {
                 this.searchCustInfo(username);
             }, 300);
+        } else {
+            this.$accountInfoContent.on("load", this.bindLoadCustInfoEvent);
         }
 
         event.stopPropagation();
+    };
+    isLoadedAccountInfo = () => {
+        return this.$accountInfoContent.contents().find("#txtUsername").length !== 0;
     };
     editSetting = (custId: number, username: string) => {
         var url = this.editSettingUrl + "/" + custId + "/" + this.viewerId + "?username=" + username;
@@ -173,6 +174,10 @@ class MemberRequests {
     };
     refreshPage = () => {
         location.reload();
+    };
+    bindLoadCustInfoEvent = () => {
+        this.searchCustInfo(this.viewedCustName);
+        this.$accountInfoContent.off("load", this.bindLoadCustInfoEvent);
     };
     searchCustInfo = (username: string) => {
         var contents = this.$accountInfoContent.contents();
