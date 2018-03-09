@@ -12,6 +12,7 @@
     using RemotingRef;
     using Services;
     using Services.MemberRequest;
+    using Services.ProgressiveJackpot;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
@@ -81,6 +82,7 @@
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
 
             container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();
+            container.RegisterPerWebRequest<ProgressiveJackpotService, ProgressiveJackpotServiceImpl>();
         }
     }
 }

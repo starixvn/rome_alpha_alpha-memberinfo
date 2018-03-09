@@ -1,4 +1,6 @@
-﻿namespace Alpha.MemberInfo.Models
+﻿using System.Collections.Generic;
+
+namespace Alpha.MemberInfo.Models
 {
     public interface IUser
     {
@@ -19,6 +21,10 @@
         string IP { get; }
 
         bool CanUpdateAccount { get; }
+
+        bool IsEnabledJackpot { get; }
+
+        IList<int> EnableJackpotProductIds { get; }
 
         bool GetHideProduct(int productId);
 

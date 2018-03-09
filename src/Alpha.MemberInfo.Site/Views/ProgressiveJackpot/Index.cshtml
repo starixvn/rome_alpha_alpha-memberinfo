@@ -1,0 +1,43 @@
+﻿@using Alpha.MemberInfo.Site.ViewModels.ProgressiveJackpot
+@model ProgressiveJackpotViewModel
+@{
+    ViewBag.Title = "Progressive Jackpot Games";
+}
+<div class="page-title">
+    <span class="pull-left">@Resources.ProgressiveJackpotGames</span>
+</div>
+<form class="form-inline demo-form-inline filter" role="form">
+    @ProductMultiSelection.Render(Model.ProductMultiSelectionViewModel)
+    <div id="icon-information-container" class="form-group">
+        <span id="icon-information" class="icon-information-outline"></span>
+    </div>
+</form>
+<table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-hover tablesorter" data-has-data="@Model.JackpotGameSettings.Any()">
+    <thead>
+        <tr>
+            <th>@Resources.JackpotGames</th>
+            <th>@Resources.TotalContributionRate</th>
+            <th>@Resources.JackpotBetStake</th>
+        </tr>
+    </thead>
+    @if (Model.JackpotGameSettings.Any())
+    {
+        <tbody>
+            @foreach (var setting in Model.JackpotGameSettings)
+                {
+                <tr>
+                    <td class="text-left col-first">@setting.GameTypeNo</td>
+                    @HtmlHelpers.RenderNumberCell(setting.CBRate, "text-right")
+                    @HtmlHelpers.RenderNumberCell(setting.BetStake, "text-right")
+                </tr>
+            }
+        </tbody>
+    }
+    else
+    {
+        @NoInformation.Render(3);
+    }
+</table>
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/progressive-jackpot/progressive-jackpot")
+}

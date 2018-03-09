@@ -34,24 +34,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.RemotingRef, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Alpha.RemotingRef.1.0.0.2\lib\net40\Alpha.RemotingRef.dll</HintPath>
+    <Reference Include="Alpha.RemotingRef, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Alpha.RemotingRef.1.0.0.4-beta\lib\net40\Alpha.RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CasinoLibrary, Version=1.0.2.14, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.14\lib\net40\CasinoLibrary.dll</HintPath>
+    <Reference Include="CasinoLibrary, Version=2.0.1.21732, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot\lib\net40\CasinoLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CasinoSetting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.14\lib\net40\CasinoSetting.dll</HintPath>
+      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot\lib\net40\CasinoSetting.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CasinoUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.14\lib\net40\CasinoUtility.dll</HintPath>
+      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot\lib\net40\CasinoUtility.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -64,10 +64,6 @@
     </Reference>
     <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Fanex.CustomerSetting.Module.Casino, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.14\lib\net40\Fanex.CustomerSetting.Module.Casino.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Data, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
@@ -91,7 +87,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="HandHistoryLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.14\lib\net40\HandHistoryLibrary.dll</HintPath>
+      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot\lib\net40\HandHistoryLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -154,8 +150,8 @@
       <HintPath>..\..\..\packages\AutoFixture.AutoNSubstitute.3.50.2\lib\net40\Ploeh.AutoFixture.AutoNSubstitute.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RemotingRef.1.0.0.13\lib\net40\RemotingRef.dll</HintPath>
+    <Reference Include="RemotingRef, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\RemotingRef.2.0.0.13\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

@@ -189,4 +189,16 @@
   <data name="NewBetTypeEffectDate" xml:space="preserve">
     <value>New bet types of Basketball with effect from {0}:</value>
   </data>
+  <data name="ProgressiveJackpotGames" xml:space="preserve">
+    <value>Progressive Jackpot Games</value>
+  </data>
+  <data name="JackpotGames" xml:space="preserve">
+    <value>Jackpot Games</value>
+  </data>
+  <data name="TotalContributionRate" xml:space="preserve">
+    <value>Total Contribution Rate</value>
+  </data>
+  <data name="JackpotBetStake" xml:space="preserve">
+    <value>Jackpot Bet Stake</value>
+  </data>
 </root>

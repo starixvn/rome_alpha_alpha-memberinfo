@@ -133,6 +133,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jackpot Bet Stake.
+        /// </summary>
+        public static string JackpotBetStake {
+            get {
+                return ResourceManager.GetString("JackpotBetStake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jackpot Games.
+        /// </summary>
+        public static string JackpotGames {
+            get {
+                return ResourceManager.GetString("JackpotGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Bet Type.
         /// </summary>
         public static string NewBetType {
@@ -214,6 +232,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Progressive Jackpot Games.
+        /// </summary>
+        public static string ProgressiveJackpotGames {
+            get {
+                return ResourceManager.GetString("ProgressiveJackpotGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh.
         /// </summary>
         public static string Refresh {
@@ -264,6 +291,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string ThereIsNoProduct {
             get {
                 return ResourceManager.GetString("ThereIsNoProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Contribution Rate.
+        /// </summary>
+        public static string TotalContributionRate {
+            get {
+                return ResourceManager.GetString("TotalContributionRate", resourceCulture);
             }
         }
         
