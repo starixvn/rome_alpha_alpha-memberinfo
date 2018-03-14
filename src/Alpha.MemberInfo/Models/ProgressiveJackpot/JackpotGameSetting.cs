@@ -3,16 +3,16 @@
     public class JackpotGameSetting
     {
         public JackpotGameSetting(
-            string gameName,
+            string gameTypeName,
             decimal cbRate,
             decimal betStake)
         {
-            GameName = gameName;
+            GameTypeName = gameTypeName;
             CBRate = cbRate;
             BetStake = betStake;
         }
 
-        public string GameName { get; }
+        public string GameTypeName { get; }
 
         public decimal CBRate { get; }
 

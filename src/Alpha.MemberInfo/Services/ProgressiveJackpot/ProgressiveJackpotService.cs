@@ -45,13 +45,16 @@
             var languageCode = GetLanguageCode(param.Language);
             var gameSettings = customer.GetCustPJGameTypeSettings(param.CustId);
 
-            foreach (DataRow row in gameSettings.Rows)
+            if (gameSettings != null && gameSettings.Rows.Count > 0)
             {
-                result.Add(
-                    new JackpotGameSetting(
-                        Converter.ToString2(row["GameTypeName_" + languageCode]),
-                        Converter.ToDecimal(row["CBRate"]),
-                        Converter.ToDecimal(row["BetStake"])));
+                foreach (DataRow row in gameSettings.Rows)
+                {
+                    result.Add(
+                        new JackpotGameSetting(
+                            Converter.ToString2(row["GameTypeName_" + languageCode]),
+                            Converter.ToDecimal(row["CBRate"]),
+                            Converter.ToDecimal(row["BetStake"])));
+                }
             }
 
             return result;

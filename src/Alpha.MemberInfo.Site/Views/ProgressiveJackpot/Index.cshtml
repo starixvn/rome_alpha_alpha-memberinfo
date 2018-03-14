@@ -9,7 +9,7 @@
 <form class="form-inline demo-form-inline filter" role="form">
     @ProductMultiSelection.Render(Model.ProductMultiSelectionViewModel)
     <div id="icon-information-container" class="form-group">
-        <span id="icon-information" class="icon-information-outline"></span>
+        <span id="icon-information" class="icon-information-outline" title="@Resources.ProgressiveJackpotHandbookDetails"></span>
     </div>
 </form>
 <table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-hover tablesorter" data-has-data="@Model.JackpotGameSettings.Any()">
@@ -26,7 +26,7 @@
             @foreach (var setting in Model.JackpotGameSettings)
                 {
                 <tr>
-                    <td class="text-left col-first">@setting.GameTypeNo</td>
+                    <td class="text-left col-first">@setting.GameTypeName</td>
                     @HtmlHelpers.RenderNumberCell(setting.CBRate, "text-right")
                     @HtmlHelpers.RenderNumberCell(setting.BetStake, "text-right")
                 </tr>
@@ -38,6 +38,8 @@
         @NoInformation.Render(3);
     }
 </table>
+@Html.Hidden("HandbookUrl", MicroSites.HowToUseUrl(string.Format("~/Resources/HTML/OneRNGJackpot/OneRNGJackpot_{0}.html", Model.Language)))
+@Html.Hidden("HandbookPopupTitle", Resources.ProgressiveJackpotHandbookTitle)
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/progressive-jackpot/progressive-jackpot")
 }

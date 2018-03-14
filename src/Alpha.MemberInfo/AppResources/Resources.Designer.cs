@@ -241,6 +241,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click to view Handbook for more details.
+        /// </summary>
+        public static string ProgressiveJackpotHandbookDetails {
+            get {
+                return ResourceManager.GetString("ProgressiveJackpotHandbookDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progressive Jackpot Games - Handbook.
+        /// </summary>
+        public static string ProgressiveJackpotHandbookTitle {
+            get {
+                return ResourceManager.GetString("ProgressiveJackpotHandbookTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh.
         /// </summary>
         public static string Refresh {

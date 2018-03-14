@@ -3,18 +3,23 @@
     using System.Collections.Generic;
     using Components;
     using MemberInfo.Models.ProgressiveJackpot;
+    using Requests.ProgressiveJackpot;
 
     public class ProgressiveJackpotViewModel
     {
         public ProgressiveJackpotViewModel(
-            string userSelectedProductIds,
+            ProgressiveJacpotQuery query,
             IEnumerable<JackpotGameSetting> jackpotGameSettings,
             IEnumerable<ProductViewModel> products)
         {
-            UserSelectedProductIds = userSelectedProductIds;
+            Language = query.Language;
+            UserSelectedProductIds = query.UserSelectedProductIds;
+
             JackpotGameSettings = jackpotGameSettings;
             Products = products;
         }
+
+        public string Language { get; }
 
         public string UserSelectedProductIds { get; }
 

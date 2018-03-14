@@ -34,7 +34,7 @@
                 : message.UserSelectedProductIds.ToListInt();
 
             return new ProgressiveJackpotViewModel(
-                message.UserSelectedProductIds,
+                message,
                 jackpotGameSettings,
                 BuildProductsViewModel(userSelectedProductIds, products));
         }
