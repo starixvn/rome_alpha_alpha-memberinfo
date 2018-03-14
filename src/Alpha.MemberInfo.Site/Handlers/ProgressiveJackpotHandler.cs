@@ -24,14 +24,13 @@
         public ProgressiveJackpotViewModel Handle(ProgressiveJacpotQuery message)
         {
             var products = progressiveJackpotService.GetJackpotProducts(message.EnableJackpotProductIds);
-
-            var param = new ProgressiveJackpotParam(message.CustId, message.Language);
-
-            var jackpotGameSettings = progressiveJackpotService.GetJackpotGameSettings(param);
-
             var userSelectedProductIds = string.IsNullOrWhiteSpace(message.UserSelectedProductIds)
                 ? message.EnableJackpotProductIds
                 : message.UserSelectedProductIds.ToListInt();
+
+            var param = new ProgressiveJackpotParam(message.CustId, message.Language, userSelectedProductIds);
+
+            var jackpotGameSettings = progressiveJackpotService.GetJackpotGameSettings(param);
 
             return new ProgressiveJackpotViewModel(
                 message,
@@ -39,7 +38,7 @@
                 BuildProductsViewModel(userSelectedProductIds, products));
         }
 
-        internal static IEnumerable<ProductViewModel> BuildProductsViewModel(IEnumerable<int> userSelectedProductIds, IEnumerable<Product> products)
+        internal IEnumerable<ProductViewModel> BuildProductsViewModel(IEnumerable<int> userSelectedProductIds, IEnumerable<Product> products)
         {
             if (products == null || !products.Any())
             {
@@ -49,12 +48,14 @@
             return products.Select(
                 product =>
                 {
-                    return new ProductViewModel(
+                    var productViewModel = new ProductViewModel(
                         product.Name,
                         product.Id.ToString(),
                         userSelectedProductIds.Contains(product.Id),
                         false,
                         new GetSettingResult(false, 0, string.Empty));
+
+                    return productViewModel;
                 });
         }
     }

@@ -2,6 +2,7 @@
 {
     using System.Web.Mvc;
     using MediatR;
+    using MemberInfo.Models;
     using Requests.ProgressiveJackpot;
     using Web;
 
@@ -9,20 +10,27 @@
     {
         private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         private readonly IMediator mediator;
+        private readonly IUser viewer;
 
-        public ProgressiveJackpotController(IMediator mediator)
+        public ProgressiveJackpotController(IMediator mediator, IUser viewer)
         {
             this.mediator = mediator;
+            this.viewer = viewer;
         }
 
         public ActionResult Index(ProgressiveJacpotQuery message)
-        {
-            if (message != null && !message.IsValid())
-            {
-                return View(InvalidPageViewPath);
-            }
+            => message != null && message.IsValid()
+            ? View(mediator.Send(message))
+            : View(InvalidPageViewPath);
 
-            return View(mediator.Send(message));
+        protected override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            base.OnAuthorization(filterContext);
+
+            if (!viewer.IsEnabledJackpot)
+            {
+                UnAuthentication(filterContext);
+            }
         }
     }
 }

@@ -42,16 +42,16 @@
       <HintPath>..\..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CasinoLibrary, Version=2.0.1.21732, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot\lib\net40\CasinoLibrary.dll</HintPath>
+    <Reference Include="CasinoLibrary, Version=2.0.1.20272, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot-03\lib\net40\CasinoLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CasinoSetting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot\lib\net40\CasinoSetting.dll</HintPath>
+      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot-03\lib\net40\CasinoSetting.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CasinoUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot\lib\net40\CasinoUtility.dll</HintPath>
+      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot-03\lib\net40\CasinoUtility.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -87,7 +87,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="HandHistoryLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot\lib\net40\HandHistoryLibrary.dll</HintPath>
+      <HintPath>..\..\..\packages\CasinoLibrary.1.0.2.19-Jackpot-03\lib\net40\HandHistoryLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -227,6 +227,7 @@
     <Compile Include="Criteria\Transfer\GetTransferOptionCriteriaTests.cs" />
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
+    <Compile Include="Extensions\StringExtensionsTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="Helpers\ExceptionRecorder.cs" />
     <Compile Include="ModelsForTesting\UserLevelForTesting.cs" />
@@ -239,6 +240,8 @@
     <Compile Include="Services\MemberRequest\CasinoCustomerImplMock.cs" />
     <Compile Include="Services\MemberRequest\CasinoCustomerImplTests.cs" />
     <Compile Include="Services\MemberRequest\MemberRequestServiceImplTests.cs" />
+    <Compile Include="Services\ProgressiveJackpotServiceImplTests.cs" />
+    <Compile Include="TestCases\StringExtensionsTestCases.cs" />
     <Compile Include="TestCases\UserLevelTestCases.cs" />
   </ItemGroup>
   <ItemGroup>

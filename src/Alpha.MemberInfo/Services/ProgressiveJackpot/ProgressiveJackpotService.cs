@@ -2,7 +2,9 @@
 {
     using System.Collections.Generic;
     using System.Data;
+    using System.Linq;
     using CasinoLibrary.SBAgent;
+    using Constants;
     using Fanex.Common;
     using Models;
     using Models.ProgressiveJackpot;
@@ -37,29 +39,6 @@
             this.cacheRefService = cacheRefService;
         }
 
-        public IEnumerable<JackpotGameSetting> GetJackpotGameSettings(ProgressiveJackpotParam param)
-        {
-            var result = new List<JackpotGameSetting>();
-            var customer = new Customer();
-
-            var languageCode = GetLanguageCode(param.Language);
-            var gameSettings = customer.GetCustPJGameTypeSettings(param.CustId);
-
-            if (gameSettings != null && gameSettings.Rows.Count > 0)
-            {
-                foreach (DataRow row in gameSettings.Rows)
-                {
-                    result.Add(
-                        new JackpotGameSetting(
-                            Converter.ToString2(row["GameTypeName_" + languageCode]),
-                            Converter.ToDecimal(row["CBRate"]),
-                            Converter.ToDecimal(row["BetStake"])));
-                }
-            }
-
-            return result;
-        }
-
         public IEnumerable<Product> GetJackpotProducts(IEnumerable<int> productIds)
         {
             var products = new List<Product>();
@@ -70,6 +49,42 @@
             }
 
             return products;
+        }
+
+        public IEnumerable<JackpotGameSetting> GetJackpotGameSettings(ProgressiveJackpotParam param)
+        {
+            var result = new List<JackpotGameSetting>();
+
+            if (param.ProductIds.Contains(ProductId.Casino))
+            {
+                result.AddRange(GetOneRNGJackpotSettings(param));
+            }
+
+            return result;
+        }
+
+        private static IEnumerable<JackpotGameSetting> GetOneRNGJackpotSettings(ProgressiveJackpotParam param)
+        {
+            var customer = new Customer();
+            var languageCode = GetLanguageCode(param.Language);
+            var gameSettings = customer.GetCustPJGameTypeSettings(param.CustId);
+
+            if (gameSettings == null || gameSettings.Rows.Count == 0)
+            {
+                return Enumerable.Empty<JackpotGameSetting>();
+            }
+
+            var result = new List<JackpotGameSetting>();
+            foreach (DataRow row in gameSettings.Rows)
+            {
+                result.Add(
+                    new JackpotGameSetting(
+                        Converter.ToString2(row["GameTypeName_" + languageCode]),
+                        Converter.ToDecimal(row["CBRate"]),
+                        Converter.ToDecimal(row["BetStake"])));
+            }
+
+            return result;
         }
 
         private static string GetLanguageCode(string language)
