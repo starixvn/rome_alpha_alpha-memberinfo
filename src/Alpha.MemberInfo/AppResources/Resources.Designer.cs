@@ -241,7 +241,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Click to view Handbook for more details.
+        ///   Looks up a localized string similar to Click here to view the details of the new jackpot game..
         /// </summary>
         public static string ProgressiveJackpotHandbookDetails {
             get {

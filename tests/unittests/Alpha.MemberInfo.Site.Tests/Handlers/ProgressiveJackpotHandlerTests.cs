@@ -43,6 +43,7 @@
             {
                 new Product(ProductId.Casino,"Casino",false)
             };
+            progressiveJackpotService.FilterProductIds(Arg.Any<IEnumerable<int>>()).Returns(new List<int> { 6 });
             progressiveJackpotService.GetJackpotProducts(Arg.Any<IEnumerable<int>>()).Returns(products);
             progressiveJackpotService.GetJackpotGameSettings(Arg.Any<ProgressiveJackpotParam>()).Returns(new List<JackpotGameSetting>());
             var expectedViewModel = new ProgressiveJackpotViewModel(message, new List<JackpotGameSetting>(), handler.BuildProductsViewModel(message.UserSelectedProductIds.ToListInt(), products));

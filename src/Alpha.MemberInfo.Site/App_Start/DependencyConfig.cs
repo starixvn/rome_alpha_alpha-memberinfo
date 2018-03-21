@@ -19,6 +19,7 @@
     using Sunplus.Agent.Model.Base;
     using Sunplus.Agent.Model.Casino;
     using Sunplus.Agent.Model.Entities;
+    using Sunplus.Agent.Model.Entities.Permission;
 
     public static class DependencyConfig
     {
@@ -82,7 +83,11 @@
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
 
             container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();
-            container.RegisterPerWebRequest<ProgressiveJackpotService, ProgressiveJackpotServiceImpl>();
+            container.Register<ProgressiveJackpotService>(
+                () => new ProgressiveJackpotServiceImpl(
+                    container.GetInstance<CacheRefService>(),
+                    UserPermission.HasPermissionOnProduct),
+                Lifestyle.Singleton);
         }
     }
 }

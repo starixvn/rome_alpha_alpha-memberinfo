@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Tests.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Extensions;
@@ -18,8 +19,8 @@
         {
             cacheRefService = Substitute.For<CacheRefService>();
             cacheRefService.GetProductName(6).Returns("Casino");
-
-            progressiveJackpotService = new ProgressiveJackpotServiceImpl(cacheRefService);
+            Func<int, bool> canViewProduct = (productId) => true;
+            progressiveJackpotService = new ProgressiveJackpotServiceImpl(cacheRefService, canViewProduct);
         }
 
         [Fact]

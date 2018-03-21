@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Services.ProgressiveJackpot
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
@@ -13,6 +14,8 @@
 
     public interface ProgressiveJackpotService
     {
+        IEnumerable<int> FilterProductIds(IEnumerable<int> productIds);
+
         IEnumerable<Product> GetJackpotProducts(IEnumerable<int> productIds);
 
         IEnumerable<JackpotGameSetting> GetJackpotGameSettings(ProgressiveJackpotParam param);
@@ -33,11 +36,16 @@
         };
 
         private readonly CacheRefService cacheRefService;
+        private readonly Func<int, bool> canViewProduct;
 
-        public ProgressiveJackpotServiceImpl(CacheRefService cacheRefService)
+        public ProgressiveJackpotServiceImpl(CacheRefService cacheRefService, Func<int, bool> canViewProduct)
         {
             this.cacheRefService = cacheRefService;
+            this.canViewProduct = canViewProduct;
         }
+
+        public IEnumerable<int> FilterProductIds(IEnumerable<int> productIds)
+            => productIds.Where(id => canViewProduct(id));
 
         public IEnumerable<Product> GetJackpotProducts(IEnumerable<int> productIds)
         {

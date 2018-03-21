@@ -189,4 +189,22 @@
   <data name="NewBetTypeEffectDate" xml:space="preserve">
     <value>ประเภทเดิมพันใหม่ของบาสเกตบอล มีผลตั้งแต่{0}</value>
   </data>
+  <data name="ProgressiveJackpotGames" xml:space="preserve">
+    <value>เกมส์แจ๊คพ็อต</value>
+  </data>
+  <data name="JackpotGames" xml:space="preserve">
+    <value>เกมแจ็คพอต</value>
+  </data>
+  <data name="TotalContributionRate" xml:space="preserve">
+    <value> อัตรารวมเงินกองทุนรวม</value>
+  </data>
+  <data name="JackpotBetStake" xml:space="preserve">
+    <value>วงเงินเดิมพันแจ็คพอต</value>
+  </data>
+  <data name="ProgressiveJackpotHandbookTitle" xml:space="preserve">
+    <value>เกมแจ็คพอตสะสม - คู่มือ</value>
+  </data>
+  <data name="ProgressiveJackpotHandbookDetails" xml:space="preserve">
+    <value>คลิกที่นี่เพื่อดูรายละเอียดของเกมคพ็อตใหม่</value>
+  </data>
 </root>

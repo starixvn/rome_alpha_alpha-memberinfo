@@ -26,7 +26,7 @@
             var products = progressiveJackpotService.GetJackpotProducts(message.EnableJackpotProductIds);
             var userSelectedProductIds = string.IsNullOrWhiteSpace(message.UserSelectedProductIds)
                 ? message.EnableJackpotProductIds
-                : message.UserSelectedProductIds.ToListInt();
+                : progressiveJackpotService.FilterProductIds(message.UserSelectedProductIds.ToListInt());
 
             var param = new ProgressiveJackpotParam(message.CustId, message.Language, userSelectedProductIds);
 

@@ -189,4 +189,22 @@
   <data name="NewBetTypeEffectDate" xml:space="preserve">
     <value>籃球的新投注類別將於{0}開始生效</value>
   </data>
+  <data name="ProgressiveJackpotGames" xml:space="preserve">
+    <value>積寶遊戲</value>
+  </data>
+  <data name="JackpotGames" xml:space="preserve">
+    <value>積寶遊戲</value>
+  </data>
+  <data name="TotalContributionRate" xml:space="preserve">
+    <value>總貢獻比率</value>
+  </data>
+  <data name="JackpotBetStake" xml:space="preserve">
+    <value>積寶賭註金額</value>
+  </data>
+  <data name="ProgressiveJackpotHandbookTitle" xml:space="preserve">
+    <value>累積積寶遊戲 - 手冊</value>
+  </data>
+  <data name="ProgressiveJackpotHandbookDetails" xml:space="preserve">
+    <value>點擊這裏查看新積寶遊戲細節。</value>
+  </data>
 </root>

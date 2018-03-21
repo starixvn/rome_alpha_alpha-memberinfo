@@ -6,20 +6,20 @@
 
         public JackpotGameSetting(
             string gameTypeName,
-            decimal cbRate,
+            decimal contributionRate,
             decimal betStake)
         {
             GameTypeName = gameTypeName;
-            CBRate = cbRate;
+            ContributionRate = contributionRate;
             BetStake = betStake;
         }
 
         public string GameTypeName { get; }
 
-        public decimal CBRate { get; }
+        public decimal ContributionRate { get; }
 
         public decimal BetStake { get; }
 
-        public string CBRatePercent => string.Format(TwoDecimalPointsFormat, CBRate * 100) + " %";
+        public string ContributionRatePercent => string.Format(TwoDecimalPointsFormat, ContributionRate * 100) + " %";
     }
 }
