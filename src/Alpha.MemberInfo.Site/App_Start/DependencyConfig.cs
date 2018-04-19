@@ -12,12 +12,14 @@
     using RemotingRef;
     using Services;
     using Services.MemberRequest;
+    using Services.ProgressiveJackpot;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
     using Sunplus.Agent.Model.Base;
     using Sunplus.Agent.Model.Casino;
     using Sunplus.Agent.Model.Entities;
+    using Sunplus.Agent.Model.Entities.Permission;
 
     public static class DependencyConfig
     {
@@ -81,6 +83,11 @@
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
 
             container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();
+            container.Register<ProgressiveJackpotService>(
+                () => new ProgressiveJackpotServiceImpl(
+                    container.GetInstance<CacheRefService>(),
+                    UserPermission.HasPermissionOnProduct),
+                Lifestyle.Singleton);
         }
     }
 }

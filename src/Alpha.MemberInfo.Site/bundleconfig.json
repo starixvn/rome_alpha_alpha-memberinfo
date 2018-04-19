@@ -17,5 +17,12 @@
     "inputFiles": [
       "assets/scripts/transfer/cash-balance.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/progressive-jackpot/progressive-jackpot.js",
+    "inputFiles": [
+      "assets/scripts/components/productmultiselection.js",
+      "assets/scripts/progressive-jackpot/progressive-jackpot.js"
+    ]
   }
 ]
