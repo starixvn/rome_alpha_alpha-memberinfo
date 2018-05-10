@@ -41,7 +41,6 @@ _CodeCoverageReport
 
 *.min.js
 bundles
-*.css
 *.js.map
 */**/assets/scripts/**/*.js
 */**/bundles/**/*.js
