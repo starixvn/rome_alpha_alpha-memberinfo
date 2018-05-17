@@ -38,7 +38,7 @@
         @NoInformation.Render(3);
     }
 </table>
-@Html.Hidden("HandbookUrl", MicroSites.MemberInfoUrl(string.Format("~/Resources/HTML/ProgressiveJackpot/{0}.html", Model.Language)))
+@Html.Hidden("HandbookUrl", Url.Action("Handbook", "ProgressiveJackpot"))
 @Html.Hidden("HandbookPopupTitle", Resources.ProgressiveJackpotHandbookTitle)
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/progressive-jackpot/progressive-jackpot")
