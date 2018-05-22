@@ -23,6 +23,9 @@
             ? View(mediator.Send(message))
             : View(InvalidPageViewPath);
 
+        public ActionResult Handbook()
+            => View($"~/Views/ProgressiveJackpot/Handbook/{viewer.Language}.cshtml");
+
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
             base.OnAuthorization(filterContext);

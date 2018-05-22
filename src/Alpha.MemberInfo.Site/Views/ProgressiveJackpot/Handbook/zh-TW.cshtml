@@ -1,11 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+    var resourcePath = "~/Views/ProgressiveJackpot/Handbook/Styles";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OneRNG Jackpot</title>
-    <link type="text/css" rel="stylesheet" href="Styles/page.css" />
+    <link type="text/css" href="@Url.Content($"{resourcePath}/page.css")" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -15,7 +19,6 @@
                 累積積寶百家樂允許玩家旁觀下注並有機會獲得累積積寶。
                 此積寶的累積數額會顯示於屏幕的上方。
             </p>
-
             <h1 class="heading1">積寶貢獻</h1>
             <div class="container-heading2">
                 <h2 class="heading2">貢獻數額</h2>
@@ -38,7 +41,6 @@
                 </ul>
                 <p><span class="underline">注意</span>：貢獻金額將會以四個小數點淨值。</p>
                 <p>&rarr; 貢獻金額 = 10% * 5% * $0.25 = $0.00125 ≈ <strong>$0.0013</strong> </p>
-
                 <h2 class="heading2"> 支付條件</h2>
                 <table class="table">
                     <thead>
@@ -77,15 +79,15 @@
                 <ul class="list-style-disc">
                     <li>
                         <p>案例1 - 玩家輸了積寶賭注：</p>
-                        <img src="styles/images/tw/case-1.png" alt="Case 1" title="Case 1">
+                        <img src="@Url.Content($"{resourcePath}/images/tw/case-1.png")" alt="Case 1" title="Case 1">
                     </li>
                     <li>
                         <p>案例2 - 玩家贏10倍獎金 （10 x 積寶賭注值）：</p>
-                        <img src="styles/images/tw/case-2.png" alt="Case 2" title="Case 2">
+                        <img src="@Url.Content($"{resourcePath}/images/tw/case-2.png")" alt="Case 2" title="Case 2">
                     </li>
                     <li>
                         <p>案例3 - 玩家贏得積寶獎金 :</p>
-                        <img src="styles/images/tw/case-3.png" alt="Case 3" title="Case 3">
+                        <img src="@Url.Content($"{resourcePath}/images/tw/case-3.png")" alt="Case 3" title="Case 3">
                     </li>
                 </ul>
             </div>

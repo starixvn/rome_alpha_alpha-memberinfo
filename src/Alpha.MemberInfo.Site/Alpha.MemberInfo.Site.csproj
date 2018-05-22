@@ -373,29 +373,6 @@
     <Content Include="assets\styles\transfer-hint.scss" />
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\en-US.html" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\ja-JP.html" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\ko-KR.html" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\cn\case-1.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\cn\case-2.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\cn\case-3.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\en\case-1.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\en\case-2.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\en\case-3.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\th\case-1.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\th\case-2.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\th\case-3.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\tw\case-1.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\tw\case-2.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\tw\case-3.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\vn\case-1.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\vn\case-2.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\Images\vn\case-3.png" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\Styles\page.css" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\th-TH.html" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\vi-VN.html" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\zh-CN.html" />
-    <Content Include="Resources\HTML\ProgressiveJackpot\zh-TW.html" />
     <Content Include="Views\MemberRequests\Index.cshtml" />
     <Content Include="App_Code\Components\NoInformation.cshtml" />
     <Content Include="typings\globals\bootstrap\typings.json" />
@@ -410,6 +387,22 @@
     <Content Include="Views\MemberRequests\Members.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
     <Content Include="App_Code\Components\OpenPopup.cshtml" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\cn\case-1.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\cn\case-2.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\cn\case-3.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\en\case-1.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\en\case-2.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\en\case-3.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\th\case-1.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\th\case-2.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\th\case-3.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\tw\case-1.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\tw\case-2.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\tw\case-3.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-1.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-2.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-3.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.css" />
     <Content Include="Views\Shared\InvalidPage.cshtml" />
     <Content Include="Web.uat2.config">
       <DependentUpon>Web.local.config</DependentUpon>
@@ -636,6 +629,13 @@
     <Content Include="Views\Transfer\_HintLayout.cshtml" />
     <Content Include="Views\Transfer\Hint.vi-VN.cshtml" />
     <Content Include="Views\ProgressiveJackpot\Index.cshtml" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\en-US.cshtml" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\ja-JP.cshtml" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\ko-KR.cshtml" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\th-TH.cshtml" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\vi-VN.cshtml" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\zh-CN.cshtml" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\zh-TW.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\styles\images\" />

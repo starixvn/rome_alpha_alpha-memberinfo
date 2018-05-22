@@ -1,11 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+    var resourcePath = "~/Views/ProgressiveJackpot/Handbook/Styles";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OneRNG Jackpot</title>
-    <link type="text/css" rel="stylesheet" href="Styles/page.css" />
+    <link type="text/css" href="@Url.Content($"{resourcePath}/page.css")" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -14,7 +18,6 @@
             <p class="mrg-t-4">
                 Người chơi có thể đặt một cược phụ vào Jackpot Luỹ Tiến và mang về cho mình cơ hội thắng giải thưởng Jackpot giá trị. Giá trị giải thưởng Jackpot sẽ được hiển thị phía trên màn hình.
             </p>
-
             <h1 class="heading1">Tích luỹ Jackpot</h1>
             <div class="container-heading2">
                 <h2 class="heading2">Tiền tích luỹ</h2>
@@ -37,7 +40,6 @@
                 </ul>
                 <p><span class="underline">Lưu ý</span>: tiền tích luỹ sẽ được làm tròn đến 4 số lẻ.</p>
                 <p>&rarr;  Tiền tích luỹ = 10% * 5% * $0.25 = $0.00125 ≈ <strong>$0.0013</strong> </p>
-
                 <h2 class="heading2">Quy định về trả thưởng</h2>
                 <table class="table">
                     <thead>
@@ -76,15 +78,15 @@
                 <ul class="list-style-disc">
                     <li>
                         <p>Trường hợp 1 - Người chơi thua cược :</p>
-                        <img src="styles/images/vn/case-1.png" alt="Case 1" title="Case 1">
+                        <img src="@Url.Content($"{resourcePath}/images/vn/case-1.png")" alt="Case 1" title="Case 1">
                     </li>
                     <li>
                         <p>Trường hợp 2 - Người chơi thắng giải thưởng nhân 10 (tiền cược Jackpot x 10 lần) :</p>
-                        <img src="styles/images/vn/case-2.png" alt="Case 2" title="Case 2">
+                        <img src="@Url.Content($"{resourcePath}/images/vn/case-2.png")" alt="Case 2" title="Case 2">
                     </li>
                     <li>
                         <p>Trường hợp 3 - Người chơi thắng giải Mega Jackpot :</p>
-                        <img src="styles/images/vn/case-3.png" alt="Case 3" title="Case 3">
+                        <img src="@Url.Content($"{resourcePath}/images/vn/case-3.png")" alt="Case 3" title="Case 3">
                     </li>
                 </ul>
             </div>

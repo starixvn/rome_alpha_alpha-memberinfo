@@ -1,11 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+    var resourcePath = "~/Views/ProgressiveJackpot/Handbook/Styles";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OneRNG Jackpot</title>
-    <link type="text/css" rel="stylesheet" href="Styles/page.css" />
+    <link type="text/css" href="@Url.Content($"{resourcePath}/page.css")" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -14,7 +18,6 @@
             <p class="mrg-t-4">
                 Progressive Baccarat Jackpot ผู้เล่นสามารถวางเดิมพัน Side Bet เพื่อล่ารางวัลแจ็คพ็อตกลับบ้าน. เงินสะสมรางวัลแจ็คพ็อตจะแสดงที่หน้าจอด้านบน
             </p>
-
             <h1 class="heading1">กองทุนแจ๊คพ็อต</h1>
             <div class="container-heading2">
                 <h2 class="heading2">ยอดกองทุน</h2>
@@ -37,7 +40,6 @@
                 </ul>
                 <p><span class="underline">หมายเหตุ</span>: ยอดกองทุนสมทบจะถูกปัดเศษทศนิยมเป็น 4 ตำแหน่ง</p>
                 <p>&rarr; ยอดกองทุน = 10% * 5% * $0.25 = $0.00125 ≈ <strong>$0.0013</strong> </p>
-
                 <h2 class="heading2">เงื่อนไขการชำระเงิน</h2>
                 <table class="table">
                     <thead>
@@ -76,15 +78,15 @@
                 <ul class="list-style-disc">
                     <li>
                         <p>กรณีที่ 1 - สมาชิกแพ้ตั๋วพนันแจ๊คพ็อต</p>
-                        <img src="styles/images/th/case-1.png" alt="Case 1" title="Case 1">
+                        <img src="@Url.Content($"{resourcePath}/images/th/case-1.png")" alt="Case 1" title="Case 1">
                     </li>
                     <li>
                         <p>กรณีที่ 2 - สมาชิกชนะรางวัล 10 เท่า (10Xตั๋วพนันแจ๊คพ็อต)</p>
-                        <img src="styles/images/th/case-2.png" alt="Case 2" title="Case 2">
+                        <img src="@Url.Content($"{resourcePath}/images/th/case-2.png")" alt="Case 2" title="Case 2">
                     </li>
                     <li>
                         <p>กรณีที่ 3 - สมาชิกชนะรางวัลแจ๊คพ็อตใหญ่</p>
-                        <img src="styles/images/th/case-3.png" alt="Case 3" title="Case 3">
+                        <img src="@Url.Content($"{resourcePath}/images/th/case-3.png")" alt="Case 3" title="Case 3">
                     </li>
                 </ul>
             </div>

@@ -1,11 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+    var resourcePath = "~/Views/ProgressiveJackpot/Handbook/Styles";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OneRNG Jackpot</title>
-    <link type="text/css" rel="stylesheet" href="Styles/page.css" />
+    <link type="text/css" href="@Url.Content($"{resourcePath}/page.css")" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -14,7 +18,6 @@
             <p class="mrg-t-4">
                 Progressive Baccarat Jackpot allows player to place a side bet that has chance to take home the offered progressive jackpot. The jackpot amount is displayed on the top of the screen.
             </p>
-
             <h1 class="heading1">Jackpot Contribution</h1>
             <div class="container-heading2">
                 <h2 class="heading2">Contribution Amount</h2>
@@ -38,7 +41,6 @@
                 </ul>
                 <p><span class="underline">Note</span>: the contribution amount will be rounded to 4 decimal places.</p>
                 <p>&rarr; The contribution amount = 10% * 5% * $0.25 = $0.00125 ≈ <strong>$0.0013</strong> </p>
-
                 <h2 class="heading2">Payout Condition</h2>
                 <table class="table">
                     <thead>
@@ -77,15 +79,15 @@
                 <ul class="list-style-disc">
                     <li>
                         <p>Case 1 – Player loses the Jackpot bet:</p>
-                        <img src="styles/images/en/case-1.png" alt="Case 1" title="Case 1">
+                        <img src="@Url.Content($"{resourcePath}/images/en/case-1.png")" alt="Case 1" title="Case 1">
                     </li>
                     <li>
                         <p>Case 2 – Player wins a 10-time prize (10 x Jackpot bet value):</p>
-                        <img src="styles/images/en/case-2.png" alt="Case 2" title="Case 2">
+                        <img src="@Url.Content($"{resourcePath}/images/en/case-2.png")" alt="Case 2" title="Case 2">
                     </li>
                     <li>
                         <p>Case 3 – Player wins Mega Jackpot:</p>
-                        <img src="styles/images/en/case-3.png" alt="Case 3" title="Case 3">
+                        <img src="@Url.Content($"{resourcePath}/images/en/case-3.png")" alt="Case 3" title="Case 3">
                     </li>
                 </ul>
             </div>
