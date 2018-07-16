@@ -168,7 +168,7 @@ class MemberRequests {
         return this.$accountInfoContent.contents().find("#txtUsername").length !== 0;
     };
     editSetting = (custId: number, username: string) => {
-        var url = this.editSettingUrl + "/" + custId + "/" + this.viewerId + "?username=" + username;
+        var url = this.editSettingUrl + "?id=" + custId + "&uplineid=" + this.viewerId + "&username=" + username;
         this.topWindow.popupManager.openByRelativeUrl(url, "", 1160);
         this.topWindow.clearPopupSubtitle();
     };
