@@ -18,16 +18,26 @@
     { "Path": "libs/jasmine.js" },
     { "Path": "libs/jasmine-jquery.js" },
 
+    { "Path": "libs/bootstrap/button.js" },
     { "Path": "libs/bootstrap/dropdown.js" },
     { "Path": "libs/bootstrap/modal.js" },
     { "Path": "libs/jquery/blockUI.js" },
 
     { "Path": "libs/bootstrap/multiselect.js" },
+    { "Path": "libs/pagination/jquery.draggable.js" },
+    { "Path": "libs/pagination/jquery.resizable.js" },
+    { "Path": "libs/pagination/jquery.parser.js" },
+    { "Path": "libs/pagination/jquery.linkbutton.js" },
+    { "Path": "libs/pagination/jquery.pagination.js" },
+    { "Path": "libs/jquery/stickytableheaders.js" },
 
     { "Path": "../components/single-selection-dropdown.ts" },
+    { "Path": "../components/productmultiselection.ts" },
+    { "Path": "../components/pager.ts" },
     { "Path": "../member-requests/member-requests.ts" },
 
-    { "Path": "../transfer/cash-balance.ts" }
+    { "Path": "../transfer/cash-balance.ts" },
+    { "Path": "../win-loss-limit/win-loss-limit.ts" }
   ],
   "Tests": [
     {
@@ -40,6 +50,10 @@
     },
     {
       "Path": "apps/transfer",
+      "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
+    },
+    {
+      "Path": "apps/win-loss-limit",
       "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
     }
   ]

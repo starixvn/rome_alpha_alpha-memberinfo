@@ -5,6 +5,7 @@
     using System.Reflection;
     using System.Web.Mvc;
     using Controllers;
+    using DataAccesses;
     using Fanex.Data.Repository;
     using MediatR;
     using MemberInfo.Models;
@@ -13,6 +14,7 @@
     using Services;
     using Services.MemberRequest;
     using Services.ProgressiveJackpot;
+    using Services.WinLossLimit;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
@@ -69,6 +71,7 @@
         private static void RegisterDataAccesses(Container container)
         {
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
+            container.Register<WinLossLimitDataAccess, WinLossLimitDataAccessImpl>(Lifestyle.Singleton);
         }
 
         private static void RegisterServices(Container container)
@@ -81,6 +84,7 @@
             container.RegisterPerWebRequest<CasinoCustomer, CasinoCustomerImpl>();
 
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
+            container.RegisterPerWebRequest<WinLossLimitService, WinLossLimitServiceImpl>();
 
             container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();
             container.Register<ProgressiveJackpotService>(

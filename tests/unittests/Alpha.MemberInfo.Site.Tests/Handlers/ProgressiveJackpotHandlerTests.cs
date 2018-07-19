@@ -14,8 +14,8 @@
     using Requests.ProgressiveJackpot;
     using Services.ProgressiveJackpot;
     using Site.Handlers;
-    using ViewModels;
-    using ViewModels.ProgressiveJackpot;
+    using Site.ViewModels;
+    using Site.ViewModels.ProgressiveJackpot;
     using Xunit;
 
     [Collection("UserCollection")]

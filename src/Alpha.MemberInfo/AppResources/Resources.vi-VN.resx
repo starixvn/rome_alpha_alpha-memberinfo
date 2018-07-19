@@ -186,4 +186,85 @@
   <data name="NewBetTypeEffectDate" xml:space="preserve">
     <value>Các loại cược mới của Bóng Rổ sẽ có hiệu lực từ {0}:</value>
   </data>
+  <data name="MemberWinLossLimit" xml:space="preserve">
+    <value>Hạn mức thắng/thua của Member</value>
+  </data>
+  <data name="SelectMaster" xml:space="preserve">
+    <value>Lựa chọn Master</value>
+  </data>
+  <data name="SelectAgent" xml:space="preserve">
+    <value>Lựa chọn Agent</value>
+  </data>
+  <data name="PlayerId" xml:space="preserve">
+    <value>ID người chơi</value>
+  </data>
+  <data name="PokerGamesPlayerID" xml:space="preserve">
+    <value>ID người chơi trong Poker Games</value>
+  </data>
+  <data name="UsernamePlaceHolder" xml:space="preserve">
+    <value>Tên đăng nhập hoặc Tên/Họ</value>
+  </data>
+  <data name="NoDataFound" xml:space="preserve">
+    <value>Thông tin chưa được cập nhật</value>
+  </data>
+  <data name="AllAgent" xml:space="preserve">
+    <value>Tất cả Agent</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Họ</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>Hạn mức tín dụng</value>
+  </data>
+  <data name="AutoDailyResetLimit" xml:space="preserve">
+    <value>Tự Làm Mới Hạn Mức Mỗi Ngày</value>
+  </data>
+  <data name="CurrentWinLossAmount" xml:space="preserve">
+    <value>Tiền thắng thua hiện tại</value>
+  </data>
+  <data name="MaximumWin" xml:space="preserve">
+    <value>Mức thắng lớn nhất (dựa trên hạn mức được cấp)</value>
+  </data>
+  <data name="CurrentWinLimit" xml:space="preserve">
+    <value>Hạn mức thắng (%) hiện tại</value>
+  </data>
+  <data name="CurrentLossLimit" xml:space="preserve">
+    <value>Giới hạn thua hiện tại (%)</value>
+  </data>
+  <data name="MaximumLoss" xml:space="preserve">
+    <value>Tiền thua cược lớn nhất</value>
+  </data>
+  <data name="RemainingBuyInAmount" xml:space="preserve">
+    <value>Tiền chơi còn lại</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Vô hiệu hóa</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Bị khóa</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>Bị đình chỉ</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Mở</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Trang</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>trên</value>
+  </data>
 </root>

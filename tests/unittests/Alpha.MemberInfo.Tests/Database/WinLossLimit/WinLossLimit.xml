@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WinLossLimit>
+  <TableWinLoss>
+    <CustId>3</CustId>
+    <Closed>true</Closed>
+    <Enabled>false</Enabled>
+    <Suspended>false</Suspended>
+    <Username>CustName</Username>
+    <Firstname>Firstname</Firstname>
+    <Lastname>Lastname</Lastname>
+    <Credit>2</Credit>
+    <IsAutoReset>true</IsAutoReset>
+    <MaxWinLimit>100</MaxWinLimit>
+    <MaxLossLimit>5</MaxLossLimit>
+    <PlayerId>6</PlayerId>
+  </TableWinLoss>
+  <TableWinLoss>
+    <CustId>3</CustId>
+    <Closed>true</Closed>
+    <Enabled>false</Enabled>
+    <Suspended>false</Suspended>
+    <Username>CustName</Username>
+    <Firstname>Firstname</Firstname>
+    <Lastname>Lastname</Lastname>
+    <Credit>2</Credit>
+    <IsAutoReset>true</IsAutoReset>
+    <MaxWinLimit>100</MaxWinLimit>
+    <PlayerId>7</PlayerId>
+  </TableWinLoss>
+</WinLossLimit>

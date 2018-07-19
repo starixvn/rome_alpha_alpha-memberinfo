@@ -6,6 +6,12 @@
     ]
   },
   {
+    "outputFileName": "assets/bundles/win-loss-limit.css",
+    "inputFiles": [
+      "assets/bundles/win-loss-limit.css"
+    ]
+  },
+  {
     "outputFileName": "assets/bundles/member-requests/member-requests.js",
     "inputFiles": [
       "assets/scripts/components/single-selection-dropdown.js",
@@ -23,6 +29,14 @@
     "inputFiles": [
       "assets/scripts/components/productmultiselection.js",
       "assets/scripts/progressive-jackpot/progressive-jackpot.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/win-loss-limit/win-loss-limit.js",
+    "inputFiles": [
+      "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/components/pager.js",
+      "assets/scripts/win-loss-limit/win-loss-limit.js"
     ]
   }
 ]

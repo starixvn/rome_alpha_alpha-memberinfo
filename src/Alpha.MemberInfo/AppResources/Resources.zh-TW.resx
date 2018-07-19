@@ -207,4 +207,85 @@
   <data name="ProgressiveJackpotHandbookDetails" xml:space="preserve">
     <value>點擊這裏查看新積寶遊戲細節。</value>
   </data>
+  <data name="MemberWinLossLimit" xml:space="preserve">
+    <value>會員輸贏限制</value>
+  </data>
+  <data name="SelectMaster" xml:space="preserve">
+    <value>選擇總代理</value>
+  </data>
+  <data name="SelectAgent" xml:space="preserve">
+    <value>代理選擇</value>
+  </data>
+  <data name="PlayerId" xml:space="preserve">
+    <value>玩家ID</value>
+  </data>
+  <data name="PokerGamesPlayerID" xml:space="preserve">
+    <value>撲克遊戲玩家ID</value>
+  </data>
+  <data name="UsernamePlaceHolder" xml:space="preserve">
+    <value>用戶名或名/姓</value>
+  </data>
+  <data name="NoDataFound" xml:space="preserve">
+    <value>沒資料顯示</value>
+  </data>
+  <data name="AllAgent" xml:space="preserve">
+    <value>所有代理</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>姓</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>信用額度</value>
+  </data>
+  <data name="AutoDailyResetLimit" xml:space="preserve">
+    <value>每日限額自動重設</value>
+  </data>
+  <data name="CurrentWinLossAmount" xml:space="preserve">
+    <value>目前輸贏數額</value>
+  </data>
+  <data name="MaximumWin" xml:space="preserve">
+    <value>Maximum Win  (on given credit)</value>
+  </data>
+  <data name="CurrentWinLimit" xml:space="preserve">
+    <value>目前贏額（%）</value>
+  </data>
+  <data name="CurrentLossLimit" xml:space="preserve">
+    <value>目前輸額限額 (%)</value>
+  </data>
+  <data name="MaximumLoss" xml:space="preserve">
+    <value>最高輸額</value>
+  </data>
+  <data name="RemainingBuyInAmount" xml:space="preserve">
+    <value>剩余買入金額</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>開啟</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>頁</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>之第</value>
+  </data>
 </root>

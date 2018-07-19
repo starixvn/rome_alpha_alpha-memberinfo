@@ -10,5 +10,9 @@
   {
     "outputFile": "assets/bundles/transfer-hint.css",
     "inputFile": "assets/styles/transfer-hint.scss"
+  },
+  {
+    "outputFile": "assets/bundles/win-loss-limit.css",
+    "inputFile": "assets/styles/win-loss-limit.scss"
   }
 ]
