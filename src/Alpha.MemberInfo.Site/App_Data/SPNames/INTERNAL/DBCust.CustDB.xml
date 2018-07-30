@@ -1,7 +1,4 @@
 ﻿<Functions>
-  <Function Name="Transfer">
-    <Setting Key="Acc_CustomerSelTransferOption" SpName="Acc_CustomerSelTransferOption" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
-  </Function>
   <Function Name="Win Loss Limit">
     <Setting Key="Age_CustomerSelMAgentList" SpName="Age_CustomerSelMAgentList" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CustomerSelAgentList" SpName="Age_CustomerSelAgentList" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />

@@ -175,10 +175,6 @@
       <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.2.3\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Transfer, Version=3.0.0.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Transfer.3.0.0.6\lib\net461\Sunplus.Agent.Model.Transfer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Utilities.3.0.0.7\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
       <Private>True</Private>
@@ -276,41 +272,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="AppResources\Transfer.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Transfer.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Transfer.ja-JP.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Transfer.ja-JP.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Transfer.ko-KR.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Transfer.ko-KR.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Transfer.th-TH.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Transfer.th-TH.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Transfer.vi-VN.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Transfer.vi-VN.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Transfer.zh-CN.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Transfer.zh-CN.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Transfer.zh-TW.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Transfer.zh-TW.resx</DependentUpon>
-    </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Constants\CasinoGameKind.cs" />
     <Compile Include="Constants\ProductId.cs" />
@@ -319,9 +280,6 @@
     <Compile Include="Criteria\WinLossLimit\MapPlayerId3rdToCustIdCriteria.cs" />
     <Compile Include="Criteria\MemberRequests\MemberRequestCriteria.cs" />
     <Compile Include="Criteria\MemberRequests\PlayForFunProductCriteria.cs" />
-    <Compile Include="Criteria\Transfer\GetCashBalanceTransferCriteria.cs" />
-    <Compile Include="Criteria\Transfer\AddCashBalanceTransferCriteria.cs" />
-    <Compile Include="Criteria\Transfer\GetTransferOptionCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\GetCustWinLossLimitCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\GetOutstandingCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\GetBalanceCriteria.cs" />
@@ -340,8 +298,6 @@
     <Compile Include="Models\MemberRequests\MemberRequestModel.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProgressiveJackpot\JackpotGameSetting.cs" />
-    <Compile Include="Models\Result.cs" />
-    <Compile Include="Models\Transfer\CashBalanceTransfer.cs" />
     <Compile Include="Models\UserLevel.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitDetail.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitPage.cs" />
@@ -352,7 +308,6 @@
     <Compile Include="Params\WinLossLimitParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CacheRefService.cs" />
-    <Compile Include="Services\CashBalanceTransferService.cs" />
     <Compile Include="Services\MemberRequest\MemberRequestService.cs" />
     <Compile Include="Services\MemberRequest\CasinoCustomer.cs" />
     <Compile Include="Services\ProgressiveJackpot\ProgressiveJackpotService.cs" />
@@ -404,34 +359,6 @@
     <EmbeddedResource Include="AppResources\Resources.vi-VN.resx" />
     <EmbeddedResource Include="AppResources\Resources.zh-CN.resx" />
     <EmbeddedResource Include="AppResources\Resources.zh-TW.resx" />
-    <EmbeddedResource Include="AppResources\Transfer.ja-JP.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Transfer.ja-JP.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppResources\Transfer.ko-KR.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Transfer.ko-KR.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppResources\Transfer.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Transfer.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppResources\Transfer.th-TH.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Transfer.th-TH.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppResources\Transfer.vi-VN.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Transfer.vi-VN.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppResources\Transfer.zh-CN.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Transfer.zh-CN.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppResources\Transfer.zh-TW.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Transfer.zh-TW.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="CodeAnalysis\CustomDictionary.xml" />

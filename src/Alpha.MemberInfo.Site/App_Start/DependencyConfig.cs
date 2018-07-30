@@ -87,7 +87,6 @@
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
             container.RegisterPerWebRequest<WinLossLimitService, WinLossLimitServiceImpl>();
 
-            container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();
             container.Register<ProgressiveJackpotService>(
                 () => new ProgressiveJackpotServiceImpl(
                     container.GetInstance<CacheRefService>(),

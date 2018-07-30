@@ -193,13 +193,11 @@
     <Compile Include="Collections\UserCollection.cs" />
     <Compile Include="Constants\ProductId.cs" />
     <Compile Include="Controllers\ProgressiveJackpotControllerTests.cs" />
-    <Compile Include="Controllers\TransferControllerTests.cs" />
     <Compile Include="Controllers\MemberRequestsControllerTests.cs" />
     <Compile Include="Controllers\WinLossLimitControllerTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Fixtures\UserFixture.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Handlers\CashBalanceTransferHandlerTests.cs" />
     <Compile Include="Handlers\MemberRequestsHandlerTests.cs" />
     <Compile Include="Handlers\ProgressiveJackpotHandlerTests.cs" />
     <Compile Include="Handlers\WinLossLimitHandlerTests.cs" />

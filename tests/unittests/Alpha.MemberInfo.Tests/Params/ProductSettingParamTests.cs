@@ -3,7 +3,7 @@
     using Alpha.MemberInfo.Params;
     using Xunit;
 
-    [Trait("Category", "Transfer")]
+    [Trait("Category", "MemberInfo")]
     public class ProductSettingParamTests
     {
         [Fact]

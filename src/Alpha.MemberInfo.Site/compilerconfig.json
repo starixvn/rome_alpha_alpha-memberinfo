@@ -4,14 +4,6 @@
     "inputFile": "assets/styles/member-info.scss"
   },
   {
-    "outputFile": "assets/bundles/transfer.css",
-    "inputFile": "assets/styles/transfer.scss"
-  },
-  {
-    "outputFile": "assets/bundles/transfer-hint.css",
-    "inputFile": "assets/styles/transfer-hint.scss"
-  },
-  {
     "outputFile": "assets/bundles/win-loss-limit.css",
     "inputFile": "assets/styles/win-loss-limit.scss"
   }
