@@ -563,7 +563,7 @@
             memberRequests.editSetting(1, "member01");
 
             // assert
-            expect(topWindow.popupManager.openByRelativeUrl).toHaveBeenCalledWith("editSettingUrl/1/1?username=member01", "", 1160);
+            expect(topWindow.popupManager.openByRelativeUrl).toHaveBeenCalledWith("editSettingUrl?id=1&uplineid=1&username=member01", "", 1160);
             expect(topWindow.clearPopupSubtitle).toHaveBeenCalled();
         });
     });
