@@ -8,6 +8,7 @@
     using Alpha.MemberInfo.Tests.ModelsForTesting;
     using Xunit;
 
+    [Trait("Category", "BaseFunction")]
     public class EnumerationTests
     {
         [Theory]

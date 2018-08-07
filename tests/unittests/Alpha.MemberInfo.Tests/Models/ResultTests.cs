@@ -4,6 +4,7 @@
     using Alpha.MemberInfo.Tests.Extensions;
     using Xunit;
 
+    [Trait("Category", "BaseFunction")]
     public class ResultTests
     {
         [Theory]

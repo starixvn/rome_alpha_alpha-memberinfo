@@ -7,6 +7,7 @@
     using Alpha.MemberInfo.Tests.TestCases;
     using Xunit;
 
+    [Trait("Category", "BaseFunction")]
     public class UserLevelTests
     {
         [Fact]

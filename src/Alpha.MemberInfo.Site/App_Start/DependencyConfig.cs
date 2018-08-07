@@ -12,6 +12,7 @@
     using MemberInfo.Models;
     using Models;
     using Services;
+    using Services.CreditBalance;
     using Services.MemberRequest;
     using Services.ProgressiveJackpot;
     using Services.WinLossLimit;
@@ -93,6 +94,8 @@
                     container.GetInstance<CacheRefService>(),
                     UserPermission.HasPermissionOnProduct),
                 Lifestyle.Singleton);
+
+            container.RegisterPerWebRequest<CreditBalanceService, CreditBalanceServiceImpl>();
         }
     }
 }

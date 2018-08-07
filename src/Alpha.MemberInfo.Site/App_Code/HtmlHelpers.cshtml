@@ -13,4 +13,17 @@
     <td class="@(cellValue < 0 ? "negative-value" : string.Empty) @cellClass">
         @FormatNumber(cellValue)
     </td>
-}}
+}
+
+@helper FormatDecimal(decimal value, bool showRedColorForNegativeValue = false)
+{
+
+    if (showRedColorForNegativeValue && value < 0)
+    {
+        <span class="negative-value">@value.ToString("#,##0.##")</span>
+    }
+    else
+    {
+        @value.ToString("#,##0.##")
+    }
+}

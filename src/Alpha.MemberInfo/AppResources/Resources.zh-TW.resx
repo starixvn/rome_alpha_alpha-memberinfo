@@ -207,6 +207,87 @@
   <data name="ProgressiveJackpotHandbookDetails" xml:space="preserve">
     <value>點擊這裏查看新積寶遊戲細節。</value>
   </data>
+  <data name="CreditBalance" xml:space="preserve">
+    <value>信用額度/餘額</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>開啟</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="EnterUsername" xml:space="preserve">
+    <value>用戶名或名/姓</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>信用額度</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>最後登入</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>姓</value>
+  </data>
+  <data name="LoginIP" xml:space="preserve">
+    <value>最後登入IP</value>
+  </data>
+  <data name="YesterdayBalance" xml:space="preserve">
+    <value>昨天餘額</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>之第</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>頁</value>
+  </data>
+  <data name="AvailableCredit" xml:space="preserve">
+    <value>可用信用額</value>
+  </data>
+  <data name="DontShowAgain" xml:space="preserve">
+    <value>不再顯示</value>
+  </data>
+  <data name="ShowHideColumnHint" xml:space="preserve">
+    <value>右鍵單擊以顯示/隱藏列行</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>開啟</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>頁</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>之第</value>
+  </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>會員輸贏限制</value>
   </data>
@@ -266,26 +347,5 @@
   </data>
   <data name="Disabled" xml:space="preserve">
     <value>禁用</value>
-  </data>
-  <data name="Closed" xml:space="preserve">
-    <value>關閉</value>
-  </data>
-  <data name="Suspended" xml:space="preserve">
-    <value>暂停</value>
-  </data>
-  <data name="Open" xml:space="preserve">
-    <value>開啟</value>
-  </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="No2" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="Page" xml:space="preserve">
-    <value>頁</value>
-  </data>
-  <data name="Of" xml:space="preserve">
-    <value>之第</value>
   </data>
 </root>

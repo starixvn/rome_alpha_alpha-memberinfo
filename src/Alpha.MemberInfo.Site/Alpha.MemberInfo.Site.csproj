@@ -372,6 +372,14 @@
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.BODB02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.CustDB.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\credit-balance.css" />
+    <Content Include="assets\bundles\credit-balance.min.css">
+      <DependentUpon>credit-balance.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\credit-balance\credit-balance.js" />
+    <Content Include="assets\bundles\credit-balance\credit-balance.min.js">
+      <DependentUpon>credit-balance.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\default.css" />
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
@@ -412,12 +420,14 @@
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\modal.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\multiselect.js" />
+    <Content Include="assets\scripts\tests\libs\bootstrap\typeahead.js" />
     <Content Include="assets\scripts\tests\libs\jasmine-jquery.js" />
     <Content Include="assets\scripts\tests\libs\jasmine.js" />
     <Content Include="assets\scripts\tests\libs\jquery\blockUI.js" />
     <Content Include="assets\scripts\tests\libs\jquery\cookie.js" />
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
     <Content Include="assets\scripts\tests\libs\jquery\stickytableheaders.js" />
+    <Content Include="assets\styles\images\star.gif" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.draggable.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.linkbutton.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.pagination.js" />
@@ -524,6 +534,7 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Constants\LanguageCode.cs" />
+    <Compile Include="Controllers\CreditBalanceController.cs" />
     <Compile Include="Controllers\ProgressiveJackpotController.cs" />
     <Compile Include="Controllers\TransferController.cs" />
     <Compile Include="Controllers\MemberRequestsController.cs" />
@@ -535,12 +546,14 @@
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Handlers\CashBalanceTransferHandler.cs" />
+    <Compile Include="Handlers\CreditBalanceHandler.cs" />
     <Compile Include="Handlers\MemberRequestHandler.cs" />
     <Compile Include="Handlers\ProgressiveJackpotHandler.cs" />
     <Compile Include="Handlers\WinLossLimitHandler.cs" />
     <Compile Include="Helpers\QueryEntityModelBinder.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\CreditBalance\CreditBalanceQuery.cs" />
     <Compile Include="Requests\MemberRequest\ProductQuery.cs" />
     <Compile Include="Requests\MemberRequest\MemberRequestQuery.cs" />
     <Compile Include="Requests\MemberInfoBaseQuery.cs" />
@@ -549,10 +562,11 @@
     <Compile Include="Requests\Transfer\CashBalanceTransferQuery.cs" />
     <Compile Include="Requests\Transfer\HintTransferQuery.cs" />
     <Compile Include="Requests\WinLossLimit\WinLossLimitQuery.cs" />
+    <Compile Include="ViewModels\Components\PagerViewModel.cs" />
     <Compile Include="ViewModels\Components\ProductMultiSelectionViewModel.cs" />
+    <Compile Include="ViewModels\CreditBalance\CreditBalanceViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
-    <Compile Include="ViewModels\Components\PagerViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\ProgressiveJackpot\ProgressiveJackpotViewModel.cs" />
     <Compile Include="ViewModels\Transfer\CashBalanceTransferViewModel.cs" />
@@ -580,7 +594,9 @@
     <Content Include="Alpha.MemberInfo.Site.ruleset" />
     <Content Include="App_Code\Components\ProductMultiSelection.cshtml" />
     <Content Include="assets\styles\win-loss-limit.scss" />
+    <Content Include="assets\styles\credit-balance.scss" />
     <Content Include="App_Code\Components\Pager.cshtml" />
+    <Content Include="assets\styles\_columns-control.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -699,10 +715,10 @@
     <Content Include="Views\ProgressiveJackpot\Handbook\zh-CN.cshtml" />
     <Content Include="Views\ProgressiveJackpot\Handbook\zh-TW.cshtml" />
     <Content Include="Views\WinLossLimit\Index.cshtml" />
+    <Content Include="Views\CreditBalance\Index.cshtml" />
+    <Content Include="Views\CreditBalance\_ColumnsControl.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\styles\images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
       <Project>{50b673a0-c10b-4551-b0a0-76edcbf5ce12}</Project>
@@ -710,14 +726,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\scripts\credit-balance\columns-control.ts" />
     <TypeScriptCompile Include="assets\scripts\components\pager.ts" />
     <TypeScriptCompile Include="assets\scripts\components\productmultiselection.ts" />
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
+    <TypeScriptCompile Include="assets\scripts\credit-balance\credit-balance.ts" />
     <TypeScriptCompile Include="assets\scripts\member-requests\member-requests.ts" />
     <TypeScriptCompile Include="assets\scripts\progressive-jackpot\progressive-jackpot.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\pager-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\productmultiselection-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\single-selection-dropdown-tests.ts" />
+    <TypeScriptCompile Include="assets\scripts\tests\apps\credit-balance\credit-balance-test.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\member-requests\member-requests-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\transfer\cash-balance-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\win-loss-limit\win-loss-limit-tests.ts" />
@@ -748,9 +767,9 @@
     <Content Include="Views\Transfer\CashBalance.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -5,8 +5,8 @@
     using MediatR;
     using MemberInfo.Models;
     using NSubstitute;
-    using Requests.MemberRequest;
     using Site.Controllers;
+    using Site.Requests.MemberRequest;
     using Xunit;
 
     [Trait("Category", "MemberRequests")]

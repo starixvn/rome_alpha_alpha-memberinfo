@@ -1,10 +1,12 @@
 ﻿namespace Alpha.MemberInfo.Site.Tests.Models
 {
+    using System;
     using NSubstitute;
     using Site.Models;
     using Sunplus.Agent.Model.Entities;
     using Xunit;
 
+    [Trait("Category", "BaseFunction")]
     public class UserTests
     {
         [Fact]
@@ -82,6 +84,144 @@
 
             //// Assert
             Assert.Equal(expectedValue, act);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void CanViewBetLists_Always_ReturnsExpectedValue(bool expected)
+        {
+            // Arrange
+            var pageAccess = new PageAccess();
+            pageAccess.SetPermission(PageAccessType.ViewBetLists, expected);
+            var userSession = Substitute.For<IUserSession>();
+            userSession.SubPageAccess.Returns(pageAccess);
+            var user = new User(userSession);
+
+            // Act
+            var actual = user.CanViewBetLists;
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void IsAllDayBalTransfer_Always_ReturnsExpectedValue(bool expected)
+        {
+            // Arrange
+            var userSession = Substitute.For<IUserSession>();
+            userSession.IsAllDayBalTransfer.Returns(expected);
+            var user = new User(userSession);
+
+            // Act
+            var actual = user.IsAllDayBalTransfer;
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void IsAllowedTotalBalanceTransfer_Always_ReturnsExpectedValue(bool expected)
+        {
+            // Arrange
+            var userSession = Substitute.For<IUserSession>();
+            userSession.IsAllowedTotalBalanceTransfer.Returns(expected);
+            var user = new User(userSession);
+
+            // Act
+            var actual = user.IsAllowedTotalBalanceTransfer;
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void CanTransfer_Always_ReturnsExpectedValue(bool expected)
+        {
+            // Arrange
+            var userSession = Substitute.For<IUserSession>();
+            userSession.SubPageAccess.Returns(new PageAccess { Transfer = expected });
+            var user = new User(userSession);
+
+            // Act
+            var actual = user.CanTransfer;
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void LimitedDateToShowInfo_NoLimit_ReturnsExpectedValue()
+        {
+            // Arrange
+            var expected = DateTime.MinValue;
+
+            var userSession = Substitute.For<IUserSession>();
+            userSession.GetProperty<DateTime>(Arg.Any<string>()).Returns(expected);
+            var user = new User(userSession);
+
+            // Act
+            var actual = user.LimitedDateToShowInfo;
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void LimitedDateToShowInfo_Limit_ReturnsExpectedValue()
+        {
+            // Arrange
+            var expected = new DateTime(2018, 8, 8);
+
+            var userSession = Substitute.For<IUserSession>();
+            userSession.GetProperty<DateTime>(Arg.Any<string>()).Returns(expected);
+            var user = new User(userSession);
+
+            // Act
+            var actual = user.LimitedDateToShowInfo;
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(8)]
+        public void AdminId_Always_ReturnsExpectedValue(int expected)
+        {
+            // Arrange
+            var userSession = Substitute.For<IUserSession>();
+            userSession.AdminId.Returns(expected);
+            var user = new User(userSession);
+
+            // Act
+            var actual = user.AdminId;
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void IsAdminCanViewVNIP_Always_ReturnsExpectedValue(bool expected)
+        {
+            // Arrange
+            var userSession = Substitute.For<IUserSession>();
+            userSession.IsAdminCanViewVNIP.Returns(expected);
+            var user = new User(userSession);
+
+            // Act
+            var actual = user.IsAdminCanViewVNIP;
+
+            // Assert
+            Assert.Equal(expected, actual);
         }
     }
 }

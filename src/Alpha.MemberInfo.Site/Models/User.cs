@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
@@ -10,6 +11,7 @@
     {
         private const string Jackpot = "Jackpot";
         private const string GameEnableSessionKey = "_GameEnable_";
+        private const string CustomerDatelimit = "CustomerDateLimit";
 
         private readonly IUserSession userSession;
 
@@ -17,6 +19,8 @@
         {
             this.userSession = userSession;
         }
+
+        public int LoggedInUserId => userSession.UserId;
 
         public int Id => userSession.CustId;
 
@@ -46,5 +50,19 @@
 
         internal virtual IList<int> GetEnableProductsForGame(string gameName)
             => (IList<int>)HttpContext.Current.Session[HttpContext.Current.Session.SessionID + GameEnableSessionKey + gameName];
+
+        public bool CanViewBetLists => userSession.SubPageAccess.GetPermission(PageAccessType.ViewBetLists);
+
+        public bool IsAllDayBalTransfer => userSession.IsAllDayBalTransfer;
+
+        public bool IsAllowedTotalBalanceTransfer => userSession.IsAllowedTotalBalanceTransfer;
+
+        public bool CanTransfer => userSession.SubPageAccess.Transfer;
+
+        public DateTime LimitedDateToShowInfo => userSession.GetProperty<DateTime>(CustomerDatelimit);
+
+        public int AdminId => userSession.AdminId;
+
+        public bool IsAdminCanViewVNIP => userSession.IsAdminCanViewVNIP;
     }
 }

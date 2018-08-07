@@ -1,0 +1,59 @@
+﻿@import "columns-control";
+
+.icon-printer {
+    margin-left: 16px;
+}
+
+.filter {
+    margin: 15px 0;
+
+    .form-group .btn-group {
+        float: unset;
+    }
+
+    label {
+        color: #333;
+        font-size: 100%;
+    }
+
+    p {
+        margin: 0 0 15px;
+    }
+
+    .typeahead {
+        width: 200px;
+
+        li {
+            &.active {
+                background-color: #ddd;
+            }
+
+            a {
+                padding: 7px 10px;
+            }
+        }
+    }
+}
+
+#tbl-container {
+    position: relative;
+}
+
+#tbl-report {
+    width: 100%;
+
+    .link {
+        &:focus {
+            color: #045ace;
+            text-decoration: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .text-sm {
+        font-size: 8pt;
+    }
+}
