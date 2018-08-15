@@ -10,7 +10,6 @@
     using Models;
     using Models.ProgressiveJackpot;
     using Params;
-    using RemotingRef;
 
     public interface ProgressiveJackpotService
     {

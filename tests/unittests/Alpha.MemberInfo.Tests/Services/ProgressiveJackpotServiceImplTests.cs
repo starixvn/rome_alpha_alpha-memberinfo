@@ -5,9 +5,9 @@
     using System.Linq;
     using Extensions;
     using MemberInfo.Models;
+    using MemberInfo.Services;
     using MemberInfo.Services.ProgressiveJackpot;
     using NSubstitute;
-    using RemotingRef;
     using Xunit;
 
     public class ProgressiveJackpotServiceImplTests

@@ -7,10 +7,10 @@
     using Controllers;
     using DataAccesses;
     using Fanex.Data.Repository;
+    using Fanex.RemotingRef;
     using MediatR;
     using MemberInfo.Models;
     using Models;
-    using RemotingRef;
     using Services;
     using Services.MemberRequest;
     using Services.ProgressiveJackpot;
@@ -79,6 +79,7 @@
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
 
+            container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<CasinoService, CasinoServiceImpl>();
             container.RegisterPerWebRequest<CasinoCustomer, CasinoCustomerImpl>();

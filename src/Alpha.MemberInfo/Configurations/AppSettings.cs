@@ -38,5 +38,7 @@
         public static string OldMainAppPath => GetConfigValue("OldMainAppPath");
 
         public static string MainAppPath => GetConfigValue("MainAppPath");
+
+        public static string RemoteRefURL => GetConfigValue("RemoteRefURL");
     }
 }
