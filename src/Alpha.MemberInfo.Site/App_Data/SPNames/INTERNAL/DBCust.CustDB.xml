@@ -2,4 +2,11 @@
   <Function Name="Transfer">
     <Setting Key="Acc_CustomerSelTransferOption" SpName="Acc_CustomerSelTransferOption" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
   </Function>
+  <Function Name="Win Loss Limit">
+    <Setting Key="Age_CustomerSelMAgentList" SpName="Age_CustomerSelMAgentList" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_CustomerSelAgentList" SpName="Age_CustomerSelAgentList" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_CustomerSelCustWinlimit" SpName="Age_CustomerSelCustWinlimit" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+
+    <Setting Key="Acc_CustomerSelByPlayerId" SpName="Acc_CustomerSelByPlayerId" DbName="DBCust.CustDB.BODBDownlineNetView" />
+  </Function>
 </Functions>

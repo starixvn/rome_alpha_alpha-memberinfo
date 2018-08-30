@@ -207,4 +207,88 @@
   <data name="ProgressiveJackpotHandbookTitle" xml:space="preserve">
     <value>Progressive Jackpot Games - Handbook</value>
   </data>
+  <data name="MemberWinLossLimit" xml:space="preserve">
+    <value>Member Win/Loss Limit</value>
+  </data>
+  <data name="SelectMaster" xml:space="preserve">
+    <value>Select Master</value>
+  </data>
+  <data name="SelectAgent" xml:space="preserve">
+    <value>Select Agent</value>
+  </data>
+  <data name="PlayerId" xml:space="preserve">
+    <value>Player ID</value>
+  </data>
+  <data name="PokerGamesPlayerID" xml:space="preserve">
+    <value>Poker Games Player ID</value>
+  </data>
+  <data name="UsernamePlaceHolder" xml:space="preserve">
+    <value>Username or First/Last Name</value>
+  </data>
+  <data name="NoDataFound" xml:space="preserve">
+    <value>No information is available</value>
+  </data>
+  <data name="AllAgent" xml:space="preserve">
+    <value>All Agent</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>Credit</value>
+  </data>
+  <data name="AutoDailyResetLimit" xml:space="preserve">
+    <value>Auto Daily Reset Limit</value>
+  </data>
+  <data name="CurrentWinLossAmount" xml:space="preserve">
+    <value>Current Win Loss Amount</value>
+  </data>
+  <data name="MaximumWin" xml:space="preserve">
+    <value>Maximum Win  (on given credit)</value>
+  </data>
+  <data name="CurrentWinLimit" xml:space="preserve">
+    <value>Current Win Limit (%)</value>
+  </data>
+  <data name="CurrentLossLimit" xml:space="preserve">
+    <value>Current Loss Limit (%)</value>
+  </data>
+  <data name="MaximumLoss" xml:space="preserve">
+    <value>Maximum Loss</value>
+  </data>
+  <data name="RemainingBuyInAmount" xml:space="preserve">
+    <value>Remaining Buy-in Amount</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>Suspended</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="Pager_DisplayItems" xml:space="preserve">
+    <value>Displaying {from} to {to} of {total} items</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>of</value>
+  </data>
 </root>
