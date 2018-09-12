@@ -31,7 +31,6 @@
                 message.StatusId.Value,
                 message.PageIndex,
                 message.PageSize,
-                message.AdminId,
                 message.IsAdminCanViewVNIP);
 
             var pagedCreditBalances = await creditBalanceService.GetPagedCreditBalancesAsync(param);

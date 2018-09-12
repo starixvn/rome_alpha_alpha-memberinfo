@@ -191,23 +191,6 @@
         }
 
         [Theory]
-        [InlineData(0)]
-        [InlineData(8)]
-        public void AdminId_Always_ReturnsExpectedValue(int expected)
-        {
-            // Arrange
-            var userSession = Substitute.For<IUserSession>();
-            userSession.AdminId.Returns(expected);
-            var user = new User(userSession);
-
-            // Act
-            var actual = user.AdminId;
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
         [InlineData(true)]
         [InlineData(false)]
         public void IsAdminCanViewVNIP_Always_ReturnsExpectedValue(bool expected)

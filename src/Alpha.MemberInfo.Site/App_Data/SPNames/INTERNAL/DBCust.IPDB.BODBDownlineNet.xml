@@ -1,0 +1,8 @@
+﻿<Functions>
+  <Function Name="IP">
+    <Setting Key="GetIPVN" SpName="GetIPVN" DbName="DBCust.IPDB.BODBDownlineNetView" Plain="0">
+      <Mapping DataField="ipfrom" ObjectProperty="From" />
+      <Mapping DataField="ipto" ObjectProperty="To" />
+    </Setting>
+  </Function>
+</Functions>

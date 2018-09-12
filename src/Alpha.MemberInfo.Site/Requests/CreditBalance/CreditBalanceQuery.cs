@@ -29,7 +29,6 @@
             CanTransfer = user.CanTransfer;
             CanViewBetLists = user.CanViewBetLists;
             LimitedDateToShowInfo = user.LimitedDateToShowInfo;
-            AdminId = user.AdminId;
             IsAdminCanViewVNIP = user.IsAdminCanViewVNIP;
         }
 
@@ -127,8 +126,6 @@
         public bool CanViewBetLists { get; }
 
         public DateTime LimitedDateToShowInfo { get; }
-
-        public int AdminId { get; }
 
         public bool IsAdminCanViewVNIP { get; }
 

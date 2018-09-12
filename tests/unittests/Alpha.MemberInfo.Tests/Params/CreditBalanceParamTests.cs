@@ -13,7 +13,6 @@
         private const string UserNameTest = "master1";
         private const int PageIndexTest = 1;
         private const int PageSizeTest = 500;
-        private const int AdminTest = 8;
         private const bool IsAdminCanViewVNIPTest = true;
 
         [Fact]
@@ -27,7 +26,6 @@
                 StatusIdentity.All,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
 
             // Act & Assert
@@ -48,7 +46,6 @@
                 StatusIdentity.Open,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
 
             // Act & Assert
@@ -69,7 +66,6 @@
                 StatusIdentity.Suspended,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
 
             // Act & Assert
@@ -90,7 +86,6 @@
                 StatusIdentity.Closed,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
 
             // Act & Assert
@@ -111,7 +106,6 @@
                 StatusIdentity.Disabled,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
 
             // Act & Assert

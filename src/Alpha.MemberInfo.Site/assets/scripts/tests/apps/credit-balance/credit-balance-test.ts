@@ -10,7 +10,6 @@
         normal: `<body>
                     <div class="page-title">
                         <span>Credit/Balance</span>
-                        <span id="icon-printer" class="icon-printer" title="Print"></span>
                     </div>
                     <form action="/site-memberinfo/creditbalance" id="creditBalanceForm">
                         <div class="form-group">
@@ -218,14 +217,6 @@
 
             // act
             creditBalance.registerEvents();
-        });
-
-        it("_Always_Bind print event", () => {
-            // act
-            creditBalance.$("#icon-printer").click();
-
-            // assert
-            expect(creditBalance.registerPrintFunction).toHaveBeenCalled();
         });
 
         it("_Always_Bind submit event", () => {

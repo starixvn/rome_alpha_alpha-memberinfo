@@ -12,6 +12,7 @@
     using MemberInfo.Params;
     using MemberInfo.Services.CreditBalance;
     using NSubstitute;
+    using Utilities.IP;
     using Xunit;
 
     [Trait("Category", "Transfer")]
@@ -23,16 +24,17 @@
         private const byte StatusIdTest = StatusIdentity.Open;
         private const int PageIndexTest = 1;
         private const int PageSizeTest = 500;
-        private const int AdminTest = 0;
         private const bool IsAdminCanViewVNIPTest = true;
 
         private readonly IDynamicRepository dynamicRepository;
+        private readonly IPService ipService;
         private readonly CreditBalanceService service;
 
         public CreditBalanceServiceImplTests()
         {
             dynamicRepository = Substitute.For<IDynamicRepository>();
-            service = new CreditBalanceServiceImpl(dynamicRepository);
+            ipService = Substitute.For<IPService>();
+            service = new CreditBalanceServiceImpl(dynamicRepository, ipService);
         }
 
         [Fact]
@@ -46,7 +48,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var creditBalances = new List<CreditBalanceItem>
             {
@@ -95,7 +96,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var creditBalances = new List<CreditBalanceItem>
             {
@@ -141,7 +141,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var creditBalances = new List<CreditBalanceItem>
             {
@@ -194,7 +193,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var creditBalances = new List<CreditBalanceItem>
             {
@@ -236,7 +234,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var creditBalances = new List<CreditBalanceItem>
             {
@@ -278,7 +275,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var creditBalances = new List<CreditBalanceItem>
             {
@@ -320,7 +316,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
 
             // Act
@@ -341,7 +336,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var closedReasons = new List<CustomerClosedReason>
             {
@@ -374,7 +368,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var closedReasons = new List<CustomerClosedReason>
             {
@@ -407,7 +400,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var closedReasons = new List<CustomerClosedReason>
             {
@@ -440,7 +432,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var closedReasons = Enumerable.Empty<CustomerClosedReason>();
             dynamicRepository.FetchAsync<CustomerClosedReason>(Arg.Any<GetAgentClosedReasonCriteria>())
@@ -464,7 +455,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
             var agentNetPositions = new List<AgentNetPosition>
             {
@@ -497,7 +487,6 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                AdminTest,
                 IsAdminCanViewVNIPTest);
 
             // Act

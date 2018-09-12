@@ -8,7 +8,6 @@
 }
 <div class="page-title">
     <span>@Resources.CreditBalance</span>
-    <span id="icon-printer" class="icon-printer" title="Print"></span>
 </div>
 @using (Html.BeginForm("Index", "CreditBalance", FormMethod.Get, new { id = "creditBalanceForm", @class = "form-inline filter", role = "form" }))
 {
@@ -27,7 +26,7 @@
         @Html.DropDownList("StatusId", Model.Status)
     </div>
     <div class="form-group">
-        <button type="submit" class="btn-submit">@Resources.Submit</button>
+        <button type="submit" class="btn-submit" id="btn-submit">@Resources.Submit</button>
     </div>
     <input type="hidden" value="@Model.CustId" name="@nameof(Model.CustId)" />
     <input type="hidden" value="@Model.CustLevelId" name="@nameof(Model.CustLevelId)" />
@@ -38,75 +37,73 @@
 }
 <div id="tbl-container">
     @{ Html.RenderPartial("~/Views/CreditBalance/_ColumnsControl.cshtml"); }
-    <div id="print-container">
-        <table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-hover alternative-row-table hide">
-            <thead>
-                <tr>
-                    <th id="column-no">@Resources.No</th>
-                    <th class="column-st">@Resources.Status</th>
-                    <th>@Resources.Username</th>
-                    <th class="column-fn">@Resources.FirstName</th>
-                    <th class="column-ln">@Resources.LastName</th>
-                    <th class="column-cd">@Resources.Credit</th>
-                    <th class="column-bl">@Resources.Balance</th>
-                    <th class="column-yb">@Resources.YesterdayBalance</th>
-                    <th class="column-bc">@(Model.IsViewingMemberList ? Resources.BetCredit : Resources.AvailableCredit)</th>
-                    <th class="column-ot">@Resources.Outstanding</th>
-                    @if (Model.IsShowDateTimeColumn)
-                    {
-                        <th class="column-ll">@Resources.LastLogin</th>
-                    }
-                    <th class="column-li">@Resources.LoginIP</th>
-                    <th class="column-un">@Resources.Username</th>
-                </tr>
-            </thead>
-            @if (pagedCreditBalances.TotalItems > 0)
-            {
-                <tbody>
-                    @foreach (var item in pagedCreditBalances.CreditBalances)
-                    {
-                        <tr class="@Model.GeStatustBackgroundColor(item)">
-                            <td class="text-center">@item.RowNumber</td>
-                            <td class="text-center column-st">@item.Status</td>
-                            <td>@RenderUsernameColumn(item)</td>
-                            <td class="column-fn">@WebUtility.HtmlEncode(item.FirstName)</td>
-                            <td class="column-ln">@WebUtility.HtmlEncode(item.LastName)</td>
-                            <td class="text-right column-cd">@RenderCreditColumn(item)</td>
-                            <td class="text-right column-bl">@RenderBalanceColumn(item)</td>
-                            <td class="text-right column-yb">@RenderYesterdayBalanceColumn(item)</td>
-                            <td class="text-right column-bc">@HtmlHelpers.FormatDecimal(item.BetCredit)</td>
-                            <td class="text-right column-ot">@renderOutstandingColumn(item)</td>
-                            @if (Model.IsShowDateTimeColumn)
-                            {
-                                <td class="text-center text-sm column-ll">@item.LastLogged.FormatDateTimeEn12()</td>
-                            }
-                            <td class="text-center text-sm column-li">
-                            @if (!string.IsNullOrWhiteSpace(item.IPLogin))
-                            {
-                                @Html.Raw(item.IPLogin)
-                            }
-                            </td>
-                            <td class="column-un">@RenderUsernameColumn(item)</td>
-                        </tr>
-                    }
-                </tbody>
-            }
-            else
-            {
-                @NoInformation.Render(14);
-            }
-            @if (pagedCreditBalances.ShowPager)
-            {
-                <tfoot>
-                    <tr>
-                        <td colspan="14">
-                            @Pager.Render(new PagerViewModel(pagedCreditBalances.PageIndex, pagedCreditBalances.PageSize, pagedCreditBalances.TotalItems))
+    <table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-hover alternative-row-table hide">
+        <thead>
+            <tr>
+                <th id="column-no">@Resources.No</th>
+                <th class="column-st">@Resources.Status</th>
+                <th>@Resources.Username</th>
+                <th class="column-fn">@Resources.FirstName</th>
+                <th class="column-ln">@Resources.LastName</th>
+                <th class="column-cd">@Resources.Credit</th>
+                <th class="column-bl">@Resources.Balance</th>
+                <th class="column-yb">@Resources.YesterdayBalance</th>
+                <th class="column-bc">@(Model.IsViewingMemberList ? Resources.BetCredit : Resources.AvailableCredit)</th>
+                <th class="column-ot">@Resources.Outstanding</th>
+                @if (Model.IsShowDateTimeColumn)
+                {
+                    <th class="column-ll">@Resources.LastLogin</th>
+                }
+                <th class="column-li">@Resources.LoginIP</th>
+                <th class="column-un">@Resources.Username</th>
+            </tr>
+        </thead>
+        @if (pagedCreditBalances.TotalItems > 0)
+        {
+            <tbody>
+                @foreach (var item in pagedCreditBalances.CreditBalances)
+                {
+                    <tr class="@Model.GeStatustBackgroundColor(item)">
+                        <td class="text-center">@item.RowNumber</td>
+                        <td class="text-center column-st">@item.Status</td>
+                        <td>@RenderUsernameColumn(item)</td>
+                        <td class="column-fn">@WebUtility.HtmlEncode(item.FirstName)</td>
+                        <td class="column-ln">@WebUtility.HtmlEncode(item.LastName)</td>
+                        <td class="text-right column-cd">@RenderCreditColumn(item)</td>
+                        <td class="text-right column-bl">@RenderBalanceColumn(item)</td>
+                        <td class="text-right column-yb">@RenderYesterdayBalanceColumn(item)</td>
+                        <td class="text-right column-bc">@HtmlHelpers.FormatDecimal(item.BetCredit)</td>
+                        <td class="text-right column-ot">@renderOutstandingColumn(item)</td>
+                        @if (Model.IsShowDateTimeColumn)
+                        {
+                            <td class="text-center text-sm column-ll">@item.LastLogged.FormatDateTimeEn12()</td>
+                        }
+                        <td class="text-center text-sm column-li">
+                        @if (!string.IsNullOrWhiteSpace(item.IPLogin))
+                        {
+                            <a href="javascript:;" class="link iplink column-loginip">@item.IPLogin</a>
+                        }
                         </td>
+                        <td class="column-un">@RenderUsernameColumn(item)</td>
                     </tr>
-                </tfoot>
-            }
-        </table>
-    </div>
+                }
+            </tbody>
+        }
+        else
+        {
+            @NoInformation.Render(13);
+        }
+        @if (pagedCreditBalances.ShowPager)
+        {
+            <tfoot>
+                <tr>
+                    <td colspan="13">
+                        @Pager.Render(new PagerViewModel(pagedCreditBalances.PageIndex, pagedCreditBalances.PageSize, pagedCreditBalances.TotalItems))
+                    </td>
+                </tr>
+            </tfoot>
+        }
+    </table>
 </div>
 <input type="hidden" value="@Model.ActorId" id="ActorId" />
 <input type="hidden" value="@Model.OldMainRootPath" id="@nameof(Model.OldMainRootPath)" />

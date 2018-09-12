@@ -37,7 +37,10 @@ class CreditBalance {
             new SingleSelectionDropdownOption("StatusId", "HiddenStatusId"));
 
         this.pager.render(new PagerOption(
-            () => { this.creditBalanceForm.submit(); },
+            () => {
+                this.$.blockUI();
+                this.creditBalanceForm.submit();
+            },
             "report-pager",
             "creditBalanceForm",
             "PageIndex",
@@ -58,9 +61,10 @@ class CreditBalance {
     registerEvents = () => {
         const self: any = this;
 
-        this.$("#icon-printer").click(this.registerPrintFunction);
-
-        this.creditBalanceForm.submit(this.$.blockUI);
+        this.$("#btn-submit").click(function () {
+            self.$.blockUI();
+            self.$("#PageIndex").val("1");
+        });
 
         this.$(".creditlink").click(function () {
             const $this: JQuery = self.$(this);
@@ -81,21 +85,6 @@ class CreditBalance {
         this.$(".iplink").click(function () {
             self.topWindow.popupManager.openByRelativeUrl("_IPInfo/IpInfo.aspx?ip=" + this.text, "", 400, 300);
         });
-    };
-
-    registerPrintFunction = () => {
-        const printContent: any = document.getElementById("print-container");
-        const printWindow: any = window.open("", "", "left=500,top=400,width=200,height=5");
-        printWindow.document.write("<html>");
-        printWindow.document.write("<head>");
-        printWindow.document.write("</head>");
-        printWindow.document.write("<body style='margin-top: 100px'>");
-        printWindow.document.write(printContent.innerHTML);
-        printWindow.document.write("</body></html>");
-        printWindow.document.close();
-        printWindow.focus();
-        printWindow.print();
-        printWindow.close();
     };
 
     registerAutoSuggestion = () => {

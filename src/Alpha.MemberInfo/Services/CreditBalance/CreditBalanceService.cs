@@ -7,7 +7,7 @@
     using Fanex.Data.Repository;
     using Models.CreditBalance;
     using Params;
-    using Sunplus.Core.Common.IPs;
+    using Utilities.IP;
 
     public interface CreditBalanceService
     {
@@ -23,10 +23,14 @@
     public class CreditBalanceServiceImpl : CreditBalanceService
     {
         private readonly IDynamicRepository repository;
+        private readonly IPService ipService;
 
-        public CreditBalanceServiceImpl(IDynamicRepository dynamicRepository)
+        public CreditBalanceServiceImpl(
+            IDynamicRepository dynamicRepository,
+            IPService ipService)
         {
             repository = dynamicRepository;
+            this.ipService = ipService;
         }
 
         public async Task<PagedCreditBalance> GetPagedCreditBalancesAsync(CreditBalanceParam param)
@@ -37,7 +41,10 @@
 
             foreach (var item in pagedCreditBalance.CreditBalances)
             {
-                item.IPLogin = GetIPFormatInstance(item.IPLogin, param.AdminId, param.IsAdminCanViewVNIP).Format();
+                if (!param.IsAdminCanViewVNIP)
+                {
+                    item.IPLogin = FormatIP(item.IPLogin);
+                }
 
                 if (item.Closed && closedReasons.ContainsKey(item.CustId))
                 {
@@ -87,8 +94,10 @@
                 creditBalances);
         }
 
-        private static IPFormat GetIPFormatInstance(string ip, int adminId, bool isAdminCanViewVNIP)
-            => new IPFormater(ip, adminId, isAdminCanViewVNIP);
+        private string FormatIP(string ip)
+            => !string.IsNullOrWhiteSpace(ip) && ip != "::1" && ipService.IsVNIP(ip)
+                ? string.Empty
+                : ip;
 
         private static GetPagedCreditBalanceCriteria GetSuperCreditBalanceCriteria(CreditBalanceParam param)
             => new GetSuperCreditBalanceCriteria(

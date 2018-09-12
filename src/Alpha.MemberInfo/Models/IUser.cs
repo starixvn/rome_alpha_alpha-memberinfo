@@ -43,8 +43,6 @@
 
         DateTime LimitedDateToShowInfo { get; }
 
-        int AdminId { get; }
-
         bool IsAdminCanViewVNIP { get; }
     }
 }
