@@ -91,7 +91,12 @@
             container.RegisterPerWebRequest<CasinoCustomer, CasinoCustomerImpl>();
 
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
-            container.RegisterPerWebRequest<WinLossLimitService, WinLossLimitServiceImpl>();
+            container.Register<WinLossLimitService>(
+                () => new WinLossLimitServiceImpl(
+                    container.GetInstance<IDynamicRepository>(),
+                    container.GetInstance<WinLossLimitDataAccess>(),
+                    container.GetInstance<CacheRefService>().GetProductName));
+
 
             container.Register<ProgressiveJackpotService>(
                 () => new ProgressiveJackpotServiceImpl(

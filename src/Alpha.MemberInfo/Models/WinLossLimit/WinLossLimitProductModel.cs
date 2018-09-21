@@ -20,6 +20,6 @@
 
         public int SportType { get; }
 
-        public string ProductName { get; }
+        public string ProductName { get; set; }
     }
 }
