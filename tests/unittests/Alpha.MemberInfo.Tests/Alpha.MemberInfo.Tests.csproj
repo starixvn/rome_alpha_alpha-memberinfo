@@ -38,6 +38,10 @@
       <HintPath>..\..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Alpha.Utilities.IP, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Alpha.Utilities.IP.1.0.0.1\lib\net40\Alpha.Utilities.IP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CasinoLibrary, Version=2.0.1.34888, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\CasinoLibrary.1.0.4\lib\net40\CasinoLibrary.dll</HintPath>
       <Private>True</Private>
@@ -58,8 +62,8 @@
       <HintPath>..\..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
+    <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Data, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
@@ -257,6 +261,15 @@
     <Compile Include="Constants\RoleId.cs" />
     <Compile Include="Criteria\GetAgentListCriteriaTests.cs" />
     <Compile Include="Criteria\GetMasterListCriteriaTests.cs" />
+    <Compile Include="Criteria\CreditBalance\GetAgentClosedReasonCriteriaTests.cs" />
+    <Compile Include="Criteria\CreditBalance\GetAgentCreditBalanceCriteriaTests.cs" />
+    <Compile Include="Criteria\CreditBalance\GetAgentNetPositionCriteriaTests.cs" />
+    <Compile Include="Criteria\CreditBalance\GetCreditBalanceCriteriaBaseForTesting.cs" />
+    <Compile Include="Criteria\CreditBalance\GetCreditBalanceCriteriaBaseTests.cs" />
+    <Compile Include="Criteria\CreditBalance\GetMasterClosedReasonCriteriaTests.cs" />
+    <Compile Include="Criteria\CreditBalance\GetMasterCreditBalanceCriteriaTests.cs" />
+    <Compile Include="Criteria\CreditBalance\GetSuperClosedReasonCriteriaTests.cs" />
+    <Compile Include="Criteria\CreditBalance\GetSuperCreditBalanceCriteriaTests.cs" />
     <Compile Include="Criteria\PlayForFunProductCriteriaTests.cs" />
     <Compile Include="Criteria\MemberRequestCriteriaTests.cs" />
     <Compile Include="Criteria\WinLossLimit\GetBalanceCriteriaTests.cs" />
@@ -275,12 +288,18 @@
     <Compile Include="Helpers\ProductHelperTests.cs" />
     <Compile Include="ModelsForTesting\UserLevelForTesting.cs" />
     <Compile Include="Models\CustomerInfoTests.cs" />
+    <Compile Include="Models\CreditBalance\AgentNetPositionTests.cs" />
+    <Compile Include="Models\CreditBalance\CreditBalanceItemTests.cs" />
+    <Compile Include="Models\CreditBalance\CustomerClosedReasonTests.cs" />
+    <Compile Include="Models\CreditBalance\PagedCreditBalanceTests.cs" />
     <Compile Include="Models\UserLevelTests.cs" />
+    <Compile Include="Params\CreditBalanceParamTests.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitDetailTests.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitProductModelTests.cs" />
     <Compile Include="Params\ProductSettingParamTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CacheRefServiceImplTests.cs" />
+    <Compile Include="Services\CreditBalance\CreditBalanceServiceImplTests.cs" />
     <Compile Include="Services\MemberRequest\CasinoCustomerImplErrorMock.cs" />
     <Compile Include="Services\MemberRequest\CasinoCustomerImplMock.cs" />
     <Compile Include="Services\MemberRequest\CasinoCustomerImplTests.cs" />

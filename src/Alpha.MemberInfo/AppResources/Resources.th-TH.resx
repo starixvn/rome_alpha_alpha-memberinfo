@@ -207,6 +207,87 @@
   <data name="ProgressiveJackpotHandbookDetails" xml:space="preserve">
     <value>คลิกที่นี่เพื่อดูรายละเอียดของเกมคพ็อตใหม่</value>
   </data>
+  <data name="CreditBalance" xml:space="preserve">
+    <value>เครดิต / บัญชีคงเหลือ</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>ทั้งหมด</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>ปิดการใช้งาน</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>เปิด</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>การแข่งขันถูกระงับ</value>
+  </data>
+  <data name="EnterUsername" xml:space="preserve">
+    <value>ยูเซอร์เนม หรือ ชื่อ/นามสุกล</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>ตกลง</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>เครดิต</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>ชื่อ</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>เข้าระบบครั้งสุดท้าย</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>นามสกุล</value>
+  </data>
+  <data name="LoginIP" xml:space="preserve">
+    <value>IP สุดท้ายที่เข้าระบบ</value>
+  </data>
+  <data name="YesterdayBalance" xml:space="preserve">
+    <value>ยอดคงเหลือเมื่อวาน</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>ของ</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>หน้า</value>
+  </data>
+  <data name="AvailableCredit" xml:space="preserve">
+    <value>ยอดคงเหลือที่ใช้ได้</value>
+  </data>
+  <data name="DontShowAgain" xml:space="preserve">
+    <value>ไม่ต้องแสดงอีกครั้ง</value>
+  </data>
+  <data name="ShowHideColumnHint" xml:space="preserve">
+    <value>คลิกขวาที่ด้านบนเพื่อแสดง / ซ่อนคอลัมน์</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>การแข่งขันถูกระงับ</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>เปิด</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>หน้า</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>ของ</value>
+  </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>จำกัด ได้/เสีย ของสมาชิก</value>
   </data>
@@ -266,26 +347,5 @@
   </data>
   <data name="Disabled" xml:space="preserve">
     <value>ปิดการใช้งาน</value>
-  </data>
-  <data name="Closed" xml:space="preserve">
-    <value>ปิด</value>
-  </data>
-  <data name="Suspended" xml:space="preserve">
-    <value>การแข่งขันถูกระงับ</value>
-  </data>
-  <data name="Open" xml:space="preserve">
-    <value>เปิด</value>
-  </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="No2" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="Page" xml:space="preserve">
-    <value>หน้า</value>
-  </data>
-  <data name="Of" xml:space="preserve">
-    <value>ของ</value>
   </data>
 </root>

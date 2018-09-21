@@ -32,5 +32,14 @@
       "assets/scripts/components/pager.js",
       "assets/scripts/win-loss-limit/win-loss-limit.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/credit-balance/credit-balance.js",
+    "inputFiles": [
+      "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/components/pager.js",
+      "assets/scripts/credit-balance/columns-control.js",
+      "assets/scripts/credit-balance/credit-balance.js"
+    ]
   }
 ]

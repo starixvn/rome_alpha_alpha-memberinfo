@@ -17,13 +17,13 @@
     { "Path": "libs/jquery/jquery-1.11.3.js" },
     { "Path": "libs/jasmine.js" },
     { "Path": "libs/jasmine-jquery.js" },
-
+    { "Path": "libs/jquery/blockUI.js" },
+    { "Path": "libs/jquery/stickytableheaders.js" },
     { "Path": "libs/bootstrap/button.js" },
     { "Path": "libs/bootstrap/dropdown.js" },
     { "Path": "libs/bootstrap/modal.js" },
-    { "Path": "libs/jquery/blockUI.js" },
-
     { "Path": "libs/bootstrap/multiselect.js" },
+    { "Path": "libs/bootstrap/typeahead.js" },
     { "Path": "libs/pagination/jquery.draggable.js" },
     { "Path": "libs/pagination/jquery.resizable.js" },
     { "Path": "libs/pagination/jquery.parser.js" },
@@ -36,6 +36,8 @@
     { "Path": "../member-requests/member-requests.ts" }
     { "Path": "../components/pager.ts" },
     { "Path": "../win-loss-limit/win-loss-limit.ts" }
+    { "Path": "../credit-balance/columns-control.ts" },
+    { "Path": "../credit-balance/credit-balance.ts" }
   ],
   "Tests": [
     {
@@ -47,6 +49,10 @@
       "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
     },
     {
+      "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
+    },
+    {
+      "Path": "apps/credit-balance",
       "Path": "apps/win-loss-limit",
       "Excludes": [ "**.js.map", "**.js", "**-template.ts" ]
     }

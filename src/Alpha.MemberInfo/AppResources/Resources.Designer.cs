@@ -70,6 +70,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Agent.
         /// </summary>
         public static string AllAgent {
@@ -93,6 +102,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string AutoDailyResetLimit {
             get {
                 return ResourceManager.GetString("AutoDailyResetLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Available Credit.
+        /// </summary>
+        public static string AvailableCredit {
+            get {
+                return ResourceManager.GetString("AvailableCredit", resourceCulture);
             }
         }
         
@@ -151,6 +169,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Credit/Balance.
+        /// </summary>
+        public static string CreditBalance {
+            get {
+                return ResourceManager.GetString("CreditBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current Loss Limit (%).
         /// </summary>
         public static string CurrentLossLimit {
@@ -196,11 +223,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do not show again.
+        /// </summary>
+        public static string DontShowAgain {
+            get {
+                return ResourceManager.GetString("DontShowAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username or First/Last Name.
+        /// </summary>
+        public static string EnterUsername {
+            get {
+                return ResourceManager.GetString("EnterUsername", resourceCulture);
             }
         }
         
@@ -232,11 +277,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Login.
+        /// </summary>
+        public static string LastLogin {
+            get {
+                return ResourceManager.GetString("LastLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login IP.
+        /// </summary>
+        public static string LoginIP {
+            get {
+                return ResourceManager.GetString("LoginIP", resourceCulture);
             }
         }
         
@@ -511,11 +574,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Right-click on the header to show/hide columns.
+        /// </summary>
+        public static string ShowHideColumnHint {
+            get {
+                return ResourceManager.GetString("ShowHideColumnHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
         public static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Submit {
+            get {
+                return ResourceManager.GetString("Submit", resourceCulture);
             }
         }
         
@@ -579,6 +660,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Yes {
             get {
                 return ResourceManager.GetString("Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yesterday Balance.
+        /// </summary>
+        public static string YesterdayBalance {
+            get {
+                return ResourceManager.GetString("YesterdayBalance", resourceCulture);
             }
         }
     }

@@ -10,6 +10,7 @@
     using NSubstitute;
     using Xunit;
 
+    [Trait("Category", "ProgressiveJackpot")]
     public class ProgressiveJackpotServiceImplTests
     {
         private readonly CacheRefService cacheRefService;

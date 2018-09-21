@@ -11,9 +11,9 @@
     using MemberInfo.Models.ProgressiveJackpot;
     using NSubstitute;
     using Params;
-    using Requests.ProgressiveJackpot;
     using Services.ProgressiveJackpot;
     using Site.Handlers;
+    using Site.Requests.ProgressiveJackpot;
     using Site.ViewModels;
     using Site.ViewModels.ProgressiveJackpot;
     using Xunit;

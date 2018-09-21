@@ -5,7 +5,7 @@
     using MemberInfo.Models;
     using MemberInfo.Models.WinLossLimit;
     using Params;
-    using Requests.WinLossLimit;
+    using Site.Requests.WinLossLimit;
     using Site.ViewModels.WinLossLimit;
     using Xunit;
 

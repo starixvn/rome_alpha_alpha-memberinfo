@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace Alpha.MemberInfo.Models
+﻿namespace Alpha.MemberInfo.Models
 {
+    using System;
+    using System.Collections.Generic;
+
     public interface IUser
     {
+        int LoggedInUserId { get; }
+
         int Id { get; }
 
         string Name { get; }
@@ -29,5 +32,17 @@ namespace Alpha.MemberInfo.Models
         bool GetHideProduct(int productId);
 
         bool GetSyncedProduct(int productId);
+
+        bool CanViewBetLists { get; }
+
+        bool IsAllDayBalTransfer { get; }
+
+        bool IsAllowedTotalBalanceTransfer { get; }
+
+        bool CanTransfer { get; }
+
+        DateTime LimitedDateToShowInfo { get; }
+
+        bool IsAdminCanViewVNIP { get; }
     }
 }

@@ -3,8 +3,8 @@
     using Fixtures;
     using MediatR;
     using NSubstitute;
-    using Requests.WinLossLimit;
     using Site.Controllers;
+    using Site.Requests.WinLossLimit;
     using Xunit;
 
     [Trait("Category", "WinLossLimit")]

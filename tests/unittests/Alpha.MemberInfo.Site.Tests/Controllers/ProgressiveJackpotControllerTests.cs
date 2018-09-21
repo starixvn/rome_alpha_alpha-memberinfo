@@ -5,8 +5,8 @@
     using MediatR;
     using MemberInfo.Models;
     using NSubstitute;
-    using Requests.ProgressiveJackpot;
     using Site.Controllers;
+    using Site.Requests.ProgressiveJackpot;
     using Xunit;
 
     [Collection("UserCollection")]
