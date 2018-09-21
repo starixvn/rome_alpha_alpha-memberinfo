@@ -8,8 +8,8 @@
     using MemberInfo.Models.CreditBalance;
     using NSubstitute;
     using Params;
-    using Services;
     using Services.CreditBalance;
+    using Services.Transfer;
     using Site.Handlers;
     using Site.Requests.CreditBalance;
     using Xunit;
@@ -19,7 +19,7 @@
     {
         private readonly IUser user;
         private readonly CreditBalanceService creditBalanceService;
-        private readonly CashBalanceTransferService transferService;
+        private readonly TransferService transferService;
         private readonly CreditBalanceHandler handler;
 
         public CreditBalanceHandlerTests()
@@ -37,7 +37,7 @@
             user.LimitedDateToShowInfo.Returns(DateTime.MinValue);
 
             creditBalanceService = Substitute.For<CreditBalanceService>();
-            transferService = Substitute.For<CashBalanceTransferService>();
+            transferService = Substitute.For<TransferService>();
             handler = new CreditBalanceHandler(creditBalanceService, transferService);
         }
 

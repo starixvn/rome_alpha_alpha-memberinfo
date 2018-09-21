@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Functions SiteId="105" SiteName="Alpha">
+<Functions>
   <Function Name="Win Loss Limit">
     <Setting Key="Age_CustomerSelWinlimitInfo" SpName="Age_CustomerSelWinlimitInfo" DbName="DBTXN.CustDB.BODBDownlineNet" />
   </Function>

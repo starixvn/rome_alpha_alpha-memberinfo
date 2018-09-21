@@ -15,6 +15,7 @@
     using Services.CreditBalance;
     using Services.MemberRequest;
     using Services.ProgressiveJackpot;
+    using Services.Transfer;
     using Services.WinLossLimit;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
@@ -83,6 +84,8 @@
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<IPService, IPServiceImpl>();
+
+            container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
 
             container.RegisterPerWebRequest<CasinoService, CasinoServiceImpl>();
             container.RegisterPerWebRequest<CasinoCustomer, CasinoCustomerImpl>();

@@ -272,6 +272,7 @@
     <Compile Include="Criteria\CreditBalance\GetSuperCreditBalanceCriteriaTests.cs" />
     <Compile Include="Criteria\PlayForFunProductCriteriaTests.cs" />
     <Compile Include="Criteria\MemberRequestCriteriaTests.cs" />
+    <Compile Include="Criteria\Transfer\GetTransferOptionCriteriaTests.cs" />
     <Compile Include="Criteria\WinLossLimit\GetBalanceCriteriaTests.cs" />
     <Compile Include="Criteria\WinLossLimit\GetCustWinLossLimitCriteriaTests.cs" />
     <Compile Include="Criteria\WinLossLimit\GetOutstandingCriteriaTests.cs" />
@@ -305,6 +306,7 @@
     <Compile Include="Services\MemberRequest\CasinoCustomerImplTests.cs" />
     <Compile Include="Services\MemberRequest\MemberRequestServiceImplTests.cs" />
     <Compile Include="Services\ProgressiveJackpotServiceImplTests.cs" />
+    <Compile Include="Services\Transfer\TransferServiceImplTests.cs" />
     <Compile Include="Services\WinLossLimit\WinLossLimitServiceImplTests.cs" />
     <Compile Include="TestCases\StringExtensionsTestCases.cs" />
     <Compile Include="TestCases\UserLevelTestCases.cs" />

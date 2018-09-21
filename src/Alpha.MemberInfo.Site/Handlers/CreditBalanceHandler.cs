@@ -4,19 +4,19 @@
     using MediatR;
     using Params;
     using Requests.CreditBalance;
-    using Services;
     using Services.CreditBalance;
+    using Services.Transfer;
     using ViewModels.CreditBalance;
 
     public class CreditBalanceHandler
         : IAsyncRequestHandler<CreditBalanceQuery, CreditBalanceViewModel>
     {
         private readonly CreditBalanceService creditBalanceService;
-        private readonly CashBalanceTransferService transferService;
+        private readonly TransferService transferService;
 
         public CreditBalanceHandler(
             CreditBalanceService creditBalanceService,
-            CashBalanceTransferService transferService)
+            TransferService transferService)
         {
             this.creditBalanceService = creditBalanceService;
             this.transferService = transferService;

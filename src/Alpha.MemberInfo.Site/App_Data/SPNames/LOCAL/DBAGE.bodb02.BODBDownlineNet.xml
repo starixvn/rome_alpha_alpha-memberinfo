@@ -12,8 +12,8 @@
     <Setting Key="Age_CustomerSelWinLimitProduct" SpName="Age_CustomerSelWinLimitProduct" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Credit/Balance">
-    <Setting Key="Age_CustomerSelCreditBalanceList_Ag" SpName="Age_CustomerSelCreditBalanceList_Ag_xtest" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CustomerSelCreditBalanceList_Mag" SpName="Age_CustomerSelCreditBalanceList_MAg_xtest" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CustomerSelCreditBalanceList_Sag" SpName="Age_CustomerSelCreditBalanceList_SAg_xtest" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelCreditBalanceList_Ag" SpName="Age_CustomerSelCreditBalanceList_Ag" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelCreditBalanceList_Mag" SpName="Age_CustomerSelCreditBalanceList_MAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelCreditBalanceList_Sag" SpName="Age_CustomerSelCreditBalanceList_SAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>
