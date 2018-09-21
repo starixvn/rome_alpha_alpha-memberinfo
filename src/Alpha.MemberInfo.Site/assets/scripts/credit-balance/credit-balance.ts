@@ -12,6 +12,7 @@ class CreditBalance {
     pager: PagerComponent;
     columnsControl: ColumnsControlComponent;
     statusComponent: SingleSelectionDropdownComponent
+    submitButton: JQuery;
 
     constructor(
         $: JQueryStatic,
@@ -56,12 +57,13 @@ class CreditBalance {
 
     cacheDOMElements = () => {
         this.creditBalanceForm = this.$("#creditBalanceForm");
+        this.submitButton = this.$("#btn-submit");
     };
 
     registerEvents = () => {
         const self: any = this;
 
-        this.$("#btn-submit").click(function () {
+        this.submitButton.click(function () {
             self.$.blockUI();
             self.$("#PageIndex").val("1");
         });
@@ -119,7 +121,13 @@ class CreditBalance {
             afterSelect: (item: any) => $userNameInput.val(item[0])
         };
 
-        $userNameInput.typeahead(typeaheadOptions);
+        $userNameInput
+            .typeahead(typeaheadOptions)
+            .on("keyup", (event: any) => {
+                if (event.keyCode === 13) {
+                    this.submitButton.trigger("click");
+                }
+            });
     };
 }
 

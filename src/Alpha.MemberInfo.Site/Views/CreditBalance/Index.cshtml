@@ -66,7 +66,7 @@
                     <tr class="@Model.GeStatustBackgroundColor(item)">
                         <td class="text-center">@item.RowNumber</td>
                         <td class="text-center column-st">@item.Status</td>
-                        <td>@RenderUsernameColumn(item)</td>
+                        <td>@RenderUsernameColumn(item, pagedCreditBalances.PageSize)</td>
                         <td class="column-fn">@WebUtility.HtmlEncode(item.FirstName)</td>
                         <td class="column-ln">@WebUtility.HtmlEncode(item.LastName)</td>
                         <td class="text-right column-cd">@RenderCreditColumn(item)</td>
@@ -84,7 +84,7 @@
                             <a href="javascript:;" class="link iplink column-loginip">@item.IPLogin</a>
                         }
                         </td>
-                        <td class="column-un">@RenderUsernameColumn(item)</td>
+                        <td class="column-un">@RenderUsernameColumn(item, pagedCreditBalances.PageSize)</td>
                     </tr>
                 }
             </tbody>
@@ -109,14 +109,14 @@
 <input type="hidden" value="@Model.OldMainRootPath" id="@nameof(Model.OldMainRootPath)" />
 <input type="hidden" value="@Model.CookiePrefix" id="CookiePrefix" />
 
-@helper RenderUsernameColumn(CreditBalanceItem item) {
+@helper RenderUsernameColumn(CreditBalanceItem item, int pageSize) {
     if (Model.IsViewingMemberList)
     {
         @item.UserName
     }
     else
     {
-        <a href="?custId=@item.CustId&custLevelId=@Model.DownlineLevel.Value&statusId=@Model.StatusId" class="link">@item.UserName</a>
+        <a href="?custId=@item.CustId&custLevelId=@Model.DownlineLevel.Value&statusId=@Model.StatusId&PageSize=@pageSize" class="link">@item.UserName</a>
     }
 }
 
