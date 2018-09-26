@@ -61,7 +61,7 @@ class PagerComponent {
                         pagerOption.onSelectPage();
                     }
                 },
-                beforePageText: pager.data("lablepage"),
+                beforePageText: pager.data("labelpage"),
                 afterPageText: pager.data("labelof") + " {pages}",
                 displayMsg: pager.data("labeldisplayitems")
             });

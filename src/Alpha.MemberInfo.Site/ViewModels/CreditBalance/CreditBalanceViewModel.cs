@@ -36,7 +36,6 @@
 
             DownlineLevel = message.CustLevel.GetDirectDownLineLevel();
             IsViewingMemberList = DownlineLevel.IsMemberLevel();
-            ActorId = message.ActorId;
             ActorIsAgent = message.ActorLevel.IsAgentLevel();
             CanUpdateAccount = message.CanUpdateAccount;
             var showTransferPopup = !message.IsAllDayBalTransfer
@@ -79,8 +78,6 @@
         public UserLevel DownlineLevel { get; }
 
         public bool IsViewingMemberList { get; }
-
-        public int ActorId { get; }
 
         public bool ActorIsAgent { get; }
 

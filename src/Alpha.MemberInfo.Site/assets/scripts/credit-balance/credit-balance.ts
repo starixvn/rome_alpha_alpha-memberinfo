@@ -91,13 +91,13 @@ class CreditBalance {
 
     registerAutoSuggestion = () => {
         const autoSuggestionUrl: string = this.$("#OldMainRootPath").val() + "_GlobalResources/Handlers/QueryUserName.ashx";
-        const actorId: number = this.$("#ActorId").val();
+        const custId: number = this.$("#autoSuggestionCustId").val();
         const $userNameInput: JQuery = this.$(".typeahead");
 
         const getSuggestions: any = (query: string, process: any) => {
             return this.$.get(
                 autoSuggestionUrl,
-                { custid: actorId, isdir: 1, query: query },
+                { custid: custId, isdir: 1, query: query },
                 (data: any) => {
                     const suggestions: any = eval("(" + data + ")").suggestions;
                     return !suggestions || !suggestions.length

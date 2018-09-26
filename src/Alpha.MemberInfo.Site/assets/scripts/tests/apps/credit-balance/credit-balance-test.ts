@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <button type="submit" class="btn-submit">Submit</button>
                         </div>
-                        <input type="hidden" value="1176070" name="CustId" />
+                        <input type="hidden" value="1176070" name="CustId" id="autoSuggestionCustId" />
                         <input type="hidden" value="4" name="CustLevelId" />
                     </form>
                     <div id="tbl-container">
@@ -134,7 +134,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <input type="hidden" value="1176070" id="ActorId" />
                     <input type="hidden" value="/ex-main/" id="OldMainRootPath" />
                     <input type="hidden" value="138086459" id="CookiePrefix" />
                 </body>`

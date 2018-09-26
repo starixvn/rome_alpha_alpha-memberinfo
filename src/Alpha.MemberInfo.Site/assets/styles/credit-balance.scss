@@ -29,10 +29,26 @@
             }
         }
     }
+
+    ::-webkit-input-placeholder {
+        font-style: italic;
+        color: #666;
+    }
+
+    ::-moz-placeholder {
+        font-style: italic;
+        color: #666;
+    }
 }
 
-#creditBalanceForm .multiselect-selected-text {
-    text-transform: none;
+#creditBalanceForm {
+    .multiselect-selected-text {
+        text-transform: none;
+    }
+
+    .multiselect-container.dropdown-menu label.radio {
+        display: block;
+    }
 }
 
 #tbl-container {

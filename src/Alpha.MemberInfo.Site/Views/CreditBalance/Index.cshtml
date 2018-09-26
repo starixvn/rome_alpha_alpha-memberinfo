@@ -28,7 +28,7 @@
     <div class="form-group">
         <button type="submit" class="btn-submit" id="btn-submit">@Resources.Submit</button>
     </div>
-    <input type="hidden" value="@Model.CustId" name="@nameof(Model.CustId)" />
+    <input type="hidden" value="@Model.CustId" name="@nameof(Model.CustId)" id="autoSuggestionCustId" />
     <input type="hidden" value="@Model.CustLevelId" name="@nameof(Model.CustLevelId)" />
 }
 @if (Model.ActorIsAgent)
@@ -105,7 +105,6 @@
         }
     </table>
 </div>
-<input type="hidden" value="@Model.ActorId" id="ActorId" />
 <input type="hidden" value="@Model.OldMainRootPath" id="@nameof(Model.OldMainRootPath)" />
 <input type="hidden" value="@Model.CookiePrefix" id="CookiePrefix" />
 
