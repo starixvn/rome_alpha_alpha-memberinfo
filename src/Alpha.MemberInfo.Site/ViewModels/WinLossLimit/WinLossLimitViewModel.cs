@@ -89,9 +89,9 @@
         public static string GetMaxWinLimit(decimal maxWinLimit)
             => maxWinLimit == 0 ? "Unlimited" : maxWinLimit.ToString("#,##0") + "X";
 
-        public static string GetWinPercent(decimal? winPercent)
+        public static string GetWinPercent(decimal? winPercent, decimal? currentWinLimit, decimal credit)
             => !winPercent.HasValue
-            ? "Unlimited"
+            ? "Unlimited" : credit == 0 && currentWinLimit > 0 ? "N/A"
             : winPercent > 0 ? winPercent.Value.ToString("#,##0.##") + "%" : "0%";
 
         public static string GetLossPercent(decimal? maxLossLimit, decimal? lossPercent)
