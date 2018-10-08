@@ -23,6 +23,7 @@
             decimal balance,
             decimal yesterdayBalance,
             decimal outstanding,
+            decimal turnover,
             DateTime lastLogged,
             string ipLogin)
         {
@@ -39,6 +40,7 @@
             Balance = balance;
             Yesterday_Balance = yesterdayBalance;
             Outstanding = outstanding;
+            Turnover = turnover;
             LastLogged = lastLogged;
             IPLogin = ipLogin;
         }
@@ -70,6 +72,8 @@
         public decimal Yesterday_Balance { get; }
 
         public decimal Outstanding { get; }
+
+        public decimal Turnover { get; }
 
         public DateTime? LastLogged { get; }
 

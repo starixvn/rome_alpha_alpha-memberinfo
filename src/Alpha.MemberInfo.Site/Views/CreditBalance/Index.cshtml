@@ -50,6 +50,7 @@
                 <th class="column-yb">@Resources.YesterdayBalance</th>
                 <th class="column-bc">@(Model.IsViewingMemberList ? Resources.BetCredit : Resources.AvailableCredit)</th>
                 <th class="column-ot">@Resources.Outstanding</th>
+                @*<th class="column-to">@Resources.MemberTurnover</th>*@
                 @if (Model.IsShowDateTimeColumn)
                 {
                     <th class="column-ll">@Resources.LastLogin</th>
@@ -74,6 +75,7 @@
                         <td class="text-right column-yb">@RenderYesterdayBalanceColumn(item)</td>
                         <td class="text-right column-bc">@HtmlHelpers.FormatDecimal(item.BetCredit)</td>
                         <td class="text-right column-ot">@renderOutstandingColumn(item)</td>
+                        @*<td class="text-right column-to">@HtmlHelpers.FormatDecimal(item.Turnover)</td>*@
                         @if (Model.IsShowDateTimeColumn)
                         {
                             <td class="text-center text-sm column-ll">@item.LastLogged.FormatDateTimeEn12()</td>

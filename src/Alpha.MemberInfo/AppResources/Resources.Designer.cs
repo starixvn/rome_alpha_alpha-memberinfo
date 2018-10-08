@@ -322,6 +322,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Member Turnover.
+        /// </summary>
+        public static string MemberTurnover {
+            get {
+                return ResourceManager.GetString("MemberTurnover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Member Win/Loss Limit.
         /// </summary>
         public static string MemberWinLossLimit {

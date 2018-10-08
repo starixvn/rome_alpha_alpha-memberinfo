@@ -267,26 +267,11 @@
   <data name="ShowHideColumnHint" xml:space="preserve">
     <value>右键单击以显示/隐藏列行</value>
   </data>
-  <data name="Closed" xml:space="preserve">
-    <value>关闭</value>
-  </data>
-  <data name="Suspended" xml:space="preserve">
-    <value>暫停</value>
-  </data>
-  <data name="Open" xml:space="preserve">
-    <value>开启</value>
-  </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
   <data name="No2" xml:space="preserve">
     <value>No</value>
-  </data>
-  <data name="Page" xml:space="preserve">
-    <value>页</value>
-  </data>
-  <data name="Of" xml:space="preserve">
-    <value>之第</value>
   </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>会员输赢限制</value>
@@ -312,18 +297,6 @@
   <data name="AllAgent" xml:space="preserve">
     <value>所有代理</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>状态</value>
-  </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>名</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>姓</value>
-  </data>
-  <data name="Credit" xml:space="preserve">
-    <value>信用额度</value>
-  </data>
   <data name="AutoDailyResetLimit" xml:space="preserve">
     <value>每日限额自动重设</value>
   </data>
@@ -345,7 +318,7 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>剩余买入金额</value>
   </data>
-  <data name="Disabled" xml:space="preserve">
-    <value>禁用</value>
+  <data name="MemberTurnover" xml:space="preserve">
+    <value>会员总投注交易</value>
   </data>
 </root>

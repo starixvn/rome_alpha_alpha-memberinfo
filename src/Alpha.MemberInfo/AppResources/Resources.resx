@@ -270,26 +270,11 @@
   <data name="ShowHideColumnHint" xml:space="preserve">
     <value>Right-click on the header to show/hide columns</value>
   </data>
-  <data name="Suspended" xml:space="preserve">
-    <value>Suspended</value>
-  </data>
-  <data name="Open" xml:space="preserve">
-    <value>Open</value>
-  </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
   <data name="No2" xml:space="preserve">
     <value>No</value>
-  </data>
-  <data name="Page" xml:space="preserve">
-    <value>Page</value>
-  </data>
-  <data name="Pager_DisplayItems" xml:space="preserve">
-    <value>Displaying {from} to {to} of {total} items</value>
-  </data>
-  <data name="Of" xml:space="preserve">
-    <value>of</value>
   </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>Member Win/Loss Limit</value>
@@ -315,18 +300,6 @@
   <data name="AllAgent" xml:space="preserve">
     <value>All Agent</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>First Name</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>Last Name</value>
-  </data>
-  <data name="Credit" xml:space="preserve">
-    <value>Credit</value>
-  </data>
   <data name="AutoDailyResetLimit" xml:space="preserve">
     <value>Auto Daily Reset Limit</value>
   </data>
@@ -348,10 +321,7 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>Remaining Buy-in Amount</value>
   </data>
-  <data name="Disabled" xml:space="preserve">
-    <value>Disabled</value>
-  </data>
-  <data name="Closed" xml:space="preserve">
-    <value>Closed</value>
+  <data name="MemberTurnover" xml:space="preserve">
+    <value>Member Turnover</value>
   </data>
 </root>

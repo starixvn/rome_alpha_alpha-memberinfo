@@ -267,26 +267,11 @@
   <data name="ShowHideColumnHint" xml:space="preserve">
     <value>คลิกขวาที่ด้านบนเพื่อแสดง / ซ่อนคอลัมน์</value>
   </data>
-  <data name="Closed" xml:space="preserve">
-    <value>ปิด</value>
-  </data>
-  <data name="Suspended" xml:space="preserve">
-    <value>การแข่งขันถูกระงับ</value>
-  </data>
-  <data name="Open" xml:space="preserve">
-    <value>เปิด</value>
-  </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
   <data name="No2" xml:space="preserve">
     <value>No</value>
-  </data>
-  <data name="Page" xml:space="preserve">
-    <value>หน้า</value>
-  </data>
-  <data name="Of" xml:space="preserve">
-    <value>ของ</value>
   </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>จำกัด ได้/เสีย ของสมาชิก</value>
@@ -312,18 +297,6 @@
   <data name="AllAgent" xml:space="preserve">
     <value>ตัวแทนทั้งหมด</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>สถานะ</value>
-  </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>ชื่อ</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>นามสกุล</value>
-  </data>
-  <data name="Credit" xml:space="preserve">
-    <value>เครดิต</value>
-  </data>
   <data name="AutoDailyResetLimit" xml:space="preserve">
     <value>รีเซ็ตอัตโนมัติรายวัน</value>
   </data>
@@ -345,7 +318,7 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>ยอด Buy-in ที่เหลืออยู่</value>
   </data>
-  <data name="Disabled" xml:space="preserve">
-    <value>ปิดการใช้งาน</value>
+  <data name="MemberTurnover" xml:space="preserve">
+    <value>เงินหมุนเวียนของสมาชิก</value>
   </data>
 </root>

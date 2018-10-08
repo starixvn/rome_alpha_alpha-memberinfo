@@ -213,29 +213,11 @@
   <data name="ShowHideColumnHint" xml:space="preserve">
     <value>머리글에 마우스의 오른쪽 버튼을 클릭하시면 열 표시/숨기기  선택하실수 있습니다.</value>
   </data>
-  <data name="Disabled" xml:space="preserve">
-    <value>비활성화</value>
-  </data>
-  <data name="Closed" xml:space="preserve">
-    <value>중지</value>
-  </data>
-  <data name="Suspended" xml:space="preserve">
-    <value>보류</value>
-  </data>
-  <data name="Open" xml:space="preserve">
-    <value>열기</value>
-  </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
   <data name="No2" xml:space="preserve">
     <value>No</value>
-  </data>
-  <data name="Page" xml:space="preserve">
-    <value>페이지</value>
-  </data>
-  <data name="Of" xml:space="preserve">
-    <value>부터</value>
   </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>회원의  지급한도</value>
@@ -261,18 +243,6 @@
   <data name="AllAgent" xml:space="preserve">
     <value>모든 에이전트</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>상황</value>
-  </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>이름</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>성</value>
-  </data>
-  <data name="Credit" xml:space="preserve">
-    <value>포인트</value>
-  </data>
   <data name="AutoDailyResetLimit" xml:space="preserve">
     <value>Auto Daily Reset Limit</value>
   </data>
@@ -293,5 +263,8 @@
   </data>
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>Remaining Buy-in Amount</value>
+  </data>
+  <data name="MemberTurnover" xml:space="preserve">
+    <value>회원 총 배팅액</value>
   </data>
 </root>
