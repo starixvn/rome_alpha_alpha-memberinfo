@@ -294,7 +294,7 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>Tiền chơi còn lại</value>
   </data>
-  <data name="MemberTurnover" xml:space="preserve">
-    <value>Tổng tiền cược của Member</value>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>Số dư tài khoản đến hết  hôm qua</value>
   </data>
 </root>

@@ -318,7 +318,7 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>剩余買入金額</value>
   </data>
-  <data name="MemberTurnover" xml:space="preserve">
-    <value>會員總投注額</value>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>昨天現金余額</value>
   </data>
 </root>

@@ -318,7 +318,7 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>ยอด Buy-in ที่เหลืออยู่</value>
   </data>
-  <data name="MemberTurnover" xml:space="preserve">
-    <value>เงินหมุนเวียนของสมาชิก</value>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>ยอดเงินสดคงเหลือของเมื่อวาน</value>
   </data>
 </root>

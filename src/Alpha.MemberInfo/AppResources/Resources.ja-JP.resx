@@ -213,14 +213,26 @@
   <data name="Disabled" xml:space="preserve">
     <value>Disabled</value>
   </data>
+  <data name="Closed" xml:space="preserve">
+    <value>閉鎖</value>
+  </data>
   <data name="Suspended" xml:space="preserve">
     <value>Suspended</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>開設</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
   <data name="No2" xml:space="preserve">
     <value>No</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>ページ</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>/</value>
   </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>Member Win/Loss Limit</value>
@@ -246,10 +258,19 @@
   <data name="AllAgent" xml:space="preserve">
     <value>All Agent</value>
   </data>
+  <data name="Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>氏</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>貸付金額</value>
+  </data>
   <data name="AutoDailyResetLimit" xml:space="preserve">
     <value>Auto Daily Reset Limit</value>
-  </data>
-  <data name="MemberTurnover" xml:space="preserve">
-    <value>メンバー ターンオーバー</value>
   </data>
 </root>

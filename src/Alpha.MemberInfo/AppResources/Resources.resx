@@ -321,7 +321,10 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>Remaining Buy-in Amount</value>
   </data>
-  <data name="MemberTurnover" xml:space="preserve">
-    <value>Member Turnover</value>
+  <data name="Cash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>Yesterday Cash Balance</value>
   </data>
 </root>

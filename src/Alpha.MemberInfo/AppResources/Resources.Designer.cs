@@ -142,6 +142,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cash.
+        /// </summary>
+        public static string Cash {
+            get {
+                return ResourceManager.GetString("Cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Closed.
         /// </summary>
         public static string Closed {
@@ -318,15 +327,6 @@ namespace Alpha.MemberInfo.AppResources {
         public static string MaximumWin {
             get {
                 return ResourceManager.GetString("MaximumWin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Member Turnover.
-        /// </summary>
-        public static string MemberTurnover {
-            get {
-                return ResourceManager.GetString("MemberTurnover", resourceCulture);
             }
         }
         
@@ -678,6 +678,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string YesterdayBalance {
             get {
                 return ResourceManager.GetString("YesterdayBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yesterday Cash Balance.
+        /// </summary>
+        public static string YesterdayCashBalance {
+            get {
+                return ResourceManager.GetString("YesterdayCashBalance", resourceCulture);
             }
         }
     }

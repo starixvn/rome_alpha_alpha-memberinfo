@@ -264,7 +264,7 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>Remaining Buy-in Amount</value>
   </data>
-  <data name="MemberTurnover" xml:space="preserve">
-    <value>회원 총 배팅액</value>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>어제의 현금</value>
   </data>
 </root>
