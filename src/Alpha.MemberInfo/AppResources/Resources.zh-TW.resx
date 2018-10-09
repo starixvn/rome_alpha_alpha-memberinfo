@@ -321,4 +321,7 @@
   <data name="YesterdayCashBalance" xml:space="preserve">
     <value>昨天現金余額</value>
   </data>
+  <data name="Cash" xml:space="preserve">
+    <value>現金</value>
+  </data>
 </root>

@@ -321,4 +321,7 @@
   <data name="YesterdayCashBalance" xml:space="preserve">
     <value>ยอดเงินสดคงเหลือของเมื่อวาน</value>
   </data>
+  <data name="Cash" xml:space="preserve">
+    <value>เงินสด</value>
+  </data>
 </root>
