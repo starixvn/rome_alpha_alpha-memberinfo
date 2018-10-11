@@ -60,6 +60,10 @@
       <HintPath>..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Alpha.Utilities.IP, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Utilities.IP.1.0.0.1\lib\net40\Alpha.Utilities.IP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Alpha.Web, Version=1.0.1.8, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.Web.1.0.1.8\lib\net461\Alpha.Web.dll</HintPath>
       <Private>True</Private>
@@ -86,6 +90,10 @@
     </Reference>
     <Reference Include="Enyim.Caching, Version=2.12.0.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CouchbaseNetClient.1.2.6.3\lib\net40\Enyim.Caching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Caching, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -336,9 +344,10 @@
     <Content Include="App_Data\SPNames\Internal\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBCust.CustDB.xml" />
+    <Content Include="App_Data\SPNames\Internal\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBLOG.bodb_CustomerLog.xml" />
     <Content Include="App_Data\SPNames\Internal\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Internal\DBTXN.BODB02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\DBTXN.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBTXN.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBACC.bodb02.BODBDownlineNet.xml" />
@@ -346,32 +355,43 @@
     <Content Include="App_Data\SPNames\Local\DBCust.CustDB.xml" />
     <Content Include="App_Data\SPNames\Local\DBLOG.bodb_CustomerLog.xml" />
     <Content Include="App_Data\SPNames\Local\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Local\DBTXN.BODB02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Local\DBTXN.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBTXN.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBCust.CustDB.xml" />
+    <Content Include="App_Data\SPNames\Pro\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBLOG.bodb_CustomerLog.xml" />
     <Content Include="App_Data\SPNames\Pro\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Pro\DBTXN.BODB02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Pro\DBTXN.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBTXN.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBCust.CustDB.xml" />
+    <Content Include="App_Data\SPNames\SIT\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBLOG.bodb_CustomerLog.xml" />
     <Content Include="App_Data\SPNames\SIT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\SIT\DBTXN.BODB02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\SIT\DBTXN.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBTXN.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBCust.CustDB.xml" />
+    <Content Include="App_Data\SPNames\UAT\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBLOG.bodb_CustomerLog.xml" />
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\UAT\DBTXN.BODB02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\UAT\DBTXN.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.CustDB.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\credit-balance.css" />
+    <Content Include="assets\bundles\credit-balance.min.css">
+      <DependentUpon>credit-balance.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\credit-balance\credit-balance.js" />
+    <Content Include="assets\bundles\credit-balance\credit-balance.min.js">
+      <DependentUpon>credit-balance.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\default.css" />
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
@@ -388,18 +408,6 @@
     <Content Include="assets\bundles\progressive-jackpot\progressive-jackpot.min.js">
       <DependentUpon>progressive-jackpot.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\transfer-hint.css" />
-    <Content Include="assets\bundles\transfer-hint.min.css">
-      <DependentUpon>transfer-hint.css</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\transfer.css" />
-    <Content Include="assets\bundles\transfer.min.css">
-      <DependentUpon>transfer.css</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\transfer\cash-balance.js" />
-    <Content Include="assets\bundles\transfer\cash-balance.min.js">
-      <DependentUpon>cash-balance.js</DependentUpon>
-    </Content>
     <Content Include="assets\bundles\win-loss-limit.css" />
     <Content Include="assets\bundles\win-loss-limit.min.css">
       <DependentUpon>win-loss-limit.css</DependentUpon>
@@ -412,18 +420,19 @@
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\modal.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\multiselect.js" />
+    <Content Include="assets\scripts\tests\libs\bootstrap\typeahead.js" />
     <Content Include="assets\scripts\tests\libs\jasmine-jquery.js" />
     <Content Include="assets\scripts\tests\libs\jasmine.js" />
     <Content Include="assets\scripts\tests\libs\jquery\blockUI.js" />
     <Content Include="assets\scripts\tests\libs\jquery\cookie.js" />
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
     <Content Include="assets\scripts\tests\libs\jquery\stickytableheaders.js" />
+    <Content Include="assets\styles\images\star.gif" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.draggable.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.linkbutton.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.pagination.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.parser.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.resizable.js" />
-    <Content Include="assets\styles\transfer-hint.scss" />
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
     <Content Include="Views\MemberRequests\Index.cshtml" />
@@ -524,8 +533,8 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Constants\LanguageCode.cs" />
+    <Compile Include="Controllers\CreditBalanceController.cs" />
     <Compile Include="Controllers\ProgressiveJackpotController.cs" />
-    <Compile Include="Controllers\TransferController.cs" />
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
@@ -534,29 +543,26 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Handlers\CashBalanceTransferHandler.cs" />
+    <Compile Include="Handlers\CreditBalanceHandler.cs" />
     <Compile Include="Handlers\MemberRequestHandler.cs" />
     <Compile Include="Handlers\ProgressiveJackpotHandler.cs" />
     <Compile Include="Handlers\WinLossLimitHandler.cs" />
     <Compile Include="Helpers\QueryEntityModelBinder.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\CreditBalance\CreditBalanceQuery.cs" />
     <Compile Include="Requests\MemberRequest\ProductQuery.cs" />
     <Compile Include="Requests\MemberRequest\MemberRequestQuery.cs" />
     <Compile Include="Requests\MemberInfoBaseQuery.cs" />
     <Compile Include="Requests\ProgressiveJackpot\ProgressiveJacpotQuery.cs" />
-    <Compile Include="Requests\Transfer\CashBalanceTransferCommand.cs" />
-    <Compile Include="Requests\Transfer\CashBalanceTransferQuery.cs" />
-    <Compile Include="Requests\Transfer\HintTransferQuery.cs" />
     <Compile Include="Requests\WinLossLimit\WinLossLimitQuery.cs" />
+    <Compile Include="ViewModels\Components\PagerViewModel.cs" />
     <Compile Include="ViewModels\Components\ProductMultiSelectionViewModel.cs" />
+    <Compile Include="ViewModels\CreditBalance\CreditBalanceViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
-    <Compile Include="ViewModels\Components\PagerViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\ProgressiveJackpot\ProgressiveJackpotViewModel.cs" />
-    <Compile Include="ViewModels\Transfer\CashBalanceTransferViewModel.cs" />
-    <Compile Include="ViewModels\Transfer\HintTransferViewModel.cs" />
     <Compile Include="ViewModels\WinLossLimit\WinLossLimitViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -574,13 +580,15 @@
     <Content Include="assets\styles\_variables.scss" />
     <Content Include="bundleconfig.json" />
     <Content Include="compilerconfig.json" />
-    <Content Include="App_Data\securitycode.json" />
-    <Content Include="assets\styles\transfer.scss" />
     <Content Include="Alpha.MemberInfo.Site.Debug.ruleset" />
     <Content Include="Alpha.MemberInfo.Site.ruleset" />
     <Content Include="App_Code\Components\ProductMultiSelection.cshtml" />
     <Content Include="assets\styles\win-loss-limit.scss" />
+    <Content Include="assets\styles\credit-balance.scss" />
+    <Content Include="App_Data\securitycode.json" />
     <Content Include="App_Code\Components\Pager.cshtml" />
+    <Content Include="assets\styles\_columns-control.scss" />
+    <Content Include="App_Data\SPNames\Local\DBCust.IPDB.BODBDownlineNet.xml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -684,12 +692,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Transfer\Hint.cshtml" />
-    <Content Include="Views\Transfer\Hint.zh-TW.cshtml" />
-    <Content Include="Views\Transfer\Hint.th-TH.cshtml" />
-    <Content Include="Views\Transfer\Hint.zh-CN.cshtml" />
-    <Content Include="Views\Transfer\_HintLayout.cshtml" />
-    <Content Include="Views\Transfer\Hint.vi-VN.cshtml" />
     <Content Include="Views\ProgressiveJackpot\Index.cshtml" />
     <Content Include="Views\ProgressiveJackpot\Handbook\en-US.cshtml" />
     <Content Include="Views\ProgressiveJackpot\Handbook\ja-JP.cshtml" />
@@ -699,10 +701,10 @@
     <Content Include="Views\ProgressiveJackpot\Handbook\zh-CN.cshtml" />
     <Content Include="Views\ProgressiveJackpot\Handbook\zh-TW.cshtml" />
     <Content Include="Views\WinLossLimit\Index.cshtml" />
+    <Content Include="Views\CreditBalance\Index.cshtml" />
+    <Content Include="Views\CreditBalance\_ColumnsControl.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\styles\images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
       <Project>{50b673a0-c10b-4551-b0a0-76edcbf5ce12}</Project>
@@ -710,18 +712,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\scripts\credit-balance\columns-control.ts" />
     <TypeScriptCompile Include="assets\scripts\components\pager.ts" />
     <TypeScriptCompile Include="assets\scripts\components\productmultiselection.ts" />
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
+    <TypeScriptCompile Include="assets\scripts\credit-balance\credit-balance.ts" />
     <TypeScriptCompile Include="assets\scripts\member-requests\member-requests.ts" />
     <TypeScriptCompile Include="assets\scripts\progressive-jackpot\progressive-jackpot.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\pager-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\productmultiselection-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\single-selection-dropdown-tests.ts" />
+    <TypeScriptCompile Include="assets\scripts\tests\apps\credit-balance\credit-balance-test.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\member-requests\member-requests-tests.ts" />
-    <TypeScriptCompile Include="assets\scripts\tests\apps\transfer\cash-balance-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\win-loss-limit\win-loss-limit-tests.ts" />
-    <TypeScriptCompile Include="assets\scripts\transfer\cash-balance.ts" />
     <TypeScriptCompile Include="assets\scripts\win-loss-limit\win-loss-limit.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />
@@ -745,12 +748,9 @@
     <Content Include="assets\scripts\tests\chutzpah.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Transfer\CashBalance.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

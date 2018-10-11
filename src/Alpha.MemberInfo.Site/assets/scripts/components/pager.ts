@@ -9,7 +9,8 @@ class PagerOption {
         public pagerId: string = "report-pager",
         public formId: string = "report-form",
         public pageIndexId: string = "PageIndex",
-        public pageSizeId: string = "PageSize") {
+        public pageSizeId: string = "PageSize",
+        public pageList: number[] = [50, 100, 200, 500]) {
     }
 }
 
@@ -23,7 +24,7 @@ class PagerComponent {
     pageSize: number;
     pageIndex: number;
 
-    pageList: number[] = [50, 100, 200, 500];
+    pageList: number[] = [];
 
     constructor($: JQueryStatic) {
         this.$ = $;
@@ -42,6 +43,7 @@ class PagerComponent {
             this.$(`<input type="hidden" id="${pagerOption.pageIndexId}" name="${pagerOption.pageIndexId}" value="${this.pageIndex}" />`);
         this.$pageSize =
             this.$(`<input type="hidden" id="${pagerOption.pageSizeId}" name="${pagerOption.pageSizeId}" value="${this.pageSize}" />`);
+        this.pageList = pagerOption.pageList;
 
         this.$reportForm.append(this.$pageIndex).append(this.$pageSize);
 
@@ -59,7 +61,7 @@ class PagerComponent {
                         pagerOption.onSelectPage();
                     }
                 },
-                beforePageText: pager.data("lablepage"),
+                beforePageText: pager.data("labelpage"),
                 afterPageText: pager.data("labelof") + " {pages}",
                 displayMsg: pager.data("labeldisplayitems")
             });

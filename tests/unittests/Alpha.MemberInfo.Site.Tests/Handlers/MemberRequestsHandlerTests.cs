@@ -11,9 +11,9 @@
     using MemberInfo.Models.MemberRequests;
     using NSubstitute;
     using Params;
-    using Requests.MemberRequest;
     using Services.MemberRequest;
     using Site.Handlers.MemberRequest;
+    using Site.Requests.MemberRequest;
     using Site.ViewModels;
     using Site.ViewModels.MemberRequest;
     using Xunit;

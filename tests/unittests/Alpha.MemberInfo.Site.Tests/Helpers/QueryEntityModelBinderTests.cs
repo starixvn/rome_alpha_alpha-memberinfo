@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
-using Alpha.MemberInfo.Models.Transfer;
 using Alpha.MemberInfo.Site.Helpers;
-using Alpha.MemberInfo.Site.Models;
 using Alpha.MemberInfo.Site.Requests.MemberRequest;
 using Xunit;
 
@@ -28,19 +22,6 @@ namespace Alpha.MemberInfo.Site.Tests.Helpers
         protected override object CallBaseBindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             return "CallBaseBindModel";
-        }
-
-        [Fact]
-        public void CreateModel_ConstructorParamIsNotAssignableFromIUser_CallBaseCreateModel()
-        {
-            // Arrange
-            var userType = typeof(CashBalanceTransfer);
-
-            // Act
-            var createdInstance = CreateModel(null, null, userType);
-
-            // Assert
-            Assert.Equal("CallBaseCreateModel", createdInstance);
         }
 
         [Fact]

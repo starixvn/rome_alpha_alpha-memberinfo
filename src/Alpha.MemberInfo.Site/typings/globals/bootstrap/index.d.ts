@@ -71,6 +71,7 @@ interface TypeaheadOptions {
     delay?: number;
     afterSelect?: any;
     addItem?: any;
+    displayText: (item: any) => string;
 }
 
 interface AffixOptions {

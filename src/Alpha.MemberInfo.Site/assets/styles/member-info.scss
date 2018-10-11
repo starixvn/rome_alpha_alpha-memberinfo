@@ -1,5 +1,9 @@
 ﻿@import "variables";
 
+body {
+    background-color: transparent;
+}
+
 .page-title {
     display: table;
     width: 100%;
@@ -15,7 +19,6 @@
 }
 
 #tbl-report {
-    //margin-top: 12px;
     width: 750px;
 
     @media (max-width: 768px) {
@@ -25,6 +28,15 @@
     .negative-value {
         color: #e92819;
     }
+
+    tfoot td {
+        padding: 0;
+    }
+}
+
+.tblRpt.tblRpt-bordered tfoot > tr > td {
+    border: 1px solid #eee;
+    background: #eee;
 }
 
 .link {
@@ -169,6 +181,11 @@ input[type="button"][disabled] {
     text-indent: 10px;
 }
 
+.star {
+    background: url(../styles/images/star.gif) no-repeat 0 6px;
+    padding-left: 10px;
+}
 #txt-username, #txt-player-id {
     width: 210px;
 }
+

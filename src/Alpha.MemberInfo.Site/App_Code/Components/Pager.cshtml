@@ -1,10 +1,9 @@
 ﻿@using Alpha.MemberInfo.AppResources;
 @using Alpha.MemberInfo.Site.ViewModels.Components;
-
 @helper Render(PagerViewModel model)
 {
-if (model?.TotalRecords > 0)
-{
+    if (model?.TotalRecords > 0)
+    {
         <div id="report-pager"
              data-labelpage="@Resources.Page"
              data-labelof="@Resources.Of"
@@ -13,5 +12,5 @@ if (model?.TotalRecords > 0)
              data-pagesize="@model.PageSize"
              data-totalrecords="@model.TotalRecords">
         </div>
-}
+    }
 }

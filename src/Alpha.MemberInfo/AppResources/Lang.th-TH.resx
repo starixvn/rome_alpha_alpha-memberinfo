@@ -141,4 +141,31 @@
   <data name="Others" xml:space="preserve">
     <value>อื่นๆ</value>
   </data>
+  <data name="AllowTransfer" xml:space="preserve">
+    <value>คุณได้รับอนุญาติให้ทำการโอน</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>รายวัน</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>วันศุกร์</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>วันจันทร์</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>วันเสาร์</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>วันอาทิตย์</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>วันพฤหัส</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>วันอังคาร</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>วันพุธ</value>
+  </data>
 </root>

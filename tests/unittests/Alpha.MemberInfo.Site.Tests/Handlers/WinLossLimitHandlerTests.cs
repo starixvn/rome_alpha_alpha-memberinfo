@@ -7,9 +7,9 @@
     using MemberInfo.Models.WinLossLimit;
     using NSubstitute;
     using Params;
-    using Requests.WinLossLimit;
     using Services.WinLossLimit;
     using Site.Handlers;
+    using Site.Requests.WinLossLimit;
     using Site.ViewModels.WinLossLimit;
     using Xunit;
 

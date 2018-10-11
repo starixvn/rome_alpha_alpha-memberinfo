@@ -2,6 +2,11 @@
   <Function Name="Transfer">
     <Setting Key="Acc_CustomerSelTransferOption" SpName="Acc_CustomerSelTransferOption" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
   </Function>
+  <Function Name="Credit/Balance">
+    <Setting Key="Age_CustomerSelCreditBalClosedReason_Ag" SpName="Age_CustomerSelCreditBalClosedReason_Ag" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_CustomerSelCreditBalClosedReason_MAg" SpName="Age_CustomerSelCreditBalClosedReason_MAg" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_CustomerSelCreditBalClosedReason_SAg" SpName="Age_CustomerSelCreditBalClosedReason_SAg" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+  </Function>
   <Function Name="Win Loss Limit">
     <Setting Key="Age_CustomerSelMAgentList" SpName="Age_CustomerSelMAgentList" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CustomerSelAgentList" SpName="Age_CustomerSelAgentList" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />

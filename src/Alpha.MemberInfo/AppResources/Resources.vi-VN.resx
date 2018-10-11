@@ -186,6 +186,72 @@
   <data name="NewBetTypeEffectDate" xml:space="preserve">
     <value>Các loại cược mới của Bóng Rổ sẽ có hiệu lực từ {0}:</value>
   </data>
+  <data name="CreditBalance" xml:space="preserve">
+    <value>Hạn mức/Số dư</value>
+  </data>
+  <data name="AvailableCredit" xml:space="preserve">
+    <value>Hạn mức khả dụng</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Bị khóa</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Vô hiệu hóa</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Mở</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>Bị đình chỉ</value>
+  </data>
+  <data name="EnterUsername" xml:space="preserve">
+    <value>Tên đăng nhập hoặc Tên/Họ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Xác nhận</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>Hạn mức tín dụng</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>Lần đăng nhập cuối</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Họ</value>
+  </data>
+  <data name="LoginIP" xml:space="preserve">
+    <value>IP đăng nhập</value>
+  </data>
+  <data name="YesterdayBalance" xml:space="preserve">
+    <value>Số dư đến hết hôm qua</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>trên</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Trang</value>
+  </data>
+  <data name="DontShowAgain" xml:space="preserve">
+    <value>Không hiển thị lại</value>
+  </data>
+  <data name="ShowHideColumnHint" xml:space="preserve">
+    <value>Nhấp chuột phải trên đầu cột để Ẩn/Hiện các cột</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No2" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>Hạn mức thắng/thua của Member</value>
   </data>
@@ -210,18 +276,6 @@
   <data name="AllAgent" xml:space="preserve">
     <value>Tất cả Agent</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Trạng thái</value>
-  </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>Tên</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>Họ</value>
-  </data>
-  <data name="Credit" xml:space="preserve">
-    <value>Hạn mức tín dụng</value>
-  </data>
   <data name="AutoDailyResetLimit" xml:space="preserve">
     <value>Tự Làm Mới Hạn Mức Mỗi Ngày</value>
   </data>
@@ -243,28 +297,13 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>Tiền chơi còn lại</value>
   </data>
-  <data name="Disabled" xml:space="preserve">
-    <value>Vô hiệu hóa</value>
+  <data name="Cash" xml:space="preserve">
+    <value>Số dư</value>
   </data>
-  <data name="Closed" xml:space="preserve">
-    <value>Bị khóa</value>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>Số dư tài khoản đến hết  hôm qua</value>
   </data>
-  <data name="Suspended" xml:space="preserve">
-    <value>Bị đình chỉ</value>
-  </data>
-  <data name="Open" xml:space="preserve">
-    <value>Mở</value>
-  </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="No2" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="Page" xml:space="preserve">
-    <value>Trang</value>
-  </data>
-  <data name="Of" xml:space="preserve">
-    <value>trên</value>
+  <data name="Balance" xml:space="preserve">
+    <value>Số dư</value>
   </data>
 </root>

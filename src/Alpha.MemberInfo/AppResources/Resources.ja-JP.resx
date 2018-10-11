@@ -153,44 +153,44 @@
   <data name="NewBetTypeEffectDate" xml:space="preserve">
     <value>New bet types of Basketball with effect from 05/18/2017:</value>
   </data>
-  <data name="MemberWinLossLimit" xml:space="preserve">
-    <value>Member Win/Loss Limit</value>
+  <data name="CreditBalance" xml:space="preserve">
+    <value>貸付金額 / 残高</value>
   </data>
-  <data name="SelectMaster" xml:space="preserve">
-    <value>Select Master</value>
+  <data name="Closed" xml:space="preserve">
+    <value>閉鎖</value>
   </data>
-  <data name="SelectAgent" xml:space="preserve">
-    <value>エージェントを選択</value>
+  <data name="Open" xml:space="preserve">
+    <value>開設</value>
   </data>
-  <data name="PlayerId" xml:space="preserve">
-    <value>Player ID</value>
-  </data>
-  <data name="PokerGamesPlayerID" xml:space="preserve">
-    <value>Poker Games Player ID</value>
-  </data>
-  <data name="UsernamePlaceHolder" xml:space="preserve">
-    <value>ユーザー名</value>
-  </data>
-  <data name="NoDataFound" xml:space="preserve">
-    <value>情報がありません</value>
-  </data>
-  <data name="AllAgent" xml:space="preserve">
-    <value>All Agent</value>
+  <data name="EnterUsername" xml:space="preserve">
+    <value>Username or First/Last Name</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>状態</value>
   </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>名</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>氏</value>
+  <data name="Submit" xml:space="preserve">
+    <value>送信</value>
   </data>
   <data name="Credit" xml:space="preserve">
     <value>貸付金額</value>
   </data>
-  <data name="AutoDailyResetLimit" xml:space="preserve">
-    <value>Auto Daily Reset Limit</value>
+  <data name="FirstName" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>最後のログイン</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>氏</value>
+  </data>
+  <data name="LoginIP" xml:space="preserve">
+    <value>最後のログインIP</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>ページ</value>
   </data>
   <data name="CurrentWinLossAmount" xml:space="preserve">
     <value>Current Win Loss Amount</value>
@@ -233,5 +233,44 @@
   </data>
   <data name="Of" xml:space="preserve">
     <value>/</value>
+  </data>
+  <data name="MemberWinLossLimit" xml:space="preserve">
+    <value>Member Win/Loss Limit</value>
+  </data>
+  <data name="SelectMaster" xml:space="preserve">
+    <value>Select Master</value>
+  </data>
+  <data name="SelectAgent" xml:space="preserve">
+    <value>エージェントを選択</value>
+  </data>
+  <data name="PlayerId" xml:space="preserve">
+    <value>Player ID</value>
+  </data>
+  <data name="PokerGamesPlayerID" xml:space="preserve">
+    <value>Poker Games Player ID</value>
+  </data>
+  <data name="UsernamePlaceHolder" xml:space="preserve">
+    <value>ユーザー名</value>
+  </data>
+  <data name="NoDataFound" xml:space="preserve">
+    <value>情報がありません</value>
+  </data>
+  <data name="AllAgent" xml:space="preserve">
+    <value>All Agent</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>氏</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>貸付金額</value>
+  </data>
+  <data name="AutoDailyResetLimit" xml:space="preserve">
+    <value>Auto Daily Reset Limit</value>
   </data>
 </root>

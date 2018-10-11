@@ -12,8 +12,10 @@
     using MemberInfo.Models;
     using Models;
     using Services;
+    using Services.CreditBalance;
     using Services.MemberRequest;
     using Services.ProgressiveJackpot;
+    using Services.Transfer;
     using Services.WinLossLimit;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
@@ -22,6 +24,7 @@
     using Sunplus.Agent.Model.Casino;
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Model.Entities.Permission;
+    using Utilities.IP;
 
     public static class DependencyConfig
     {
@@ -78,21 +81,25 @@
         {
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
-
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
+            container.RegisterPerWebRequest<IPService, IPServiceImpl>();
+
+            container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
+
             container.RegisterPerWebRequest<CasinoService, CasinoServiceImpl>();
             container.RegisterPerWebRequest<CasinoCustomer, CasinoCustomerImpl>();
 
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
             container.RegisterPerWebRequest<WinLossLimitService, WinLossLimitServiceImpl>();
 
-            container.RegisterPerWebRequest<CashBalanceTransferService, CashBalanceTransferServiceImpl>();
             container.Register<ProgressiveJackpotService>(
                 () => new ProgressiveJackpotServiceImpl(
                     container.GetInstance<CacheRefService>(),
                     UserPermission.HasPermissionOnProduct),
                 Lifestyle.Singleton);
+
+            container.RegisterPerWebRequest<CreditBalanceService, CreditBalanceServiceImpl>();
         }
     }
 }

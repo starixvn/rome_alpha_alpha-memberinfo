@@ -156,6 +156,69 @@
   <data name="NewBetTypeEffectDate" xml:space="preserve">
     <value>New bet types of Basketball with effect from 05/18/2017:</value>
   </data>
+  <data name="CreditBalance" xml:space="preserve">
+    <value>크레딧/잔액</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>모든</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>중지</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>비활성화</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>열기</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>보류</value>
+  </data>
+  <data name="EnterUsername" xml:space="preserve">
+    <value>사용자 이름 또는 성(이름)</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상황</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>확인</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>포인트</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>이름</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>마지막 로그인</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>성</value>
+  </data>
+  <data name="LoginIP" xml:space="preserve">
+    <value>로그인 아이피</value>
+  </data>
+  <data name="YesterdayBalance" xml:space="preserve">
+    <value>어제의 잔액</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>부터</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>페이지</value>
+  </data>
+  <data name="DontShowAgain" xml:space="preserve">
+    <value>이 페이지를 다시 표시하지않습니다.</value>
+  </data>
+  <data name="ShowHideColumnHint" xml:space="preserve">
+    <value>머리글에 마우스의 오른쪽 버튼을 클릭하시면 열 표시/숨기기  선택하실수 있습니다.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No2" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>회원의  지급한도</value>
   </data>
@@ -180,18 +243,6 @@
   <data name="AllAgent" xml:space="preserve">
     <value>모든 에이전트</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>상황</value>
-  </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>이름</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>성</value>
-  </data>
-  <data name="Credit" xml:space="preserve">
-    <value>포인트</value>
-  </data>
   <data name="AutoDailyResetLimit" xml:space="preserve">
     <value>Auto Daily Reset Limit</value>
   </data>
@@ -213,28 +264,7 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>Remaining Buy-in Amount</value>
   </data>
-  <data name="Disabled" xml:space="preserve">
-    <value>비활성화</value>
-  </data>
-  <data name="Closed" xml:space="preserve">
-    <value>중지</value>
-  </data>
-  <data name="Suspended" xml:space="preserve">
-    <value>보류</value>
-  </data>
-  <data name="Open" xml:space="preserve">
-    <value>열기</value>
-  </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="No2" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="Page" xml:space="preserve">
-    <value>페이지</value>
-  </data>
-  <data name="Of" xml:space="preserve">
-    <value>부터</value>
+  <data name="YesterdayCashBalance" xml:space="preserve">
+    <value>어제의 현금</value>
   </data>
 </root>
