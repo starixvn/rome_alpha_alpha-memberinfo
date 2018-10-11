@@ -187,7 +187,10 @@
     <value>Các loại cược mới của Bóng Rổ sẽ có hiệu lực từ {0}:</value>
   </data>
   <data name="CreditBalance" xml:space="preserve">
-    <value>Tín dụng/Balance</value>
+    <value>Hạn mức/Số dư</value>
+  </data>
+  <data name="AvailableCredit" xml:space="preserve">
+    <value>Hạn mức khả dụng</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>Tất cả</value>
@@ -294,7 +297,13 @@
   <data name="RemainingBuyInAmount" xml:space="preserve">
     <value>Tiền chơi còn lại</value>
   </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Số dư</value>
+  </data>
   <data name="YesterdayCashBalance" xml:space="preserve">
     <value>Số dư tài khoản đến hết  hôm qua</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Số dư</value>
   </data>
 </root>
