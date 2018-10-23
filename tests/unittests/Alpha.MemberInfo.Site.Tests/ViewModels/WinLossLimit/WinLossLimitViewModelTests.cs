@@ -146,7 +146,6 @@
         }
 
         [Theory]
-        [InlineData(-1)]
         [InlineData(0)]
         public void GetWinPercent_NotPositiveWinPercent_ReturnCorrectValue(decimal winPercent)
         {
