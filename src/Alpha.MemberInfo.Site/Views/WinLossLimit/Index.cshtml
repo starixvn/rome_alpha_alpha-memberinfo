@@ -130,7 +130,7 @@
                         <td class="text-center">@(winLossLimitDetail.IsAutoReset ? Resources.Yes : Resources.No2)</td>
                         <td class="text-center">@WinLossLimitViewModel.GetCurrentWinAnmout(winLossLimitDetail.CurrentWinAnmout)</td>
                         <td class="text-center">@WinLossLimitViewModel.GetMaxWinLimit(winLossLimitDetail.MaxWinLimit)</td>
-                        <td class="text-center @(!winLossLimitDetail.WinPercent.HasValue || winLossLimitDetail.WinPercent >= 100 || winLossLimitDetail.WinPercent == -2 ? "negative-value" : "")">
+                        <td class="text-center @((winLossLimitDetail.Credit == 0 && winLossLimitDetail.CurrentWinAnmout > 0) || winLossLimitDetail.WinPercent >= 100 || winLossLimitDetail.WinPercent == -2 ? "negative-value" : "")">
                             @WinLossLimitViewModel.GetWinPercent(winLossLimitDetail.WinPercent, winLossLimitDetail.CurrentWinAnmout, winLossLimitDetail.Credit)
                         </td>
                         <td class="text-center">@WinLossLimitViewModel.GetMaxLossLimit(winLossLimitDetail.MaxLossLimit)</td>
