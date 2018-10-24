@@ -84,29 +84,32 @@
         public static string GetStatusText(string statusKey) => Resources.ResourceManager.GetString(statusKey);
 
         public static string GetCurrentWinAnmout(decimal? currentWinAnmout)
-            => currentWinAnmout.HasValue ? currentWinAnmout.Value.ToString("#,##0.00") : "Unlimited";
+            => currentWinAnmout.HasValue ? currentWinAnmout.Value.ToString("#,##0.00") : Unlimited;
 
         public static string GetMaxWinLimit(decimal maxWinLimit)
-            => maxWinLimit == 0 ? "Unlimited" : maxWinLimit.ToString("#,##0") + "X";
+            => maxWinLimit == 0 ? Unlimited : maxWinLimit.ToString("#,##0") + "X";
 
         public static string GetWinPercent(decimal? winPercent, decimal? currentWinLimit, decimal credit)
             => !winPercent.HasValue
-            ? "Unlimited" : credit == 0 && currentWinLimit > 0 ? "N/A"
+            ? Unlimited : credit == 0 && currentWinLimit > 0 ? "N/A"
             : winPercent > 0 ? winPercent.Value.ToString("#,##0.##") + "%" : "0%";
 
         public static string GetLossPercent(decimal? maxLossLimit, decimal? lossPercent)
             => !maxLossLimit.HasValue ? "-"
-            : !lossPercent.HasValue ? "Unlimited"
+            : !lossPercent.HasValue ? Unlimited
             : lossPercent > 0 ? lossPercent.Value.ToString("#,##0.##") + "%"
             : "0%";
 
         public static string GetMaxLossLimit(decimal? maxLossLimit)
             => !maxLossLimit.HasValue ? "-"
-            : maxLossLimit.Value == 0 ? "Unlimited"
+            : maxLossLimit.Value == 0 ? Unlimited
             : maxLossLimit.Value.ToString("#,##0.##");
 
         public static string GetRemainingBuyInAmount(decimal? remainingBuyInAmount, decimal? maxLossLimit)
-            => maxLossLimit.HasValue && maxLossLimit.Value == 0 ? "Unlimited"
+            => maxLossLimit.HasValue && maxLossLimit.Value == 0 ? Unlimited
             : remainingBuyInAmount.HasValue ? remainingBuyInAmount.Value.ToString("#,##0.##") : "-";
+
+        private static string Unlimited 
+            => Lang.Unlimited;
     }
 }

@@ -168,4 +168,7 @@
   <data name="Wednesday" xml:space="preserve">
     <value>วันพุธ</value>
   </data>
+  <data name="Unlimited" xml:space="preserve">
+    <value>ไม่จำกัด</value>
+  </data>
 </root>
