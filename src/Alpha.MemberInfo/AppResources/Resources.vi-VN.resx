@@ -306,4 +306,22 @@
   <data name="Balance" xml:space="preserve">
     <value>Số dư</value>
   </data>
+  <data name="ProgressiveJackpotGames" xml:space="preserve">
+    <value>Trò chơi Jackpot lũy tiến</value>
+  </data>
+  <data name="JackpotGames" xml:space="preserve">
+    <value>Trò chơi Jackpot</value>
+  </data>
+  <data name="TotalContributionRate" xml:space="preserve">
+    <value>Tổng mức tích lũy</value>
+  </data>
+  <data name="JackpotBetStake" xml:space="preserve">
+    <value>Tiền cược Jackpot</value>
+  </data>
+  <data name="ProgressiveJackpotHandbookDetails" xml:space="preserve">
+    <value>Nhấn để vào Trợ Giúp để biết thêm chi tiết.</value>
+  </data>
+  <data name="ProgressiveJackpotHandbookTitle" xml:space="preserve">
+    <value>Trò chơi Jackpot Lũy Tiến - Trợ Giúp</value>
+  </data>
 </root>

@@ -168,4 +168,7 @@
   <data name="Wednesday" xml:space="preserve">
     <value>星期三</value>
   </data>
+  <data name="Unlimited" xml:space="preserve">
+    <value>无限</value>
+  </data>
 </root>

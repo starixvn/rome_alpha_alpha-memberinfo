@@ -168,4 +168,7 @@
   <data name="Wednesday" xml:space="preserve">
     <value>Thứ 4</value>
   </data>
+  <data name="Unlimited" xml:space="preserve">
+    <value>Không giới hạn</value>
+  </data>
 </root>

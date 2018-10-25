@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Tests.Services.WinLossLimit
 {
-    using System.Collections.Generic;
     using Fanex.Data.Repository;
     using KellermanSoftware.CompareNetObjects;
     using MemberInfo.Criteria;
@@ -11,6 +10,8 @@
     using MemberInfo.Params;
     using MemberInfo.Services.WinLossLimit;
     using NSubstitute;
+    using System;
+    using System.Collections.Generic;
     using Xunit;
 
     [Trait("Category", "WinLossLimit")]
@@ -20,12 +21,14 @@
         private readonly WinLossLimitDataAccess winLossLimitDataAccess;
         private readonly WinLossLimitServiceImpl winLossLimitServiceImpl;
         private readonly CompareLogic compareLogic;
+        private readonly Func<int, string> getProductName;
 
         public WinLossLimitServiceImplTests()
         {
             dynamicRepository = Substitute.For<IDynamicRepository>();
             winLossLimitDataAccess = Substitute.For<WinLossLimitDataAccess>();
-            winLossLimitServiceImpl = new WinLossLimitServiceImpl(dynamicRepository, winLossLimitDataAccess);
+            getProductName = Substitute.For<Func<int, string>>();
+            winLossLimitServiceImpl = new WinLossLimitServiceImpl(dynamicRepository, winLossLimitDataAccess, getProductName);
 
             compareLogic = new CompareLogic();
         }
