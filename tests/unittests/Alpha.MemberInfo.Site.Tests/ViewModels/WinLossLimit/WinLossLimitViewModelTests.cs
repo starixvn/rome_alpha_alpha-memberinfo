@@ -127,7 +127,7 @@
             var expectedText = "Unlimited";
 
             // Act
-            var actualText = WinLossLimitViewModel.GetWinPercent(null);
+            var actualText = WinLossLimitViewModel.GetWinPercent(null, null, 1);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -139,7 +139,7 @@
         public void GetWinPercent_PositiveWinPercent_ReturnCorrectValue(decimal winPercent, string expectedText)
         {
             // Act
-            var actualText = WinLossLimitViewModel.GetWinPercent(winPercent);
+            var actualText = WinLossLimitViewModel.GetWinPercent(winPercent, null, 1);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -153,7 +153,7 @@
             var expectedText = "0%";
 
             // Act
-            var actualText = WinLossLimitViewModel.GetWinPercent(winPercent);
+            var actualText = WinLossLimitViewModel.GetWinPercent(winPercent, null, 1);
 
             // Assert
             Assert.Equal(expectedText, actualText);
