@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Label1x2" xml:space="preserve">
-    <value>1 X 2</value>
+    <value>1X2</value>
   </data>
   <data name="LabelAsianHDC_OU_OE" xml:space="preserve">
     <value>Asian HDP, OU, OE</value>
