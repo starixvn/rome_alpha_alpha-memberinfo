@@ -20,6 +20,7 @@
     using Sunplus.Agent.Model.Entities;
     using Web;
     using Web.Helpers;
+    using Web.Filters;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -49,6 +50,7 @@
 
             GlobalFilters.Filters.Add(new CheckUMFilter());
             GlobalFilters.Filters.Add(new CheckBelongingFilter());
+            GlobalFilters.Filters.Add(new AfterLoginFlowFilter());
 
             StaticResources.Init(GetBuildVersion());
 
