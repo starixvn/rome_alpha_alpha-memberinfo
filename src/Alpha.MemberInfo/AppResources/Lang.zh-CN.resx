@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Label1x2" xml:space="preserve">
-    <value>1 X 2</value>
+    <value>独赢盘</value>
   </data>
   <data name="LabelAsianHDC_OU_OE" xml:space="preserve">
     <value>亚洲盘,大小盘,单双</value>
@@ -136,7 +136,7 @@
     <value>大小盘</value>
   </data>
   <data name="moneyline" xml:space="preserve">
-    <value>独赢</value>
+    <value>胜负盘</value>
   </data>
   <data name="Others" xml:space="preserve">
     <value>其他</value>

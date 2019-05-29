@@ -88,7 +88,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1 X 2.
+        ///   Looks up a localized string similar to 1X2.
         /// </summary>
         public static string Label1x2 {
             get {
