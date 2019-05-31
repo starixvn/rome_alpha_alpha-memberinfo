@@ -6,6 +6,7 @@
     using System.Reflection;
     using System.Web.Mvc;
     using System.Web.Routing;
+    using Alpha.Logging;
     using App_Start;
     using Auth.Filters;
     using Configurations;
@@ -45,7 +46,7 @@
             AppSettings.Verify();
 
             ShareSession.Init();
-
+            LoggingConfig.Init(getDbExceptionInfo: DatabaseInfoGetters.GetDbExceptionInfo);
             ModelBinders.Binders.DefaultBinder = new QueryEntityModelBinder();
 
             GlobalFilters.Filters.Add(new CheckUMFilter());
@@ -53,11 +54,6 @@
             GlobalFilters.Filters.Add(new AfterLoginFlowFilter());
 
             StaticResources.Init(GetBuildVersion());
-
-            var loggingConfiguration = new LoggingConfiguration()
-                .UseGetDbExceptionInfo(DatabaseInfoGetters.GetDbExceptionInfo);
-
-            ExceptionHandler.UseConfig(loggingConfiguration);
 
             RefDataTypeContainer
                 .ConnectTo(new Uri(AppSettings.RemoteRefURL))

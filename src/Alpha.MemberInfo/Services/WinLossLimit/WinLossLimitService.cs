@@ -1,5 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Services.WinLossLimit
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Criteria;
     using Criteria.WinLossLimit;
     using DataAccesses;
@@ -7,9 +10,6 @@
     using Models;
     using Models.WinLossLimit;
     using Params;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
 
     public interface WinLossLimitService
     {
@@ -39,7 +39,7 @@
         }
 
         public IEnumerable<WinLossLimitProductModel> GetWinLossLimitProducts(int custId)
-        { 
+        {
             var products = dynamicRepository.Fetch<WinLossLimitProductModel>(new GetWinLossLimitProductCriteria(custId));
             foreach (var product in products)
             {
