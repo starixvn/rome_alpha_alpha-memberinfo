@@ -16,22 +16,5 @@
             remotingRefService = Substitute.For<IRemotingRefService>();
             cacheRefService = new CacheRefServiceImpl(remotingRefService);
         }
-
-        [Fact]
-        public void GetProductName_ValidProductId_ReturnsCorrectProductName()
-        {
-            // Arrange
-            var expectedResult = "Bullfighting";
-
-            remotingRefService
-                .GetResourceDataByRefIdAndResourceId("Product", "30", "en-US", string.Empty)
-                .Returns(expectedResult);
-
-            // Act
-            var actualResult = cacheRefService.GetProductName(30);
-
-            // Assert
-            Assert.Equal(expectedResult, actualResult);
-        }
     }
 }

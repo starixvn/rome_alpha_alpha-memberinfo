@@ -475,15 +475,6 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poker Games Player ID.
-        /// </summary>
-        public static string PokerGamesPlayerID {
-            get {
-                return ResourceManager.GetString("PokerGamesPlayerID", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Position Taking Setting Follows.
         /// </summary>
         public static string PositionTakingSettingFollows {

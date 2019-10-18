@@ -140,6 +140,6 @@
         public string GetRunningBetListLink(CreditBalanceItem item)
             => MicroSites.BetListsUrl($"~/RunningBetList/Index?custId={item.CustId}&custName={item.UserName}&getAll=true");
 
-        public string OldMainRootPath => MicroSites.OldMainUrl("~/");
+        public string OldMainRootPath => MicroSites.OldMainUrl();
     }
 }

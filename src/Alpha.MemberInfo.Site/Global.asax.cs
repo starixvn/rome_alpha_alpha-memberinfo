@@ -21,7 +21,6 @@
     using Web;
     using Web.Filters;
     using Web.Helpers;
-    using Web.Filters;
 
     public class MvcApplication : System.Web.HttpApplication
     {

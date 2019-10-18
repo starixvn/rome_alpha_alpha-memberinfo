@@ -285,9 +285,6 @@
   <data name="PlayerId" xml:space="preserve">
     <value>玩家ID</value>
   </data>
-  <data name="PokerGamesPlayerID" xml:space="preserve">
-    <value>扑克游戏玩家ID</value>
-  </data>
   <data name="UsernamePlaceHolder" xml:space="preserve">
     <value>用户名或名/姓</value>
   </data>

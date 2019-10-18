@@ -231,9 +231,6 @@
   <data name="PlayerId" xml:space="preserve">
     <value>Player ID</value>
   </data>
-  <data name="PokerGamesPlayerID" xml:space="preserve">
-    <value>Poker Games Player ID</value>
-  </data>
   <data name="UsernamePlaceHolder" xml:space="preserve">
     <value>사용자 이름 또는 성(이름)</value>
   </data>

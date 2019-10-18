@@ -285,9 +285,6 @@
   <data name="PlayerId" xml:space="preserve">
     <value>ID สมาชิก</value>
   </data>
-  <data name="PokerGamesPlayerID" xml:space="preserve">
-    <value>ID ในเกมโป๊กเกอร์</value>
-  </data>
   <data name="UsernamePlaceHolder" xml:space="preserve">
     <value>ยูเซอร์เนม หรือ ชื่อ/นามสุกล</value>
   </data>

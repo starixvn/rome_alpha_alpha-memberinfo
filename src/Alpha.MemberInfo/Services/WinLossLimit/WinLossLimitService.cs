@@ -4,7 +4,6 @@
     using Criteria.WinLossLimit;
     using DataAccesses;
     using Fanex.Data.Repository;
-    using Helpers;
     using Models;
     using Models.WinLossLimit;
     using Params;
@@ -59,25 +58,16 @@
         public WinLossLimitPage GetWinLossLimitPage(WinLossLimitParam param)
         {
             var result = new WinLossLimitPage();
-            var isPokerGames = param.ProductId.IsPokerGames();
-            var playerId = isPokerGames && !string.IsNullOrWhiteSpace(param.PlayerId) ?
-                winLossLimitDataAccess.MapPlayerIdToCustId(new MapPlayerId3rdToCustIdCriteria(param.ProductId, param.PlayerId))
-                : (int?)null;
+            var playerId = (int?)null;
 
             var custWinLossLimits = winLossLimitDataAccess.GetWinLossLimits(new GetCustWinLossLimitCriteria(param, playerId));
             if (!custWinLossLimits.WinLossLimitDetail.Any())
             {
                 return result;
             }
-
-            var custIds = custWinLossLimits.WinLossLimitDetail.Select(c => c.CustId);
-            var minCustId = custIds.Min();
-            var maxCustId = custIds.Max();
-
+            
             var balances = dynamicRepository.Fetch<WinLossLimitDetail>(new GetBalanceCriteria(param));
-            IEnumerable<WinLossLimitDetail> outstandings = isPokerGames && custWinLossLimits.WinLossLimitDetail.Any()
-                ? dynamicRepository.Fetch<WinLossLimitDetail>(new GetOutstandingCriteria(param, playerId, minCustId, maxCustId))
-                : Enumerable.Empty<WinLossLimitDetail>();
+            IEnumerable<WinLossLimitDetail> outstandings = Enumerable.Empty<WinLossLimitDetail>();
 
             foreach (var custWinLossLimit in custWinLossLimits.WinLossLimitDetail)
             {

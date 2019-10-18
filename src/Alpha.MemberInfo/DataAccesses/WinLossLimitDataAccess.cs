@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using Criteria.WinLossLimit;
     using Fanex.Common;
-    using Helpers;
     using Models.WinLossLimit;
 
     public interface WinLossLimitDataAccess
@@ -37,7 +36,7 @@
                             winLossLimitDetail.Add(new WinLossLimitDetail
                             {
                                 CustId = Converter.ToInt(reader["CustId"]),
-                                PlayerId = criteria.ProductId.IsPokerGames() ? Converter.ToString2(reader["PlayerId"]) : string.Empty,
+                                PlayerId = string.Empty,
                                 Closed = Converter.ToBool(reader["Closed"]),
                                 Enabled = Converter.ToBool(reader["Enabled"]),
                                 Suspended = Converter.ToBool(reader["Suspended"]),
