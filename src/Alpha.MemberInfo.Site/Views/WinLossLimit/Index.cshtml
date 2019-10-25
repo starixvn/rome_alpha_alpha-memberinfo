@@ -64,13 +64,6 @@
         <label>@Resources.Username</label>
         <input type="text" id="txt-username" name="Username" placeholder="@Resources.Username" value="@Model.Username" />
     </div>
-    @if (Model.IsPokerGames)
-    {
-        <div class="form-group">
-            <label>@Resources.PlayerId</label>
-            <input type="text" id="txt-player-id" name="PlayerId" placeholder="@Resources.PokerGamesPlayerID" value="@Model.PlayerId" />
-        </div>
-    }
     <table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-hover tablesorter alternative-row-table" data-has-data="@Model.WinLossLimitPage.WinLossLimitDetail.Any()">
         <thead>
             <tr>
@@ -79,16 +72,8 @@
                 <th class="col-username">@Resources.Username</th>
                 <th class="col-first-name">@Resources.FirstName</th>
                 <th class="col-last-name">@Resources.LastName</th>
-                @if (Model.IsPokerGames)
-                {
-                    <th><div class="col-player-id">@Resources.PlayerId</div></th>
-                }
                 <th><div class="col-credit">@Resources.Credit</div></th>
                 <th><div class="col-balance">@Resources.Balance</div></th>
-                @if (Model.IsPokerGames)
-                {
-                    <th><div class="col-remaining-buy-in-amount">@Resources.RemainingBuyInAmount</div></th>
-                }
                 <th><div class="col-auto-daily-reset">@Resources.AutoDailyResetLimit</div></th>
                 <th><div class="col-current-win-loss">@Resources.CurrentWinLossAmount</div></th>
                 <th><div class="col-max-win">@Resources.MaximumWin</div></th>
@@ -117,16 +102,8 @@
                                 @winLossLimitDetail.Lastname
                             </div>
                         </td>
-                        @if (Model.IsPokerGames)
-                        {
-                            <td class="text-left">@WinLossLimitViewModel.GetPlayerIdText(winLossLimitDetail.PlayerId)</td>
-                        }
                         <td class="text-right">@HtmlHelpers.FormatNumber(winLossLimitDetail.Credit)</td>
                         <td class="text-right">@HtmlHelpers.FormatNumber(winLossLimitDetail.Balance)</td>
-                        @if (Model.IsPokerGames)
-                        {
-                            <td class="text-center">@WinLossLimitViewModel.GetRemainingBuyInAmount(winLossLimitDetail.RemainingBuyInAmount, winLossLimitDetail.MaxLossLimit)</td>
-                        }
                         <td class="text-center">@(winLossLimitDetail.IsAutoReset ? Resources.Yes : Resources.No2)</td>
                         <td class="text-center">@WinLossLimitViewModel.GetCurrentWinAnmout(winLossLimitDetail.CurrentWinAnmout)</td>
                         <td class="text-center">@WinLossLimitViewModel.GetMaxWinLimit(winLossLimitDetail.MaxWinLimit)</td>
