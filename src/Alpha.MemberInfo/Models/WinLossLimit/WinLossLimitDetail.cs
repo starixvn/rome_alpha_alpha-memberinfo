@@ -2,6 +2,8 @@
 {
     public class WinLossLimitDetail
     {
+        private const int Percent = 100;
+
         public int CustId { get; set; }
 
         public string PlayerId { get; set; }
@@ -55,12 +57,12 @@
 
                 if (CreditBalance - DebitBalance > 0 && Credit == 0 && MaxWinLimit > 0)
                 {
-                    return (CreditBalance - DebitBalance) * 100;
+                    return (CreditBalance - DebitBalance) * Percent;
                 }
 
                 if (CreditBalance - DebitBalance > 0 && Credit > 0 && MaxWinLimit > 0)
                 {
-                    return (CreditBalance - DebitBalance) * 100 / (MaxWinLimit * Credit);
+                    return (CreditBalance - DebitBalance) * Percent / (MaxWinLimit * Credit);
                 }
 
                 return 0;
@@ -99,7 +101,7 @@
             {
                 return !MaxLossLimit.HasValue || MaxLossLimit.Value == 0
                     ? (decimal?)null :
-                    -CurrentWinAnmout.Value * 100 / MaxLossLimit.Value;
+                    -CurrentWinAnmout.Value * Percent / MaxLossLimit.Value;
             }
         }
     }

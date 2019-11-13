@@ -3,6 +3,7 @@
     public class JackpotGameSetting
     {
         private const string TwoDecimalPointsFormat = "{0:#,##0.00}";
+        private const int Percent = 100;
 
         public JackpotGameSetting(
             string gameTypeName,
@@ -20,6 +21,6 @@
 
         public decimal BetStake { get; }
 
-        public string ContributionRatePercent => string.Format(TwoDecimalPointsFormat, ContributionRate * 100) + " %";
+        public string ContributionRatePercent => string.Format(TwoDecimalPointsFormat, ContributionRate * Percent) + " %";
     }
 }

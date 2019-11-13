@@ -14,6 +14,8 @@
     public class TransferServiceImpl : TransferService
     {
         private readonly IDynamicRepository repository;
+        private const int DailyIndex = 3;
+        private const int WeekyIndex = 7;
 
         public TransferServiceImpl(IDynamicRepository dynamicRepository)
         {
@@ -58,10 +60,10 @@
 
                 if (day.Length > 0)
                 {
-                    day = day.Substring(3);
+                    day = day.Substring(DailyIndex);
                 }
 
-                transferTime += charArray[7] == '1' ?
+                transferTime += charArray[WeekyIndex] == '1' ?
                     " " + day :
                     " " + Lang.Daily;
             }
