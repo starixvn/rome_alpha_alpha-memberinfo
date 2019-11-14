@@ -288,9 +288,6 @@
   <data name="PlayerId" xml:space="preserve">
     <value>Player ID</value>
   </data>
-  <data name="PokerGamesPlayerID" xml:space="preserve">
-    <value>Poker Games Player ID</value>
-  </data>
   <data name="UsernamePlaceHolder" xml:space="preserve">
     <value>Username or First/Last Name</value>
   </data>

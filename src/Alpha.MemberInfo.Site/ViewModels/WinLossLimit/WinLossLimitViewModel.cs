@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using AppResources;
     using Components;
-    using MemberInfo.Helpers;
     using MemberInfo.Models;
     using MemberInfo.Models.WinLossLimit;
     using Params;
@@ -27,7 +26,6 @@
             AgentId = param.AgentId;
 
             Products = products;
-            IsPokerGames = UserSelectedProductId.IsPokerGames();
             MasterList = masterList;
             AgentList = agentList;
 
@@ -44,8 +42,6 @@
         public int UserSelectedProductId { get; }
 
         public IEnumerable<WinLossLimitProductModel> Products { get; }
-
-        public bool IsPokerGames { get; }
 
         public int MasterId { get; }
 
@@ -76,7 +72,7 @@
 
         public bool ShowPager => WinLossLimitPage.NumberOfRows >= 100;
 
-        public int NumberOfColumns => IsPokerGames ? 15 : 13;
+        public int NumberOfColumns => 13;
 
         public static string GetPlayerIdText(string playerId)
             => string.IsNullOrWhiteSpace(playerId) ? "-" : playerId;

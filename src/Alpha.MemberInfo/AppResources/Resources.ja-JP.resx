@@ -243,12 +243,6 @@
   <data name="SelectAgent" xml:space="preserve">
     <value>エージェントを選択</value>
   </data>
-  <data name="PlayerId" xml:space="preserve">
-    <value>Player ID</value>
-  </data>
-  <data name="PokerGamesPlayerID" xml:space="preserve">
-    <value>Poker Games Player ID</value>
-  </data>
   <data name="UsernamePlaceHolder" xml:space="preserve">
     <value>ユーザー名</value>
   </data>

@@ -264,9 +264,6 @@
   <data name="PlayerId" xml:space="preserve">
     <value>ID người chơi</value>
   </data>
-  <data name="PokerGamesPlayerID" xml:space="preserve">
-    <value>ID người chơi trong Poker Games</value>
-  </data>
   <data name="UsernamePlaceHolder" xml:space="preserve">
     <value>Tên đăng nhập hoặc Tên/Họ</value>
   </data>

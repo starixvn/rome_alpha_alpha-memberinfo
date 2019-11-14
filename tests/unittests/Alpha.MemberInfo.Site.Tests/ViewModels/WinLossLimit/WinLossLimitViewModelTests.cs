@@ -54,7 +54,6 @@
 
         [Theory]
         [InlineData(1, 13)]
-        [InlineData(33, 15)]
         public void NumberOfColumns_Always_ReturnCorrectValue(int productId, int expectValue)
         {
             // Arrange

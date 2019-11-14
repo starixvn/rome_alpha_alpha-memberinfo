@@ -45,58 +45,6 @@
         }
 
         [Fact]
-        public void GetWinLossLimits_PokerGames_ReturnCorrectValue()
-        {
-            // Arrange
-            var param = new WinLossLimitParam(33, 1, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1);
-            var criteria = new GetCustWinLossLimitCriteria(param, 1);
-            var winLossLimits = new List<WinLossLimitDetail> {
-                new WinLossLimitDetail
-                {
-                    CustId = 3,
-                    Closed = true,
-                    Enabled = false,
-                    Suspended = false,
-                    Username = "CustName",
-                    Firstname = "Firstname",
-                    Lastname = "Lastname",
-                    Credit = 2,
-                    IsAutoReset = true,
-                    MaxWinLimit = 100,
-                    MaxLossLimit = 5,
-                    PlayerId = "6"
-                },
-                new WinLossLimitDetail
-                {
-                    CustId = 3,
-                    Closed = true,
-                    Enabled = false,
-                    Suspended = false,
-                    Username = "CustName",
-                    Firstname = "Firstname",
-                    Lastname = "Lastname",
-                    Credit = 2,
-                    IsAutoReset = true,
-                    MaxWinLimit = 100,
-                    MaxLossLimit = null,
-                    PlayerId = "7"
-                }
-            };
-
-            var expectedValue = new WinLossLimitPage(2, winLossLimits);
-
-            var reportData = CustWinLossLimitDatabase.Data.CreateDataReader();
-            objectDb.ExecuteReader(Arg.Any<GetCustWinLossLimitCriteria>()).Returns(reportData);
-            objectDb.GetOuputParams().Returns(new Hashtable { ["totalrows"] = 2 });
-
-            // Act
-            var actualValue = winLossLimitDataAccessImpl.GetWinLossLimits(criteria);
-
-            // Assert
-            Assert.True(compareLogic.Compare(expectedValue, actualValue).AreEqual);
-        }
-
-        [Fact]
         public void GetWinLossLimits_NotPokerGames_ReturnCorrectValue()
         {
             // Arrange
