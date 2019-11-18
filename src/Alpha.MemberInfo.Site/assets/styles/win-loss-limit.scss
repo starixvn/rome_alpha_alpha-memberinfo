@@ -23,6 +23,12 @@
     white-space: normal;
 }
 
+
+.tblRpt.tblRpt-bordered tfoot > tr > td {
+    border: 1px solid #eee;
+    background: #eee;
+}
+
 #tbl-report tbody td {
     overflow: hidden;
     white-space: nowrap;
@@ -37,10 +43,6 @@
     text-transform: none;
 }
 
-.tblRpt.tblRpt-bordered tfoot > tr > td {
-    border: 1px solid #eee;
-    background: #eee;
-}
 
 .col-no {
     width: 50px;
