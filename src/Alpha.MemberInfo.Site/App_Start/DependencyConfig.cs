@@ -4,6 +4,7 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
     using System.Web.Mvc;
+    using Alpha.MemberInfo.Site.Handlers;
     using Controllers;
     using DataAccesses;
     using Fanex.Data.Repository;
@@ -11,6 +12,8 @@
     using MediatR;
     using MemberInfo.Models;
     using Models;
+    using ONEbook.SpreadSheets;
+    using ONEbook.SpreadSheets.NPOI;
     using Services;
     using Services.CreditBalance;
     using Services.MemberRequest;
@@ -105,6 +108,9 @@
                 Lifestyle.Singleton);
 
             container.RegisterPerWebRequest<CreditBalanceService, CreditBalanceServiceImpl>();
+            container.RegisterPerWebRequest<IProblemAccountService, ProblemAccountService>();
+            container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
+            container.RegisterPerWebRequest<ProblemAccountWorkbook, ProblemAccountWorkbookImpl>();
         }
     }
 }

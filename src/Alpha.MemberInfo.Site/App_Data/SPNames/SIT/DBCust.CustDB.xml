@@ -14,4 +14,11 @@
 
     <Setting Key="Acc_CustomerSelByPlayerId" SpName="Acc_CustomerSelByPlayerId" DbName="DBCust.CustDB.BODBDownlineNet" />
   </Function>
+  <Function Name="Problem Account">
+    <Setting Key="NAP_ProblemAccount_CustomerList" SpName="NAP_ProblemAccount_CustomerList" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0">
+      <Mapping DataField="numberOfDownline" ObjectProperty="Count" />
+      <Mapping DataField="username2" ObjectProperty="NickName" />
+    </Setting>
+    <Setting Key="NAP_ProblemAccount_ReviewStatusUpd" SpName="	NAP_ProblemAccount_ReviewStatusUpd" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+  </Function>
 </Functions>

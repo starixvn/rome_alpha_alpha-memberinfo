@@ -15,9 +15,12 @@
             CustId = viewer.Id;
             CustName = viewer.Name;
             CustLevelId = viewer.LevelId;
+            SubAccId = viewer.SubAccId;
         }
 
         public int CustId { get; set; }
+
+        public int SubAccId { get; set; }
 
         public string CustName { get; set; }
 
@@ -34,6 +37,8 @@
         public virtual UserLevel ActorLevel => Enumeration.FromValue<UserLevel>(ViewerLevelId);
 
         public string Language => viewer.Language;
+
+        public string IP => viewer.IP;
 
         public virtual bool IsValid()
             => CustId > 0

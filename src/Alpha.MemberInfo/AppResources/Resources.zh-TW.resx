@@ -321,4 +321,64 @@
   <data name="Cash" xml:space="preserve">
     <value>現金</value>
   </data>
+  <data name="ProblemMemberAccounts" xml:space="preserve">
+    <value>問題會員帳戶</value>
+  </data>
+  <data name="DateNotified" xml:space="preserve">
+    <value>通報日期 至</value>
+  </data>
+  <data name="ReviewStatus" xml:space="preserve">
+    <value>審查狀態</value>
+  </data>
+  <data name="SetToReviewed" xml:space="preserve">
+    <value>設為已審查</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>已審查</value>
+  </data>
+  <data name="NotReviewed" xml:space="preserve">
+    <value>未審查</value>
+  </data>
+  <data name="Agent" xml:space="preserve">
+    <value>代理</value>
+  </data>
+  <data name="Member" xml:space="preserve">
+    <value>會員</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>總代理</value>
+  </data>
+  <data name="SetReviewedForAccountOnly" xml:space="preserve">
+    <value>選擇的帳號設為已審核</value>
+  </data>
+  <data name="SetReviewedForDownline" xml:space="preserve">
+    <value>將所選的帳戶及受影響的下線設為已審核</value>
+  </data>
+  <data name="ProblemAgentAccounts" xml:space="preserve">
+    <value>問題代理商帳戶</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Nickname" xml:space="preserve">
+    <value>暱稱</value>
+  </data>
+  <data name="ExportToExcel" xml:space="preserve">
+    <value>導出Excel</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>到</value>
+  </data>
+  <data name="UpdateSuccessfully" xml:space="preserve">
+    <value>成功更新</value>
+  </data>
+  <data name="EnterAccount" xml:space="preserve">
+    <value>用戶名/暱稱或名/姓</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>沒有</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>選擇</value>
+  </data>
 </root>

@@ -1,0 +1,59 @@
+﻿body {
+    padding-bottom: 48px;
+}
+
+.content-page {
+    padding: 0px 0px;
+}
+
+.review-content {
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+.list-button {
+    position: fixed;
+    right: 20px;
+    bottom: 16px;
+    left: 0;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    [class^='btn'] {
+        float: right;
+        min-width: 80px;
+        line-height: 30px;
+    }
+
+    .btn-cancel {
+        margin-right: 20px;
+    }
+
+    .btn-submit {
+        margin-right: 0;
+    }
+}
+
+.review-options {
+    display: block;
+    padding: 4px 0;
+    font-weight: normal;
+    font-size: 14px;
+    color: #333333;
+}
+
+.more-content {
+    display: inline;
+
+    span {
+        display: none;
+    }
+}
+
+.form-horizontal {
+    label {
+        text-align: left;
+    }
+    margin-top:10px;
+}

@@ -277,9 +277,12 @@
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Constants\CasinoGameKind.cs" />
+    <Compile Include="Constants\ProblemAccountStatusConstants.cs" />
     <Compile Include="Constants\ProductId.cs" />
+    <Compile Include="Constants\ReviewStatusConstant.cs" />
     <Compile Include="Criteria\GetAgentListCriteria.cs" />
     <Compile Include="Criteria\GetMasterListCriteria.cs" />
+    <Compile Include="Criteria\ProblemAccount\GetProblemAccountCriteria.cs" />
     <Compile Include="Criteria\Transfer\GetTransferOptionCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\MapPlayerId3rdToCustIdCriteria.cs" />
     <Compile Include="Constants\StatusIdentity.cs" />
@@ -301,6 +304,7 @@
     <Compile Include="DataAccesses\MemberInfoObjectDbFactory.cs" />
     <Compile Include="DataAccesses\WinLossLimitDataAccess.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\CasinoGameKindModel.cs" />
@@ -313,14 +317,19 @@
     <Compile Include="Models\MemberRequests\GetCasinoSettingResult.cs" />
     <Compile Include="Models\MemberRequests\GetSettingResult.cs" />
     <Compile Include="Models\MemberRequests\MemberRequestModel.cs" />
+    <Compile Include="Models\ProblemAccount\ProblemAccountModel.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProgressiveJackpot\JackpotGameSetting.cs" />
+    <Compile Include="Models\Result.cs" />
     <Compile Include="Models\UserLevel.cs" />
     <Compile Include="Params\CreditBalanceParam.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitDetail.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitPage.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitProductModel.cs" />
     <Compile Include="Params\MemberRequestParam.cs" />
+    <Compile Include="Params\ProblemAccount\UpdateProblemAccountParam.cs" />
+    <Compile Include="Params\ProblemAccount\GetProblemAccountParam.cs" />
+    <Compile Include="Criteria\ProblemAccount\UpdateReviewStatusProblemAccountCriteria.cs" />
     <Compile Include="Params\ProductSettingParam.cs" />
     <Compile Include="Params\ProgressiveJackpotParam.cs" />
     <Compile Include="Params\WinLossLimitParam.cs" />
@@ -329,6 +338,7 @@
     <Compile Include="Services\CreditBalance\CreditBalanceService.cs" />
     <Compile Include="Services\MemberRequest\MemberRequestService.cs" />
     <Compile Include="Services\MemberRequest\CasinoCustomer.cs" />
+    <Compile Include="Services\ProblemAccountService.cs" />
     <Compile Include="Services\ProgressiveJackpot\ProgressiveJackpotService.cs" />
     <Compile Include="Services\Transfer\TransferService.cs" />
     <Compile Include="Services\WinLossLimit\WinLossLimitService.cs" />

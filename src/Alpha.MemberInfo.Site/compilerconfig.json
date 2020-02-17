@@ -10,5 +10,13 @@
   {
     "outputFile": "assets/bundles/win-loss-limit.css",
     "inputFile": "assets/styles/win-loss-limit.scss"
+  },
+  {
+    "outputFile": "assets/bundles/problem-account/index.css",
+    "inputFile": "assets/styles/problem-account/index.scss"
+  },
+  {
+    "outputFile": "assets/bundles/problem-account/update.css",
+    "inputFile": "assets/styles/problem-account/update.scss"
   }
 ]

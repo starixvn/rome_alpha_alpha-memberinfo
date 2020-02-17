@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -66,6 +66,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Action {
             get {
                 return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agent.
+        /// </summary>
+        public static string Agent {
+            get {
+                return ResourceManager.GetString("Agent", resourceCulture);
             }
         }
         
@@ -142,6 +151,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cash.
         /// </summary>
         public static string Cash {
@@ -214,6 +232,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date Notified From.
+        /// </summary>
+        public static string DateNotified {
+            get {
+                return ResourceManager.GetString("DateNotified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disabled.
         /// </summary>
         public static string Disabled {
@@ -250,11 +277,38 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username, Nickname or First/Last Name.
+        /// </summary>
+        public static string EnterAccount {
+            get {
+                return ResourceManager.GetString("EnterAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username or First/Last Name.
         /// </summary>
         public static string EnterUsername {
             get {
                 return ResourceManager.GetString("EnterUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export Date.
+        /// </summary>
+        public static string ExportDate {
+            get {
+                return ResourceManager.GetString("ExportDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export to Excel.
+        /// </summary>
+        public static string ExportToExcel {
+            get {
+                return ResourceManager.GetString("ExportToExcel", resourceCulture);
             }
         }
         
@@ -313,6 +367,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Master.
+        /// </summary>
+        public static string Master {
+            get {
+                return ResourceManager.GetString("Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum Loss.
         /// </summary>
         public static string MaximumLoss {
@@ -327,6 +390,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string MaximumWin {
             get {
                 return ResourceManager.GetString("MaximumWin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member.
+        /// </summary>
+        public static string Member {
+            get {
+                return ResourceManager.GetString("Member", resourceCulture);
             }
         }
         
@@ -354,6 +426,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string NewBetTypeEffectDate {
             get {
                 return ResourceManager.GetString("NewBetTypeEffectDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nickname.
+        /// </summary>
+        public static string Nickname {
+            get {
+                return ResourceManager.GetString("Nickname", resourceCulture);
             }
         }
         
@@ -394,11 +475,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string None {
+            get {
+                return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Product settings have not been configured for your account yet, please contact your upline..
         /// </summary>
         public static string NoSettingWarning {
             get {
                 return ResourceManager.GetString("NoSettingWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Reviewed.
+        /// </summary>
+        public static string NotReviewed {
+            get {
+                return ResourceManager.GetString("NotReviewed", resourceCulture);
             }
         }
         
@@ -484,6 +583,33 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Problem Account List.
+        /// </summary>
+        public static string ProblemAccountList {
+            get {
+                return ResourceManager.GetString("ProblemAccountList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Problem Agent Accounts.
+        /// </summary>
+        public static string ProblemAgentAccounts {
+            get {
+                return ResourceManager.GetString("ProblemAgentAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Problem Member Accounts.
+        /// </summary>
+        public static string ProblemMemberAccounts {
+            get {
+                return ResourceManager.GetString("ProblemMemberAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Progressive Jackpot Games.
         /// </summary>
         public static string ProgressiveJackpotGames {
@@ -529,6 +655,51 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please input a valid agent account.
+        /// </summary>
+        public static string RequiredAgent {
+            get {
+                return ResourceManager.GetString("RequiredAgent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please input a valid master account.
+        /// </summary>
+        public static string RequiredMaster {
+            get {
+                return ResourceManager.GetString("RequiredMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reviewed.
+        /// </summary>
+        public static string Reviewed {
+            get {
+                return ResourceManager.GetString("Reviewed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review Status.
+        /// </summary>
+        public static string ReviewStatus {
+            get {
+                return ResourceManager.GetString("ReviewStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select.
+        /// </summary>
+        public static string Select {
+            get {
+                return ResourceManager.GetString("Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Agent.
         /// </summary>
         public static string SelectAgent {
@@ -543,6 +714,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Selected {
             get {
                 return ResourceManager.GetString("Selected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected account(s):.
+        /// </summary>
+        public static string SelectedAccounts {
+            get {
+                return ResourceManager.GetString("SelectedAccounts", resourceCulture);
             }
         }
         
@@ -565,11 +745,47 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set to Reviewed for the selected accounts only..
+        /// </summary>
+        public static string SetReviewedForAccountOnly {
+            get {
+                return ResourceManager.GetString("SetReviewedForAccountOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set to Reviewed for the selected accounts and their problem account downlines..
+        /// </summary>
+        public static string SetReviewedForDownline {
+            get {
+                return ResourceManager.GetString("SetReviewedForDownline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To enable the product, setting configuration is required..
         /// </summary>
         public static string SettingRequiredWarning {
             get {
                 return ResourceManager.GetString("SettingRequiredWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set to Reviewed.
+        /// </summary>
+        public static string SetToReviewed {
+            get {
+                return ResourceManager.GetString("SetToReviewed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show all {0} accounts?.
+        /// </summary>
+        public static string ShowAllAccounts {
+            get {
+                return ResourceManager.GetString("ShowAllAccounts", resourceCulture);
             }
         }
         
@@ -601,6 +817,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Supended.
+        /// </summary>
+        public static string Supended {
+            get {
+                return ResourceManager.GetString("Supended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Suspended.
         /// </summary>
         public static string Suspended {
@@ -628,11 +853,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To.
+        /// </summary>
+        public static string To {
+            get {
+                return ResourceManager.GetString("To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total Contribution Rate.
         /// </summary>
         public static string TotalContributionRate {
             get {
                 return ResourceManager.GetString("TotalContributionRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Successfully.
+        /// </summary>
+        public static string UpdateSuccessfully {
+            get {
+                return ResourceManager.GetString("UpdateSuccessfully", resourceCulture);
             }
         }
         
