@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace Alpha.MemberInfo.Constants
+﻿namespace Alpha.MemberInfo.Constants
 {
+    using System.Collections.Generic;
+
     public static class ProblemAccountStatusConstants
     {
         public const int Open = 1;

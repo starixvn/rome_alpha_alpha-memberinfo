@@ -13,26 +13,26 @@
 
         public int CustId { get; set; }
 
-        public string NickName { get; set; }
+        public string NickName { get; }
 
-        public string UserName { get; set; }
+        public string UserName { get; }
 
-        public string FirstName { get; set; }
+        public string FirstName { get; }
 
-        public string LastName { get; set; }
+        public string LastName { get; }
 
-        public byte Status { get; set; }
+        public byte Status { get; }
 
-        public string StatusName 
+        public string StatusName
             => Resources.ResourceManager.GetString(ProblemAccountStatusConstants.GetProblemAccountStatus(Status));
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; }
 
         public string CreatedDateStr => CreatedDate.ToLongDateTime24h();
 
-        public int Count { get; set; }
+        public int Count { get; }
 
-        public bool IsReviewed { get; set; }
+        public bool IsReviewed { get; }
 
         public string ReviewStatus => IsReviewed ? Resources.Reviewed : Resources.NotReviewed;
 

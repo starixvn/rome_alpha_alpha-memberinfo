@@ -64,7 +64,7 @@
 
         if (result.IsSuccessful) {
             this.message.showSuccess(this.$messageContainer, this.successMessage);
-            //this.topWindow["indexManager"].closePopupAndReloadMainIframe();
+            this.topWindow["indexManager"].closePopupAndReloadMainIframe();
         } else {
             this.message.showMessage(this.$messageContainer, result);
         }

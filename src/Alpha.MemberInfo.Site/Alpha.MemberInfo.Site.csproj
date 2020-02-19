@@ -505,6 +505,18 @@
     <Content Include="assets\scripts\tests\libs\pagination\jquery.pagination.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.parser.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.resizable.js" />
+    <Content Include="assets\styles\problem-account\index.css">
+      <DependentUpon>index.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\update.css">
+      <DependentUpon>update.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\update.min.css">
+      <DependentUpon>update.css</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
     <Content Include="Views\MemberRequests\Index.cshtml" />
@@ -589,8 +601,8 @@
     <Compile Include="Handlers\CreditBalanceHandler.cs" />
     <Compile Include="Handlers\ExcelBaseHandler.cs" />
     <Compile Include="Handlers\MemberRequestHandler.cs" />
-    <Compile Include="Handlers\ProblemAccountExcelHandler.cs" />
-    <Compile Include="Handlers\ProblemAccountHandler.cs" />
+    <Compile Include="Handlers\ProblemAccount\ProblemAccountExcelHandler.cs" />
+    <Compile Include="Handlers\ProblemAccount\ProblemAccountHandler.cs" />
     <Compile Include="Handlers\ProblemAccount\ProblemAccountWorkbook.cs" />
     <Compile Include="Handlers\ProgressiveJackpotHandler.cs" />
     <Compile Include="Handlers\WinLossLimitHandler.cs" />
@@ -603,9 +615,10 @@
     <Compile Include="Requests\MemberInfoBaseQuery.cs" />
     <Compile Include="Requests\ProblemAccount\IndexRequest.cs" />
     <Compile Include="Requests\ProblemAccount\ProblemAccountExcelQuery.cs" />
+    <Compile Include="Requests\ProblemAccount\ProblemAccountRequestBase.cs" />
     <Compile Include="Requests\ProblemAccount\UpdateProblemAccountCommand.cs" />
     <Compile Include="Requests\ProblemAccount\UpdateProblemAccountRequest.cs" />
-    <Compile Include="Requests\ProblemAccount\ProblemAccountRequest.cs" />
+    <Compile Include="Requests\ProblemAccount\GetProblemAccountRequest.cs" />
     <Compile Include="Requests\ProgressiveJackpot\ProgressiveJacpotQuery.cs" />
     <Compile Include="Requests\WinLossLimit\WinLossLimitQuery.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
@@ -745,7 +758,7 @@
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\base-list.ts" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\customer-list-helper.ts" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\update.ts" />
-    <TypeScriptCompile Include="assets\scripts\ProblemAccount\problem-account.ts" />
+    <TypeScriptCompile Include="assets\scripts\ProblemAccount\index.ts" />
     <TypeScriptCompile Include="assets\scripts\progressive-jackpot\progressive-jackpot.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\pager-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\productmultiselection-tests.ts" />

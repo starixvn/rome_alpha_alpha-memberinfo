@@ -3,55 +3,29 @@
     using System.Web.Mvc;
     using System.Web.SessionState;
     using Alpha.MemberInfo.Site.Requests.ProblemAccount;
-    using Alpha.MemberInfo.Site.ViewModels;
     using MediatR;
-    using Web;
 
     [SessionState(SessionStateBehavior.Default)]
-    public class ProblemAccountController : BaseController
+    public class ProblemAccountController : SiteBaseController
     {
-        private const string InvalidExcelFileName = "Invalid";
-        private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
-        private readonly IMediator mediator;
-
-        public ProblemAccountController(IMediator mediator)
+        public ProblemAccountController(IMediator mediator) : base(mediator)
         {
-            this.mediator = mediator;
         }
 
         public ActionResult Index(IndexRequest message)
-        {
-            if (message != null && !message.IsValid())
-            {
-                return View(InvalidPageViewPath);
-            }
-
-            return View(mediator.Send(message));
-        }
+            => View(message, "Index");
 
         public ActionResult Update(UpdateProblemAccountRequest message)
-        {
-            if (message != null && !message.IsValid())
-            {
-                return View(InvalidPageViewPath);
-            }
+            => View(message, "Update");
 
-            return View(mediator.Send(message));
-        }
-
-        public ActionResult GetProblemAccounts(ProblemAccountRequest message)
-            => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+        public ActionResult GetProblemAccounts(GetProblemAccountRequest message)
+            => Json(message);
 
         [HttpPost]
         public ActionResult Update(UpdateProblemAccountCommand message)
-            => Json(mediator.Send(message));
+            => Json(message);
 
         public ActionResult Excel(ProblemAccountExcelQuery message)
-            => message.IsValid()
-                ? GetExcelContent(mediator.Send(message))
-                : GetExcelContent(new ExcelFileViewModel(InvalidExcelFileName, new byte[] { }));
-
-        private FileContentResult GetExcelContent(ExcelFileViewModel viewModel)
-            => File(viewModel.Content, viewModel.ContentType, viewModel.Name);
+            => ExcelView(message);
     }
 }

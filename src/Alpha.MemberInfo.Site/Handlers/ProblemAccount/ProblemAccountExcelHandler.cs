@@ -1,14 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Site.Handlers
 {
     using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Extensions;
-    using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Models.ProblemAccount;
-    using Alpha.MemberInfo.Params.ProblemAccount;
     using Alpha.MemberInfo.Services;
     using Alpha.MemberInfo.Site.Requests.ProblemAccount;
     using Alpha.MemberInfo.Site.ViewModels;
@@ -32,17 +28,7 @@
 
         public ExcelFileViewModel Handle(ProblemAccountExcelQuery message)
         {
-            var param = new GetProblemAccountParam
-            {
-                FromDate = message.FromDate,
-                ToDate = message.ToDate,
-                ReviewStatusId = message.UserSelectedReviewedStatusId,
-                CustId = message.CustId,
-                SubAccId = message.CustId,
-                UplineUserName = message.UplineName,
-                SearchRoleId = message.SearchRoleId,
-                SearchUserName = message.UserName
-            };
+            var param = ProblemAccountHandler.CreateParam(message);
 
             var problemAccounts = problemAccountService.Get(param);           
 

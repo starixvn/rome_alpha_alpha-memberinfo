@@ -17,7 +17,7 @@
             IEnumerable<ProblemAccountModel> models)
         {
             DateRangePickerViewModel = new DateRangePickerViewModel(new DateTime(2020, 1, 1), DateTime.Now, query.FromDate, query.ToDate);
-            var status = ReviewStatusConstant.List
+            var status = ReviewStatusConstant.Items
                 .Select(s => new SelectListItem
                 {
                     Text = AppResources.Resources.ResourceManager.GetString(s.Value),

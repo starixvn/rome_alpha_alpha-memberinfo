@@ -36,9 +36,11 @@
         public DateTime ToDate { get; }
 
         public override string GetSettingKey()
-            => "NAP_ProblemAccount_CustomerList";
+            => "Age_ProblemAccount_CustomerList";
 
         public override bool IsValid()
-            => true;
+            => CustId > 0 &&
+            SubAccId >= 0 &&
+            SearchRoleId <= UserLevel.Master.Value;            
     }
 }

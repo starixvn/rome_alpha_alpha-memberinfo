@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.Handlers
 {
-    using System;
     using System.Collections.Generic;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Models.ProblemAccount;
@@ -12,7 +11,7 @@
 
     public class ProblemAccountHandler :
         IRequestHandler<IndexRequest, ProblemAccountReportViewModel>,
-        IRequestHandler<ProblemAccountRequest, IEnumerable<ProblemAccountModel>>,
+        IRequestHandler<GetProblemAccountRequest, IEnumerable<ProblemAccountModel>>,
         IRequestHandler<UpdateProblemAccountCommand, Result>,
         IRequestHandler<UpdateProblemAccountRequest, UpdateReviewStatusViewModel>
     {
@@ -41,28 +40,16 @@
         }
 
         public ProblemAccountReportViewModel Handle(IndexRequest message)
-        {
-            return new ProblemAccountReportViewModel(message, new List<ProblemAccountModel>());
-        }
+            => new ProblemAccountReportViewModel(message, new List<ProblemAccountModel>());
 
-        public IEnumerable<ProblemAccountModel> Handle(ProblemAccountRequest message)
+        public IEnumerable<ProblemAccountModel> Handle(GetProblemAccountRequest message)
         {
-            var models = service.Get(new GetProblemAccountParam
-            {
-                FromDate = message.FromDate,
-                ToDate = message.ToDate,
-                ReviewStatusId = message.UserSelectedReviewedStatusId,
-                CustId = message.CustId,
-                SubAccId = message.CustId,
-                UplineUserName = message.UplineName,
-                SearchRoleId = message.SearchRoleId,
-                SearchUserName = message.UserName
-            });
+            var models = service.Get(CreateParam(message));
 
             return models;
         }
 
-        protected internal static GetProblemAccountParam CreateParam(ProblemAccountRequest message)
+        protected internal static GetProblemAccountParam CreateParam(ProblemAccountRequestBase message)
             => new GetProblemAccountParam
             {
                 FromDate = message.FromDate,

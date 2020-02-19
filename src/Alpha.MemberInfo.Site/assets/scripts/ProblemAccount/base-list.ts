@@ -6,7 +6,6 @@ class BaseList {
     dateRangePickerComponent: DateRangePickerComponent;
     $updateButton: JQuery;
 
-    $tooltip: JQuery;
     $dropdownStatus: JQuery;
     $username: JQuery;
     $uplineName: JQuery;
@@ -112,12 +111,6 @@ class BaseList {
     export = () => {
         const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedDirectUpline.val() : null;
 
-        //this.reportParam.UplineName = downlineUsername;
-        //this.reportParam.UplineRoleId = this.levelId;
-        //this.reportParam.UserSelectedReviewedStatusId = parseInt(this.$dropdownStatus.find("option:selected").val());
-        //this.reportParam.UserName = this.$username.val();
-        //this.reportParam.FromDate = this.$(`#from-date-${this.levelNameLowerCase}`).val();
-        //this.reportParam.ToDate = this.$(`#to-date-${this.levelNameLowerCase}`).val();
         this.$("#FromDate").val(this.$(`#from-date-${this.levelNameLowerCase}`).val());
         this.$("#ToDate").val(this.$(`#to-date-${this.levelNameLowerCase}`).val());
         this.$("#UserSelectedReviewedStatusId").val(parseInt(this.$dropdownStatus.find("option:selected").val()));

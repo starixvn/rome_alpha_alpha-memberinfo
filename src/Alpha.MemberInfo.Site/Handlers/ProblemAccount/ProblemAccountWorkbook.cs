@@ -1,31 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Alpha.MemberInfo.Constants;
-using Alpha.MemberInfo.Models.ProblemAccount;
-using ONEbook.SpreadSheets;
-using ONEbook.SpreadSheets.NPOI;
-
-namespace Alpha.MemberInfo.Site.Handlers
+﻿namespace Alpha.MemberInfo.Site.Handlers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Alpha.MemberInfo.Constants;
+    using Alpha.MemberInfo.Models.ProblemAccount;
+    using ONEbook.SpreadSheets;
+    using ONEbook.SpreadSheets.NPOI;
+
     public interface ProblemAccountWorkbook
     {
         Workbook<ProblemAccountModel> UseTemplate(TemplateInfo templateInfo);
-
-        Workbook<ProblemAccountModel> Sheet(string sheetName);
-
-        Workbook<ProblemAccountModel> Title(string titleText);
-
-        Workbook<ProblemAccountModel> Header(Func<string, string> headerMapping);
-
-        byte[] ExportToBytes();
 
         ProblemAccountWorkbook SetData(
             IEnumerable<ProblemAccountModel> data);
 
         ProblemAccountWorkbook SetRowMappers(
-            Mapper<ProblemAccountModel> masterRowMapper);
+            Mapper<ProblemAccountModel> rowMapper);
     }
 
     public class ProblemAccountWorkbookImpl :
@@ -64,16 +55,6 @@ namespace Alpha.MemberInfo.Site.Handlers
             return this;
         }
 
-        internal void FillTitle(Sheet sheet, int rowIndex, ProblemAccountModel data)
-        {
-            var row = sheet.GetRow(rowIndex);
-            row.CopyCellsFrom(MatchTitleRowTemplate);
-
-            var title = "Title";
-            sheet.SetCellRangeValue(rowIndex, row.FirstCellIndex, rowIndex, row.LastCellIndex - 1, title);
-        }
-               
-
         internal void FillProblemAccount(
             Sheet sheet,
             int rowIndex,
@@ -101,15 +82,12 @@ namespace Alpha.MemberInfo.Site.Handlers
             FillCells(row, account, RowMapper.Mappings);
         }
 
-        
-
         protected override Sheet LoadTemplateSheet()
         {
             var sheet = GetSheetAt(TemplateInfo.SheetIndex);
 
             var currentRowIndex = TemplateInfo.BodyStartIndex;
 
-            //MatchTitleRowTemplate = sheet.GetRow(currentRowIndex++);
             OpenRowTemplate = sheet.GetRow(currentRowIndex++);
             SuspendedRowTemplate = sheet.GetRow(currentRowIndex++);
             CloseRowTemplate = sheet.GetRow(currentRowIndex++);            
@@ -132,7 +110,7 @@ namespace Alpha.MemberInfo.Site.Handlers
                 rowIndex,
                 colIndex,
                 rowIndex,
-                MatchTitleRowTemplate.LastCellIndex - 1,
+                OpenRowTemplate.LastCellIndex - 1,
                 TemplateInfo.NoInfomationText);
 
             sheet.GetCell(rowIndex, colIndex).SetCenterHorizontalAlignment();

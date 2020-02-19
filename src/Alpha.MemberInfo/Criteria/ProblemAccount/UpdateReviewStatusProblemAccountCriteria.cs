@@ -1,9 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Criteria.ProblemAccount
 {
+    using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Params.ProblemAccount;
     using Fanex.Data.Repository;
 
-    public class UpdateReviewStatusProblemAccountCriteria: NonQueryCommand
+    public class UpdateReviewStatusProblemAccountCriteria : NonQueryCommand
     {
         public UpdateReviewStatusProblemAccountCriteria(UpdateProblemAccountParam param)
         {
@@ -35,8 +36,11 @@
         public string ErrMsg { get; set; }
 
         public override string GetSettingKey()
-            => "NAP_ProblemAccount_ReviewStatusUpd";
+            => "Age_ProblemAccount_ReviewStatusUpd";
         public override bool IsValid()
-            => true;
+            => UserId > 0 &&
+            SubAccId >= 0 &&
+            RoleId <= UserLevel.Master.Value &&
+            !string.IsNullOrEmpty(CustomerList);
     }
 }

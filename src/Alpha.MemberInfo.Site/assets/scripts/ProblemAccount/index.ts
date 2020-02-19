@@ -1,14 +1,9 @@
-﻿/// <reference path="../components/single-selection-dropdown.ts" />
-/// <reference path="../components/daterangepicker.ts" />
-declare var initAutoComplete: Function;
+﻿declare var initAutoComplete: Function;
 "use strict";
 
 class ProblemAccount {
     $: JQueryStatic;
-    ViewerId: number;
-    ActorLevel: number;
     topWindow: any;
-    $username: JQuery;
     $usernameAutoSuggestionPath: JQuery;
 
     masterList: BaseList;
