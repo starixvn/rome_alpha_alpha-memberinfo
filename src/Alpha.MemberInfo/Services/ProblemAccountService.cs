@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Services
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Criteria.ProblemAccount;
     using Alpha.MemberInfo.Models;
@@ -33,6 +34,8 @@
         }
 
         public IEnumerable<ProblemAccountModel> Get(GetProblemAccountParam param)
-            => dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param));
+            => dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
+            .OrderByDescending(i => i.IsReviewed)
+            .ThenBy(i => i.Status);
     }
 }

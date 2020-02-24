@@ -48,9 +48,10 @@
     onSubmit = (e: JQueryEventObject) => {
         e.preventDefault();
         this.$.blockUI();
-
+        var token = this.$("input[name=\"__RequestVerificationToken\"").val();
         this.$.ajax({
             type: "POST",
+            beforeSend: xhr => xhr.setRequestHeader("__RequestVerificationToken", token),
             url: this.$formUpdateReviewStatus.attr("action"),
             data: this.getParams(),
             dataType: "json",
@@ -60,7 +61,7 @@
     };
 
     submitSuccess = (data) => {
-        const result = new Result(data.Code, data.Message);
+        const result = new Result(data.Code, data.Message, data.ErrMsg);
 
         if (result.IsSuccessful) {
             this.message.showSuccess(this.$messageContainer, this.successMessage);
@@ -93,7 +94,8 @@ class Message {
         } else if (result.IsWarning) {
             this.showWarn($target, result.Message);
         } else if (result.IsFailed) {
-            this.showError($target, result.Message);
+            var errMsg = result.Message != "" ? result.Message : result.ErrMsg;
+            this.showError($target, errMsg);
         }
     }
 
@@ -119,15 +121,17 @@ class Result {
 
     Code: number;
     Message: string;
+    ErrMsg: string;
     IsSuccessful: boolean;
     IsFailed: boolean;
     IsWarning: boolean;
 
-    constructor(code: number, message: string) {
+    constructor(code: number, message: string, errMsg: string) {
         this.Code = code;
         this.Message = message || "";
         this.IsSuccessful = this.Code === 0;
         this.IsFailed = !this.IsSuccessful;
         this.IsWarning = code === Result.warningCode;
+        this.ErrMsg = errMsg;
     }
 }

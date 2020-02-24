@@ -325,7 +325,7 @@
     <value>Yesterday Cash Balance</value>
   </data>
   <data name="DateNotified" xml:space="preserve">
-    <value>Date Notified From</value>
+    <value>Date Notified</value>
   </data>
   <data name="ProblemMemberAccounts" xml:space="preserve">
     <value>Problem Member Accounts</value>
@@ -404,5 +404,8 @@
   </data>
   <data name="Supended" xml:space="preserve">
     <value>Supended</value>
+  </data>
+  <data name="DateNotifiedFrom" xml:space="preserve">
+    <value>Date Notified From</value>
   </data>
 </root>

@@ -381,4 +381,7 @@
   <data name="Select" xml:space="preserve">
     <value>選擇</value>
   </data>
+  <data name="DateNotifiedFrom" xml:space="preserve">
+    <value>通報日期 至</value>
+  </data>
 </root>

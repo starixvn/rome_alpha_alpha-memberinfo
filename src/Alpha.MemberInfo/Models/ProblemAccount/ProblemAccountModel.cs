@@ -11,9 +11,11 @@
         {
         }
 
-        public int CustId { get; set; }
+        public int CustId { get; }
 
-        public string NickName { get; }
+        public string Username2 { get; }
+
+        public string NickName => string.IsNullOrEmpty(Username2) ? string.Empty : Username2;
 
         public string UserName { get; }
 

@@ -3,6 +3,7 @@
     using System.Web.Mvc;
     using System.Web.SessionState;
     using Alpha.MemberInfo.Site.Requests.ProblemAccount;
+    using Alpha.Web.Filters;
     using MediatR;
 
     [SessionState(SessionStateBehavior.Default)]
@@ -21,7 +22,7 @@
         public ActionResult GetProblemAccounts(GetProblemAccountRequest message)
             => Json(message);
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public ActionResult Update(UpdateProblemAccountCommand message)
             => Json(message);
 

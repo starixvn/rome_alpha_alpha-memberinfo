@@ -4,6 +4,8 @@ class BaseList {
     topWindow: Window;
     reviewStatusComponent: SingleSelectionDropdownComponent;
     dateRangePickerComponent: DateRangePickerComponent;
+    $fromDate: JQuery;
+    $toDate: JQuery;
     $updateButton: JQuery;
 
     $dropdownStatus: JQuery;
@@ -80,6 +82,8 @@ class BaseList {
         this.$dropdownStatus = this.$(`#dropdown-reviewstatus-${this.levelNameLowerCase}`);
         this.getProblemAccountUrl = this.$("#getProblemAccountUrl").val();
         this.$tblReport = this.$(`#tbl-${this.levelNameLowerCase}`);
+        this.$fromDate = this.$(`#from-date-${this.levelNameLowerCase}`);
+        this.$toDate = this.$(`#to-date-${this.levelNameLowerCase}`);
 
         if (this.isIndirectDownlineOfActor) {
             this.$viewedDirectUpline = this.$(`#txt-uplinename-${this.levelId === siteInfrastructure.Role.Agent.Id ? 'master' : 'agent'}`);
@@ -111,8 +115,8 @@ class BaseList {
     export = () => {
         const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedDirectUpline.val() : null;
 
-        this.$("#FromDate").val(this.$(`#from-date-${this.levelNameLowerCase}`).val());
-        this.$("#ToDate").val(this.$(`#to-date-${this.levelNameLowerCase}`).val());
+        this.$("#FromDate").val(this.$fromDate.val());
+        this.$("#ToDate").val(this.$toDate.val());
         this.$("#UserSelectedReviewedStatusId").val(parseInt(this.$dropdownStatus.find("option:selected").val()));
         this.$("#UplineName").val(downlineUsername);
         this.$("#SearchRoleId").val(this.levelId);
@@ -154,8 +158,8 @@ class BaseList {
         this.reportParam.SearchRoleId = this.levelId;
         this.reportParam.UserSelectedReviewedStatusId = parseInt(this.$dropdownStatus.find("option:selected").val());
         this.reportParam.UserName = this.$username.val();
-        this.reportParam.FromDate = this.$(`#from-date-${this.levelNameLowerCase}`).val();
-        this.reportParam.ToDate = this.$(`#to-date-${this.levelNameLowerCase}`).val();
+        this.reportParam.FromDate = this.$fromDate.val();
+        this.reportParam.ToDate = this.$toDate.val();
         localStorage.setItem(`${this.levelName}ReportParam`, JSON.stringify(this.reportParam));
 
         this.$.ajax({
@@ -176,7 +180,9 @@ class BaseList {
             username = $this.html();
 
         this.$(`#tab${this.directDownlineRoleId}`).click();
-
+        this.$downlineObject.$fromDate.val(this.$fromDate.val());
+        this.$downlineObject.$toDate.val(this.$toDate.val());
+        this.$downlineObject.dateRangePickerComponent.render();
         this.$downlineObject.$viewedDirectUpline.val(username);
         this.$downlineObject.$username.val('');
 

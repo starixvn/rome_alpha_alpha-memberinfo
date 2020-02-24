@@ -232,11 +232,20 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Date Notified From.
+        ///   Looks up a localized string similar to Date Notified.
         /// </summary>
         public static string DateNotified {
             get {
                 return ResourceManager.GetString("DateNotified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Notified From.
+        /// </summary>
+        public static string DateNotifiedFrom {
+            get {
+                return ResourceManager.GetString("DateNotifiedFrom", resourceCulture);
             }
         }
         

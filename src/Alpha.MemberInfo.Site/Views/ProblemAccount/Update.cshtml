@@ -43,6 +43,7 @@
     </form>
 </div>
 @Html.Hidden("SuccessMessage", Resources.UpdateSuccessfully)
+@Html.AntiForgeryToken()
 @section Scripts{
     @StaticResources.RenderScripts("~/assets/bundles/problem-account/update")
 }

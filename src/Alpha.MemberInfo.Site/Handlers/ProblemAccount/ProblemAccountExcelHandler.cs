@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Handlers
 {
     using System;
+    using System.Text;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Extensions;
@@ -128,18 +129,19 @@
         private static string GetReportTitle(ProblemAccountExcelQuery message)
         {
             var reviewStatus = ReviewStatusConstant.GetReviewStatus(message.UserSelectedReviewedStatusId);
-            var title = string.Empty;
+            var title = new StringBuilder();
             if (message.SearchRole.IsNotMasterLevel())
             {
-                title = $"{GetSourceText(message.SearchRole.GetDirectUplineLevel().DisplayName)}: {message.UplineName} \n";
+                title.Append($"{GetSourceText(message.SearchRole.GetDirectUplineLevel().DisplayName)}: {message.UplineName} \n");
             }
 
-            title += $"{Resources.DateNotified}: {message.FromDate.ToShortDateWithSlash()} \n";
-            title += $"{Resources.ReviewStatus}: {GetSourceText(reviewStatus)} \n";
-            title += $"{Resources.Username}: {message.UserName} \n";
-            title += $"{Resources.ExportDate}: {DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")} ";
+            title.Append($"{Resources.DateNotifiedFrom}: {message.FromDate.ToShortDateWithSlash()} \n");
+            title.Append($"{Resources.To}: {message.ToDate.ToShortDateWithSlash()} \n");
+            title.Append($"{Resources.ReviewStatus}: {GetSourceText(reviewStatus)} \n");
+            title.Append($"{Resources.Username}: {message.UserName} \n");
+            title.Append($"{Resources.ExportDate}: {DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")} ");
 
-            return title;
+            return title.ToString();
         }
 
         private static string GetSourceText(string key)
