@@ -133,7 +133,7 @@ class CustomerListHelper {
 
             bodyContent += new RowWrapper(rowContent,
                 [
-                    new Attribute('class', 'row-customer' + ' RowBg' + Customers[i].Status),
+                    new Attribute('class', 'row-customer' + ' RowBg' + Customers[i].StatusName),
                     new Attribute('cust-id', Customers[i].CustId)
                 ]).ToString();
         }
