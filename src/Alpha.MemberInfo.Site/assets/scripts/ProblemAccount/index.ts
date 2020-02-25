@@ -51,22 +51,22 @@ class ProblemAccount {
 
     registerEvents = () => {
         this.$("#tab1").on("click", () => {
-            const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1, issub: 0, ismember: 0 })}`;
+            const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isdir: 1 })}`;
             initAutoComplete(this.$("#txt-username-member")[0], queryUsernameURL);
         });
         this.$("#tab2").on("click", () => {
-            const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1, issub: 0, ismember: 0 })}`;
+            const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1 })}`;
             initAutoComplete(this.$("#txt-username-agent")[0], queryUsernameURL);
         });
         this.$("#tab3").on("click", () => {
-            const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1, issub: 0, ismember: 0 })}`;
+            const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1 })}`;
             initAutoComplete(this.$("#txt-username-master")[0], queryUsernameURL);
         });
     };
-   
+
     cacheDOMElements = () => {
         this.$usernameAutoSuggestionPath = this.$("#usernameAutoSuggestionPath");
-    };   
+    };
 
     initDownlineLists(): void {
         this.memberList = new BaseList(this.$, this.topWindow, siteInfrastructure.Role.Member.Id, siteInfrastructure.Role.Member.Name, new DateRangePickerComponent($));

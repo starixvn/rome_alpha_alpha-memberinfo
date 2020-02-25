@@ -37,6 +37,12 @@
             @Html.Hidden("SearchRoleId", Model.Query.SearchRoleId)
             @Html.Hidden("UserName", Model.Query.UserName)
         </form>
+
+        <form class="hide" id="target" method="post" action="@Url.Action("Update")">
+            @Html.Hidden("Ids", string.Empty)
+            @Html.Hidden("UserNames", string.Empty)
+            @Html.Hidden("RoleId", Model.Query.SearchRoleId)
+        </form>
     </div>
 </div>
 
@@ -46,7 +52,6 @@
 @Html.Hidden("usernameAutoSuggestionPath", ProblemAccountReportViewModel.UsernameAutoSuggestionPath)
 @Html.Hidden("SearchRoleId", Model.Query.SearchRoleId)
 @Html.Hidden("getProblemAccountUrl", Url.Action("GetProblemAccounts"))
-@Html.Hidden("UpdateLink", Url.Action("Update"))
 @Html.Hidden("NoInformationIsAvailable", Resources.NoInformationIsAvailable)
 @Html.Hidden("UpdatePopupTitle", Resources.SetToReviewed)
 
@@ -71,11 +76,12 @@
         <div id="@($"form-{levelName}")" class="form-inline demo-form-inline filter" role="form">
             @if (level.IsNotMasterLevel())
             {
-                <div class="form-group">
-                    <label>@level.GetDirectUplineLevel().DisplayName</label>
-                    <span class="star"></span>
-                    <input id="@($"txt-uplinename-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="text" value="" />
-                </div>
+            <div class="form-group">
+                <label>@level.GetDirectUplineLevel().DisplayName</label>
+                <span class="star"></span>
+                <input id="@($"txt-uplinename-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="text" value="" />
+                <input id="@($"txt-uplineId-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="hidden" value="" />
+            </div>
             }
 
             <div id="daterange-picker-@levelName"

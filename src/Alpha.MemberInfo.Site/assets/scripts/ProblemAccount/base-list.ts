@@ -14,7 +14,8 @@ class BaseList {
     $tblReport: JQuery;
     getProblemAccountUrl: string;
     $usernameAutoSuggestionPath: JQuery;
-    $viewedDirectUpline: JQuery;
+    $viewedNameDirectUpline: JQuery;
+    $viewedIdDirectUpline: JQuery;
 
     $downlineObject: BaseList;
     reportParam: ReportParam;
@@ -84,9 +85,9 @@ class BaseList {
         this.$tblReport = this.$(`#tbl-${this.levelNameLowerCase}`);
         this.$fromDate = this.$(`#from-date-${this.levelNameLowerCase}`);
         this.$toDate = this.$(`#to-date-${this.levelNameLowerCase}`);
-
+        this.$viewedIdDirectUpline = this.$(`#txt-uplineId-${this.levelId === siteInfrastructure.Role.Agent.Id ? 'master' : 'agent'}`);
         if (this.isIndirectDownlineOfActor) {
-            this.$viewedDirectUpline = this.$(`#txt-uplinename-${this.levelId === siteInfrastructure.Role.Agent.Id ? 'master' : 'agent'}`);
+            this.$viewedNameDirectUpline = this.$(`#txt-uplinename-${this.levelId === siteInfrastructure.Role.Agent.Id ? 'master' : 'agent'}`);
             this.reportParam = new ReportParam();
         }
         else {
@@ -101,7 +102,7 @@ class BaseList {
         }
 
         this.$updateButton.on("click", (event) => {
-            this.update(event);
+            this.update();
         });
 
         this.$(`#chkAll-${this.levelNameLowerCase}`).on('click touchend', () => {
@@ -113,7 +114,7 @@ class BaseList {
     }
 
     export = () => {
-        const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedDirectUpline.val() : null;
+        const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedNameDirectUpline.val() : null;
 
         this.$("#FromDate").val(this.$fromDate.val());
         this.$("#ToDate").val(this.$toDate.val());
@@ -149,10 +150,13 @@ class BaseList {
                 this.$username.removeClass("text-italic");
             }
         });
+
+        const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isdir: 1, custId: this.$viewedIdDirectUpline.val() })}`;
+        initAutoComplete(this.$(`#txt-username-${this.levelNameLowerCase}`)[0], queryUsernameURL);
     }
 
     loadData = () => {
-        const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedDirectUpline.val() : null;
+        const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedNameDirectUpline.val() : null;
 
         this.reportParam.UplineName = downlineUsername;
         this.reportParam.SearchRoleId = this.levelId;
@@ -183,10 +187,12 @@ class BaseList {
         this.$downlineObject.$fromDate.val(this.$fromDate.val());
         this.$downlineObject.$toDate.val(this.$toDate.val());
         this.$downlineObject.dateRangePickerComponent.render();
-        this.$downlineObject.$viewedDirectUpline.val(username);
+        this.$downlineObject.$viewedNameDirectUpline.val(username);
+        this.$downlineObject.$viewedIdDirectUpline.val(custId);
         this.$downlineObject.$username.val('');
 
         this.$downlineObject.reviewStatusComponent.changeSelection(this.reportParam.UserSelectedReviewedStatusId);
+        this.$downlineObject.loadAutoComplete();
         this.$downlineObject.viewList();
     }
 
@@ -207,10 +213,10 @@ class BaseList {
         }
     }
 
-    update(event) {
+    update() {
         var chk = this.$tblReport.find(".icon-checkbox");
         var ids = [], usernames = [], roleId = "";
-        
+
         for (var i = 0; i < chk.length; i++) {
             ids.push(this.$(chk[i]).attr("cust-id"));
             usernames.push(this.$(chk[i]).attr("username"));
@@ -219,18 +225,22 @@ class BaseList {
 
         if (usernames.length === 0 || ids.length === 0 || roleId === "") return;
 
-        const $this = this.$(event.currentTarget),
-            params = { Ids: ids.join(","), UserNames: usernames.join(","), RoleId: roleId },
-            updateProblemAccountLink = `${this.$('#UpdateLink').val()}?${this.$.param(params)}`,
-            popupTitle = this.indexManager.viewResources.UpdatePopupTitle;
+        this.$("#Ids").val(ids);
+        this.$("#UserNames").val(usernames);
+        this.$("#RoleId").val(roleId);
+        var popupTitle = this.indexManager.viewResources.UpdatePopupTitle;
 
         const popupWidth = 600, popupHeight = 300;
-        this.openPopup(popupTitle, updateProblemAccountLink, '', popupWidth, popupHeight);
+        this.openPopup(popupTitle, '', popupWidth, popupHeight);
     }
 
-    openPopup(title: string, url: string, popupCss: string, width = 480, height = 300) {
-        this.topWindow["popupManager"].open(url, title, width, height, popupCss);
+    openPopup(title: string, popupCss: string, width = 480, height = 300) {
+        var action = this.$("target").attr("action")
+        this.topWindow["popupManager"].open('', title, width, height, popupCss, null, null, null, null, {
+            preUrl: action
+        });
     }
+
 
     renderCustomerList(rs) {
 
@@ -257,7 +267,7 @@ class BaseList {
         const { UserName, UplineName } = this.reportParam;
         this.$username.val(UserName);
         if (this.isIndirectDownlineOfActor) {
-            this.$viewedDirectUpline.val(UserName);
+            this.$viewedNameDirectUpline.val(UserName);
         }
 
         this.viewList();
@@ -268,7 +278,7 @@ class BaseList {
 
         if (this.isIndirectDownlineOfActor) {
             const $err = this.$(`#msg-err-${this.levelNameLowerCase}`);
-            const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedDirectUpline.val() : null;
+            const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedNameDirectUpline.val() : null;
             if (downlineUsername === '' || downlineUsername === undefined) {
                 $err.removeClass(this.displayNoneClass);
                 this.$.unblockUI();

@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using Alpha.MemberInfo.AppResources;
+    using Alpha.MemberInfo.Enumerations;
+    using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Requests.ProblemAccount;
 
     public class UpdateReviewStatusViewModel
@@ -31,6 +33,8 @@
         public string Ids { get; }
 
         public byte RoleId { get; }
+
+        public UserLevel Role => Enumeration.FromValue<UserLevel>(RoleId);
 
         public string ConfirmMessage => $"{Resources.SelectedAccounts} {string.Join(", ", TopDownlineUsernames)}";
 

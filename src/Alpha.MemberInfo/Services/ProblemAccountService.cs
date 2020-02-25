@@ -35,7 +35,7 @@
 
         public IEnumerable<ProblemAccountModel> Get(GetProblemAccountParam param)
             => dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
-            .OrderByDescending(i => i.IsReviewed)
+            .OrderBy(i => i.IsReviewed)
             .ThenBy(i => i.Status);
     }
 }

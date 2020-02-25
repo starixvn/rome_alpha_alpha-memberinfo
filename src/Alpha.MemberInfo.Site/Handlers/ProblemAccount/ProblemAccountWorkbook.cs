@@ -33,7 +33,11 @@
 
         internal Row OpenRowTemplate { get; set; }
 
-        internal Row CloseRowTemplate { get; set; }
+        internal Row CloseRowTemplate1 { get; set; }
+
+        internal Row CloseRowTemplate2 { get; set; }
+
+        internal Row CloseRowTemplate3 { get; set; }
 
         internal Row SuspendedRowTemplate { get; set; }
 
@@ -62,7 +66,7 @@
         {
             var row = sheet.GetRow(rowIndex);
             Row templateRow;
-            switch(account.Status)
+            switch (account.Status)
             {
                 case ProblemAccountStatusConstants.Open:
                     templateRow = OpenRowTemplate;
@@ -71,7 +75,19 @@
                     templateRow = SuspendedRowTemplate;
                     break;
                 case ProblemAccountStatusConstants.Closed:
-                    templateRow = CloseRowTemplate;
+                    if (account.ClosedReason == 1)
+                    {
+                        templateRow = CloseRowTemplate1;
+                    }
+                    else if (account.ClosedReason == 2)
+                    {
+                        templateRow = CloseRowTemplate2;
+                    }
+                    else
+                    {
+                        templateRow = CloseRowTemplate3;
+                    }
+
                     break;
                 default:
                     templateRow = DisabledRowTemplate;
@@ -90,11 +106,13 @@
 
             OpenRowTemplate = sheet.GetRow(currentRowIndex++);
             SuspendedRowTemplate = sheet.GetRow(currentRowIndex++);
-            CloseRowTemplate = sheet.GetRow(currentRowIndex++);            
+            CloseRowTemplate1 = sheet.GetRow(currentRowIndex++);
+            CloseRowTemplate2 = sheet.GetRow(currentRowIndex++);
+            CloseRowTemplate3 = sheet.GetRow(currentRowIndex++);
             DisabledRowTemplate = sheet.GetRow(currentRowIndex);
 
             return GetSheetAt(ReportSheetIndex);
-        }        
+        }
 
         protected override void FillNoInfoRow(Sheet sheet)
         {

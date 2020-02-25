@@ -351,4 +351,19 @@
   <data name="Master" xml:space="preserve">
     <value>ตัวแทนหลัก</value>
   </data>
+  <data name="SelectedAccounts" xml:space="preserve">
+    <value>เลือกบัญชี (s):</value>
+  </data>
+  <data name="RequiredMaster" xml:space="preserve">
+    <value>โปรดป้อนบัญชีมาสเตอร์ที่ถูกต้อง</value>
+  </data>
+  <data name="RequiredAgent" xml:space="preserve">
+    <value>โปรดป้อนบัญชีเอเย่นที่ถูกต้อง</value>
+  </data>
+  <data name="ShowAllAccounts" xml:space="preserve">
+    <value>แสดงบัญชี {0} ทั้งหมด?</value>
+  </data>
+  <data name="ProblemAccountList" xml:space="preserve">
+    <value>รายการบัญชีที่มีปัญหา</value>
+  </data>
 </root>

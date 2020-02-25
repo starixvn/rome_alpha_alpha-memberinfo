@@ -12,7 +12,7 @@ class CustomerListHelper {
             { Name: 'username', Value: Username },
             { Name: 'cust-role', Value: roleId }
         ];
-    }    
+    }
 
     private buildNoInfoContent(colspan: number) {
         return `<tr><td colspan='${colspan}' align='center' class='no-info'>${this.viewResources.NoInformationIsAvailable}</td></tr>`;
@@ -32,7 +32,7 @@ class CustomerListHelper {
             },
             {
                 Content: UserName,
-                Attributes: [{ Name: 'class', Value: isMember ? '' : ' link view-downline'}].concat(commonAttributesJson),
+                Attributes: [{ Name: 'class', Value: isMember ? '' : ' link view-downline' }].concat(commonAttributesJson),
                 Visibile: true
             },
             {
@@ -133,7 +133,7 @@ class CustomerListHelper {
 
             bodyContent += new RowWrapper(rowContent,
                 [
-                    new Attribute('class', 'row-customer' + ' RowBg' + Customers[i].StatusName),
+                    new Attribute('class', 'row-customer' + ' RowBg' + Customers[i].StatusName + (Customers[i].Status == 3 ? Customers[i].ClosedReason : '')),
                     new Attribute('cust-id', Customers[i].CustId)
                 ]).ToString();
         }

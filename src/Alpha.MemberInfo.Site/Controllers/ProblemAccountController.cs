@@ -16,6 +16,7 @@
         public ActionResult Index(IndexRequest message)
             => View(message, "Index");
 
+        [HttpPost]
         public ActionResult Update(UpdateProblemAccountRequest message)
             => View(message, "Update");
 
@@ -23,7 +24,7 @@
             => Json(message);
 
         [HttpPost, AntiXsrfFilter]
-        public ActionResult Update(UpdateProblemAccountCommand message)
+        public ActionResult UpdateCommand(UpdateProblemAccountCommand message)
             => Json(message);
 
         public ActionResult Excel(ProblemAccountExcelQuery message)

@@ -11,13 +11,13 @@
         {
         }
 
-        public int CustId { get; }
+        public int CustId { get; set; }
 
         public string Username2 { get; }
 
         public string NickName => string.IsNullOrEmpty(Username2) ? string.Empty : Username2;
 
-        public string UserName { get; }
+        public string UserName { get; set; }
 
         public string FirstName { get; }
 
@@ -35,6 +35,8 @@
         public int Count { get; }
 
         public bool IsReviewed { get; }
+
+        public int ClosedReason { get; }
 
         public string ReviewStatus => IsReviewed ? Resources.Reviewed : Resources.NotReviewed;
 

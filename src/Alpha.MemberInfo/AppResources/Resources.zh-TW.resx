@@ -384,4 +384,19 @@
   <data name="DateNotifiedFrom" xml:space="preserve">
     <value>通報日期 至</value>
   </data>
+  <data name="SelectedAccounts" xml:space="preserve">
+    <value>所選賬號：</value>
+  </data>
+  <data name="RequiredMaster" xml:space="preserve">
+    <value>請輸入有效總代理賬號</value>
+  </data>
+  <data name="RequiredAgent" xml:space="preserve">
+    <value>請輸入有效代理賬號</value>
+  </data>
+  <data name="ShowAllAccounts" xml:space="preserve">
+    <value>顯示所有 {0} 賬號？</value>
+  </data>
+  <data name="ProblemAccountList" xml:space="preserve">
+    <value>問題賬號列表</value>
+  </data>
 </root>
