@@ -18,6 +18,6 @@
     <Setting Key="Age_ProblemAccount_CustomerList" SpName="Age_ProblemAccount_CustomerList" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0">
       <Mapping DataField="numberOfDownline" ObjectProperty="Count" />
     </Setting>
-    <Setting Key="Age_ProblemAccount_ReviewStatusUpd" SpName="	Age_ProblemAccount_ReviewStatusUpd" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_ProblemAccount_ReviewStatusUpd" SpName="Age_ProblemAccount_ReviewStatusUpd" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>

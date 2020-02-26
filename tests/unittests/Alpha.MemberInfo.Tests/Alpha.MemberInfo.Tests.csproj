@@ -271,6 +271,8 @@
     <Compile Include="Criteria\CreditBalance\GetSuperCreditBalanceCriteriaTests.cs" />
     <Compile Include="Criteria\PlayForFunProductCriteriaTests.cs" />
     <Compile Include="Criteria\MemberRequestCriteriaTests.cs" />
+    <Compile Include="Criteria\ProblemAccount\UpdateReviewStatusProblemAccountCriteria.cs" />
+    <Compile Include="Criteria\ProblemAccount\GetProblemAccountCriteriaTests.cs" />
     <Compile Include="Criteria\Transfer\GetTransferOptionCriteriaTests.cs" />
     <Compile Include="Criteria\WinLossLimit\GetBalanceCriteriaTests.cs" />
     <Compile Include="Criteria\WinLossLimit\GetCustWinLossLimitCriteriaTests.cs" />
@@ -292,6 +294,7 @@
     <Compile Include="Models\CreditBalance\CreditBalanceItemTests.cs" />
     <Compile Include="Models\CreditBalance\CustomerClosedReasonTests.cs" />
     <Compile Include="Models\CreditBalance\PagedCreditBalanceTests.cs" />
+    <Compile Include="Models\ProblemAccount\ProblemAccountModelTests.cs" />
     <Compile Include="Models\UserLevelTests.cs" />
     <Compile Include="Params\CreditBalanceParamTests.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitDetailTests.cs" />
@@ -304,6 +307,7 @@
     <Compile Include="Services\MemberRequest\CasinoCustomerImplMock.cs" />
     <Compile Include="Services\MemberRequest\CasinoCustomerImplTests.cs" />
     <Compile Include="Services\MemberRequest\MemberRequestServiceImplTests.cs" />
+    <Compile Include="Services\ProblemAccountServiceTests.cs" />
     <Compile Include="Services\ProgressiveJackpotServiceImplTests.cs" />
     <Compile Include="Services\Transfer\TransferServiceImplTests.cs" />
     <Compile Include="Services\WinLossLimit\WinLossLimitServiceImplTests.cs" />

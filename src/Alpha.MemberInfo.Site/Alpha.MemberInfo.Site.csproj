@@ -440,7 +440,9 @@
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.CustDB.BODBDownlineNet.xml" />
-    <Content Include="assets\bundles\credit-balance.css" />
+    <Content Include="assets\bundles\credit-balance.css">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Content>
     <Content Include="assets\bundles\credit-balance.min.css">
       <DependentUpon>credit-balance.css</DependentUpon>
     </Content>
@@ -448,11 +450,15 @@
     <Content Include="assets\bundles\credit-balance\credit-balance.min.js">
       <DependentUpon>credit-balance.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\default.css" />
+    <Content Include="assets\bundles\default.css" >
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Content>
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\member-info.css" />
+    <Content Include="assets\bundles\member-info.css" >
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Content>
     <Content Include="assets\bundles\member-info.min.css">
       <DependentUpon>member-info.css</DependentUpon>
     </Content>
@@ -480,7 +486,9 @@
     <Content Include="assets\bundles\progressive-jackpot\progressive-jackpot.min.js">
       <DependentUpon>progressive-jackpot.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\win-loss-limit.css" />
+    <Content Include="assets\bundles\win-loss-limit.css" >
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Content>
     <Content Include="assets\bundles\win-loss-limit.min.css">
       <DependentUpon>win-loss-limit.css</DependentUpon>
     </Content>
@@ -829,14 +837,15 @@
   </Target>
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <PropertyGroup>
-    <PostBuildEvent>cd $(ProjectDir)
-cd ..
-cd ..
-cd build
-assets.build.cmd
+    <PostBuildEvent>
+      cd $(ProjectDir)
+      cd ..
+      cd ..
+      cd build
+      assets.build.cmd
       if not exist "$(WebProjectOutputDir)\bin\Roslyn" md "$(WebProjectOutputDir)\bin\Roslyn"
       start /MIN xcopy /s /y /R "$(OutDir)roslyn\*.*" "$(WebProjectOutputDir)\bin\Roslyn"
-</PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

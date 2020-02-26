@@ -12,7 +12,7 @@
         {
             FromDate = DateTime.Now.AddDays(-13);
             ToDate = DateTime.Now;
-            UserSelectedReviewedStatusId = ReviewStatusConstant.NotReviewed;
+            UserSelectedReviewedStatusId = ReviewStatusConstant.All;
             SearchRoleId = UserLevel.Master.Value;
         }
     }

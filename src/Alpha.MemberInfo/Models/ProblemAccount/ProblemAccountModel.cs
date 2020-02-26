@@ -11,30 +11,30 @@
         {
         }
 
-        public int CustId { get; set; }
+        public int CustId { get; internal set; }
 
-        public string Username2 { get; }
+        public string Username2 { get; internal set; }
 
         public string NickName => string.IsNullOrEmpty(Username2) ? string.Empty : Username2;
 
-        public string UserName { get; set; }
+        public string UserName { get; }
 
         public string FirstName { get; }
 
         public string LastName { get; }
 
-        public byte Status { get; }
+        public byte Status { get; internal set; }
 
         public string StatusName
             => Resources.ResourceManager.GetString(ProblemAccountStatusConstants.GetProblemAccountStatus(Status));
 
-        public DateTime CreatedDate { get; }
+        public DateTime CreatedDate { get; internal set; }
 
         public string CreatedDateStr => CreatedDate.ToLongDateTime24h();
 
         public int Count { get; }
 
-        public bool IsReviewed { get; }
+        public bool IsReviewed { get; internal set; }
 
         public int ClosedReason { get; }
 
