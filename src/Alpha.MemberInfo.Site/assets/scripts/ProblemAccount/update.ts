@@ -65,7 +65,10 @@
 
         if (result.IsSuccessful) {
             this.message.showSuccess(this.$messageContainer, this.successMessage);
-            this.topWindow["indexManager"].closePopupAndReloadMainIframe();
+            setTimeout(() => {
+                this.topWindow["popupManager"].closeAllPopup();
+                this.topWindow["indexManager"].reloadProblemAccount();
+            }, 3000);
         } else {
             this.message.showMessage(this.$messageContainer, result);
         }

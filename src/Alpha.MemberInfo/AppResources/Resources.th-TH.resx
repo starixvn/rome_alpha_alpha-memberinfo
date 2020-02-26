@@ -322,7 +322,7 @@
     <value>เงินสด</value>
   </data>
   <data name="EnterAccount" xml:space="preserve">
-    <value>ยูเซอร์เนม/ชื่อเล่น หรือ ชื่อ/นามสุกล</value>
+    <value>ยูเซอร์เนม</value>
   </data>
   <data name="ExportToExcel" xml:space="preserve">
     <value>ส่งออกไปที่โปรแกรมเอกเซล</value>

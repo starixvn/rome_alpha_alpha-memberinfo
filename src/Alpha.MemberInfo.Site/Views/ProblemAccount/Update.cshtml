@@ -17,7 +17,7 @@
                 @Html.Raw(Model.ConfirmMessage)
                 <span class="more-ellipses">...</span>
                 <div class="more-content">
-                    <span>@($", {string.Join(", ", Model.MoreDownlineUsernames)}")</span>?&nbsp;
+                    <span>@($", {string.Join(", ", Model.MoreDownlineUsernames)}")</span>
                     <a href="" class="more-link">@string.Format(Resources.ShowAllAccounts, Model.TotalAllAccount)</a>
                 </div>
             }

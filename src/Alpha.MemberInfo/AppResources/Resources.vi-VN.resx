@@ -322,7 +322,7 @@
     <value>Trò chơi Jackpot Lũy Tiến - Trợ Giúp</value>
   </data>
   <data name="EnterAccount" xml:space="preserve">
-    <value>Tên đăng nhập/Biệt Danh hoặc Tên/Họ</value>
+    <value>Tên đăng nhập</value>
   </data>
   <data name="ExportToExcel" xml:space="preserve">
     <value>Xuất sang Excel</value>

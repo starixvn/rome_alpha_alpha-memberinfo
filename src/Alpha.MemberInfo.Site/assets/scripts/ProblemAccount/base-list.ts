@@ -89,7 +89,7 @@ class BaseList {
         }
         else {
             this.reportParam = {
-                UserName: this.$("#Username").val(),
+                UserName: this.$username.val(),
                 SearchRoleId: this.levelId,
                 UplineName: "",
                 UserSelectedReviewedStatusId: parseInt(this.$("#UserSelectedReviewedStatusId").val()),
@@ -148,7 +148,6 @@ class BaseList {
         this.reportParam.UserName = this.$username.val();
         this.reportParam.FromDate = this.$fromDate.val();
         this.reportParam.ToDate = this.$toDate.val();
-        localStorage.setItem(`${this.levelName}ReportParam`, JSON.stringify(this.reportParam));
 
         this.$.ajax({
             method: "GET",
@@ -212,17 +211,19 @@ class BaseList {
         this.$("#RoleId").val(roleId);
         var popupTitle = this.indexManager.viewResources.UpdatePopupTitle;
 
-        const popupWidth = 600, popupHeight = 300;
+        const popupWidth = 500, popupHeight = parseInt(roleId) == siteInfrastructure.Role.Member.Id ? 250 : 300;
         this.openPopup(popupTitle, '', popupWidth, popupHeight);
     }
 
     openPopup(title: string, popupCss: string, width = 480, height = 300) {
-        var action = this.$("target").attr("action")
+        var action = this.$("target").attr("action");
+        this.topWindow["indexManager"].reloadProblemAccount = () => {
+            this.viewList();
+        };
         this.topWindow["popupManager"].open('', title, width, height, popupCss, null, null, null, null, {
             preUrl: action
         });
     }
-
 
     renderCustomerList(rs) {
 
@@ -241,12 +242,7 @@ class BaseList {
     }
 
     reloadPage() {
-        const reportParamLocalStorage = JSON.parse(localStorage.getItem(`${this.levelName}ReportParam`));
-        if (reportParamLocalStorage !== null && reportParamLocalStorage !== undefined) {
-            this.reportParam = JSON.parse(localStorage.getItem(`${this.levelName}ReportParam`));
-        }
-
-        const { UserName, UplineName } = this.reportParam;
+        const { UserName } = this.reportParam;
         this.$username.val(UserName);
         if (this.isIndirectDownlineOfActor) {
             this.$viewedNameDirectUpline.val(UserName);

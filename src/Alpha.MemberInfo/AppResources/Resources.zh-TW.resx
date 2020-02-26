@@ -373,7 +373,7 @@
     <value>成功更新</value>
   </data>
   <data name="EnterAccount" xml:space="preserve">
-    <value>用戶名/暱稱或名/姓</value>
+    <value>用戶名</value>
   </data>
   <data name="None" xml:space="preserve">
     <value>沒有</value>

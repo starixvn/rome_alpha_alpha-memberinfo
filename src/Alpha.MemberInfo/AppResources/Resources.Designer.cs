@@ -286,7 +286,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username, Nickname or First/Last Name.
+        ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string EnterAccount {
             get {
