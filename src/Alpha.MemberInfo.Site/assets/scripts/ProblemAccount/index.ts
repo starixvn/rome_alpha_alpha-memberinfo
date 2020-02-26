@@ -21,8 +21,6 @@ class ProblemAccount {
     }
 
     init = () => {
-        this.cacheDOMElements();
-        this.registerEvents();
         this.render();
     };
 
@@ -47,25 +45,6 @@ class ProblemAccount {
                     break;
             }
         }
-    };
-
-    registerEvents = () => {
-        this.$("#tab1").on("click", () => {
-            const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isdir: 1 })}`;
-            initAutoComplete(this.$("#txt-username-member")[0], queryUsernameURL);
-        });
-        this.$("#tab2").on("click", () => {
-            const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1 })}`;
-            initAutoComplete(this.$("#txt-username-agent")[0], queryUsernameURL);
-        });
-        this.$("#tab3").on("click", () => {
-            const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isDir: 1 })}`;
-            initAutoComplete(this.$("#txt-username-master")[0], queryUsernameURL);
-        });
-    };
-
-    cacheDOMElements = () => {
-        this.$usernameAutoSuggestionPath = this.$("#usernameAutoSuggestionPath");
     };
 
     initDownlineLists(): void {

@@ -15,7 +15,6 @@ class BaseList {
     getProblemAccountUrl: string;
     $usernameAutoSuggestionPath: JQuery;
     $viewedNameDirectUpline: JQuery;
-    $viewedIdDirectUpline: JQuery;
 
     $downlineObject: BaseList;
     reportParam: ReportParam;
@@ -54,7 +53,6 @@ class BaseList {
         this.isIndirectDownlineOfActor = this.levelId < 3;
         this.directDownlineRoleId = this.levelId - 1;
         this.cacheDOMElements();
-        this.loadAutoComplete();
 
 
         this.customerListHelper = new CustomerListHelper(indexManager.viewResources);
@@ -85,7 +83,6 @@ class BaseList {
         this.$tblReport = this.$(`#tbl-${this.levelNameLowerCase}`);
         this.$fromDate = this.$(`#from-date-${this.levelNameLowerCase}`);
         this.$toDate = this.$(`#to-date-${this.levelNameLowerCase}`);
-        this.$viewedIdDirectUpline = this.$(`#txt-uplineId-${this.levelId === siteInfrastructure.Role.Agent.Id ? 'master' : 'agent'}`);
         if (this.isIndirectDownlineOfActor) {
             this.$viewedNameDirectUpline = this.$(`#txt-uplinename-${this.levelId === siteInfrastructure.Role.Agent.Id ? 'master' : 'agent'}`);
             this.reportParam = new ReportParam();
@@ -140,20 +137,7 @@ class BaseList {
             this.$(chkids[i]).removeClass("icon-checkbox");
             this.$(chkids[i]).addClass("icon-uncheck");
         }
-    };
-
-    loadAutoComplete = () => {
-        this.$username.keyup(() => {
-            if (this.$username.val().trim() === "") {
-                this.$username.addClass("text-italic");
-            } else {
-                this.$username.removeClass("text-italic");
-            }
-        });
-
-        const queryUsernameURL = `${this.$usernameAutoSuggestionPath.val()}?${this.$.param({ isdir: 1, custId: this.$viewedIdDirectUpline.val() })}`;
-        initAutoComplete(this.$(`#txt-username-${this.levelNameLowerCase}`)[0], queryUsernameURL);
-    }
+    };   
 
     loadData = () => {
         const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedNameDirectUpline.val() : null;
@@ -188,11 +172,9 @@ class BaseList {
         this.$downlineObject.$toDate.val(this.$toDate.val());
         this.$downlineObject.dateRangePickerComponent.render();
         this.$downlineObject.$viewedNameDirectUpline.val(username);
-        this.$downlineObject.$viewedIdDirectUpline.val(custId);
         this.$downlineObject.$username.val('');
 
         this.$downlineObject.reviewStatusComponent.changeSelection(this.reportParam.UserSelectedReviewedStatusId);
-        this.$downlineObject.loadAutoComplete();
         this.$downlineObject.viewList();
     }
 

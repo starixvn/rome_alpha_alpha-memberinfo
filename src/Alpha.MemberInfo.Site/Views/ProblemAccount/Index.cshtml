@@ -49,7 +49,6 @@
 @Html.Hidden("TotalColumnMaster", ProblemAccountReportViewModel.TotalColumnMaster)
 @Html.Hidden("TotalColumnAgent", ProblemAccountReportViewModel.TotalColumnAgent)
 @Html.Hidden("TotalColumnMember", ProblemAccountReportViewModel.TotalColumnMember)
-@Html.Hidden("usernameAutoSuggestionPath", ProblemAccountReportViewModel.UsernameAutoSuggestionPath)
 @Html.Hidden("SearchRoleId", Model.Query.SearchRoleId)
 @Html.Hidden("getProblemAccountUrl", Url.Action("GetProblemAccounts"))
 @Html.Hidden("NoInformationIsAvailable", Resources.NoInformationIsAvailable)
@@ -80,7 +79,6 @@
                 <label>@level.GetDirectUplineLevel().DisplayName</label>
                 <span class="star"></span>
                 <input id="@($"txt-uplinename-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="text" value="" />
-                <input id="@($"txt-uplineId-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="hidden" value="" />
             </div>
             }
 
