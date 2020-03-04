@@ -77,14 +77,14 @@ class BaseList {
                 this.viewList();
                 e.preventDefault();
             }
-        })
+        });
 
-        this.$uplineName.keypress((e) => {
+        this.$viewedNameDirectUpline.keypress((e) => {
             if (e.which == 13) {
                 this.viewList();
                 e.preventDefault();
             }
-        })
+        });
     }
 
     public cacheDOMElements() {
@@ -97,8 +97,8 @@ class BaseList {
         this.$tblReport = this.$(`#tbl-${this.levelNameLowerCase}`);
         this.$fromDate = this.$(`#from-date-${this.levelNameLowerCase}`);
         this.$toDate = this.$(`#to-date-${this.levelNameLowerCase}`);
-        if (this.isIndirectDownlineOfActor) {
-            this.$viewedNameDirectUpline = this.$(`#txt-uplinename-${this.levelId === siteInfrastructure.Role.Agent.Id ? 'master' : 'agent'}`);
+        this.$viewedNameDirectUpline = this.$(`#txt-uplinename-${this.levelId === siteInfrastructure.Role.Agent.Id ? 'master' : 'agent'}`);
+        if (this.isIndirectDownlineOfActor) {            
             this.reportParam = new ReportParam();
         }
         else {
