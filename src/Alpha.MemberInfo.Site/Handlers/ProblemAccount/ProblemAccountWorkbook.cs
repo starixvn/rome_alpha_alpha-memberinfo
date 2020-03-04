@@ -33,11 +33,13 @@
 
         internal Row OpenRowTemplate { get; set; }
 
-        internal Row CloseRowTemplate1 { get; set; }
+        internal Row CloseRowTemplateWrongPassword { get; set; }
 
-        internal Row CloseRowTemplate2 { get; set; }
+        internal Row CloseRowTemplateByAdmin { get; set; }
 
-        internal Row CloseRowTemplate3 { get; set; }
+        internal Row CloseRowTemplateByUpline { get; set; }
+
+        internal Row CloseRowTemplateWrongOTPSC { get; set; }
 
         internal Row SuspendedRowTemplate { get; set; }
 
@@ -75,17 +77,21 @@
                     templateRow = SuspendedRowTemplate;
                     break;
                 case ProblemAccountStatusConstants.Closed:
-                    if (account.ClosedReason == 1)
+                    if (account.ClosedReason == CloseReasonConstants.WrongPassword)
                     {
-                        templateRow = CloseRowTemplate1;
+                        templateRow = CloseRowTemplateWrongPassword;
                     }
-                    else if (account.ClosedReason == 2)
+                    else if (account.ClosedReason == CloseReasonConstants.ByAdmin)
                     {
-                        templateRow = CloseRowTemplate2;
+                        templateRow = CloseRowTemplateByAdmin;
+                    }
+                    else if (account.ClosedReason == CloseReasonConstants.ByUpline)
+                    {
+                        templateRow = CloseRowTemplateByUpline;
                     }
                     else
                     {
-                        templateRow = CloseRowTemplate3;
+                        templateRow = CloseRowTemplateWrongOTPSC;
                     }
 
                     break;
@@ -106,9 +112,10 @@
 
             OpenRowTemplate = sheet.GetRow(currentRowIndex++);
             SuspendedRowTemplate = sheet.GetRow(currentRowIndex++);
-            CloseRowTemplate1 = sheet.GetRow(currentRowIndex++);
-            CloseRowTemplate2 = sheet.GetRow(currentRowIndex++);
-            CloseRowTemplate3 = sheet.GetRow(currentRowIndex++);
+            CloseRowTemplateWrongPassword = sheet.GetRow(currentRowIndex++);
+            CloseRowTemplateByAdmin = sheet.GetRow(currentRowIndex++);
+            CloseRowTemplateByUpline = sheet.GetRow(currentRowIndex++);
+            CloseRowTemplateWrongOTPSC = sheet.GetRow(currentRowIndex++);
             DisabledRowTemplate = sheet.GetRow(currentRowIndex);
 
             return GetSheetAt(ReportSheetIndex);

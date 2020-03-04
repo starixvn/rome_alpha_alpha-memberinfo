@@ -277,6 +277,7 @@
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Constants\CasinoGameKind.cs" />
+    <Compile Include="Constants\CloseReasonConstants.cs" />
     <Compile Include="Constants\ProblemAccountStatusConstants.cs" />
     <Compile Include="Constants\ProductId.cs" />
     <Compile Include="Constants\ReviewStatusConstant.cs" />

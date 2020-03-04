@@ -38,6 +38,8 @@
 
         public int ClosedReason { get; }
 
+        public string ClosedReasonName => CloseReasonConstants.GetName(ClosedReason);
+
         public string ReviewStatus => IsReviewed ? Resources.Reviewed : Resources.NotReviewed;
 
         public bool CanEdit => !IsReviewed;

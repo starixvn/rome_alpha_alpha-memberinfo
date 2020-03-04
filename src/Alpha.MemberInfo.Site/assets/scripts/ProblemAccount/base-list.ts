@@ -71,6 +71,20 @@ class BaseList {
         this.$(`#icon-excel-${this.levelNameLowerCase}`).off("click").on("click", () => {
             this.export();
         });
+
+        this.$username.keypress((e) => {
+            if (e.which == 13) {
+                this.viewList();
+                e.preventDefault();
+            }
+        })
+
+        this.$uplineName.keypress((e) => {
+            if (e.which == 13) {
+                this.viewList();
+                e.preventDefault();
+            }
+        })
     }
 
     public cacheDOMElements() {
@@ -137,7 +151,7 @@ class BaseList {
             this.$(chkids[i]).removeClass("icon-checkbox");
             this.$(chkids[i]).addClass("icon-uncheck");
         }
-    };   
+    };
 
     loadData = () => {
         const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedNameDirectUpline.val() : null;
