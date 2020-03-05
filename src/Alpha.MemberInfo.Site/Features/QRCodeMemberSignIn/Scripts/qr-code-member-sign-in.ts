@@ -24,7 +24,17 @@ class QRCodeMemberSignIn {
                 url: "QRCodeMemberSignIn/CreateAccount",
                 cache: false,
                 success: (result) => {
+                    this.$.unblockUI();
+                    if (result.ErrCode === 0) {
+                        this.$("#create-form").addClass("hidden");
+                        this.$("#create-account-successfully").removeClass("hidden");
 
+                        const obj = JSON.parse(result.ErrMsg);
+                        this.$("#qr-code-image").attr("src", obj.QRCode);
+                    }
+                    else {
+                        // Show error message
+                    }
                 }
             });
         });

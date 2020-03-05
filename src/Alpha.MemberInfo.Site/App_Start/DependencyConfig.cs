@@ -5,6 +5,7 @@
     using System.Reflection;
     using System.Web.Mvc;
     using Alpha.MemberInfo.Site.Handlers;
+    using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Controllers;
     using DataAccesses;
     using Fanex.Data.Repository;
@@ -109,6 +110,7 @@
 
             container.RegisterPerWebRequest<CreditBalanceService, CreditBalanceServiceImpl>();
             container.RegisterPerWebRequest<IProblemAccountService, ProblemAccountService>();
+            container.RegisterPerWebRequest<QrCodeAdapter, QrCodeAdapterImpl>();
             container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
             container.RegisterPerWebRequest<ProblemAccountWorkbook, ProblemAccountWorkbookImpl>();
         }

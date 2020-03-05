@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -38,6 +38,19 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>Alpha.MemberInfo.Site.Debug.ruleset</CodeAnalysisRuleSet>
     <NoWarn>618</NoWarn>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptModuleKind />
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -153,6 +166,9 @@
     <Reference Include="Fanex.RemotingRef, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.RemotingRef.1.3.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\QrCode.Net.0.4.0.0\lib\net45\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
     <Reference Include="HandHistoryLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CasinoLibrary.2.0.3.38621\lib\net40\HandHistoryLibrary.dll</HintPath>
@@ -523,15 +539,16 @@
       <DependentUpon>update.scss</DependentUpon>
     </Content>
      <Content Include="Features\QRCodeMemberSignIn\Bundles\credit-balance\qr-code-member-sign-in.js" />
-    <Content Include="Features\QRCodeMemberSignIn\Bundles\credit-balance\qr-code-member-sign-in.min.js">
-      <DependentUpon>qr-code-member-sign-in.js</DependentUpon>
-    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.css" />
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.js" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.min.css">
       <DependentUpon>qr-code-member-sign-in.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\problem-account\update.min.css">
       <DependentUpon>update.css</DependentUpon>
+    </Content>
+     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.min.js">
+      <DependentUpon>qr-code-member-sign-in.js</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
@@ -609,10 +626,13 @@
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapter.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapterImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInController.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInHandler.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CreateAccountByQRCodeRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeMemberSignInRequest.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\ViewModels\MemberSiteTokenLink.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeMemberSignInViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
@@ -765,6 +785,7 @@
     </Content>
     <Content Include="Features\QRCodeMemberSignIn\Views\Index.cshtml" />
     <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in.scss" />
+    <Content Include="Features\QRCodeMemberSignIn\Views\_CreateAccountSuccessfully.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">

@@ -12,6 +12,16 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     url: "QRCodeMemberSignIn/CreateAccount",
                     cache: false,
                     success: function (result) {
+                        _this.$.unblockUI();
+                        if (result.ErrCode === 0) {
+                            _this.$("#create-form").addClass("hidden");
+                            _this.$("#create-account-successfully").removeClass("hidden");
+                            var obj = JSON.parse(result.ErrMsg);
+                            _this.$("#qr-code-image").attr("src", obj.QRCode);
+                        }
+                        else {
+                            // Show error message
+                        }
                     }
                 });
             });

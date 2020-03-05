@@ -72,9 +72,9 @@
     ]
   },
   {
-    "outputFileName": "Features/QRCodeMemberSignIn/Bundles/credit-balance/qr-code-member-sign-in.js",
+    "outputFileName": "Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in.js",
     "inputFiles": [
-      "Features/QRCodeMemberSignIn/Scripts/credit-balance/qr-code-member-sign-in.js"
+      "Features/QRCodeMemberSignIn/Scripts/qr-code-member-sign-in.js"
     ]
   }
 ]
