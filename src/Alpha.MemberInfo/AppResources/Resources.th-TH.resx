@@ -366,4 +366,7 @@
   <data name="ProblemAccountList" xml:space="preserve">
     <value>รายการบัญชีที่มีปัญหา</value>
   </data>
+  <data name="ExportDate" xml:space="preserve">
+    <value>วันที่จัดเตรียมข้อมูล</value>
+  </data>
 </root>

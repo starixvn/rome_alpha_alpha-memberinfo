@@ -399,4 +399,7 @@
   <data name="ProblemAccountList" xml:space="preserve">
     <value>問題賬號列表</value>
   </data>
+  <data name="ExportDate" xml:space="preserve">
+    <value>導出日期</value>
+  </data>
 </root>

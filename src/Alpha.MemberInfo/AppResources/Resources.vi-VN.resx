@@ -345,4 +345,55 @@
   <data name="Member" xml:space="preserve">
     <value>Thành viên</value>
   </data>
+  <data name="SelectedAccounts" xml:space="preserve">
+    <value>Tài khoản đã chọn:</value>
+  </data>
+  <data name="RequiredMaster" xml:space="preserve">
+    <value>Vui lòng nhập tài khoản Master hợp lệ</value>
+  </data>
+  <data name="RequiredAgent" xml:space="preserve">
+    <value>Vui lòng nhập tài khoản Agent hợp lệ</value>
+  </data>
+  <data name="ShowAllAccounts" xml:space="preserve">
+    <value>Xem tất cả {0} tài khoản?</value>
+  </data>
+  <data name="ProblemAccountList" xml:space="preserve">
+    <value>Danh Sách Tài Khoản Có Vấn Đề</value>
+  </data>
+  <data name="ProblemAgentAccounts" xml:space="preserve">
+    <value>Tài Khoản Agent Có Vấn Đề</value>
+  </data>
+  <data name="ProblemMemberAccounts" xml:space="preserve">
+    <value>Tài Khoản Member Có Vấn Đề</value>
+  </data>
+  <data name="UpdateSuccessfully" xml:space="preserve">
+    <value>Đã cập nhật thành công!</value>
+  </data>
+  <data name="SetReviewedForDownline" xml:space="preserve">
+    <value>Đánh dấu Đã Xem cho các tài khoản đã chọn và cấp dưới có vấn đề của những tài khoản này.</value>
+  </data>
+  <data name="SetReviewedForAccountOnly" xml:space="preserve">
+    <value>Chỉ đánh dấu Đã Xem cho các tài khoản đã chọn.</value>
+  </data>
+  <data name="DateNotifiedFrom" xml:space="preserve">
+    <value>Ngày Thông Báo Từ</value>
+  </data>
+  <data name="DateNotified" xml:space="preserve">
+    <value>Ngày Thông Báo</value>
+  </data>
+  <data name="ExportDate" xml:space="preserve">
+    <value>Ngày Xuất</value>
+  </data>
+  <data name="NotReviewed" xml:space="preserve">
+    <value>Chưa Xem</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Đã Xem</value>
+  </data>
+  <data name="SetToReviewed" xml:space="preserve">
+    <value>Đánh dấu Đã Xem</value>
+  </data>
+  <data name="ReviewStatus" xml:space="preserve">
+    <value>Trạng Thái Đã Xem</value>
+  </data>
 </root>

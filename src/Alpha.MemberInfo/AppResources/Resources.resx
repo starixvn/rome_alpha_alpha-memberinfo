@@ -394,7 +394,7 @@
     <value>Nickname</value>
   </data>
   <data name="UpdateSuccessfully" xml:space="preserve">
-    <value>Update Successfully</value>
+    <value>Successfully updated!</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>

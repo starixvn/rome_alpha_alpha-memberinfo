@@ -880,7 +880,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update Successfully.
+        ///   Looks up a localized string similar to Successfully updated!.
         /// </summary>
         public static string UpdateSuccessfully {
             get {
