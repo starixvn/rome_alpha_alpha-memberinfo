@@ -25,7 +25,7 @@ namespace Alpha.MemberInfo.Tests.Services
 
         [Theory]
         [InlineData(1, "errrrorrr")]
-        [InlineData(0, "Update Successfully")]
+        [InlineData(0, "Successfully updated!")]
         public void UpdateReviewStatus_Always_BuildCorrectResult(int errCode, string errMessage)
         {
             // Arrange
