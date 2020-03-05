@@ -44,5 +44,7 @@
         DateTime LimitedDateToShowInfo { get; }
 
         bool IsAdminCanViewVNIP { get; }
+
+        bool IsInternal { get; }
     }
 }

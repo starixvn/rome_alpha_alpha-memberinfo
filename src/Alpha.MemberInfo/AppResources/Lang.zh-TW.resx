@@ -171,4 +171,7 @@
   <data name="Unlimited" xml:space="preserve">
     <value>無限</value>
   </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>您沒有使用此功能的權限</value>
+  </data>
 </root>

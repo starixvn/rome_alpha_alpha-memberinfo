@@ -62,5 +62,7 @@
         public DateTime LimitedDateToShowInfo => userSession.GetProperty<DateTime>(CustomerDatelimit);
 
         public bool IsAdminCanViewVNIP => userSession.IsAdminCanViewVNIP;
+
+        public bool IsInternal => userSession.IsInternal;
     }
 }
