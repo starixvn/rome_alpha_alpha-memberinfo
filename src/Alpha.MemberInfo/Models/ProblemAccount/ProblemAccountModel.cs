@@ -25,6 +25,9 @@
 
         public byte Status { get; internal set; }
 
+        public string StatusNameEN
+            => ProblemAccountStatusConstants.GetProblemAccountStatus(Status);
+
         public string StatusName
             => Resources.ResourceManager.GetString(ProblemAccountStatusConstants.GetProblemAccountStatus(Status));
 
