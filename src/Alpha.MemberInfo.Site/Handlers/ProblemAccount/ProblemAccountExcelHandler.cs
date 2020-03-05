@@ -31,7 +31,7 @@
         {
             var param = ProblemAccountHandler.CreateParam(message);
 
-            var problemAccounts = problemAccountService.Get(param);           
+            var problemAccounts = problemAccountService.Get(param);
 
             var fileContent = workbook
                 .SetData(problemAccounts)
@@ -55,7 +55,7 @@
             }
             else if (message.SearchRole.IsAgentLevel())
             {
-                return GetBodyRowMapperForAgent();
+                return GetBodyRowMapperForAgent(message.IsViewDirectDownLine);
             }
             else
             {
@@ -79,8 +79,22 @@
             return mapper;
         }
 
-        private Mapper<ProblemAccountModel> GetBodyRowMapperForAgent()
+        private Mapper<ProblemAccountModel> GetBodyRowMapperForAgent(bool isDirectDownLine)
         {
+            if (isDirectDownLine)
+            {
+                return new Mapper<ProblemAccountModel>()
+                .Map(A, _ => currentRowIndex++)
+                .Map(B, data => data.UserName)
+                .Map(C, data => data.NickName)
+                .Map(D, data => data.FirstName)
+                .Map(E, data => data.LastName)
+                .Map(F, data => data.StatusName)
+                .Map(G, data => data.CreatedDateStr)
+                .Map(H, data => data.Count)
+                .Map(I, data => data.ReviewStatus);
+            }
+
             var mapper = new Mapper<ProblemAccountModel>()
                 .Map(A, _ => currentRowIndex++)
                 .Map(B, data => data.UserName)
@@ -114,6 +128,10 @@
         private TemplateInfo GetTemplateInfo(ProblemAccountExcelQuery message)
         {
             var templateName = message.SearchRole.DisplayName;
+            if(message.SearchRole.IsAgentLevel() && message.IsViewDirectDownLine)
+            {
+                templateName = $"DirectDownLine{templateName}";
+            }
 
             return new TemplateInfo(
                    GetExcelTemplatePath(templateName),
@@ -130,7 +148,7 @@
         {
             var reviewStatus = ReviewStatusConstant.GetReviewStatus(message.UserSelectedReviewedStatusId);
             var title = new StringBuilder();
-            if (message.SearchRole.IsNotMasterLevel())
+            if (message.CustLevel.GetDirectDownLineLevel().Value != message.SearchRoleId)
             {
                 title.Append($"{GetSourceText(message.SearchRole.GetDirectUplineLevel().DisplayName)}: {message.UplineName} \n");
             }

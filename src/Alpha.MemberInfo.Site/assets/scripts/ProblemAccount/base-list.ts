@@ -50,7 +50,7 @@ class BaseList {
     public init(indexManager: ProblemAccount, downlineObject: BaseList) {
         this.indexManager = indexManager;
 
-        this.isIndirectDownlineOfActor = this.levelId < 3;
+        this.isIndirectDownlineOfActor = this.levelId < this.indexManager.ActorLevel - 1;
         this.directDownlineRoleId = this.levelId - 1;
         this.cacheDOMElements();
 
@@ -98,7 +98,7 @@ class BaseList {
         this.$fromDate = this.$(`#from-date-${this.levelNameLowerCase}`);
         this.$toDate = this.$(`#to-date-${this.levelNameLowerCase}`);
         this.$viewedNameDirectUpline = this.$(`#txt-uplinename-${this.levelId === siteInfrastructure.Role.Agent.Id ? 'master' : 'agent'}`);
-        if (this.isIndirectDownlineOfActor) {            
+        if (this.isIndirectDownlineOfActor) {
             this.reportParam = new ReportParam();
         }
         else {
@@ -248,7 +248,7 @@ class BaseList {
         this.$tblReport.removeClass(this.displayNoneClass);
 
         this.$tblReport.find("> tbody").empty().html(
-            this.customerListHelper.buildBody(rs, this.levelId, this.reportParam)
+            this.customerListHelper.buildBody(rs, this.levelId, this.indexManager.ActorLevel, this.reportParam)
         );
         this.$(window).trigger('resize.stickyTableHeaders');
 
@@ -267,18 +267,6 @@ class BaseList {
 
     viewList() {
         this.$.blockUI();
-
-        if (this.isIndirectDownlineOfActor) {
-            const $err = this.$(`#msg-err-${this.levelNameLowerCase}`);
-            const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedNameDirectUpline.val() : null;
-            if (downlineUsername === '' || downlineUsername === undefined) {
-                $err.removeClass(this.displayNoneClass);
-                this.$.unblockUI();
-                return;
-            }
-
-            $err.addClass(this.displayNoneClass);
-        }
 
         this.loadData();
     }
@@ -314,6 +302,7 @@ class ReportParam {
 
 class SiteInfrastructure {
     Role = {
+        Super: { Id: 4, Name: "Super" },
         Master: { Id: 3, Name: "Master" },
         Agent: { Id: 2, Name: "Agent" },
         Member: { Id: 1, Name: "Member" },

@@ -7,7 +7,7 @@
     ViewBag.Title = Resources.ProblemAccountList;
 }
 @section Styles {
-    @StaticResources.AssetStyles.Render("/bundles/site-memberinfo/problem-account")
+    @StaticResources.AssetStyles.Render($"/bundles/site-memberinfo/problem-account-{Model.Query.CustLevel.DisplayName}")
     @StaticResources.RenderStyles("~/assets/bundles/problem-account/index")
 }
 
@@ -17,14 +17,30 @@
 <div id="page_main">
     <div id="page_main">
         <ul id="nav-tabs" class="nav nav-tabs" role="tablist">
-            @RenderMobileTab(UserLevel.Master, Resources.Master)
-            @RenderMobileTab(UserLevel.Agent, Resources.Agent)
-            @RenderMobileTab(UserLevel.Member, Resources.Member)
+            @if (Model.Query.CustLevel.IsSuperLevel())
+            {
+                @RenderTab(UserLevel.Master, Resources.Master)
+            }
+
+            @if (Model.Query.CustLevel.IsMasterOrSuperLevel())
+            {
+                @RenderTab(UserLevel.Agent, Resources.Agent)
+            }
+
+            @RenderTab(UserLevel.Member, Resources.Member)
         </ul>
         <div class="tab-content">
-            @RenderContent(UserLevel.Master, string.Empty)
-            @RenderContent(UserLevel.Agent, Resources.RequiredMaster)
-            @RenderContent(UserLevel.Member, Resources.RequiredAgent)
+            @if (Model.Query.CustLevel.IsSuperLevel())
+            {
+                @RenderContent(UserLevel.Master)
+            }
+
+            @if (Model.Query.CustLevel.IsMasterOrSuperLevel())
+            {
+                @RenderContent(UserLevel.Agent)
+            }
+
+            @RenderContent(UserLevel.Member)
             <div class="shadow" id="shadow">
                 <div class="output" id="output"></div>
             </div>
@@ -47,39 +63,39 @@
 </div>
 
 @Html.Hidden("TotalColumnMaster", ProblemAccountReportViewModel.TotalColumnMaster)
-@Html.Hidden("TotalColumnAgent", ProblemAccountReportViewModel.TotalColumnAgent)
+@Html.Hidden("TotalColumnAgent", Model.TotalColumnAgent)
 @Html.Hidden("TotalColumnMember", ProblemAccountReportViewModel.TotalColumnMember)
 @Html.Hidden("SearchRoleId", Model.Query.SearchRoleId)
 @Html.Hidden("getProblemAccountUrl", Url.Action("GetProblemAccounts"))
 @Html.Hidden("NoInformationIsAvailable", Resources.NoInformationIsAvailable)
 @Html.Hidden("UpdatePopupTitle", Resources.SetToReviewed)
+@Html.Hidden("ActorLevel", Model.Query.ActorLevel.Value)
 
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-memberinfo/problem-account")
     @StaticResources.RenderScripts("~/assets/bundles/problem-account/index")
 }
 
-@helper RenderContent(UserLevel level, string errorMessage)
+@helper RenderContent(UserLevel level)
 {
     <div id="@($"tab{level.DisplayName}")" class="tab-pane fade @(IsActiveTab(level) ? "in active" : string.Empty)" role="tabpanel">
-        @RenderFilter(level, errorMessage)
+        @RenderFilter(level)
         @RenderCheckAll(level)
         @RenderContainer(level)
     </div>
 }
 
-@helper RenderFilter(UserLevel level, string errorMessage)
+@helper RenderFilter(UserLevel level)
 {
     var levelName = level.DisplayName.ToLower();
     <div class="filter">
         <div id="@($"form-{levelName}")" class="form-inline demo-form-inline filter" role="form">
-            @if (level.IsNotMasterLevel())
+            @if (Model.IsShowUplineUsername(level.Value))
             {
-            <div class="form-group">
-                <label>@level.GetDirectUplineLevel().DisplayName</label>
-                <span class="star"></span>
-                <input id="@($"txt-uplinename-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="text" value="" />
-            </div>
+                <div class="form-group">
+                    <label>@level.GetDirectUplineLevel().DisplayName</label>
+                    <input id="@($"txt-uplinename-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="text" value="" />
+                </div>
             }
 
             <div id="daterange-picker-@levelName"
@@ -158,7 +174,6 @@
             <div class="form-group">
                 <span id="icon-excel-@levelName" class="icon-excel" title="@Resources.ExportToExcel"></span>
             </div>
-            <div id="@($"msg-err-{levelName}")" class="msg msg-error display-none">@errorMessage</div>
         </div>
     </div>
 }
@@ -168,9 +183,9 @@
     var levelName = level.DisplayName.ToLower();
     <div class="pull-right checkall-section">
         @Resources.Select:
-        <a href="#" id="chkAll-@(levelName)">All</a>
+        <a href="#" id="chkAll-@(levelName)">@Resources.All</a>
         |
-        <a href="#" id="chkNone-@(levelName)" onclick="CheckAll_onClick(false);">None</a>
+        <a href="#" id="chkNone-@(levelName)" onclick="CheckAll_onClick(false);">@Resources.None</a>
     </div>
 }
 @helper RenderContainer(UserLevel level)
@@ -180,7 +195,7 @@
     {
 new { Text = Resources.No, ClassName = "", Show = true},
 new { Text = Resources.Username, ClassName = "", Show = true},
-new { Text = Resources.Nickname, ClassName = "", Show = level.IsMasterLevel()},
+new { Text = Resources.Nickname, ClassName = "", Show = Model.Query.CustLevel.GetDirectDownLineLevel().Is(level)},
 new { Text = Resources.FirstName, ClassName = "", Show = true},
 new { Text = Resources.LastName, ClassName = "", Show = true},
 new { Text = Resources.Status, ClassName = string.Empty, Show = true},
@@ -209,7 +224,7 @@ new { Text = Resources.ReviewStatus, ClassName = "", Show = true}
 </div>
 }
 
-@helper RenderMobileTab(UserLevel level, string displayName)
+@helper RenderTab(UserLevel level, string displayName)
 {
     <li @(IsActiveTab(level) ? "class=active" : string.Empty) role="presentation">
         <a id="@($"tab{level.Value}")" data-toggle="tab" href="@($"#tab{level.DisplayName}")">@displayName</a>

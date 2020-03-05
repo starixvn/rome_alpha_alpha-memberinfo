@@ -13,5 +13,7 @@
         }
 
         public UserLevel SearchRole => Enumeration.FromValue<UserLevel>(SearchRoleId);
+
+        public bool IsViewDirectDownLine => CustLevel.GetDirectDownLineLevel().Is(SearchRole);
     }
 }

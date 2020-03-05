@@ -11,8 +11,8 @@
         {
             FromDate = DateTime.Now.AddDays(-13);
             ToDate = DateTime.Now;
-            UserSelectedReviewedStatusId = ReviewStatusConstant.NotReviewed;
-            SearchRoleId = UserLevel.Master.Value;
+            UserSelectedReviewedStatusId = ReviewStatusConstant.All;
+            SearchRoleId = CustLevel.GetDirectDownLineLevel().Value;
         }
 
         public DateTime FromDate { get; set; }

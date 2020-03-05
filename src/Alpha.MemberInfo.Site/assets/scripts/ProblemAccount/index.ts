@@ -10,7 +10,7 @@ class ProblemAccount {
     agentList: BaseList;
     memberList: BaseList;
     viewResources: ViewResources;
-
+    ActorLevel: number;
     constructor(
         $: JQueryStatic,
         topWindow: any,
@@ -21,6 +21,7 @@ class ProblemAccount {
     }
 
     init = () => {
+        this.ActorLevel = parseInt(this.$("#ActorLevel").val());
         this.render();
     };
 
@@ -51,11 +52,15 @@ class ProblemAccount {
         this.memberList = new BaseList(this.$, this.topWindow, siteInfrastructure.Role.Member.Id, siteInfrastructure.Role.Member.Name, new DateRangePickerComponent($));
         this.memberList.init(this, null);
 
-        this.agentList = new BaseList(this.$, this.topWindow, siteInfrastructure.Role.Agent.Id, siteInfrastructure.Role.Agent.Name, new DateRangePickerComponent($));
-        this.agentList.init(this, this.memberList);
+        if (this.ActorLevel >= siteInfrastructure.Role.Master.Id) {
+            this.agentList = new BaseList(this.$, this.topWindow, siteInfrastructure.Role.Agent.Id, siteInfrastructure.Role.Agent.Name, new DateRangePickerComponent($));
+            this.agentList.init(this, this.memberList);
+        }
 
-        this.masterList = new BaseList(this.$, this.topWindow, siteInfrastructure.Role.Master.Id, siteInfrastructure.Role.Master.Name, new DateRangePickerComponent($));
-        this.masterList.init(this, this.agentList);
+        if (this.ActorLevel >= siteInfrastructure.Role.Super.Id) {
+            this.masterList = new BaseList(this.$, this.topWindow, siteInfrastructure.Role.Master.Id, siteInfrastructure.Role.Master.Name, new DateRangePickerComponent($));
+            this.masterList.init(this, this.agentList);
+        }        
     }
 }
 

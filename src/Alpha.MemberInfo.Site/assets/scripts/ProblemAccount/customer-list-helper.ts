@@ -18,9 +18,9 @@ class CustomerListHelper {
         return `<tr><td colspan='${colspan}' align='center' class='no-info'>${this.viewResources.NoInformationIsAvailable}</td></tr>`;
     }
 
-    private buildColumnAttributesJson(customer, levelId: number, customerIndex: number) {
+    private buildColumnAttributesJson(customer, levelId: number, actorId: number, customerIndex: number) {
         const memberId = siteInfrastructure.Role.Member.Id, isMember = levelId === memberId,
-            isMaster = levelId === siteInfrastructure.Role.Master.Id,
+            isViewNickname = actorId - 1 == levelId,
             { CustId, UserName, StatusName, NickName, FirstName, LastName, CreatedDateStr, ReviewStatus, Count, CanEdit } = customer,
             commonAttributesJson = this.buildCommonAttributesJson(CustId, UserName, levelId);
 
@@ -38,7 +38,7 @@ class CustomerListHelper {
             {
                 Content: NickName,
                 Attributes: [],
-                Visibile: isMaster
+                Visibile: isViewNickname
             },
             {
                 Content: FirstName,
@@ -106,7 +106,7 @@ class CustomerListHelper {
         return columnContent;
     }
 
-    public buildBody(Customers, levelId: number, reportParam: ReportParam) {
+    public buildBody(Customers, levelId: number, actorId: number, reportParam: ReportParam) {
         if (Customers.length === 0) {
             if (levelId === siteInfrastructure.Role.Member.Id) {
                 return this.buildNoInfoContent(this.viewResources.TotalColumnMember);
@@ -124,6 +124,7 @@ class CustomerListHelper {
             this.buildColumnAttributesJson(
                 Customers[i],
                 levelId,
+                actorId,
                 customerIndex, ).forEach(column => {
                     if (column.Visibile) {
                         rowContent += new ColumnWrapper(column.Content,

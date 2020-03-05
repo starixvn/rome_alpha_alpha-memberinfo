@@ -671,6 +671,7 @@
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\Master.xls" />
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\Agent.xls" />
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\Member.xls" />
+    <Content Include="App_Data\ExcelTemplates\ProblemAccount\DirectDownLineAgent.xls" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
