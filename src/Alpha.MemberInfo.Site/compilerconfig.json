@@ -18,5 +18,9 @@
   {
     "outputFile": "assets/styles/problem-account/update.css",
     "inputFile": "assets/styles/problem-account/update.scss"
+  },
+  {
+    "outputFile": "Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in.css",
+    "inputFile": "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.scss"
   }
 ]

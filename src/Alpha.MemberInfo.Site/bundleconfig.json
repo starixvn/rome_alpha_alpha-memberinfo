@@ -70,5 +70,11 @@
     "inputFiles": [
       "assets/scripts/ProblemAccount/update.js"
     ]
+  },
+  {
+    "outputFileName": "Features/QRCodeMemberSignIn/Bundles/credit-balance/qr-code-member-sign-in.js",
+    "inputFiles": [
+      "Features/QRCodeMemberSignIn/Scripts/credit-balance/qr-code-member-sign-in.js"
+    ]
   }
 ]
