@@ -3,6 +3,8 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
     using System.Web.Mvc;
+    using Alpha.MemberInfo.AppResources;
+    using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Requests;
     using Alpha.MemberInfo.Site.ViewModels;
     using MediatR;
@@ -32,7 +34,9 @@
                 : GetExcelContent(new ExcelFileViewModel(InvalidExcelFileName, new byte[] { }));
 
         protected ActionResult Json<TResponse>(IRequest<TResponse> message)
-            => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+            => (message as MemberInfoBaseQuery).IsValid() ? 
+                Json(mediator.Send(message), JsonRequestBehavior.AllowGet) :
+                Json(Result.CreateErrorResult(Lang.NotAuthorized, 999), JsonRequestBehavior.AllowGet);
 
         private FileContentResult GetExcelContent(ExcelFileViewModel viewModel)
             => File(viewModel.Content, ExcelFileViewModel.ContentType, viewModel.Name);

@@ -141,4 +141,7 @@
   <data name="Others" xml:space="preserve">
     <value>Others</value>
   </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>해당 기능에 대한 권한이 없습니다.</value>
+  </data>
 </root>

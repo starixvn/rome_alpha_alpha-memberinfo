@@ -239,36 +239,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Lang.ja-JP.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.ja-JP.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Lang.ko-KR.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.ko-KR.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Lang.th-TH.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.th-TH.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Lang.vi-VN.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.vi-VN.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Lang.zh-CN.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.zh-CN.resx</DependentUpon>
-    </Compile>
-    <Compile Include="AppResources\Lang.zh-TW.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.zh-TW.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="AppResources\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -352,32 +323,27 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppResources\Lang.ja-JP.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.ja-JP.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Lang.ko-KR.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.ko-KR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Lang.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Lang.th-TH.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.th-TH.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Lang.vi-VN.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.vi-VN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Lang.zh-CN.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Lang.zh-TW.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.zh-TW.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Resources.ja-JP.resx">

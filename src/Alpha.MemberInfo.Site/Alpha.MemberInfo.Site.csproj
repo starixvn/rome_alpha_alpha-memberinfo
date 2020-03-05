@@ -450,13 +450,13 @@
     <Content Include="assets\bundles\credit-balance\credit-balance.min.js">
       <DependentUpon>credit-balance.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\default.css" >
+    <Content Include="assets\bundles\default.css">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\member-info.css" >
+    <Content Include="assets\bundles\member-info.css">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
     <Content Include="assets\bundles\member-info.min.css">
@@ -486,7 +486,7 @@
     <Content Include="assets\bundles\progressive-jackpot\progressive-jackpot.min.js">
       <DependentUpon>progressive-jackpot.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\win-loss-limit.css" >
+    <Content Include="assets\bundles\win-loss-limit.css">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
     <Content Include="assets\bundles\win-loss-limit.min.css">
@@ -747,7 +747,6 @@
     <Content Include="Views\ProblemAccount\Update.cshtml" />
     <Content Include="Master.xls" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
       <Project>{50b673a0-c10b-4551-b0a0-76edcbf5ce12}</Project>
