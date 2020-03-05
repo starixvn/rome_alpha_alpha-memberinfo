@@ -3,9 +3,32 @@
     ViewBag.Title = "QR Code Member Sign In";
 }
 @section Styles {
-    @StaticResources.RenderStyles("~/assets/bundles/win-loss-limit")
+    @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
 }
-
+<div class="page-title">
+    <span class="pull-left">CREATE MEMBER WITH QR CODE</span>
+</div>
+<form id="win-loss-limit-form" class="form-inline demo-form-inline filter" role="form">
+    <div class="form-group">
+        <label>Input Existing Member account (that you want to copy the setting)</label>
+        <input type="text" id="txt-username" placeholder="" value="" />
+    </div>
+    <div class="form-group">
+        <label>Member Credit</label>
+        <input type="number" id="txt-member-credit" placeholder="" value="" />
+    </div>
+    <div class="form-group">
+        <label>First Name (Optional)</label>
+        <input type="text" id="txt-member-credit" placeholder="" value="" />
+    </div>
+    <div class="form-group">
+        <label>CAPTCHA</label>
+        <input type="text" id="txt-member-credit" placeholder="" value="" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn-submit" id="btn-submit">Create Account</button>
+    </div>
+</form>
 @section Scripts {
-    @StaticResources.RenderScripts("~/assets/bundles/win-loss-limit/win-loss-limit")
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
 }

@@ -2,19 +2,25 @@
 {
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
+    using Alpha.Web.Models;
     using MediatR;
-    using System.Threading.Tasks;
 
     public class QRCodeMemberSignInHandler
-        : IAsyncRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>
+        : IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
+        IRequestHandler<CreateAccountByQRCodeRequest, Result>
     {
         public QRCodeMemberSignInHandler()
         {
         }
 
-        public async Task<QRCodeMemberSignInViewModel> Handle(QRCodeMemberSignInRequest message)
+        public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
         {
             return new QRCodeMemberSignInViewModel();
+        }
+
+        public Result Handle(CreateAccountByQRCodeRequest message)
+        {
+            return new Result();
         }
     }
 }

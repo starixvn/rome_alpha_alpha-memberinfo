@@ -522,6 +522,14 @@
     <Content Include="assets\styles\problem-account\update.css">
       <DependentUpon>update.scss</DependentUpon>
     </Content>
+     <Content Include="Features\QRCodeMemberSignIn\Bundles\credit-balance\qr-code-member-sign-in.js" />
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\credit-balance\qr-code-member-sign-in.min.js">
+      <DependentUpon>qr-code-member-sign-in.js</DependentUpon>
+    </Content>
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.css" />
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.min.css">
+      <DependentUpon>qr-code-member-sign-in.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\problem-account\update.min.css">
       <DependentUpon>update.css</DependentUpon>
     </Content>
@@ -601,6 +609,11 @@
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInController.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInHandler.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Requests\CreateAccountByQRCodeRequest.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeMemberSignInRequest.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeMemberSignInViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
       <DependentUpon>Global.asax</DependentUpon>
@@ -747,6 +760,11 @@
     <Content Include="Views\ProblemAccount\Index.cshtml" />
     <Content Include="Views\ProblemAccount\Update.cshtml" />
     <Content Include="Master.xls" />
+     <Content Include="Features\QRCodeMemberSignIn\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Features\QRCodeMemberSignIn\Views\Index.cshtml" />
+    <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
@@ -775,6 +793,7 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\member-requests\member-requests-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\win-loss-limit\win-loss-limit-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\win-loss-limit\win-loss-limit.ts" />
+    <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\qr-code-member-sign-in.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />
