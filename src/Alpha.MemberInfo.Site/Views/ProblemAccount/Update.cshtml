@@ -1,0 +1,54 @@
+﻿@using Alpha.MemberInfo.Site.ViewModels.ProblemAccount;
+@{
+    /**/
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles{
+    @StaticResources.RenderStyles("~/assets/bundles/problem-account/update")
+}
+@model UpdateReviewStatusViewModel
+<div class="content-page">
+    <div id="message-container" class="message-container"></div>
+    <form id="formUpdateReviewStatus" action="@Url.Action("UpdateCommand", "ProblemAccount")" method="post" class="formUpdateReviewStatus padding-top">
+        @Html.AntiForgeryToken()
+        <div class="review-content">
+            @if (Model.DisplayShowAllAccountOption)
+            {
+                @Html.Raw(Model.ConfirmMessage)
+                <span class="more-ellipses">...</span>
+                <div class="more-content">
+                    <span>@($", {string.Join(", ", Model.MoreDownlineUsernames)}")</span>
+                    <a href="" class="more-link">@string.Format(Resources.ShowAllAccounts, Model.TotalAllAccount)</a>
+                </div>
+            }
+            else
+            {
+                @Html.Raw($"{Model.ConfirmMessage}")
+            }
+        </div>
+
+        @if (!Model.Role.IsMemberLevel())
+        {
+            <label for="rd-selected-only" class="review-options">
+                <input type="radio" id="rd-selected-only" name="IsAffectedAllDownlines" value="false" checked="checked" />
+                @Resources.SetReviewedForAccountOnly
+            </label>
+            <label for="rd-affected-downlines" class="review-options">
+                <input type="radio" id="rd-affected-downlines" name="IsAffectedAllDownlines" value="true" />
+                @Resources.SetReviewedForDownline
+            </label>
+        }
+
+        @Html.Hidden(nameof(Model.Ids), Model.Ids)
+        @Html.Hidden(nameof(Model.RoleId), Model.RoleId)
+        <div class="list-button">
+            <input type="submit" class="btn-submit" value="@Resources.Submit" />
+            <input type="button" class="btn-cancel" id="btnCancel" value="@Resources.Cancel" />
+        </div>
+    </form>
+</div>
+@Html.Hidden("SuccessMessage", Resources.UpdateSuccessfully)
+@Html.AntiForgeryToken()
+@section Scripts{
+    @StaticResources.RenderScripts("~/assets/bundles/problem-account/update")
+}

@@ -174,6 +174,9 @@
       <HintPath>..\..\packages\Fanex.Utils.1.0.0\lib\net40\IBCUtils.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="ILogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ILogger.1.0.0.0\lib\net40\ILogger.dll</HintPath>
       <Private>True</Private>
@@ -224,6 +227,24 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="ONEbook.SpreadSheets, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ONEbook.SpreadSheets.1.0.0.1\lib\net461\ONEbook.SpreadSheets.dll</HintPath>
+    </Reference>
+    <Reference Include="ONEbook.SpreadSheets.NPOI, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ONEbook.SpreadSheets.NPOI.1.0.0.3\lib\net461\ONEbook.SpreadSheets.NPOI.dll</HintPath>
     </Reference>
     <Reference Include="ONEbook.UM, Version=2.0.2.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ONEbook.UM.2.0.2.7\lib\net40\ONEbook.UM.dll</HintPath>
@@ -429,13 +450,13 @@
     <Content Include="assets\bundles\credit-balance\credit-balance.min.js">
       <DependentUpon>credit-balance.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\default.css">
+    <Content Include="assets\bundles\default.css" >
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\member-info.css">
+    <Content Include="assets\bundles\member-info.css" >
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
     <Content Include="assets\bundles\member-info.min.css">
@@ -445,11 +466,27 @@
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
       <DependentUpon>member-requests.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\problem-account\index.css" />
+    <Content Include="assets\bundles\problem-account\index.js" />
+    <Content Include="assets\bundles\problem-account\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\problem-account\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\problem-account\update.css" />
+    <Content Include="assets\bundles\problem-account\update.js" />
+    <Content Include="assets\bundles\problem-account\update.min.css">
+      <DependentUpon>update.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\problem-account\update.min.js">
+      <DependentUpon>update.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\progressive-jackpot\progressive-jackpot.js" />
     <Content Include="assets\bundles\progressive-jackpot\progressive-jackpot.min.js">
       <DependentUpon>progressive-jackpot.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\win-loss-limit.css">
+    <Content Include="assets\bundles\win-loss-limit.css" >
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
     <Content Include="assets\bundles\win-loss-limit.min.css">
@@ -476,6 +513,18 @@
     <Content Include="assets\scripts\tests\libs\pagination\jquery.pagination.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.parser.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.resizable.js" />
+    <Content Include="assets\styles\problem-account\index.css">
+      <DependentUpon>index.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\update.css">
+      <DependentUpon>update.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\update.min.css">
+      <DependentUpon>update.css</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
     <Content Include="Views\MemberRequests\Index.cshtml" />
@@ -547,6 +596,7 @@
     </Compile>
     <Compile Include="Constants\LanguageCode.cs" />
     <Compile Include="Controllers\CreditBalanceController.cs" />
+    <Compile Include="Controllers\ProblemAccountController.cs" />
     <Compile Include="Controllers\ProgressiveJackpotController.cs" />
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
@@ -557,7 +607,11 @@
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Handlers\CreditBalanceHandler.cs" />
+    <Compile Include="Handlers\ExcelBaseHandler.cs" />
     <Compile Include="Handlers\MemberRequestHandler.cs" />
+    <Compile Include="Handlers\ProblemAccount\ProblemAccountExcelHandler.cs" />
+    <Compile Include="Handlers\ProblemAccount\ProblemAccountHandler.cs" />
+    <Compile Include="Handlers\ProblemAccount\ProblemAccountWorkbook.cs" />
     <Compile Include="Handlers\ProgressiveJackpotHandler.cs" />
     <Compile Include="Handlers\WinLossLimitHandler.cs" />
     <Compile Include="Helpers\QueryEntityModelBinder.cs" />
@@ -567,13 +621,24 @@
     <Compile Include="Requests\MemberRequest\ProductQuery.cs" />
     <Compile Include="Requests\MemberRequest\MemberRequestQuery.cs" />
     <Compile Include="Requests\MemberInfoBaseQuery.cs" />
+    <Compile Include="Requests\ProblemAccount\IndexRequest.cs" />
+    <Compile Include="Requests\ProblemAccount\ProblemAccountExcelQuery.cs" />
+    <Compile Include="Requests\ProblemAccount\ProblemAccountRequestBase.cs" />
+    <Compile Include="Requests\ProblemAccount\UpdateProblemAccountCommand.cs" />
+    <Compile Include="Requests\ProblemAccount\UpdateProblemAccountRequest.cs" />
+    <Compile Include="Requests\ProblemAccount\GetProblemAccountRequest.cs" />
     <Compile Include="Requests\ProgressiveJackpot\ProgressiveJacpotQuery.cs" />
     <Compile Include="Requests\WinLossLimit\WinLossLimitQuery.cs" />
+    <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
     <Compile Include="ViewModels\Components\PagerViewModel.cs" />
     <Compile Include="ViewModels\Components\ProductMultiSelectionViewModel.cs" />
+    <Compile Include="ViewModels\Components\ReviewedStatusSelectionViewModel.cs" />
     <Compile Include="ViewModels\CreditBalance\CreditBalanceViewModel.cs" />
+    <Compile Include="ViewModels\ExcelFileViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
+    <Compile Include="ViewModels\ProblemAccount\ProblemAccountReportViewModel.cs" />
+    <Compile Include="ViewModels\ProblemAccount\UpdateReviewStatusViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\ProgressiveJackpot\ProgressiveJackpotViewModel.cs" />
     <Compile Include="ViewModels\WinLossLimit\WinLossLimitViewModel.cs" />
@@ -601,6 +666,11 @@
     <Content Include="App_Code\Components\Pager.cshtml" />
     <Content Include="assets\styles\_columns-control.scss" />
     <Content Include="App_Data\SPNames\Local\DBCust.IPDB.BODBDownlineNet.xml" />
+    <Content Include="assets\styles\problem-account\index.scss" />
+    <Content Include="assets\styles\problem-account\update.scss" />
+    <Content Include="App_Data\ExcelTemplates\ProblemAccount\Master.xls" />
+    <Content Include="App_Data\ExcelTemplates\ProblemAccount\Agent.xls" />
+    <Content Include="App_Data\ExcelTemplates\ProblemAccount\Member.xls" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -673,6 +743,9 @@
     <Content Include="Views\WinLossLimit\Index.cshtml" />
     <Content Include="Views\CreditBalance\Index.cshtml" />
     <Content Include="Views\CreditBalance\_ColumnsControl.cshtml" />
+    <Content Include="Views\ProblemAccount\Index.cshtml" />
+    <Content Include="Views\ProblemAccount\Update.cshtml" />
+    <Content Include="Master.xls" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -682,12 +755,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\scripts\components\daterangepicker.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\html-wrapper.ts" />
     <TypeScriptCompile Include="assets\scripts\credit-balance\columns-control.ts" />
     <TypeScriptCompile Include="assets\scripts\components\pager.ts" />
     <TypeScriptCompile Include="assets\scripts\components\productmultiselection.ts" />
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
     <TypeScriptCompile Include="assets\scripts\credit-balance\credit-balance.ts" />
     <TypeScriptCompile Include="assets\scripts\member-requests\member-requests.ts" />
+    <TypeScriptCompile Include="assets\scripts\ProblemAccount\base-list.ts" />
+    <TypeScriptCompile Include="assets\scripts\ProblemAccount\customer-list-helper.ts" />
+    <TypeScriptCompile Include="assets\scripts\ProblemAccount\update.ts" />
+    <TypeScriptCompile Include="assets\scripts\ProblemAccount\index.ts" />
     <TypeScriptCompile Include="assets\scripts\progressive-jackpot\progressive-jackpot.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\pager-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\productmultiselection-tests.ts" />
@@ -758,14 +837,15 @@
   </Target>
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <PropertyGroup>
-    <PostBuildEvent>cd $(ProjectDir)
-cd ..
-cd ..
-cd build
-assets.build.cmd
+    <PostBuildEvent>
+      cd $(ProjectDir)
+      cd ..
+      cd ..
+      cd build
+      assets.build.cmd
       if not exist "$(WebProjectOutputDir)\bin\Roslyn" md "$(WebProjectOutputDir)\bin\Roslyn"
       start /MIN xcopy /s /y /R "$(OutDir)roslyn\*.*" "$(WebProjectOutputDir)\bin\Roslyn"
-</PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

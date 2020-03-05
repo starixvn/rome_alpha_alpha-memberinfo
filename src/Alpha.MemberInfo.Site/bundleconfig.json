@@ -12,6 +12,18 @@
     ]
   },
   {
+    "outputFileName": "assets/bundles/problem-account/index.css",
+    "inputFiles": [
+      "assets/styles/problem-account/index.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/problem-account/update.css",
+    "inputFiles": [
+      "assets/styles/problem-account/update.css"
+    ]
+  },
+  {
     "outputFileName": "assets/bundles/member-requests/member-requests.js",
     "inputFiles": [
       "assets/scripts/components/single-selection-dropdown.js",
@@ -40,6 +52,23 @@
       "assets/scripts/components/pager.js",
       "assets/scripts/credit-balance/columns-control.js",
       "assets/scripts/credit-balance/credit-balance.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/problem-account/index.js",
+    "inputFiles": [
+      "assets/scripts/components/html-wrapper.js",
+      "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/components/daterangepicker.js",
+      "assets/scripts/ProblemAccount/base-list.js",
+      "assets/scripts/ProblemAccount/customer-list-helper.js",
+      "assets/scripts/ProblemAccount/index.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/problem-account/update.js",
+    "inputFiles": [
+      "assets/scripts/ProblemAccount/update.js"
     ]
   }
 ]
