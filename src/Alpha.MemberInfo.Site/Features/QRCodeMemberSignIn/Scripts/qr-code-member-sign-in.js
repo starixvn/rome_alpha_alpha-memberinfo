@@ -36,6 +36,9 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 }
             };
             _this.$('#txt-username').easyAutocomplete(options);
+            _this.$('#btn-copy-link').click(function () {
+                clipboard.writeText(_this.memberLink);
+            });
             _this.$("#btn-submit").click(function () {
                 _this.$.blockUI();
                 var param = {};
@@ -51,6 +54,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                             _this.$("#create-account-successfully").removeClass("hidden");
                             var obj = JSON.parse(result.ErrMsg);
                             _this.$("#qr-code-image").attr("src", obj.QRCode);
+                            _this.memberLink = obj.MemberSiteLink;
                             _this.firstname = _this.$('#txt-first-name').val();
                             _this.$("#first-name-label").html(_this.firstname);
                             _this.$("#credit-label").html("" + _this.credit);

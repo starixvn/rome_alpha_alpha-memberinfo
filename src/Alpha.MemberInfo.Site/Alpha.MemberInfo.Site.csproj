@@ -556,6 +556,7 @@
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.themes.min.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.js" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.min.js" />
+    <Content Include="Features\QRCodeMemberSignIn\Scripts\ClipboardPolyfill\clipboard-polyfill.js" />
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
     <Content Include="Views\MemberRequests\Index.cshtml" />

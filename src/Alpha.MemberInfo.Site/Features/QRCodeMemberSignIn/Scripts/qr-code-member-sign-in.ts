@@ -1,11 +1,14 @@
 ﻿"use strict";
 
+declare var clipboard: any;
+
 class QRCodeMemberSignIn {
     $: JQueryStatic;
     topWindow: any;
     username: string;
     firstname: string;
     credit: number;
+    memberLink: string;
 
     constructor(
         $: JQueryStatic,
@@ -53,6 +56,10 @@ class QRCodeMemberSignIn {
 
         this.$('#txt-username').easyAutocomplete(options);
 
+        this.$('#btn-copy-link').click(() => {
+            clipboard.writeText(this.memberLink);
+        });
+
         this.$("#btn-submit").click(() => {
             this.$.blockUI();
 
@@ -72,6 +79,7 @@ class QRCodeMemberSignIn {
 
                         const obj = JSON.parse(result.ErrMsg);
                         this.$("#qr-code-image").attr("src", obj.QRCode);
+                        this.memberLink = obj.MemberSiteLink;
 
                         this.firstname = this.$('#txt-first-name').val();
                         this.$("#first-name-label").html(this.firstname);
