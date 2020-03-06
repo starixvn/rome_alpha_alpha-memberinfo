@@ -38,5 +38,13 @@
 
             return Json(mediator.Send(message));
         }
+
+        [HttpGet]
+        public ActionResult GetUsernamesSuggestion(UserNameSuggestionQuery message)
+          => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+
+        [HttpGet]
+        public ActionResult GetMemberCredit(GetMemberCreditRequest message)
+         => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
     }
 }

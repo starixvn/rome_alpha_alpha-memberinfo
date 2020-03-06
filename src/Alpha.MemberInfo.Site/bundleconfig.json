@@ -76,5 +76,12 @@
     "inputFiles": [
       "Features/QRCodeMemberSignIn/Scripts/qr-code-member-sign-in.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/win-loss-limit.css",
+    "inputFiles": [
+      "Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in.css",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.css"
+    ]
   }
 ]

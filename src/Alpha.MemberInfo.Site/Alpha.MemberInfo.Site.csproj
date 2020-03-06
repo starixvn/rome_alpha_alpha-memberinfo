@@ -550,6 +550,12 @@
      <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.min.js">
       <DependentUpon>qr-code-member-sign-in.js</DependentUpon>
     </Content>
+    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.css" />
+    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.min.css" />
+    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.themes.css" />
+    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.themes.min.css" />
+    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.js" />
+    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.min.js" />
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
     <Content Include="Views\MemberRequests\Index.cshtml" />
@@ -632,6 +638,8 @@
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInHandler.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CreateAccountByQRCodeRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeMemberSignInRequest.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditRequest.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Requests\UserNameSuggestionQuery.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\MemberSiteTokenLink.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeMemberSignInViewModel.cs" />
     <Compile Include="Global.asax.cs">
