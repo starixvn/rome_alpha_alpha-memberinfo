@@ -3,6 +3,9 @@
 class QRCodeMemberSignIn {
     $: JQueryStatic;
     topWindow: any;
+    username: string;
+    firstname: string;
+    credit: number;
 
     constructor(
         $: JQueryStatic,
@@ -26,18 +29,22 @@ class QRCodeMemberSignIn {
                 onChooseEvent: () => {
                     this.$.blockUI();
 
+                    var chooseUsername = this.$('#txt-username').val();
+                    this.username = chooseUsername;
+                   
                     var param = {
-                        SuggestionQuery: "aa"
+                        SuggestionQuery: chooseUsername
                     };
 
                     this.$.ajax({
-                        method: "GET",
+                        method: "POST",
                         data: param,
                         url: "QRCodeMemberSignIn/GetMemberCredit",
                         cache: false,
                         success: (result) => {
                             this.$.unblockUI();
                             this.$("#txt-member-credit").val(result);
+                            this.credit = parseFloat(result);
                         }
                     });
                 }
@@ -65,6 +72,11 @@ class QRCodeMemberSignIn {
 
                         const obj = JSON.parse(result.ErrMsg);
                         this.$("#qr-code-image").attr("src", obj.QRCode);
+
+                        this.firstname = this.$('#txt-first-name').val();
+                        this.$("#first-name-label").html(this.firstname);
+                        this.$("#credit-label").html(`${this.credit}`);
+                        this.$("#username-label").html(this.username);
                     }
                     else {
                         // Show error message

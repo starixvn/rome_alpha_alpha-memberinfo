@@ -43,8 +43,8 @@
         public ActionResult GetUsernamesSuggestion(UserNameSuggestionQuery message)
           => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult GetMemberCredit(GetMemberCreditRequest message)
-         => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+         => Json(mediator.Send(message));
     }
 }

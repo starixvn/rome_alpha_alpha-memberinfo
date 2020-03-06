@@ -16,17 +16,20 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 list: {
                     onChooseEvent: function () {
                         _this.$.blockUI();
+                        var chooseUsername = _this.$('#txt-username').val();
+                        _this.username = chooseUsername;
                         var param = {
-                            SuggestionQuery: "aa"
+                            SuggestionQuery: chooseUsername
                         };
                         _this.$.ajax({
-                            method: "GET",
+                            method: "POST",
                             data: param,
                             url: "QRCodeMemberSignIn/GetMemberCredit",
                             cache: false,
                             success: function (result) {
                                 _this.$.unblockUI();
                                 _this.$("#txt-member-credit").val(result);
+                                _this.credit = parseFloat(result);
                             }
                         });
                     }
@@ -48,6 +51,10 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                             _this.$("#create-account-successfully").removeClass("hidden");
                             var obj = JSON.parse(result.ErrMsg);
                             _this.$("#qr-code-image").attr("src", obj.QRCode);
+                            _this.firstname = _this.$('#txt-first-name').val();
+                            _this.$("#first-name-label").html(_this.firstname);
+                            _this.$("#credit-label").html("" + _this.credit);
+                            _this.$("#username-label").html(_this.username);
                         }
                         else {
                             // Show error message
