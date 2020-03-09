@@ -13,7 +13,7 @@
         : IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
         IRequestHandler<CreateAccountByQRCodeRequest, Result>,
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
-        IRequestHandler<GetMemberCreditRequest, decimal>
+        IRequestHandler<GetMemberCreditRequest, MemberCreditRange>
     {
         private readonly QrCodeAdapter qrCodeAdapter;
 
@@ -44,9 +44,9 @@
             return results;
         }
 
-        public decimal Handle(GetMemberCreditRequest message)
+        public MemberCreditRange Handle(GetMemberCreditRequest message)
         {
-            return 100;
+            return new MemberCreditRange(100, 9, 9999);
         }
     }
 }
