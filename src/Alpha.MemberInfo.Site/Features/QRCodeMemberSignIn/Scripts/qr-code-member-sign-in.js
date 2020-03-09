@@ -28,8 +28,11 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                             cache: false,
                             success: function (result) {
                                 _this.$.unblockUI();
-                                _this.$("#txt-member-credit").val(result);
-                                _this.credit = parseFloat(result);
+                                _this.$('#credit-range').removeClass('hidden');
+                                _this.$("#txt-member-credit").val(result.Credit);
+                                _this.$("#credit-min-label").html(result.CreditMin);
+                                _this.$("#credit-max-label").html(result.CreditMax);
+                                _this.credit = parseFloat(result.Credit);
                             }
                         });
                     }

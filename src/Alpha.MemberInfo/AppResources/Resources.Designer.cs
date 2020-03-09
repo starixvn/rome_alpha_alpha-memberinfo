@@ -61,6 +61,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account Information.
+        /// </summary>
+        public static string AccountInformation {
+            get {
+                return ResourceManager.GetString("AccountInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action.
         /// </summary>
         public static string Action {
@@ -155,9 +164,20 @@ namespace Alpha.MemberInfo.AppResources {
         /// </summary>
         public static string Cancel {
             get {
-                return ResourceManager.GetString("Cancel", resourceCulture);
+                return ResourceManager.GetString("Captcha", resourceCulture);
             }
         }
+        
+          
+        /// <summary>
+        ///   Looks up a localized string similar to CAPTCHA.
+        /// </summary>
+        public static string Captcha {
+            get {
+                return ResourceManager.GetString("Captcha", resourceCulture);
+            }
+        }
+
         
         /// <summary>
         ///   Looks up a localized string similar to Cash.
@@ -183,6 +203,33 @@ namespace Alpha.MemberInfo.AppResources {
         public static string CommissionSettingFollows {
             get {
                 return ResourceManager.GetString("CommissionSettingFollows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Link.
+        /// </summary>
+        public static string CopyLink {
+            get {
+                return ResourceManager.GetString("CopyLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Account.
+        /// </summary>
+        public static string CreateAccount {
+            get {
+                return ResourceManager.GetString("CreateAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Member With QR Code.
+        /// </summary>
+        public static string CreateMemberWithQRCode {
+            get {
+                return ResourceManager.GetString("CreateMemberWithQRCode", resourceCulture);
             }
         }
         
@@ -331,6 +378,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First Name (Optional).
+        /// </summary>
+        public static string FirstNameOptional {
+            get {
+                return ResourceManager.GetString("FirstNameOptional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input Existing Member account (that you want to copy the setting).
+        /// </summary>
+        public static string InputExistingMemberAccount {
+            get {
+                return ResourceManager.GetString("InputExistingMemberAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Jackpot Bet Stake.
         /// </summary>
         public static string JackpotBetStake {
@@ -411,6 +476,16 @@ namespace Alpha.MemberInfo.AppResources {
             }
         }
         
+         /// <summary>
+        ///   Looks up a localized string similar to Member Credit.
+        /// </summary>
+        public static string MemberCredit {
+            get {
+                return ResourceManager.GetString("MemberCredit", resourceCulture);
+            }
+        }
+
+        
         /// <summary>
         ///   Looks up a localized string similar to Member Win/Loss Limit.
         /// </summary>
@@ -447,6 +522,15 @@ namespace Alpha.MemberInfo.AppResources {
             }
         }
         
+         /// <summary>
+        ///   Looks up a localized string similar to New Given Credit.
+        /// </summary>
+        public static string NewGivenCredit {
+            get {
+                return ResourceManager.GetString("NewGivenCredit", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to No..
         /// </summary>
@@ -579,6 +663,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string PlayForFunMemberRequest {
             get {
                 return ResourceManager.GetString("PlayForFunMemberRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please show this QR code to your member.
+        /// </summary>
+        public static string PleaseShowThisQRCodeToYourMember {
+            get {
+                return ResourceManager.GetString("PleaseShowThisQRCodeToYourMember", resourceCulture);
             }
         }
         
@@ -888,12 +981,41 @@ namespace Alpha.MemberInfo.AppResources {
             }
         }
         
+         
+        /// <summary>
+        ///   Looks up a localized string similar to This account has been successfully created..
+        /// </summary>
+        public static string ThisAccountHasBeenSuccessfullyCreated {
+            get {
+                return ResourceManager.GetString("ThisAccountHasBeenSuccessfullyCreated", resourceCulture);
+            }
+        }
+
+        
         /// <summary>
         ///   Looks up a localized string similar to Successfully updated!.
         /// </summary>
         public static string UpdateSuccessfully {
             get {
                 return ResourceManager.GetString("UpdateSuccessfully", resourceCulture);
+            }
+        }
+        
+         /// <summary>
+        ///   Looks up a localized string similar to Update Credit.
+        /// </summary>
+        public static string UpdateCredit {
+            get {
+                return ResourceManager.GetString("UpdateCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Information.
+        /// </summary>
+        public static string UpdateInformation {
+            get {
+                return ResourceManager.GetString("UpdateInformation", resourceCulture);
             }
         }
         

@@ -8,8 +8,6 @@ class QRCodeMemberSignIn {
     username: string;
     firstname: string;
     credit: number;
-    creditMin: number;
-    creditMax: number;
     memberLink: string;
 
     constructor(
@@ -49,10 +47,12 @@ class QRCodeMemberSignIn {
                         success: (result) => {
                             this.$.unblockUI();
 
+                            this.$('#credit-range').removeClass('hidden');
                             this.$("#txt-member-credit").val(result.Credit);
+                            this.$("#credit-min-label").html(result.CreditMin);
+                            this.$("#credit-max-label").html(result.CreditMax);
+
                             this.credit = parseFloat(result.Credit);
-                            this.creditMin = parseFloat(result.CreditMin);
-                            this.creditMax = parseFloat(result.CreditMax);
                         }
                     });
                 }
@@ -89,8 +89,6 @@ class QRCodeMemberSignIn {
                         this.firstname = this.$('#txt-first-name').val();
                         this.$("#first-name-label").html(this.firstname);
                         this.$("#credit-label").html(`${this.credit}`);
-                        this.$("#credit-min-label").html(`${this.creditMin}`);
-                        this.$("#credit-max-label").html(`${this.creditMax}`);
                         this.$("#username-label").html(this.username);
                     }
                     else {
