@@ -13,6 +13,8 @@
         {
         }
 
+        public string MemberName { get; set; }
+
         public override bool IsValid() => true;
     }
 }

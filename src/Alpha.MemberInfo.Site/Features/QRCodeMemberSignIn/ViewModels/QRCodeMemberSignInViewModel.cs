@@ -2,5 +2,11 @@
 {
     public class QRCodeMemberSignInViewModel
     {
+        public QRCodeMemberSignInViewModel(string memberName)
+        {
+            MemberName = memberName;
+        }
+
+        public string MemberName { get; }
     }
 }

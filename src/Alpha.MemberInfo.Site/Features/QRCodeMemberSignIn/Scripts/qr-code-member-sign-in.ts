@@ -17,6 +17,34 @@ class QRCodeMemberSignIn {
         this.topWindow = topWindow;
     }
 
+    getMemberCredit = () => {
+        this.$.blockUI();
+
+        var chooseUsername = this.$('#txt-username').val();
+        this.username = chooseUsername;
+
+        var param = {
+            SuggestionQuery: chooseUsername
+        };
+
+        this.$.ajax({
+            method: "POST",
+            data: param,
+            url: "QRCodeMemberSignIn/GetMemberCredit",
+            cache: false,
+            success: (result) => {
+                this.$.unblockUI();
+
+                this.$('#credit-range').removeClass('hidden');
+                this.$("#txt-member-credit").val(result.Credit);
+                this.$("#credit-min-label").html(result.CreditMin);
+                this.$("#credit-max-label").html(result.CreditMax);
+
+                this.credit = parseFloat(result.Credit);
+            }
+        });
+    }
+
     init = () => {
         const options = {
             url: function (phrase) {
@@ -29,37 +57,16 @@ class QRCodeMemberSignIn {
                 maxNumberOfElements: 10
             }],
             list: {
-                onChooseEvent: () => {
-                    this.$.blockUI();
-
-                    var chooseUsername = this.$('#txt-username').val();
-                    this.username = chooseUsername;
-                   
-                    var param = {
-                        SuggestionQuery: chooseUsername
-                    };
-
-                    this.$.ajax({
-                        method: "POST",
-                        data: param,
-                        url: "QRCodeMemberSignIn/GetMemberCredit",
-                        cache: false,
-                        success: (result) => {
-                            this.$.unblockUI();
-
-                            this.$('#credit-range').removeClass('hidden');
-                            this.$("#txt-member-credit").val(result.Credit);
-                            this.$("#credit-min-label").html(result.CreditMin);
-                            this.$("#credit-max-label").html(result.CreditMax);
-
-                            this.credit = parseFloat(result.Credit);
-                        }
-                    });
-                }
+                onChooseEvent: () => this.getMemberCredit()
             }
         };
 
         this.$('#txt-username').easyAutocomplete(options);
+
+        const memberName = this.$('#txt-username').val();
+        if (memberName !== '' && memberName !== undefined) {
+            this.getMemberCredit();
+        }
 
         this.$('#btn-copy-link').click(() => {
             clipboard.writeText(this.memberLink);

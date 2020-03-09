@@ -24,7 +24,7 @@
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
         {
-            return new QRCodeMemberSignInViewModel();
+            return new QRCodeMemberSignInViewModel(message.MemberName);
         }
 
         public Result Handle(CreateAccountByQRCodeRequest message)

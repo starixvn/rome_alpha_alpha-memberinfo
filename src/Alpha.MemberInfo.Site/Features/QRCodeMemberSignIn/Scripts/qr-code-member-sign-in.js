@@ -2,6 +2,28 @@
 var QRCodeMemberSignIn = /** @class */ (function () {
     function QRCodeMemberSignIn($, topWindow) {
         var _this = this;
+        this.getMemberCredit = function () {
+            _this.$.blockUI();
+            var chooseUsername = _this.$('#txt-username').val();
+            _this.username = chooseUsername;
+            var param = {
+                SuggestionQuery: chooseUsername
+            };
+            _this.$.ajax({
+                method: "POST",
+                data: param,
+                url: "QRCodeMemberSignIn/GetMemberCredit",
+                cache: false,
+                success: function (result) {
+                    _this.$.unblockUI();
+                    _this.$('#credit-range').removeClass('hidden');
+                    _this.$("#txt-member-credit").val(result.Credit);
+                    _this.$("#credit-min-label").html(result.CreditMin);
+                    _this.$("#credit-max-label").html(result.CreditMax);
+                    _this.credit = parseFloat(result.Credit);
+                }
+            });
+        };
         this.init = function () {
             var options = {
                 url: function (phrase) {
@@ -14,31 +36,14 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                         maxNumberOfElements: 10
                     }],
                 list: {
-                    onChooseEvent: function () {
-                        _this.$.blockUI();
-                        var chooseUsername = _this.$('#txt-username').val();
-                        _this.username = chooseUsername;
-                        var param = {
-                            SuggestionQuery: chooseUsername
-                        };
-                        _this.$.ajax({
-                            method: "POST",
-                            data: param,
-                            url: "QRCodeMemberSignIn/GetMemberCredit",
-                            cache: false,
-                            success: function (result) {
-                                _this.$.unblockUI();
-                                _this.$('#credit-range').removeClass('hidden');
-                                _this.$("#txt-member-credit").val(result.Credit);
-                                _this.$("#credit-min-label").html(result.CreditMin);
-                                _this.$("#credit-max-label").html(result.CreditMax);
-                                _this.credit = parseFloat(result.Credit);
-                            }
-                        });
-                    }
+                    onChooseEvent: function () { return _this.getMemberCredit(); }
                 }
             };
             _this.$('#txt-username').easyAutocomplete(options);
+            var memberName = _this.$('#txt-username').val();
+            if (memberName !== '' && memberName !== undefined) {
+                _this.getMemberCredit();
+            }
             _this.$('#btn-copy-link').click(function () {
                 clipboard.writeText(_this.memberLink);
             });
