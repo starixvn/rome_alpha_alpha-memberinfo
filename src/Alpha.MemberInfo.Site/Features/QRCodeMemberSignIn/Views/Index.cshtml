@@ -5,6 +5,7 @@
 }
 @{
     ViewBag.Title = "QR Code Member Sign In";
+    var errorMessageClass = string.IsNullOrEmpty(Model.ErrorMessage) ? "hidden" : string.Empty;
 }
 @section Styles {
     @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
@@ -12,22 +13,27 @@
 <div class="page-title">
     <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
 </div>
+@using (Html.BeginForm("CreateAccount", "QRCodeMemberSignIn", FormMethod.Post, new { id = "qrCodeMemberSignInForm", @class = "form-inline filter", role = "form" }))
+{
 <div class="qr-code-member-sign-in">
+    <div id="message" class="@errorMessageClass">
+        <span id="message-content" className="col-xs-12">@Model.ErrorMessage</span>
+    </div>
     <div id="create-form">
         <div class="form-group">
             <label>@Resources.InputExistingMemberAccount)</label><br>
-            <input type="text" id="txt-username" placeholder="" value="@Model.MemberName" />
+            <input type="text" name="Username" id="Username"  placeholder="" value="@Model.MemberName" />
         </div>
         <div class="form-group">
             <label>@Resources.MemberCredit</label><br>
-            <input type="number" id="txt-member-credit" placeholder="" value="" /><br>
+            <input type="number"name="Credit" id="Credit" placeholder="" value="@Model.Credit" /><br>
         </div>
         <div id="credit-range" class="form-group hidden">
             <label id="credit-min-label"></label> <=  @Resources.NewGivenCredit <= <label id="credit-max-label"></label>
         </div>
         <div class="form-group">
             <label>@Resources.FirstNameOptional</label><br>
-            <input type="text" id="txt-first-name" placeholder="" value="" />
+            <input type="text"name="FirstName" id="Credit" placeholder="" value="" />
         </div>
         <div class="form-group">
             <label>@Resources.Captcha</label><br>
@@ -37,11 +43,11 @@
             <button type="submit" class="btn-submit" id="btn-submit">@Resources.CreateAccount</button>
         </div>
     </div>
-    @{ Html.RenderPartial("~/Features/QRCodeMemberSignIn/Views/_CreateAccountSuccessfully.cshtml"); }
 </div>
+            }
 
-@section Scripts {
-    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill")
-    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
-    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
-}
+    @section Scripts {
+        @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill")
+        @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
+        @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
+    }

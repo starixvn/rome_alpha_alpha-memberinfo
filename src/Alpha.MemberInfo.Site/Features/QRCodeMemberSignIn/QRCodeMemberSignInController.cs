@@ -10,6 +10,7 @@
     {
         private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         private const string IndexPath = "~/Features/QRCodeMemberSignIn/Views/Index.cshtml";
+        private const string ShowQRCodePath = "~/Features/QRCodeMemberSignIn/Views/ShowQRCode.cshtml";
         private readonly IMediator mediator;
 
         public QRCodeMemberSignInController(IMediator mediator)
@@ -36,7 +37,13 @@
                 return Json(new Result(1, "Forbidden"), JsonRequestBehavior.AllowGet);
             }
 
-            return Json(mediator.Send(message));
+            var result = mediator.Send(message);
+            if(result.ErrCode.Equals(0))
+            {
+                return RedirectToAction("ShowQRCode", new {message.Username, message.FirstName, message.Credit });
+            }
+
+            return RedirectToAction("Index", new { MemberName = "MemberName", ErrorMessage="Create Account Failed" });
         }
 
         [HttpGet]
@@ -46,5 +53,16 @@
         [HttpPost]
         public ActionResult GetMemberCredit(GetMemberCreditRequest message)
          => Json(mediator.Send(message));
+
+        [HttpGet]
+        public ActionResult ShowQRCode(ShowQRCodeRequest message)
+        {
+            if (message != null && !message.IsValid())
+            {
+                return View(InvalidPageViewPath);
+            }
+
+            return View(ShowQRCodePath, mediator.Send(message));
+        }
     }
 }

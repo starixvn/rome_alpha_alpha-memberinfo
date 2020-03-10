@@ -637,10 +637,12 @@
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapterImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInController.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInHandler.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Requests\ShowQRCodeRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CreateAccountByQRCodeRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeMemberSignInRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\UserNameSuggestionQuery.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\ViewModels\ShowQRCodeViewModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\MemberCreditRange.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\MemberSiteTokenLink.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeMemberSignInViewModel.cs" />
@@ -796,6 +798,7 @@
     <Content Include="Features\QRCodeMemberSignIn\Views\Index.cshtml" />
     <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in.scss" />
     <Content Include="Features\QRCodeMemberSignIn\Views\_CreateAccountSuccessfully.cshtml" />
+    <Content Include="Features\QRCodeMemberSignIn\Views\ShowQRCode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">

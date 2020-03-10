@@ -15,6 +15,10 @@
 
         public string MemberName { get; set; }
 
+        public decimal Credit { get; set; }
+
+        public string ErrorMessage { get; set; }
+
         public override bool IsValid() => true;
     }
 }

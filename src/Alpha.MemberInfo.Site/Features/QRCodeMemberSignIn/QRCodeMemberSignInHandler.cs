@@ -13,7 +13,8 @@
         : IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
         IRequestHandler<CreateAccountByQRCodeRequest, Result>,
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
-        IRequestHandler<GetMemberCreditRequest, MemberCreditRange>
+        IRequestHandler<GetMemberCreditRequest, MemberCreditRange>,
+        IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>
     {
         private readonly QrCodeAdapter qrCodeAdapter;
 
@@ -23,8 +24,8 @@
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
-        {
-            return new QRCodeMemberSignInViewModel(message.MemberName);
+        { 
+            return new QRCodeMemberSignInViewModel(message.MemberName, message.Credit.Equals(0) ? 1000 : message.Credit, message.ErrorMessage);
         }
 
         public Result Handle(CreateAccountByQRCodeRequest message)
@@ -47,6 +48,17 @@
         public MemberCreditRange Handle(GetMemberCreditRequest message)
         {
             return new MemberCreditRange(100, 9, 9999);
+        }
+
+        public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
+        {
+            var link = "https://nexdev.net/issues/129373";
+            return new ShowQRCodeViewModel(
+                message.Credit, 
+                message.Username, 
+                message.FirstName, 
+                qrCodeAdapter.Generate(link), 
+                link);
         }
     }
 }

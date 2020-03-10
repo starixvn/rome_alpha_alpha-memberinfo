@@ -1,0 +1,30 @@
+﻿@model ShowQRCodeViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@{
+    ViewBag.Title = "Show QR Code";
+}
+@section Styles {
+    @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
+}
+<div id="create-account-successfully">
+    <div id="message">
+        <span id="message-content" className="col-xs-12">@Resources.ThisAccountHasBeenSuccessfullyCreated</span>
+    </div>
+    <div class="form-group">
+        <label>@Resources.PleaseShowThisQRCodeToYourMember</label><br>
+        <img id="qr-code-image" alt="QRcode" src="@Model.QRCode" /><br>
+        <label>@Resources.AccountInformation</label><br>
+        <label>@Resources.Username: </label><label id="username-label">@Model.Username</label>
+        <button class="btn-submit" id="btn-copy-link">@Resources.CopyLink</button><br>
+        <label>@Resources.Credit: </label><label id="credit-label"> @Model.Credit</label><br>
+        <label>@Resources.FirstName: </label><label id="first-name-label">@Model.FirstName</label><br>
+        <button type="submit" class="btn-submit" id="btn-update-information">@Resources.UpdateInformation</button>
+        <button type="submit" class="btn-submit" id="btn-update-credit">@Resources.UpdateCredit</button>
+    </div>
+</div>
+
+@section Scripts {
+}

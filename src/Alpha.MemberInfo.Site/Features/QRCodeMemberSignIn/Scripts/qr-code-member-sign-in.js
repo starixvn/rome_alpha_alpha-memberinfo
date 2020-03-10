@@ -4,7 +4,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         var _this = this;
         this.getMemberCredit = function () {
             _this.$.blockUI();
-            var chooseUsername = _this.$('#txt-username').val();
+            var chooseUsername = _this.$('#Username').val();
             _this.username = chooseUsername;
             var param = {
                 SuggestionQuery: chooseUsername
@@ -17,7 +17,6 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 success: function (result) {
                     _this.$.unblockUI();
                     _this.$('#credit-range').removeClass('hidden');
-                    _this.$("#txt-member-credit").val(result.Credit);
                     _this.$("#credit-min-label").html(result.CreditMin);
                     _this.$("#credit-max-label").html(result.CreditMax);
                     _this.credit = parseFloat(result.Credit);
@@ -39,40 +38,13 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     onChooseEvent: function () { return _this.getMemberCredit(); }
                 }
             };
-            _this.$('#txt-username').easyAutocomplete(options);
-            var memberName = _this.$('#txt-username').val();
+            _this.$('#Username').easyAutocomplete(options);
+            var memberName = _this.$('#Username').val();
             if (memberName !== '' && memberName !== undefined) {
                 _this.getMemberCredit();
             }
             _this.$('#btn-copy-link').click(function () {
                 clipboard.writeText(_this.memberLink);
-            });
-            _this.$("#btn-submit").click(function () {
-                _this.$.blockUI();
-                var param = {};
-                _this.$.ajax({
-                    method: "POST",
-                    data: param,
-                    url: "QRCodeMemberSignIn/CreateAccount",
-                    cache: false,
-                    success: function (result) {
-                        _this.$.unblockUI();
-                        if (result.ErrCode === 0) {
-                            _this.$("#create-form").addClass("hidden");
-                            _this.$("#create-account-successfully").removeClass("hidden");
-                            var obj = JSON.parse(result.ErrMsg);
-                            _this.$("#qr-code-image").attr("src", obj.QRCode);
-                            _this.memberLink = obj.MemberSiteLink;
-                            _this.firstname = _this.$('#txt-first-name').val();
-                            _this.$("#first-name-label").html(_this.firstname);
-                            _this.$("#credit-label").html("" + _this.credit);
-                            _this.$("#username-label").html(_this.username);
-                        }
-                        else {
-                            // Show error message
-                        }
-                    }
-                });
             });
         };
         this.$ = $;

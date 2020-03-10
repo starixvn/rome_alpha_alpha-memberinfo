@@ -13,6 +13,12 @@
         {
         }
 
+        public string Username { get; set; }
+
+        public string FirstName { get; set; }
+
+        public decimal Credit { get; set; }
+
         public override bool IsValid() => true;
     }
 }
