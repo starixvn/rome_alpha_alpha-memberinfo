@@ -643,7 +643,6 @@
     <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\UserNameSuggestionQuery.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\ShowQRCodeViewModel.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\ViewModels\MemberCreditRange.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\MemberSiteTokenLink.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeMemberSignInViewModel.cs" />
     <Compile Include="Global.asax.cs">

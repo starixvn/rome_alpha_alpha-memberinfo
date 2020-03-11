@@ -1,8 +1,12 @@
-﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
+﻿namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models
 {
-    public class MemberCreditRange
+    public class CreditRangeModel
     {
-        public MemberCreditRange(
+        public CreditRangeModel()
+        {
+        }
+
+        public CreditRangeModel(
             decimal credit,
             decimal creditMin,
             decimal creditMax)

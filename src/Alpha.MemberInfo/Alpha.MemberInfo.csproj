@@ -279,7 +279,11 @@
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectCreditRangeCriteria.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectAutoSuggestionCriteria.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Models\CreditRangeModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\UsernameSuggestion.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInService.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\CasinoGameKindModel.cs" />
     <Compile Include="Models\CustomerInfo.cs" />

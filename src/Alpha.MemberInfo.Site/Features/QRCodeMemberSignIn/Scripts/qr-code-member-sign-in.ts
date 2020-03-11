@@ -23,7 +23,7 @@ class QRCodeMemberSignIn {
         this.username = chooseUsername;
 
         var param = {
-            SuggestionQuery: chooseUsername
+            SearchAccountName: chooseUsername
         };
 
         this.$.ajax({

@@ -7,7 +7,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             var chooseUsername = _this.$('#Username').val();
             _this.username = chooseUsername;
             var param = {
-                SuggestionQuery: chooseUsername
+                SearchAccountName: chooseUsername
             };
             _this.$.ajax({
                 method: "POST",

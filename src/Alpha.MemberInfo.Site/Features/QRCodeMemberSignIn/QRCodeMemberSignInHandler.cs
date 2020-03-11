@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
+    using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
@@ -13,14 +14,18 @@
         : IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
         IRequestHandler<CreateAccountByQRCodeRequest, Result>,
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
-        IRequestHandler<GetMemberCreditRequest, MemberCreditRange>,
+        IRequestHandler<GetMemberCreditRequest, CreditRangeModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>
     {
         private readonly QrCodeAdapter qrCodeAdapter;
+        private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
 
-        public QRCodeMemberSignInHandler(QrCodeAdapter qrCodeAdapter)
+        public QRCodeMemberSignInHandler(
+            QrCodeAdapter qrCodeAdapter, 
+            QRCodeMemberSignInService qrCodeMemberSignInService)
         {
             this.qrCodeAdapter = qrCodeAdapter;
+            this.qrCodeMemberSignInService = qrCodeMemberSignInService;
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
@@ -35,20 +40,13 @@
         }
 
         public IEnumerable<UsernameSuggestion> Handle(UserNameSuggestionQuery message)
-        {
-            var results = new List<UsernameSuggestion>();
-            for(int i = 1; i < 100; i++)
-            {
-                results.Add(new UsernameSuggestion($"Username test {i}", string.Empty, string.Empty, string.Empty));
-            }
+            => qrCodeMemberSignInService.GetUsernamesSuggestion(
+                message.ActorId, 
+                message.SuggestionQuery, 
+                message.IsInternal);
 
-            return results;
-        }
-
-        public MemberCreditRange Handle(GetMemberCreditRequest message)
-        {
-            return new MemberCreditRange(100, 9, 9999);
-        }
+        public CreditRangeModel Handle(GetMemberCreditRequest message)
+            => qrCodeMemberSignInService.GetCreditRange(message.SearchAccountName);
 
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
