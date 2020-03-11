@@ -3,8 +3,10 @@
     using Fanex.Data;
     using Fanex.Data.Repository;
 
-    public class InsertMemberCriteria : CriteriaBase
+    public class InsertMemberCommand : NonQueryCommand
     {
+        public string Username { get; set; }
+
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
 

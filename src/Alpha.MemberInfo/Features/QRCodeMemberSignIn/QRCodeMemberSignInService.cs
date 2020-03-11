@@ -10,6 +10,10 @@
         IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(int actorId, string suggestionQuery, bool isInternal);
 
         CreditRangeModel GetCreditRange(string SearchAccountName);
+
+        SportBookSettingModel GetExistedMemberSetting(int existedCustId);
+
+        ResultCreateMemberQRCode CreateMemberByQRCode(InsertMemberCommand command);
     }
 
     public class QRCodeMemberSignInServiceImpl : QRCodeMemberSignInService
@@ -27,5 +31,20 @@
 
         public CreditRangeModel GetCreditRange(string SearchAccountName)
             => dynamicRepository.Get<CreditRangeModel>(new SelectCreditRangeCriteria(SearchAccountName));
+
+        public SportBookSettingModel GetExistedMemberSetting(int existedCustId)
+            => dynamicRepository.Get<SportBookSettingModel>(new GetExistedMemberSettingCriteria(existedCustId));
+
+        public ResultCreateMemberQRCode CreateMemberByQRCode(InsertMemberCommand command)
+        {
+            dynamicRepository.Execute(command);
+
+            return new ResultCreateMemberQRCode{
+               Success = command.Success,
+               CustId = command.Custid,
+               ErrCode = command.ErrCode,
+               ErrMsg = command.ErrMsg
+            };
+        }
     }
 }

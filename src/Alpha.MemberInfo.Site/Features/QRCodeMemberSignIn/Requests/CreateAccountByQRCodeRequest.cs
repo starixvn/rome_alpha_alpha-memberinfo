@@ -11,6 +11,10 @@
     {
         public CreateAccountByQRCodeRequest(IUser viewer) : base(viewer)
         {
+            ActorId = viewer.Id;
+            IP = viewer.IP;
+            Language = viewer.Language;
+            SubAccId = viewer.SubAccId;
         }
 
         public string Username { get; set; }
@@ -18,6 +22,14 @@
         public string FirstName { get; set; }
 
         public decimal Credit { get; set; }
+
+        public int ActorId { get; }
+
+        public string IP { get; }
+
+        public string Language { get; }
+
+        public int SubAccId { get; }
 
         public override bool IsValid() => true;
     }

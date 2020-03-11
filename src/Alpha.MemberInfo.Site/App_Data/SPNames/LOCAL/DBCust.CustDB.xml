@@ -26,6 +26,7 @@
       <Mapping DataField="MaxCredit_Mem" ObjectProperty="CreditMax" />
       <Mapping DataField="MinCredit_Mem" ObjectProperty="CreditMin" />
     </Setting>
-
+    <Setting Key="Acc_CustomerSelEditCustomer" SpName="Acc_CustomerSelEditCustomer" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerInsMember_Ag" SpName="Acc_CustomerInsMember_Ag" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>
