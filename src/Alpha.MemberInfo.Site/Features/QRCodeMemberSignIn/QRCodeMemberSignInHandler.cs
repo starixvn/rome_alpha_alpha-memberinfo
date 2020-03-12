@@ -179,12 +179,6 @@
 
             var resultCreateMemberQRCode = qrCodeMemberSignInService.CreateMemberByQRCode(command);
 
-            if (resultCreateMemberQRCode.Success)
-            {
-                var link = "https://nexdev.net/issues/129373";
-                return new Result(resultCreateMemberQRCode.ErrCode, JsonConvert.SerializeObject(new MemberSiteTokenLink(qrCodeAdapter.Generate(link), link)));
-            }
-
             return new Result(resultCreateMemberQRCode.ErrCode, resultCreateMemberQRCode.ErrMsg);
         }
 
@@ -202,7 +196,8 @@
             var link = "https://nexdev.net/issues/129373";
             return new ShowQRCodeViewModel(
                 message.Credit, 
-                message.Username, 
+                message.CustName, 
+                message.CustId,
                 message.FirstName, 
                 qrCodeAdapter.Generate(link), 
                 link);

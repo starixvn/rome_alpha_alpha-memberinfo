@@ -40,10 +40,10 @@
             var result = mediator.Send(message);
             if(result.ErrCode.Equals(0))
             {
-                return RedirectToAction("ShowQRCode", new {message.Username, message.FirstName, message.Credit });
+                return RedirectToAction("ShowQRCode", routeValues: new {CustName = message.Username, message.FirstName, message.Credit });
             }
 
-            return RedirectToAction("Index", new { MemberName = message.UsernameCopyFrom, ErrorMessage= result.ErrMsg });
+            return RedirectToAction("Index", routeValues: new { MemberName = message.UsernameCopyFrom, ErrorMessage= result.ErrMsg });
         }
 
         [HttpGet]

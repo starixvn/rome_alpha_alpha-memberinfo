@@ -800,7 +800,6 @@
     </Content>
     <Content Include="Features\QRCodeMemberSignIn\Views\Index.cshtml" />
     <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in.scss" />
-    <Content Include="Features\QRCodeMemberSignIn\Views\_CreateAccountSuccessfully.cshtml" />
     <Content Include="Features\QRCodeMemberSignIn\Views\ShowQRCode.cshtml" />
   </ItemGroup>
   <ItemGroup>
