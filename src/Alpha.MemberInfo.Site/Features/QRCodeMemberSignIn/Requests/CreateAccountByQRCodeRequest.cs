@@ -15,11 +15,21 @@
             IP = viewer.IP;
             Language = viewer.Language;
             SubAccId = viewer.SubAccId;
+
+            Username = $"{viewer.Name}{FirstSuffix}{SecondSuffix}{ThirdSuffix}";
         }
 
-        public string Username { get; set; }
+        public string UsernameCopyFrom { get; set; } 
+
+        public string Username { get; private set; }
 
         public string FirstName { get; set; }
+
+        public string FirstSuffix { get; set; }
+
+        public string SecondSuffix { get; set; }
+
+        public string ThirdSuffix { get; set; }
 
         public decimal Credit { get; set; }
 

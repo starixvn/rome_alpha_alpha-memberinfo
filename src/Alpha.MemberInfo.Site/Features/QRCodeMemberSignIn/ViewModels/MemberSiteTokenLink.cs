@@ -2,7 +2,9 @@
 {
     public class MemberSiteTokenLink
     {
-        public MemberSiteTokenLink(string qrCode,string memberSiteLink)
+        public MemberSiteTokenLink(
+            string qrCode,
+            string memberSiteLink)
         {
             QRCode = qrCode;
             MemberSiteLink = memberSiteLink;

@@ -44,8 +44,8 @@
 
             var command = new InsertMemberCommand
             {
-                Username = "ACGUUS3838Mar",
-                FirstName = message.FirstName,
+                Username = message.Username,
+                FirstName = message.FirstName ?? string.Empty,
                 ActorId = message.ActorId,
                 PlayerDiscount = setting.Playerdiscount,
                 PlayerDiscountCS = setting.Playerdiscountcs,
@@ -177,10 +177,15 @@
 
             };
 
-            var result = qrCodeMemberSignInService.CreateMemberByQRCode(command);
+            var resultCreateMemberQRCode = qrCodeMemberSignInService.CreateMemberByQRCode(command);
 
-            var link = "https://nexdev.net/issues/129373";
-            return new Result(0, JsonConvert.SerializeObject(new MemberSiteTokenLink(qrCodeAdapter.Generate(link), link)));
+            if (resultCreateMemberQRCode.Success)
+            {
+                var link = "https://nexdev.net/issues/129373";
+                return new Result(resultCreateMemberQRCode.ErrCode, JsonConvert.SerializeObject(new MemberSiteTokenLink(qrCodeAdapter.Generate(link), link)));
+            }
+
+            return new Result(resultCreateMemberQRCode.ErrCode, resultCreateMemberQRCode.ErrMsg);
         }
 
         public IEnumerable<UsernameSuggestion> Handle(UserNameSuggestionQuery message)

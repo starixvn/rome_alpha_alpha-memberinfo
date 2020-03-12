@@ -43,7 +43,7 @@
                 return RedirectToAction("ShowQRCode", new {message.Username, message.FirstName, message.Credit });
             }
 
-            return RedirectToAction("Index", new { MemberName = "MemberName", ErrorMessage="Create Account Failed" });
+            return RedirectToAction("Index", new { MemberName = message.UsernameCopyFrom, ErrorMessage= result.ErrMsg });
         }
 
         [HttpGet]

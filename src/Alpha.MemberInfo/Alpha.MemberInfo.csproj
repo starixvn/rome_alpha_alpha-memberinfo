@@ -280,7 +280,7 @@
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\InsertMemberCommand.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectAgentInfoCriteria.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectExistedMemberSettingCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectCreditRangeCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectAutoSuggestionCriteria.cs" />

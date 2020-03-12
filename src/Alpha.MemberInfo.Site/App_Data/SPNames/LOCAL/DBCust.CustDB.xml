@@ -28,5 +28,6 @@
     </Setting>
     <Setting Key="Acc_CustomerSelEditCustomer" SpName="Acc_CustomerSelEditCustomer" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_CustomerInsMember_Ag" SpName="Acc_CustomerInsMember_Ag" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelSuggestUsername" SpName="Age_CustomerSelSuggestUsername" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>

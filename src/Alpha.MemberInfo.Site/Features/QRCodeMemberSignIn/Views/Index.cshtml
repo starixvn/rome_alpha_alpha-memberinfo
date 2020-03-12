@@ -15,61 +15,61 @@
 </div>
 @using (Html.BeginForm("CreateAccount", "QRCodeMemberSignIn", FormMethod.Post, new { id = "qrCodeMemberSignInForm", @class = "form-inline filter", role = "form" }))
 {
-<div class="qr-code-member-sign-in">
-    <div id="message" class="@errorMessageClass">
-        <span id="message-content" className="col-xs-12">@Model.ErrorMessage</span>
+    <div class="qr-code-member-sign-in">
+        <div id="message" class="@errorMessageClass">
+            <span id="message-content" className="col-xs-12">@Model.ErrorMessage</span>
+        </div>
+        <div id="create-form">
+            <div class="form-group">
+                <label>@Resources.InputExistingMemberAccount)</label><br>
+                <input type="text" name="UsernameCopyFrom" id="UsernameCopyFrom" placeholder="" value="@Model.MemberName" />
+            </div>
+            <div class="form-group">
+                <label>@Resources.MemberCredit</label><br>
+                <input type="number" name="Credit" id="Credit" placeholder="" value="@Model.Credit" /><br>
+            </div>
+            <div id="credit-range" class="form-group hidden">
+                <label id="credit-min-label"></label> <=  @Resources.NewGivenCredit <= <label id="credit-max-label"></label>
+            </div>
+            <div class="form-group" id="username-group">
+                <label>@Resources.Username</label><br>
+                <label>@Model.ActorName</label>
+                <select id="FirstSuffix" name="FirstSuffix">
+                    @foreach (var item in Model.NameSuffix)
+                    {
+                        <option value="@item" @(Model.FirstChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                    }
+                </select>
+                <select id="SecondSuffix" name="SecondSuffix">
+                    @foreach (var item in Model.NameSuffix)
+                    {
+                        <option value="@item" @(Model.SecondChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                    }
+                </select>
+                <select id="ThirdSuffix" name="ThirdSuffix">
+                    @foreach (var item in Model.NameSuffix)
+                    {
+                        <option value="@item" @(Model.ThirdChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>@Resources.FirstNameOptional</label><br>
+                <input type="text" name="FirstName" id="FirstName" value="" />
+            </div>
+            <div class="form-group">
+                <label>@Resources.Captcha</label><br>
+                <input type="text" id="txt-captcha" placeholder="" value="" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-submit" id="btn-submit">@Resources.CreateAccount</button>
+            </div>
+        </div>
     </div>
-    <div id="create-form">
-        <div class="form-group">
-            <label>@Resources.InputExistingMemberAccount)</label><br>
-            <input type="text" name="Username" id="Username" placeholder="" value="@Model.MemberName" />
-        </div>
-        <div class="form-group">
-            <label>@Resources.MemberCredit</label><br>
-            <input type="number" name="Credit" id="Credit" placeholder="" value="@Model.Credit" /><br>
-        </div>
-        <div id="credit-range" class="form-group hidden">
-            <label id="credit-min-label"></label> <=  @Resources.NewGivenCredit <= <label id="credit-max-label"></label>
-        </div>
-        <div class="form-group" id="username-group">
-            <label>@Resources.Username</label><br>
-            <label>@Model.ActorName</label>
-            <select id="first-suffix">
-                @foreach (var item in Model.NameSuffix)
-                {
-                    <option value="@item" @(Model.FirstChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
-                }
-            </select>
-            <select id="second-suffix">
-                @foreach (var item in Model.NameSuffix)
-                {
-                    <option value="@item" @(Model.SecondChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
-                }
-            </select>
-            <select id="third-suffix">
-                @foreach (var item in Model.NameSuffix)
-                {
-                    <option value="@item" @(Model.ThirdChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
-                }
-            </select>
-        </div>
-        <div class="form-group">
-            <label>@Resources.FirstNameOptional</label><br>
-            <input type="text" name="FirstName" id="Credit" placeholder="" value="" />
-        </div>
-        <div class="form-group">
-            <label>@Resources.Captcha</label><br>
-            <input type="text" id="txt-captcha" placeholder="" value="" />
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn-submit" id="btn-submit">@Resources.CreateAccount</button>
-        </div>
-    </div>
-</div>
-            }
+}
 
-    @section Scripts {
-        @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill")
-        @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
-        @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
-    }
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill")
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
+}
