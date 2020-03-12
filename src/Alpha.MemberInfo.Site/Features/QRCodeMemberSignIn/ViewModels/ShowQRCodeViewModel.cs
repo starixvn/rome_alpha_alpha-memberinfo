@@ -1,20 +1,24 @@
-﻿using Alpha.Web.Helpers;
-
-namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
+﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
 {
+    using Alpha.Web.Helpers;
+
     public class ShowQRCodeViewModel
     {
         public ShowQRCodeViewModel(
             decimal credit,
-            string username,
-            int custId,
+            decimal creditMin,
+            decimal creditMax,
+            string searchAccountName,
+            int searchAccountId,
             string firstName,
             string qrCode, 
             string qrCodeLink)
         {
             Credit = credit;
-            Username = username;
-            CustId = custId;
+            CreditMin = creditMin;
+            CreditMax = creditMax;
+            SearchAccountName = searchAccountName;
+            SearchAccountId = searchAccountId;
             FirstName = firstName;
             QRCode = qrCode;
             QRCodeLink = qrCodeLink;
@@ -22,9 +26,13 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
 
         public decimal Credit { get; }
 
-        public string Username { get; }
+        public decimal CreditMin { get; }
 
-        public int CustId { get; }
+        public decimal CreditMax { get; }
+
+        public string SearchAccountName { get; }
+
+        public int SearchAccountId { get; }
 
         public string FirstName { get; }
 
@@ -32,9 +40,17 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
 
         public string QRCodeLink { get; }
 
-        public string UpdateInformationUrl 
-            => $"{MicroSites.OldMainUrl()}_AccountInfo/EditCustomerInfo.aspx?Username={Username}&CustId={CustId}";
+        //public string UpdateInformationUrl
+        //   => $"{MicroSites.OldMainUrl()}_AccountInfo/EditCustomerInfo.aspx?Username=ACGUUS383801L&CustId=41961078";
 
-        public string UpdateCreditUrl => string.Empty;
+        //public string UpdateCreditUrl
+        //    => $"{MicroSites.AccountInfoUrl()}SearchAccount/GivenCredit?SearchAccountId=41961078&SearchAccountName=ACGUUS383801L&SearchAccountRoleId=1&CurrentGivenCredit=100&GivenCreditMin=0&GivenCreditMax=1000000";
+        public string UpdateInformationUrl 
+            => $"{MicroSites.OldMainUrl()}_AccountInfo/EditCustomerInfo.aspx?Username={SearchAccountName}&CustId={SearchAccountId}";
+
+        public string UpdateCreditUrl 
+            => $"{MicroSites.AccountInfoUrl()}SearchAccount/GivenCredit" +
+            $"?SearchAccountId={SearchAccountId}&SearchAccountName={SearchAccountName}&SearchAccountRoleId=1" +
+            $"&CurrentGivenCredit={Credit}&GivenCreditMin={CreditMin}&GivenCreditMax={CreditMax}";
     }
 }

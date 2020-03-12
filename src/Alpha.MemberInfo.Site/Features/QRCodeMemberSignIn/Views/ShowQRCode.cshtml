@@ -17,7 +17,7 @@
         <label>@Resources.PleaseShowThisQRCodeToYourMember</label><br>
         <img id="qr-code-image" alt="QRcode" src="@Model.QRCode" /><br>
         <label>@Resources.AccountInformation</label><br>
-        <label>@Resources.Username: </label><label id="username-label">@Model.Username</label>
+        <label>@Resources.Username: </label><label id="username-label">@Model.SearchAccountName</label>
         <button class="btn-submit" id="btn-copy-link">@Resources.CopyLink</button><br>
         <label>@Resources.Credit: </label><label id="credit-label"> @Model.Credit</label><br>
         <label>@Resources.FirstName: </label><label id="first-name-label">@Model.FirstName</label><br>
@@ -26,6 +26,8 @@
     </div>
 
     <input type="hidden" name="qrcode-link" id="qrcode-link" value="@Model.QRCodeLink" />
+    <input type="hidden" name="update-infor-link" id="update-infor-link" value="@Model.UpdateInformationUrl" />
+    <input type="hidden" name="update-credit-link" id="update-credit-link" value="@Model.UpdateCreditUrl" />
 </div>
 
 @section Scripts {

@@ -13,7 +13,7 @@
 
     public class QRCodeMemberSignInHandler : 
         IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
-        IRequestHandler<CreateAccountByQRCodeRequest, Result>,
+        IRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
         IRequestHandler<GetMemberCreditRequest, CreditRangeModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>
@@ -38,7 +38,7 @@
                 message.ErrorMessage);
         }
 
-        public Result Handle(CreateAccountByQRCodeRequest message)
+        public ResultCreateMemberQRCode Handle(CreateAccountByQRCodeRequest message)
         {
             var setting = qrCodeMemberSignInService.GetExistedMemberSetting(41961033);
 
@@ -177,9 +177,7 @@
 
             };
 
-            var resultCreateMemberQRCode = qrCodeMemberSignInService.CreateMemberByQRCode(command);
-
-            return new Result(resultCreateMemberQRCode.ErrCode, resultCreateMemberQRCode.ErrMsg);
+            return qrCodeMemberSignInService.CreateMemberByQRCode(command);
         }
 
         public IEnumerable<UsernameSuggestion> Handle(UserNameSuggestionQuery message)
@@ -196,8 +194,10 @@
             var link = "https://nexdev.net/issues/129373";
             return new ShowQRCodeViewModel(
                 message.Credit, 
-                message.CustName, 
-                message.CustId,
+                message.CreditMin,
+                message.CreditMax,
+                message.SearchAccountName,
+                message.SearchAccountId, 
                 message.FirstName, 
                 qrCodeAdapter.Generate(link), 
                 link);

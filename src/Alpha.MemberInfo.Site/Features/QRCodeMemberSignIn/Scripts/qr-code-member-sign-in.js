@@ -19,6 +19,8 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     _this.$('#credit-range').removeClass('hidden');
                     _this.$("#credit-min-label").html(result.CreditMin);
                     _this.$("#credit-max-label").html(result.CreditMax);
+                    _this.$("#CreditMin").val(result.CreditMin);
+                    _this.$("#CreditMax").val(result.CreditMax);
                     _this.credit = parseFloat(result.Credit);
                 }
             });

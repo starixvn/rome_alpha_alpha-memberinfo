@@ -3,6 +3,7 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.Web;
     using Alpha.Web.Models;
+    using Fanex.Common;
     using MediatR;
     using System.Web.Mvc;
 
@@ -38,12 +39,26 @@
             }
 
             var result = mediator.Send(message);
-            if(result.ErrCode.Equals(0))
+            if (result.Success)
             {
-                return RedirectToAction("ShowQRCode", routeValues: new {CustName = message.Username, message.FirstName, message.Credit });
+                return RedirectToAction("ShowQRCode",
+                    routeValues: new
+                    {
+                        SearchAccountName = message.Username,
+                        SearchAccountId = result.CustId,
+                        message.FirstName,
+                        message.Credit,
+                        message.CreditMin,
+                        message.CreditMax
+                    });
             }
 
-            return RedirectToAction("Index", routeValues: new { MemberName = message.UsernameCopyFrom, ErrorMessage= result.ErrMsg });
+            return RedirectToAction("Index", 
+                routeValues: new
+                {
+                    MemberName = message.UsernameCopyFrom,
+                    ErrorMessage = result.ErrMsg
+                });
         }
 
         [HttpGet]

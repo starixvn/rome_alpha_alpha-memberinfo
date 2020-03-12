@@ -13,9 +13,17 @@
         {
         }
 
+        public int SearchAccountId { get; set; }
+
+        public string SearchAccountName { get; set; }
+
         public string FirstName { get; set; }
 
         public decimal Credit { get; set; }
+
+        public decimal CreditMin { get; set; }
+
+        public decimal CreditMax { get; set; }
 
         public override bool IsValid() => true;
     }

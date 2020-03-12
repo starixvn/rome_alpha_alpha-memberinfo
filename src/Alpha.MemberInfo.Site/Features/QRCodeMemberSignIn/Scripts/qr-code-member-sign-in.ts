@@ -38,6 +38,9 @@ class QRCodeMemberSignIn {
                 this.$("#credit-min-label").html(result.CreditMin);
                 this.$("#credit-max-label").html(result.CreditMax);
 
+                this.$("#CreditMin").val(result.CreditMin);
+                this.$("#CreditMax").val(result.CreditMax);
+
                 this.credit = parseFloat(result.Credit);
             }
         });

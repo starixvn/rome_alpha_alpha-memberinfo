@@ -1,13 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
 {
+    using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Requests;
-    using Alpha.Web.Models;
     using MediatR;
 
     public class CreateAccountByQRCodeRequest :
         MemberInfoBaseQuery,
-        IRequest<Result>
+        IRequest<ResultCreateMemberQRCode>
     {
         public CreateAccountByQRCodeRequest(IUser viewer) : base(viewer)
         {
@@ -15,7 +15,6 @@
             IP = viewer.IP;
             Language = viewer.Language;
             SubAccId = viewer.SubAccId;
-
             ActorName = viewer.Name;
         }
 
@@ -34,6 +33,11 @@
         public string ThirdSuffix { get; set; }
 
         public decimal Credit { get; set; }
+
+        public decimal CreditMin { get; }
+
+        public decimal CreditMax { get; }
+
 
         public int ActorId { get; }
 
