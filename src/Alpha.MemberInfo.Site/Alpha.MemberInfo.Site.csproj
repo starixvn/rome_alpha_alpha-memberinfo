@@ -550,6 +550,10 @@
      <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.min.js">
       <DependentUpon>qr-code-member-sign-in.js</DependentUpon>
     </Content>
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\show-qr-code.js" />
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\show-qr-code.min.js">
+      <DependentUpon>show-qr-code.js</DependentUpon>
+    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.min.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.themes.css" />
@@ -826,6 +830,7 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\member-requests\member-requests-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\win-loss-limit\win-loss-limit-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\win-loss-limit\win-loss-limit.ts" />
+    <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\show-qr-code.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\qr-code-member-sign-in.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />

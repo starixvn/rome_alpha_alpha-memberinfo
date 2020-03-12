@@ -16,12 +16,14 @@
             Language = viewer.Language;
             SubAccId = viewer.SubAccId;
 
-            Username = $"{viewer.Name}{FirstSuffix}{SecondSuffix}{ThirdSuffix}";
+            ActorName = viewer.Name;
         }
+
+        private string ActorName { get; }
 
         public string UsernameCopyFrom { get; set; } 
 
-        public string Username { get; private set; }
+        public string Username => $"{ActorName}{FirstSuffix}{SecondSuffix}{ThirdSuffix}";
 
         public string FirstName { get; set; }
 

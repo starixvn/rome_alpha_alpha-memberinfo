@@ -83,5 +83,11 @@
       "Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in.css",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.css"
     ]
+  },
+  {
+    "outputFileName": "Features/QRCodeMemberSignIn/Bundles/show-qr-code.js",
+    "inputFiles": [
+      "Features/QRCodeMemberSignIn/Scripts/show-qr-code.js"
+    ]
   }
 ]

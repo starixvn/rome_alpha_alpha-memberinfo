@@ -24,6 +24,9 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             });
         };
         this.init = function () {
+            _this.$('#qrCodeMemberSignInForm').submit(function () {
+                _this.$.blockUI();
+            });
             var options = {
                 url: function (phrase) {
                     return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
@@ -44,7 +47,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 _this.getMemberCredit();
             }
             _this.$('#btn-copy-link').click(function () {
-                clipboard.writeText(_this.memberLink);
+                clipboard.writeText(_this.$('qrcode-link#'));
             });
         };
         this.$ = $;

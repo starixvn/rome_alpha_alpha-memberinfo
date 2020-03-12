@@ -44,6 +44,10 @@ class QRCodeMemberSignIn {
     }
 
     init = () => {
+        this.$('#qrCodeMemberSignInForm').submit(() => {
+            this.$.blockUI();
+        });
+
         const options = {
             url: function (phrase) {
                 return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
@@ -67,7 +71,7 @@ class QRCodeMemberSignIn {
         }
 
         this.$('#btn-copy-link').click(() => {
-            clipboard.writeText(this.memberLink);
+            clipboard.writeText(this.$('qrcode-link#'));
         });
     };
 }

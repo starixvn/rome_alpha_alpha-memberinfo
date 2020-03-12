@@ -24,7 +24,11 @@
         <button type="submit" class="btn-submit" id="btn-update-information">@Resources.UpdateInformation</button>
         <button type="submit" class="btn-submit" id="btn-update-credit">@Resources.UpdateCredit</button>
     </div>
+
+    <input type="hidden" name="qrcode-link" id="qrcode-link" value="@Model.QRCodeLink" />
 </div>
 
 @section Scripts {
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill")
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Bundles/show-qr-code")
 }
