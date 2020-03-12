@@ -3,9 +3,9 @@
     using Fanex.Data;
     using Fanex.Data.Repository;
 
-    public class GetExistedMemberSettingCriteria : CriteriaBase
+    public class SelectExistedMemberSettingCriteria : CriteriaBase
     {
-        public GetExistedMemberSettingCriteria(int existedCustId)
+        public SelectExistedMemberSettingCriteria(int existedCustId)
         {
             ExistedCustId = existedCustId;
         }

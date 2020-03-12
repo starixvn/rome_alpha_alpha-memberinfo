@@ -22,18 +22,40 @@
     <div id="create-form">
         <div class="form-group">
             <label>@Resources.InputExistingMemberAccount)</label><br>
-            <input type="text" name="Username" id="Username"  placeholder="" value="@Model.MemberName" />
+            <input type="text" name="Username" id="Username" placeholder="" value="@Model.MemberName" />
         </div>
         <div class="form-group">
             <label>@Resources.MemberCredit</label><br>
-            <input type="number"name="Credit" id="Credit" placeholder="" value="@Model.Credit" /><br>
+            <input type="number" name="Credit" id="Credit" placeholder="" value="@Model.Credit" /><br>
         </div>
         <div id="credit-range" class="form-group hidden">
             <label id="credit-min-label"></label> <=  @Resources.NewGivenCredit <= <label id="credit-max-label"></label>
         </div>
+        <div class="form-group" id="username-group">
+            <label>@Resources.Username</label><br>
+            <label>@Model.ActorName</label>
+            <select id="first-suffix">
+                @foreach (var item in Model.NameSuffix)
+                {
+                    <option value="@item" @(Model.FirstChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                }
+            </select>
+            <select id="second-suffix">
+                @foreach (var item in Model.NameSuffix)
+                {
+                    <option value="@item" @(Model.SecondChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                }
+            </select>
+            <select id="third-suffix">
+                @foreach (var item in Model.NameSuffix)
+                {
+                    <option value="@item" @(Model.ThirdChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                }
+            </select>
+        </div>
         <div class="form-group">
             <label>@Resources.FirstNameOptional</label><br>
-            <input type="text"name="FirstName" id="Credit" placeholder="" value="" />
+            <input type="text" name="FirstName" id="Credit" placeholder="" value="" />
         </div>
         <div class="form-group">
             <label>@Resources.Captcha</label><br>

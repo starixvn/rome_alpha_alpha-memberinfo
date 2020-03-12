@@ -33,7 +33,7 @@
             => dynamicRepository.Get<CreditRangeModel>(new SelectCreditRangeCriteria(SearchAccountName));
 
         public SportBookSettingModel GetExistedMemberSetting(int existedCustId)
-            => dynamicRepository.Get<SportBookSettingModel>(new GetExistedMemberSettingCriteria(existedCustId));
+            => dynamicRepository.Get<SportBookSettingModel>(new SelectExistedMemberSettingCriteria(existedCustId));
 
         public ResultCreateMemberQRCode CreateMemberByQRCode(InsertMemberCommand command)
         {

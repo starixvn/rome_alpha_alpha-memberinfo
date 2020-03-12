@@ -11,8 +11,8 @@
     using Newtonsoft.Json;
     using System.Collections.Generic;
 
-    public class QRCodeMemberSignInHandler
-        : IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
+    public class QRCodeMemberSignInHandler : 
+        IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
         IRequestHandler<CreateAccountByQRCodeRequest, Result>,
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
         IRequestHandler<GetMemberCreditRequest, CreditRangeModel>,
@@ -31,7 +31,11 @@
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
         { 
-            return new QRCodeMemberSignInViewModel(message.MemberName, message.Credit.Equals(0) ? 1000 : message.Credit, message.ErrorMessage);
+            return new QRCodeMemberSignInViewModel(
+                message.MemberName, 
+                message.ActorName,
+                message.Credit.Equals(0) ? 1000 : message.Credit, 
+                message.ErrorMessage);
         }
 
         public Result Handle(CreateAccountByQRCodeRequest message)
