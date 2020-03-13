@@ -279,11 +279,14 @@
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckEnableCustomerCritieria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\InsertMemberCommand.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckBelongingByUsernameCritieria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectExistedMemberSettingCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectCreditRangeCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectAutoSuggestionCriteria.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Models\CheckBelongingByUsernameModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\CreditRangeModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\ResultCreateMemberQRCode.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\SportBookSettingModel.cs" />

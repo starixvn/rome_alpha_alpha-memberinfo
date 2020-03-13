@@ -14,6 +14,10 @@
         SportBookSettingModel GetExistedMemberSetting(int existedCustId);
 
         ResultCreateMemberQRCode CreateMemberByQRCode(InsertMemberCommand command);
+
+        CheckBelongingByUsernameModel CheckBelongingByUsername(int actorId, string username, int subAccountId);
+
+        bool IsEnableCustomer(int custId);
     }
 
     public class QRCodeMemberSignInServiceImpl : QRCodeMemberSignInService
@@ -45,6 +49,20 @@
                ErrCode = command.ErrCode,
                ErrMsg = command.ErrMsg
             };
+        }
+
+        public CheckBelongingByUsernameModel CheckBelongingByUsername(int actorId, string username, int subAccountId)
+        {
+            var criteria = new CheckBelongingByUsernameCritieria(actorId, username, subAccountId);
+            dynamicRepository.Execute(criteria);
+            return new CheckBelongingByUsernameModel(criteria.IsActive, criteria.CustId, criteria.IsSubAcc, criteria.RoleId);
+        }
+
+        public bool IsEnableCustomer(int custId)
+        {
+            var criteria = new CheckEnableCustomerCritieria(custId);
+            dynamicRepository.Execute(criteria);
+            return criteria.ErrCode.Equals(0);
         }
     }
 }

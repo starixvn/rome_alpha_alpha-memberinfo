@@ -22,6 +22,8 @@
 
         public string UsernameCopyFrom { get; set; } 
 
+        public int CopyFromCustId { get; set; }
+
         public string Username => $"{ActorName}{FirstSuffix}{SecondSuffix}{ThirdSuffix}";
 
         public string FirstName { get; set; }
@@ -37,7 +39,6 @@
         public decimal CreditMin { get; }
 
         public decimal CreditMax { get; }
-
 
         public int ActorId { get; }
 
