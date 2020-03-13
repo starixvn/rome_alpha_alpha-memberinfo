@@ -28,17 +28,16 @@
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
-        { 
-            return new QRCodeMemberSignInViewModel(
-                message.MemberName, 
-                message.ActorName,
-                message.Credit, 
+            => new QRCodeMemberSignInViewModel(
+                message.MemberName,
+                message.CustName,
+                message.Credit,
+                qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId),
                 message.ErrorMessage);
-        }
 
         public ResultCreateMemberQRCode Handle(CreateAccountByQRCodeRequest message)
         {
-            var checkBelongingByUsernameModel = qrCodeMemberSignInService.CheckBelongingByUsername(message.ActorId, message.UsernameCopyFrom, message.SubAccId);
+            var checkBelongingByUsernameModel = qrCodeMemberSignInService.CheckBelongingByUsername(message.CustId, message.UsernameCopyFrom, message.SubAccId);
             var custIdCopyFrom = checkBelongingByUsernameModel.CustId;
 
             if (custIdCopyFrom > 0 && qrCodeMemberSignInService.IsEnableCustomer(custIdCopyFrom))
@@ -48,9 +47,9 @@
                 var command = new InsertMemberCommand
                 {
                     Username = message.Username,
-                    CopyFromCustId = message.CopyFromCustId,
+                    CopyFromCustId = custIdCopyFrom,
                     FirstName = message.FirstName ?? string.Empty,
-                    ActorId = message.ActorId,
+                    ActorId = message.CustId,
                     PlayerDiscount = setting.Playerdiscount,
                     PlayerDiscountCS = setting.Playerdiscountcs,
                     PlayerDiscount1x2 = setting.Playerdiscount1x2,
@@ -95,7 +94,7 @@
                     Credit = message.Credit,
                     DisableCasino = setting.Disablecasino,
                     DisableNumber = setting.Disablenumber,
-                    Recommend = message.ActorId,
+                    Recommend = message.CustId,
                     Ugroup = setting.Ugroup,
                     Closed = setting.Closed,
 

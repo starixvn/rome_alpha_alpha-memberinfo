@@ -3,9 +3,9 @@
     using Fanex.Data;
     using Fanex.Data.Repository;
 
-    public class SelectSuggestUsernameCriteria : CriteriaBase
+    public class SelectSuggestUsernameCriteria : NonQueryCommand
     {
-        public SelectSuggestUsernameCriteria(string actorName, int custId, byte roleId)
+        public SelectSuggestUsernameCriteria(string actorName, int custId)
         {
             ActorName = actorName;
             CustId = custId;
@@ -18,6 +18,8 @@
         public int CustId { get; }
 
         public byte RoleId { get; }
+
+        public string SeqName { get; set; }
 
         public override string GetSettingKey() => "Age_CustomerSelSuggestUsername";
 

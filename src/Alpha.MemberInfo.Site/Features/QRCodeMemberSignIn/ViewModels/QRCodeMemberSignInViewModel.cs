@@ -6,12 +6,14 @@
             string memberNameCopyFrom, 
             string actorName,
             decimal credit, 
+            string memberNameSuffix,
             string errorMessage)
         {
             MemberNameCopyFrom = memberNameCopyFrom;
             ActorName = actorName;
             ErrorMessage = errorMessage;
             Credit = credit;
+            MemberNameSuffix = memberNameSuffix;
         }
 
         public string MemberNameCopyFrom { get; }
@@ -26,7 +28,7 @@
             "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
             "U", "V", "W", "X", "Y", "Z" };
 
-        public string MemberNameSuffix { get; set; } = "00L";
+        public string MemberNameSuffix { get; }
 
         public string ThirdChar => MemberNameSuffix.Substring(2, 1).ToUpper();
 

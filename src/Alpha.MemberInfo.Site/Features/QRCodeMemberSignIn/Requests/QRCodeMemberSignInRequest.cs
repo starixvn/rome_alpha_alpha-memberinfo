@@ -11,12 +11,9 @@
     {
         public QRCodeMemberSignInRequest(IUser viewer) : base(viewer)
         {
-            ActorName = viewer.Name;
         }
 
         public string MemberName { get; set; }
-
-        public string ActorName { get; }
 
         public decimal Credit { get; set; }
 

@@ -11,20 +11,13 @@
     {
         public CreateAccountByQRCodeRequest(IUser viewer) : base(viewer)
         {
-            ActorId = viewer.Id;
             IP = viewer.IP;
-            Language = viewer.Language;
             SubAccId = viewer.SubAccId;
-            ActorName = viewer.Name;
         }
 
-        private string ActorName { get; }
+        public string UsernameCopyFrom { get; set; }
 
-        public string UsernameCopyFrom { get; set; } 
-
-        public int CopyFromCustId { get; set; }
-
-        public string Username => $"{ActorName}{FirstSuffix}{SecondSuffix}{ThirdSuffix}";
+        public string Username => $"{CustName}{FirstSuffix}{SecondSuffix}{ThirdSuffix}";
 
         public string FirstName { get; set; }
 
@@ -40,14 +33,11 @@
 
         public decimal CreditMax { get; }
 
-        public int ActorId { get; }
-
         public string IP { get; }
-
-        public string Language { get; }
 
         public int SubAccId { get; }
 
-        public override bool IsValid() => true;
+        public override bool IsValid() => 
+            !string.IsNullOrEmpty(UsernameCopyFrom);
     }
 }

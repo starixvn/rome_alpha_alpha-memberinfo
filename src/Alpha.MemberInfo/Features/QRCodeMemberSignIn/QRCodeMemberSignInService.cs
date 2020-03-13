@@ -18,6 +18,8 @@
         CheckBelongingByUsernameModel CheckBelongingByUsername(int actorId, string username, int subAccountId);
 
         bool IsEnableCustomer(int custId);
+
+        string GetSuggestUsername(string prefix, int custId);
     }
 
     public class QRCodeMemberSignInServiceImpl : QRCodeMemberSignInService
@@ -63,6 +65,13 @@
             var criteria = new CheckEnableCustomerCritieria(custId);
             dynamicRepository.Execute(criteria);
             return criteria.ErrCode.Equals(0);
+        }
+
+        public string GetSuggestUsername(string prefix, int custId)
+        {
+            var criteria = new SelectSuggestUsernameCriteria(prefix, custId);
+            dynamicRepository.Execute(criteria);
+            return criteria.SeqName;
         }
     }
 }
