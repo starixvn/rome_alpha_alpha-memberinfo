@@ -9,18 +9,24 @@
 @section Styles {
     @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
 }
-<div id="create-account-successfully">
-    <div id="message">
-        <span id="message-content" className="col-xs-12">@Resources.ThisAccountHasBeenSuccessfullyCreated</span>
-    </div>
+<div>
+    @if (Model.ShowMessage)
+    {
+        <div id="message">
+            <span id="message-content" className="col-xs-12">@Resources.ThisAccountHasBeenSuccessfullyCreated</span>
+        </div>
+    }
     <div class="form-group">
-        <label>@Resources.PleaseShowThisQRCodeToYourMember</label><br>
-        <img id="qr-code-image" alt="QRcode" src="@Model.QRCode" /><br>
-        <label>@Resources.AccountInformation</label><br>
-        <label>@Resources.Username: </label><label id="username-label">@Model.SearchAccountName</label>
-        <button class="btn-submit" id="btn-copy-link">@Resources.CopyLink</button><br>
-        <label>@Resources.Credit: </label><label id="credit-label"> @Model.Credit</label><br>
-        <label>@Resources.FirstName: </label><label id="first-name-label">@Model.FirstName</label><br>
+        <label>@Resources.PleaseShowThisQRCodeToYourMember</label>
+        <img id="qr-code-image" alt="QRcode" src="@Model.QRCode" />
+        <label>@Resources.AccountInformation</label>
+        <div>
+            @Resources.Username: <span id="username-label">@Model.SearchAccountName</span>
+            <button class="btn-submit" id="btn-copy-link">@Resources.CopyLink</button>
+        </div>
+       
+        <div>@Resources.Credit: <span id="credit-label"> @Model.Credit</span></div>
+        <div>@Resources.FirstName: <span id="first-name-label">@Model.FirstName</span></div>
         <button type="submit" class="btn-submit" id="btn-update-information">@Resources.UpdateInformation</button>
         <button type="submit" class="btn-submit" id="btn-update-credit">@Resources.UpdateCredit</button>
     </div>

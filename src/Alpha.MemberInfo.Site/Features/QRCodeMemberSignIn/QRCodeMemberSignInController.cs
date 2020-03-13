@@ -49,7 +49,8 @@
                         message.FirstName,
                         message.Credit,
                         message.CreditMin,
-                        message.CreditMax
+                        message.CreditMax,
+                        ShowMessage = true
                     });
             }
 

@@ -11,8 +11,9 @@
             string searchAccountName,
             int searchAccountId,
             string firstName,
-            string qrCode, 
-            string qrCodeLink)
+            string qrCode,
+            string qrCodeLink,
+            bool showMessage)
         {
             Credit = credit;
             CreditMin = creditMin;
@@ -22,6 +23,7 @@
             FirstName = firstName;
             QRCode = qrCode;
             QRCodeLink = qrCodeLink;
+            ShowMessage = showMessage;
         }
 
         public decimal Credit { get; }
@@ -40,15 +42,12 @@
 
         public string QRCodeLink { get; }
 
-        //public string UpdateInformationUrl
-        //   => $"{MicroSites.OldMainUrl()}_AccountInfo/EditCustomerInfo.aspx?Username=ACGUUS383801L&CustId=41961078";
+        public bool ShowMessage { get; }
 
-        //public string UpdateCreditUrl
-        //    => $"{MicroSites.AccountInfoUrl()}SearchAccount/GivenCredit?SearchAccountId=41961078&SearchAccountName=ACGUUS383801L&SearchAccountRoleId=1&CurrentGivenCredit=100&GivenCreditMin=0&GivenCreditMax=1000000";
-        public string UpdateInformationUrl 
-            => $"{MicroSites.OldMainUrl()}_AccountInfo/EditCustomerInfo.aspx?Username={SearchAccountName}&CustId={SearchAccountId}";
+        public string UpdateInformationUrl
+             => $"{MicroSites.OldMainUrl()}_AccountInfo/EditCustomerInfo.aspx?Username={SearchAccountName}&CustId={SearchAccountId}";
 
-        public string UpdateCreditUrl 
+        public string UpdateCreditUrl
             => $"{MicroSites.AccountInfoUrl()}SearchAccount/GivenCredit" +
             $"?SearchAccountId={SearchAccountId}&SearchAccountName={SearchAccountName}&SearchAccountRoleId=1" +
             $"&CurrentGivenCredit={Credit}&GivenCreditMin={CreditMin}&GivenCreditMax={CreditMax}";

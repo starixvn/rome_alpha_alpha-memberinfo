@@ -34,7 +34,7 @@
             return new QRCodeMemberSignInViewModel(
                 message.MemberName, 
                 message.ActorName,
-                message.Credit.Equals(0) ? 1000 : message.Credit, 
+                message.Credit, 
                 message.ErrorMessage);
         }
 
@@ -200,7 +200,8 @@
                 message.SearchAccountId, 
                 message.FirstName, 
                 qrCodeAdapter.Generate(link), 
-                link);
+                link,
+                message.ShowMessage);
         }
     }
 }

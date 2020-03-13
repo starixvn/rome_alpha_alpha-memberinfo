@@ -3,18 +3,18 @@
     public class QRCodeMemberSignInViewModel
     {
         public QRCodeMemberSignInViewModel(
-            string memberName, 
+            string memberNameCopyFrom, 
             string actorName,
             decimal credit, 
             string errorMessage)
         {
-            MemberName = memberName;
+            MemberNameCopyFrom = memberNameCopyFrom;
             ActorName = actorName;
             ErrorMessage = errorMessage;
             Credit = credit;
         }
 
-        public string MemberName { get; }
+        public string MemberNameCopyFrom { get; }
 
         public string ActorName { get; }
 

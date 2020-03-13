@@ -25,6 +25,8 @@
 
         public decimal CreditMax { get; set; }
 
+        public bool ShowMessage { get; set; }
+
         public override bool IsValid() => true;
     }
 }

@@ -6,7 +6,6 @@ class QRCodeMemberSignIn {
     $: JQueryStatic;
     topWindow: any;
     username: string;
-    credit: number;
     memberLink: string;
 
     constructor(
@@ -19,7 +18,7 @@ class QRCodeMemberSignIn {
     getMemberCredit = () => {
         this.$.blockUI();
 
-        var chooseUsername = this.$('#Username').val();
+        var chooseUsername = this.$('#UsernameCopyFrom').val();
         this.username = chooseUsername;
 
         var param = {
@@ -34,14 +33,14 @@ class QRCodeMemberSignIn {
             success: (result) => {
                 this.$.unblockUI();
 
+                this.$("#Credit").val(result.Credit);
+
                 this.$('#credit-range').removeClass('hidden');
                 this.$("#credit-min-label").html(result.CreditMin);
                 this.$("#credit-max-label").html(result.CreditMax);
 
                 this.$("#CreditMin").val(result.CreditMin);
                 this.$("#CreditMax").val(result.CreditMax);
-
-                this.credit = parseFloat(result.Credit);
             }
         });
     }
@@ -66,16 +65,12 @@ class QRCodeMemberSignIn {
             }
         };
 
-        this.$('#Username').easyAutocomplete(options);
+        this.$('#UsernameCopyFrom').easyAutocomplete(options);
 
-        const memberName = this.$('#Username').val();
+        const memberName = this.$('#UsernameCopyFrom').val();
         if (memberName !== '' && memberName !== undefined) {
             this.getMemberCredit();
         }
-
-        this.$('#btn-copy-link').click(() => {
-            clipboard.writeText(this.$('qrcode-link#'));
-        });
     };
 }
 

@@ -4,7 +4,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         var _this = this;
         this.getMemberCredit = function () {
             _this.$.blockUI();
-            var chooseUsername = _this.$('#Username').val();
+            var chooseUsername = _this.$('#UsernameCopyFrom').val();
             _this.username = chooseUsername;
             var param = {
                 SearchAccountName: chooseUsername
@@ -16,12 +16,12 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 cache: false,
                 success: function (result) {
                     _this.$.unblockUI();
+                    _this.$("#Credit").val(result.Credit);
                     _this.$('#credit-range').removeClass('hidden');
                     _this.$("#credit-min-label").html(result.CreditMin);
                     _this.$("#credit-max-label").html(result.CreditMax);
                     _this.$("#CreditMin").val(result.CreditMin);
                     _this.$("#CreditMax").val(result.CreditMax);
-                    _this.credit = parseFloat(result.Credit);
                 }
             });
         };
@@ -43,14 +43,11 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     onChooseEvent: function () { return _this.getMemberCredit(); }
                 }
             };
-            _this.$('#Username').easyAutocomplete(options);
-            var memberName = _this.$('#Username').val();
+            _this.$('#UsernameCopyFrom').easyAutocomplete(options);
+            var memberName = _this.$('#UsernameCopyFrom').val();
             if (memberName !== '' && memberName !== undefined) {
                 _this.getMemberCredit();
             }
-            _this.$('#btn-copy-link').click(function () {
-                clipboard.writeText(_this.$('qrcode-link#'));
-            });
         };
         this.$ = $;
         this.topWindow = topWindow;
