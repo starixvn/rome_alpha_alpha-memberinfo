@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "QR Code Member Sign In";
     var errorMessageClass = string.IsNullOrEmpty(Model.ErrorMessage) ? "hidden" : string.Empty;
-    var usernameGroupClass = string.IsNullOrEmpty(Model.MemberNameCopyFrom) ? "hidden" : string.Empty;
     var credit = string.IsNullOrEmpty(Model.MemberNameCopyFrom) ? string.Empty : Model.Credit.ToString();
 }
 @section Styles {
@@ -29,7 +28,7 @@
         <div id="credit-range" class="form-group hidden">
             <span id="credit-min-label"></span> <=  @Resources.NewGivenCredit <= <span id="credit-max-label"></span>
         </div>
-        <div class="form-group @usernameGroupClass" id="username-group">
+        <div class="form-group" id="username-group">
             <label>@Resources.Username</label>
             <span>@Model.ActorName</span>
             <select id="FirstSuffix" name="FirstSuffix">

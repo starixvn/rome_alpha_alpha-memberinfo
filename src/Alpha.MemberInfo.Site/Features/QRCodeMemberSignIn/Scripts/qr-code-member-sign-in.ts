@@ -36,8 +36,6 @@ class QRCodeMemberSignIn {
             success: (result) => {
                 this.$.unblockUI();
 
-                this.$('#username-group').removeClass('hidden');
-
                 this.$('#credit-range').removeClass('hidden');
                 this.$("#credit-min-label").html(result.CreditMin);
                 this.$("#credit-max-label").html(result.CreditMax);
@@ -74,19 +72,24 @@ class QRCodeMemberSignIn {
             }
         });
 
-
         const options = {
             url: function (phrase) {
                 return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
             },
+            placeholder: "Username or First/Last Name",
             getValue: 'UserName',
             requestDelay: 300,
             minCharNumber: 2,
-            categories: [{
-                maxNumberOfElements: 10
-            }],
+            template: {
+                type: "custom",
+                method: function (value, item) {
+                    const nickname = item.UserName2 === null || item.UserName2 === '' ? '' : `(${item.UserName2})`;
+                    return `<div>${value} ${nickname}<div>${item.FirstName} ${item.LastName}</div></div>`;
+                }
+            },
             list: {
-                onChooseEvent: () => this.getMemberCredit()
+                onChooseEvent: () => this.getMemberCredit(),
+                maxNumberOfElements: 10
             }
         };
 

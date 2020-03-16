@@ -16,7 +16,6 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 cache: false,
                 success: function (result) {
                     _this.$.unblockUI();
-                    _this.$('#username-group').removeClass('hidden');
                     _this.$('#credit-range').removeClass('hidden');
                     _this.$("#credit-min-label").html(result.CreditMin);
                     _this.$("#credit-max-label").html(result.CreditMax);
@@ -51,14 +50,20 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 url: function (phrase) {
                     return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
                 },
+                placeholder: "Username or First/Last Name",
                 getValue: 'UserName',
                 requestDelay: 300,
                 minCharNumber: 2,
-                categories: [{
-                        maxNumberOfElements: 10
-                    }],
+                template: {
+                    type: "custom",
+                    method: function (value, item) {
+                        var nickname = item.UserName2 === null || item.UserName2 === '' ? '' : "(" + item.UserName2 + ")";
+                        return "<div>" + value + " " + nickname + "<div>" + item.FirstName + " " + item.LastName + "</div></div>";
+                    }
+                },
                 list: {
-                    onChooseEvent: function () { return _this.getMemberCredit(); }
+                    onChooseEvent: function () { return _this.getMemberCredit(); },
+                    maxNumberOfElements: 10
                 }
             };
             _this.$('#UsernameCopyFrom').easyAutocomplete(options);
