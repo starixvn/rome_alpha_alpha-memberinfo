@@ -2,11 +2,14 @@
 
 declare var clipboard: any;
 
+declare var Cleave: any;
+
 class QRCodeMemberSignIn {
     $: JQueryStatic;
     topWindow: any;
     username: string;
     memberLink: string;
+    cleave: any;
 
     constructor(
         $: JQueryStatic,
@@ -46,9 +49,30 @@ class QRCodeMemberSignIn {
     }
 
     init = () => {
+        this.cleave = new Cleave('#Credit', {
+            numeral: true,
+            numeralDecimalMark: ',',
+            delimiter: '.'
+        });
+
         this.$('#qrCodeMemberSignInForm').submit(() => {
             this.$.blockUI();
+            const credit = parseFloat(this.cleave.getRawValue());
+            const creditMin = parseFloat(this.$("#CreditMin").val());
+            const creditMax = parseFloat(this.$("#CreditMax").val());
+
+            if (credit < creditMin || credit > creditMax) {
+                event.preventDefault();
+
+                this.$('#message').removeClass('hidden');
+                this.$('#message-content').html('Invalid Credit');
+                this.$.unblockUI();
+            }
+            else {
+                this.$("#Credit").val(this.cleave.getRawValue());
+            }
         });
+
 
         const options = {
             url: function (phrase) {

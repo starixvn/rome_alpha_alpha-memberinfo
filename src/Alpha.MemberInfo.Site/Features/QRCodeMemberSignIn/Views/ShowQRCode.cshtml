@@ -25,7 +25,7 @@
             <button class="btn-submit" id="btn-copy-link">@Resources.CopyLink</button>
         </div>
        
-        <div>@Resources.Credit: <span id="credit-label"> @Model.Credit</span></div>
+        <div>@Resources.Credit: <span id="credit-label">@String.Format("{0:#,###.##}", Model.Credit)</span></div>
         <div>@Resources.FirstName: <span id="first-name-label">@Model.FirstName</span></div>
         <button type="submit" class="btn-submit" id="btn-update-information">@Resources.UpdateInformation</button>
         <button type="submit" class="btn-submit" id="btn-update-credit">@Resources.UpdateCredit</button>

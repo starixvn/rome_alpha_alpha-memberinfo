@@ -26,8 +26,25 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             });
         };
         this.init = function () {
+            _this.cleave = new Cleave('#Credit', {
+                numeral: true,
+                numeralDecimalMark: ',',
+                delimiter: '.'
+            });
             _this.$('#qrCodeMemberSignInForm').submit(function () {
                 _this.$.blockUI();
+                var credit = parseFloat(_this.cleave.getRawValue());
+                var creditMin = parseFloat(_this.$("#CreditMin").val());
+                var creditMax = parseFloat(_this.$("#CreditMax").val());
+                if (credit < creditMin || credit > creditMax) {
+                    event.preventDefault();
+                    _this.$('#message').removeClass('hidden');
+                    _this.$('#message-content').html('Invalid Credit');
+                    _this.$.unblockUI();
+                }
+                else {
+                    _this.$("#Credit").val(_this.cleave.getRawValue());
+                }
             });
             var options = {
                 url: function (phrase) {
