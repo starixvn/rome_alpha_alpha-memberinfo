@@ -16,10 +16,11 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 cache: false,
                 success: function (result) {
                     _this.$.unblockUI();
-                    _this.$("#Credit").val(result.Credit);
+                    _this.$('#username-group').removeClass('hidden');
                     _this.$('#credit-range').removeClass('hidden');
                     _this.$("#credit-min-label").html(result.CreditMin);
                     _this.$("#credit-max-label").html(result.CreditMax);
+                    _this.$("#Credit").val(result.Credit);
                     _this.$("#CreditMin").val(result.CreditMin);
                     _this.$("#CreditMax").val(result.CreditMax);
                 }
