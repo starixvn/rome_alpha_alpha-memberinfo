@@ -19,7 +19,9 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     _this.$('#credit-range').removeClass('hidden');
                     _this.$("#credit-min-label").html(result.CreditMin);
                     _this.$("#credit-max-label").html(result.CreditMax);
-                    _this.$("#Credit").val(result.Credit);
+                    var credit = numeral(result.Credit);
+                    var formatCredit = credit.format('0,0.00');
+                    _this.$("#Credit").val(formatCredit);
                     _this.$("#CreditMin").val(result.CreditMin);
                     _this.$("#CreditMax").val(result.CreditMax);
                 }
@@ -28,8 +30,8 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         this.init = function () {
             _this.cleave = new Cleave('#Credit', {
                 numeral: true,
-                numeralDecimalMark: ',',
-                delimiter: '.'
+                numeralDecimalMark: '.',
+                delimiter: ','
             });
             _this.$('#qrCodeMemberSignInForm').submit(function () {
                 _this.$.blockUI();

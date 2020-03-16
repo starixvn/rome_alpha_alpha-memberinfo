@@ -1,8 +1,22 @@
 ﻿.filter .form-group {
     display: block;
+    padding-top: 15px;
 }
 
 .form-group label {
     color: black !important;
     display: block;
+}
+
+input[type='text']{
+    width: 180px;
+}
+
+#credit-range {
+    padding-top: 5px;
+    font-size: 16px;
+
+    span {
+        font-weight: bold;
+    }
 }

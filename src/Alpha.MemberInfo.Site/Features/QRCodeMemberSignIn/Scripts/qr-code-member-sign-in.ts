@@ -3,6 +3,7 @@
 declare var clipboard: any;
 
 declare var Cleave: any;
+declare var numeral: any;
 
 class QRCodeMemberSignIn {
     $: JQueryStatic;
@@ -40,7 +41,11 @@ class QRCodeMemberSignIn {
                 this.$("#credit-min-label").html(result.CreditMin);
                 this.$("#credit-max-label").html(result.CreditMax);
 
-                this.$("#Credit").val(result.Credit);
+                let credit = numeral(result.Credit);
+                const formatCredit = credit.format('0,0.00');
+
+                this.$("#Credit").val(formatCredit);
+
                 this.$("#CreditMin").val(result.CreditMin);
                 this.$("#CreditMax").val(result.CreditMax);
             }
@@ -50,8 +55,8 @@ class QRCodeMemberSignIn {
     init = () => {
         this.cleave = new Cleave('#Credit', {
             numeral: true,
-            numeralDecimalMark: ',',
-            delimiter: '.'
+            numeralDecimalMark: '.',
+            delimiter: ','
         });
 
         this.$('#qrCodeMemberSignInForm').submit(() => {

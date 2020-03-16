@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "QR Code Member Sign In";
     var errorMessageClass = string.IsNullOrEmpty(Model.ErrorMessage) ? "hidden" : string.Empty;
-    var credit = string.IsNullOrEmpty(Model.MemberNameCopyFrom) ? string.Empty : Model.Credit.ToString();
 }
 @section Styles {
     @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
@@ -23,10 +22,10 @@
         </div>
         <div class="form-group">
             <label>@Resources.MemberCredit</label>
-            <input type="text" name="Credit" id="Credit" placeholder="" value="@credit" />
-        </div>
-        <div id="credit-range" class="form-group hidden">
-            <span id="credit-min-label"></span> <=  @Resources.NewGivenCredit <= <span id="credit-max-label"></span>
+            <input type="text" name="Credit" id="Credit" placeholder="" value="" />
+            <div id="credit-range" class="hidden">
+                <span id="credit-min-label"></span> <=  @Resources.NewGivenCredit <= <span id="credit-max-label"></span>
+            </div>
         </div>
         <div class="form-group" id="username-group">
             <label>@Resources.Username</label>
@@ -55,10 +54,6 @@
             <input type="text" name="FirstName" id="FirstName" value="" />
         </div>
         <div class="form-group">
-            <label>@Resources.Captcha</label>
-            <input type="text" id="txt-captcha" placeholder="" value="" />
-        </div>
-        <div class="form-group">
             <button type="submit" class="btn-submit" id="btn-submit">@Resources.CreateAccount</button>
         </div>
     </div>
@@ -67,6 +62,7 @@
 }
 
 @section Scripts {
+    @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")
     @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
     @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
 }
