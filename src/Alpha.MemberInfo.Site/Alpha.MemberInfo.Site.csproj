@@ -502,6 +502,14 @@
     <Content Include="assets\bundles\progressive-jackpot\progressive-jackpot.min.js">
       <DependentUpon>progressive-jackpot.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\qr-code-member-sign-in.css" />
+    <Content Include="assets\bundles\qr-code-member-sign-in.min.css">
+      <DependentUpon>qr-code-member-sign-in.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\show-qr-code.css" />
+    <Content Include="assets\bundles\show-qr-code.min.css">
+      <DependentUpon>show-qr-code.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\win-loss-limit.css">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
@@ -550,7 +558,11 @@
      <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.min.js">
       <DependentUpon>qr-code-member-sign-in.js</DependentUpon>
     </Content>
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\show-qr-code.css" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\show-qr-code.js" />
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\show-qr-code.min.css">
+      <DependentUpon>show-qr-code.css</DependentUpon>
+    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\show-qr-code.min.js">
       <DependentUpon>show-qr-code.js</DependentUpon>
     </Content>
@@ -801,6 +813,7 @@
     <Content Include="Features\QRCodeMemberSignIn\Views\Index.cshtml" />
     <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in.scss" />
     <Content Include="Features\QRCodeMemberSignIn\Views\ShowQRCode.cshtml" />
+    <Content Include="Features\QRCodeMemberSignIn\Styles\show-qr-code.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">

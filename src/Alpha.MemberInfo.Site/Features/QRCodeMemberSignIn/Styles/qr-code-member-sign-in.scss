@@ -1,4 +1,8 @@
-﻿.filter .form-group {
+﻿#qrCodeMemberSignInForm {
+    width: 500px;
+}
+
+.filter .form-group {
     display: block;
     padding-top: 15px;
 }
@@ -8,7 +12,7 @@
     display: block;
 }
 
-input[type='text']{
+input[type='text'] {
     width: 180px;
 }
 
@@ -19,4 +23,9 @@ input[type='text']{
     span {
         font-weight: bold;
     }
+}
+
+input[type="search"]:focus {
+    width: 180px;
+    -webkit-text-size-adjust: 100% !important;
 }

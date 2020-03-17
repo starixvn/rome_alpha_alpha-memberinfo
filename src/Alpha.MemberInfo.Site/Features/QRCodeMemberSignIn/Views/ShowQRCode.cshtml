@@ -1,36 +1,45 @@
 ﻿@model ShowQRCodeViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-}
-@{
     ViewBag.Title = "Show QR Code";
 }
+
 @section Styles {
-    @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
+    @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/show-qr-code")
 }
-<div>
+<div id="show-qr-code">
     @if (Model.ShowMessage)
     {
-        <div id="message">
+        <div id="message" class="msg msg-success">
             <span id="message-content" className="col-xs-12">@Resources.ThisAccountHasBeenSuccessfullyCreated</span>
         </div>
     }
     <div class="form-group">
-        <label>@Resources.PleaseShowThisQRCodeToYourMember</label>
+        @Resources.PleaseShowThisQRCodeToYourMember
+    </div>
+    <div class="form-group">
         <img id="qr-code-image" alt="QRcode" src="@Model.QRCode" />
-        <label>@Resources.AccountInformation</label>
-        <div>
-            @Resources.Username: <span id="username-label">@Model.SearchAccountName</span>
-            <button class="btn-submit" id="btn-copy-link">@Resources.CopyLink</button>
-        </div>
-       
-        <div>@Resources.Credit: <span id="credit-label">@String.Format("{0:#,###.##}", Model.Credit)</span></div>
-        <div>@Resources.FirstName: <span id="first-name-label">@Model.FirstName</span></div>
+    </div>
+    <div class="form-group infomation">
+        @Resources.AccountInformation
+    </div>
+    <div class="form-group">
+        <div class="first-column">@Resources.Username:</div>
+        <div class="username-label">@Model.SearchAccountName</div>
+        <button class="btn-submit copy-link" id="btn-copy-link">@Resources.CopyLink</button>
+    </div>
+    <div class="form-group">
+        <div class="first-column">@Resources.Credit:</div> 
+        <div>@String.Format("{0:#,###.##}", Model.Credit)</div>
+    </div>
+    <div class="form-group">
+        <div class="first-column">@Resources.FirstName:</div> 
+        <div>@Model.FirstName</div>
+    </div>
+    <div class="form-group">
         <button type="submit" class="btn-submit" id="btn-update-information">@Resources.UpdateInformation</button>
         <button type="submit" class="btn-submit" id="btn-update-credit">@Resources.UpdateCredit</button>
     </div>
-
     <input type="hidden" name="qrcode-link" id="qrcode-link" value="@Model.QRCodeLink" />
     <input type="hidden" name="update-infor-link" id="update-infor-link" value="@Model.UpdateInformationUrl" />
     <input type="hidden" name="update-credit-link" id="update-credit-link" value="@Model.UpdateCreditUrl" />

@@ -37,15 +37,16 @@ class QRCodeMemberSignIn {
             success: (result) => {
                 this.$.unblockUI();
 
+                const creditMin = numeral(result.CreditMin);
+                const creditMax = numeral(result.CreditMax);
+
                 this.$('#credit-range').removeClass('hidden');
-                this.$("#credit-min-label").html(result.CreditMin);
-                this.$("#credit-max-label").html(result.CreditMax);
+                this.$("#credit-min-label").html(creditMin.format('0,0.##'));
+                this.$("#credit-max-label").html(creditMax.format('0,0.##'));
 
-                let credit = numeral(result.Credit);
-                const formatCredit = credit.format('0,0.00');
+                const credit = numeral(result.Credit);
 
-                this.$("#Credit").val(formatCredit);
-
+                this.$("#Credit").val(credit.format('0,0.##'));
                 this.$("#CreditMin").val(result.CreditMin);
                 this.$("#CreditMax").val(result.CreditMax);
             }
@@ -68,7 +69,7 @@ class QRCodeMemberSignIn {
             if (credit < creditMin || credit > creditMax) {
                 event.preventDefault();
 
-                this.$('#message').removeClass('hidden');
+                this.$('#message').removeClass('hidden').addClass('msg msg-error');
                 this.$('#message-content').html('Invalid Credit');
                 this.$.unblockUI();
             }

@@ -16,12 +16,13 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 cache: false,
                 success: function (result) {
                     _this.$.unblockUI();
+                    var creditMin = numeral(result.CreditMin);
+                    var creditMax = numeral(result.CreditMax);
                     _this.$('#credit-range').removeClass('hidden');
-                    _this.$("#credit-min-label").html(result.CreditMin);
-                    _this.$("#credit-max-label").html(result.CreditMax);
+                    _this.$("#credit-min-label").html(creditMin.format('0,0.##'));
+                    _this.$("#credit-max-label").html(creditMax.format('0,0.##'));
                     var credit = numeral(result.Credit);
-                    var formatCredit = credit.format('0,0.00');
-                    _this.$("#Credit").val(formatCredit);
+                    _this.$("#Credit").val(credit.format('0,0.##'));
                     _this.$("#CreditMin").val(result.CreditMin);
                     _this.$("#CreditMax").val(result.CreditMax);
                 }
@@ -40,7 +41,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 var creditMax = parseFloat(_this.$("#CreditMax").val());
                 if (credit < creditMin || credit > creditMax) {
                     event.preventDefault();
-                    _this.$('#message').removeClass('hidden');
+                    _this.$('#message').removeClass('hidden').addClass('msg msg-error');
                     _this.$('#message-content').html('Invalid Credit');
                     _this.$.unblockUI();
                 }

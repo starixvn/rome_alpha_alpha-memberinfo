@@ -1,0 +1,36 @@
+﻿#show-qr-code {
+    width: 500px;
+    font-size: 16px;
+
+    img {
+        display: block;
+        margin: auto;
+        height: 200px;
+    }
+
+    button {
+        height: 40px;
+    }
+
+    .infomation, .username-label {
+        font-weight: bold;
+    }
+
+    .copy-link {
+        margin-left: 15px;
+    }
+
+    .first-column {
+        width: 100px;
+    }
+
+    .form-group {
+        display: block;
+        padding: 10px 0 0 0;
+        margin: 0;
+
+        div {
+            display: inline-block;
+        }
+    }
+}
