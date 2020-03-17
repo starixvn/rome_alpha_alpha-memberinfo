@@ -61,7 +61,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     type: "custom",
                     method: function (value, item) {
                         var nickname = item.UserName2 === null || item.UserName2 === '' ? '' : "(" + item.UserName2 + ")";
-                        return "<div>" + value + " " + nickname + "<div>" + item.FirstName + " " + item.LastName + "</div></div>";
+                        return "<div class='suggestion'>" + value + " " + nickname + "<div>" + item.FirstName + " " + item.LastName + "</div></div>";
                     }
                 },
                 list: {
