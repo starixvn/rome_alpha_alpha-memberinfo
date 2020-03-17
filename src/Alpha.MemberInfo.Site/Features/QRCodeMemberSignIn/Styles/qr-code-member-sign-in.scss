@@ -1,31 +1,31 @@
 ﻿#qrCodeMemberSignInForm {
     width: 500px;
-}
 
-.filter .form-group {
-    display: block;
-    padding-top: 15px;
-}
+    .form-group {
+        display: block;
+        padding-top: 15px;
 
-.form-group label {
-    color: black !important;
-    display: block;
-}
+        label {
+            color: black !important;
+            display: block;
+        }
 
-input[type='text'] {
-    width: 180px;
-}
+        input[type='text'] {
+            width: 180px;
+        }
 
-#credit-range {
-    padding-top: 5px;
-    font-size: 16px;
+        #credit-range {
+            padding-top: 5px;
+            font-size: 16px;
 
-    span {
-        font-weight: bold;
+            span {
+                font-weight: bold;
+            }
+        }
+
+        input[type="search"]:focus {
+            width: 180px;
+            -webkit-text-size-adjust: 100% !important;
+        }
     }
-}
-
-input[type="search"]:focus {
-    width: 180px;
-    -webkit-text-size-adjust: 100% !important;
 }

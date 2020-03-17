@@ -24,11 +24,11 @@ class ShowQRCode {
         });
 
         this.$('#btn-update-information').click(() => {
-            window.top.popupManager.open(this.$('#update-infor-link').val(), 'Update Infomation', 800, 500);
+            window.top.popupManager.open(this.$('#update-infor-link').val(), 'Update Infomation', 700, 400);
         });
 
         this.$('#btn-update-credit').click(() => {
-            window.top.popupManager.open(this.$('#update-credit-link').val(), 'Update Credit Username', 800, 500);
+            window.top.popupManager.open(this.$('#update-credit-link').val(), 'Update Credit Username', 500, 300);
         });
     };
 }

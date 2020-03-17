@@ -7,10 +7,10 @@ var ShowQRCode = /** @class */ (function () {
                 clipboard.writeText(_this.$('#qrcode-link').val());
             });
             _this.$('#btn-update-information').click(function () {
-                window.top.popupManager.open(_this.$('#update-infor-link').val(), 'Update Infomation', 800, 500);
+                window.top.popupManager.open(_this.$('#update-infor-link').val(), 'Update Infomation', 700, 400);
             });
             _this.$('#btn-update-credit').click(function () {
-                window.top.popupManager.open(_this.$('#update-credit-link').val(), 'Update Credit Username', 800, 500);
+                window.top.popupManager.open(_this.$('#update-credit-link').val(), 'Update Credit Username', 500, 300);
             });
         };
         this.$ = $;
