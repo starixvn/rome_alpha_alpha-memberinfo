@@ -39,11 +39,14 @@
 
         public const int TotalColumnMaster = 10;
 
-        public const int TotalColumnAgent = 9;
+        public int TotalColumnAgent => Query.CustLevel.IsMasterLevel() ? 10 : 9;
 
         public const int TotalColumnMember = 8;
 
         public static string UsernameAutoSuggestionPath
             => MicroSites.OldMainUrl("~/_GlobalResources/Handlers/QueryUserName.ashx");
+
+        public bool IsShowUplineUsername(byte searchRoleId)
+            => Query.CustLevel.GetDirectDownLineLevel().Value != searchRoleId;
     }
 }

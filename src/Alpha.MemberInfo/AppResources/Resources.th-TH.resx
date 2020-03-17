@@ -369,4 +369,37 @@
   <data name="ExportDate" xml:space="preserve">
     <value>วันที่จัดเตรียมข้อมูล</value>
   </data>
+  <data name="DateNotified" xml:space="preserve">
+    <value>วันที่แจ้งเตือน</value>
+  </data>
+  <data name="ReviewStatus" xml:space="preserve">
+    <value>ตรวจสอบสถานะ</value>
+  </data>
+  <data name="SetToReviewed" xml:space="preserve">
+    <value>ตั้งค่าการตรวจสอบ</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>ตรวจสอบแล้ว</value>
+  </data>
+  <data name="NotReviewed" xml:space="preserve">
+    <value>ยังไม่ได้ตรวจสอบ</value>
+  </data>
+  <data name="DateNotifiedFrom" xml:space="preserve">
+    <value>วันที่แจ้งเตือนจาก</value>
+  </data>
+  <data name="SetReviewedForAccountOnly" xml:space="preserve">
+    <value>ตั้งค่าเป็นตรวจสอบแล้วสำหรับบัญชีที่เลือกเท่านั้น</value>
+  </data>
+  <data name="SetReviewedForDownline" xml:space="preserve">
+    <value>ตั้งค่าการตรวจสอบสำหรับบัญชีที่เลือกและดาวน์ไลน์ของบัญชีที่มีปัญหา</value>
+  </data>
+  <data name="UpdateSuccessfully" xml:space="preserve">
+    <value>อัปเดตสำเร็จแล้ว!</value>
+  </data>
+  <data name="ProblemAgentAccounts" xml:space="preserve">
+    <value>บัญชีเอเจนต์ที่มีปัญหา</value>
+  </data>
+  <data name="ProblemMemberAccounts" xml:space="preserve">
+    <value>บัญชีสมาชิกทีมีปัญหา</value>
+  </data>
 </root>

@@ -6,14 +6,10 @@
     using Alpha.MemberInfo.Site.ViewModels.ProblemAccount;
     using MediatR;
 
-    public class IndexRequest: ProblemAccountRequestBase, IRequest<ProblemAccountReportViewModel>
+    public class IndexRequest : ProblemAccountRequestBase, IRequest<ProblemAccountReportViewModel>
     {
-        public IndexRequest(IUser viewer):base(viewer)
+        public IndexRequest(IUser viewer) : base(viewer)
         {
-            FromDate = DateTime.Now.AddDays(-13);
-            ToDate = DateTime.Now;
-            UserSelectedReviewedStatusId = ReviewStatusConstant.All;
-            SearchRoleId = UserLevel.Master.Value;
         }
     }
 }
