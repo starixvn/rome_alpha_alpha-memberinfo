@@ -3,7 +3,7 @@
 
     .form-group {
         display: block;
-        padding-top: 15px;
+        padding-top: 18px;
 
         label {
             color: black !important;
@@ -11,7 +11,7 @@
         }
 
         input[type='text'] {
-            width: 180px;
+            width: 200px;
         }
 
         #credit-range {
@@ -27,8 +27,12 @@
             padding: 8px 10px;
         }
 
-        .easy-autocomplete-container{
+        .easy-autocomplete-container {
             background: white;
+        }
+
+        button {
+            height: 40px;
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿"use strict";
 
 declare var clipboard: any;
-
 declare var Cleave: any;
 declare var numeral: any;
 
@@ -69,7 +68,7 @@ class QRCodeMemberSignIn {
             if (credit < creditMin || credit > creditMax) {
                 event.preventDefault();
 
-                this.$('#message').removeClass('hidden').addClass('msg msg-error');
+                this.$('#message').removeClass('hidden');
                 this.$('#message-content').html('Invalid Credit');
                 this.$.unblockUI();
             }
@@ -84,7 +83,7 @@ class QRCodeMemberSignIn {
             },
             placeholder: "Username or First/Last Name",
             getValue: 'UserName',
-            requestDelay: 300,
+            requestDelay: 200,
             minCharNumber: 2,
             template: {
                 type: "custom",

@@ -1,10 +1,21 @@
 ﻿@model QRCodeMemberSignInViewModel
+@using Alpha.Captcha.Models
+@using Alpha.Captcha.Mvc
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "QR Code Member Sign In";
-    var errorMessageClass = string.IsNullOrEmpty(Model.ErrorMessage) ? "hidden" : string.Empty;
+    var errorMessageClass = string.IsNullOrEmpty(Model.ErrorMessage) ? "hidden" : "msg msg-error";
+    var captchaSetting = new CaptchaSetting
+    {
+        Level = CaptchaLevels.Low,
+        IsForm = false,
+        IsShowButton = false,
+        FunctionName = "QRCode"
+    };
 }
 @section Styles {
+    <link href="@Configuration.CaptchaStylesheet" rel="stylesheet" />
     @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
 }
 <div class="page-title">
@@ -53,6 +64,7 @@
             <label>@Resources.FirstNameOptional</label>
             <input type="text" name="FirstName" id="FirstName" value="" />
         </div>
+        @Html.Captcha(captchaSetting)
         <div class="form-group">
             <button type="submit" class="btn-submit" id="btn-submit">@Resources.CreateAccount</button>
         </div>

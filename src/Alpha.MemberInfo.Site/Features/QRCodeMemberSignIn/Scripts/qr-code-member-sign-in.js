@@ -41,7 +41,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 var creditMax = parseFloat(_this.$("#CreditMax").val());
                 if (credit < creditMin || credit > creditMax) {
                     event.preventDefault();
-                    _this.$('#message').removeClass('hidden').addClass('msg msg-error');
+                    _this.$('#message').removeClass('hidden');
                     _this.$('#message-content').html('Invalid Credit');
                     _this.$.unblockUI();
                 }
@@ -55,7 +55,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 },
                 placeholder: "Username or First/Last Name",
                 getValue: 'UserName',
-                requestDelay: 300,
+                requestDelay: 200,
                 minCharNumber: 2,
                 template: {
                     type: "custom",
