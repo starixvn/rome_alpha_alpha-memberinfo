@@ -68,7 +68,7 @@ class QRCodeMemberSignIn {
             if (credit < creditMin || credit > creditMax) {
                 event.preventDefault();
 
-                this.$('#message').removeClass('hidden');
+                this.$('#message').removeClass('hidden').addClass('msg msg-error');
                 this.$('#message-content').html('Invalid Credit');
                 this.$.unblockUI();
             }

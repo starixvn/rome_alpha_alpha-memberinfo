@@ -1,22 +1,27 @@
-﻿#qrCodeMemberSignInForm {
+﻿@import './_mixins.scss';
+
+* {
+    font-size: 13px !important;
+}
+
+#qrCodeMemberSignInForm {
     width: 500px;
 
     .form-group {
         display: block;
-        padding-top: 18px;
+        padding-top: 15px;
 
         label {
             color: black !important;
             display: block;
         }
 
-        input[type='text'] {
-            width: 200px;
+        input[type='text'], .captcha-input {
+            width: 200px !important;
         }
 
         #credit-range {
             padding-top: 5px;
-            font-size: 16px;
 
             span {
                 font-weight: bold;
@@ -32,7 +37,18 @@
         }
 
         button {
-            height: 40px;
+            height: 30px;
         }
+    }
+}
+
+
+@media only screen and (max-device-width: 767px) {
+    * {
+        font-size: calculateScale(13px) !important;
+    }
+
+    #qrCodeMemberSignInForm {
+        width: 100% !important;
     }
 }

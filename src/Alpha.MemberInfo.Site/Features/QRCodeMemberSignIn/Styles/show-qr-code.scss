@@ -1,15 +1,20 @@
-﻿#show-qr-code {
+﻿@import './_mixins.scss';
+
+* {
+    font-size: 13px !important;
+}
+
+#show-qr-code {
     width: 500px;
-    font-size: 16px;
 
     img {
         display: block;
         margin: auto;
-        height: 250px;
+        height: 200px;
     }
 
     button {
-        height: 40px;
+        height: 30px;
     }
 
     .infomation, .username-label {
@@ -26,11 +31,21 @@
 
     .form-group {
         display: block;
-        padding: 16px 0 0 0;
+        padding: 10px 0 0 0;
         margin: 0;
 
         div {
             display: inline-block;
         }
+    }
+}
+
+@media only screen and (max-device-width: 767px) {
+    * {
+        font-size: calculateScale(13px) !important;
+    }
+
+    #show-qr-code {
+        width: 100% !important;
     }
 }
