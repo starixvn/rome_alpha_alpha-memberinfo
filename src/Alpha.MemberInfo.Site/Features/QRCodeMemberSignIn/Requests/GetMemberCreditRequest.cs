@@ -18,8 +18,6 @@
 
         public int ActorId => viewer.Id;
 
-        public bool IsInternal => true; // viewer.IsInternal;
-
-        public override bool IsValid() => true; //viewer.ViewMemberInfo && IsValidName(SuggestionQuery);
+        public override bool IsValid() => !string.IsNullOrEmpty(SearchAccountName);
     }
 }

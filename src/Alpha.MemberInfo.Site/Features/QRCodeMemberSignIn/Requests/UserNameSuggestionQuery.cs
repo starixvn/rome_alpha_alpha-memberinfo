@@ -8,19 +8,18 @@
 
     public class UserNameSuggestionQuery : MemberInfoBaseQuery, IRequest<IEnumerable<UsernameSuggestion>>
     {
-        private readonly IUser viewer;
-
         public UserNameSuggestionQuery(IUser viewer) : base(viewer)
         {
-            this.viewer = viewer;
+            this.ActorId = viewer.Id;
+            this.IsInternal = viewer.IsInternal;
         }
 
         public string SuggestionQuery { get; set; }
 
-        public int ActorId => viewer.Id;
+        public int ActorId { get; }
 
-        public bool IsInternal => true; // viewer.IsInternal;
+        public bool IsInternal { get; }
 
-        public override bool IsValid() => true; //viewer.ViewMemberInfo && IsValidName(SuggestionQuery);
+    public override bool IsValid() => !string.IsNullOrEmpty(SuggestionQuery);
     }
 }

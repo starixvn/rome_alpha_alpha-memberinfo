@@ -38,6 +38,8 @@
         public int SubAccId { get; }
 
         public override bool IsValid() => 
-            !string.IsNullOrEmpty(UsernameCopyFrom);
+            !string.IsNullOrEmpty(UsernameCopyFrom)
+            && Credit <= CreditMax
+            && Credit >= CreditMin;
     }
 }

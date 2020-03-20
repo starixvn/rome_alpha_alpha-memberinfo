@@ -38,12 +38,22 @@ class ShowQRCode {
         });
 
         this.$('#btn-update-information').click(() => {
-            window.top.popupManager.open(this.$('#update-infor-link').val(), `Update Infomation - ${this.username}`, 700, 400);
+            window.top.popupManager.open(
+                this.$('#update-infor-link').val(),
+                `Update Infomation - ${this.username}`,
+                700,
+                400);
+
             this.resizePopup();
         });
 
         this.$('#btn-update-credit').click(() => {
-            window.top.popupManager.open(this.$('#update-credit-link').val(), `Update Credit - ${this.username}`, 500, 300);
+            window.top.popupManager.open(
+                this.$('#update-credit-link').val(),
+                `Update Credit - ${this.username}`,
+                500,
+                300);
+
             this.resizePopup();
         });
     };

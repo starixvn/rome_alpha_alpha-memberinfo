@@ -27,6 +27,10 @@
 
         public bool ShowMessage { get; set; }
 
-        public override bool IsValid() => true;
+        public override bool IsValid() => 
+            SearchAccountId > 0 
+            && !string.IsNullOrEmpty(SearchAccountName)
+            && Credit <= CreditMax
+            && Credit >= CreditMin;
     }
 }
