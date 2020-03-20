@@ -91,6 +91,12 @@
     ]
   },
   {
+    "outputFileName": "Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill.min.js",
+    "inputFiles": [
+      "Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill.js"
+    ]
+  },
+  {
     "outputFileName": "assets/bundles/show-qr-code.css",
     "inputFiles": [
       "Features/QRCodeMemberSignIn/Bundles/show-qr-code.css"

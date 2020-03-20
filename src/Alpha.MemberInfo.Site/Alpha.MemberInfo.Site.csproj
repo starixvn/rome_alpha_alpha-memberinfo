@@ -569,6 +569,7 @@
     <Content Include="Features\QRCodeMemberSignIn\Bundles\show-qr-code.min.js">
       <DependentUpon>show-qr-code.js</DependentUpon>
     </Content>
+    <Content Include="Features\QRCodeMemberSignIn\Scripts\ClipboardPolyfill\clipboard-polyfill.min.js" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.min.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.themes.css" />
