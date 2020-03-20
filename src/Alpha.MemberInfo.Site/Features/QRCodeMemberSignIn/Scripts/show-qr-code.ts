@@ -1,12 +1,16 @@
 ﻿"use strict";
 
 declare var clipboard: any;
+declare var numeral: any;
 
 interface Window {
     popupManager: {
-        open: Function
+        open: Function,
+        openWithHanlder: Function
     },
-    alpha: any
+    alpha: any,
+    updateGivenCreditPopup: any,
+    ageWnd: any
 }
 
 class ShowQRCode {
@@ -30,6 +34,19 @@ class ShowQRCode {
         }
     };
 
+    givenPopupOnclosing = (username = null, updateSuccessfully = false, credit = 0) => {
+        if (updateSuccessfully === true) {
+            const creditFormat = numeral(credit);
+            this.$('#credit-label').text(creditFormat.format('0,0.##'));
+            setTimeout(() => {
+                window.top.updateGivenCreditPopup.close();
+            }, 1000);
+        }
+        else {
+            window.top.updateGivenCreditPopup.close();
+        }
+    };
+
     init = () => {
         this.username = this.$('.username-label').html();
 
@@ -48,7 +65,13 @@ class ShowQRCode {
         });
 
         this.$('#btn-update-credit').click(() => {
-            window.top.popupManager.open(
+            if (window.top.updateGivenCreditPopup === null || window.top.updateGivenCreditPopup === undefined) {
+                window.top.updateGivenCreditPopup = window.top.ageWnd.createInstance();
+            }
+
+            window.top.updateGivenCreditPopup.onClosing = this.givenPopupOnclosing;
+            window.top.popupManager.openWithHanlder(
+                top.updateGivenCreditPopup,
                 this.$('#update-credit-link').val(),
                 `Update Credit - ${this.username}`,
                 500,

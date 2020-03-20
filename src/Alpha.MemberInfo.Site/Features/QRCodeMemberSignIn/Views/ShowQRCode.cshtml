@@ -32,11 +32,11 @@
         <button class="btn-submit copy-link" id="btn-copy-link">@Resources.CopyLink</button>
     </div>
     <div class="form-group">
-        <div class="first-column">@Resources.Credit:</div> 
-        <div>@String.Format("{0:#,###.##}", Model.Credit)</div>
+        <div class="first-column">@Resources.Credit:</div>
+        <div id="credit-label">@String.Format("{0:#,###.##}", Model.Credit)</div>
     </div>
     <div class="form-group">
-        <div class="first-column">@Resources.FirstName:</div> 
+        <div class="first-column">@Resources.FirstName:</div>
         <div>@Model.FirstName</div>
     </div>
     <div class="form-group">
@@ -49,6 +49,7 @@
 </div>
 
 @section Scripts {
+    @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")
     @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill")
     @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Bundles/show-qr-code")
 }
