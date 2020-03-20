@@ -44,8 +44,10 @@
 
         public bool ShowMessage { get; }
 
+        // TODO: hardcode syncCasino
         public string UpdateInformationUrl
-             => $"{MicroSites.OldMainUrl()}_AccountInfo/EditCustomerInfo.aspx?Username={SearchAccountName}&CustId={SearchAccountId}";
+             => $"{MicroSites.OldMainUrl()}_AccountInfo/EditCustomerInfo.aspx?" +
+             $"Username={SearchAccountName}&CustId={SearchAccountId}&isSyncCasino=1";
 
         public string UpdateCreditUrl
             => $"{MicroSites.AccountInfoUrl()}SearchAccount/GivenCredit" +

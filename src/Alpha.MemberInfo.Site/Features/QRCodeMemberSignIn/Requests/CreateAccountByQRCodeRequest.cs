@@ -1,12 +1,12 @@
-﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
+﻿
+namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
 {
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Alpha.MemberInfo.Models;
-    using Alpha.MemberInfo.Site.Requests;
     using MediatR;
 
     public class CreateAccountByQRCodeRequest :
-        MemberInfoBaseQuery,
+        QRCodeBaseQuery,
         IRequest<ResultCreateMemberQRCode>
     {
         public CreateAccountByQRCodeRequest(IUser viewer) : base(viewer)
@@ -37,9 +37,11 @@
 
         public int SubAccId { get; }
 
-        public override bool IsValid() => 
-            !string.IsNullOrEmpty(UsernameCopyFrom)
+        public override bool IsValid() =>
+            base.IsValid()
+            && !string.IsNullOrEmpty(UsernameCopyFrom)
             && Credit <= CreditMax
-            && Credit >= CreditMin;
+            && Credit >= CreditMin
+            && ActorLevel.IsAgentLevel();
     }
 }

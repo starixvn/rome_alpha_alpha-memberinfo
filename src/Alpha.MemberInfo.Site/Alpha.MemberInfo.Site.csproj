@@ -656,6 +656,7 @@
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapterImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInController.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInHandler.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeBaseQuery.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\ShowQRCodeRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CreateAccountByQRCodeRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeMemberSignInRequest.cs" />

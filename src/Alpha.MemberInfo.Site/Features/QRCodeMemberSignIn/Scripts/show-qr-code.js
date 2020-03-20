@@ -25,13 +25,30 @@ var ShowQRCode = /** @class */ (function () {
                 window.top.updateGivenCreditPopup.close();
             }
         };
+        this.informationPopupOnclosing = function (updateSuccessfully, firstName) {
+            if (updateSuccessfully === void 0) { updateSuccessfully = false; }
+            if (firstName === void 0) { firstName = ''; }
+            if (updateSuccessfully === true) {
+                _this.$('#first-name-label').text(firstName);
+                setTimeout(function () {
+                    window.top.updateInformationPopup.close();
+                }, 1000);
+            }
+            else {
+                window.top.updateInformationPopup.close();
+            }
+        };
         this.init = function () {
             _this.username = _this.$('.username-label').html();
             _this.$('#btn-copy-link').click(function () {
                 clipboard.writeText(_this.$('#qrcode-link').val());
             });
             _this.$('#btn-update-information').click(function () {
-                window.top.popupManager.open(_this.$('#update-infor-link').val(), "Update Infomation - " + _this.username, 700, 400);
+                if (window.top.updateInformationPopup === null || window.top.updateInformationPopup === undefined) {
+                    window.top.updateInformationPopup = window.top.ageWnd.createInstance();
+                }
+                window.top.updateInformationPopup.onClosing = _this.informationPopupOnclosing;
+                window.top.popupManager.openWithHanlder(top.updateInformationPopup, _this.$('#update-infor-link').val(), "Update Infomation - " + _this.username, 700, 400);
                 _this.resizePopup();
             });
             _this.$('#btn-update-credit').click(function () {

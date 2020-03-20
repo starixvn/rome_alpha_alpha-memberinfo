@@ -2,11 +2,10 @@
 {
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
-    using Alpha.MemberInfo.Site.Requests;
     using MediatR;
 
     public class QRCodeMemberSignInRequest :
-        MemberInfoBaseQuery,
+        QRCodeBaseQuery,
         IRequest<QRCodeMemberSignInViewModel>
     {
         public QRCodeMemberSignInRequest(IUser viewer) : base(viewer)
@@ -18,7 +17,5 @@
         public decimal Credit { get; set; }
 
         public string ErrorMessage { get; set; }
-
-        public override bool IsValid() => true;
     }
 }

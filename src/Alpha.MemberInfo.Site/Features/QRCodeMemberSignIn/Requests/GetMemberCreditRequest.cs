@@ -2,10 +2,9 @@
 {
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Alpha.MemberInfo.Models;
-    using Alpha.MemberInfo.Site.Requests;
     using MediatR;
 
-    public class GetMemberCreditRequest : MemberInfoBaseQuery, IRequest<CreditRangeModel>
+    public class GetMemberCreditRequest : QRCodeBaseQuery, IRequest<CreditRangeModel>
     {
         private readonly IUser viewer;
 
@@ -18,6 +17,6 @@
 
         public int ActorId => viewer.Id;
 
-        public override bool IsValid() => !string.IsNullOrEmpty(SearchAccountName);
+        public override bool IsValid() => base.IsValid() && !string.IsNullOrEmpty(SearchAccountName);
     }
 }

@@ -10,6 +10,7 @@ interface Window {
     },
     alpha: any,
     updateGivenCreditPopup: any,
+    updateInformationPopup: any,
     ageWnd: any
 }
 
@@ -47,6 +48,19 @@ class ShowQRCode {
         }
     };
 
+    informationPopupOnclosing = (updateSuccessfully = false, firstName = '') => {
+        if (updateSuccessfully === true) {
+            this.$('#first-name-label').text(firstName);
+            setTimeout(() => {
+                window.top.updateInformationPopup.close();
+            }, 1000);
+        }
+        else {
+            window.top.updateInformationPopup.close();
+        }
+    };
+
+
     init = () => {
         this.username = this.$('.username-label').html();
 
@@ -55,7 +69,13 @@ class ShowQRCode {
         });
 
         this.$('#btn-update-information').click(() => {
-            window.top.popupManager.open(
+            if (window.top.updateInformationPopup === null || window.top.updateInformationPopup === undefined) {
+                window.top.updateInformationPopup = window.top.ageWnd.createInstance();
+            }
+
+            window.top.updateInformationPopup.onClosing = this.informationPopupOnclosing;
+            window.top.popupManager.openWithHanlder(
+                top.updateInformationPopup,
                 this.$('#update-infor-link').val(),
                 `Update Infomation - ${this.username}`,
                 700,

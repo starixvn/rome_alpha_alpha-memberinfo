@@ -2,11 +2,10 @@
 {
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
-    using Alpha.MemberInfo.Site.Requests;
     using MediatR;
 
     public class ShowQRCodeRequest :
-        MemberInfoBaseQuery,
+        QRCodeBaseQuery,
         IRequest<ShowQRCodeViewModel>
     {
         public ShowQRCodeRequest(IUser viewer) : base(viewer)
@@ -28,7 +27,8 @@
         public bool ShowMessage { get; set; }
 
         public override bool IsValid() => 
-            SearchAccountId > 0 
+            base.IsValid()
+            && SearchAccountId > 0 
             && !string.IsNullOrEmpty(SearchAccountName)
             && Credit <= CreditMax
             && Credit >= CreditMin;
