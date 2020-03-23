@@ -7,6 +7,11 @@
     using Gma.QrCodeNet.Encoding;
     using Gma.QrCodeNet.Encoding.Windows.Render;
 
+    public interface QrCodeAdapter
+    {
+        string Generate(string url);
+    }
+
     public class QrCodeAdapterImpl : QrCodeAdapter
     {
         public string Generate(string url)

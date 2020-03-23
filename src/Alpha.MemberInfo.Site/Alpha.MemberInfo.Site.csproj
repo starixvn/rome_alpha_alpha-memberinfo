@@ -73,6 +73,9 @@
       <HintPath>..\..\packages\Alpha.Logging.1.0.1.1\lib\net461\Alpha.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Alpha.Products.Core, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Products.Core.1.0.0.1\lib\net461\Alpha.Products.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Alpha.SecurityCode, Version=3.0.0.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.SecurityCode.3.0.0.6\lib\net461\Alpha.SecurityCode.dll</HintPath>
       <Private>True</Private>
@@ -250,6 +253,10 @@
     <Reference Include="NPOI, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.dll</HintPath>
     </Reference>
+     <Reference Include="ONEbook.Common.Auth, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ONEbook.Common.Auth.1.0.0\lib\net461\ONEbook.Common.Auth.dll</HintPath>
+    </Reference>
+
     <Reference Include="NPOI.OOXML, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NPOI.2.2.1\lib\net40\NPOI.OOXML.dll</HintPath>
     </Reference>
@@ -653,7 +660,7 @@
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapter.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Helpers\QRCodeLoginConfigsHelperImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapterImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInController.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInHandler.cs" />
@@ -663,6 +670,7 @@
     <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeMemberSignInRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\UserNameSuggestionQuery.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLoginConfigs.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\ShowQRCodeViewModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\MemberSiteTokenLink.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeMemberSignInViewModel.cs" />
@@ -732,6 +740,7 @@
     <Content Include="assets\styles\_columns-control.scss" />
     <Content Include="App_Data\SPNames\Local\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="assets\styles\problem-account\index.scss" />
+    <Content Include="App_Data\QRCodeMemberSiteLoginConfigs.json" />
     <Content Include="assets\styles\problem-account\update.scss" />
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\Master.xls" />
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\Agent.xls" />

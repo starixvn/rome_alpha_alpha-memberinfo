@@ -7,6 +7,7 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
     using MediatR;
+    using ONEbook.Common.Auth;
     using System.Collections.Generic;
 
     public class QRCodeMemberSignInHandler : 
@@ -16,24 +17,27 @@
         IRequestHandler<GetMemberCreditRequest, CreditRangeModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>
     {
+        private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
 
         public QRCodeMemberSignInHandler(
+            QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper,
             QrCodeAdapter qrCodeAdapter, 
             QRCodeMemberSignInService qrCodeMemberSignInService)
         {
+            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper;
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
             => new QRCodeMemberSignInViewModel(
-                message.MemberName,
-                message.CustName,
-                message.Credit,
-                qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId),
-                message.ErrorMessage);
+               message.MemberName,
+               message.CustName,
+               message.Credit,
+               qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId),
+               message.ErrorMessage);
 
         public ResultCreateMemberQRCode Handle(CreateAccountByQRCodeRequest message)
         {
@@ -202,7 +206,10 @@
 
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
-            var link = "https://nexdev.net/issues/129373";
+            var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
+            var link = Authentication.Instance.CreateMobileLoginUrl(
+                config.Domain, config.SiteId, message.SearchAccountName, config.ExpireSeconds);
+
             return new ShowQRCodeViewModel(
                 message.Credit, 
                 message.CreditMin,

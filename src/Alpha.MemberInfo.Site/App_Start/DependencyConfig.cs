@@ -6,6 +6,7 @@
     using System.Web.Mvc;
     using Alpha.MemberInfo.Site.Handlers;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
+    using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Controllers;
     using DataAccesses;
@@ -115,6 +116,7 @@
             container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
             container.RegisterPerWebRequest<QRCodeMemberSignInService, QRCodeMemberSignInServiceImpl>();
             container.RegisterPerWebRequest<ProblemAccountWorkbook, ProblemAccountWorkbookImpl>();
+            container.RegisterPerWebRequest<QRCodeLoginConfigsHelper, QRCodeLoginConfigsHelperImpl>();
         }
     }
 }
