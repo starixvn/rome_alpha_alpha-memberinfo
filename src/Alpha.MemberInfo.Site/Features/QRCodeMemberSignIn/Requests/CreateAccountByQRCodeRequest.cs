@@ -33,6 +33,8 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
 
         public decimal CreditMax { get; set; }
 
+        public bool ShowPageTitle { get; set; }
+
         public string IP { get; }
 
         public int SubAccId { get; }

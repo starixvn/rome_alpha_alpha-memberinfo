@@ -18,9 +18,12 @@
     <link href="@Configuration.CaptchaStylesheet" rel="stylesheet" />
     @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
 }
-<div class="page-title">
-    <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
-</div>
+@if (Model.ShowPageTitle)
+{
+    <div class="page-title">
+        <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
+    </div>
+}
 @using (Html.BeginForm("CreateAccount", "QRCodeMemberSignIn", FormMethod.Post, new { id = "qrCodeMemberSignInForm", @class = "form-inline filter", role = "form" }))
 {
     <div id="message" class="@errorMessageClass">
@@ -73,6 +76,7 @@
     </div>
     <input type="hidden" name="CreditMin" id="CreditMin" value="" />
     <input type="hidden" name="CreditMax" id="CreditMax" value="" />
+    @Html.HiddenFor(m => m.ShowPageTitle)
 }
 
 @section Scripts {

@@ -26,6 +26,8 @@
 
         public bool ShowMessage { get; set; }
 
+        public bool ShowPageTitle { get; set; } = true;
+
         public override bool IsValid() => 
             base.IsValid()
             && SearchAccountId > 0 

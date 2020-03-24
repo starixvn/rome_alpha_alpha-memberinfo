@@ -74,6 +74,7 @@
                         message.Credit,
                         message.CreditMin,
                         message.CreditMax,
+                        message.ShowPageTitle,
                         ShowMessage = true
                     });
 

@@ -7,9 +7,12 @@
 @section Styles {
     @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/show-qr-code")
 }
-<div class="page-title">
-    <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
-</div>
+@if(Model.ShowPageTitle)
+{ 
+    <div class="page-title">
+        <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
+    </div>
+}
 <div id="show-qr-code">
     @if (Model.ShowMessage)
     {

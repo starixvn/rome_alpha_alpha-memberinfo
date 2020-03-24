@@ -37,6 +37,7 @@
                message.CustName,
                message.Credit,
                qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId),
+               message.ShowPageTitle,
                message.ErrorMessage);
 
         public ResultCreateMemberQRCode Handle(CreateAccountByQRCodeRequest message)
@@ -207,8 +208,10 @@
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
             var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
-            var link = Authentication.Instance.CreateMobileLoginUrl(
-                config.Domain, config.SiteId, message.SearchAccountName, config.ExpireSeconds);
+            //var link = Authentication.Instance.CreateMobileLoginUrl(
+            //    config.Domain, config.SiteId, message.SearchAccountName, config.ExpireSeconds);
+
+            var link = "http://ha.nexdev.net:7407/site-main/(S(q4a0sm5jdy2esig4yooxngrb))/#";
 
             return new ShowQRCodeViewModel(
                 message.Credit, 
@@ -219,7 +222,8 @@
                 message.FirstName, 
                 qrCodeAdapter.Generate(link), 
                 link,
-                message.ShowMessage);
+                message.ShowMessage,
+                message.ShowPageTitle);
         }
     }
 }

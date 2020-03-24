@@ -13,7 +13,8 @@
             string firstName,
             string qrCode,
             string qrCodeLink,
-            bool showMessage)
+            bool showMessage,
+            bool showPageTitle)
         {
             Credit = credit;
             CreditMin = creditMin;
@@ -24,6 +25,7 @@
             QRCode = qrCode;
             QRCodeLink = qrCodeLink;
             ShowMessage = showMessage;
+            ShowPageTitle = showPageTitle;
         }
 
         public decimal Credit { get; }
@@ -43,6 +45,8 @@
         public string QRCodeLink { get; }
 
         public bool ShowMessage { get; }
+
+        public bool ShowPageTitle { get; }
 
         // TODO: hardcode syncCasino
         public string UpdateInformationUrl

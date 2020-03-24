@@ -16,6 +16,8 @@
 
         public decimal Credit { get; set; }
 
+        public bool ShowPageTitle { get; set; } = true;
+
         public string ErrorMessage { get; set; }
     }
 }

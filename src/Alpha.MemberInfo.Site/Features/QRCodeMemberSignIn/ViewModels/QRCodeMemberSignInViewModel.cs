@@ -7,12 +7,14 @@
             string actorName,
             decimal credit, 
             string memberNameSuffix,
+            bool showPageTitle,
             string errorMessage)
         {
             MemberNameCopyFrom = memberNameCopyFrom;
             ActorName = actorName;
             ErrorMessage = errorMessage;
             Credit = credit;
+            ShowPageTitle = showPageTitle;
             MemberNameSuffix = memberNameSuffix;
         }
 
@@ -35,6 +37,8 @@
         public string SecondChar => MemberNameSuffix.Substring(1, 1).ToUpper();
 
         public string FirstChar => MemberNameSuffix.Substring(0, 1).ToUpper();
+
+        public bool ShowPageTitle { get; }
 
         public string ErrorMessage { get; }
     }
