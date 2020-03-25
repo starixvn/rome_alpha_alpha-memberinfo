@@ -36,7 +36,8 @@
                             winLossLimitDetail.Add(new WinLossLimitDetail
                             {
                                 CustId = Converter.ToInt(reader["CustId"]),
-                                PlayerId = string.Empty,
+                                PlayerId = reader["PlayerId"] == null ||
+                                    reader["PlayerId"] == DBNull.Value ? "-" : reader["PlayerId"].ToString(),
                                 Closed = Converter.ToBool(reader["Closed"]),
                                 Enabled = Converter.ToBool(reader["Enabled"]),
                                 Suspended = Converter.ToBool(reader["Suspended"]),
