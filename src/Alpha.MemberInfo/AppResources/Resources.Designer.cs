@@ -700,6 +700,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Saba.club Player ID.
+        /// </summary>
+        public static string SabaclubPlayerID {
+            get {
+                return ResourceManager.GetString("SabaclubPlayerID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select.
         /// </summary>
         public static string Select {

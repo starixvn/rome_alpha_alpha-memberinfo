@@ -64,7 +64,14 @@
         <label>@Resources.Username</label>
         <input type="text" id="txt-username" name="Username" placeholder="@Resources.Username" value="@Model.Username" />
     </div>
-    <table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-hover tablesorter alternative-row-table width-100per" data-has-data="@Model.WinLossLimitPage.WinLossLimitDetail.Any()">
+    @if (Model.IsSabaclub)
+    {
+        <div class="form-group">
+            <label>@Resources.PlayerId</label>
+            <input type="text" id="txt-player-id" name="PlayerId" placeholder="@Resources.SabaclubPlayerID" value="@Model.PlayerId" />
+        </div>
+    }
+    <table id="tbl-report" class="tblRpt tblRpt-bordered tblRpt-hover tablesorter alternative-row-table" data-has-data="@Model.WinLossLimitPage.WinLossLimitDetail.Any()">
         <thead>
             <tr>
                 <th><div class="col-no">@Resources.No</div></th>
@@ -72,6 +79,10 @@
                 <th class="col-username">@Resources.Username</th>
                 <th class="col-first-name">@Resources.FirstName</th>
                 <th class="col-last-name">@Resources.LastName</th>
+                @if (Model.IsSabaclub)
+                {
+                    <th><div class="col-player-id">@Resources.PlayerId</div></th>
+                }
                 <th><div class="col-credit">@Resources.Credit</div></th>
                 <th><div class="col-balance">@Resources.Balance</div></th>
                 <th><div class="col-auto-daily-reset">@Resources.AutoDailyResetLimit</div></th>
@@ -102,6 +113,10 @@
                                 @winLossLimitDetail.Lastname
                             </div>
                         </td>
+                        @if (Model.IsSabaclub)
+                        {
+                            <td class="text-left">@WinLossLimitViewModel.GetPlayerIdText(winLossLimitDetail.PlayerId)</td>
+                        }
                         <td class="text-right">@HtmlHelpers.FormatNumber(winLossLimitDetail.Credit)</td>
                         <td class="text-right">@HtmlHelpers.FormatNumber(winLossLimitDetail.Balance)</td>
                         <td class="text-center">@(winLossLimitDetail.IsAutoReset ? Resources.Yes : Resources.No2)</td>
