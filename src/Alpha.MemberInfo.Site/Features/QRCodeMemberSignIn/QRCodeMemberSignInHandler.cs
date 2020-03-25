@@ -208,10 +208,11 @@
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
             var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
-            //var link = Authentication.Instance.CreateMobileLoginUrl(
-            //    config.Domain, config.SiteId, message.SearchAccountName, config.ExpireSeconds);
+            var link = Authentication.Instance.CreateMobileLoginUrl(
+                config.Domain, config.SiteId, 
+                message.SearchAccountName, config.ExpireSeconds);
 
-            var link = "http://ha.nexdev.net:7407/site-main/(S(q4a0sm5jdy2esig4yooxngrb))/#";
+            ////var link = "http://ha.nexdev.net:7407/site-main/(S(q4a0sm5jdy2esig4yooxngrb))/#";
 
             return new ShowQRCodeViewModel(
                 message.Credit, 
