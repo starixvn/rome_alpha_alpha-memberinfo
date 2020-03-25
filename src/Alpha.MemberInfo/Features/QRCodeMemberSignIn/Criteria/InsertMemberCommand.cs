@@ -78,83 +78,83 @@
         public bool DisableNumber { get; set; }
 
         public int Recommend { get; set; }
-        public string Ugroup { get; set; }
+        public string UGroup { get; set; }
         public bool Closed { get; set; }
 
-        public decimal Apositiontaking_1 { get; set; }
-        public decimal Apositiontaking_2 { get; set; }
-        public decimal Apositiontaking_3 { get; set; }
-        public decimal Apositiontaking_4 { get; set; }
-        public decimal Apositiontaking_5 { get; set; }
-        public decimal Apositiontaking_6 { get; set; }
-        public decimal Apositiontaking_7 { get; set; }
-        public decimal Apositiontaking_8 { get; set; }
-        public decimal Apositiontaking_9 { get; set; }
-        public decimal Apositiontaking_10 { get; set; }
+        public decimal APositionTaking_1 { get; set; }
+        public decimal APositionTaking_2 { get; set; }
+        public decimal APositionTaking_3 { get; set; }
+        public decimal APositionTaking_4 { get; set; }
+        public decimal APositionTaking_5 { get; set; }
+        public decimal APositionTaking_6 { get; set; }
+        public decimal APositionTaking_7 { get; set; }
+        public decimal APositionTaking_8 { get; set; }
+        public decimal APositionTaking_9 { get; set; }
+        public decimal APositionTaking_10 { get; set; }
 
-        public decimal V2apositiontaking_10 { get; set; }
-        public decimal V3apositiontaking_10 { get; set; }
-        public decimal V5apositiontaking_10 { get; set; }
-        public decimal V8apositiontaking_10 { get; set; }
-        public decimal V10apositiontaking_10 { get; set; }
-        public decimal V11apositiontaking_10 { get; set; }
-        public decimal V99apositiontaking_10 { get; set; }
+        public decimal V2APositionTaking_10 { get; set; }
+        public decimal V3APositionTaking_10 { get; set; }
+        public decimal V5APositionTaking_10 { get; set; }
+        public decimal V8APositionTaking_10 { get; set; }
+        public decimal V10APositionTaking_10 { get; set; }
+        public decimal V11APositionTaking_10 { get; set; }
+        public decimal V99APositionTaking_10 { get; set; }
 
-        public decimal Apositiontaking_9999 { get; set; }
+        public decimal APositionTaking_9999 { get; set; }
 
-        public decimal Alivepositiontaking_1 { get; set; }
-        public decimal Alivepositiontaking_3 { get; set; }
-        public decimal Alivepositiontaking_7 { get; set; }
-        public decimal Alivepositiontaking_8 { get; set; }
+        public decimal ALivePositionTaking_1 { get; set; }
+        public decimal ALivePositionTaking_3 { get; set; }
+        public decimal ALivePositionTaking_7 { get; set; }
+        public decimal ALivePositionTaking_8 { get; set; }
 
-        public decimal V2apositiontaking_1 { get; set; }
-        public decimal V2apositiontaking_2 { get; set; }
-        public decimal V2apositiontaking_3 { get; set; }
-        public decimal V2apositiontaking_7 { get; set; }
-        public decimal V2apositiontaking_8 { get; set; }
-        public decimal V2apositiontaking_20 { get; set; }
-        public decimal V2apositiontaking_9999 { get; set; }
+        public decimal V2APositionTaking_1 { get; set; }
+        public decimal V2APositionTaking_2 { get; set; }
+        public decimal V2APositionTaking_3 { get; set; }
+        public decimal V2APositionTaking_7 { get; set; }
+        public decimal V2APositionTaking_8 { get; set; }
+        public decimal V2APositionTaking_20 { get; set; }
+        public decimal V2APositionTaking_9999 { get; set; }
 
-        public decimal V3apositiontaking_1 { get; set; }
-        public decimal V3apositiontaking_2 { get; set; }
-        public decimal V3apositiontaking_3 { get; set; }
-        public decimal V3apositiontaking_20 { get; set; }
+        public decimal V3APositionTaking_1 { get; set; }
+        public decimal V3APositionTaking_2 { get; set; }
+        public decimal V3APositionTaking_3 { get; set; }
+        public decimal V3APositionTaking_20 { get; set; }
 
-        public decimal V5apositiontaking_1 { get; set; }
-        public decimal V5apositiontaking_2 { get; set; }
-        public decimal V5apositiontaking_3 { get; set; }
-        public decimal V5apositiontaking_20 { get; set; }
-        public decimal V5apositiontaking_9999 { get; set; }
+        public decimal V5APositionTaking_1 { get; set; }
+        public decimal V5APositionTaking_2 { get; set; }
+        public decimal V5APositionTaking_3 { get; set; }
+        public decimal V5APositionTaking_20 { get; set; }
+        public decimal V5APositionTaking_9999 { get; set; }
 
-        public decimal V8apositiontaking_1 { get; set; }
-        public decimal V8apositiontaking_3 { get; set; }
-        public decimal V8apositiontaking_20 { get; set; }
+        public decimal V8APositionTaking_1 { get; set; }
+        public decimal V8APositionTaking_3 { get; set; }
+        public decimal V8APositionTaking_20 { get; set; }
 
-        public decimal V10apositiontaking_1 { get; set; }
-        public decimal V10apositiontaking_2 { get; set; }
-        public decimal V10apositiontaking_3 { get; set; }
-        public decimal V10apositiontaking_20 { get; set; }
+        public decimal V10APositionTaking_1 { get; set; }
+        public decimal V10APositionTaking_2 { get; set; }
+        public decimal V10APositionTaking_3 { get; set; }
+        public decimal V10APositionTaking_20 { get; set; }
 
-        public decimal V11apositiontaking_1 { get; set; }
-        public decimal V11apositiontaking_20 { get; set; }
+        public decimal V11APositionTaking_1 { get; set; }
+        public decimal V11APositionTaking_20 { get; set; }
 
-        public decimal V99apositiontaking_1 { get; set; }
-        public decimal V99apositiontaking_2 { get; set; }
-        public decimal V99apositiontaking_3 { get; set; }
-        public decimal V99apositiontaking_9 { get; set; }
-        public decimal V99apositiontaking_20 { get; set; }
-        public decimal V99apositiontaking_9999 { get; set; }
+        public decimal V99APositionTaking_1 { get; set; }
+        public decimal V99APositionTaking_2 { get; set; }
+        public decimal V99APositionTaking_3 { get; set; }
+        public decimal V99APositionTaking_9 { get; set; }
+        public decimal V99APositionTaking_20 { get; set; }
+        public decimal V99APositionTaking_9999 { get; set; }
 
-        public decimal V161apositiontaking_81 { get; set; }
-        public decimal V161apositiontaking_83 { get; set; }
-        public decimal V161apositiontaking_86 { get; set; }
-        public decimal V161apositiontaking_88 { get; set; }
+        public decimal V161APositionTaking_81 { get; set; }
+        public decimal V161APositionTaking_83 { get; set; }
+        public decimal V161APositionTaking_86 { get; set; }
+        public decimal V161APositionTaking_88 { get; set; }
 
-        public decimal V161alivepositiontaking_85 { get; set; }
-        public decimal V161alivepositiontaking_86 { get; set; }
-        public decimal V161alivepositiontaking_87 { get; set; }
-        public decimal V161alivepositiontaking_89 { get; set; }
-        public decimal V161alivepositiontaking_90 { get; set; }
+        public decimal V161ALivePositionTaking_85 { get; set; }
+        public decimal V161ALivePositionTaking_86 { get; set; }
+        public decimal V161ALivePositionTaking_87 { get; set; }
+        public decimal V161ALivePositionTaking_89 { get; set; }
+        public decimal V161ALivePositionTaking_90 { get; set; }
 
         public string IP { get; set; }
         public byte SystemId { get; set; }
