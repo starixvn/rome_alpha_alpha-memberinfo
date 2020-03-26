@@ -74,9 +74,11 @@ class ShowQRCode {
             var chooseUsername = this.$('#UsernameCopyFrom').val();
             this.username = chooseUsername;
 
+            const domain = this.$('#domains').val();
+
             var param = {
                 SearchAccountName: this.$('.username-label').text(),
-                Domain: this.$('#domains').val()
+                Domain: domain
             };
 
             this.$.ajax({
@@ -86,6 +88,7 @@ class ShowQRCode {
                 cache: false,
                 success: (result) => {
                     this.$('#qr-code-image').attr('src', result);
+                    this.$('#qrcode-link').val(domain);
                     this.$.unblockUI();
                 }
             });

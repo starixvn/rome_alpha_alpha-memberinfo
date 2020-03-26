@@ -47,9 +47,10 @@ var ShowQRCode = /** @class */ (function () {
                 _this.$.blockUI();
                 var chooseUsername = _this.$('#UsernameCopyFrom').val();
                 _this.username = chooseUsername;
+                var domain = _this.$('#domains').val();
                 var param = {
                     SearchAccountName: _this.$('.username-label').text(),
-                    Domain: _this.$('#domains').val()
+                    Domain: domain
                 };
                 _this.$.ajax({
                     method: "POST",
@@ -58,6 +59,7 @@ var ShowQRCode = /** @class */ (function () {
                     cache: false,
                     success: function (result) {
                         _this.$('#qr-code-image').attr('src', result);
+                        _this.$('#qrcode-link').val(domain);
                         _this.$.unblockUI();
                     }
                 });

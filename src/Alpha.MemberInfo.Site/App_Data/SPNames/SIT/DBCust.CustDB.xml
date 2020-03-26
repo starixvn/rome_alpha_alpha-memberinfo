@@ -20,4 +20,16 @@
     </Setting>
     <Setting Key="Age_ProblemAccount_ReviewStatusUpd" SpName="Age_ProblemAccount_ReviewStatusUpd" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
+   <Function Name="Create Member By QR Code">
+    <Setting Key="Age_CustomerInsMember_Ag_CreditSel" SpName="Age_CustomerInsMember_Ag_CreditSel_UAT3" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" >
+      <Mapping DataField="RefCredit" ObjectProperty="Credit" />
+      <Mapping DataField="MaxCredit_Mem" ObjectProperty="CreditMax" />
+      <Mapping DataField="MinCredit_Mem" ObjectProperty="CreditMin" />
+    </Setting>
+    <Setting Key="Acc_CustomerSelEditCustomer" SpName="Acc_CustomerSelEditCustomer" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerInsMember_Ag" SpName="Acc_CustomerInsMember_Ag" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelSuggestUsername" SpName="Age_CustomerSelSuggestUsername" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerSelCheckEnable" SpName="Acc_CustomerSelCheckEnable" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+  </Function>
+
 </Functions>
