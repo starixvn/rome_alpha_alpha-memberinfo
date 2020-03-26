@@ -13,6 +13,7 @@
             string firstName,
             string qrCode,
             string qrCodeLink,
+            string[] domains,
             bool showMessage,
             bool showPageTitle)
         {
@@ -24,6 +25,7 @@
             FirstName = firstName;
             QRCode = qrCode;
             QRCodeLink = qrCodeLink;
+            Domains = domains;
             ShowMessage = showMessage;
             ShowPageTitle = showPageTitle;
         }
@@ -43,6 +45,8 @@
         public string QRCode { get; }
 
         public string QRCodeLink { get; }
+
+        public string[] Domains { get; }
 
         public bool ShowMessage { get; }
 

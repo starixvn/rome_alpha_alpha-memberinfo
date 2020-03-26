@@ -7,8 +7,8 @@
 @section Styles {
     @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/show-qr-code")
 }
-@if(Model.ShowPageTitle)
-{ 
+@if (Model.ShowPageTitle)
+{
     <div class="page-title">
         <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
     </div>
@@ -20,6 +20,17 @@
             <span id="message-content" className="col-xs-12">@Resources.ThisAccountHasBeenSuccessfullyCreated</span>
         </div>
     }
+    <div class="form-group">
+        Domain
+    </div>
+    <div class="form-group">
+        <select id="domains" name="domains">
+            @foreach (var item in Model.Domains)
+            {
+                <option value="@item"> @item</option>
+            }
+        </select>
+    </div>
     <div class="form-group">
         @Resources.PleaseShowThisQRCodeToYourMember
     </div>

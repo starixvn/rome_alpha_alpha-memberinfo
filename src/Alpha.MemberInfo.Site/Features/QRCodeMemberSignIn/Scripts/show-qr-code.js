@@ -43,6 +43,25 @@ var ShowQRCode = /** @class */ (function () {
             _this.$('#btn-copy-link').click(function () {
                 clipboard.writeText(_this.$('#qrcode-link').val());
             });
+            _this.$('#domains').change(function () {
+                _this.$.blockUI();
+                var chooseUsername = _this.$('#UsernameCopyFrom').val();
+                _this.username = chooseUsername;
+                var param = {
+                    SearchAccountName: _this.$('.username-label').text(),
+                    Domain: _this.$('#domains').val()
+                };
+                _this.$.ajax({
+                    method: "POST",
+                    data: param,
+                    url: "GenerateQrCode",
+                    cache: false,
+                    success: function (result) {
+                        _this.$('#qr-code-image').attr('src', result);
+                        _this.$.unblockUI();
+                    }
+                });
+            });
             _this.$('#btn-update-information').click(function () {
                 if (window.top.updateInformationPopup === null || window.top.updateInformationPopup === undefined) {
                     window.top.updateInformationPopup = window.top.ageWnd.createInstance();

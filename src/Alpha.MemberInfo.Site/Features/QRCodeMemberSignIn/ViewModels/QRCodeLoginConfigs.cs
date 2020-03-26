@@ -4,18 +4,18 @@
     {
         public QRCodeLoginConfigs(
             string api,
-            string domain,
+            string[] domains,
             int siteId,
             int expireSeconds)
         {
             API = api;
-            Domain = domain;
+            Domains = domains;
             SiteId = siteId;
             ExpireSeconds = expireSeconds;
         }
 
         public string API { get; set; }
-        public string Domain { get; set; }
+        public string[] Domains { get; set; }
         public int SiteId { get; set; }
         public int ExpireSeconds { get; set; }
     }

@@ -68,6 +68,29 @@ class ShowQRCode {
             clipboard.writeText(this.$('#qrcode-link').val());
         });
 
+        this.$('#domains').change(() => {
+            this.$.blockUI();
+
+            var chooseUsername = this.$('#UsernameCopyFrom').val();
+            this.username = chooseUsername;
+
+            var param = {
+                SearchAccountName: this.$('.username-label').text(),
+                Domain: this.$('#domains').val()
+            };
+
+            this.$.ajax({
+                method: "POST",
+                data: param,
+                url: "GenerateQrCode",
+                cache: false,
+                success: (result) => {
+                    this.$('#qr-code-image').attr('src', result);
+                    this.$.unblockUI();
+                }
+            });
+        });
+
         this.$('#btn-update-information').click(() => {
             if (window.top.updateInformationPopup === null || window.top.updateInformationPopup === undefined) {
                 window.top.updateInformationPopup = window.top.ageWnd.createInstance();

@@ -15,7 +15,8 @@
         IRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
         IRequestHandler<GetMemberCreditRequest, CreditRangeModel>,
-        IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>
+        IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>,
+        IRequestHandler<GenerateQRCodeRequest, string>
     {
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
@@ -208,11 +209,11 @@
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
             var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
-            var link = Authentication.Instance.CreateMobileLoginUrl(
-                config.Domain, config.SiteId, 
-                message.SearchAccountName, config.ExpireSeconds);
+            //var link = Authentication.Instance.CreateMobileLoginUrl(
+            //    config.Domains[0], config.SiteId, 
+            //    message.SearchAccountName, config.ExpireSeconds);
 
-            ////var link = "http://ha.nexdev.net:7407/site-main/(S(q4a0sm5jdy2esig4yooxngrb))/#";
+            var link = "http://ha.nexdev.net:7407/site-main/(S(q4a0sm5jdy2esig4yooxngrb))/#";
 
             return new ShowQRCodeViewModel(
                 message.Credit, 
@@ -223,8 +224,19 @@
                 message.FirstName, 
                 qrCodeAdapter.Generate(link), 
                 link,
+                config.Domains,
                 message.ShowMessage,
                 message.ShowPageTitle);
+        }
+
+        public string Handle(GenerateQRCodeRequest message)
+        {
+            var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
+            //var link = Authentication.Instance.CreateMobileLoginUrl(
+            //    config.Domains[0], config.SiteId, 
+            //    message.SearchAccountName, config.ExpireSeconds);
+
+            return qrCodeAdapter.Generate("https://hrm.nexcel.vn/");
         }
     }
 }

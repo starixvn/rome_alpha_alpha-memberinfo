@@ -23,7 +23,7 @@
 
             return new QRCodeLoginConfigs(
                 jsonObject["API"],
-                jsonObject["Domain"],
+                jsonObject["Domain"].Split(',').ToArray(),
                 int.Parse(jsonObject["SiteId"]),
                 int.Parse(jsonObject["ExpireSeconds"]));
         }

@@ -98,5 +98,9 @@
 
             return View(ShowQRCodePath, mediator.Send(message));
         }
+
+        [HttpPost]
+        public ActionResult GenerateQrCode(GenerateQRCodeRequest message)
+         => Json(mediator.Send(message));
     }
 }
