@@ -2,6 +2,8 @@
 {
     public class WinLossLimitParam
     {
+        private const int SabaclubProductId = 42;
+
         public WinLossLimitParam(
             int productId,
             int custId,
@@ -27,6 +29,8 @@
         }
 
         public int ProductId { get; set; }
+
+        public bool IsSabaclub => ProductId == SabaclubProductId;
 
         public int CustId { get; set; }
 
