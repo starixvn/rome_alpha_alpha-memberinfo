@@ -5,6 +5,8 @@
     using Criteria.WinLossLimit;
     using Fanex.Common;
     using Models.WinLossLimit;
+    using System.Linq;
+    using System.Data;
 
     public interface WinLossLimitDataAccess
     {
@@ -36,8 +38,7 @@
                             winLossLimitDetail.Add(new WinLossLimitDetail
                             {
                                 CustId = Converter.ToInt(reader["CustId"]),
-                                PlayerId = reader["PlayerId"] == null ||
-                                    reader["PlayerId"] == DBNull.Value ? "-" : reader["PlayerId"].ToString(),
+                                PlayerId = GetFieldValue(reader, "PlayerId"),
                                 Closed = Converter.ToBool(reader["Closed"]),
                                 Enabled = Converter.ToBool(reader["Enabled"]),
                                 Suspended = Converter.ToBool(reader["Suspended"]),
@@ -73,6 +74,22 @@
             }
 
             return custId;
+        }
+
+        private static string GetFieldValue(IDataReader reader, string fieldName)
+            => HasColumn(reader, fieldName) ? reader[fieldName] == null || reader[fieldName] == DBNull.Value ? "-" : (string)reader[fieldName] : "-";
+
+        private static bool HasColumn(IDataRecord dr, string columnName)
+        {
+            for (int i = 0; i < dr.FieldCount; i++)
+            {
+                if (dr.GetName(i).Equals(columnName, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
