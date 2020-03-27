@@ -1,6 +1,7 @@
 {
   "isActive": true,
   "paths": [
+    "QRCodeMemberSignIn",
     "QRCodeMemberSignIn/Index",
     "QRCodeMemberSignIn/CreateAccount",
     "QRCodeMemberSignIn/ShowQRCode",

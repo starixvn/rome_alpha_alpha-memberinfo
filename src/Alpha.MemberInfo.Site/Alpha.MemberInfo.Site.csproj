@@ -77,8 +77,7 @@
       <HintPath>..\..\packages\Alpha.Products.Core.1.0.0.1\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SecurityCode, Version=3.0.0.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.SecurityCode.3.0.0.6\lib\net461\Alpha.SecurityCode.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\Alpha.SecurityCode.3.0.0.7\lib\net461\Alpha.SecurityCode.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>

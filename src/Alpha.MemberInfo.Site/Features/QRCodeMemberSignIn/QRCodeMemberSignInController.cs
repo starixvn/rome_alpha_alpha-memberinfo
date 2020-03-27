@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
     using Alpha.Captcha.Mvc;
+    using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.Web;
     using MediatR;
@@ -47,7 +48,7 @@
         {
             if (message != null && !message.IsValid())
             {
-                return RedirectToIndex(message.UsernameCopyFrom, "Forbidden");
+                return RedirectToIndex(message.UsernameCopyFrom, Resources.UsernameIsInvalid );
             }
 
             if (!ModelState.IsValid)
