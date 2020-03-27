@@ -18,6 +18,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     _this.$.unblockUI();
                     var creditMin = numeral(result.CreditMin);
                     var creditMax = numeral(result.CreditMax);
+                    _this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
                     _this.$('#credit-range').removeClass('hidden');
                     _this.$("#credit-min-label").html(creditMin.format('0,0.##'));
                     _this.$("#credit-max-label").html(creditMax.format('0,0.##'));
@@ -28,32 +29,38 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 }
             });
         };
+        this.showErrorMessage = function (message, event) {
+            _this.$('#message').removeClass('hidden').addClass('msg msg-error');
+            _this.$('#message-content').html(message);
+            event.preventDefault();
+        };
         this.init = function () {
             _this.cleave = new Cleave('#Credit', {
                 numeral: true,
                 numeralDecimalMark: '.',
                 delimiter: ','
             });
-            _this.$('#qrCodeMemberSignInForm').submit(function () {
+            _this.$('#qrCodeMemberSignInForm').submit(function (event) {
                 _this.$.blockUI();
+                var username = _this.$('#UsernameCopyFrom').val();
+                if (username === '') {
+                    _this.showErrorMessage(_this.$('#MemberAccountIsInvalid').val(), event);
+                }
                 var credit = parseFloat(_this.cleave.getRawValue());
                 var creditMin = parseFloat(_this.$("#CreditMin").val());
                 var creditMax = parseFloat(_this.$("#CreditMax").val());
                 if (credit < creditMin || credit > creditMax) {
-                    event.preventDefault();
-                    _this.$('#message').removeClass('hidden').addClass('msg msg-error');
-                    _this.$('#message-content').html('Invalid Credit');
-                    _this.$.unblockUI();
+                    _this.showErrorMessage(_this.givenCreditMustBeBetweenMinMaxMessage, event);
                 }
                 else {
                     _this.$("#Credit").val(_this.cleave.getRawValue());
                 }
+                _this.$.unblockUI();
             });
             var options = {
                 url: function (phrase) {
                     return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
                 },
-                placeholder: "Username or First/Last Name",
                 getValue: 'UserName',
                 requestDelay: 200,
                 minCharNumber: 2,

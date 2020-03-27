@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
+    using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
@@ -193,7 +194,7 @@
             {
                 Success = false,
                 ErrCode = 100,
-                ErrMsg = "Resources.Lang.notExist"
+                ErrMsg = Resources.UsernameIsInvalid
             };
         }
 

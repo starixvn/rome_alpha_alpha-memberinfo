@@ -10,6 +10,7 @@ class QRCodeMemberSignIn {
     username: string;
     memberLink: string;
     cleave: any;
+    givenCreditMustBeBetweenMinMaxMessage: string;
 
     constructor(
         $: JQueryStatic,
@@ -38,6 +39,7 @@ class QRCodeMemberSignIn {
 
                 const creditMin = numeral(result.CreditMin);
                 const creditMax = numeral(result.CreditMax);
+                this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
 
                 this.$('#credit-range').removeClass('hidden');
                 this.$("#credit-min-label").html(creditMin.format('0,0.##'));
@@ -52,6 +54,12 @@ class QRCodeMemberSignIn {
         });
     }
 
+    showErrorMessage = (message, event) => {
+        this.$('#message').removeClass('hidden').addClass('msg msg-error');
+        this.$('#message-content').html(message);
+        event.preventDefault();
+    }
+
     init = () => {
         this.cleave = new Cleave('#Credit', {
             numeral: true,
@@ -59,29 +67,32 @@ class QRCodeMemberSignIn {
             delimiter: ','
         });
 
-        this.$('#qrCodeMemberSignInForm').submit(() => {
+        this.$('#qrCodeMemberSignInForm').submit((event) => {
             this.$.blockUI();
+
+            const username = this.$('#UsernameCopyFrom').val();
+            if (username === '') {
+                this.showErrorMessage(this.$('#MemberAccountIsInvalid').val(), event);
+            }
+
             const credit = parseFloat(this.cleave.getRawValue());
             const creditMin = parseFloat(this.$("#CreditMin").val());
             const creditMax = parseFloat(this.$("#CreditMax").val());
 
             if (credit < creditMin || credit > creditMax) {
-                event.preventDefault();
-
-                this.$('#message').removeClass('hidden').addClass('msg msg-error');
-                this.$('#message-content').html('Invalid Credit');
-                this.$.unblockUI();
+                this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage, event);
             }
             else {
                 this.$("#Credit").val(this.cleave.getRawValue());
             }
+
+            this.$.unblockUI();
         });
 
         const options = {
             url: function (phrase) {
                 return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
             },
-            placeholder: "Username or First/Last Name",
             getValue: 'UserName',
             requestDelay: 200,
             minCharNumber: 2,

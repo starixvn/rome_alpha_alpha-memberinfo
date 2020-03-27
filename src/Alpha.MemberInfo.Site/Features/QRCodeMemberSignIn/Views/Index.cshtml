@@ -32,7 +32,7 @@
     <div id="create-form">
         <div class="form-group">
             <label>@Resources.InputExistingMemberAccount</label>
-            <input type="text" name="UsernameCopyFrom" id="UsernameCopyFrom" placeholder="" value="@Model.MemberNameCopyFrom" />
+            <input type="text" name="UsernameCopyFrom" id="UsernameCopyFrom" placeholder="@Resources.UsernameSuggestion" value="@Model.MemberNameCopyFrom" />
         </div>
         <div class="form-group">
             <label>@Resources.MemberCredit</label>
@@ -76,6 +76,7 @@
     </div>
     <input type="hidden" name="CreditMin" id="CreditMin" value="" />
     <input type="hidden" name="CreditMax" id="CreditMax" value="" />
+    <input type="hidden" name="MemberAccountIsInvalid" id="MemberAccountIsInvalid" value="@Resources.MemberAccountIsInvalid" />
     @Html.HiddenFor(m => m.ShowPageTitle)
 }
 

@@ -387,6 +387,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Given Credit must be between {0} and {1}..
+        /// </summary>
+        public static string GivenCreditMustBeBetweenMinMax {
+            get {
+                return ResourceManager.GetString("GivenCreditMustBeBetweenMinMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input Existing Member account (that you want to copy the setting).
         /// </summary>
         public static string InputExistingMemberAccount {
@@ -476,6 +485,15 @@ namespace Alpha.MemberInfo.AppResources {
             }
         }
         
+         /// <summary>
+        ///   Looks up a localized string similar to Member account is invalid..
+        /// </summary>
+        public static string MemberAccountIsInvalid {
+            get {
+                return ResourceManager.GetString("MemberAccountIsInvalid", resourceCulture);
+            }
+        }
+
          /// <summary>
         ///   Looks up a localized string similar to Member Credit.
         /// </summary>
@@ -1029,11 +1047,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username is invalid..
+        /// </summary>
+        public static string UsernameIsInvalid {
+            get {
+                return ResourceManager.GetString("UsernameIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username or First/Last Name.
         /// </summary>
         public static string UsernamePlaceHolder {
             get {
                 return ResourceManager.GetString("UsernamePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username or First/Last Name.
+        /// </summary>
+        public static string UsernameSuggestion {
+            get {
+                return ResourceManager.GetString("UsernameSuggestion", resourceCulture);
             }
         }
         
