@@ -23,18 +23,15 @@
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
-        private readonly ICorrectSettingForCopiedMember correctSettingForCopiedMember;
 
         public QRCodeMemberSignInHandler(
             QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper,
             QrCodeAdapter qrCodeAdapter, 
-            QRCodeMemberSignInService qrCodeMemberSignInService,
-            ICorrectSettingForCopiedMember correctSettingForCopiedMember = null)
+            QRCodeMemberSignInService qrCodeMemberSignInService)
         {
             this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper;
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
-            this.correctSettingForCopiedMember = correctSettingForCopiedMember;
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
@@ -194,7 +191,7 @@
 
                 if(result.CustId > 0)
                 {
-                    var correctDataService = correctSettingForCopiedMember ?? new CorrectSettingForCopiedMember(result.CustId, custIdCopyFrom, message.Username, true);
+                    var correctDataService = new CorrectSettingForCopiedMember(result.CustId, custIdCopyFrom, message.Username, true);
                     correctDataService.CorrectData();
                 }
 
