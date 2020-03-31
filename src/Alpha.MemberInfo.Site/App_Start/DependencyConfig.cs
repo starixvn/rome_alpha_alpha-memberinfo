@@ -4,7 +4,11 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
     using System.Web.Mvc;
+ <Reference Include="ONEbook.NG2.API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ONEbook.NG2.API.NAP.1.0.0.1\lib\net40\ONEbook.NG2.API.dll</HintPath>
+    </Reference>
     using Alpha.MemberInfo.Site.Handlers;
+    using Alpha.CloneMember.Agent;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
@@ -117,6 +121,7 @@
             container.RegisterPerWebRequest<QRCodeMemberSignInService, QRCodeMemberSignInServiceImpl>();
             container.RegisterPerWebRequest<ProblemAccountWorkbook, ProblemAccountWorkbookImpl>();
             container.RegisterPerWebRequest<QRCodeLoginConfigsHelper, QRCodeLoginConfigsHelperImpl>();
+            container.RegisterPerWebRequest<ICorrectSettingForCopiedMember, CorrectSettingForCopiedMember>();
         }
     }
 }

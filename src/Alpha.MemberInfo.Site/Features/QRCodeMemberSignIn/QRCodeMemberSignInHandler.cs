@@ -12,7 +12,7 @@
     using ONEbook.Common.Auth;
     using System.Collections.Generic;
 
-    public class QRCodeMemberSignInHandler : 
+    public class QRCodeMemberSignInHandler :
         IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
         IRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
@@ -23,15 +23,19 @@
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
+        private readonly ICorrectSettingForCopiedMember correctSettingForCopiedMember;
+        private readonly string qrcodeLocalLinkTest = "http://ha.nexdev.net:7407/site-main/";
 
         public QRCodeMemberSignInHandler(
             QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper,
-            QrCodeAdapter qrCodeAdapter, 
-            QRCodeMemberSignInService qrCodeMemberSignInService)
+            QrCodeAdapter qrCodeAdapter,
+            QRCodeMemberSignInService qrCodeMemberSignInService,
+            ICorrectSettingForCopiedMember correctSettingForCopiedMember)
         {
             this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper;
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
+            this.correctSettingForCopiedMember = correctSettingForCopiedMember;
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
@@ -189,10 +193,9 @@
                 };
                 var result = qrCodeMemberSignInService.CreateMemberByQRCode(command);
 
-                if(result.CustId > 0)
+                if (result.CustId > 0)
                 {
-                    var correctDataService = new CorrectSettingForCopiedMember(result.CustId, custIdCopyFrom, message.Username, true);
-                    correctDataService.CorrectData();
+                    correctSettingForCopiedMember.CorrectData(result.CustId, custIdCopyFrom, message.Username, true);
                 }
 
                 return result;
@@ -208,8 +211,8 @@
 
         public IEnumerable<UsernameSuggestion> Handle(UserNameSuggestionQuery message)
             => qrCodeMemberSignInService.GetUsernamesSuggestion(
-                message.ActorId, 
-                message.SuggestionQuery, 
+                message.ActorId,
+                message.SuggestionQuery,
                 message.IsInternal);
 
         public CreditRangeModel Handle(GetMemberCreditRequest message)
@@ -218,20 +221,21 @@
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
             var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
-            //var link = Authentication.Instance.CreateMobileLoginUrl(
-            //    config.Domains[0], config.SiteId,
-            //    message.SearchAccountName, config.ExpireSeconds);
-
-            var link = "http://ha.nexdev.net:7407/site-main/(S(q4a0sm5jdy2esig4yooxngrb))/#";
+            var link = qrCodeLoginConfigsHelper.LocalTest() ? qrcodeLocalLinkTest :
+                 Authentication.Instance.CreateMobileLoginUrl(
+                    config.Domains[0], 
+                    config.SiteId,
+                    message.SearchAccountName, 
+                    config.ExpireSeconds);
 
             return new ShowQRCodeViewModel(
-                message.Credit, 
+                message.Credit,
                 message.CreditMin,
                 message.CreditMax,
                 message.SearchAccountName,
-                message.SearchAccountId, 
-                message.FirstName, 
-                qrCodeAdapter.Generate(link), 
+                message.SearchAccountId,
+                message.FirstName,
+                qrCodeAdapter.Generate(link),
                 link,
                 config.Domains,
                 message.ShowMessage,

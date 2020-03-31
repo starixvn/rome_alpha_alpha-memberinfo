@@ -3,6 +3,7 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
     using Newtonsoft.Json.Linq;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.IO;
     using System.Linq;
     using System.Web;
@@ -10,6 +11,8 @@
     public interface QRCodeLoginConfigsHelper
     {
         QRCodeLoginConfigs GetQRCodeMemberSiteLoginConfigs();
+
+        bool LocalTest();
     }
 
     public class QRCodeLoginConfigsHelperImpl : QRCodeLoginConfigsHelper
@@ -27,5 +30,7 @@
                 int.Parse(jsonObject["SiteId"]),
                 int.Parse(jsonObject["ExpireSeconds"]));
         }
+
+        public bool LocalTest() => ConfigurationManager.AppSettings["LocalTest"] == "1";
     }
 }
