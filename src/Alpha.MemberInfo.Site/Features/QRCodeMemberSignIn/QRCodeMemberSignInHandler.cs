@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
+    using Alpha.CloneMember.Agent;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
@@ -22,15 +23,18 @@
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
+        private readonly ICorrectSettingForCopiedMember correctSettingForCopiedMember;
 
         public QRCodeMemberSignInHandler(
             QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper,
             QrCodeAdapter qrCodeAdapter, 
-            QRCodeMemberSignInService qrCodeMemberSignInService)
+            QRCodeMemberSignInService qrCodeMemberSignInService,
+            ICorrectSettingForCopiedMember correctSettingForCopiedMember = null)
         {
             this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper;
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
+            this.correctSettingForCopiedMember = correctSettingForCopiedMember;
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
@@ -186,8 +190,15 @@
                     SubAccId = message.SubAccId,
                     IsSearchAndCopy = true
                 };
+                var result = qrCodeMemberSignInService.CreateMemberByQRCode(command);
 
-                return qrCodeMemberSignInService.CreateMemberByQRCode(command);
+                if(result.CustId > 0)
+                {
+                    var correctDataService = correctSettingForCopiedMember ?? new CorrectSettingForCopiedMember(result.CustId, custIdCopyFrom, message.Username, true);
+                    correctDataService.CorrectData();
+                }
+
+                return result;
             }
 
             return new ResultCreateMemberQRCode
@@ -210,11 +221,11 @@
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
             var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
-            var link = Authentication.Instance.CreateMobileLoginUrl(
-                config.Domains[0], config.SiteId,
-                message.SearchAccountName, config.ExpireSeconds);
+            //var link = Authentication.Instance.CreateMobileLoginUrl(
+            //    config.Domains[0], config.SiteId,
+            //    message.SearchAccountName, config.ExpireSeconds);
 
-            //var link = "http://ha.nexdev.net:7407/site-main/(S(q4a0sm5jdy2esig4yooxngrb))/#";
+            var link = "http://ha.nexdev.net:7407/site-main/(S(q4a0sm5jdy2esig4yooxngrb))/#";
 
             return new ShowQRCodeViewModel(
                 message.Credit, 
