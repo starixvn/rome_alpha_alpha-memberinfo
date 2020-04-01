@@ -430,7 +430,7 @@
     <value>Tài khoản đã được khởi tạo thành công.</value>
   </data>
   <data name="UpdateCredit" xml:space="preserve">
-    <value>Update Credit</value>
+    <value>Cập nhật hạn mức tín dụng</value>
   </data>
   <data name="UpdateInformation" xml:space="preserve">
     <value>Cập nhật Thông tin</value>
@@ -442,15 +442,12 @@
     <value>Tài khoản Member không hợp lệ.</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
-    <value>Username is invalid.</value>
+    <value>Tài khoản không có thực</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domain</value>
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>Vui lòng nhập mức tín dụng của Member</value>
-  </data>
-  <data name="UpdateGivenCredit" xml:space="preserve">
-    <value>Cập nhật hạn mức tín dụng</value>
-  </data>
-  <data name="UserNamePlaceHolder1" xml:space="preserve">
-    <value>Tên đăng nhập hoặc Tên/Họ</value>
   </data>
 </root>

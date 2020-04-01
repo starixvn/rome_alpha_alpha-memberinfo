@@ -436,7 +436,7 @@
     <value>此账号已成功创建。</value>
   </data>
   <data name="UpdateCredit" xml:space="preserve">
-    <value>Update Credit</value>
+    <value>更新信用额度</value>
   </data>
   <data name="UpdateInformation" xml:space="preserve">
     <value>更新信息</value>
@@ -448,15 +448,12 @@
     <value>会员账号无效。</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
-    <value>Username is invalid.</value>
+    <value>账号不正确！</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domain</value>
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>请输入会员信用额</value>
-  </data>
-  <data name="UpdateGivenCredit" xml:space="preserve">
-    <value>更新信用额度</value>
-  </data>
-  <data name="UserNamePlaceHolder1" xml:space="preserve">
-    <value>用户名或名/姓</value>
   </data>
 </root>

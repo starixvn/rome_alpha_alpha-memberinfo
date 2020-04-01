@@ -307,6 +307,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Domain.
+        /// </summary>
+        public static string Domain {
+            get {
+                return ResourceManager.GetString("Domain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do not show again.
         /// </summary>
         public static string DontShowAgain {
@@ -1021,20 +1030,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
          /// <summary>
-        ///   Looks up a localized string similar to Update Credit.
+        ///   Looks up a localized string similar to Update Given Credit.
         /// </summary>
         public static string UpdateCredit {
             get {
                 return ResourceManager.GetString("UpdateCredit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Update Given Credit.
-        /// </summary>
-        public static string UpdateGivenCredit {
-            get {
-                return ResourceManager.GetString("UpdateGivenCredit", resourceCulture);
             }
         }
         

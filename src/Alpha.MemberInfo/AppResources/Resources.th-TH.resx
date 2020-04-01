@@ -436,7 +436,7 @@
     <value>สร้างบัญชีสำเร็จแล้ว</value>
   </data>
   <data name="UpdateCredit" xml:space="preserve">
-    <value>Update Credit</value>
+    <value>อัพเดท เครดิตใหม่</value>
   </data>
   <data name="UpdateInformation" xml:space="preserve">
     <value>อัพเดทข้อมูล</value>
@@ -448,15 +448,12 @@
     <value>บัญชีสมาชิกไม่ถูกต้อง</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
-    <value>Username is invalid.</value>
+    <value>ชื่อผู้ใช้ไม่มีอยู่</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domain</value>
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>กรุณากรอกเครดิตสมาชิก</value>
-  </data>
-  <data name="UpdateGivenCredit" xml:space="preserve">
-    <value>อัพเดท เครดิตใหม่</value>
-  </data>
-  <data name="UserNamePlaceHolder1" xml:space="preserve">
-    <value>ยูเซอร์เนม หรือ ชื่อ/นามสุกล</value>
   </data>
 </root>

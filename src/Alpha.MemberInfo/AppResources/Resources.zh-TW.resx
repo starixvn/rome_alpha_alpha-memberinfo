@@ -436,7 +436,7 @@
     <value>此賬號已成功創建。</value>
   </data>
   <data name="UpdateCredit" xml:space="preserve">
-    <value>Update Credit</value>
+    <value>更新信用額度</value>
   </data>
   <data name="UpdateInformation" xml:space="preserve">
     <value>更新信息</value>
@@ -448,15 +448,12 @@
     <value>會員賬號無效。</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
-    <value>Username is invalid.</value>
+    <value>賬號不正確！</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domain</value>
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>請輸入會員信用額</value>
-  </data>
-  <data name="UpdateGivenCredit" xml:space="preserve">
-    <value>更新信用額度</value>
-  </data>
-  <data name="UserNamePlaceHolder1" xml:space="preserve">
-    <value>用戶名或名/姓</value>
   </data>
 </root>
