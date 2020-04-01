@@ -170,16 +170,8 @@ namespace Alpha.MemberInfo.AppResources {
         
           
         /// <summary>
-        ///   Looks up a localized string similar to CAPTCHA.
-        /// </summary>
-        public static string Captcha {
-            get {
-                return ResourceManager.GetString("Captcha", resourceCulture);
-            }
-        }
 
         
-        /// <summary>
         ///   Looks up a localized string similar to Cash.
         /// </summary>
         public static string Cash {
@@ -1038,6 +1030,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update Given Credit.
+        /// </summary>
+        public static string UpdateGivenCredit {
+            get {
+                return ResourceManager.GetString("UpdateGivenCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Information.
         /// </summary>
         public static string UpdateInformation {
@@ -1076,9 +1077,9 @@ namespace Alpha.MemberInfo.AppResources {
         /// <summary>
         ///   Looks up a localized string similar to Username or First/Last Name.
         /// </summary>
-        public static string UsernameSuggestion {
+        public static string UserNamePlaceHolder1 {
             get {
-                return ResourceManager.GetString("UsernameSuggestion", resourceCulture);
+                return ResourceManager.GetString("UserNamePlaceHolder1", resourceCulture);
             }
         }
         

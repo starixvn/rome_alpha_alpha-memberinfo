@@ -291,9 +291,6 @@
   <data name="AccountInformation" xml:space="preserve">
     <value>Account Information</value>
   </data>
-  <data name="Captcha" xml:space="preserve">
-    <value>CAPTCHA</value>
-  </data>
   <data name="CopyLink" xml:space="preserve">
     <value>Copy Link</value>
   </data>
@@ -336,10 +333,13 @@
   <data name="UsernameIsInvalid" xml:space="preserve">
     <value>Username is invalid.</value>
   </data>
-  <data name="UsernameSuggestion" xml:space="preserve">
-    <value>Username or First/Last Name</value>
-  </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>Please input Member credit</value>
+  </data>
+  <data name="UpdateGivenCredit" xml:space="preserve">
+    <value>Update Given Credit</value>
+  </data>
+  <data name="UserNamePlaceHolder1" xml:space="preserve">
+    <value>Username or First/Last Name</value>
   </data>
 </root>

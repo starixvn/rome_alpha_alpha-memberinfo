@@ -406,16 +406,13 @@
     <value>转入剩余的金额</value>
   </data>
    <data name="AccountInformation" xml:space="preserve">
-    <value>Account Information</value>
-  </data>
-  <data name="Captcha" xml:space="preserve">
-    <value>CAPTCHA</value>
+    <value>账号资料</value>
   </data>
   <data name="CopyLink" xml:space="preserve">
     <value>复制链接</value>
   </data>
   <data name="CreateAccount" xml:space="preserve">
-    <value>Create Account</value>
+    <value>新增帐号功能</value>
   </data>
   <data name="CreateMemberWithQRCode" xml:space="preserve">
     <value>通过二维码创建会员</value>
@@ -453,10 +450,13 @@
   <data name="UsernameIsInvalid" xml:space="preserve">
     <value>Username is invalid.</value>
   </data>
-  <data name="UsernameSuggestion" xml:space="preserve">
-    <value>Username or First/Last Name</value>
-  </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>请输入会员信用额</value>
+  </data>
+  <data name="UpdateGivenCredit" xml:space="preserve">
+    <value>更新信用额度</value>
+  </data>
+  <data name="UserNamePlaceHolder1" xml:space="preserve">
+    <value>用户名或名/姓</value>
   </data>
 </root>
