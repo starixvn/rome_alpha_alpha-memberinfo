@@ -103,7 +103,7 @@ class ShowQRCode {
             window.top.popupManager.openWithHanlder(
                 top.updateInformationPopup,
                 this.$('#update-infor-link').val(),
-                `Update Infomation - ${this.username}`,
+                `${this.$('#update-infor-text').val()} - ${this.username}`,
                 700,
                 400);
 
@@ -119,7 +119,7 @@ class ShowQRCode {
             window.top.popupManager.openWithHanlder(
                 top.updateGivenCreditPopup,
                 this.$('#update-credit-link').val(),
-                `Update Credit - ${this.username}`,
+                `${this.$('#update-credit-text').val()} - ${this.username}`,
                 500,
                 300);
 
