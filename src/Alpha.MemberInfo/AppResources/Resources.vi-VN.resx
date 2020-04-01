@@ -406,48 +406,51 @@
     <value>CAPTCHA</value>
   </data>
   <data name="CopyLink" xml:space="preserve">
-    <value>Copy Link</value>
+    <value>Sao chép liên kết</value>
   </data>
   <data name="CreateAccount" xml:space="preserve">
     <value>Create Account</value>
   </data>
   <data name="CreateMemberWithQRCode" xml:space="preserve">
-    <value>Create Member With QR Code</value>
+    <value>Tạo Member bằng mã QR</value>
   </data>
   <data name="FirstNameOptional" xml:space="preserve">
-    <value>First Name (Optional)</value>
+    <value>Tên (Tuỳ chọn)</value>
   </data>
   <data name="InputExistingMemberAccount" xml:space="preserve">
-    <value>Input Existing Member account (that you want to copy the setting)</value>
+    <value>Nhập tên tài khoản Member (mà bạn muốn sao chép các thiết lập)</value>
   </data>
   <data name="MemberCredit" xml:space="preserve">
-    <value>Member Credit</value>
+    <value>Mức tín dụng của Member</value>
   </data>
   <data name="NewGivenCredit" xml:space="preserve">
-    <value>New Given Credit</value>
+    <value>Hạn mức tín dụng mới</value>
   </data>
   <data name="PleaseShowThisQRCodeToYourMember" xml:space="preserve">
-    <value>Please show this QR code to your member</value>
+    <value>Vui lòng đưa mã QR này cho member của bạn</value>
   </data>
   <data name="ThisAccountHasBeenSuccessfullyCreated" xml:space="preserve">
-    <value>This account has been successfully created.</value>
+    <value>Tài khoản đã được khởi tạo thành công.</value>
   </data>
   <data name="UpdateCredit" xml:space="preserve">
     <value>Update Credit</value>
   </data>
   <data name="UpdateInformation" xml:space="preserve">
-    <value>Update Information</value>
+    <value>Cập nhật Thông tin</value>
   </data>
   <data name="GivenCreditMustBeBetweenMinMax" xml:space="preserve">
-    <value>Given Credit must be between {0} and {1}.</value>
+    <value>Hạn mức tín dụng phải trong khoảng từ {0} đến {1}</value>
   </data>
   <data name="MemberAccountIsInvalid" xml:space="preserve">
-    <value>Member account is invalid.</value>
+    <value>Tài khoản Member không hợp lệ.</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
     <value>Username is invalid.</value>
   </data>
   <data name="UsernameSuggestion" xml:space="preserve">
     <value>Username or First/Last Name</value>
+  </data>
+  <data name="PleaseInputMemberCredit" xml:space="preserve">
+    <value>Vui lòng nhập mức tín dụng của Member</value>
   </data>
 </root>

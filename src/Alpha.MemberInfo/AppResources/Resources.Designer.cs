@@ -225,7 +225,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Member With QR Code.
+        ///   Looks up a localized string similar to Create Member via QR Code.
         /// </summary>
         public static string CreateMemberWithQRCode {
             get {
@@ -396,7 +396,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Input Existing Member account (that you want to copy the setting).
+        ///   Looks up a localized string similar to Input Existing Member account (that you want to copy the settings).
         /// </summary>
         public static string InputExistingMemberAccount {
             get {
@@ -681,6 +681,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string PlayForFunMemberRequest {
             get {
                 return ResourceManager.GetString("PlayForFunMemberRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please input Member credit.
+        /// </summary>
+        public static string PleaseInputMemberCredit {
+            get {
+                return ResourceManager.GetString("PleaseInputMemberCredit", resourceCulture);
             }
         }
         

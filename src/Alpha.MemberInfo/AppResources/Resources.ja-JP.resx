@@ -301,13 +301,13 @@
     <value>Create Account</value>
   </data>
   <data name="CreateMemberWithQRCode" xml:space="preserve">
-    <value>Create Member With QR Code</value>
+    <value>Create Member via QR Code</value>
   </data>
   <data name="FirstNameOptional" xml:space="preserve">
     <value>First Name (Optional)</value>
   </data>
   <data name="InputExistingMemberAccount" xml:space="preserve">
-    <value>Input Existing Member account (that you want to copy the setting)</value>
+    <value>Input Existing Member account (that you want to copy the settings)</value>
   </data>
   <data name="MemberCredit" xml:space="preserve">
     <value>Member Credit</value>
@@ -319,7 +319,7 @@
     <value>Please show this QR code to your member</value>
   </data>
   <data name="ThisAccountHasBeenSuccessfullyCreated" xml:space="preserve">
-    <value>This account has been successfully created.</value>
+    <value>The account has been successfully created.</value>
   </data>
   <data name="UpdateCredit" xml:space="preserve">
     <value>Update Credit</value>
@@ -338,5 +338,8 @@
   </data>
   <data name="UsernameSuggestion" xml:space="preserve">
     <value>Username or First/Last Name</value>
+  </data>
+  <data name="PleaseInputMemberCredit" xml:space="preserve">
+    <value>Please input Member credit</value>
   </data>
 </root>
