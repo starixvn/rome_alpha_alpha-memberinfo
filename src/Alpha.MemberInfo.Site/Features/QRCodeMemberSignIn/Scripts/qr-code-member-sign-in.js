@@ -2,68 +2,92 @@
 var QRCodeMemberSignIn = /** @class */ (function () {
     function QRCodeMemberSignIn($, topWindow) {
         var _this = this;
-        this.getMemberCredit = function () {
-            _this.$.blockUI();
-            var chooseUsername = _this.$('#UsernameCopyFrom').val();
-            _this.username = chooseUsername;
-            var param = {
-                SearchAccountName: chooseUsername
-            };
-            _this.$.ajax({
-                method: "POST",
-                data: param,
-                url: "QRCodeMemberSignIn/GetMemberCredit",
-                cache: false,
-                success: function (result) {
-                    _this.$.unblockUI();
-                    var creditMin = numeral(result.CreditMin);
-                    var creditMax = numeral(result.CreditMax);
-                    _this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
-                    _this.$('#credit-range').removeClass('hidden');
-                    _this.$("#credit-min-label").html(creditMin.format('0,0.##'));
-                    _this.$("#credit-max-label").html(creditMax.format('0,0.##'));
-                    var credit = numeral(result.Credit);
-                    _this.$("#Credit").val(credit.format('0,0.##'));
-                    _this.$("#CreditMin").val(result.CreditMin);
-                    _this.$("#CreditMax").val(result.CreditMax);
-                }
-            });
-        };
-        this.showErrorMessage = function (message, event) {
-            _this.$('#message').removeClass('hidden').addClass('msg msg-error');
-            _this.$('#message-content').html(message);
-            event.preventDefault();
-        };
         this.init = function () {
-            var memberNameCopyFrom = _this.$('#MemberNameCopyFrom').val();
-            if (memberNameCopyFrom === '' && JSON.parse(localStorage.getItem('IsOldActor'))) {
-                _this.$('#UsernameCopyFrom').val(localStorage.getItem('memberNameCopyFrom'));
+            _this.cacheDOMElement();
+            _this.checkingLocalStorage();
+            _this.bindingEvent();
+            if (_this.$usernameCopyFrom.val() !== '') {
+                _this.getMemberCredit();
             }
-            else {
-                localStorage.removeItem('memberNameCopyFrom');
-            }
+        };
+        this.bindingEvent = function () {
+            _this.bidingEasyAutoComplete();
+            _this.$form.submit(function (event) { return _this.submitEvent(event); });
             _this.cleave = new Cleave('#Credit', {
                 numeral: true,
                 numeralDecimalMark: '.',
                 delimiter: ','
             });
-            _this.$('#qrCodeMemberSignInForm').submit(function (event) {
-                _this.$.blockUI();
-                var username = _this.$('#UsernameCopyFrom').val();
-                if (username === '') {
-                    _this.showErrorMessage(_this.$('#MemberAccountIsInvalid').val(), event);
-                }
-                var credit = parseFloat(_this.cleave.getRawValue());
-                var creditMin = parseFloat(_this.$("#CreditMin").val());
-                var creditMax = parseFloat(_this.$("#CreditMax").val());
-                if (credit < creditMin || credit > creditMax) {
-                    _this.showErrorMessage(_this.givenCreditMustBeBetweenMinMaxMessage, event);
-                }
-                else {
-                    _this.$("#Credit").val(_this.cleave.getRawValue());
-                }
-                _this.$.unblockUI();
+        };
+        this.cacheDOMElement = function () {
+            _this.$form = _this.$('#qrCodeMemberSignInForm');
+            _this.$usernameCopyFrom = _this.$('#UsernameCopyFrom');
+            _this.usernameCopyFromInQueryRequest = _this.$('#MemberNameCopyFrom').val();
+            _this.$creditRange = _this.$('#credit-range');
+            _this.$creditMinLabel = _this.$("#credit-min-label");
+            _this.$creditMaxLabel = _this.$("#credit-max-label");
+            _this.$creditInput = _this.$("#Credit");
+            _this.$creditMinInput = _this.$("#CreditMin");
+            _this.$creditMaxInput = _this.$("#CreditMax");
+            _this.$messageContainer = _this.$('#message');
+            _this.$messageContent = _this.$('#message-content');
+            _this.memberAccountInvalidMessage = _this.$('#MemberAccountIsInvalid').val();
+        };
+        this.bindingCreditContainer = function (result) {
+            _this.$.unblockUI();
+            var numberFormat = '0,0.##';
+            var creditMin = numeral(result.CreditMin);
+            var creditMax = numeral(result.CreditMax);
+            _this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
+            _this.$creditRange.removeClass('hidden');
+            _this.$creditMinLabel.html(creditMin.format(numberFormat));
+            _this.$creditMaxLabel.html(creditMax.format(numberFormat));
+            var credit = numeral(result.Credit);
+            _this.$creditInput.val(credit.format(numberFormat));
+            _this.$creditMinInput.val(result.CreditMin);
+            _this.$creditMaxInput.val(result.CreditMax);
+        };
+        this.getMemberCredit = function () {
+            _this.$.blockUI();
+            _this.$.ajax({
+                method: "POST",
+                data: { SearchAccountName: _this.$usernameCopyFrom.val() },
+                url: "QRCodeMemberSignIn/GetMemberCredit",
+                cache: false,
+                success: function (result) { return _this.bindingCreditContainer(result); }
             });
+        };
+        this.showErrorMessage = function (message, event) {
+            _this.$messageContainer.removeClass('hidden').addClass('msg msg-error');
+            _this.$messageContent.html(message);
+            event.preventDefault();
+        };
+        this.checkingLocalStorage = function () {
+            if (_this.usernameCopyFromInQueryRequest === '' && JSON.parse(localStorage.getItem('IsOldActor'))) {
+                _this.$usernameCopyFrom.val(localStorage.getItem('memberNameCopyFrom'));
+            }
+            else {
+                localStorage.removeItem('memberNameCopyFrom');
+            }
+        };
+        this.submitEvent = function (event) {
+            _this.$.blockUI();
+            var username = _this.$usernameCopyFrom.val();
+            if (username === '') {
+                _this.showErrorMessage(_this.memberAccountInvalidMessage, event);
+            }
+            var credit = parseFloat(_this.cleave.getRawValue());
+            var creditMin = parseFloat(_this.$creditMinInput.val());
+            var creditMax = parseFloat(_this.$creditMaxInput.val());
+            if (credit < creditMin || credit > creditMax) {
+                _this.showErrorMessage(_this.givenCreditMustBeBetweenMinMaxMessage, event);
+            }
+            else {
+                _this.$creditInput.val(_this.cleave.getRawValue());
+            }
+            _this.$.unblockUI();
+        };
+        this.bidingEasyAutoComplete = function () {
             var options = {
                 url: function (phrase) {
                     return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
@@ -83,11 +107,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     maxNumberOfElements: 10
                 }
             };
-            _this.$('#UsernameCopyFrom').easyAutocomplete(options);
-            var memberName = _this.$('#UsernameCopyFrom').val();
-            if (memberName !== '' && memberName !== undefined) {
-                _this.getMemberCredit();
-            }
+            _this.$usernameCopyFrom.easyAutocomplete(options);
         };
         this.$ = $;
         this.topWindow = topWindow;
