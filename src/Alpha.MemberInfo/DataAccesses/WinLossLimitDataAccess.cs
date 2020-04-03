@@ -77,7 +77,7 @@
         }
 
         private static string GetFieldValue(IDataReader reader, string fieldName)
-            => HasColumn(reader, fieldName) ? reader[fieldName] == null || reader[fieldName] == DBNull.Value ? "-" : (string)reader[fieldName] : "-";
+            => HasColumn(reader, fieldName) && !IsNullOrDBNullValue(reader, fieldName) ? (string)reader[fieldName] : "-";
 
         private static bool HasColumn(IDataRecord dr, string columnName)
         {
@@ -91,5 +91,8 @@
 
             return false;
         }
+
+        private static bool IsNullOrDBNullValue(IDataReader reader, string fieldName)
+            => reader[fieldName] == null || reader[fieldName] == DBNull.Value;
     }
 }

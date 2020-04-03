@@ -64,7 +64,7 @@
                     IsAutoReset = true,
                     MaxWinLimit = 100,
                     MaxLossLimit = 5,
-                    PlayerId = string.Empty
+                    PlayerId = "6"
                 },
                 new WinLossLimitDetail
                 {
@@ -78,8 +78,7 @@
                     Credit = 2,
                     IsAutoReset = true,
                     MaxWinLimit = 100,
-                    MaxLossLimit = null,
-                    PlayerId = string.Empty
+                    PlayerId = "7"
                 }
             };
 
