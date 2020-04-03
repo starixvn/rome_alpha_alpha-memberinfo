@@ -30,15 +30,7 @@
             FirstName = firstName;
             QRCode = qrCode;
             QRCodeLink = qrCodeLink;
-            Domains = domains.Select((item, index) =>
-            {
-                return new SelectListItem
-                {
-                    Value = item,
-                    Text = index.Equals(0) ? "Main Domain" : item
-                };
-            });
-
+            Domains = domains;
             ShowMessage = showMessage;
             ShowPageTitle = showPageTitle;
         }
@@ -61,7 +53,7 @@
 
         public string QRCodeLink { get; }
 
-        public IEnumerable<SelectListItem> Domains { get; }
+        public string[] Domains { get; }
 
         public bool ShowMessage { get; }
 
