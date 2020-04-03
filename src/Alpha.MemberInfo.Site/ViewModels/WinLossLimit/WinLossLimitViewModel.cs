@@ -10,6 +10,8 @@
 
     public class WinLossLimitViewModel
     {
+        private const int SabaclubSportType = 200;
+
         public WinLossLimitViewModel(
             WinLossLimitQuery message,
             IEnumerable<WinLossLimitProductModel> products,
@@ -57,6 +59,8 @@
 
         public int SportType { get; }
 
+        public bool IsSabaclub => SportType == SabaclubSportType;
+
         public int BetType { get; }
 
         public IEnumerable<CustomerInfo> MasterList { get; }
@@ -72,7 +76,7 @@
 
         public bool ShowPager => WinLossLimitPage.NumberOfRows >= 100;
 
-        public int NumberOfColumns => 13;
+        public int NumberOfColumns => IsSabaclub ? 14 : 13;
 
         public static string GetPlayerIdText(string playerId)
             => string.IsNullOrWhiteSpace(playerId) ? "-" : playerId;
