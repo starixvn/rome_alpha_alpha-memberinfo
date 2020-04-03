@@ -62,6 +62,7 @@
         <input type="hidden" name="update-credit-link" id="update-credit-link" value="@Model.UpdateCreditUrl" />
         <input type="hidden" name="update-credit-text" id="update-credit-text" value="@Resources.UpdateCredit" />
         <input type="hidden" name="update-infor-text" id="update-infor-text" value="@Resources.UpdateInformation" />
+        @Html.HiddenFor(m => m.MemberNameCopyFrom)
     </div>
 
 @section Scripts {

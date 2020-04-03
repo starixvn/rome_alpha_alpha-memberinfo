@@ -61,6 +61,15 @@ class QRCodeMemberSignIn {
     }
 
     init = () => {
+        const memberNameCopyFrom = this.$('#MemberNameCopyFrom').val();
+
+        if (memberNameCopyFrom === '' && JSON.parse(localStorage.getItem('IsOldActor'))) {
+            this.$('#UsernameCopyFrom').val(localStorage.getItem('memberNameCopyFrom'));
+        }
+        else {
+            localStorage.removeItem('memberNameCopyFrom');
+        }
+
         this.cleave = new Cleave('#Credit', {
             numeral: true,
             numeralDecimalMark: '.',

@@ -24,6 +24,8 @@
 
         public decimal CreditMax { get; set; }
 
+        public string MemberNameCopyFrom { get; set; }
+
         public bool ShowMessage { get; set; }
 
         public bool ShowPageTitle { get; set; } = true;

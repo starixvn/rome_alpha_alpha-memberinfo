@@ -75,6 +75,7 @@
                         message.Credit,
                         message.CreditMin,
                         message.CreditMax,
+                        MemberNameCopyFrom = message.UsernameCopyFrom,
                         message.ShowPageTitle,
                         ShowMessage = true
                     });
