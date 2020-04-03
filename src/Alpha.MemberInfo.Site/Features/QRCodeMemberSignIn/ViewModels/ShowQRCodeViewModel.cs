@@ -1,6 +1,9 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
 {
     using Alpha.Web.Helpers;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
 
     public class ShowQRCodeViewModel
     {
@@ -27,7 +30,15 @@
             FirstName = firstName;
             QRCode = qrCode;
             QRCodeLink = qrCodeLink;
-            Domains = domains;
+            Domains = domains.Select((item, index) =>
+            {
+                return new SelectListItem
+                {
+                    Value = item,
+                    Text = index.Equals(0) ? "Main Domain" : item
+                };
+            });
+
             ShowMessage = showMessage;
             ShowPageTitle = showPageTitle;
         }
@@ -50,7 +61,7 @@
 
         public string QRCodeLink { get; }
 
-        public string[] Domains { get; }
+        public IEnumerable<SelectListItem> Domains { get; }
 
         public bool ShowMessage { get; }
 
