@@ -8,6 +8,7 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
+    using Alpha.Products.Core.Services;
     using MediatR;
     using ONEbook.Common.Auth;
     using System.Collections.Generic;
@@ -27,15 +28,24 @@
         private readonly string qrcodeLocalLinkTest = "http://ha.nexdev.net:7407/site-main/";
 
         public QRCodeMemberSignInHandler(
-            QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper,
+           QrCodeAdapter qrCodeAdapter,
+           QRCodeMemberSignInService qrCodeMemberSignInService,
+           ICorrectSettingForCopiedMember correctSettingForCopiedMember)
+            : this(qrCodeAdapter, qrCodeMemberSignInService, correctSettingForCopiedMember, null)
+        {
+        }
+
+        internal QRCodeMemberSignInHandler(
             QrCodeAdapter qrCodeAdapter,
             QRCodeMemberSignInService qrCodeMemberSignInService,
-            ICorrectSettingForCopiedMember correctSettingForCopiedMember)
+            ICorrectSettingForCopiedMember correctSettingForCopiedMember,
+            QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper)
         {
-            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper;
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
             this.correctSettingForCopiedMember = correctSettingForCopiedMember;
+            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper ??
+                    SimpleServiceLocator.GetService<QRCodeLoginConfigsHelper>();
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)

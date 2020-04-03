@@ -1,17 +1,12 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
-    using System.Web.Mvc;
- <Reference Include="ONEbook.NG2.API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ONEbook.NG2.API.NAP.1.0.0.1\lib\net40\ONEbook.NG2.API.dll</HintPath>
-    </Reference>
     using Alpha.MemberInfo.Site.Handlers;
     using Alpha.CloneMember.Agent;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
+    using Alpha.Products.Core.Services;
+    using Alpha.Web.Helpers;
     using Controllers;
     using DataAccesses;
     using Fanex.Data.Repository;
@@ -34,6 +29,11 @@
     using Sunplus.Agent.Model.Casino;
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Model.Entities.Permission;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Reflection;
+    using System.Web;
+    using System.Web.Mvc;
     using Utilities.IP;
 
     public static class DependencyConfig
@@ -41,6 +41,8 @@
         [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Reviewed")]
         public static void Init()
         {
+            RegisterQRCodeConfiguration();
+
             var container = new Container();
 
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
@@ -107,7 +109,6 @@
                     container.GetInstance<WinLossLimitDataAccess>(),
                     container.GetInstance<CacheRefService>().GetProductName));
 
-
             container.Register<ProgressiveJackpotService>(
                 () => new ProgressiveJackpotServiceImpl(
                     container.GetInstance<CacheRefService>(),
@@ -120,8 +121,17 @@
             container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
             container.RegisterPerWebRequest<QRCodeMemberSignInService, QRCodeMemberSignInServiceImpl>();
             container.RegisterPerWebRequest<ProblemAccountWorkbook, ProblemAccountWorkbookImpl>();
-            container.RegisterPerWebRequest<QRCodeLoginConfigsHelper, QRCodeLoginConfigsHelperImpl>();
             container.RegisterPerWebRequest<ICorrectSettingForCopiedMember, CorrectSettingForCopiedMember>();
+        }
+
+        private static void RegisterQRCodeConfiguration()
+        {
+            var qrCodeconfigFilePath = HttpContext.Current.Server.MapPath(
+                    AppSettingsHelper.GetQRCodeMemberSiteLoginConfigsPath());
+
+            SimpleServiceLocator
+              .Instance
+              .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
         }
     }
 }

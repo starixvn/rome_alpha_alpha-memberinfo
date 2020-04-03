@@ -6,7 +6,6 @@
     using System.Configuration;
     using System.IO;
     using System.Linq;
-    using System.Web;
 
     public interface QRCodeLoginConfigsHelper
     {
@@ -17,10 +16,16 @@
 
     public class QRCodeLoginConfigsHelperImpl : QRCodeLoginConfigsHelper
     {
+        private readonly string configPath;
+
+        public QRCodeLoginConfigsHelperImpl(string configPath)
+        {
+            this.configPath = configPath;
+        }
+
         public QRCodeLoginConfigs GetQRCodeMemberSiteLoginConfigs()
         {
-            string filePath = HttpContext.Current.Server.MapPath("~/App_Data/QRCodeMemberSiteLoginConfigs.json");
-            IDictionary<string, string> jsonObject = JObject.Parse(File.ReadAllText(filePath))
+            IDictionary<string, string> jsonObject = JObject.Parse(File.ReadAllText(configPath))
             .Properties()
             .ToDictionary(jproperty => jproperty.Name, jproperty => jproperty.Value.ToString());
 
