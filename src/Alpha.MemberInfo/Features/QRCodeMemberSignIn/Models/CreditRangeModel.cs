@@ -1,8 +1,8 @@
-﻿using Alpha.MemberInfo.AppResources;
-using System;
-
-namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models
+﻿namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models
 {
+    using Alpha.MemberInfo.AppResources;
+    using System;
+
     public class CreditRangeModel
     {
         public CreditRangeModel()

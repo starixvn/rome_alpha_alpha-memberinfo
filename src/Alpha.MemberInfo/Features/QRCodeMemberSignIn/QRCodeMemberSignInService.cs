@@ -20,6 +20,8 @@
         bool IsEnableCustomer(int custId);
 
         string GetSuggestUsername(string prefix, int custId);
+
+        SelectRnGStatusModel GetRnGStatus(string username);
     }
 
     public class QRCodeMemberSignInServiceImpl : QRCodeMemberSignInService
@@ -73,5 +75,8 @@
             dynamicRepository.Execute(criteria);
             return criteria.SeqName;
         }
+
+        public SelectRnGStatusModel GetRnGStatus(string username)
+            => dynamicRepository.Get<SelectRnGStatusModel>(new SelectRnGStatusCriteria(username));
     }
 }

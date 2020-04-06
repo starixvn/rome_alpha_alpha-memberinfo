@@ -238,6 +238,8 @@
                     message.SearchAccountName, 
                     config.ExpireSeconds);
 
+            var rngCasinoStatusModel = qrCodeMemberSignInService.GetRnGStatus(message.SearchAccountName);
+
             return new ShowQRCodeViewModel(
                 message.Credit,
                 message.CreditMin,
@@ -250,7 +252,8 @@
                 link,
                 config.Domains,
                 message.ShowMessage,
-                message.ShowPageTitle);
+                message.ShowPageTitle,
+                rngCasinoStatusModel.SyncCS);
         }
 
         public string Handle(GenerateQRCodeRequest message)

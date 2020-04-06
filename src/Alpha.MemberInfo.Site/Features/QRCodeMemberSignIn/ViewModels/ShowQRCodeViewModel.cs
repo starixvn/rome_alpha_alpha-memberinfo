@@ -4,6 +4,8 @@
 
     public class ShowQRCodeViewModel
     {
+        private bool syncRnGCasino;
+
         public ShowQRCodeViewModel(
             decimal credit,
             decimal creditMin,
@@ -16,7 +18,8 @@
             string qrCodeLink,
             string[] domains,
             bool showMessage,
-            bool showPageTitle)
+            bool showPageTitle,
+            bool syncRnGCasino)
         {
             Credit = credit;
             CreditMin = creditMin;
@@ -30,6 +33,7 @@
             Domains = domains;
             ShowMessage = showMessage;
             ShowPageTitle = showPageTitle;
+            this.syncRnGCasino = syncRnGCasino;
         }
 
         public decimal Credit { get; }
@@ -59,7 +63,7 @@
         // TODO: hardcode syncCasino
         public string UpdateInformationUrl
              => $"{MicroSites.OldMainUrl()}_AccountInfo/EditCustomerInfo.aspx?" +
-             $"Username={SearchAccountName}&CustId={SearchAccountId}&isSyncCasino=1";
+             $"Username={SearchAccountName}&CustId={SearchAccountId}&isSyncCasino={syncRnGCasino}";
 
         public string UpdateCreditUrl
             => $"{MicroSites.AccountInfoUrl()}SearchAccount/GivenCredit" +
