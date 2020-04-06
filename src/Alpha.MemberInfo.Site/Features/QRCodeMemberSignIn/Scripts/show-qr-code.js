@@ -49,19 +49,18 @@ var ShowQRCode = /** @class */ (function () {
                 _this.$.blockUI();
                 var chooseUsername = _this.$('#UsernameCopyFrom').val();
                 _this.username = chooseUsername;
-                var domain = _this.$('#domains').val();
-                var param = {
+                var params = {
                     SearchAccountName: _this.$('.username-label').text(),
-                    Domain: domain
+                    Domain: _this.$('#domains').val()
                 };
                 _this.$.ajax({
                     method: "POST",
-                    data: param,
+                    data: params,
                     url: "GenerateQrCode",
                     cache: false,
                     success: function (result) {
                         _this.$('#qr-code-image').attr('src', result);
-                        _this.$('#qrcode-link').val(domain);
+                        _this.$('#qrcode-link').val(params.Domain);
                         _this.$.unblockUI();
                     }
                 });

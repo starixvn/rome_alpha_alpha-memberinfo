@@ -1,9 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
 {
     using Alpha.Web.Helpers;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web.Mvc;
 
     public class ShowQRCodeViewModel
     {

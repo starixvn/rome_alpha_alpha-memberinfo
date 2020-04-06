@@ -24,7 +24,7 @@ class ShowQRCode {
         topWindow: any) {
         this.$ = $;
         this.topWindow = topWindow;
-    }
+   }
 
     resizePopup = () => {
         if (top.alpha.isScreenLower768) {
@@ -76,21 +76,19 @@ class ShowQRCode {
             var chooseUsername = this.$('#UsernameCopyFrom').val();
             this.username = chooseUsername;
 
-            const domain = this.$('#domains').val();
-
-            var param = {
+            const params = {
                 SearchAccountName: this.$('.username-label').text(),
-                Domain: domain
+                Domain: this.$('#domains').val()
             };
 
             this.$.ajax({
                 method: "POST",
-                data: param,
+                data: params,
                 url: "GenerateQrCode",
                 cache: false,
                 success: (result) => {
                     this.$('#qr-code-image').attr('src', result);
-                    this.$('#qrcode-link').val(domain);
+                    this.$('#qrcode-link').val(params.Domain);
                     this.$.unblockUI();
                 }
             });
