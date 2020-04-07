@@ -31,15 +31,5 @@
     <Setting Key="Acc_CustomerInsMember_Ag" SpName="Acc_CustomerInsMember_Ag" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CustomerSelSuggestUsername" SpName="Age_CustomerSelSuggestUsername" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Acc_CustomerSelCheckEnable" SpName="Acc_CustomerSelCheckEnable" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
-    <Setting Key="Acc_CustSetting_DCSSettingCopyInsertMember" SpName="Acc_CustSetting_DCSSettingCopyInsertMember" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
-    <Setting Key="Acc_CustomerUpdMemberGoldDeluxe_All" SpName="Acc_CustomerUpdMemberGoldDeluxe_All" DbName="DBCust.CustDB.BODBDownlineNetView" />
-    <Setting Key="Acc_CustomerWinlimitUpd" SpName="Acc_CustomerWinlimitUpd" DbName="DBCust.CustDB.BODBDownlineNetView" />
-    <Setting Key="Acc_CustomerSelEditMemberKeno" SpName="Acc_CustomerSelEditMemberKeno" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" TimeOut="600" />
-    <Setting Key="Acc_CustomerUpdMemberKeno_BetSetting" SpName="Acc_CustomerUpdMemberKeno_BetSetting" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" TimeOut="600" />
-    <Setting Key="Acc_CustomerUpdMemberKeno_Positiontaking" SpName="Acc_CustomerUpdMemberKeno_Positiontaking" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" TimeOut="600" />
-    <Setting Key="Acc_UpdCSStatus" SpName="Acc_UpdCSStatus_Cust" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
-    <Setting Key="Acc_CustomerWinLimitSelEdit" SpName="Acc_CustomerWinLimitSelEdit" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
-    <Setting Key="Acc_CustomerWinlimitUpd" SpName="Acc_CustomerWinlimitUpd" DbName="DBCust.CustDB.BODBDownlineNetView" />
-    <Setting Key="Acc_CustomerSelRnGStatus" SpName="Acc_CustomerSelRnGStatus" DbName="DBCust.CustDB.BODBDownlineNet" />
   </Function>
 </Functions>
