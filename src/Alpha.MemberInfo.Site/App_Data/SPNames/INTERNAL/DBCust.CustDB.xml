@@ -31,5 +31,6 @@
     <Setting Key="Acc_CustomerInsMember_Ag" SpName="Acc_CustomerInsMember_Ag" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CustomerSelSuggestUsername" SpName="Age_CustomerSelSuggestUsername" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Acc_CustomerSelCheckEnable" SpName="Acc_CustomerSelCheckEnable" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Acc_CustomerSelRnGStatus" SpName="Acc_CustomerSelRnGStatus" DbName="DBCust.CustDB.BODBDownlineNetView" />
   </Function>
 </Functions>
