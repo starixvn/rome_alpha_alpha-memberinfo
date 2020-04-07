@@ -252,6 +252,7 @@
     <Compile Include="Constants\ProblemAccountStatusConstants.cs" />
     <Compile Include="Constants\ProductId.cs" />
     <Compile Include="Constants\ReviewStatusConstant.cs" />
+    <Compile Include="Constants\SportTypeConstants.cs" />
     <Compile Include="Criteria\GetAgentListCriteria.cs" />
     <Compile Include="Criteria\GetMasterListCriteria.cs" />
     <Compile Include="Criteria\ProblemAccount\GetProblemAccountCriteria.cs" />
