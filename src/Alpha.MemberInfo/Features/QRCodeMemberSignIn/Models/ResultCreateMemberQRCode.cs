@@ -4,6 +4,8 @@
     {
         public int CustId { get; set; }
 
+        public int CustIdCopyFrom { get; set; }
+
         public bool Success { get; set; }
 
         public int ErrCode { get; set; }

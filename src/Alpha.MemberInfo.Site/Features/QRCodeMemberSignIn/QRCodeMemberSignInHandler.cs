@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
-    using Alpha.CloneMember.Agent;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
@@ -24,26 +23,22 @@
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
-        private readonly ICorrectSettingForCopiedMember correctSettingForCopiedMember;
         private readonly string qrcodeLocalLinkTest = "http://ha.nexdev.net:7407/site-main/";
 
         public QRCodeMemberSignInHandler(
            QrCodeAdapter qrCodeAdapter,
-           QRCodeMemberSignInService qrCodeMemberSignInService,
-           ICorrectSettingForCopiedMember correctSettingForCopiedMember)
-            : this(qrCodeAdapter, qrCodeMemberSignInService, correctSettingForCopiedMember, null)
+           QRCodeMemberSignInService qrCodeMemberSignInService)
+            : this(qrCodeAdapter, qrCodeMemberSignInService, null)
         {
         }
 
         internal QRCodeMemberSignInHandler(
             QrCodeAdapter qrCodeAdapter,
             QRCodeMemberSignInService qrCodeMemberSignInService,
-            ICorrectSettingForCopiedMember correctSettingForCopiedMember,
             QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper)
         {
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
-            this.correctSettingForCopiedMember = correctSettingForCopiedMember;
             this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper ??
                     SimpleServiceLocator.GetService<QRCodeLoginConfigsHelper>();
         }
@@ -202,11 +197,7 @@
                     IsSearchAndCopy = true
                 };
                 var result = qrCodeMemberSignInService.CreateMemberByQRCode(command);
-
-                if (result.CustId > 0)
-                {
-                    correctSettingForCopiedMember.CorrectData(result.CustId, custIdCopyFrom, message.Username, true);
-                }
+                result.CustIdCopyFrom = custIdCopyFrom;
 
                 return result;
             }
@@ -253,7 +244,8 @@
                 config.Domains,
                 message.ShowMessage,
                 message.ShowPageTitle,
-                rngCasinoStatusModel.SyncCS);
+                rngCasinoStatusModel.SyncCS,
+                message.MemberIdCopyFrom);
         }
 
         public string Handle(GenerateQRCodeRequest message)

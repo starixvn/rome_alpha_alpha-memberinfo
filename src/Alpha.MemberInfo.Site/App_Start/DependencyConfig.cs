@@ -1,7 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
     using Alpha.MemberInfo.Site.Handlers;
-    using Alpha.CloneMember.Agent;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
@@ -121,7 +120,6 @@
             container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
             container.RegisterPerWebRequest<QRCodeMemberSignInService, QRCodeMemberSignInServiceImpl>();
             container.RegisterPerWebRequest<ProblemAccountWorkbook, ProblemAccountWorkbookImpl>();
-            container.RegisterPerWebRequest<ICorrectSettingForCopiedMember, CorrectSettingForCopiedMember>();
         }
 
         private static void RegisterQRCodeConfiguration()

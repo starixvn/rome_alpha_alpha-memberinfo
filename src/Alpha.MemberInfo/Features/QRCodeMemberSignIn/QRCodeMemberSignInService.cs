@@ -49,7 +49,7 @@
 
             return new ResultCreateMemberQRCode{
                Success = command.Success,
-               CustId = command.Custid,
+               CustId = command.CustId,
                ErrCode = command.ErrCode,
                ErrMsg = command.ErrMsg
             };

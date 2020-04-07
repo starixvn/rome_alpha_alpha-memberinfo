@@ -77,9 +77,9 @@
                         message.CreditMax,
                         MemberNameCopyFrom = message.UsernameCopyFrom,
                         message.ShowPageTitle,
-                        ShowMessage = true
+                        ShowMessage = true,
+                        MemberIdCopyFrom = result.CustIdCopyFrom
                     });
-
         }
 
         [HttpGet]
