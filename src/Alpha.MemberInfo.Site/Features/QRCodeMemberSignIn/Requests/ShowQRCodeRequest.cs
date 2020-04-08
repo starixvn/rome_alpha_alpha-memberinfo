@@ -28,7 +28,7 @@
 
         public int MemberIdCopyFrom { get; set; }
 
-        public bool ShowMessage { get; set; }
+        public bool CreateMode { get; set; }
 
         public bool ShowPageTitle { get; set; } = true;
 

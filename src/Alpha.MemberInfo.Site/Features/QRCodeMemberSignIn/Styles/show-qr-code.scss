@@ -21,8 +21,18 @@
         font-weight: bold;
     }
 
-    .copy-link {
+    #btn-copy-link {
         margin-left: 15px;
+        cursor: pointer;
+
+        .copy-link {
+            color: #0b599c;
+        }
+
+        .icon-link {
+            font-size: 25px !important;
+            vertical-align: bottom;
+        }
     }
 
     .first-column {
@@ -45,6 +55,9 @@
         font-size: calculateScale(13px) !important;
     }
 
+    .icon-link {
+        font-size: calculateScale(19px) !important;
+    }
     #show-qr-code {
         width: 100% !important;
     }

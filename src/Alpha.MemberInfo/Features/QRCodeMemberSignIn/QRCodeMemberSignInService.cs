@@ -4,6 +4,7 @@
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Fanex.Data.Repository;
     using System.Collections.Generic;
+    using System.Linq;
 
     public interface QRCodeMemberSignInService
     {
@@ -35,7 +36,7 @@
 
         public IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(int actorId, string suggestionQuery, bool isInternal)
             => dynamicRepository.Fetch<UsernameSuggestion>(
-              new SelectAutoSuggestionCriteria(actorId, suggestionQuery, isInternal));
+              new SelectAutoSuggestionCriteria(actorId, suggestionQuery, isInternal)).OrderBy(item => item.UserName);
 
         public CreditRangeModel GetCreditRange(string SearchAccountName)
             => dynamicRepository.Get<CreditRangeModel>(new SelectCreditRangeCriteria(SearchAccountName));

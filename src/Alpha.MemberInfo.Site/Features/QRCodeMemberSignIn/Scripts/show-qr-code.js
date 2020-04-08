@@ -39,12 +39,14 @@ var ShowQRCode = /** @class */ (function () {
             }
         };
         this.init = function () {
-            _this.$.ajax({
-                method: "GET",
-                url: _this.$('#CorrectDataUrl').val(),
-                cache: false,
-                success: function () { }
-            });
+            if (JSON.parse(_this.$('#CreateMode').val().toLowerCase())) {
+                _this.$.ajax({
+                    method: "GET",
+                    url: _this.$('#CorrectDataUrl').val(),
+                    cache: false,
+                    success: function () { }
+                });
+            }
             var memberNameCopyFrom = _this.$('#MemberNameCopyFrom').val();
             localStorage.setItem("memberNameCopyFrom", memberNameCopyFrom);
             _this.username = _this.$('.username-label').html();

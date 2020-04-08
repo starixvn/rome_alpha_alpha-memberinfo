@@ -242,7 +242,7 @@
                 qrCodeAdapter.Generate(link),
                 link,
                 config.Domains,
-                message.ShowMessage,
+                message.CreateMode,
                 message.ShowPageTitle,
                 rngCasinoStatusModel.SyncCS,
                 message.MemberIdCopyFrom);

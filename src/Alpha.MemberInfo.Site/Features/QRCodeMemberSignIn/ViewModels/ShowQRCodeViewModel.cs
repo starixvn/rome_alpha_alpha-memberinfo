@@ -18,7 +18,7 @@
             string qrCode,
             string qrCodeLink,
             string[] domains,
-            bool showMessage,
+            bool createMode,
             bool showPageTitle,
             bool syncRnGCasino,
             int custIdFrom)
@@ -33,7 +33,7 @@
             QRCode = qrCode;
             QRCodeLink = qrCodeLink;
             Domains = domains;
-            ShowMessage = showMessage;
+            CreateMode = createMode;
             ShowPageTitle = showPageTitle;
             this.syncRnGCasino = syncRnGCasino;
             this.custIdFrom = custIdFrom;
@@ -59,7 +59,7 @@
 
         public string[] Domains { get; }
 
-        public bool ShowMessage { get; }
+        public bool CreateMode { get; }
 
         public bool ShowPageTitle { get; }
 

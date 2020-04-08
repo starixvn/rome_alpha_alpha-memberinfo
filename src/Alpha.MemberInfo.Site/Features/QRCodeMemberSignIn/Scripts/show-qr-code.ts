@@ -61,12 +61,14 @@ class ShowQRCode {
     };
 
     init = () => {
-        this.$.ajax({
-            method: "GET",
-            url: this.$('#CorrectDataUrl').val(),
-            cache: false,
-            success: () => {}
-        });
+        if (JSON.parse(this.$('#CreateMode').val().toLowerCase())) {
+            this.$.ajax({
+                method: "GET",
+                url: this.$('#CorrectDataUrl').val(),
+                cache: false,
+                success: () => { }
+            });
+        }
 
         const memberNameCopyFrom = this.$('#MemberNameCopyFrom').val();
         localStorage.setItem("memberNameCopyFrom", memberNameCopyFrom);
