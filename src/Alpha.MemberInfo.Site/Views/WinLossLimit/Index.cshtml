@@ -121,9 +121,9 @@
                         <td class="text-right">@HtmlHelpers.FormatNumber(winLossLimitDetail.Balance)</td>
                         <td class="text-center">@(winLossLimitDetail.IsAutoReset ? Resources.Yes : Resources.No2)</td>
                         <td class="text-center">@WinLossLimitViewModel.GetCurrentWinAnmout(winLossLimitDetail.CurrentWinAnmout)</td>
-                        <td class="text-center">@WinLossLimitViewModel.GetMaxWinLimit(winLossLimitDetail.MaxWinLimit)</td>
+                        <td class="text-center">@Model.GetMaxWinLimit(winLossLimitDetail.MaxWinLimit)</td>
                         <td class="text-center @((winLossLimitDetail.Credit == 0 && winLossLimitDetail.CurrentWinAnmout > 0) || winLossLimitDetail.WinPercent >= 100 || winLossLimitDetail.WinPercent == -2 ? "negative-value" : "")">
-                            @WinLossLimitViewModel.GetWinPercent(winLossLimitDetail.WinPercent, winLossLimitDetail.CurrentWinAnmout, winLossLimitDetail.Credit)
+                            @Model.GetWinPercent(winLossLimitDetail.WinPercent, winLossLimitDetail.CurrentWinAnmout, winLossLimitDetail.Credit)
                         </td>
                         <td class="text-center">@WinLossLimitViewModel.GetMaxLossLimit(winLossLimitDetail.MaxLossLimit)</td>
                         <td class="text-center @(winLossLimitDetail.LossPercent>=100 ? "negative-value" : "")">

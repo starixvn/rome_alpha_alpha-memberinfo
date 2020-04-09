@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.ViewModels.WinLossLimit
 {
     using System.Collections.Generic;
+    using Alpha.MemberInfo.Constants;
     using AppResources;
     using Components;
     using MemberInfo.Models;
@@ -10,6 +11,8 @@
 
     public class WinLossLimitViewModel
     {
+        private readonly List<int> SportTypeHasNoBetlimitSetting = new List<int> { SportTypeConstants.BBin };
+
         private const int SabaclubSportType = 200;
 
         public WinLossLimitViewModel(
@@ -86,12 +89,12 @@
         public static string GetCurrentWinAnmout(decimal? currentWinAnmout)
             => currentWinAnmout.HasValue ? currentWinAnmout.Value.ToString("#,##0.00") : Unlimited;
 
-        public static string GetMaxWinLimit(decimal maxWinLimit)
-            => maxWinLimit == 0 ? Unlimited : maxWinLimit.ToString("#,##0") + "X";
+        public string GetMaxWinLimit(decimal maxWinLimit)
+            => maxWinLimit == 0 ? UnlimitedOrNoSetting() : maxWinLimit.ToString("#,##0") + "X";
 
-        public static string GetWinPercent(decimal? winPercent, decimal? currentWinLimit, decimal credit)
+        public string GetWinPercent(decimal? winPercent, decimal? currentWinLimit, decimal credit)
             => !winPercent.HasValue
-            ? Unlimited : credit == 0 && currentWinLimit > 0 ? "N/A"
+            ? UnlimitedOrNoSetting() : credit == 0 && currentWinLimit > 0 ? "N/A"
             : winPercent > 0 ? winPercent.Value.ToString("#,##0.##") + "%" : "0%";
 
         public static string GetLossPercent(decimal? maxLossLimit, decimal? lossPercent)
@@ -111,5 +114,8 @@
 
         private static string Unlimited 
             => Lang.Unlimited;
+
+        private string UnlimitedOrNoSetting()
+            => SportTypeHasNoBetlimitSetting.Contains(SportType) ? "-" : Lang.Unlimited;
     }
 }
