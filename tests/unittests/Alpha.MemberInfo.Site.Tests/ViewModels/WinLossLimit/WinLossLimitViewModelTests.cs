@@ -112,8 +112,11 @@
         [InlineData(1, "1X")]
         public void GetMaxWinLimit_Always_ReturnCorrectValue(decimal maxWinLimit, string expectedText)
         {
+            // Arrange
+            var viewModel = CreateWinLossLimitViewModel();
+
             // Act
-            var actualText = WinLossLimitViewModel.GetMaxWinLimit(maxWinLimit);
+            var actualText = viewModel.GetMaxWinLimit(maxWinLimit);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -124,9 +127,10 @@
         {
             // Arrange
             var expectedText = "Unlimited";
+            var viewModel = CreateWinLossLimitViewModel();
 
             // Act
-            var actualText = WinLossLimitViewModel.GetWinPercent(null, null, 1);
+            var actualText = viewModel.GetWinPercent(null, null, 1);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -137,8 +141,11 @@
         [InlineData(1.02, "1.02%")]
         public void GetWinPercent_PositiveWinPercent_ReturnCorrectValue(decimal winPercent, string expectedText)
         {
+            // Arrange
+            var viewModel = CreateWinLossLimitViewModel();
+
             // Act
-            var actualText = WinLossLimitViewModel.GetWinPercent(winPercent, null, 1);
+            var actualText = viewModel.GetWinPercent(winPercent, null, 1);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -150,9 +157,10 @@
         {
             // Arrange
             var expectedText = "0%";
+            var viewModel = CreateWinLossLimitViewModel();
 
             // Act
-            var actualText = WinLossLimitViewModel.GetWinPercent(winPercent, null, 1);
+            var actualText = viewModel.GetWinPercent(winPercent, null, 1);
 
             // Assert
             Assert.Equal(expectedText, actualText);
