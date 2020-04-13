@@ -62,14 +62,15 @@
             <button type="submit" class="btn-submit" id="btn-update-information">@Resources.UpdateInformation</button>
             <button type="submit" class="btn-submit" id="btn-update-credit">@Resources.UpdateCredit</button>
         </div>
-        <input type="hidden" name="qrcode-link" id="qrcode-link" value="@Model.QRCodeLink" />
-        <input type="hidden" name="update-infor-link" id="update-infor-link" value="@Model.UpdateInformationUrl" />
-        <input type="hidden" name="update-credit-link" id="update-credit-link" value="@Model.UpdateCreditUrl" />
-        <input type="hidden" name="update-credit-text" id="update-credit-text" value="@Resources.UpdateCredit" />
-        <input type="hidden" name="update-infor-text" id="update-infor-text" value="@Resources.UpdateInformation" />
+
+        @Html.HiddenFor(m => m.QRCodeLink)
+        @Html.HiddenFor(m => m.UpdateInformationUrl)
+        @Html.HiddenFor(m => m.UpdateCreditUrl)
         @Html.HiddenFor(m => m.MemberNameCopyFrom)
         @Html.HiddenFor(m => m.CorrectDataUrl)
         @Html.HiddenFor(m => m.CreateMode)
+        <input type="hidden" name="update-credit-text" id="update-credit-text" value="@Resources.UpdateCredit" />
+        <input type="hidden" name="update-infor-text" id="update-infor-text" value="@Resources.UpdateInformation" />
     </div>
 
 @section Scripts {

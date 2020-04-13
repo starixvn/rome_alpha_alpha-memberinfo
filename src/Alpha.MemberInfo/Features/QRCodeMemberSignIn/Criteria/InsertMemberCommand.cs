@@ -170,6 +170,9 @@
 
         public override string GetSettingKey() => "Acc_CustomerInsMember_Ag";
 
-        public override bool IsValid() => true;
+        public override bool IsValid() => 
+            ActorId > 0 &&
+            CopyFromCustId > 0 && 
+            !string.IsNullOrEmpty(Username);
     }
 }

@@ -219,6 +219,9 @@
     <Compile Include="Controllers\MemberRequestsControllerTests.cs" />
     <Compile Include="Controllers\WinLossLimitControllerTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInHandlerTests.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInControllerTests.cs" />
+    <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="Fixtures\UserFixture.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Handlers\CreditBalanceHandlerTests.cs" />

@@ -43,7 +43,6 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
             base.IsValid()
             && !string.IsNullOrEmpty(UsernameCopyFrom)
             && Credit <= CreditMax
-            && Credit >= CreditMin
-            && ActorLevel.IsAgentLevel();
+            && Credit >= CreditMin;
     }
 }

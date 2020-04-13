@@ -9,7 +9,6 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
     using Alpha.Products.Core.Services;
     using MediatR;
-    using ONEbook.Common.Auth;
     using System.Collections.Generic;
 
     public class QRCodeMemberSignInHandler :
@@ -196,6 +195,7 @@
                     SubAccId = message.SubAccId,
                     IsSearchAndCopy = true
                 };
+
                 var result = qrCodeMemberSignInService.CreateMemberByQRCode(command);
                 result.CustIdCopyFrom = custIdCopyFrom;
 
@@ -223,7 +223,7 @@
         {
             var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
             var link = qrCodeLoginConfigsHelper.LocalTest() ? qrcodeLocalLinkTest :
-                 Authentication.Instance.CreateMobileLoginUrl(
+                 qrCodeAdapter.CreateMobileLoginUrl(
                     config.Domains[0], 
                     config.SiteId,
                     message.SearchAccountName, 
@@ -251,7 +251,8 @@
         public string Handle(GenerateQRCodeRequest message)
         {
             var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
-            var link = Authentication.Instance.CreateMobileLoginUrl(
+
+            var link = qrCodeAdapter.CreateMobileLoginUrl(
                 message.Domain, config.SiteId,
                 message.SearchAccountName, config.ExpireSeconds);
 

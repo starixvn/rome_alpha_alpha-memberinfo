@@ -6,10 +6,13 @@
     using System.IO;
     using Gma.QrCodeNet.Encoding;
     using Gma.QrCodeNet.Encoding.Windows.Render;
+    using ONEbook.Common.Auth;
 
     public interface QrCodeAdapter
     {
         string Generate(string url);
+        
+        string CreateMobileLoginUrl(string domain, int siteid, string username, int tokenExpireSecond);
     }
 
     public class QrCodeAdapterImpl : QrCodeAdapter
@@ -29,5 +32,13 @@
 
             return $"data:image/jpeg;base64,{Convert.ToBase64String(memoryStream.ToArray())}";
         }
+
+        public string CreateMobileLoginUrl(
+            string domain, 
+            int siteid, 
+            string username, 
+            int tokenExpireSecond)
+       => Authentication.Instance.CreateMobileLoginUrl(
+            domain, siteid, username, tokenExpireSecond);
     }
 }

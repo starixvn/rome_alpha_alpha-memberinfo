@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\..\packages\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\..\..\packages\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props')" />
+  <Import Project="..\..\..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\..\..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -282,6 +282,15 @@
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectRnGStatusCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectExistedMemberSettingCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectCreditRangeCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectAutoSuggestionCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\InsertMemberCommandTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\CheckEnableCustomerCritieriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\CheckBelongingByUsernameCritieriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\QRCodeMemberSignInServiceTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\ExceptionRecorder.cs" />
@@ -341,7 +350,7 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\packages\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props'))" />
+    <Error Condition="!Exists('..\..\..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,3 +1,4 @@
+/// <reference path="../../../assets/scripts/shared/top-windows-interface.ts" />
 "use strict";
 var ShowQRCode = /** @class */ (function () {
     function ShowQRCode($, topWindow) {
@@ -51,7 +52,7 @@ var ShowQRCode = /** @class */ (function () {
             localStorage.setItem("memberNameCopyFrom", memberNameCopyFrom);
             _this.username = _this.$('.username-label').html();
             _this.$('#btn-copy-link').click(function () {
-                clipboard.writeText(_this.$('#qrcode-link').val());
+                clipboard.writeText(_this.$('#QRCodeLink').val());
             });
             _this.$('#domains').change(function () {
                 _this.$.blockUI();
@@ -68,7 +69,7 @@ var ShowQRCode = /** @class */ (function () {
                     cache: false,
                     success: function (result) {
                         _this.$('#qr-code-image').attr('src', result);
-                        _this.$('#qrcode-link').val(params.Domain);
+                        _this.$('#QRCodeLink').val(params.Domain);
                         _this.$.unblockUI();
                     }
                 });
@@ -78,7 +79,7 @@ var ShowQRCode = /** @class */ (function () {
                     window.top.updateInformationPopup = window.top.ageWnd.createInstance();
                 }
                 window.top.updateInformationPopup.onClosing = _this.informationPopupOnclosing;
-                window.top.popupManager.openWithHanlder(top.updateInformationPopup, _this.$('#update-infor-link').val(), _this.$('#update-infor-text').val() + " - " + _this.username, 700, 400);
+                window.top.popupManager.openWithHanlder(top.updateInformationPopup, _this.$('#UpdateInformationUrl').val(), _this.$('#update-infor-text').val() + " - " + _this.username, 700, 400);
                 _this.resizePopup();
             });
             _this.$('#btn-update-credit').click(function () {
@@ -86,7 +87,7 @@ var ShowQRCode = /** @class */ (function () {
                     window.top.updateGivenCreditPopup = window.top.ageWnd.createInstance();
                 }
                 window.top.updateGivenCreditPopup.onClosing = _this.givenPopupOnclosing;
-                window.top.popupManager.openWithHanlder(top.updateGivenCreditPopup, _this.$('#update-credit-link').val(), _this.$('#update-credit-text').val() + " - " + _this.username, 500, 300);
+                window.top.popupManager.openWithHanlder(top.updateGivenCreditPopup, _this.$('#UpdateCreditUrl').val(), _this.$('#update-credit-text').val() + " - " + _this.username, 500, 300);
                 _this.resizePopup();
             });
         };

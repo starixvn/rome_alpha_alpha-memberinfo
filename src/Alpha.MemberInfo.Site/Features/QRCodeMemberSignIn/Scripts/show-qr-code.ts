@@ -1,13 +1,10 @@
-﻿"use strict";
+﻿/// <reference path="../../../assets/scripts/shared/top-windows-interface.ts" />
+"use strict";
 
 declare var clipboard: any;
 declare var numeral: any;
 
 interface Window {
-    popupManager: {
-        open: Function,
-        openWithHanlder: Function
-    },
     alpha: any,
     updateGivenCreditPopup: any,
     updateInformationPopup: any,
@@ -76,7 +73,7 @@ class ShowQRCode {
         this.username = this.$('.username-label').html();
 
         this.$('#btn-copy-link').click(() => {
-            clipboard.writeText(this.$('#qrcode-link').val());
+            clipboard.writeText(this.$('#QRCodeLink').val());
         });
 
         this.$('#domains').change(() => {
@@ -97,7 +94,7 @@ class ShowQRCode {
                 cache: false,
                 success: (result) => {
                     this.$('#qr-code-image').attr('src', result);
-                    this.$('#qrcode-link').val(params.Domain);
+                    this.$('#QRCodeLink').val(params.Domain);
                     this.$.unblockUI();
                 }
             });
@@ -111,7 +108,7 @@ class ShowQRCode {
             window.top.updateInformationPopup.onClosing = this.informationPopupOnclosing;
             window.top.popupManager.openWithHanlder(
                 top.updateInformationPopup,
-                this.$('#update-infor-link').val(),
+                this.$('#UpdateInformationUrl').val(),
                 `${this.$('#update-infor-text').val()} - ${this.username}`,
                 700,
                 400);
@@ -127,7 +124,7 @@ class ShowQRCode {
             window.top.updateGivenCreditPopup.onClosing = this.givenPopupOnclosing;
             window.top.popupManager.openWithHanlder(
                 top.updateGivenCreditPopup,
-                this.$('#update-credit-link').val(),
+                this.$('#UpdateCreditUrl').val(),
                 `${this.$('#update-credit-text').val()} - ${this.username}`,
                 500,
                 300);
