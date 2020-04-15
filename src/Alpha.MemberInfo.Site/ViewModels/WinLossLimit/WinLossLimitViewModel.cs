@@ -13,7 +13,10 @@
     {
         private readonly List<int> SportTypeHasNoBetlimitSetting = new List<int> { SportTypeConstants.BBin };
 
-        private const int SabaclubSportType = 200;
+        private readonly Dictionary<int, int> NumberOfColumnBySportType = new Dictionary<int, int> {
+            {SportTypeConstants.Sabaclub, 14},
+            {SportTypeConstants.BBin,14}
+        };
 
         public WinLossLimitViewModel(
             WinLossLimitQuery message,
@@ -62,7 +65,7 @@
 
         public int SportType { get; }
 
-        public bool IsSabaclub => SportType == SabaclubSportType;
+        public bool IsSabaclub => SportType == SportTypeConstants.Sabaclub;
         public bool IsBBin => SportType == SportTypeConstants.BBin;
 
         public int BetType { get; }
@@ -80,7 +83,7 @@
 
         public bool ShowPager => WinLossLimitPage.NumberOfRows >= 100;
 
-        public int NumberOfColumns => (IsSabaclub || IsBBin) ? 14 : 13;
+        public int NumberOfColumns => NumberOfColumnBySportType.ContainsKey(SportType) ? NumberOfColumnBySportType[SportType] : 13;
 
         public static string GetPlayerIdText(string playerId)
             => string.IsNullOrWhiteSpace(playerId) ? "-" : playerId;
