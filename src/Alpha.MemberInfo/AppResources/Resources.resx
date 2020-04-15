@@ -408,4 +408,7 @@
   <data name="DateNotifiedFrom" xml:space="preserve">
     <value>Date Notified From</value>
   </data>
+  <data name="RemainingTransferInAmount" xml:space="preserve">
+    <value>Remaining Transfer-in Amount</value>
+  </data>
 </root>

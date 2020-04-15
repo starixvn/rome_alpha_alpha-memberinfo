@@ -111,6 +111,10 @@
                 <th><div class="col-balance">@Resources.Balance</div></th>
                 <th><div class="col-auto-daily-reset">@Resources.AutoDailyResetLimit</div></th>
                 <th><div class="col-current-win-loss">@Resources.CurrentWinLossAmount</div></th>
+                @if (Model.IsBBin)
+                {
+                    <th><div class="col-current-win-loss">@Resources.RemainingBuyInAmount</div></th>
+                }
                 <th><div class="col-max-win">@Resources.MaximumWin</div></th>
                 <th><div class="col-win-percent">@Resources.CurrentWinLimit</div></th>
                 <th class="col-max-loss">@Resources.MaximumLoss</th>
@@ -145,6 +149,10 @@
                         <td class="text-right">@HtmlHelpers.FormatNumber(winLossLimitDetail.Balance)</td>
                         <td class="text-center">@(winLossLimitDetail.IsAutoReset ? Resources.Yes : Resources.No2)</td>
                         <td class="text-center">@WinLossLimitViewModel.GetCurrentWinAnmout(winLossLimitDetail.CurrentWinAnmout)</td>
+                        @if (Model.IsBBin)
+                        {
+                            <td class="text-right">@HtmlHelpers.FormatNumber(winLossLimitDetail.Transfer3rd)</td>
+                        }
                         <td class="text-center">@Model.GetMaxWinLimit(winLossLimitDetail.MaxWinLimit)</td>
                         <td class="text-center @((winLossLimitDetail.Credit == 0 && winLossLimitDetail.CurrentWinAnmout > 0) || winLossLimitDetail.WinPercent >= 100 || winLossLimitDetail.WinPercent == -2 ? "negative-value" : "")">
                             @Model.GetWinPercent(winLossLimitDetail.WinPercent, winLossLimitDetail.CurrentWinAnmout, winLossLimitDetail.Credit)

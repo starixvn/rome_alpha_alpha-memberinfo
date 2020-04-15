@@ -36,6 +36,8 @@
 
         public decimal Outstanding { get; set; }
 
+        public decimal Transfer3rd { get; set; }
+
         public decimal? CurrentWinAnmout
         {
             get

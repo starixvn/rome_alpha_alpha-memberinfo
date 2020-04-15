@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.ViewModels.WinLossLimit
 {
-    using System.Collections.Generic;
     using Alpha.MemberInfo.Constants;
     using AppResources;
     using Components;
@@ -8,6 +7,7 @@
     using MemberInfo.Models.WinLossLimit;
     using Params;
     using Requests.WinLossLimit;
+    using System.Collections.Generic;
 
     public class WinLossLimitViewModel
     {
@@ -63,6 +63,7 @@
         public int SportType { get; }
 
         public bool IsSabaclub => SportType == SabaclubSportType;
+        public bool IsBBin => SportType == SportTypeConstants.BBin;
 
         public int BetType { get; }
 
@@ -112,7 +113,7 @@
             => maxLossLimit.HasValue && maxLossLimit.Value == 0 ? Unlimited
             : remainingBuyInAmount.HasValue ? remainingBuyInAmount.Value.ToString("#,##0.##") : "-";
 
-        private static string Unlimited 
+        private static string Unlimited
             => Lang.Unlimited;
 
         private string UnlimitedOrNoSetting()
