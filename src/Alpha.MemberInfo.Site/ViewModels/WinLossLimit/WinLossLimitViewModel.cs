@@ -80,7 +80,7 @@
 
         public bool ShowPager => WinLossLimitPage.NumberOfRows >= 100;
 
-        public int NumberOfColumns => IsSabaclub ? 14 : 13;
+        public int NumberOfColumns => (IsSabaclub || IsBBin) ? 14 : 13;
 
         public static string GetPlayerIdText(string playerId)
             => string.IsNullOrWhiteSpace(playerId) ? "-" : playerId;
