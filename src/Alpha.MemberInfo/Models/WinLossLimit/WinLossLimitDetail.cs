@@ -97,6 +97,9 @@
         public decimal? RemainingBuyInAmount
             => MaxLossLimit.HasValue ? MaxLossLimit - DebitBalance + CreditBalance - Outstanding : null;
 
+        public decimal? ReaminingTransferInAmount
+            => MaxLossLimit.HasValue ? MaxLossLimit - DebitBalance + CreditBalance - Transfer3rd : null;
+
         public decimal? LossPercent
         {
             get

@@ -151,7 +151,7 @@
                         <td class="text-center">@WinLossLimitViewModel.GetCurrentWinAnmout(winLossLimitDetail.CurrentWinAnmout)</td>
                         @if (Model.IsBBin)
                         {
-                            <td class="text-center">@WinLossLimitViewModel.GetRemainingTransferInAmount(winLossLimitDetail.Transfer3rd, winLossLimitDetail.MaxLossLimit)</td>
+                            <td class="text-center">@WinLossLimitViewModel.GetRemainingTransferInAmount(winLossLimitDetail.ReaminingTransferInAmount, winLossLimitDetail.MaxLossLimit)</td>
                         }
                         <td class="text-center">@Model.GetMaxWinLimit(winLossLimitDetail.MaxWinLimit)</td>
                         <td class="text-center @((winLossLimitDetail.Credit == 0 && winLossLimitDetail.CurrentWinAnmout > 0) || winLossLimitDetail.WinPercent >= 100 || winLossLimitDetail.WinPercent == -2 ? "negative-value" : "")">

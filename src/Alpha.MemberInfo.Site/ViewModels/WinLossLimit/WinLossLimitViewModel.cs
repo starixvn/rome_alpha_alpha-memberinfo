@@ -116,9 +116,9 @@
             => maxLossLimit.HasValue && maxLossLimit.Value == 0 ? Unlimited
             : remainingBuyInAmount.HasValue ? remainingBuyInAmount.Value.ToString("#,##0.##") : "-";
 
-        public static string GetRemainingTransferInAmount(decimal remainingTransferInAmount, decimal? maxLossLimit)
+        public static string GetRemainingTransferInAmount(decimal? remainingTransferInAmount, decimal? maxLossLimit)
             => maxLossLimit.HasValue && maxLossLimit.Value == 0 ? Unlimited
-            : remainingTransferInAmount.ToString("#,##0.##");
+            : remainingTransferInAmount.HasValue ? remainingTransferInAmount.Value.ToString("#,##0.##") : "-";
 
         private static string Unlimited
             => Lang.Unlimited;
