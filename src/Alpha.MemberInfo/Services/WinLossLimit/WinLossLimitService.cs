@@ -1,8 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Services.WinLossLimit
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using Criteria;
     using Criteria.WinLossLimit;
     using DataAccesses;
@@ -10,6 +7,9 @@
     using Models;
     using Models.WinLossLimit;
     using Params;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public interface WinLossLimitService
     {
@@ -76,7 +76,7 @@
             {
                 return result;
             }
-            
+
             var balances = dynamicRepository.Fetch<WinLossLimitDetail>(new GetBalanceCriteria(param));
             IEnumerable<WinLossLimitDetail> outstandings = Enumerable.Empty<WinLossLimitDetail>();
 
@@ -88,6 +88,7 @@
                     custWinLossLimit.CreditBalance = balance.CreditBalance;
                     custWinLossLimit.DebitBalance = balance.DebitBalance;
                     custWinLossLimit.Balance = balance.Balance;
+                    custWinLossLimit.Transfer3rd = balance.Transfer3rd;
                 }
 
                 var outstanding = outstandings.FirstOrDefault(item => item.CustId == custWinLossLimit.CustId);
