@@ -20,11 +20,11 @@
     "inputFile": "assets/styles/problem-account/update.scss"
   },
   {
-    "outputFile": "Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in.css",
+    "outputFile": "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.css",
     "inputFile": "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.scss"
   },
   {
-    "outputFile": "Features/QRCodeMemberSignIn/Bundles/show-qr-code.css",
+    "outputFile": "Features/QRCodeMemberSignIn/Styles/show-qr-code.css",
     "inputFile": "Features/QRCodeMemberSignIn/Styles/show-qr-code.scss"
   }
 ]

@@ -78,9 +78,9 @@
     ]
   },
   {
-    "outputFileName": "assets/bundles/qr-code-member-sign-in.css",
+    "outputFileName": "Features/QRCodeMemberSignIn/bundles/qr-code-member-sign-in.css",
     "inputFiles": [
-      "Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in.css",
+      "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.css",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.css"
     ]
   },
@@ -91,15 +91,15 @@
     ]
   },
   {
-    "outputFileName": "Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill.min.js",
+    "outputFileName": "Features/QRCodeMemberSignIn/Bundles/clipboard-polyfill.min.js",
     "inputFiles": [
       "Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill.js"
     ]
   },
   {
-    "outputFileName": "assets/bundles/show-qr-code.css",
+    "outputFileName": "Features/QRCodeMemberSignIn/Bundles/show-qr-code.css",
     "inputFiles": [
-      "Features/QRCodeMemberSignIn/Bundles/show-qr-code.css"
+      "Features/QRCodeMemberSignIn/Styles/show-qr-code.css"
     ]
   }
 ]

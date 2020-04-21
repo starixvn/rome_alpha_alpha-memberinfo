@@ -12,11 +12,13 @@
     {
         string Generate(string url);
         
-        string CreateMobileLoginUrl(string domain, int siteid, string username, int tokenExpireSecond);
+        string CreateMobileLoginUrl(bool isLocalTest, string domain, int siteid, string username, int tokenExpireSecond);
     }
 
     public class QrCodeAdapterImpl : QrCodeAdapter
     {
+        private readonly string qrcodeLocalLinkTest = "http://ha.nexdev.net:7407/site-main/";
+
         public string Generate(string url)
         {
             var encoder = new QrEncoder(ErrorCorrectionLevel.M);
@@ -34,11 +36,13 @@
         }
 
         public string CreateMobileLoginUrl(
+            bool isLocalTest,
             string domain, 
             int siteid, 
             string username, 
             int tokenExpireSecond)
-       => Authentication.Instance.CreateMobileLoginUrl(
-            domain, siteid, username, tokenExpireSecond);
+       => isLocalTest ? 
+            qrcodeLocalLinkTest : 
+            Authentication.Instance.CreateMobileLoginUrl(domain, siteid, username, tokenExpireSecond);
     }
 }

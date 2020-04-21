@@ -209,6 +209,7 @@
                 new QRCodeLoginConfigs("192.468.1.1", new string[] { "domain.com", "domain1.com" }, 1 , 3600));
 
             qrCodeAdapter.CreateMobileLoginUrl(
+                Arg.Any<bool>(),
                 Arg.Any<string>(),
                 Arg.Any<int>(),
                 Arg.Any<string>(),

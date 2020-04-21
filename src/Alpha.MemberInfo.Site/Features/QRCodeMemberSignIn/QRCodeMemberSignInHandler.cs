@@ -22,7 +22,6 @@
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
-        private readonly string qrcodeLocalLinkTest = "http://ha.nexdev.net:7407/site-main/";
 
         public QRCodeMemberSignInHandler(
            QrCodeAdapter qrCodeAdapter,
@@ -222,11 +221,11 @@
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
             var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
-            var link = qrCodeLoginConfigsHelper.LocalTest() ? qrcodeLocalLinkTest :
-                 qrCodeAdapter.CreateMobileLoginUrl(
-                    config.Domains[0], 
+            var link = qrCodeAdapter.CreateMobileLoginUrl(
+                     qrCodeLoginConfigsHelper.LocalTest(),
+                    config.Domains[0],
                     config.SiteId,
-                    message.SearchAccountName, 
+                    message.SearchAccountName,
                     config.ExpireSeconds);
 
             var rngCasinoStatusModel = qrCodeMemberSignInService.GetRnGStatus(message.SearchAccountName);
@@ -253,8 +252,11 @@
             var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
 
             var link = qrCodeAdapter.CreateMobileLoginUrl(
-                message.Domain, config.SiteId,
-                message.SearchAccountName, config.ExpireSeconds);
+                qrCodeLoginConfigsHelper.LocalTest(),
+                message.Domain,
+                config.SiteId,
+                message.SearchAccountName,
+                config.ExpireSeconds);
 
             return qrCodeAdapter.Generate(link);
         }
