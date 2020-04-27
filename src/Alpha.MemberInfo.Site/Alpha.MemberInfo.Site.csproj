@@ -460,7 +460,9 @@
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.CustDB.BODBDownlineNet.xml" />
-    <Content Include="assets\bundles\credit-balance.css" />
+    <Content Include="assets\bundles\credit-balance.css" >
+		<SonarQubeExclude>true</SonarQubeExclude>
+	</Content>	
     <Content Include="assets\bundles\credit-balance.min.css">
       <DependentUpon>credit-balance.css</DependentUpon>
     </Content>
@@ -557,9 +559,13 @@
     <Content Include="Features\QRCodeMemberSignIn\Scripts\ClipboardPolyfill\clipboard-polyfill.min.js">
       <DependentUpon>clipboard-polyfill.js</DependentUpon>
     </Content>
-    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.css" />
+	<Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.css">
+		<SonarQubeExclude>true</SonarQubeExclude>
+	</Content>
+	<Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.themes.css">
+		<SonarQubeExclude>true</SonarQubeExclude>
+	</Content>
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.min.css" />
-    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.themes.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.themes.min.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.js" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.min.js" />
@@ -636,7 +642,9 @@
     <Content Include="Web.backupMNLNap2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfig.cs">

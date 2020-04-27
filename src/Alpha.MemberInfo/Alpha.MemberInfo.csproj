@@ -278,7 +278,12 @@
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckEnableCustomerCritieria.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\InsertMemberCommand.cs" />
+	<Compile Include="Features\QRCodeMemberSignIn\Criteria\InsertMember\InsertMemberCommand.cs" >
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
+	 <Compile Include="Features\QRCodeMemberSignIn\Criteria\InsertMember\InsertMemberCommandProperties.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckBelongingByUsernameCritieria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectRnGStatusCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteria.cs" />
