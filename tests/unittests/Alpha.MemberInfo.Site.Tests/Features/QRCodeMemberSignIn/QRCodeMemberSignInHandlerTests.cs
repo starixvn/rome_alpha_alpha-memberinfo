@@ -1,18 +1,18 @@
 ﻿namespace Alpha.MemberInfo.Site.Tests.Handlers.MemberRequests
 {
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
+    using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
-    using Alpha.MemberInfo.Tests.Fixtures;
     using Constants;
     using Extensions;
     using Fixtures;
     using MemberInfo.Models;
-    using MemberInfo.Models.MemberRequests;
     using NSubstitute;
+    using Ploeh.AutoFixture;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Threading;
@@ -27,13 +27,12 @@
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly QRCodeMemberSignInHandler handler;
         private readonly IUser user;
-        private readonly AnyValueCreatorFixture anyValueCreatorFixture;
+        private readonly Fixture fixture;
 
-        public QRCodeMemberSignInHandlerTests(UserFixture userFixture, AnyValueCreatorFixture anyValueCreatorFixture)
+        public QRCodeMemberSignInHandlerTests(UserFixture userFixture)
         {
             user = userFixture.User;
-            this.anyValueCreatorFixture = anyValueCreatorFixture;
-
+            fixture = new Fixture();
             service = Substitute.For<QRCodeMemberSignInService>();
             qrCodeLoginConfigsHelper = Substitute.For<QRCodeLoginConfigsHelper>();
             qrCodeAdapter = Substitute.For<QrCodeAdapter>();
@@ -97,39 +96,133 @@
             AssertExtension.Equal(model, actualViewModel);
         }
 
-        //[Fact]
-        //public void HandlerCreateAccountByQRCodeRequest_Always_ReturnsCorrectViewModel()
-        //{
-        //    // Arrange
-        //    var message = new CreateAccountByQRCodeRequest(user)
-        //    {
-        //        UsernameCopyFrom = "User",
-        //        Credit = 100,
-        //        CreditMin = 10,
-        //        CreditMax = 1000,
-        //        FirstSuffix = "A",
-        //        SecondSuffix = "A",
-        //        ThirdSuffix = "A",
-        //        FirstName = "James",
-        //        ShowPageTitle = true
-        //    };
+        [Fact]
+        public void HandlerCreateAccountByQRCodeRequest_Always_ReturnsCorrectViewModel()
+        {
+            // Arrange
+            var message = new CreateAccountByQRCodeRequest(user)
+            {
+                UsernameCopyFrom = "User",
+                Credit = 100,
+                CreditMin = 10,
+                CreditMax = 1000,
+                FirstSuffix = "A",
+                SecondSuffix = "A",
+                ThirdSuffix = "A",
+                FirstName = "James",
+                ShowPageTitle = true
+            };
 
-        //    service.CheckBelongingByUsername(
-        //        Arg.Any<int>(), 
-        //        Arg.Any<string>(), 
-        //        Arg.Any<int>()).Returns(
-        //        new CheckBelongingByUsernameModel(true, 1, false, 2));
+            var custIdCopyFrom = 999;
 
-        //    var model = new CreditRangeModel(100, 10, 1000);
-        //    service.GetCreditRange(Arg.Any<string>()).Returns(model);
-        //    service.IsEnableCustomer(Arg.Any<int>()).Returns(true);
+            service.CheckBelongingByUsername(
+                Arg.Any<int>(),
+                Arg.Any<string>(),
+                Arg.Any<int>()).Returns(
+                new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 2));
 
-        //    // Act
-        //    var actualViewModel = handler.Handle(message);
+            service.IsEnableCustomer(Arg.Any<int>()).Returns(true);
 
-        //    // Assert
-        //    AssertExtension.Equal(model, actualViewModel);
-        //}
+            var result = new ResultCreateMemberQRCode
+            {
+                CustId = 1,
+                CustIdCopyFrom = custIdCopyFrom,
+                Success = true,
+                ErrCode = 0,
+                ErrMsg = string.Empty
+            };
+
+            service.CreateMemberByQRCode(Arg.Any<InsertMemberCommand>()).Returns(result);
+
+            var sportBookSettingModel = fixture.Create<SportBookSettingModel>();
+            service.GetExistedMemberSetting(Arg.Any<int>()).Returns(sportBookSettingModel);
+
+            // Act
+            var actualViewModel = handler.Handle(message);
+
+            // Assert
+            AssertExtension.Equal(result, actualViewModel);
+        }
+
+        [Fact]
+        public void HandlerCreateAccountByQRCodeRequest_InvalidCustIdFrom_ReturnsErrorResult()
+        {
+            // Arrange
+            var message = new CreateAccountByQRCodeRequest(user)
+            {
+                UsernameCopyFrom = "User",
+                Credit = 100,
+                CreditMin = 10,
+                CreditMax = 1000,
+                FirstSuffix = "A",
+                SecondSuffix = "A",
+                ThirdSuffix = "A",
+                FirstName = "James",
+                ShowPageTitle = true
+            };
+
+            var custIdCopyFrom = -1;
+
+            service.CheckBelongingByUsername(
+                Arg.Any<int>(),
+                Arg.Any<string>(),
+                Arg.Any<int>()).Returns(
+                new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 2));
+
+            var result = new ResultCreateMemberQRCode
+            {
+                Success = false,
+                ErrCode = 100,
+                ErrMsg = "Username is invalid."
+            };
+
+            // Act
+            var actualViewModel = handler.Handle(message);
+
+            // Assert
+            AssertExtension.Equal(result, actualViewModel);
+        }
+
+        [Fact]
+        public void HandlerCreateAccountByQRCodeRequest_CustIdFromIsDisabled_ReturnsCorrectViewModel()
+        {
+            // Arrange
+            var message = new CreateAccountByQRCodeRequest(user)
+            {
+                UsernameCopyFrom = "User",
+                Credit = 100,
+                CreditMin = 10,
+                CreditMax = 1000,
+                FirstSuffix = "A",
+                SecondSuffix = "A",
+                ThirdSuffix = "A",
+                FirstName = "James",
+                ShowPageTitle = true
+            };
+
+            var custIdCopyFrom = 999;
+
+            service.CheckBelongingByUsername(
+                Arg.Any<int>(),
+                Arg.Any<string>(),
+                Arg.Any<int>()).Returns(
+                new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 2));
+
+            service.IsEnableCustomer(Arg.Any<int>()).Returns(false);
+
+            var result = new ResultCreateMemberQRCode
+            {
+                Success = false,
+                ErrCode = 100,
+                ErrMsg = "Username is invalid."
+            };
+
+            // Act
+            var actualViewModel = handler.Handle(message);
+
+            // Assert
+            AssertExtension.Equal(result, actualViewModel);
+        }
 
         [Fact]
         public void HandlerGetMemberCreditRequest_Always_ReturnsCorrectViewModel()
@@ -181,7 +274,7 @@
                 message.SearchAccountId,
                 message.FirstName,
                 "imageBase64",
-                "http://ha.nexdev.net:7407/site-main/",
+                string.Empty,
                 domains,
                 message.CreateMode,
                 message.ShowPageTitle,
