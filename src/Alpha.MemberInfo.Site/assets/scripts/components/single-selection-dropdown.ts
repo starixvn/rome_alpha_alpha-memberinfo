@@ -8,7 +8,9 @@ class SingleSelectionDropdownOption {
     constructor(
         public dropdownId: string = "dropdown-single",
         public inputId: string = "UserSelectedId",
-        public onChange: Function = null) {
+        public onChange: Function = null,
+        public enableClickableOptGroups: boolean = false,
+        public enableCollapsibleOptGroups: boolean = false) {
     }
 }
 
@@ -43,8 +45,19 @@ class SingleSelectionDropdownComponent {
             maxHeight: 300,
             numberDisplayed: 1,
             includeSelectAllOption: false,
-            onChange: this.onchange
+            onChange: this.onchange,
+            enableClickableOptGroups: this.options.enableClickableOptGroups,
+            enableCollapsibleOptGroups: this.options.enableCollapsibleOptGroups,
+            optionClass: function (element) {
+                if (self.$(element).data("isnested") === 1) {
+                    return "multiselect-nested-item";
+                }
+            }
         });
+
+        if (this.options.enableClickableOptGroups && this.options.enableCollapsibleOptGroups) {
+            this.$dropdown.next().find(".multiselect-container li").removeClass("hidden");
+        }
     };
     getSelectedItem = () => {
         let selected = [];
