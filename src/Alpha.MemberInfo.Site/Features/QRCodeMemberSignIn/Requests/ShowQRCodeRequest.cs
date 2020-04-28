@@ -10,7 +10,10 @@
     {
         public ShowQRCodeRequest(IUser viewer) : base(viewer)
         {
+            ActorId = viewer.Id;
         }
+
+        public int ActorId { get; }
 
         public int SearchAccountId { get; set; }
 

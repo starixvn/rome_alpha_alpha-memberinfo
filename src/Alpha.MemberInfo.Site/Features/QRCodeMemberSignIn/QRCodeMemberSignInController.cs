@@ -99,7 +99,14 @@
                 return View(InvalidPageViewPath);
             }
 
-            return View(ShowQRCodePath, mediator.Send(message));
+            var viewModel = mediator.Send(message);
+
+            if(viewModel == null)
+            {
+                return View(InvalidPageViewPath);
+            }
+
+            return View(ShowQRCodePath, viewModel);
         }
 
         [HttpPost]

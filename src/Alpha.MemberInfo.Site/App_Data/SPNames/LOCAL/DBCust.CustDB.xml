@@ -31,5 +31,7 @@
     <Setting Key="Age_CustomerSelSuggestUsername" SpName="Age_CustomerSelSuggestUsername" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_CustomerSelCheckEnable" SpName="Acc_CustomerSelCheckEnable" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_CustomerSelRnGStatus" SpName="Acc_CustomerSelRnGStatus_uat3" DbName="DBCust.CustDB.BODBDownlineNet" />
-  </Function>
+    <Setting Key="ResetMainAccountPassword" SpName="Age_CustomerUpdPwd" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CheckQRFirstLogin" SpName="Age_CheckQRFirstLogin_uat3" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0"/>
+   </Function>
 </Functions>

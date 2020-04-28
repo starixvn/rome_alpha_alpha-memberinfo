@@ -13,11 +13,7 @@
     public class PasswordServiceImpl : PasswordService
     {
         private readonly Encryptor encryptor;
-        private static readonly Regex PasswordRule1 = new Regex(@"^(?=.*\d).{8,100}$");
-        private static readonly Regex PasswordRule2 = new Regex(@"^(?=.*[a-z]).{8,100}$");
-        private static readonly Regex PasswordRule3 = new Regex(@"^(?=.*[A-Z]).{8,100}$");
-        private static readonly Regex PasswordRule4 = new Regex(@"^(?=.*[\[\]\^\$\.\|\?\*\+\(\)\\~`\!@#%&\-_+={}'""<>:;,]).{8,100}$");
-        private static readonly Regex NoWhiteSpace = new Regex(@"^\S*$");
+        private static readonly Regex MemberPasswordRule = new Regex(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$"); private static readonly Regex NoWhiteSpace = new Regex(@"^\S*$");
 
         public PasswordServiceImpl(Encryptor encryptor)
         {
@@ -31,14 +27,8 @@
         }
 
         private bool IsMatchedRules(string password)
-        {
-            var r1 = PasswordRule1.Match(password).Success ? 1 : 0;
-            var r2 = PasswordRule2.Match(password).Success ? 1 : 0;
-            var r3 = PasswordRule3.Match(password).Success ? 1 : 0;
-            var r4 = PasswordRule4.Match(password).Success ? 1 : 0;
-
-            return (r1 + r2 + r3 + r4 >= 3) && NoWhiteSpace.Match(password).Success;
-        }
+            => MemberPasswordRule.Match(password).Success && 
+               NoWhiteSpace.Match(password).Success;
 
         private string CreateRandomPassword(int length = 8)
         {

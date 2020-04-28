@@ -2,6 +2,7 @@
 {
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
+    using Alpha.MemberInfo.Models;
     using Fanex.Data.Repository;
     using System.Collections.Generic;
     using System.Linq;
@@ -23,6 +24,10 @@
         string GetSuggestUsername(string prefix, int custId);
 
         SelectRnGStatusModel GetRnGStatus(string username);
+
+        bool CheckFirstLoginByQRCode(int custId);
+
+        Result ResetMemberPassword(ResetMainAccountPasswordCommand command);
     }
 
     public class QRCodeMemberSignInServiceImpl : QRCodeMemberSignInService
@@ -79,5 +84,14 @@
 
         public SelectRnGStatusModel GetRnGStatus(string username)
             => dynamicRepository.Get<SelectRnGStatusModel>(new SelectRnGStatusCriteria(username));
+
+        public Result ResetMemberPassword(ResetMainAccountPasswordCommand command)
+        {
+            dynamicRepository.Execute(command);
+            return Result.CreateErrorResult(command.ErrMsg, command.ErrCode);
+        }
+
+        public bool CheckFirstLoginByQRCode(int custId)
+          => dynamicRepository.Get<bool>(new SelectFirstLoginByQRCodeCriteria(custId));
     }
 }

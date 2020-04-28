@@ -285,6 +285,8 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckBelongingByUsernameCritieria.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Criteria\ResetMainAccountPasswordCommand.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectFirstLoginByQRCodeCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectRnGStatusCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectExistedMemberSettingCriteria.cs" />

@@ -107,32 +107,56 @@
 
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
-            var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
-            var link = qrCodeAdapter.CreateMobileLoginUrl(
-                     qrCodeLoginConfigsHelper.LocalTest(),
-                    config.Domains[0],
-                    config.SiteId,
+            if (qrCodeMemberSignInService.CheckFirstLoginByQRCode(message.SearchAccountId))
+            {
+                var rawPassword = message.RawPassword;
+
+                if (!message.CreateMode)
+                {
+                    var passwordModel = passwordService.CreateMemberPasswordRandom();
+                    rawPassword = passwordModel.RawPassword;
+
+                    qrCodeMemberSignInService.ResetMemberPassword(new ResetMainAccountPasswordCommand
+                    {
+                        CustId = message.SearchAccountId,
+                        UserPwd = passwordModel.EncodePassword,
+                        UserId = message.ActorId,
+                        DisCasino = false,
+                        Language = message.Language,
+                        SubAccId = message.SubAccId,
+                        LoginIP = message.IP
+                    });
+                }
+
+                var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
+                var link = qrCodeAdapter.CreateMobileLoginUrl(
+                         qrCodeLoginConfigsHelper.LocalTest(),
+                        config.Domains[0],
+                        config.SiteId,
+                        message.SearchAccountName,
+                        config.ExpireSeconds);
+
+                var rngCasinoStatusModel = qrCodeMemberSignInService.GetRnGStatus(message.SearchAccountName);
+
+                return new ShowQRCodeViewModel(
+                    message.Credit,
+                    message.CreditMin,
+                    message.CreditMax,
+                    message.MemberNameCopyFrom,
                     message.SearchAccountName,
-                    config.ExpireSeconds);
+                    message.SearchAccountId,
+                    message.FirstName,
+                    qrCodeAdapter.Generate(link),
+                    link,
+                    config.Domains,
+                    message.CreateMode,
+                    message.ShowPageTitle,
+                    rngCasinoStatusModel.SyncCS,
+                    message.MemberIdCopyFrom,
+                    rawPassword);
+            }
 
-            var rngCasinoStatusModel = qrCodeMemberSignInService.GetRnGStatus(message.SearchAccountName);
-
-            return new ShowQRCodeViewModel(
-                message.Credit,
-                message.CreditMin,
-                message.CreditMax,
-                message.MemberNameCopyFrom,
-                message.SearchAccountName,
-                message.SearchAccountId,
-                message.FirstName,
-                qrCodeAdapter.Generate(link),
-                link,
-                config.Domains,
-                message.CreateMode,
-                message.ShowPageTitle,
-                rngCasinoStatusModel.SyncCS,
-                message.MemberIdCopyFrom,
-                message.RawPassword);
+            return null;
         }
 
         public string Handle(GenerateQRCodeRequest message)
