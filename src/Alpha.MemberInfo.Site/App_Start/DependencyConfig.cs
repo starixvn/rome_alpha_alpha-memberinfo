@@ -34,6 +34,7 @@
     using System.Web;
     using System.Web.Mvc;
     using Utilities.IP;
+    using Sunplus.Agent.Utilities;
 
     public static class DependencyConfig
     {
@@ -116,10 +117,12 @@
 
             container.RegisterPerWebRequest<CreditBalanceService, CreditBalanceServiceImpl>();
             container.RegisterPerWebRequest<IProblemAccountService, ProblemAccountService>();
+            container.RegisterPerWebRequest<ProblemAccountWorkbook, ProblemAccountWorkbookImpl>();
             container.RegisterPerWebRequest<QrCodeAdapter, QrCodeAdapterImpl>();
             container.Register(typeof(Workbook<>), typeof(NpoiWorkbook<>), Lifestyle.Scoped);
             container.RegisterPerWebRequest<QRCodeMemberSignInService, QRCodeMemberSignInServiceImpl>();
-            container.RegisterPerWebRequest<ProblemAccountWorkbook, ProblemAccountWorkbookImpl>();
+            container.RegisterPerWebRequest<Encryptor, EncryptorImpl>();
+            container.RegisterPerWebRequest<PasswordService, PasswordServiceImpl>();
         }
 
         private static void RegisterQRCodeConfiguration()

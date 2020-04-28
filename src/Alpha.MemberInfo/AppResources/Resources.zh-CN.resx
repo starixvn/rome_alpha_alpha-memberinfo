@@ -405,7 +405,7 @@
   <data name="RemainingTransferInAmount" xml:space="preserve">
     <value>转入剩余的金额</value>
   </data>
-   <data name="AccountInformation" xml:space="preserve">
+  <data name="AccountInformation" xml:space="preserve">
     <value>账号资料</value>
   </data>
   <data name="CopyLink" xml:space="preserve">
@@ -455,5 +455,8 @@
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>请输入会员信用额</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
   </data>
 </root>

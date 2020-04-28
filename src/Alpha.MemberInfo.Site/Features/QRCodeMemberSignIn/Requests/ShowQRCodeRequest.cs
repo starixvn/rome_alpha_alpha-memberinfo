@@ -18,6 +18,8 @@
 
         public string FirstName { get; set; }
 
+        public string RawPassword { get; set; }
+
         public decimal Credit { get; set; }
 
         public decimal CreditMin { get; set; }

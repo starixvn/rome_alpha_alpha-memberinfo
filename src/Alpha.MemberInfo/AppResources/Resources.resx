@@ -465,4 +465,7 @@
   <data name="UserNamePlaceHolder1" xml:space="preserve">
     <value>Username or First/Last Name</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
 </root>

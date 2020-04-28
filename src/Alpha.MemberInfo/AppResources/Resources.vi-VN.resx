@@ -450,4 +450,7 @@
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>Vui lòng nhập mức tín dụng của Member</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
 </root>

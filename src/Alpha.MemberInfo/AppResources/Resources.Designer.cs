@@ -164,14 +164,11 @@ namespace Alpha.MemberInfo.AppResources {
         /// </summary>
         public static string Cancel {
             get {
-                return ResourceManager.GetString("Captcha", resourceCulture);
+                return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
         
-          
         /// <summary>
-
-        
         ///   Looks up a localized string similar to Cash.
         /// </summary>
         public static string Cash {
@@ -486,7 +483,7 @@ namespace Alpha.MemberInfo.AppResources {
             }
         }
         
-         /// <summary>
+        /// <summary>
         ///   Looks up a localized string similar to Member account is invalid..
         /// </summary>
         public static string MemberAccountIsInvalid {
@@ -494,8 +491,8 @@ namespace Alpha.MemberInfo.AppResources {
                 return ResourceManager.GetString("MemberAccountIsInvalid", resourceCulture);
             }
         }
-
-         /// <summary>
+        
+        /// <summary>
         ///   Looks up a localized string similar to Member Credit.
         /// </summary>
         public static string MemberCredit {
@@ -503,7 +500,6 @@ namespace Alpha.MemberInfo.AppResources {
                 return ResourceManager.GetString("MemberCredit", resourceCulture);
             }
         }
-
         
         /// <summary>
         ///   Looks up a localized string similar to Member Win/Loss Limit.
@@ -533,6 +529,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Given Credit.
+        /// </summary>
+        public static string NewGivenCredit {
+            get {
+                return ResourceManager.GetString("NewGivenCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nickname.
         /// </summary>
         public static string Nickname {
@@ -541,15 +546,6 @@ namespace Alpha.MemberInfo.AppResources {
             }
         }
         
-         /// <summary>
-        ///   Looks up a localized string similar to New Given Credit.
-        /// </summary>
-        public static string NewGivenCredit {
-            get {
-                return ResourceManager.GetString("NewGivenCredit", resourceCulture);
-            }
-        }
-
         /// <summary>
         ///   Looks up a localized string similar to No..
         /// </summary>
@@ -655,6 +651,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Pager_DisplayItems {
             get {
                 return ResourceManager.GetString("Pager_DisplayItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
             }
         }
         
@@ -992,6 +997,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The account has been successfully created..
+        /// </summary>
+        public static string ThisAccountHasBeenSuccessfullyCreated {
+            get {
+                return ResourceManager.GetString("ThisAccountHasBeenSuccessfullyCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To.
         /// </summary>
         public static string To {
@@ -1009,27 +1023,7 @@ namespace Alpha.MemberInfo.AppResources {
             }
         }
         
-         
         /// <summary>
-        ///   Looks up a localized string similar to This account has been successfully created..
-        /// </summary>
-        public static string ThisAccountHasBeenSuccessfullyCreated {
-            get {
-                return ResourceManager.GetString("ThisAccountHasBeenSuccessfullyCreated", resourceCulture);
-            }
-        }
-
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Successfully updated!.
-        /// </summary>
-        public static string UpdateSuccessfully {
-            get {
-                return ResourceManager.GetString("UpdateSuccessfully", resourceCulture);
-            }
-        }
-        
-         /// <summary>
         ///   Looks up a localized string similar to Update Given Credit.
         /// </summary>
         public static string UpdateCredit {
@@ -1044,6 +1038,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string UpdateInformation {
             get {
                 return ResourceManager.GetString("UpdateInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully updated!.
+        /// </summary>
+        public static string UpdateSuccessfully {
+            get {
+                return ResourceManager.GetString("UpdateSuccessfully", resourceCulture);
             }
         }
         

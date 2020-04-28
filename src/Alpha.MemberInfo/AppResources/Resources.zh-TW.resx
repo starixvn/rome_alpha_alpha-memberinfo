@@ -405,7 +405,7 @@
    <data name="RemainingTransferInAmount" xml:space="preserve">
     <value>轉入剩余的金額</value>
   </data>
-   <data name="AccountInformation" xml:space="preserve">
+  <data name="AccountInformation" xml:space="preserve">
     <value>帳號資料</value>
   </data>
   <data name="CopyLink" xml:space="preserve">
@@ -455,5 +455,8 @@
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>請輸入會員信用額</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
   </data>
 </root>

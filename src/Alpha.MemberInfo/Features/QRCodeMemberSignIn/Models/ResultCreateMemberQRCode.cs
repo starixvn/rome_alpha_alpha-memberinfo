@@ -6,6 +6,8 @@
 
         public int CustIdCopyFrom { get; set; }
 
+        public string RawPassword { get; set; }
+
         public bool Success { get; set; }
 
         public int ErrCode { get; set; }

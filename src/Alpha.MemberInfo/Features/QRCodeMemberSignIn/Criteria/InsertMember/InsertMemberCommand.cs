@@ -16,13 +16,15 @@
             string ip,
             string language,
             int subAccId,
-            decimal credit)
+            decimal credit,
+            string password)
         {
             Username = username;
             FirstName = firstName;
             ActorId = actorId;
             Recommend = actorId;
             CopyFromCustId = custIdCopyFrom;
+            Password = password;
             IP = ip;
             Language = language;
             SubAccId = subAccId;

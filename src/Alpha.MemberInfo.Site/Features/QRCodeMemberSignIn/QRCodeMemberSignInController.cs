@@ -78,7 +78,8 @@
                         MemberNameCopyFrom = message.UsernameCopyFrom,
                         message.ShowPageTitle,
                         CreateMode = true,
-                        MemberIdCopyFrom = result.CustIdCopyFrom
+                        MemberIdCopyFrom = result.CustIdCopyFrom,
+                        result.RawPassword
                     });
         }
 

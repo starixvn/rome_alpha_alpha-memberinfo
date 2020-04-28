@@ -405,7 +405,7 @@
     <data name="RemainingTransferInAmount" xml:space="preserve">
     <value>จำนวนเงินโอนเข้าคงเหลือ</value>
   </data>
-   <data name="AccountInformation" xml:space="preserve">
+  <data name="AccountInformation" xml:space="preserve">
     <value>ข้อมูลบัญชี</value>
   </data>
   <data name="CopyLink" xml:space="preserve">
@@ -455,5 +455,8 @@
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>กรุณากรอกเครดิตสมาชิก</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
   </data>
 </root>

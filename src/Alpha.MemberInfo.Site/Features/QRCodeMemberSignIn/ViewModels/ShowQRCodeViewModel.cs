@@ -21,7 +21,8 @@
             bool createMode,
             bool showPageTitle,
             bool syncRnGCasino,
-            int custIdFrom)
+            int custIdFrom,
+            string rawPassword)
         {
             Credit = credit;
             CreditMin = creditMin;
@@ -35,9 +36,12 @@
             Domains = domains;
             CreateMode = createMode;
             ShowPageTitle = showPageTitle;
+            RawPassword = rawPassword;
             this.syncRnGCasino = syncRnGCasino;
             this.custIdFrom = custIdFrom;
         }
+
+        public string RawPassword { get; }
 
         public decimal Credit { get; }
 

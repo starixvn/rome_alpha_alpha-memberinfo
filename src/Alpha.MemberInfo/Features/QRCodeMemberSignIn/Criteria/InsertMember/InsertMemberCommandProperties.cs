@@ -12,7 +12,7 @@
         public int ActorId { get; }
 
         [SpParam(SqlParamName = "userpwd")]
-        public string Password { get; set; } = string.Empty;
+        public string Password { get; }
 
         public string Phone { get; set; } = string.Empty;
         public string Fax { get; set; } = string.Empty;
@@ -171,6 +171,7 @@
 
         public override bool IsValid() =>
             ActorId > 0 &&
+            !string.IsNullOrEmpty(Password) &&
             CopyFromCustId > 0 &&
             !string.IsNullOrEmpty(Username);
     }

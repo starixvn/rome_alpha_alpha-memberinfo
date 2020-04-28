@@ -285,9 +285,6 @@
   <data name="Master" xml:space="preserve">
     <value>マスター</value>
   </data>
-   <data name="AutoDailyResetLimit" xml:space="preserve">
-    <value>Auto Daily Reset Limit</value>
-  </data>
   <data name="AccountInformation" xml:space="preserve">
     <value>Account Information</value>
   </data>
@@ -338,5 +335,8 @@
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>Please input Member credit</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
   </data>
 </root>

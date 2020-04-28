@@ -288,7 +288,7 @@
   <data name="Master" xml:space="preserve">
     <value>마스터</value>
   </data>
-   <data name="AccountInformation" xml:space="preserve">
+  <data name="AccountInformation" xml:space="preserve">
     <value>Account Information</value>
   </data>
   <data name="CopyLink" xml:space="preserve">
@@ -338,5 +338,8 @@
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>Please input Member credit</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
   </data>
 </root>

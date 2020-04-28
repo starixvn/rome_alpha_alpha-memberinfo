@@ -33,7 +33,8 @@
                 "192.168.1.1",
                 "En",
                 0,
-                10);
+                10,
+                "ABC");
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -58,7 +59,8 @@
                 "192.168.1.1",
                 "En",
                 0,
-                10);
+                10,
+                "ABC");
 
             // Act
             var actualIsValid = criteria.IsValid();
@@ -83,7 +85,8 @@
                  "192.168.1.1",
                  "En",
                  0,
-                 10);
+                 10,
+                 "ABC");
 
             // Act
             var actualIsValid = criteria.IsValid();
@@ -108,7 +111,8 @@
                   "192.168.1.1",
                   "En",
                   0,
-                  10);
+                  10,
+                  "ABC");
 
             // Act
             var actualIsValid = criteria.IsValid();

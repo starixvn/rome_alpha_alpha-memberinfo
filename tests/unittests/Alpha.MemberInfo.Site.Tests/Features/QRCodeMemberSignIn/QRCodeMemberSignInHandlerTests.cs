@@ -25,6 +25,7 @@
         private readonly QRCodeMemberSignInService service;
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
+        private readonly PasswordService passwordService;
         private readonly QRCodeMemberSignInHandler handler;
         private readonly IUser user;
         private readonly Fixture fixture;
@@ -34,10 +35,11 @@
             user = userFixture.User;
             fixture = new Fixture();
             service = Substitute.For<QRCodeMemberSignInService>();
+            passwordService = Substitute.For<PasswordService>();
             qrCodeLoginConfigsHelper = Substitute.For<QRCodeLoginConfigsHelper>();
             qrCodeAdapter = Substitute.For<QrCodeAdapter>();
 
-            handler = new QRCodeMemberSignInHandler(qrCodeAdapter, service, qrCodeLoginConfigsHelper);
+            handler = new QRCodeMemberSignInHandler(qrCodeAdapter, service, passwordService, qrCodeLoginConfigsHelper);
 
             Thread.CurrentThread.CurrentCulture = new CultureInfo(LanguageCode.English);
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
@@ -279,7 +281,8 @@
                 message.CreateMode,
                 message.ShowPageTitle,
                 true,
-                message.MemberIdCopyFrom);
+                message.MemberIdCopyFrom,
+                "ABC");
 
             // Act
             var actualViewModel = handler.Handle(message);

@@ -22,21 +22,25 @@
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
+        private readonly PasswordService passwordService;
 
         public QRCodeMemberSignInHandler(
            QrCodeAdapter qrCodeAdapter,
-           QRCodeMemberSignInService qrCodeMemberSignInService)
-            : this(qrCodeAdapter, qrCodeMemberSignInService, null)
+           QRCodeMemberSignInService qrCodeMemberSignInService,
+           PasswordService passwordService)
+            : this(qrCodeAdapter, qrCodeMemberSignInService, passwordService, null)
         {
         }
 
         internal QRCodeMemberSignInHandler(
             QrCodeAdapter qrCodeAdapter,
             QRCodeMemberSignInService qrCodeMemberSignInService,
+            PasswordService passwordService,
             QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper)
         {
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
+            this.passwordService = passwordService;
             this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper ??
                     SimpleServiceLocator.GetService<QRCodeLoginConfigsHelper>();
         }
@@ -59,19 +63,27 @@
             {
                 var setting = qrCodeMemberSignInService.GetExistedMemberSetting(custIdCopyFrom);
 
-                var command = new InsertMemberCommand(
-                    setting, 
-                    message.Username,
-                    message.FirstName ?? string.Empty,
-                    message.CustId,
-                    custIdCopyFrom,
-                    message.IP,
-                    message.Language,
-                    message.SubAccId,
-                    message.Credit);
+                var passwordModel = passwordService.CreateMemberPasswordRandom();
 
-                var result = qrCodeMemberSignInService.CreateMemberByQRCode(command);
+                var result = qrCodeMemberSignInService.CreateMemberByQRCode(
+                    new InsertMemberCommand(
+                        setting,
+                        message.Username,
+                        message.FirstName ?? string.Empty,
+                        message.CustId,
+                        custIdCopyFrom,
+                        message.IP,
+                        message.Language,
+                        message.SubAccId,
+                        message.Credit,
+                        passwordModel.EncodePassword));
+
                 result.CustIdCopyFrom = custIdCopyFrom;
+
+                if (result.Success)
+                {
+                    result.RawPassword = passwordModel.RawPassword;
+                }
 
                 return result;
             }
@@ -119,7 +131,8 @@
                 message.CreateMode,
                 message.ShowPageTitle,
                 rngCasinoStatusModel.SyncCS,
-                message.MemberIdCopyFrom);
+                message.MemberIdCopyFrom,
+                message.RawPassword);
         }
 
         public string Handle(GenerateQRCodeRequest message)
