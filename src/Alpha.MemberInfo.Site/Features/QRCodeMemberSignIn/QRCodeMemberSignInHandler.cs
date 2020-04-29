@@ -98,7 +98,7 @@
 
         public IEnumerable<UsernameSuggestion> Handle(UserNameSuggestionQuery message)
             => qrCodeMemberSignInService.GetUsernamesSuggestion(
-                message.ActorId,
+                message.CustId,
                 message.SuggestionQuery,
                 message.IsInternal);
 
@@ -120,7 +120,7 @@
                     {
                         CustId = message.SearchAccountId,
                         UserPwd = passwordModel.EncodePassword,
-                        UserId = message.ActorId,
+                        UserId = message.CustId,
                         DisCasino = false,
                         Language = message.Language,
                         SubAccId = message.SubAccId,

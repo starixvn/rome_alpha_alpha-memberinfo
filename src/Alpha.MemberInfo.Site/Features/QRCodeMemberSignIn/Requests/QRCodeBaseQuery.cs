@@ -9,6 +9,8 @@
         {
         }
 
-        public override bool IsValid() => base.IsValid() && ActorLevel.IsAgentLevel();
+        public override bool IsValid() => 
+            base.IsValid() && 
+            ActorLevel.IsAgentLevel();
     }
 }

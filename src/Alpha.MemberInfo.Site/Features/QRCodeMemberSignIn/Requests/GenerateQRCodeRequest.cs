@@ -3,9 +3,7 @@
     using Alpha.MemberInfo.Models;
     using MediatR;
 
-    public class GenerateQRCodeRequest :
-        QRCodeBaseQuery,
-        IRequest<string>
+    public class GenerateQRCodeRequest : QRCodeBaseQuery, IRequest<string>
     {
         public GenerateQRCodeRequest(IUser viewer) : base(viewer)
         {
@@ -16,8 +14,8 @@
         public string Domain { get; set; }
 
         public override bool IsValid() => 
-            base.IsValid()
-            && !string.IsNullOrEmpty(SearchAccountName)
-            && !string.IsNullOrEmpty(Domain);
+            base.IsValid() && 
+            !string.IsNullOrEmpty(SearchAccountName) && 
+            !string.IsNullOrEmpty(Domain);
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
-    using Alpha.Auth.Filters;
     using Alpha.Captcha.Mvc;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
@@ -21,16 +20,6 @@
         public QRCodeMemberSignInController(IMediator mediator)
         {
             this.mediator = mediator;
-        }
-
-        private ActionResult RedirectToIndex(string memberName, string errorMessage)
-        {
-            return RedirectToAction("Index",
-               routeValues: new
-               {
-                   MemberName = memberName,
-                   ErrorMessage = errorMessage
-               });
         }
 
         [HttpGet]
@@ -113,5 +102,13 @@
         [HttpPost, AntiXsrfFilter]
         public ActionResult GenerateQrCode(GenerateQRCodeRequest message)
             => Json(mediator.Send(message));
+
+        private ActionResult RedirectToIndex(string memberName, string errorMessage)
+            => RedirectToAction("Index",
+               routeValues: new
+               {
+                   MemberName = memberName,
+                   ErrorMessage = errorMessage
+               });
     }
 }

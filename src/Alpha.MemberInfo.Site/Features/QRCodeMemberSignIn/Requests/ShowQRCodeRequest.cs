@@ -10,10 +10,7 @@
     {
         public ShowQRCodeRequest(IUser viewer) : base(viewer)
         {
-            ActorId = viewer.Id;
         }
-
-        public int ActorId { get; }
 
         public int SearchAccountId { get; set; }
 
@@ -38,10 +35,10 @@
         public bool ShowPageTitle { get; set; } = true;
 
         public override bool IsValid() => 
-            base.IsValid()
-            && SearchAccountId > 0 
-            && !string.IsNullOrEmpty(SearchAccountName)
-            && Credit <= CreditMax
-            && Credit >= CreditMin;
+            base.IsValid() && 
+            SearchAccountId > 0 && 
+            !string.IsNullOrEmpty(SearchAccountName) && 
+            Credit <= CreditMax && 
+            Credit >= CreditMin;
     }
 }

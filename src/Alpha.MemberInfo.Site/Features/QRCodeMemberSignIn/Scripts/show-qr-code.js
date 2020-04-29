@@ -1,5 +1,4 @@
 /// <reference path="../../../assets/scripts/shared/top-windows-interface.ts" />
-"use strict";
 var ShowQRCode = /** @class */ (function () {
     function ShowQRCode($, topWindow) {
         var _this = this;

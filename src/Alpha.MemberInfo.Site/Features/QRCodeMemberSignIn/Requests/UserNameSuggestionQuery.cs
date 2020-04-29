@@ -9,16 +9,15 @@
     {
         public UserNameSuggestionQuery(IUser viewer) : base(viewer)
         {
-            this.ActorId = viewer.Id;
-            this.IsInternal = viewer.IsInternal;
+            IsInternal = viewer.IsInternal;
         }
 
         public string SuggestionQuery { get; set; }
 
-        public int ActorId { get; }
-
         public bool IsInternal { get; }
 
-        public override bool IsValid() => base.IsValid() && !string.IsNullOrEmpty(SuggestionQuery);
+        public override bool IsValid() => 
+            base.IsValid() && 
+            !string.IsNullOrEmpty(SuggestionQuery);
     }
 }

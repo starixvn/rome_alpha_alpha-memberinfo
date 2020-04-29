@@ -1,6 +1,4 @@
-﻿"use strict";
-
-declare var clipboard: any;
+﻿declare var clipboard: any;
 declare var Cleave: any;
 declare var numeral: any;
 

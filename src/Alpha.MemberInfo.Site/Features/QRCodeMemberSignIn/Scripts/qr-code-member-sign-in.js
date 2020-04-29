@@ -1,4 +1,3 @@
-"use strict";
 var QRCodeMemberSignIn = /** @class */ (function () {
     function QRCodeMemberSignIn($, topWindow) {
         var _this = this;

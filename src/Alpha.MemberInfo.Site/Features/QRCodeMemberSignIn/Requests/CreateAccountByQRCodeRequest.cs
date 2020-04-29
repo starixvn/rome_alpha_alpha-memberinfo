@@ -11,8 +11,6 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
     {
         public CreateAccountByQRCodeRequest(IUser viewer) : base(viewer)
         {
-            IP = viewer.IP;
-            SubAccId = viewer.SubAccId;
         }
 
         public string UsernameCopyFrom { get; set; }
@@ -35,14 +33,10 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
 
         public bool ShowPageTitle { get; set; }
 
-        public string IP { get; }
-
-        public int SubAccId { get; }
-
         public override bool IsValid() =>
-            base.IsValid()
-            && !string.IsNullOrEmpty(UsernameCopyFrom)
-            && Credit <= CreditMax
-            && Credit >= CreditMin;
+            base.IsValid() && 
+            !string.IsNullOrEmpty(UsernameCopyFrom) && 
+            Credit <= CreditMax && 
+            Credit >= CreditMin;
     }
 }

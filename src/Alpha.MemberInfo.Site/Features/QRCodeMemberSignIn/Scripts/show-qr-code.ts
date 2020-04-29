@@ -1,5 +1,4 @@
 ﻿/// <reference path="../../../assets/scripts/shared/top-windows-interface.ts" />
-"use strict";
 
 declare var clipboard: any;
 declare var numeral: any;
@@ -84,8 +83,7 @@ class ShowQRCode {
 
             const params = {
                 SearchAccountName: this.$('.username-label').text(),
-                Domain: this.$('#domains').val(),
-                __RequestVerificationToken: this.$("#__AjaxAntiForgeryForm input").val()
+                Domain: this.$('#domains').val()
             };
 
             const headers = {

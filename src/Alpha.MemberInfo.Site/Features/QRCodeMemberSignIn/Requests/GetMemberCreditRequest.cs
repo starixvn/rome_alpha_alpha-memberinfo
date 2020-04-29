@@ -6,17 +6,14 @@
 
     public class GetMemberCreditRequest : QRCodeBaseQuery, IRequest<CreditRangeModel>
     {
-        private readonly IUser viewer;
-
         public GetMemberCreditRequest(IUser viewer) : base(viewer)
         {
-            this.viewer = viewer;
         }
 
         public string SearchAccountName { get; set; }
 
-        public int ActorId => viewer.Id;
-
-        public override bool IsValid() => base.IsValid() && !string.IsNullOrEmpty(SearchAccountName);
+        public override bool IsValid() => 
+            base.IsValid() && 
+            !string.IsNullOrEmpty(SearchAccountName);
     }
 }
