@@ -1,9 +1,11 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
+    using Alpha.Auth.Filters;
     using Alpha.Captcha.Mvc;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.Web;
+    using Alpha.Web.Filters;
     using MediatR;
     using System.Linq;
     using System.Web.Mvc;
@@ -21,6 +23,16 @@
             this.mediator = mediator;
         }
 
+        private ActionResult RedirectToIndex(string memberName, string errorMessage)
+        {
+            return RedirectToAction("Index",
+               routeValues: new
+               {
+                   MemberName = memberName,
+                   ErrorMessage = errorMessage
+               });
+        }
+
         [HttpGet]
         public ActionResult Index(QRCodeMemberSignInRequest message)
         {
@@ -32,18 +44,7 @@
             return View(IndexPath, mediator.Send(message));
         }
 
-        private ActionResult RedirectToIndex(string memberName, string errorMessage)
-        {
-            return RedirectToAction("Index",
-               routeValues: new
-               {
-                   MemberName = memberName,
-                   ErrorMessage = errorMessage
-               });
-        }
-
-        [HttpPost]
-        [CaptchaValidation]
+        [HttpPost, CaptchaValidation, ValidateAntiForgeryToken]
         public ActionResult CreateAccount(CreateAccountByQRCodeRequest message)
         {
             if (message != null && !message.IsValid())
@@ -85,11 +86,11 @@
 
         [HttpGet]
         public ActionResult GetUsernamesSuggestion(UserNameSuggestionQuery message)
-          => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+            => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public ActionResult GetMemberCredit(GetMemberCreditRequest message)
-         => Json(mediator.Send(message));
+            => Json(mediator.Send(message));
 
         [HttpGet]
         public ActionResult ShowQRCode(ShowQRCodeRequest message)
@@ -109,8 +110,8 @@
             return View(ShowQRCodePath, viewModel);
         }
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public ActionResult GenerateQrCode(GenerateQRCodeRequest message)
-         => Json(mediator.Send(message));
+            => Json(mediator.Send(message));
     }
 }

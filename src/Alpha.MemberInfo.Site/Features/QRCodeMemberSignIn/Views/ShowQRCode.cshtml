@@ -75,6 +75,7 @@
         @Html.HiddenFor(m => m.CreateMode)
         <input type="hidden" name="update-credit-text" id="update-credit-text" value="@Resources.UpdateCredit" />
         <input type="hidden" name="update-infor-text" id="update-infor-text" value="@Resources.UpdateInformation" />
+        @Html.AntiForgeryToken()
     </div>
 
 @section Scripts {

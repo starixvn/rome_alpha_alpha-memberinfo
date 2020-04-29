@@ -84,14 +84,21 @@ class ShowQRCode {
 
             const params = {
                 SearchAccountName: this.$('.username-label').text(),
-                Domain: this.$('#domains').val()
+                Domain: this.$('#domains').val(),
+                __RequestVerificationToken: this.$("#__AjaxAntiForgeryForm input").val()
+            };
+
+            const headers = {
+                __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
             };
 
             this.$.ajax({
                 method: "POST",
+                headers: headers,
                 data: params,
+                dataType: 'json',
                 url: "GenerateQrCode",
-                cache: false,
                 success: (result) => {
                     this.$('#qr-code-image').attr('src', result);
                     this.$('#QRCodeLink').val(params.Domain);

@@ -49,11 +49,16 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         };
         this.getMemberCredit = function () {
             _this.$.blockUI();
+            var headers = {
+                __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            };
             _this.$.ajax({
                 method: "POST",
+                headers: headers,
                 data: { SearchAccountName: _this.$usernameCopyFrom.val() },
+                dataType: 'json',
                 url: "QRCodeMemberSignIn/GetMemberCredit",
-                cache: false,
                 success: function (result) { return _this.bindingCreditContainer(result); }
             });
         };

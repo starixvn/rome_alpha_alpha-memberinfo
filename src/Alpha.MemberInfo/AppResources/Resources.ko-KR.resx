@@ -340,6 +340,6 @@
     <value>Please input Member credit</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>비밀번호</value>
   </data>
 </root>

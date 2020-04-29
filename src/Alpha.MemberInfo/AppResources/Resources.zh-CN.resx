@@ -457,6 +457,6 @@
     <value>请输入会员信用额</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>密码</value>
   </data>
 </root>

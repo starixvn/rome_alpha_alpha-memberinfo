@@ -96,11 +96,17 @@ class QRCodeMemberSignIn {
     getMemberCredit = () => {
         this.$.blockUI();
 
+        const headers = {
+            __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
+            'X-Requested-With': 'XMLHttpRequest'
+        };
+
         this.$.ajax({
             method: "POST",
-            data: { SearchAccountName: this.$usernameCopyFrom.val() },
+            headers: headers,
+            data: { SearchAccountName: this.$usernameCopyFrom.val()},
+            dataType: 'json',
             url: "QRCodeMemberSignIn/GetMemberCredit",
-            cache: false,
             success: result => this.bindingCreditContainer(result)
         });
     }

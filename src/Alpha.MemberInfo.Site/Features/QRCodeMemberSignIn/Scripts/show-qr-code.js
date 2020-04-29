@@ -60,13 +60,19 @@ var ShowQRCode = /** @class */ (function () {
                 _this.username = chooseUsername;
                 var params = {
                     SearchAccountName: _this.$('.username-label').text(),
-                    Domain: _this.$('#domains').val()
+                    Domain: _this.$('#domains').val(),
+                    __RequestVerificationToken: _this.$("#__AjaxAntiForgeryForm input").val()
+                };
+                var headers = {
+                    __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
+                    'X-Requested-With': 'XMLHttpRequest'
                 };
                 _this.$.ajax({
                     method: "POST",
+                    headers: headers,
                     data: params,
+                    dataType: 'json',
                     url: "GenerateQrCode",
-                    cache: false,
                     success: function (result) {
                         _this.$('#qr-code-image').attr('src', result);
                         _this.$('#QRCodeLink').val(params.Domain);
