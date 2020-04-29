@@ -104,6 +104,10 @@
         public ActionResult GenerateQrCode(GenerateQRCodeRequest message)
             => Json(mediator.Send(message));
 
+        [HttpPost, AntiXsrfFilter]
+        public ActionResult CheckExistedCustomer(CheckExistedCustomerRequest message)
+           => Json(mediator.Send(message));
+
         private ActionResult RedirectToIndex(string memberName, string errorMessage)
             => RedirectToAction("Index",
                routeValues: new

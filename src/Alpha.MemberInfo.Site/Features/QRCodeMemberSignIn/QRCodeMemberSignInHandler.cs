@@ -17,7 +17,8 @@
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
         IRequestHandler<GetMemberCreditRequest, CreditRangeModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>,
-        IRequestHandler<GenerateQRCodeRequest, string>
+        IRequestHandler<GenerateQRCodeRequest, string>,
+        IRequestHandler<CheckExistedCustomerRequest, bool>
     {
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
@@ -172,5 +173,8 @@
 
             return qrCodeAdapter.Generate(link);
         }
+
+        public bool Handle(CheckExistedCustomerRequest message)
+            => qrCodeMemberSignInService.CheckExistedCustomer(message.Username);
     }
 }

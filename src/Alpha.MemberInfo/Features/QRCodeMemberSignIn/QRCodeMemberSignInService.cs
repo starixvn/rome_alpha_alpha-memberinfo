@@ -28,6 +28,8 @@
         bool CheckFirstLoginByQRCode(int custId);
 
         Result ResetMemberPassword(ResetMainAccountPasswordCommand command);
+
+        bool CheckExistedCustomer(string username);
     }
 
     public class QRCodeMemberSignInServiceImpl : QRCodeMemberSignInService
@@ -53,11 +55,12 @@
         {
             dynamicRepository.Execute(command);
 
-            return new ResultCreateMemberQRCode{
-               Success = command.Success,
-               CustId = command.CustId,
-               ErrCode = command.ErrCode,
-               ErrMsg = command.ErrMsg
+            return new ResultCreateMemberQRCode
+            {
+                Success = command.Success,
+                CustId = command.CustId,
+                ErrCode = command.ErrCode,
+                ErrMsg = command.ErrMsg
             };
         }
 
@@ -93,5 +96,12 @@
 
         public bool CheckFirstLoginByQRCode(int custId)
           => dynamicRepository.Get<bool>(new SelectFirstLoginByQRCodeCriteria(custId));
+
+        public bool CheckExistedCustomer(string username)
+        {
+            var criteria = new CheckExistedCustomerCritieria(username);
+            dynamicRepository.Execute(criteria);
+            return criteria.IsExists;
+        }
     }
 }

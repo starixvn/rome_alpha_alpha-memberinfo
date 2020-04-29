@@ -39,9 +39,26 @@
         button {
             height: 30px;
         }
+
+        .icon-check, .icon-close {
+            font-size: 18px !important;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .icon-check {
+            color: #52a220;
+        }
+
+        .icon-close {
+            color: #fe0000;
+        }
+
+        .easy-autocomplete {
+            display: inline-block;
+        }
     }
 }
-
 
 @media only screen and (max-device-width: 767px) {
     * {

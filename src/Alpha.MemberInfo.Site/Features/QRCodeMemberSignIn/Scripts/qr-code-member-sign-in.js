@@ -12,11 +12,18 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         this.bindingEvent = function () {
             _this.bidingEasyAutoComplete();
             _this.$form.submit(function (event) { return _this.submitEvent(event); });
+            _this.$('#FirstSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
+            _this.$('#SecondSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
+            _this.$('#ThirdSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
             _this.cleave = new Cleave('#Credit', {
                 numeral: true,
                 numeralDecimalMark: '.',
                 delimiter: ','
             });
+        };
+        this.checkExistedUsernameByChangeSuffix = function () {
+            var username = "" + _this.$('#actor-name').text() + _this.$('#FirstSuffix').val() + _this.$('#SecondSuffix').val() + _this.$('#ThirdSuffix').val();
+            _this.checkExistedCustomer(username, 'icon-message-username', false);
         };
         this.cacheDOMElement = function () {
             _this.$form = _this.$('#qrCodeMemberSignInForm');
@@ -31,6 +38,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             _this.$messageContainer = _this.$('#message');
             _this.$messageContent = _this.$('#message-content');
             _this.memberAccountInvalidMessage = _this.$('#MemberAccountIsInvalid').val();
+            _this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
         };
         this.bindingCreditContainer = function (result) {
             _this.$.unblockUI();
@@ -76,8 +84,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         };
         this.submitEvent = function (event) {
             _this.$.blockUI();
-            var username = _this.$usernameCopyFrom.val();
-            if (username === '') {
+            if (_this.inValidCustomerCopyFrom || _this.inValidUsername) {
                 _this.showErrorMessage(_this.memberAccountInvalidMessage, event);
             }
             var credit = parseFloat(_this.cleave.getRawValue());
@@ -90,6 +97,37 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 _this.$creditInput.val(_this.cleave.getRawValue());
             }
             _this.$.unblockUI();
+        };
+        this.showMessageIcon = function (iconId, existedCustomer, checkCustomerCopyFrom) {
+            if (checkCustomerCopyFrom === void 0) { checkCustomerCopyFrom = true; }
+            _this.$("#" + iconId).removeClass();
+            var iconClass = '';
+            if (checkCustomerCopyFrom) {
+                _this.inValidCustomerCopyFrom = !existedCustomer;
+                iconClass = existedCustomer ? 'icon-check' : 'icon-close';
+            }
+            else {
+                _this.inValidUsername = existedCustomer;
+                iconClass = existedCustomer ? 'icon-close' : 'icon-check';
+            }
+            _this.$("#" + iconId).addClass(iconClass);
+        };
+        this.checkExistedCustomer = function (username, iconId, checkCustomerCopyFrom) {
+            if (checkCustomerCopyFrom === void 0) { checkCustomerCopyFrom = true; }
+            var headers = {
+                __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            };
+            _this.$.ajax({
+                method: "POST",
+                headers: headers,
+                data: { username: username },
+                dataType: 'json',
+                url: "QRCodeMemberSignIn/CheckExistedCustomer",
+                success: function (result) {
+                    _this.showMessageIcon(iconId, result, checkCustomerCopyFrom);
+                }
+            });
         };
         this.bidingEasyAutoComplete = function () {
             var options = {
@@ -107,11 +145,15 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     }
                 },
                 list: {
-                    onChooseEvent: function () { return _this.getMemberCredit(); },
+                    onChooseEvent: function () {
+                        _this.showMessageIcon(_this.iconMessageUsernameCopyFrom, true);
+                        _this.getMemberCredit();
+                    },
                     maxNumberOfElements: 10
                 }
             };
             _this.$usernameCopyFrom.easyAutocomplete(options);
+            _this.$usernameCopyFrom.blur(function () { return _this.checkExistedCustomer(_this.$usernameCopyFrom.val(), _this.iconMessageUsernameCopyFrom); });
         };
         this.$ = $;
         this.topWindow = topWindow;

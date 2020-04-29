@@ -31,6 +31,7 @@
         <div class="form-group">
             <label>@Resources.InputExistingMemberAccount</label>
             <input type="text" name="UsernameCopyFrom" id="UsernameCopyFrom" placeholder="@Resources.UsernamePlaceHolder" value="@Model.MemberNameCopyFrom" />
+            <span id="icon-message-UsernameCopyFrom"/>
         </div>
         <div class="form-group">
             <label>@Resources.MemberCredit</label>
@@ -41,7 +42,7 @@
         </div>
         <div class="form-group" id="username-group">
             <label>@Resources.Username</label>
-            <span>@Model.ActorName</span>
+            <span id="actor-name">@Model.ActorName</span>
             <select id="FirstSuffix" name="FirstSuffix">
                 @foreach (var item in Model.NameSuffix)
                 {
@@ -60,6 +61,7 @@
                     <option value="@item" @(Model.ThirdChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
                 }
             </select>
+            <span id="icon-message-username" />
         </div>
         <div class="form-group">
             <label>@Resources.FirstNameOptional</label>
@@ -72,8 +74,8 @@
             <button type="submit" class="btn-submit" id="btn-submit">@Resources.CreateAccount</button>
         </div>
     </div>
-    <input type="hidden" name="CreditMin" id="CreditMin" value="" />
-    <input type="hidden" name="CreditMax" id="CreditMax" value="" />
+    <input type="hidden" name="CreditMin" id="CreditMin" value="0" />
+    <input type="hidden" name="CreditMax" id="CreditMax" value="0" />
     <input type="hidden" name="MemberAccountIsInvalid" id="MemberAccountIsInvalid" value="@Resources.MemberAccountIsInvalid" />
     @Html.HiddenFor(m => m.ShowPageTitle)
     @Html.HiddenFor(m => m.MemberNameCopyFrom)

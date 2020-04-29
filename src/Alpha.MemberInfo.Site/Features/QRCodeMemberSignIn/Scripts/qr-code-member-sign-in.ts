@@ -19,12 +19,16 @@ class QRCodeMemberSignIn {
     $messageContent: JQuery;
 
     memberAccountInvalidMessage: string;
+    iconMessageUsernameCopyFrom: string;
 
     topWindow: any;
     username: string;
     memberLink: string;
     cleave: any;
     givenCreditMustBeBetweenMinMaxMessage: string;
+
+    inValidCustomerCopyFrom: boolean;
+    inValidUsername: boolean;
 
     constructor(
         $: JQueryStatic,
@@ -47,11 +51,20 @@ class QRCodeMemberSignIn {
         this.bidingEasyAutoComplete();
         this.$form.submit(event => this.submitEvent(event));
 
+        this.$('#FirstSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
+        this.$('#SecondSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
+        this.$('#ThirdSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
+
         this.cleave = new Cleave('#Credit', {
             numeral: true,
             numeralDecimalMark: '.',
             delimiter: ','
         });
+    }
+
+    checkExistedUsernameByChangeSuffix = () => {
+        const username = `${this.$('#actor-name').text()}${this.$('#FirstSuffix').val()}${this.$('#SecondSuffix').val()}${this.$('#ThirdSuffix').val()}`;
+        this.checkExistedCustomer(username, 'icon-message-username', false);
     }
 
     cacheDOMElement = () => {
@@ -70,6 +83,8 @@ class QRCodeMemberSignIn {
         this.$messageContainer = this.$('#message');
         this.$messageContent = this.$('#message-content');
         this.memberAccountInvalidMessage = this.$('#MemberAccountIsInvalid').val();
+
+        this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
     }
 
     bindingCreditContainer = (result) => {
@@ -127,8 +142,7 @@ class QRCodeMemberSignIn {
     submitEvent = (event) => {
         this.$.blockUI();
 
-        const username = this.$usernameCopyFrom.val();
-        if (username === '') {
+        if (this.inValidCustomerCopyFrom || this.inValidUsername) {
             this.showErrorMessage(this.memberAccountInvalidMessage, event);
         }
 
@@ -144,6 +158,40 @@ class QRCodeMemberSignIn {
         }
 
         this.$.unblockUI();
+    }
+
+    showMessageIcon = (iconId: string, existedCustomer: boolean, checkCustomerCopyFrom: boolean = true) => {
+        this.$(`#${iconId}`).removeClass();
+
+        let iconClass = ''; 
+        if (checkCustomerCopyFrom) {
+            this.inValidCustomerCopyFrom = !existedCustomer;
+            iconClass = existedCustomer ? 'icon-check' : 'icon-close';
+        }
+        else {
+            this.inValidUsername = existedCustomer;
+            iconClass = existedCustomer ? 'icon-close' : 'icon-check';
+        }
+
+        this.$(`#${iconId}`).addClass(iconClass);
+    }
+
+    checkExistedCustomer = (username, iconId: string, checkCustomerCopyFrom: boolean = true) => {
+        const headers = {
+            __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
+            'X-Requested-With': 'XMLHttpRequest'
+        };
+
+        this.$.ajax({
+            method: "POST",
+            headers: headers,
+            data: { username: username },
+            dataType: 'json',
+            url: "QRCodeMemberSignIn/CheckExistedCustomer",
+            success: (result) => {
+                this.showMessageIcon(iconId, result, checkCustomerCopyFrom);
+            }
+        });
     }
 
     bidingEasyAutoComplete = () => {
@@ -162,12 +210,16 @@ class QRCodeMemberSignIn {
                 }
             },
             list: {
-                onChooseEvent: () => this.getMemberCredit(),
+                onChooseEvent: () => {
+                    this.showMessageIcon(this.iconMessageUsernameCopyFrom, true);
+                    this.getMemberCredit();
+                },
                 maxNumberOfElements: 10
             }
         };
 
         this.$usernameCopyFrom.easyAutocomplete(options);
+        this.$usernameCopyFrom.blur(() => this.checkExistedCustomer(this.$usernameCopyFrom.val(), this.iconMessageUsernameCopyFrom));
     }
 }
 

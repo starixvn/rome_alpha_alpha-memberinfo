@@ -277,6 +277,7 @@
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckExistedCustomerCritieria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckEnableCustomerCritieria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\InsertMember\InsertMemberCommand.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
