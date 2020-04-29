@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
+    using Alpha.Auth.Filters;
     using Alpha.Captcha.Mvc;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;

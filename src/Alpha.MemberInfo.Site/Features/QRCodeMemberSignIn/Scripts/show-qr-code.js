@@ -2,6 +2,20 @@
 var ShowQRCode = /** @class */ (function () {
     function ShowQRCode($, topWindow) {
         var _this = this;
+        this.init = function () {
+            if (JSON.parse(_this.$('#CreateMode').val().toLowerCase())) {
+                _this.correctSettingInCaseCreateMode();
+            }
+            var memberNameCopyFrom = _this.$('#MemberNameCopyFrom').val();
+            localStorage.setItem("memberNameCopyFrom", memberNameCopyFrom);
+            _this.username = _this.$('.username-label').html();
+            _this.$('#btn-copy-link').click(function () {
+                clipboard.writeText(_this.$('#QRCodeLink').val());
+            });
+            _this.$('#domains').change(function () { return _this.domainOnChange(); });
+            _this.$('#btn-update-information').click(function () { return _this.updateInformation(); });
+            _this.$('#btn-update-credit').click(function () { return _this.updateCredit(); });
+        };
         this.resizePopup = function () {
             if (top.alpha.isScreenLower768) {
                 var modalElement = window.top.document.querySelector('[id^="page-popup-"]');
@@ -38,63 +52,55 @@ var ShowQRCode = /** @class */ (function () {
                 window.top.updateInformationPopup.close();
             }
         };
-        this.init = function () {
-            if (JSON.parse(_this.$('#CreateMode').val().toLowerCase())) {
-                _this.$.ajax({
-                    method: "GET",
-                    url: _this.$('#CorrectDataUrl').val(),
-                    cache: false,
-                    success: function () { }
-                });
+        this.correctSettingInCaseCreateMode = function () {
+            _this.$.ajax({
+                method: "GET",
+                url: _this.$('#CorrectDataUrl').val(),
+                cache: false,
+                success: function () { }
+            });
+        };
+        this.domainOnChange = function () {
+            _this.$.blockUI();
+            var chooseUsername = _this.$('#UsernameCopyFrom').val();
+            _this.username = chooseUsername;
+            var params = {
+                SearchAccountName: _this.$('.username-label').text(),
+                SearchAccountId: _this.$('#SearchAccountId').val(),
+                Domain: _this.$('#domains').val()
+            };
+            var headers = {
+                __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            };
+            _this.$.ajax({
+                method: "POST",
+                headers: headers,
+                data: params,
+                dataType: 'json',
+                url: "GenerateQrCode",
+                success: function (result) {
+                    _this.$('#qr-code-image').attr('src', result);
+                    _this.$('#QRCodeLink').val(params.Domain);
+                    _this.$.unblockUI();
+                }
+            });
+        };
+        this.updateInformation = function () {
+            if (window.top.updateInformationPopup === null || window.top.updateInformationPopup === undefined) {
+                window.top.updateInformationPopup = window.top.ageWnd.createInstance();
             }
-            var memberNameCopyFrom = _this.$('#MemberNameCopyFrom').val();
-            localStorage.setItem("memberNameCopyFrom", memberNameCopyFrom);
-            _this.username = _this.$('.username-label').html();
-            _this.$('#btn-copy-link').click(function () {
-                clipboard.writeText(_this.$('#QRCodeLink').val());
-            });
-            _this.$('#domains').change(function () {
-                _this.$.blockUI();
-                var chooseUsername = _this.$('#UsernameCopyFrom').val();
-                _this.username = chooseUsername;
-                var params = {
-                    SearchAccountName: _this.$('.username-label').text(),
-                    Domain: _this.$('#domains').val(),
-                    __RequestVerificationToken: _this.$("#__AjaxAntiForgeryForm input").val()
-                };
-                var headers = {
-                    __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
-                    'X-Requested-With': 'XMLHttpRequest'
-                };
-                _this.$.ajax({
-                    method: "POST",
-                    headers: headers,
-                    data: params,
-                    dataType: 'json',
-                    url: "GenerateQrCode",
-                    success: function (result) {
-                        _this.$('#qr-code-image').attr('src', result);
-                        _this.$('#QRCodeLink').val(params.Domain);
-                        _this.$.unblockUI();
-                    }
-                });
-            });
-            _this.$('#btn-update-information').click(function () {
-                if (window.top.updateInformationPopup === null || window.top.updateInformationPopup === undefined) {
-                    window.top.updateInformationPopup = window.top.ageWnd.createInstance();
-                }
-                window.top.updateInformationPopup.onClosing = _this.informationPopupOnclosing;
-                window.top.popupManager.openWithHanlder(top.updateInformationPopup, _this.$('#UpdateInformationUrl').val(), _this.$('#update-infor-text').val() + " - " + _this.username, 700, 400);
-                _this.resizePopup();
-            });
-            _this.$('#btn-update-credit').click(function () {
-                if (window.top.updateGivenCreditPopup === null || window.top.updateGivenCreditPopup === undefined) {
-                    window.top.updateGivenCreditPopup = window.top.ageWnd.createInstance();
-                }
-                window.top.updateGivenCreditPopup.onClosing = _this.givenPopupOnclosing;
-                window.top.popupManager.openWithHanlder(top.updateGivenCreditPopup, _this.$('#UpdateCreditUrl').val(), _this.$('#update-credit-text').val() + " - " + _this.username, 500, 300);
-                _this.resizePopup();
-            });
+            window.top.updateInformationPopup.onClosing = _this.informationPopupOnclosing;
+            window.top.popupManager.openWithHanlder(top.updateInformationPopup, _this.$('#UpdateInformationUrl').val(), _this.$('#update-infor-text').val() + " - " + _this.username, 700, 400);
+            _this.resizePopup();
+        };
+        this.updateCredit = function () {
+            if (window.top.updateGivenCreditPopup === null || window.top.updateGivenCreditPopup === undefined) {
+                window.top.updateGivenCreditPopup = window.top.ageWnd.createInstance();
+            }
+            window.top.updateGivenCreditPopup.onClosing = _this.givenPopupOnclosing;
+            window.top.popupManager.openWithHanlder(top.updateGivenCreditPopup, _this.$('#UpdateCreditUrl').val(), _this.$('#update-credit-text').val() + " - " + _this.username, 500, 300);
+            _this.resizePopup();
         };
         this.$ = $;
         this.topWindow = topWindow;
