@@ -20,7 +20,7 @@
         public void Constructor_Always_SetData()
         {
             // Act
-            var model = new WinLossLimitProductModel(1, 2, "ProductName", 3);
+            var model = new WinLossLimitProductModel(1, 2, "ProductName", 3, 0, 0);
 
             // Assert
             Assert.True(model.BetType == 1 && model.SportType == 2 && model.ProductName == "ProductName" && model.ProductId == 3);

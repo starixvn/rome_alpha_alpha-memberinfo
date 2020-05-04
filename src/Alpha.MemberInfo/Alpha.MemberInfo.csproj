@@ -295,6 +295,7 @@
     <Compile Include="Models\ProgressiveJackpot\JackpotGameSetting.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\UserLevel.cs" />
+    <Compile Include="Models\WinLossLimit\WinLossLimitGroupProductModel.cs" />
     <Compile Include="Params\CreditBalanceParam.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitDetail.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitPage.cs" />

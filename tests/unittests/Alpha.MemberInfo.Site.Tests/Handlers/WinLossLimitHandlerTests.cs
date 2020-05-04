@@ -27,7 +27,7 @@
 
             compareLogic = new CompareLogic();
 
-            service.GetWinLossLimitProducts(Arg.Any<int>()).Returns(Enumerable.Empty<WinLossLimitProductModel>());
+            service.GetWinLossLimitProducts(Arg.Any<int>()).Returns(Enumerable.Empty<WinLossLimitGroupProductModel>());
             service.GetMasterList(Arg.Any<int>()).Returns(Enumerable.Empty<CustomerInfo>());
             service.GetAgentList(Arg.Any<int>()).Returns(Enumerable.Empty<CustomerInfo>());
         }
@@ -57,7 +57,7 @@
                 message.PageIndex);
             var expectedViewModel = new WinLossLimitViewModel(
                 message,
-                new List<WinLossLimitProductModel>(),
+                new List<WinLossLimitGroupProductModel>(),
                 Enumerable.Empty<CustomerInfo>(),
                 Enumerable.Empty<CustomerInfo>(),
                 new WinLossLimitPage(),

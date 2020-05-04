@@ -22,6 +22,8 @@
         public WinLossLimitViewModel Handle(WinLossLimitQuery message)
         {
             var products = service.GetWinLossLimitProducts(message.CustId).ToList();
+            var firstProduct = products?.FirstOrDefault()?.Products?.FirstOrDefault();
+
             var masterList = message.ActorLevel.IsSuperLevel() ? service.GetMasterList(message.CustId) : Enumerable.Empty<CustomerInfo>();
             var actorLevel = message.ActorLevel;
             var masterId = message.MasterId != 0 ? message.MasterId
@@ -36,10 +38,10 @@
                 : 0;
 
             var param = new WinLossLimitParam(
-                message.UserSelectedProductId == 0 && products.Any() ? products[0].ProductId : message.UserSelectedProductId,
+                message.UserSelectedProductId == 0 && firstProduct != null ? firstProduct.ProductId : message.UserSelectedProductId,
                 message.CustId,
-                message.BetType == 0 && products.Any() ? products[0].BetType : message.BetType,
-                message.SportType == 0 && products.Any() ? products[0].SportType : message.SportType,
+                message.BetType == 0 && firstProduct != null ? firstProduct.BetType : message.BetType,
+                message.SportType == 0 && firstProduct != null ? firstProduct.SportType : message.SportType,
                 message.Username,
                 message.PlayerId,
                 masterId ?? 0,

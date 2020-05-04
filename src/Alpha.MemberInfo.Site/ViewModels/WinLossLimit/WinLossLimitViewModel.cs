@@ -17,7 +17,7 @@
 
         public WinLossLimitViewModel(
             WinLossLimitQuery message,
-            IEnumerable<WinLossLimitProductModel> products,
+            IEnumerable<WinLossLimitGroupProductModel> groupProducts,
             IEnumerable<CustomerInfo> masterList,
             IEnumerable<CustomerInfo> agentList,
             WinLossLimitPage winLossLimitPage,
@@ -30,7 +30,7 @@
             MasterId = param.MasterId;
             AgentId = param.AgentId;
 
-            Products = products;
+            GroupProducts = groupProducts;
             MasterList = masterList;
             AgentList = agentList;
 
@@ -46,7 +46,7 @@
 
         public int UserSelectedProductId { get; }
 
-        public IEnumerable<WinLossLimitProductModel> Products { get; }
+        public IEnumerable<WinLossLimitGroupProductModel> GroupProducts { get; }
 
         public int MasterId { get; }
 

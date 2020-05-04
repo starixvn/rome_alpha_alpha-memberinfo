@@ -11,22 +11,34 @@
 <form id="win-loss-limit-form" class="form-inline demo-form-inline filter" role="form">
     <div class="form-group">
         <select id="dropdown-product">
-            @foreach (var product in Model.Products)
+            @foreach (var group in Model.GroupProducts)
             {
-                <option value="@product.ProductName" data-product-id="@product.ProductId" data-sport-type="@product.SportType" data-bet-type="@product.BetType" @(Model.UserSelectedProductId == product.ProductId ? " selected=\"selected\"" : string.Empty)>@product.ProductName</option>
+                if (group.HasGroupName)
+                {
+                    <optgroup label="@group.GroupName">
+                        @foreach (var product in group.Products)
+                        {
+                            <option value="@product.ProductName"
+                                    data-product-id="@product.ProductId"
+                                    data-sport-type="@product.SportType"
+                                    data-bet-type="@product.BetType"
+                                    @(Model.UserSelectedProductId == product.ProductId ? " selected=\"selected\"" : string.Empty)
+                                    data-isnested="1">@product.ProductName</option>
+                        }
+                    </optgroup>
+                }
+                else
+                {
+                    foreach (var product in group.Products)
+                    {
+                        <option value="@product.ProductName"
+                                data-product-id="@product.ProductId"
+                                data-sport-type="@product.SportType"
+                                data-bet-type="@product.BetType"
+                                @(Model.UserSelectedProductId == product.ProductId ? " selected=\"selected\"" : string.Empty)>@product.ProductName</option>
+                    }
+                }
             }
-            <optgroup label="Live Casino">
-                <option value="2-1" data-isnested="1">Allbet</option>
-                <option value="2-2" data-isnested="1">BBIN</option>
-                <option value="2-3" data-isnested="1">Gold Deluxe</option>
-                <option value="2-3" data-isnested="1">SA Gaming</option>
-                <option value="2-3" data-isnested="1">Sexy Gaming</option>
-            </optgroup>
-            <optgroup label="RNG Casino">
-                <option value="3-1" data-isnested="1">Macau games</option>
-                <option value="3-2" data-isnested="1">Casino</option>
-                <option value="3-3" data-isnested="1">Saba.club</option>
-            </optgroup>
         </select>
     </div>
     @if (Model.ViewerLevel.IsSuperLevel())
