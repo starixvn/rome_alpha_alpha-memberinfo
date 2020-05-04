@@ -110,14 +110,9 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 dataType: 'json',
                 url: "QRCodeMemberSignIn/CreateAccount",
                 success: function (result) {
-                    if (result.Success) {
-                        var frms = window.top.parent.frames;
-                        var showQRCodeLink = _this.$('#ShowQRCodeLink').val() + "?" + _this.$.param(result) + ")";
-                        if (frms && frms["main"]) {
-                            frms["main"].frames['frmAddNewMember'] ?
-                                frms["main"].frames['frmAddNewMember'].location = showQRCodeLink :
-                                frms["main"].location = showQRCodeLink;
-                        }
+                    if (result.ErrCode === 0) {
+                        localStorage.setItem("memberNameCopyFrom", data.UsernameCopyFrom);
+                        _this.reloadFrame(result);
                     }
                     else {
                         _this.showErrorMessage(result.ErrMsg, event);
@@ -126,6 +121,15 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 }
             });
             _this.$.unblockUI();
+        };
+        this.reloadFrame = function (result) {
+            var frms = window.top.parent.frames;
+            var showQRCodeLink = _this.$('#ShowQRCodeLink').val() + "?" + _this.$.param(result) + ")";
+            if (frms && frms["main"]) {
+                frms["main"].frames['frmAddNewMember'] ?
+                    frms["main"].frames['frmAddNewMember'].location = showQRCodeLink :
+                    frms["main"].location = showQRCodeLink;
+            }
         };
         this.showMessageIcon = function (iconId, existedCustomer, checkCustomerCopyFrom) {
             if (checkCustomerCopyFrom === void 0) { checkCustomerCopyFrom = true; }

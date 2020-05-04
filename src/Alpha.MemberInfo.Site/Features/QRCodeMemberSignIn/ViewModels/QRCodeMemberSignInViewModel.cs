@@ -44,6 +44,7 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
 
         public string ErrorMessage { get; }
 
-        public string ShowQRCodeLink => $"{MicroSites.MemberInfoUrl()}/QRCodeMemberSignIn/ShowQRCode";
+        public string ShowQRCodeLink 
+            => $"{MicroSites.MemberInfoUrl()}/QRCodeMemberSignIn/ShowQRCode";
     }
 }

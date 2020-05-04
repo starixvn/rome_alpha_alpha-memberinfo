@@ -271,7 +271,6 @@
                 message.Credit,
                 message.CreditMin,
                 message.CreditMax,
-                message.MemberNameCopyFrom,
                 message.SearchAccountName,
                 message.SearchAccountId,
                 message.FirstName,
@@ -281,7 +280,7 @@
                 message.CreateMode,
                 message.ShowPageTitle,
                 true,
-                message.MemberIdCopyFrom,
+                message.CustIdCopyFrom,
                 "ABC");
 
             // Act

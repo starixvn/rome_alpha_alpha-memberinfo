@@ -6,8 +6,6 @@ var ShowQRCode = /** @class */ (function () {
             if (JSON.parse(_this.$('#CreateMode').val().toLowerCase())) {
                 _this.correctSettingInCaseCreateMode();
             }
-            var memberNameCopyFrom = _this.$('#MemberNameCopyFrom').val();
-            localStorage.setItem("memberNameCopyFrom", memberNameCopyFrom);
             _this.username = _this.$('.username-label').html();
             _this.$('#btn-copy-link').click(function () {
                 clipboard.writeText(_this.$('#QRCodeLink').val());

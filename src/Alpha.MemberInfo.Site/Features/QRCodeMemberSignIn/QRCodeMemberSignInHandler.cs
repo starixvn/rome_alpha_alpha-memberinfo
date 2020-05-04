@@ -143,7 +143,6 @@
                     message.Credit,
                     message.CreditMin,
                     message.CreditMax,
-                    message.MemberNameCopyFrom,
                     message.SearchAccountName,
                     message.SearchAccountId,
                     message.FirstName,
@@ -153,7 +152,7 @@
                     message.CreateMode,
                     message.ShowPageTitle,
                     rngCasinoStatusModel.SyncCS,
-                    message.MemberIdCopyFrom,
+                    message.CustIdCopyFrom,
                     rawPassword);
             }
 

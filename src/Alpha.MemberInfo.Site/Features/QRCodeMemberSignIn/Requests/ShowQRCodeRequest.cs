@@ -26,9 +26,7 @@
 
         public decimal CreditMax { get; set; }
 
-        public string MemberNameCopyFrom { get; set; }
-
-        public int MemberIdCopyFrom { get; set; }
+        public int CustIdCopyFrom { get; set; }
 
         public bool CreateMode { get; set; }
 

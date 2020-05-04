@@ -11,7 +11,6 @@
             decimal credit,
             decimal creditMin,
             decimal creditMax,
-            string memberNameCopyFrom,
             string searchAccountName,
             int searchAccountId,
             string firstName,
@@ -27,7 +26,6 @@
             Credit = credit;
             CreditMin = creditMin;
             CreditMax = creditMax;
-            MemberNameCopyFrom = memberNameCopyFrom;
             SearchAccountName = searchAccountName;
             SearchAccountId = searchAccountId;
             FirstName = firstName;
@@ -48,8 +46,6 @@
         public decimal CreditMin { get; }
 
         public decimal CreditMax { get; }
-
-        public string MemberNameCopyFrom { get; }
 
         public string SearchAccountName { get; }
 

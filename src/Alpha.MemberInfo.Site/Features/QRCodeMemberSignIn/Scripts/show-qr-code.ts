@@ -27,9 +27,6 @@ class ShowQRCode {
             this.correctSettingInCaseCreateMode();
         }
 
-        const memberNameCopyFrom = this.$('#MemberNameCopyFrom').val();
-        localStorage.setItem("memberNameCopyFrom", memberNameCopyFrom);
-
         this.username = this.$('.username-label').html();
 
         this.$('#btn-copy-link').click(() => {

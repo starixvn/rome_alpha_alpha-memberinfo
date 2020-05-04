@@ -18,8 +18,7 @@
         private const string ShowQRCodePath = "~/Features/QRCodeMemberSignIn/Views/ShowQRCode.cshtml";
         private const string Separator = "; ";
         private readonly IMediator mediator;
-        private readonly int ErrorCodeIncaseInvalidCaptcha = 998;
-        private readonly int ErrorCodeIncaseInvalidQuery = 999;
+        private readonly int ErrorCodeDefault = 998;
 
         public QRCodeMemberSignInController(IMediator mediator)
         {
@@ -44,8 +43,7 @@
             {
                 return Json(new ResultCreateMemberQRCode
                 {
-                    Success = false,
-                    ErrCode = ErrorCodeIncaseInvalidQuery,
+                    ErrCode = ErrorCodeDefault,
                     ErrMsg = Resources.UsernameIsInvalid
                 });
             }
@@ -53,8 +51,7 @@
             if (!ModelState.IsValid)
             {
                 return Json(new ResultCreateMemberQRCode {
-                    Success= false,
-                    ErrCode = ErrorCodeIncaseInvalidCaptcha,
+                    ErrCode = ErrorCodeDefault,
                     ErrMsg= string.Join(Separator, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage)) });
             }
 
@@ -62,7 +59,6 @@
 
             return Json(new
             {
-                result.Success,
                 result.ErrCode,
                 result.ErrMsg,
                 SearchAccountName = message.Username,
@@ -71,10 +67,9 @@
                 message.Credit,
                 message.CreditMin,
                 message.CreditMax,
-                MemberNameCopyFrom = message.UsernameCopyFrom,
                 message.ShowPageTitle,
                 CreateMode = true,
-                MemberIdCopyFrom = result.CustIdCopyFrom,
+                result.CustIdCopyFrom,
                 result.RawPassword
             });
         }
@@ -112,13 +107,5 @@
         [HttpPost, AntiXsrfFilter]
         public ActionResult CheckExistedCustomer(CheckExistedCustomerRequest message)
            => Json(mediator.Send(message));
-
-        private ActionResult RedirectToIndex(string memberName, string errorMessage)
-            => RedirectToAction("Index",
-               routeValues: new
-               {
-                   MemberName = memberName,
-                   ErrorMessage = errorMessage
-               });
     }
 }
