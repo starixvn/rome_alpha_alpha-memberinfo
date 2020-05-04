@@ -12,6 +12,7 @@ class QRCodeMemberSignIn {
     $creditMaxLabel: JQuery;
 
     $creditInput: JQuery;
+    credit: number;
     creditMin: number;
     creditMax: number;
 
@@ -29,6 +30,7 @@ class QRCodeMemberSignIn {
 
     inValidCustomerCopyFrom: boolean;
     inValidUsername: boolean;
+    invalidCredit: boolean;
 
     constructor(
         $: JQueryStatic,
@@ -55,6 +57,7 @@ class QRCodeMemberSignIn {
         this.$('#SecondSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
         this.$('#ThirdSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
 
+        this.$('#Credit').keyup(() => this.validateCredit());
         this.cleave = new Cleave('#Credit', {
             numeral: true,
             numeralDecimalMark: '.',
@@ -106,6 +109,8 @@ class QRCodeMemberSignIn {
                 this.$creditMinLabel.html(numeral(result.CreditMin).format(numberFormat));
                 this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
                 this.$creditInput.val(numeral(result.Credit).format(numberFormat));
+
+                this.validateCredit();
             }
         });
     }
@@ -129,18 +134,25 @@ class QRCodeMemberSignIn {
         };
     }
 
-    submitEvent = (event) => {
-        this.$.blockUI();
+    validateCredit = () => {
+        this.credit = parseFloat(this.cleave.getRawValue());
+        this.invalidCredit = this.credit < this.creditMin || this.credit > this.creditMax;
+        const errorClass = this.invalidCredit ?'icon-close' : 'icon-check';
+        this.$('#icon-message-credit').removeClass().addClass(errorClass);
+    }
 
+    submitEvent = (event) => {
         if (this.inValidCustomerCopyFrom || this.inValidUsername) {
             this.showErrorMessage(this.memberAccountInvalidMessage, event);
+            return;
         }
 
-        const credit = parseFloat(this.cleave.getRawValue());
-
-        if (credit < this.creditMin || credit > this.creditMax) {
+        if (this.invalidCredit) {
             this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage, event);
+            return;
         }
+
+        this.$.blockUI();
 
         const data = {
             UsernameCopyFrom: this.$usernameCopyFrom.val(),
@@ -148,7 +160,7 @@ class QRCodeMemberSignIn {
             FirstSuffix: this.$('#FirstSuffix').val(),
             SecondSuffix: this.$('#SecondSuffix').val(),
             ThirdSuffix: this.$('#ThirdSuffix').val(),
-            Credit: credit,
+            Credit: this.credit,
             CreditMin: this.creditMin,
             CreditMax: this.creditMax,
             ShowPageTitle: this.$('#ShowPageTitle').val(),

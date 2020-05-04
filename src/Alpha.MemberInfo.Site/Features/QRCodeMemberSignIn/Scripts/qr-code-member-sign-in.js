@@ -15,6 +15,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             _this.$('#FirstSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
             _this.$('#SecondSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
             _this.$('#ThirdSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
+            _this.$('#Credit').keyup(function () { return _this.validateCredit(); });
             _this.cleave = new Cleave('#Credit', {
                 numeral: true,
                 numeralDecimalMark: '.',
@@ -56,6 +57,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     _this.$creditMinLabel.html(numeral(result.CreditMin).format(numberFormat));
                     _this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
                     _this.$creditInput.val(numeral(result.Credit).format(numberFormat));
+                    _this.validateCredit();
                 }
             });
         };
@@ -75,22 +77,29 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 'X-Requested-With': 'XMLHttpRequest'
             };
         };
+        this.validateCredit = function () {
+            _this.credit = parseFloat(_this.cleave.getRawValue());
+            _this.invalidCredit = _this.credit < _this.creditMin || _this.credit > _this.creditMax;
+            var errorClass = _this.invalidCredit ? 'icon-close' : 'icon-check';
+            _this.$('#icon-message-credit').removeClass().addClass(errorClass);
+        };
         this.submitEvent = function (event) {
-            _this.$.blockUI();
             if (_this.inValidCustomerCopyFrom || _this.inValidUsername) {
                 _this.showErrorMessage(_this.memberAccountInvalidMessage, event);
+                return;
             }
-            var credit = parseFloat(_this.cleave.getRawValue());
-            if (credit < _this.creditMin || credit > _this.creditMax) {
+            if (_this.invalidCredit) {
                 _this.showErrorMessage(_this.givenCreditMustBeBetweenMinMaxMessage, event);
+                return;
             }
+            _this.$.blockUI();
             var data = {
                 UsernameCopyFrom: _this.$usernameCopyFrom.val(),
                 FirstName: _this.$('#FirstName').val(),
                 FirstSuffix: _this.$('#FirstSuffix').val(),
                 SecondSuffix: _this.$('#SecondSuffix').val(),
                 ThirdSuffix: _this.$('#ThirdSuffix').val(),
-                Credit: credit,
+                Credit: _this.credit,
                 CreditMin: _this.creditMin,
                 CreditMax: _this.creditMax,
                 ShowPageTitle: _this.$('#ShowPageTitle').val(),

@@ -36,6 +36,7 @@
         <div class="form-group">
             <label>@Resources.MemberCredit</label>
             <input type="text" name="Credit" id="Credit" placeholder="@Resources.PleaseInputMemberCredit" value="" />
+            <span id="icon-message-credit"> </span>
             <div id="credit-range" class="hidden">
                 <span id="credit-min-label"></span> <=  @Resources.NewGivenCredit <= <span id="credit-max-label"></span>
             </div>
@@ -61,7 +62,7 @@
                     <option value="@item" @(Model.ThirdChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
                 }
             </select>
-            <span id="icon-message-username" />
+            <span id="icon-message-username" class="icon-check"/>
         </div>
         <div class="form-group">
             <label>@Resources.FirstNameOptional</label>
