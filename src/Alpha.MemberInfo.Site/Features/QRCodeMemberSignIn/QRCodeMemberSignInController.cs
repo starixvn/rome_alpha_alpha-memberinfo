@@ -3,6 +3,7 @@
     using Alpha.Auth.Filters;
     using Alpha.Captcha.Mvc;
     using Alpha.MemberInfo.AppResources;
+    using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.Web;
     using Alpha.Web.Filters;
@@ -17,6 +18,8 @@
         private const string ShowQRCodePath = "~/Features/QRCodeMemberSignIn/Views/ShowQRCode.cshtml";
         private const string Separator = "; ";
         private readonly IMediator mediator;
+        private readonly int ErrorCodeIncaseInvalidCaptcha = 998;
+        private readonly int ErrorCodeIncaseInvalidQuery = 999;
 
         public QRCodeMemberSignInController(IMediator mediator)
         {
@@ -34,44 +37,46 @@
             return View(IndexPath, mediator.Send(message));
         }
 
-        [HttpPost, CaptchaValidation, ValidateAntiForgeryToken]
+        [HttpPost, CaptchaValidation]
         public ActionResult CreateAccount(CreateAccountByQRCodeRequest message)
         {
             if (message != null && !message.IsValid())
             {
-                return RedirectToIndex(message.UsernameCopyFrom, Resources.UsernameIsInvalid );
+                return Json(new ResultCreateMemberQRCode
+                {
+                    Success = false,
+                    ErrCode = ErrorCodeIncaseInvalidQuery,
+                    ErrMsg = Resources.UsernameIsInvalid
+                });
             }
 
             if (!ModelState.IsValid)
             {
-                return RedirectToIndex(
-                    message.UsernameCopyFrom,
-                    string.Join(Separator,
-                    ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage)));
+                return Json(new ResultCreateMemberQRCode {
+                    Success= false,
+                    ErrCode = ErrorCodeIncaseInvalidCaptcha,
+                    ErrMsg= string.Join(Separator, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage)) });
             }
 
             var result = mediator.Send(message);
 
-            if (!result.Success)
+            return Json(new
             {
-                return RedirectToIndex(message.UsernameCopyFrom, result.ErrMsg);
-            }
-
-            return RedirectToAction("ShowQRCode",
-                    routeValues: new
-                    {
-                        SearchAccountName = message.Username,
-                        SearchAccountId = result.CustId,
-                        message.FirstName,
-                        message.Credit,
-                        message.CreditMin,
-                        message.CreditMax,
-                        MemberNameCopyFrom = message.UsernameCopyFrom,
-                        message.ShowPageTitle,
-                        CreateMode = true,
-                        MemberIdCopyFrom = result.CustIdCopyFrom,
-                        result.RawPassword
-                    });
+                result.Success,
+                result.ErrCode,
+                result.ErrMsg,
+                SearchAccountName = message.Username,
+                SearchAccountId = result.CustId,
+                message.FirstName,
+                message.Credit,
+                message.CreditMin,
+                message.CreditMax,
+                MemberNameCopyFrom = message.UsernameCopyFrom,
+                message.ShowPageTitle,
+                CreateMode = true,
+                MemberIdCopyFrom = result.CustIdCopyFrom,
+                result.RawPassword
+            });
         }
 
         [HttpGet]

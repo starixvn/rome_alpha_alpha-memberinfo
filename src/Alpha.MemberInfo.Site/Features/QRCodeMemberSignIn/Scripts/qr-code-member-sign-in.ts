@@ -49,7 +49,7 @@ class QRCodeMemberSignIn {
 
     bindingEvent = () => {
         this.bidingEasyAutoComplete();
-        this.$form.submit(event => this.submitEvent(event));
+        this.$('#btn-submit').click(event => this.submitEvent(event));
 
         this.$('#FirstSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
         this.$('#SecondSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
@@ -156,6 +156,50 @@ class QRCodeMemberSignIn {
         else {
             this.$creditInput.val(this.cleave.getRawValue());
         }
+
+        const headers = {
+            __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
+            'X-Requested-With': 'XMLHttpRequest'
+        };
+
+        const data = {
+            UsernameCopyFrom: this.$usernameCopyFrom.val(),
+            FirstName: this.$('#FirstName').val(),
+            FirstSuffix: this.$('#FirstSuffix').val(),
+            SecondSuffix: this.$('#SecondSuffix').val(),
+            ThirdSuffix: this.$('#ThirdSuffix').val(),
+            Credit: credit,
+            CreditMin: creditMin,
+            CreditMax: creditMax,
+            v: this.$('.captcha-input').val()
+        };
+
+        this.$.ajax({
+            method: "POST",
+            headers: headers,
+            data: data,
+            dataType: 'json',
+            url: "QRCodeMemberSignIn/CreateAccount",
+            success: (result) => {
+                if (result.Success) {
+                    const frms = window.top.parent.frames;
+                    const showQRCodeLink = `${this.$('#ShowQRCodeLink').val()}?${this.$.param(result)})`;
+                    if (frms && frms["main"]) {
+                       frms["main"].frames['frmAddNewMember'] ?
+                            frms["main"].frames['frmAddNewMember'].location = showQRCodeLink :
+                            frms["main"].location = showQRCodeLink;
+                    }
+                }
+                else {
+                    this.showErrorMessage(result.ErrMsg, event);
+
+                    const ErrorCodeIncaseInvalidCaptcha = 998;
+                    if (result.ErrCode === ErrorCodeIncaseInvalidCaptcha) {
+                        this.$('.captcha-icon-refresh').click();
+                    }
+                }
+            }
+        });
 
         this.$.unblockUI();
     }

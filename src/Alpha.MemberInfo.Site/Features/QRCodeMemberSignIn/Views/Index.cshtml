@@ -22,8 +22,8 @@
         <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
     </div>
 }
-@using (Html.BeginForm("CreateAccount", "QRCodeMemberSignIn", FormMethod.Post, new { id = "qrCodeMemberSignInForm", @class = "form-inline filter", role = "form" }))
-{
+
+<div id="qrCodeMemberSignInForm" class="form-inline filter">
     <div id="message" class="@errorMessageClass">
         <span id="message-content" className="col-xs-12">@Model.ErrorMessage</span>
     </div>
@@ -31,7 +31,7 @@
         <div class="form-group">
             <label>@Resources.InputExistingMemberAccount</label>
             <input type="text" name="UsernameCopyFrom" id="UsernameCopyFrom" placeholder="@Resources.UsernamePlaceHolder" value="@Model.MemberNameCopyFrom" />
-            <span id="icon-message-UsernameCopyFrom"/>
+            <span id="icon-message-UsernameCopyFrom" />
         </div>
         <div class="form-group">
             <label>@Resources.MemberCredit</label>
@@ -79,8 +79,9 @@
     <input type="hidden" name="MemberAccountIsInvalid" id="MemberAccountIsInvalid" value="@Resources.MemberAccountIsInvalid" />
     @Html.HiddenFor(m => m.ShowPageTitle)
     @Html.HiddenFor(m => m.MemberNameCopyFrom)
+    @Html.HiddenFor(m => m.ShowQRCodeLink)
     @Html.AntiForgeryToken()
-}
+</div>
 
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")

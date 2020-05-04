@@ -11,7 +11,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         };
         this.bindingEvent = function () {
             _this.bidingEasyAutoComplete();
-            _this.$form.submit(function (event) { return _this.submitEvent(event); });
+            _this.$('#btn-submit').click(function (event) { return _this.submitEvent(event); });
             _this.$('#FirstSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
             _this.$('#SecondSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
             _this.$('#ThirdSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
@@ -96,6 +96,46 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             else {
                 _this.$creditInput.val(_this.cleave.getRawValue());
             }
+            var headers = {
+                __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            };
+            var data = {
+                UsernameCopyFrom: _this.$usernameCopyFrom.val(),
+                FirstName: _this.$('#FirstName').val(),
+                FirstSuffix: _this.$('#FirstSuffix').val(),
+                SecondSuffix: _this.$('#SecondSuffix').val(),
+                ThirdSuffix: _this.$('#ThirdSuffix').val(),
+                Credit: credit,
+                CreditMin: creditMin,
+                CreditMax: creditMax,
+                v: _this.$('.captcha-input').val()
+            };
+            _this.$.ajax({
+                method: "POST",
+                headers: headers,
+                data: data,
+                dataType: 'json',
+                url: "QRCodeMemberSignIn/CreateAccount",
+                success: function (result) {
+                    if (result.Success) {
+                        var frms = window.top.parent.frames;
+                        var showQRCodeLink = _this.$('#ShowQRCodeLink').val() + "?" + _this.$.param(result) + ")";
+                        if (frms && frms["main"]) {
+                            frms["main"].frames['frmAddNewMember'] ?
+                                frms["main"].frames['frmAddNewMember'].location = showQRCodeLink :
+                                frms["main"].location = showQRCodeLink;
+                        }
+                    }
+                    else {
+                        _this.showErrorMessage(result.ErrMsg, event);
+                        var ErrorCodeIncaseInvalidCaptcha = 998;
+                        if (result.ErrCode === ErrorCodeIncaseInvalidCaptcha) {
+                            _this.$('.captcha-icon-refresh').click();
+                        }
+                    }
+                }
+            });
             _this.$.unblockUI();
         };
         this.showMessageIcon = function (iconId, existedCustomer, checkCustomerCopyFrom) {

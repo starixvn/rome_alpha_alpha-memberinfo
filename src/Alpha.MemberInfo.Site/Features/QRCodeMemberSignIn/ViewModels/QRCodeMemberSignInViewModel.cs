@@ -1,4 +1,6 @@
-﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
+﻿using Alpha.Web.Helpers;
+
+namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
 {
     public class QRCodeMemberSignInViewModel
     {
@@ -41,5 +43,7 @@
         public bool ShowPageTitle { get; }
 
         public string ErrorMessage { get; }
+
+        public string ShowQRCodeLink => $"{MicroSites.MemberInfoUrl()}/QRCodeMemberSignIn/ShowQRCode";
     }
 }
