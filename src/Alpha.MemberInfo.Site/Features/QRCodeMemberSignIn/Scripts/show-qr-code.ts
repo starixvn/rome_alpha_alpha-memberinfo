@@ -138,7 +138,7 @@ class ShowQRCode {
         window.top.updateGivenCreditPopup.onClosing = this.givenPopupOnclosing;
         window.top.popupManager.openWithHanlder(
             top.updateGivenCreditPopup,
-            this.$('#UpdateCreditUrl').val(),
+            `${this.$('#UpdateCreditUrl').val()}&CurrentGivenCredit=${this.$('#credit-label').text()}`,
             `${this.$('#update-credit-text').val()} - ${this.username}`,
             500,
             300);

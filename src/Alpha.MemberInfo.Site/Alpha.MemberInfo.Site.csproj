@@ -539,7 +539,6 @@
     <Content Include="assets\styles\problem-account\update.min.css">
       <DependentUpon>update.css</DependentUpon>
     </Content>
-    <Content Include="Features\QRCodeMemberSignIn\Bundles\clipboard-polyfill.min.js" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.css" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.js" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.min.css">

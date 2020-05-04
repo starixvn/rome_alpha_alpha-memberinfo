@@ -37,6 +37,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             _this.$messageContainer = _this.$('#message');
             _this.$messageContent = _this.$('#message-content');
             _this.memberAccountInvalidMessage = _this.$('#MemberAccountIsInvalid').val();
+            _this.usernameIsInvalid = _this.$('#UsernameIsInvalid').val();
             _this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
         };
         this.getMemberCredit = function () {
@@ -84,12 +85,16 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             _this.$('#icon-message-credit').removeClass().addClass(errorClass);
         };
         this.submitEvent = function (event) {
-            if (_this.inValidCustomerCopyFrom || _this.inValidUsername) {
+            if (_this.inValidCustomerCopyFrom) {
                 _this.showErrorMessage(_this.memberAccountInvalidMessage, event);
                 return;
             }
             if (_this.invalidCredit) {
                 _this.showErrorMessage(_this.givenCreditMustBeBetweenMinMaxMessage, event);
+                return;
+            }
+            if (_this.inValidUsername) {
+                _this.showErrorMessage(_this.usernameIsInvalid, event);
                 return;
             }
             _this.$.blockUI();

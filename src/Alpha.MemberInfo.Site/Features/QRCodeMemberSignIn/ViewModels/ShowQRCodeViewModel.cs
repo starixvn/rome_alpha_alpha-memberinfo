@@ -65,12 +65,12 @@
 
         public string UpdateInformationUrl
              => $"{MicroSites.OldMainUrl()}_AccountInfo/EditCustomerInfo.aspx?" +
-             $"Username={SearchAccountName}&CustId={SearchAccountId}&isSyncCasino={syncRnGCasino}";
+             $"Username={SearchAccountName}&CustId={SearchAccountId}&isSyncCasino={(syncRnGCasino ? "1":"0")}";
 
         public string UpdateCreditUrl
             => $"{MicroSites.AccountInfoUrl()}SearchAccount/GivenCredit" +
             $"?SearchAccountId={SearchAccountId}&SearchAccountName={SearchAccountName}&SearchAccountRoleId=1" +
-            $"&CurrentGivenCredit={Credit}&GivenCreditMin={CreditMin}&GivenCreditMax={CreditMax}";
+            $"&GivenCreditMin={CreditMin}&GivenCreditMax={CreditMax}";
 
         public string CorrectDataUrl
             => $"{MicroSites.OldMainUrl()}/QRCodeMemberSignIn/CorrectData?custId={SearchAccountId}&custIdFrom={custIdFrom}&username={SearchAccountName}";

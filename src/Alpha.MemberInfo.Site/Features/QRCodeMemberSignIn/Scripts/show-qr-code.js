@@ -97,7 +97,7 @@ var ShowQRCode = /** @class */ (function () {
                 window.top.updateGivenCreditPopup = window.top.ageWnd.createInstance();
             }
             window.top.updateGivenCreditPopup.onClosing = _this.givenPopupOnclosing;
-            window.top.popupManager.openWithHanlder(top.updateGivenCreditPopup, _this.$('#UpdateCreditUrl').val(), _this.$('#update-credit-text').val() + " - " + _this.username, 500, 300);
+            window.top.popupManager.openWithHanlder(top.updateGivenCreditPopup, _this.$('#UpdateCreditUrl').val() + "&CurrentGivenCredit=" + _this.$('#credit-label').text(), _this.$('#update-credit-text').val() + " - " + _this.username, 500, 300);
             _this.resizePopup();
         };
         this.$ = $;

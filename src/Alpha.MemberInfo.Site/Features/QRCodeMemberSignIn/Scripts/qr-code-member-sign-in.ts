@@ -20,6 +20,7 @@ class QRCodeMemberSignIn {
     $messageContent: JQuery;
 
     memberAccountInvalidMessage: string;
+    usernameIsInvalid: string;
     iconMessageUsernameCopyFrom: string;
 
     topWindow: any;
@@ -84,7 +85,7 @@ class QRCodeMemberSignIn {
         this.$messageContainer = this.$('#message');
         this.$messageContent = this.$('#message-content');
         this.memberAccountInvalidMessage = this.$('#MemberAccountIsInvalid').val();
-
+        this.usernameIsInvalid = this.$('#UsernameIsInvalid').val();
         this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
     }
 
@@ -142,13 +143,18 @@ class QRCodeMemberSignIn {
     }
 
     submitEvent = (event) => {
-        if (this.inValidCustomerCopyFrom || this.inValidUsername) {
+        if (this.inValidCustomerCopyFrom) {
             this.showErrorMessage(this.memberAccountInvalidMessage, event);
             return;
         }
 
         if (this.invalidCredit) {
             this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage, event);
+            return;
+        }
+
+        if (this.inValidUsername) {
+            this.showErrorMessage(this.usernameIsInvalid, event);
             return;
         }
 
