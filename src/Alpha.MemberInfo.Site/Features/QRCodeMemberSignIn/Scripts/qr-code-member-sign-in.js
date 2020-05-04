@@ -38,31 +38,25 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             _this.memberAccountInvalidMessage = _this.$('#MemberAccountIsInvalid').val();
             _this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
         };
-        this.bindingCreditContainer = function (result) {
-            _this.$.unblockUI();
-            var numberFormat = '0,0.##';
-            _this.creditMin = result.CreditMin;
-            _this.creditMax = result.CreditMax;
-            _this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
-            _this.$creditRange.removeClass('hidden');
-            _this.$creditMinLabel.html(numeral(result.CreditMin).format(numberFormat));
-            _this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
-            var credit = numeral(result.Credit);
-            _this.$creditInput.val(credit.format(numberFormat));
-        };
         this.getMemberCredit = function () {
             _this.$.blockUI();
-            var headers = {
-                __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
-                'X-Requested-With': 'XMLHttpRequest'
-            };
             _this.$.ajax({
                 method: "POST",
-                headers: headers,
+                headers: _this.getHeadersForPostRequest(),
                 data: { SearchAccountName: _this.$usernameCopyFrom.val() },
                 dataType: 'json',
                 url: "QRCodeMemberSignIn/GetMemberCredit",
-                success: function (result) { return _this.bindingCreditContainer(result); }
+                success: function (result) {
+                    _this.$.unblockUI();
+                    var numberFormat = '0,0.##';
+                    _this.creditMin = result.CreditMin;
+                    _this.creditMax = result.CreditMax;
+                    _this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
+                    _this.$creditRange.removeClass('hidden');
+                    _this.$creditMinLabel.html(numeral(result.CreditMin).format(numberFormat));
+                    _this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
+                    _this.$creditInput.val(numeral(result.Credit).format(numberFormat));
+                }
             });
         };
         this.showErrorMessage = function (message, event) {
@@ -71,12 +65,15 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             event.preventDefault();
         };
         this.checkingLocalStorage = function () {
-            if (_this.usernameCopyFromInQueryRequest === '' && JSON.parse(localStorage.getItem('IsOldActor'))) {
-                _this.$usernameCopyFrom.val(localStorage.getItem('memberNameCopyFrom'));
-            }
-            else {
+            _this.usernameCopyFromInQueryRequest === '' && JSON.parse(localStorage.getItem('IsOldActor')) ?
+                _this.$usernameCopyFrom.val(localStorage.getItem('memberNameCopyFrom')) :
                 localStorage.removeItem('memberNameCopyFrom');
-            }
+        };
+        this.getHeadersForPostRequest = function () {
+            return {
+                __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            };
         };
         this.submitEvent = function (event) {
             _this.$.blockUI();
@@ -87,10 +84,6 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             if (credit < _this.creditMin || credit > _this.creditMax) {
                 _this.showErrorMessage(_this.givenCreditMustBeBetweenMinMaxMessage, event);
             }
-            var headers = {
-                __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
-                'X-Requested-With': 'XMLHttpRequest'
-            };
             var data = {
                 UsernameCopyFrom: _this.$usernameCopyFrom.val(),
                 FirstName: _this.$('#FirstName').val(),
@@ -101,11 +94,12 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 CreditMin: _this.creditMin,
                 CreditMax: _this.creditMax,
                 ShowPageTitle: _this.$('#ShowPageTitle').val(),
-                v: _this.$('.captcha-input').val()
+                c_v: _this.$("input[name=c_v]").val(),
+                c_f: _this.$("input[name=c_f]").val()
             };
             _this.$.ajax({
                 method: "POST",
-                headers: headers,
+                headers: _this.getHeadersForPostRequest(),
                 data: data,
                 dataType: 'json',
                 url: "QRCodeMemberSignIn/CreateAccount",
@@ -116,7 +110,6 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     }
                     else {
                         _this.showErrorMessage(result.ErrMsg, event);
-                        _this.$('.captcha-icon-refresh').click();
                     }
                 }
             });
@@ -124,7 +117,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         };
         this.reloadFrame = function (result) {
             var frms = window.top.parent.frames;
-            var showQRCodeLink = _this.$('#ShowQRCodeLink').val() + "?" + _this.$.param(result) + ")";
+            var showQRCodeLink = _this.$('#ShowQRCodeLink').val() + "?" + _this.$.param(result);
             if (frms && frms["main"]) {
                 frms["main"].frames['frmAddNewMember'] ?
                     frms["main"].frames['frmAddNewMember'].location = showQRCodeLink :
@@ -147,13 +140,9 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         };
         this.checkExistedCustomer = function (username, iconId, checkCustomerCopyFrom) {
             if (checkCustomerCopyFrom === void 0) { checkCustomerCopyFrom = true; }
-            var headers = {
-                __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
-                'X-Requested-With': 'XMLHttpRequest'
-            };
             _this.$.ajax({
                 method: "POST",
-                headers: headers,
+                headers: _this.getHeadersForPostRequest(),
                 data: { username: username },
                 dataType: 'json',
                 url: "QRCodeMemberSignIn/CheckExistedCustomer",

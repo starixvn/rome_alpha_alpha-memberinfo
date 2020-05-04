@@ -85,38 +85,28 @@ class QRCodeMemberSignIn {
         this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
     }
 
-    bindingCreditContainer = (result) => {
-        this.$.unblockUI();
-
-        const numberFormat = '0,0.##';
-        this.creditMin = result.CreditMin;
-        this.creditMax = result.CreditMax;
-        this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
-
-        this.$creditRange.removeClass('hidden');
-        this.$creditMinLabel.html(numeral(result.CreditMin).format(numberFormat));
-        this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
-
-        const credit = numeral(result.Credit);
-
-        this.$creditInput.val(credit.format(numberFormat));
-    }
-
     getMemberCredit = () => {
         this.$.blockUI();
 
-        const headers = {
-            __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
-            'X-Requested-With': 'XMLHttpRequest'
-        };
-
         this.$.ajax({
             method: "POST",
-            headers: headers,
-            data: { SearchAccountName: this.$usernameCopyFrom.val()},
+            headers: this.getHeadersForPostRequest(),
+            data: { SearchAccountName: this.$usernameCopyFrom.val() },
             dataType: 'json',
             url: "QRCodeMemberSignIn/GetMemberCredit",
-            success: result => this.bindingCreditContainer(result)
+            success: result => {
+                this.$.unblockUI();
+
+                const numberFormat = '0,0.##';
+                this.creditMin = result.CreditMin;
+                this.creditMax = result.CreditMax;
+                this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
+
+                this.$creditRange.removeClass('hidden');
+                this.$creditMinLabel.html(numeral(result.CreditMin).format(numberFormat));
+                this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
+                this.$creditInput.val(numeral(result.Credit).format(numberFormat));
+            }
         });
     }
 
@@ -127,12 +117,16 @@ class QRCodeMemberSignIn {
     }
 
     checkingLocalStorage = () => {
-        if (this.usernameCopyFromInQueryRequest === '' && JSON.parse(localStorage.getItem('IsOldActor'))) {
-            this.$usernameCopyFrom.val(localStorage.getItem('memberNameCopyFrom'));
-        }
-        else {
+        this.usernameCopyFromInQueryRequest === '' && JSON.parse(localStorage.getItem('IsOldActor')) ?
+            this.$usernameCopyFrom.val(localStorage.getItem('memberNameCopyFrom')) :
             localStorage.removeItem('memberNameCopyFrom');
-        }
+    }
+
+    getHeadersForPostRequest = () => {
+        return {
+            __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
+            'X-Requested-With': 'XMLHttpRequest'
+        };
     }
 
     submitEvent = (event) => {
@@ -148,11 +142,6 @@ class QRCodeMemberSignIn {
             this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage, event);
         }
 
-        const headers = {
-            __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
-            'X-Requested-With': 'XMLHttpRequest'
-        };
-
         const data = {
             UsernameCopyFrom: this.$usernameCopyFrom.val(),
             FirstName: this.$('#FirstName').val(),
@@ -163,12 +152,13 @@ class QRCodeMemberSignIn {
             CreditMin: this.creditMin,
             CreditMax: this.creditMax,
             ShowPageTitle: this.$('#ShowPageTitle').val(),
-            v: this.$('.captcha-input').val()
+            c_v: this.$("input[name=c_v]").val(),
+            c_f: this.$("input[name=c_f]").val()
         };
 
         this.$.ajax({
             method: "POST",
-            headers: headers,
+            headers: this.getHeadersForPostRequest(),
             data: data,
             dataType: 'json',
             url: "QRCodeMemberSignIn/CreateAccount",
@@ -179,7 +169,6 @@ class QRCodeMemberSignIn {
                 }
                 else {
                     this.showErrorMessage(result.ErrMsg, event);
-                    this.$('.captcha-icon-refresh').click();
                 }
             }
         });
@@ -189,7 +178,7 @@ class QRCodeMemberSignIn {
 
     reloadFrame = (result) => {
         const frms = window.top.parent.frames;
-        const showQRCodeLink = `${this.$('#ShowQRCodeLink').val()}?${this.$.param(result)})`;
+        const showQRCodeLink = `${this.$('#ShowQRCodeLink').val()}?${this.$.param(result)}`;
         if (frms && frms["main"]) {
             frms["main"].frames['frmAddNewMember'] ?
                 frms["main"].frames['frmAddNewMember'].location = showQRCodeLink :
@@ -214,14 +203,9 @@ class QRCodeMemberSignIn {
     }
 
     checkExistedCustomer = (username, iconId: string, checkCustomerCopyFrom: boolean = true) => {
-        const headers = {
-            __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
-            'X-Requested-With': 'XMLHttpRequest'
-        };
-
         this.$.ajax({
             method: "POST",
-            headers: headers,
+            headers: this.getHeadersForPostRequest(),
             data: { username: username },
             dataType: 'json',
             url: "QRCodeMemberSignIn/CheckExistedCustomer",

@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
-    using Alpha.Auth.Filters;
     using Alpha.Captcha.Mvc;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
@@ -36,7 +35,7 @@
             return View(IndexPath, mediator.Send(message));
         }
 
-        [HttpPost]
+        [HttpPost, CaptchaValidation, AntiXsrfFilter]
         public ActionResult CreateAccount(CreateAccountByQRCodeRequest message)
         {
             if (message != null && !message.IsValid())
@@ -61,16 +60,16 @@
             {
                 result.ErrCode,
                 result.ErrMsg,
-                SearchAccountName = message.Username,
+                result.CustIdCopyFrom,
+                result.RawPassword,
                 SearchAccountId = result.CustId,
+                SearchAccountName = message.Username,
                 message.FirstName,
                 message.Credit,
                 message.CreditMin,
                 message.CreditMax,
                 message.ShowPageTitle,
-                CreateMode = true,
-                result.CustIdCopyFrom,
-                result.RawPassword
+                CreateMode = true
             });
         }
 
@@ -91,13 +90,7 @@
             }
 
             var viewModel = mediator.Send(message);
-
-            if(viewModel == null)
-            {
-                return View(InvalidPageViewPath);
-            }
-
-            return View(ShowQRCodePath, viewModel);
+            return View(viewModel == null ? InvalidPageViewPath : ShowQRCodePath, viewModel);
         }
 
         [HttpPost, AntiXsrfFilter]
