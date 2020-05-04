@@ -12,8 +12,8 @@ class QRCodeMemberSignIn {
     $creditMaxLabel: JQuery;
 
     $creditInput: JQuery;
-    $creditMinInput: JQuery;
-    $creditMaxInput: JQuery;
+    creditMin: number;
+    creditMax: number;
 
     $messageContainer: JQuery;
     $messageContent: JQuery;
@@ -77,8 +77,6 @@ class QRCodeMemberSignIn {
         this.$creditMaxLabel = this.$("#credit-max-label");
 
         this.$creditInput = this.$("#Credit");
-        this.$creditMinInput = this.$("#CreditMin");
-        this.$creditMaxInput = this.$("#CreditMax");
 
         this.$messageContainer = this.$('#message');
         this.$messageContent = this.$('#message-content');
@@ -91,19 +89,17 @@ class QRCodeMemberSignIn {
         this.$.unblockUI();
 
         const numberFormat = '0,0.##';
-        const creditMin = numeral(result.CreditMin);
-        const creditMax = numeral(result.CreditMax);
+        this.creditMin = result.CreditMin;
+        this.creditMax = result.CreditMax;
         this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
 
         this.$creditRange.removeClass('hidden');
-        this.$creditMinLabel.html(creditMin.format(numberFormat));
-        this.$creditMaxLabel.html(creditMax.format(numberFormat));
+        this.$creditMinLabel.html(numeral(result.CreditMin).format(numberFormat));
+        this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
 
         const credit = numeral(result.Credit);
 
         this.$creditInput.val(credit.format(numberFormat));
-        this.$creditMinInput.val(result.CreditMin);
-        this.$creditMaxInput.val(result.CreditMax);
     }
 
     getMemberCredit = () => {
@@ -147,14 +143,9 @@ class QRCodeMemberSignIn {
         }
 
         const credit = parseFloat(this.cleave.getRawValue());
-        const creditMin = parseFloat(this.$creditMinInput.val());
-        const creditMax = parseFloat(this.$creditMaxInput.val());
 
-        if (credit < creditMin || credit > creditMax) {
+        if (credit < this.creditMin || credit > this.creditMax) {
             this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage, event);
-        }
-        else {
-            this.$creditInput.val(this.cleave.getRawValue());
         }
 
         const headers = {
@@ -169,8 +160,9 @@ class QRCodeMemberSignIn {
             SecondSuffix: this.$('#SecondSuffix').val(),
             ThirdSuffix: this.$('#ThirdSuffix').val(),
             Credit: credit,
-            CreditMin: creditMin,
-            CreditMax: creditMax,
+            CreditMin: this.creditMin,
+            CreditMax: this.creditMax,
+            ShowPageTitle: this.$('#ShowPageTitle').val(),
             v: this.$('.captcha-input').val()
         };
 
@@ -192,11 +184,7 @@ class QRCodeMemberSignIn {
                 }
                 else {
                     this.showErrorMessage(result.ErrMsg, event);
-
-                    const ErrorCodeIncaseInvalidCaptcha = 998;
-                    if (result.ErrCode === ErrorCodeIncaseInvalidCaptcha) {
-                        this.$('.captcha-icon-refresh').click();
-                    }
+                    this.$('.captcha-icon-refresh').click();
                 }
             }
         });

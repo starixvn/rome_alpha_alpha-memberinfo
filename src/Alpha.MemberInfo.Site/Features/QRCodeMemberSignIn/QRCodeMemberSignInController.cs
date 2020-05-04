@@ -37,7 +37,7 @@
             return View(IndexPath, mediator.Send(message));
         }
 
-        [HttpPost, CaptchaValidation]
+        [HttpPost]
         public ActionResult CreateAccount(CreateAccountByQRCodeRequest message)
         {
             if (message != null && !message.IsValid())

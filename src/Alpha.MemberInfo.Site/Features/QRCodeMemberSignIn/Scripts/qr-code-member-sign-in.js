@@ -33,8 +33,6 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             _this.$creditMinLabel = _this.$("#credit-min-label");
             _this.$creditMaxLabel = _this.$("#credit-max-label");
             _this.$creditInput = _this.$("#Credit");
-            _this.$creditMinInput = _this.$("#CreditMin");
-            _this.$creditMaxInput = _this.$("#CreditMax");
             _this.$messageContainer = _this.$('#message');
             _this.$messageContent = _this.$('#message-content');
             _this.memberAccountInvalidMessage = _this.$('#MemberAccountIsInvalid').val();
@@ -43,16 +41,14 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         this.bindingCreditContainer = function (result) {
             _this.$.unblockUI();
             var numberFormat = '0,0.##';
-            var creditMin = numeral(result.CreditMin);
-            var creditMax = numeral(result.CreditMax);
+            _this.creditMin = result.CreditMin;
+            _this.creditMax = result.CreditMax;
             _this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
             _this.$creditRange.removeClass('hidden');
-            _this.$creditMinLabel.html(creditMin.format(numberFormat));
-            _this.$creditMaxLabel.html(creditMax.format(numberFormat));
+            _this.$creditMinLabel.html(numeral(result.CreditMin).format(numberFormat));
+            _this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
             var credit = numeral(result.Credit);
             _this.$creditInput.val(credit.format(numberFormat));
-            _this.$creditMinInput.val(result.CreditMin);
-            _this.$creditMaxInput.val(result.CreditMax);
         };
         this.getMemberCredit = function () {
             _this.$.blockUI();
@@ -88,13 +84,8 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 _this.showErrorMessage(_this.memberAccountInvalidMessage, event);
             }
             var credit = parseFloat(_this.cleave.getRawValue());
-            var creditMin = parseFloat(_this.$creditMinInput.val());
-            var creditMax = parseFloat(_this.$creditMaxInput.val());
-            if (credit < creditMin || credit > creditMax) {
+            if (credit < _this.creditMin || credit > _this.creditMax) {
                 _this.showErrorMessage(_this.givenCreditMustBeBetweenMinMaxMessage, event);
-            }
-            else {
-                _this.$creditInput.val(_this.cleave.getRawValue());
             }
             var headers = {
                 __RequestVerificationToken: _this.$("input[name='__RequestVerificationToken']").val(),
@@ -107,8 +98,9 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 SecondSuffix: _this.$('#SecondSuffix').val(),
                 ThirdSuffix: _this.$('#ThirdSuffix').val(),
                 Credit: credit,
-                CreditMin: creditMin,
-                CreditMax: creditMax,
+                CreditMin: _this.creditMin,
+                CreditMax: _this.creditMax,
+                ShowPageTitle: _this.$('#ShowPageTitle').val(),
                 v: _this.$('.captcha-input').val()
             };
             _this.$.ajax({
@@ -129,10 +121,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     }
                     else {
                         _this.showErrorMessage(result.ErrMsg, event);
-                        var ErrorCodeIncaseInvalidCaptcha = 998;
-                        if (result.ErrCode === ErrorCodeIncaseInvalidCaptcha) {
-                            _this.$('.captcha-icon-refresh').click();
-                        }
+                        _this.$('.captcha-icon-refresh').click();
                     }
                 }
             });
