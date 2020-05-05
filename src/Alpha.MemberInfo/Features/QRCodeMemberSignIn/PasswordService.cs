@@ -39,6 +39,8 @@
 
             char[] chars = new char[length];
 
+            string password = string.Empty;
+
             while (!isValidPass)
             {
                 for (int i = 0; i < length; i++)
@@ -46,11 +48,11 @@
                     chars[i] = validChars[random.Next(0, validChars.Length)];
                 }
 
-                var password = new string(chars); 
+                 password = new string(chars); 
 
                 if (!IsMatchedRules(password) ||
-               string.Compare(password, "59D7!4$h", StringComparison.OrdinalIgnoreCase) == 0
-               || string.Compare(password, "493abcDE", StringComparison.OrdinalIgnoreCase) == 0)
+                    string.Compare(password, "59D7!4$h", StringComparison.OrdinalIgnoreCase) == 0
+                    || string.Compare(password, "493abcDE", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     isValidPass = false;
                     Array.Clear(chars, 0, length);
@@ -61,7 +63,7 @@
                 }
             }
 
-            return new string(chars);
+            return password;
         }
     }
 }

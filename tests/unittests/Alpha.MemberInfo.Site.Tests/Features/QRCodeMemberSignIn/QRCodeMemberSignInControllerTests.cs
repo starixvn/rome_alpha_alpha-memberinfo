@@ -7,7 +7,9 @@
     using MemberInfo.Models;
     using NSubstitute;
     using System;
+    using System.Collections.Generic;
     using System.Web.Mvc;
+    using System.Web.Routing;
     using Xunit;
 
     [Trait("Category", "QRCodeMemberSignIn")]
@@ -62,51 +64,54 @@
 
 
         [Fact]
-        public void CreateAccount_Success_RedirectToShowQRCode()
+        public void CreateAccount_Success_ReturnCorrectDataWithRawPassword()
         {
             // Arrange
-            var message = new CreateAccountByQRCodeRequest(user)
-            {
-                UsernameCopyFrom = "User",
-                Credit = 100,
-                CreditMin= 10,
-                CreditMax = 1000,
-                FirstSuffix = "A",
-                SecondSuffix = "A",
-                ThirdSuffix = "A",
-                FirstName = "James",
-                ShowPageTitle = true
-            };
+           var message = new CreateAccountByQRCodeRequest(user)
+           {
+               UsernameCopyFrom = "User",
+               Credit = 100,
+               CreditMin = 10,
+               CreditMax = 1000,
+               FirstSuffix = "A",
+               SecondSuffix = "A",
+               ThirdSuffix = "A",
+               FirstName = "James",
+               ShowPageTitle = true
+           };
 
-            mediator.Send(Arg.Any<CreateAccountByQRCodeRequest>()).Returns(
-                new ResultCreateMemberQRCode
-                {
-                    Success = true,
-                    CustId = 1,
-                    CustIdCopyFrom = 2,
-                    ErrCode = 0,
-                    ErrMsg = string.Empty
-                } );
+            var result = new ResultCreateMemberQRCode
+            {
+                Success = true,
+                CustId = 1,
+                CustIdCopyFrom = 2,
+                ErrCode = 0,
+                ErrMsg = string.Empty
+            }; ;
+
+            mediator.Send(Arg.Any<CreateAccountByQRCodeRequest>()).Returns(result);
 
             // Act
-            var action = (RedirectToRouteResult) controller.CreateAccount(message);
+            var actualData = controller.CreateAccount(message) as JsonResult;
+            IDictionary<string, object> data = new RouteValueDictionary(actualData.Data);
 
             // Assert
-            Assert.Equal("ShowQRCode", action.RouteValues["action"]);
-            Assert.Equal(action.RouteValues["SearchAccountName"], "UserTestAAA");
-            Assert.Equal(action.RouteValues["SearchAccountId"], 1);
-            Assert.Equal(action.RouteValues["FirstName"], "James");
-            Assert.Equal(action.RouteValues["Credit"], (decimal)100);
-            Assert.Equal(action.RouteValues["CreditMin"], (decimal)10);
-            Assert.Equal(action.RouteValues["CreditMax"], (decimal)1000);
-            Assert.Equal(action.RouteValues["MemberNameCopyFrom"], "User");
-            Assert.Equal(action.RouteValues["ShowPageTitle"], true);
-            Assert.Equal(action.RouteValues["CreateMode"], true);
-            Assert.Equal(action.RouteValues["MemberIdCopyFrom"], 2);
+            Assert.Equal(result.ErrCode, data["ErrCode"]);
+            Assert.Equal(result.ErrMsg, data["ErrMsg"]);
+            Assert.Equal(result.CustIdCopyFrom, data["CustIdCopyFrom"]);
+            Assert.Equal(result.RawPassword, data["RawPassword"]);
+            Assert.Equal(result.CustId, data["SearchAccountId"]);
+            Assert.Equal("UserTestAAA", data["SearchAccountName"]);
+            Assert.Equal(message.FirstName, data["FirstName"]);
+            Assert.Equal(message.Credit, data["Credit"]);
+            Assert.Equal(message.CreditMin, data["CreditMin"]);
+            Assert.Equal(message.CreditMax, data["CreditMax"]);
+            Assert.Equal(message.ShowPageTitle, data["ShowPageTitle"]);
+            Assert.True((bool)data["CreateMode"]);
         }
 
         [Fact]
-        public void CreateAccount_Failed_RedirectToIndex()
+        public void CreateAccount_Failed_ReturnErrorResult()
         {
             // Arrange
             var message = new CreateAccountByQRCodeRequest(user)
@@ -134,12 +139,12 @@
             mediator.Send(Arg.Any<CreateAccountByQRCodeRequest>()).Returns(result);
 
             // Act
-            var action = (RedirectToRouteResult)controller.CreateAccount(message);
+            var actualData = controller.CreateAccount(message) as JsonResult;
+            IDictionary<string, object> data = new RouteValueDictionary(actualData.Data);
 
             // Assert
-            Assert.Equal("Index", action.RouteValues["action"]);
-            Assert.Equal(action.RouteValues["MemberName"], "User");
-            Assert.Equal(action.RouteValues["ErrorMessage"], result.ErrMsg);
+            Assert.Equal(result.ErrCode, data["ErrCode"]);
+            Assert.Equal(result.ErrMsg, data["ErrMsg"]);
         }
 
         [Theory]
@@ -147,7 +152,7 @@
         [InlineData(null, 10, 100, 1000)]
         [InlineData("UserCopy", 10, 0, 1000)]
         [InlineData("", 10, 100, 99)]
-        public void CreateAccount_InvalidQuery_RedirectToIndex(
+        public void CreateAccount_InvalidQuery_ReturnErrorResult(
             string usernameCopyFrom,
             decimal creditMin,
             decimal credit,
@@ -168,15 +173,16 @@
             };
 
             // Act
-            var action = (RedirectToRouteResult)controller.CreateAccount(message);
+            var actualData = controller.CreateAccount(message) as JsonResult;
+            IDictionary<string, object> data = new RouteValueDictionary(actualData.Data);
 
             // Assert
-            Assert.Equal("Index", action.RouteValues["action"]);
-            Assert.Equal(action.RouteValues["ErrorMessage"], "Username is invalid.");
+            Assert.Equal(998, data["ErrCode"]);
+            Assert.Equal("Username is invalid.", data["ErrMsg"]);
         }
 
         [Fact]
-        public void CreateAccount_IsInvalidCaptcha_RedirectToIndex()
+        public void CreateAccount_IsInvalidCaptcha_ReturnErrorResult()
         {
             // Arrange
             var message = new CreateAccountByQRCodeRequest(user)
@@ -195,12 +201,12 @@
             controller.ModelState.AddModelError("QRCode", "Invalid Captcha.");
 
             // Act
-            var action = (RedirectToRouteResult)controller.CreateAccount(message);
+            var actualData = controller.CreateAccount(message) as JsonResult;
+            IDictionary<string, object> data = new RouteValueDictionary(actualData.Data);
 
             // Assert
-            Assert.Equal("Index", action.RouteValues["action"]);
-            Assert.Equal(action.RouteValues["MemberName"], "User");
-            Assert.Equal(action.RouteValues["ErrorMessage"], "Invalid Captcha.");
+            Assert.Equal(998, data["ErrCode"]);
+            Assert.Equal("Invalid Captcha.", data["ErrMsg"]);
         }
 
         [Fact]

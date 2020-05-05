@@ -125,13 +125,16 @@
 
             service.IsEnableCustomer(Arg.Any<int>()).Returns(true);
 
+            passwordService.CreateMemberPasswordRandom().Returns(new PasswordModel("AA", "abcd"));
+
             var result = new ResultCreateMemberQRCode
             {
                 CustId = 1,
                 CustIdCopyFrom = custIdCopyFrom,
                 Success = true,
                 ErrCode = 0,
-                ErrMsg = string.Empty
+                ErrMsg = string.Empty,
+                RawPassword = "AA"
             };
 
             service.CreateMemberByQRCode(Arg.Any<InsertMemberCommand>()).Returns(result);
@@ -246,7 +249,7 @@
         }
 
         [Fact]
-        public void HandlerShowQRCodeRequest_Always_ReturnsCorrectViewModel()
+        public void HandlerShowQRCodeRequest_ValidFirstLogin_ReturnsCorrectViewModel()
         {
             // Arrange
             var message = new ShowQRCodeRequest(user)
@@ -259,6 +262,7 @@
             };
 
             qrCodeLoginConfigsHelper.LocalTest().Returns(true);
+            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
 
             service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
             qrCodeAdapter.Generate(Arg.Any<string>()).Returns("imageBase64");
@@ -266,6 +270,8 @@
             var domains = new string[] { "domain.com", "domain1.com" };
             qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs().Returns(
                new QRCodeLoginConfigs("192.468.1.1", domains, 1, 3600));
+
+            passwordService.CreateMemberPasswordRandom().Returns(new PasswordModel("ABC", "abcd"));
 
             var expectedViewModel = new ShowQRCodeViewModel(
                 message.Credit,
@@ -288,6 +294,29 @@
 
             // Assert
             AssertExtension.Equal(expectedViewModel, actualViewModel);
+        }
+
+        [Fact]
+        public void HandlerShowQRCodeRequest_InvalidFirstLogin_ReturnsNull()
+        {
+            // Arrange
+            var message = new ShowQRCodeRequest(user)
+            {
+                SearchAccountId = 1,
+                SearchAccountName = "user test",
+                Credit = 100,
+                CreditMin = 10,
+                CreditMax = 1000
+            };
+
+            qrCodeLoginConfigsHelper.LocalTest().Returns(true);
+            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
+
+            // Act
+            var actualViewModel = handler.Handle(message);
+
+            // Assert
+            AssertExtension.Equal(null, actualViewModel);
         }
 
         [Fact]

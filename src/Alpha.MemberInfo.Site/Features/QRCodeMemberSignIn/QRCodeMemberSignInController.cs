@@ -49,28 +49,31 @@
 
             if (!ModelState.IsValid)
             {
-                return Json(new ResultCreateMemberQRCode {
+                return Json(new ResultCreateMemberQRCode
+                {
                     ErrCode = ErrorCodeDefault,
-                    ErrMsg= string.Join(Separator, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage)) });
+                    ErrMsg = string.Join(Separator, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
+                });
             }
 
             var result = mediator.Send(message);
-
-            return Json(new
-            {
-                result.ErrCode,
-                result.ErrMsg,
-                result.CustIdCopyFrom,
-                result.RawPassword,
-                SearchAccountId = result.CustId,
-                SearchAccountName = message.Username,
-                message.FirstName,
-                message.Credit,
-                message.CreditMin,
-                message.CreditMax,
-                message.ShowPageTitle,
-                CreateMode = true
-            });
+            return result.Success ?
+                Json(new
+                {
+                    result.ErrCode,
+                    result.ErrMsg,
+                    result.CustIdCopyFrom,
+                    result.RawPassword,
+                    SearchAccountId = result.CustId,
+                    SearchAccountName = message.Username,
+                    message.FirstName,
+                    message.Credit,
+                    message.CreditMin,
+                    message.CreditMax,
+                    message.ShowPageTitle,
+                    CreateMode = true
+                }) :
+                Json(result);
         }
 
         [HttpGet]

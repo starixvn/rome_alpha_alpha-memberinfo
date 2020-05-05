@@ -4,8 +4,8 @@
 
     public class ShowQRCodeViewModel
     {
-        private bool syncRnGCasino;
-        private int custIdFrom;
+        private readonly bool syncRnGCasino;
+        private readonly int custIdFrom;
 
         public ShowQRCodeViewModel(
             decimal credit,
