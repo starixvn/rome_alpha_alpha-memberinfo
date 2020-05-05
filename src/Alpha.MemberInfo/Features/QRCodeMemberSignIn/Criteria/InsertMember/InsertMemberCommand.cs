@@ -29,7 +29,7 @@
             IP = ip;
             Language = language;
             SubAccId = subAccId;
-            IsSearchAndCopy = false;
+            IsSearchAndCopy = true;
             SystemId = alphaSystemId;
 
             PlayerDiscount = setting.PlayerDiscount;

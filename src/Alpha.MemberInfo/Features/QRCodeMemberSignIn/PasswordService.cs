@@ -26,11 +26,11 @@
             return new PasswordModel(rawPassword, encryptor.CfsEnCode(rawPassword));
         }
 
-        private bool IsMatchedRules(string password)
+        internal bool IsMatchedRules(string password)
             => MemberPasswordRule.Match(password).Success && 
                NoWhiteSpace.Match(password).Success;
 
-        private string CreateRandomPassword(int length = 8)
+        internal string CreateRandomPassword(int length = 8)
         {
             string validChars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*?_-";
             Random random = new Random();

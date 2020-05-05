@@ -108,7 +108,7 @@
 
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
-            if (qrCodeMemberSignInService.CheckFirstLoginByQRCode(message.SearchAccountId))
+            if (!qrCodeMemberSignInService.CheckFirstLoginByQRCode(message.SearchAccountId))
             {
                 var rawPassword = message.RawPassword;
 
