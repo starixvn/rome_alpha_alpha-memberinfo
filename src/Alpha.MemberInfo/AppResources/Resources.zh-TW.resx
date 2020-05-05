@@ -402,4 +402,7 @@
   <data name="ExportDate" xml:space="preserve">
     <value>導出日期</value>
   </data>
+  <data name="RemainingTransferInAmount" xml:space="preserve">
+    <value>轉入剩余的金額</value>
+  </data>
 </root>

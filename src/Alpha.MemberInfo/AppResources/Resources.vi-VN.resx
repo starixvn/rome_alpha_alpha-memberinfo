@@ -396,4 +396,7 @@
   <data name="ReviewStatus" xml:space="preserve">
     <value>Trạng Thái Đã Xem</value>
   </data>
+  <data name="RemainingTransferInAmount" xml:space="preserve">
+    <value>Tiền Có Thể Chuyển</value>
+  </data>
 </root>
