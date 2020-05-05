@@ -4,6 +4,7 @@
 
     public partial class InsertMemberCommand
     {
+        public bool IsQRCode { get; }
         public string Username { get; }
         public string FirstName { get; }
         public string LastName { get; set; } = string.Empty;

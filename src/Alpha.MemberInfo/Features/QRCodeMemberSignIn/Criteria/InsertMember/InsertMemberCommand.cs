@@ -19,6 +19,7 @@
             decimal credit,
             string password)
         {
+            IsQRCode = true;
             Username = username;
             FirstName = firstName;
             ActorId = actorId;
@@ -28,7 +29,7 @@
             IP = ip;
             Language = language;
             SubAccId = subAccId;
-            IsSearchAndCopy = true;
+            IsSearchAndCopy = false;
             SystemId = alphaSystemId;
 
             PlayerDiscount = setting.PlayerDiscount;
