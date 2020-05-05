@@ -32,7 +32,7 @@
 
         internal string CreateRandomPassword(int length = 8)
         {
-            string validChars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*?_-";
+            const string validChars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*?_-";
             Random random = new Random();
 
             var isValidPass = false;

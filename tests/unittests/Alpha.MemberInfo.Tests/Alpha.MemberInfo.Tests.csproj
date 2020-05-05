@@ -282,6 +282,7 @@
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\ResetMainAccountPasswordCommandTests.cs" />
     <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectFirstLoginByQRCodeCriteriaTests.cs" />
     <Compile Include="Feature\QRCodeMemberSignIn\Criteria\CheckExistedCustomerCritieriaTests.cs" />
     <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteriaTests.cs" />

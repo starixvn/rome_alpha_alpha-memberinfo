@@ -300,7 +300,9 @@
     <Compile Include="Features\QRCodeMemberSignIn\Models\ResultCreateMemberQRCode.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\SportBookSettingModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\UsernameSuggestion.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\PasswordService.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\PasswordService.cs" >
+	  <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInService.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\CasinoGameKindModel.cs" />
@@ -331,7 +333,9 @@
     <Compile Include="Params\ProgressiveJackpotParam.cs" />
     <Compile Include="Params\WinLossLimitParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\CacheRefService.cs" />
+    <Compile Include="Services\CacheRefService.cs" >
+		<SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Services\CreditBalance\CreditBalanceService.cs" />
     <Compile Include="Services\MemberRequest\MemberRequestService.cs" />
     <Compile Include="Services\MemberRequest\CasinoCustomer.cs" />

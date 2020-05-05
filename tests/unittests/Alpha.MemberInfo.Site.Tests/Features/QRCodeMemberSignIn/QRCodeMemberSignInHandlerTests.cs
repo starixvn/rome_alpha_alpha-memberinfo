@@ -262,7 +262,7 @@
             };
 
             qrCodeLoginConfigsHelper.LocalTest().Returns(true);
-            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
+            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
 
             service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
             qrCodeAdapter.Generate(Arg.Any<string>()).Returns("imageBase64");
@@ -310,7 +310,7 @@
             };
 
             qrCodeLoginConfigsHelper.LocalTest().Returns(true);
-            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
+            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
 
             // Act
             var actualViewModel = handler.Handle(message);
