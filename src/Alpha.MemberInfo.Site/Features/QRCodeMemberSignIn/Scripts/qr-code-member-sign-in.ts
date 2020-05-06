@@ -137,7 +137,7 @@ class QRCodeMemberSignIn {
 
     validateCredit = () => {
         this.credit = parseFloat(this.cleave.getRawValue());
-        this.invalidCredit = this.credit < this.creditMin || this.credit > this.creditMax;
+        this.invalidCredit = isNaN(this.credit)  || this.credit < this.creditMin || this.credit > this.creditMax;
         const errorClass = this.invalidCredit ?'icon-close' : 'icon-check';
         this.$('#icon-message-credit').removeClass().addClass(errorClass);
     }

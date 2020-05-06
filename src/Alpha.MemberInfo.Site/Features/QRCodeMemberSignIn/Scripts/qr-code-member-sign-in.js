@@ -80,7 +80,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         };
         this.validateCredit = function () {
             _this.credit = parseFloat(_this.cleave.getRawValue());
-            _this.invalidCredit = _this.credit < _this.creditMin || _this.credit > _this.creditMax;
+            _this.invalidCredit = isNaN(_this.credit) || _this.credit < _this.creditMin || _this.credit > _this.creditMax;
             var errorClass = _this.invalidCredit ? 'icon-close' : 'icon-check';
             _this.$('#icon-message-credit').removeClass().addClass(errorClass);
         };
