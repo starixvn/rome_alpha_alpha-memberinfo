@@ -409,7 +409,7 @@
     <value>Tạo tài khoản</value>
   </data>
   <data name="CreateMemberWithQRCode" xml:space="preserve">
-    <value>Tạo Member bằng mã QR</value>
+    <value>Tạo Member với mã QR</value>
   </data>
   <data name="FirstNameOptional" xml:space="preserve">
     <value>Tên (Tuỳ chọn)</value>

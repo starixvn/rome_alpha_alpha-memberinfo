@@ -415,7 +415,7 @@
     <value>新增帳號功能</value>
   </data>
   <data name="CreateMemberWithQRCode" xml:space="preserve">
-    <value>通過二維碼創建會員</value>
+    <value>用二維碼創建會員</value>
   </data>
   <data name="FirstNameOptional" xml:space="preserve">
     <value>名 （可選擇性）</value>

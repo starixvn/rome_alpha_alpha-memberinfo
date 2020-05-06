@@ -415,7 +415,7 @@
     <value>新增帐号功能</value>
   </data>
   <data name="CreateMemberWithQRCode" xml:space="preserve">
-    <value>通过二维码创建会员</value>
+    <value>用二维码创建会员</value>
   </data>
   <data name="FirstNameOptional" xml:space="preserve">
     <value>名 （可选择性）</value>
