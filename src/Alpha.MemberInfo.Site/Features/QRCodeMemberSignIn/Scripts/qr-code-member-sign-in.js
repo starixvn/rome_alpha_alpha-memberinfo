@@ -189,7 +189,10 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 }
             };
             _this.$usernameCopyFrom.easyAutocomplete(options);
-            _this.$usernameCopyFrom.blur(function () { return _this.checkExistedCustomer(_this.$usernameCopyFrom.val(), _this.iconMessageUsernameCopyFrom); });
+            _this.$usernameCopyFrom.blur(function () {
+                _this.checkExistedCustomer(_this.$usernameCopyFrom.val(), _this.iconMessageUsernameCopyFrom);
+                _this.getMemberCredit();
+            });
         };
         this.$ = $;
         this.topWindow = topWindow;

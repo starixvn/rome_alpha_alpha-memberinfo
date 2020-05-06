@@ -258,7 +258,10 @@ class QRCodeMemberSignIn {
         };
 
         this.$usernameCopyFrom.easyAutocomplete(options);
-        this.$usernameCopyFrom.blur(() => this.checkExistedCustomer(this.$usernameCopyFrom.val(), this.iconMessageUsernameCopyFrom));
+        this.$usernameCopyFrom.blur(() => {
+            this.checkExistedCustomer(this.$usernameCopyFrom.val(), this.iconMessageUsernameCopyFrom);
+            this.getMemberCredit();
+        });
     }
 }
 
