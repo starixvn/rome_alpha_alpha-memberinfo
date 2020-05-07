@@ -1,9 +1,11 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
     using Alpha.MemberInfo.AppResources;
+    using Alpha.MemberInfo.Enumerations;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
+    using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
@@ -57,10 +59,12 @@
 
         public ResultCreateMemberQRCode Handle(CreateAccountByQRCodeRequest message)
         {
-            var checkBelongingByUsernameModel = qrCodeMemberSignInService.CheckBelongingByUsername(message.CustId, message.UsernameCopyFrom, message.SubAccId);
-            var custIdCopyFrom = checkBelongingByUsernameModel.CustId;
+            var model = qrCodeMemberSignInService.CheckBelongingByUsername(message.CustId, message.UsernameCopyFrom, message.SubAccId);
+            var custIdCopyFrom = model.CustId;
 
-            if (custIdCopyFrom > 0 && qrCodeMemberSignInService.IsEnableCustomer(custIdCopyFrom))
+            if (custIdCopyFrom > 0 &&
+                Enumeration.FromValue<UserLevel>((byte)model.RoleId).IsMemberLevel() &&
+                qrCodeMemberSignInService.IsEnableCustomer(custIdCopyFrom))
             {
                 var setting = qrCodeMemberSignInService.GetExistedMemberSetting(custIdCopyFrom);
 
@@ -104,10 +108,10 @@
                 message.IsInternal);
 
         public CreditRangeModel Handle(GetMemberCreditRequest message)
-            => qrCodeMemberSignInService.CheckBelongingByUsername(
+            => IsValidBelongingByUsername(
                 message.CustId, 
                 message.SearchAccountName, 
-                message.SubAccId).CustId > 0 ?
+                message.SubAccId) ?
                 qrCodeMemberSignInService.GetCreditRange(message.SearchAccountName) :
                 new CreditRangeModel();
 
@@ -179,10 +183,18 @@
         }
 
         public bool Handle(CheckExistedCustomerRequest message)
-            => qrCodeMemberSignInService.CheckBelongingByUsername(
+            => IsValidBelongingByUsername(
                 message.CustId, 
                 message.Username, 
-                message.SubAccId).CustId > 0 &&
+                message.SubAccId) &&
             qrCodeMemberSignInService.CheckExistedCustomer(message.Username);
+
+        internal bool IsValidBelongingByUsername(int custId, string username, int subAccountId)
+        {
+            var model = qrCodeMemberSignInService.CheckBelongingByUsername(custId, username, subAccountId);
+
+            return model.CustId > 0 && 
+                Enumeration.FromValue<UserLevel>((byte)model.RoleId).IsMemberLevel();
+        }
     }
 }

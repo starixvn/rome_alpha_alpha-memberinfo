@@ -82,7 +82,7 @@
     "outputFileName": "Features/QRCodeMemberSignIn/bundles/qr-code-member-sign-in.css",
     "inputFiles": [
       "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.css",
-      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.css"
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css"
     ]
   },
   {

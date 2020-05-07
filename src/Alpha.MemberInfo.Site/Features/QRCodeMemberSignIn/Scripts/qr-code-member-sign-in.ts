@@ -46,7 +46,7 @@ class QRCodeMemberSignIn {
         this.bindingEvent();
 
         if (this.$usernameCopyFrom.val() !== '') {
-            this.getMemberCredit();
+            this.blurEventCustomerCopyFrom();
         }
     };
 
@@ -234,6 +234,11 @@ class QRCodeMemberSignIn {
         });
     }
 
+    blurEventCustomerCopyFrom = () => {
+        this.checkExistedCustomer(this.$usernameCopyFrom.val(), this.iconMessageUsernameCopyFrom);
+        this.getMemberCredit();
+    }
+
     bidingEasyAutoComplete = () => {
         const options = {
             url: function (phrase) {
@@ -250,19 +255,14 @@ class QRCodeMemberSignIn {
                 }
             },
             list: {
-                onLoadEvent: () => {
-                    const existedUsername = this.$(this.$usernameCopyFrom).getItemData(0) !== -1;
-                    this.showMessageIcon(this.iconMessageUsernameCopyFrom, existedUsername);
-                },
                 maxNumberOfElements: 10
             }
         };
 
         this.$usernameCopyFrom.easyAutocomplete(options);
         this.$usernameCopyFrom.blur(() => {
-            setTimeout(
-                () => {
-                    this.getMemberCredit();
+            setTimeout(() => {
+                    this.blurEventCustomerCopyFrom();
                 }, 300);
         });
     }

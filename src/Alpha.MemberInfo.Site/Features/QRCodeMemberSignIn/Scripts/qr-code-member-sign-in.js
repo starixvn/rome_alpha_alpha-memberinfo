@@ -6,7 +6,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             _this.checkingLocalStorage();
             _this.bindingEvent();
             if (_this.$usernameCopyFrom.val() !== '') {
-                _this.getMemberCredit();
+                _this.blurEventCustomerCopyFrom();
             }
         };
         this.bindingEvent = function () {
@@ -166,6 +166,10 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 }
             });
         };
+        this.blurEventCustomerCopyFrom = function () {
+            _this.checkExistedCustomer(_this.$usernameCopyFrom.val(), _this.iconMessageUsernameCopyFrom);
+            _this.getMemberCredit();
+        };
         this.bidingEasyAutoComplete = function () {
             var options = {
                 url: function (phrase) {
@@ -182,17 +186,13 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     }
                 },
                 list: {
-                    onLoadEvent: function () {
-                        var existedUsername = _this.$(_this.$usernameCopyFrom).getItemData(0) !== -1;
-                        _this.showMessageIcon(_this.iconMessageUsernameCopyFrom, existedUsername);
-                    },
                     maxNumberOfElements: 10
                 }
             };
             _this.$usernameCopyFrom.easyAutocomplete(options);
             _this.$usernameCopyFrom.blur(function () {
                 setTimeout(function () {
-                    _this.getMemberCredit();
+                    _this.blurEventCustomerCopyFrom();
                 }, 300);
             });
         };
