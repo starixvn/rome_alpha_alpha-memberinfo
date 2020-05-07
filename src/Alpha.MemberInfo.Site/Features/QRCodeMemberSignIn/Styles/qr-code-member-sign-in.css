@@ -24,7 +24,7 @@
     #qrCodeMemberSignInForm .form-group .icon-check, #qrCodeMemberSignInForm .form-group .icon-close {
       font-size: 18px !important;
       display: inline-block;
-      vertical-align: middle; }
+      vertical-align: top; }
     #qrCodeMemberSignInForm .form-group .icon-check {
       color: #52a220; }
     #qrCodeMemberSignInForm .form-group .icon-close {
@@ -37,4 +37,3 @@
     font-size: 18.57143px !important; }
   #qrCodeMemberSignInForm {
     width: 100% !important; } }
-

@@ -181,17 +181,18 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     }
                 },
                 list: {
-                    onChooseEvent: function () {
-                        _this.showMessageIcon(_this.iconMessageUsernameCopyFrom, true);
-                        _this.getMemberCredit();
+                    onLoadEvent: function () {
+                        var existedUsername = _this.$(_this.$usernameCopyFrom).getItemData(0) !== -1;
+                        _this.showMessageIcon(_this.iconMessageUsernameCopyFrom, existedUsername);
                     },
                     maxNumberOfElements: 10
                 }
             };
             _this.$usernameCopyFrom.easyAutocomplete(options);
             _this.$usernameCopyFrom.blur(function () {
-                _this.checkExistedCustomer(_this.$usernameCopyFrom.val(), _this.iconMessageUsernameCopyFrom);
-                _this.getMemberCredit();
+                setTimeout(function () {
+                    _this.getMemberCredit();
+                }, 300);
             });
         };
         this.$ = $;

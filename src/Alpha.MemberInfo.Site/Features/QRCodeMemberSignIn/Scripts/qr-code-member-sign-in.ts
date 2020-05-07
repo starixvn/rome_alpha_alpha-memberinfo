@@ -243,15 +243,15 @@ class QRCodeMemberSignIn {
             minCharNumber: 2,
             template: {
                 type: "custom",
-                method: function (value, item) {
+                method: (value, item) => {
                     const nickname = item.UserName2 === null || item.UserName2 === '' ? '' : `(${item.UserName2})`;
                     return `<div class='suggestion'>${value} ${nickname}<div>${item.FirstName} ${item.LastName}</div></div>`;
                 }
             },
             list: {
-                onChooseEvent: () => {
-                    this.showMessageIcon(this.iconMessageUsernameCopyFrom, true);
-                    this.getMemberCredit();
+                onLoadEvent: () => {
+                    const existedUsername = this.$(this.$usernameCopyFrom).getItemData(0) !== -1;
+                    this.showMessageIcon(this.iconMessageUsernameCopyFrom, existedUsername);
                 },
                 maxNumberOfElements: 10
             }
@@ -259,8 +259,10 @@ class QRCodeMemberSignIn {
 
         this.$usernameCopyFrom.easyAutocomplete(options);
         this.$usernameCopyFrom.blur(() => {
-            this.checkExistedCustomer(this.$usernameCopyFrom.val(), this.iconMessageUsernameCopyFrom);
-            this.getMemberCredit();
+            setTimeout(
+                () => {
+                    this.getMemberCredit();
+                }, 300);
         });
     }
 }
