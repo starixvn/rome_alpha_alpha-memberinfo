@@ -124,6 +124,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     }
                     else {
                         _this.showErrorMessage(result.ErrMsg, event);
+                        _this.$('.captcha-icon-refresh').click();
                     }
                 }
             });

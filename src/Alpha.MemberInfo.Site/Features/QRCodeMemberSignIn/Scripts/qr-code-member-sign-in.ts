@@ -187,6 +187,7 @@ class QRCodeMemberSignIn {
                 }
                 else {
                     this.showErrorMessage(result.ErrMsg, event);
+                    this.$('.captcha-icon-refresh').click();
                 }
             }
         });
