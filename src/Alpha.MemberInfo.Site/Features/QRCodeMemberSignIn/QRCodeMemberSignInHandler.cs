@@ -104,7 +104,12 @@
                 message.IsInternal);
 
         public CreditRangeModel Handle(GetMemberCreditRequest message)
-            => qrCodeMemberSignInService.GetCreditRange(message.SearchAccountName);
+            => qrCodeMemberSignInService.CheckBelongingByUsername(
+                message.CustId, 
+                message.SearchAccountName, 
+                message.SubAccId).CustId > 0 ?
+                qrCodeMemberSignInService.GetCreditRange(message.SearchAccountName) :
+                new CreditRangeModel();
 
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
@@ -174,6 +179,10 @@
         }
 
         public bool Handle(CheckExistedCustomerRequest message)
-            => qrCodeMemberSignInService.CheckExistedCustomer(message.Username);
+            => qrCodeMemberSignInService.CheckBelongingByUsername(
+                message.CustId, 
+                message.Username, 
+                message.SubAccId).CustId > 0 &&
+            qrCodeMemberSignInService.CheckExistedCustomer(message.Username);
     }
 }
