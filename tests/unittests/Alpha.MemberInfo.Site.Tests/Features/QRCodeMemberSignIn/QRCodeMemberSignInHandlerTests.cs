@@ -121,7 +121,7 @@
                 Arg.Any<int>(),
                 Arg.Any<string>(),
                 Arg.Any<int>()).Returns(
-                new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 2));
+                new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 1));
 
             service.IsEnableCustomer(Arg.Any<int>()).Returns(true);
 
@@ -211,7 +211,7 @@
                 Arg.Any<int>(),
                 Arg.Any<string>(),
                 Arg.Any<int>()).Returns(
-                new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 2));
+                new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 1));
 
             service.IsEnableCustomer(Arg.Any<int>()).Returns(false);
 
@@ -241,6 +241,11 @@
             var model = new CreditRangeModel(100, 10, 1000);
             service.GetCreditRange(Arg.Any<string>()).Returns(model);
 
+            service.CheckBelongingByUsername(
+              Arg.Any<int>(),
+              Arg.Any<string>(),
+              Arg.Any<int>()).Returns(
+              new CheckBelongingByUsernameModel(true, 999, false, 1));
             // Act
             var actualViewModel = handler.Handle(message);
 
@@ -264,6 +269,12 @@
             qrCodeLoginConfigsHelper.LocalTest().Returns(true);
             service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
 
+            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
+            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
+            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
+            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
+            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
+            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
             service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
             qrCodeAdapter.Generate(Arg.Any<string>()).Returns("imageBase64");
 
@@ -347,6 +358,30 @@
 
             // Assert
             AssertExtension.Equal(expectedViewModel, actualViewModel);
+        }
+
+        [Theory]
+        [InlineData(1, 1, true)]
+        [InlineData(0, 1, false)]
+        [InlineData(1, 2, false)]
+        public void IsValidBelongingByUsername_Always_ReturnsCorrectViewModel(
+            int custId,
+            byte roleId,
+            bool expectedResult)
+        {
+            // Arrange
+
+            service.CheckBelongingByUsername(
+              Arg.Any<int>(),
+              Arg.Any<string>(),
+              Arg.Any<int>()).Returns(
+              new CheckBelongingByUsernameModel(true, custId, false, roleId));
+            
+            // Act
+            var actualResult = handler.IsValidBelongingByUsername(custId, "test", roleId );
+
+            // Assert
+            AssertExtension.Equal(expectedResult, actualResult);
         }
     }
 }

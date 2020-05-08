@@ -539,7 +539,9 @@
     <Content Include="assets\styles\problem-account\update.min.css">
       <DependentUpon>update.css</DependentUpon>
     </Content>
-    <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.css" />
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.css">
+		<SonarQubeExclude>true</SonarQubeExclude>
+    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.js" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.min.css">
       <DependentUpon>qr-code-member-sign-in.css</DependentUpon>
