@@ -38,15 +38,6 @@
         [HttpPost, CaptchaValidation, AntiXsrfFilter]
         public ActionResult CreateAccount(CreateAccountByQRCodeRequest message)
         {
-            if (message != null && !message.IsValid())
-            {
-                return Json(new ResultCreateMemberQRCode
-                {
-                    ErrCode = ErrorCodeDefault,
-                    ErrMsg = Resources.UsernameIsInvalid
-                });
-            }
-
             if (!ModelState.IsValid)
             {
                 return Json(new ResultCreateMemberQRCode
@@ -56,9 +47,21 @@
                 });
             }
 
+            if (message != null && !message.IsValid())
+            {
+                ModelState.AddModelError("InvalidRequest", Resources.UsernameIsInvalid);
+                return Json(new ResultCreateMemberQRCode
+                {
+                    ErrCode = ErrorCodeDefault,
+                    ErrMsg = Resources.UsernameIsInvalid
+                });
+            }
+
             var result = mediator.Send(message);
-            return result.Success ?
-                Json(new
+
+            if (result.Success)
+            {
+                return Json(new
                 {
                     result.ErrCode,
                     result.ErrMsg,
@@ -72,8 +75,13 @@
                     message.CreditMax,
                     message.ShowPageTitle,
                     CreateMode = true
-                }) :
-                Json(result);
+                });
+            }
+            else
+            {
+                ModelState.AddModelError("DBErrors", result.ErrMsg);
+                return Json(result);
+            }  
         }
 
         [HttpGet]
