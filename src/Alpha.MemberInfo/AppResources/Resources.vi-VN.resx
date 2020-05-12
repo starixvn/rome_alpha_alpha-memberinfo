@@ -453,4 +453,7 @@
   <data name="Password" xml:space="preserve">
     <value>Mật Khẩu</value>
   </data>
+  <data name="FirstLoginQRCode" xml:space="preserve">
+    <value>ĐĂNG NHẬP BẰNG MÃ QR LẦN ĐẦU TIÊN</value>
+  </data>
 </root>

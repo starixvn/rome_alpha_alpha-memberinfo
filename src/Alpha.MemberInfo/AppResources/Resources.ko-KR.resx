@@ -342,4 +342,7 @@
   <data name="Password" xml:space="preserve">
     <value>비밀번호</value>
   </data>
+  <data name="FirstLoginQRCode" xml:space="preserve">
+    <value>FIRST LOGIN QR CODE</value>
+  </data>
 </root>

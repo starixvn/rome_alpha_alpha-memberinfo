@@ -267,14 +267,8 @@
             };
 
             qrCodeLoginConfigsHelper.LocalTest().Returns(true);
-            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
+            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
 
-            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
-            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
-            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
-            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
-            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
-            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
             service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
             qrCodeAdapter.Generate(Arg.Any<string>()).Returns("imageBase64");
 
@@ -283,7 +277,7 @@
                new QRCodeLoginConfigs("192.468.1.1", domains, 1, 3600));
 
             passwordService.CreateMemberPasswordRandom().Returns(new PasswordModel("ABC", "abcd"));
-
+            service.ResetMemberPassword(Arg.Any<ResetMainAccountPasswordCommand>()).Returns(new Result());
             var expectedViewModel = new ShowQRCodeViewModel(
                 message.Credit,
                 message.CreditMin,
@@ -291,8 +285,8 @@
                 message.SearchAccountName,
                 message.SearchAccountId,
                 message.FirstName,
+                "linktest.com",
                 "imageBase64",
-                string.Empty,
                 domains,
                 message.CreateMode,
                 message.ShowPageTitle,
@@ -300,6 +294,12 @@
                 message.CustIdCopyFrom,
                 "ABC");
 
+            qrCodeAdapter.CreateMobileLoginUrl(
+             Arg.Any<bool>(),
+             Arg.Any<string>(),
+             Arg.Any<int>(),
+             Arg.Any<string>(),
+             Arg.Any<int>()).Returns("linktest.com");
             // Act
             var actualViewModel = handler.Handle(message);
 
@@ -320,8 +320,7 @@
                 CreditMax = 1000
             };
 
-            qrCodeLoginConfigsHelper.LocalTest().Returns(true);
-            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
+            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
 
             // Act
             var actualViewModel = handler.Handle(message);
@@ -350,9 +349,10 @@
                 Arg.Any<string>(),
                 Arg.Any<int>()).Returns("linktest.com");
 
-            var expectedViewModel = "imageBase64";
-            qrCodeAdapter.Generate(Arg.Any<string>()).Returns(expectedViewModel);
-
+            var qrCodeImage = "imageBase64";
+            qrCodeAdapter.Generate(Arg.Any<string>()).Returns(qrCodeImage);
+            var expectedViewModel = new QRCodeLinkViewModel("linktest.com", qrCodeImage);
+            
             // Act
             var actualViewModel = handler.Handle(message);
 

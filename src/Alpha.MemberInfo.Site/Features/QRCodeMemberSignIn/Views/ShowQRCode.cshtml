@@ -12,7 +12,7 @@
 @if (Model.ShowPageTitle)
 {
     <div class="page-title">
-        <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
+        <span class="pull-left">@Resources.FirstLoginQRCode</span>
     </div>
 }
     <div id="show-qr-code">
@@ -37,7 +37,7 @@
             @Resources.PleaseShowThisQRCodeToYourMember
         </div>
         <div class="form-group">
-            <img id="qr-code-image" alt="QRcode" src="@Model.QRCode" />
+            <img id="qr-code-image" alt="QRcode" src="@Model.QRCodeImage" />
         </div>
         <div class="form-group infomation">
             @Resources.AccountInformation

@@ -107,8 +107,8 @@ class ShowQRCode {
             dataType: 'json',
             url: "GenerateQrCode",
             success: (result) => {
-                this.$('#qr-code-image').attr('src', result);
-                this.$('#QRCodeLink').val(params.Domain);
+                this.$('#qr-code-image').attr('src', result.QRCodeImage);
+                this.$('#QRCodeLink').val(result.QRCodeLink);
                 this.$.unblockUI();
             }
         });

@@ -1,9 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
 {
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
     using MediatR;
 
-    public class GenerateQRCodeRequest : QRCodeBaseQuery, IRequest<string>
+    public class GenerateQRCodeRequest : QRCodeBaseQuery, IRequest<QRCodeLinkViewModel>
     {
         public GenerateQRCodeRequest(IUser viewer) : base(viewer)
         {

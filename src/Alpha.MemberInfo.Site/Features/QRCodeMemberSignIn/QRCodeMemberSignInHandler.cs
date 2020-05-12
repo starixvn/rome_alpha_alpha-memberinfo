@@ -19,7 +19,7 @@
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
         IRequestHandler<GetMemberCreditRequest, CreditRangeModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>,
-        IRequestHandler<GenerateQRCodeRequest, string>,
+        IRequestHandler<GenerateQRCodeRequest, QRCodeLinkViewModel>,
         IRequestHandler<CheckExistedCustomerRequest, bool>
     {
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
@@ -155,8 +155,8 @@
                     message.SearchAccountName,
                     message.SearchAccountId,
                     message.FirstName,
-                    qrCodeAdapter.Generate(link),
                     link,
+                    qrCodeAdapter.Generate(link),
                     config.Domains,
                     message.CreateMode,
                     message.ShowPageTitle,
@@ -168,7 +168,7 @@
             return null;
         }
 
-        public string Handle(GenerateQRCodeRequest message)
+        public QRCodeLinkViewModel Handle(GenerateQRCodeRequest message)
         {
             var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
 
@@ -179,7 +179,7 @@
                 message.SearchAccountName,
                 config.ExpireSeconds);
 
-            return qrCodeAdapter.Generate(link);
+            return new QRCodeLinkViewModel(link, qrCodeAdapter.Generate(link));
         }
 
         public bool Handle(CheckExistedCustomerRequest message)

@@ -78,8 +78,8 @@ var ShowQRCode = /** @class */ (function () {
                 dataType: 'json',
                 url: "GenerateQrCode",
                 success: function (result) {
-                    _this.$('#qr-code-image').attr('src', result);
-                    _this.$('#QRCodeLink').val(params.Domain);
+                    _this.$('#qr-code-image').attr('src', result.QRCodeImage);
+                    _this.$('#QRCodeLink').val(result.QRCodeLink);
                     _this.$.unblockUI();
                 }
             });

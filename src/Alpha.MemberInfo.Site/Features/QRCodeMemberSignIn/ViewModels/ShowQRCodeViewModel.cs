@@ -14,8 +14,8 @@
             string searchAccountName,
             int searchAccountId,
             string firstName,
-            string qrCode,
             string qrCodeLink,
+            string qRCodeImage,
             string[] domains,
             bool createMode,
             bool showPageTitle,
@@ -29,8 +29,8 @@
             SearchAccountName = searchAccountName;
             SearchAccountId = searchAccountId;
             FirstName = firstName;
-            QRCode = qrCode;
             QRCodeLink = qrCodeLink;
+            QRCodeImage = qRCodeImage;
             Domains = domains;
             CreateMode = createMode;
             ShowPageTitle = showPageTitle;
@@ -53,9 +53,9 @@
 
         public string FirstName { get; }
 
-        public string QRCode { get; }
-
         public string QRCodeLink { get; }
+
+        public string QRCodeImage { get; }
 
         public string[] Domains { get; }
 

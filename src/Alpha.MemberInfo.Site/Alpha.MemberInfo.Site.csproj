@@ -540,7 +540,7 @@
       <DependentUpon>update.css</DependentUpon>
     </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.css">
-		<SonarQubeExclude>true</SonarQubeExclude>
+      <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.js" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.min.css">
@@ -674,6 +674,7 @@
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CheckExistedCustomerRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\UserNameSuggestionQuery.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLoginConfigs.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLinkViewModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\ShowQRCodeViewModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\MemberSiteTokenLink.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeMemberSignInViewModel.cs" />

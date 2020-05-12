@@ -459,4 +459,7 @@
   <data name="Password" xml:space="preserve">
     <value>密碼</value>
   </data>
+  <data name="FirstLoginQRCode" xml:space="preserve">
+    <value>首次登入二維碼</value>
+  </data>
 </root>

@@ -459,4 +459,7 @@
   <data name="Password" xml:space="preserve">
     <value>รหัสผ่าน</value>
   </data>
+  <data name="FirstLoginQRCode" xml:space="preserve">
+    <value>เข้าสู่ระบบคิวอาร์โค้ดครั้งแรก</value>
+  </data>
 </root>
