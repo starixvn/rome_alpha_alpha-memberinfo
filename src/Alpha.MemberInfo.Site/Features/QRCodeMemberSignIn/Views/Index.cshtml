@@ -23,7 +23,7 @@
     </div>
 }
 
-<div id="qrCodeMemberSignInForm" class="form-inline filter">
+<form id="qrCodeMemberSignInForm" class="form-inline filter">
     <div id="message" class="@errorMessageClass">
         <span id="message-content" className="col-xs-12">@Model.ErrorMessage</span>
     </div>
@@ -81,7 +81,7 @@
     @Html.HiddenFor(m => m.MemberNameCopyFrom)
     @Html.HiddenFor(m => m.ShowQRCodeLink)
     @Html.AntiForgeryToken()
-</div>
+</form>
 
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")

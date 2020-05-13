@@ -6,7 +6,7 @@ var ShowQRCode = /** @class */ (function () {
             if (JSON.parse(_this.$('#CreateMode').val().toLowerCase())) {
                 _this.correctSettingInCaseCreateMode();
             }
-            _this.username = _this.$('.username-label').html();
+            _this.username = _this.$('#SearchAccountName').val();
             _this.$('#btn-copy-link').click(function () {
                 clipboard.writeText(_this.$('#QRCodeLink').val());
             });
@@ -60,10 +60,8 @@ var ShowQRCode = /** @class */ (function () {
         };
         this.domainOnChange = function () {
             _this.$.blockUI();
-            var chooseUsername = _this.$('#UsernameCopyFrom').val();
-            _this.username = chooseUsername;
             var params = {
-                SearchAccountName: _this.$('.username-label').text(),
+                SearchAccountName: _this.username,
                 SearchAccountId: _this.$('#SearchAccountId').val(),
                 Domain: _this.$('#domains').val()
             };

@@ -52,7 +52,7 @@ class QRCodeMemberSignIn {
 
     bindingEvent = () => {
         this.bidingEasyAutoComplete();
-        this.$('#btn-submit').click(event => this.submitEvent(event));
+        this.$('#qrCodeMemberSignInForm').submit(event => this.submitEvent(event));
 
         this.$('#FirstSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
         this.$('#SecondSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
@@ -143,6 +143,8 @@ class QRCodeMemberSignIn {
     }
 
     submitEvent = (event) => {
+        event.preventDefault();
+
         if (this.inValidCustomerCopyFrom) {
             this.showErrorMessage(this.memberAccountInvalidMessage, event);
             return;

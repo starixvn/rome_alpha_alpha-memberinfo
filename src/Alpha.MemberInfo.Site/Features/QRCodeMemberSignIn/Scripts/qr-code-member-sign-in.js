@@ -11,7 +11,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         };
         this.bindingEvent = function () {
             _this.bidingEasyAutoComplete();
-            _this.$('#btn-submit').click(function (event) { return _this.submitEvent(event); });
+            _this.$('#qrCodeMemberSignInForm').submit(function (event) { return _this.submitEvent(event); });
             _this.$('#FirstSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
             _this.$('#SecondSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });
             _this.$('#ThirdSuffix').change(function () { return _this.checkExistedUsernameByChangeSuffix(); });

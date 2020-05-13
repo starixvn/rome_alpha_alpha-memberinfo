@@ -27,7 +27,7 @@ class ShowQRCode {
             this.correctSettingInCaseCreateMode();
         }
 
-        this.username = this.$('.username-label').html();
+        this.username = this.$('#SearchAccountName').val();
 
         this.$('#btn-copy-link').click(() => {
             clipboard.writeText(this.$('#QRCodeLink').val());
@@ -86,11 +86,8 @@ class ShowQRCode {
     domainOnChange = () => {
         this.$.blockUI();
 
-        var chooseUsername = this.$('#UsernameCopyFrom').val();
-        this.username = chooseUsername;
-
         const params = {
-            SearchAccountName: this.$('.username-label').text(),
+            SearchAccountName: this.username,
             SearchAccountId: this.$('#SearchAccountId').val(),
             Domain: this.$('#domains').val()
         };
