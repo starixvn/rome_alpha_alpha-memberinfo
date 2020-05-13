@@ -14,8 +14,6 @@
 
         public string PlayerId { get; }
 
-        public int CustId { get; set; }
-
         public override string GetSettingKey()
             => "Acc_CustomerSelByPlayerId";
 

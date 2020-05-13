@@ -7,16 +7,26 @@
     using Models.WinLossLimit;
     using System.Linq;
     using System.Data;
+    using Fanex.Data.Repository;
 
     public interface WinLossLimitDataAccess
     {
         WinLossLimitPage GetWinLossLimits(GetCustWinLossLimitCriteria criteria);
 
-        int MapPlayerIdToCustId(MapPlayerId3rdToCustIdCriteria criteria);
+        IEnumerable<int> MapPlayerIdToCustId(MapPlayerId3rdToCustIdCriteria criteria);
     }
 
     public class WinLossLimitDataAccessImpl : WinLossLimitDataAccess
     {
+        private readonly IDynamicRepository repository;
+
+        public WinLossLimitDataAccessImpl() : this(null) { }
+
+        public WinLossLimitDataAccessImpl(IDynamicRepository repository)
+        {
+            this.repository = repository ?? new DynamicRepository();
+        }
+
         public WinLossLimitPage GetWinLossLimits(GetCustWinLossLimitCriteria criteria)
         {
             if (!criteria.IsValid())
@@ -62,18 +72,9 @@
             return new WinLossLimitPage(numberOfRows, winLossLimitDetail);
         }
 
-        public int MapPlayerIdToCustId(MapPlayerId3rdToCustIdCriteria criteria)
+        public IEnumerable<int> MapPlayerIdToCustId(MapPlayerId3rdToCustIdCriteria criteria)
         {
-            var custId = 0;
-
-            using (var objectDb = MemberInfoObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
-            {
-                objectDb.ExecuteNonQuery(criteria.GetSpParams());
-                var outputs = objectDb.GetOuputParams();
-                custId = Converter.ToInt(outputs["CustId"]);
-            }
-
-            return custId;
+            return repository.Fetch<int>(criteria);
         }
 
         private static string GetFieldValue(IDataReader reader, string fieldName)

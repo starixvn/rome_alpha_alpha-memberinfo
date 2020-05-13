@@ -14,11 +14,22 @@
         public WinLossLimitPage(int numberOfRows, IEnumerable<WinLossLimitDetail> winLossLimitDetail)
         {
             NumberOfRows = numberOfRows;
-            WinLossLimitDetail = winLossLimitDetail;
+             WinLossLimitDetail = winLossLimitDetail;
         }
 
-        public int NumberOfRows { get; }
+        public int NumberOfRows { get; set; }
 
-        public IEnumerable<WinLossLimitDetail> WinLossLimitDetail { get; }
+        public IEnumerable<WinLossLimitDetail> WinLossLimitDetail { get; set; }
+
+        public static WinLossLimitPage operator +(WinLossLimitPage o1, WinLossLimitPage o2)
+        {
+            var result = new WinLossLimitPage
+            {
+                NumberOfRows = o1.NumberOfRows + o2.NumberOfRows,
+                WinLossLimitDetail = o1.WinLossLimitDetail.Concat(o2.WinLossLimitDetail)
+            };
+
+            return result;
+        }
     }
 }
