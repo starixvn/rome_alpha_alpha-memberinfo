@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using Database.WinLossLimit;
     using Fanex.Data;
+    using Fanex.Data.Repository;
     using KellermanSoftware.CompareNetObjects;
     using MemberInfo.Criteria.WinLossLimit;
     using MemberInfo.DataAccesses;
@@ -18,6 +19,7 @@
         private readonly WinLossLimitDataAccessImpl winLossLimitDataAccessImpl;
         private readonly CompareLogic compareLogic;
         private readonly IObjectDb objectDb;
+        private readonly IDynamicRepository repository;
 
         public WinLossLimitDataAccessImplTests()
         {
@@ -27,6 +29,7 @@
             MemberInfoObjectDbFactory.CreateInstance = (settingKey) => objectDb;
 
             compareLogic = new CompareLogic();
+            repository = Substitute.For<IDynamicRepository>();
         }
 
         [Fact]
@@ -100,11 +103,9 @@
         {
             // Arrange
             var criteria = new MapPlayerId3rdToCustIdCriteria(1, "2");
-            var expectedValue = 10;
-            objectDb.GetOuputParams().Returns(new Hashtable
-            {
-                ["CustId"] = 10
-            });
+            var expectedValue = new List<int> { 10 };
+            repository.Fetch<int>(criteria)
+                .Returns(new List<int> { 10 });
 
             // Act
             var actualValue = winLossLimitDataAccessImpl.MapPlayerIdToCustId(criteria);
