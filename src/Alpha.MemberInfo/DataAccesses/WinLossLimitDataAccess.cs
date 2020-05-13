@@ -22,7 +22,7 @@
 
         public WinLossLimitDataAccessImpl() : this(null) { }
 
-        public WinLossLimitDataAccessImpl(IDynamicRepository repository)
+        internal WinLossLimitDataAccessImpl(IDynamicRepository repository)
         {
             this.repository = repository ?? new DynamicRepository();
         }
