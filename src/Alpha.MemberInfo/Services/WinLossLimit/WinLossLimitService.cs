@@ -66,8 +66,7 @@
         public WinLossLimitPage GetWinLossLimitPage(WinLossLimitParam param)
         {
             var result = new WinLossLimitPage();
-            var isSabaclub = param.IsSabaclub;
-            var playerId = isSabaclub && !string.IsNullOrWhiteSpace(param.PlayerId) ?
+            var playerId = !string.IsNullOrWhiteSpace(param.PlayerId) ?
                 winLossLimitDataAccess.MapPlayerIdToCustId(new MapPlayerId3rdToCustIdCriteria(param.ProductId, param.PlayerId))
                 : (int?)null;
 
