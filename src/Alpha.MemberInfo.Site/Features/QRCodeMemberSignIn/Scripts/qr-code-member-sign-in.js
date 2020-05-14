@@ -51,13 +51,10 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 url: "QRCodeMemberSignIn/GetMemberCreditAndStatus",
                 success: function (result) {
                     _this.$.unblockUI();
-                    _this.disallowCreateMemberQRCode = result.DisallowCreateMemberQRCode;
-                    if (_this.disallowCreateMemberQRCode) {
-                        _this.showErrorMessage('You can not copy setting from closed/ suspended account.');
-                    }
-                    else {
+                    _this.showCreateFromUnopenedMemberMessage = result.Status !== null && result.Status.toUpperCase() !== 'OPEN';
+                    _this.showCreateFromUnopenedMemberMessage ?
+                        _this.showClosedMemberQRCodeMessage() :
                         _this.$messageContainer.removeClass('msg msg-error').addClass('hidden');
-                    }
                     var numberFormat = '0,0.##';
                     _this.creditMin = result.CreditMin;
                     _this.creditMax = result.CreditMax;
@@ -67,7 +64,9 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     _this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
                     _this.$creditInput.val(numeral(result.Credit).format(numberFormat));
                     _this.validateCredit();
-                }
+                    _this.$.unblockUI();
+                },
+                error: function () { _this.$.unblockUI(); }
             });
         };
         this.showErrorMessage = function (message) {
@@ -85,17 +84,22 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 'X-Requested-With': 'XMLHttpRequest'
             };
         };
-        //watchSubmitButton = () => {
-        //	this.$('#btn-submit').prop('disabled', this.inValidCustomerCopyFrom || this.invalidCredit || this.inValidUsername || this.disallowCreateMemberQRCode);
-        //}
         this.validateCredit = function () {
             _this.credit = parseFloat(_this.cleave.getRawValue());
             _this.invalidCredit = isNaN(_this.credit) || _this.credit < _this.creditMin || _this.credit > _this.creditMax;
             var errorClass = _this.invalidCredit ? 'icon-close' : 'icon-check';
             _this.$('#icon-message-credit').removeClass().addClass(errorClass);
         };
+        this.showClosedMemberQRCodeMessage = function () {
+            _this.showErrorMessage(_this.cannotCreateClosedMemberQRCodeMessage);
+            _this.$("#" + _this.iconMessageUsernameCopyFrom).removeClass().addClass('icon-close');
+        };
         this.submitEvent = function (event) {
             event.preventDefault();
+            if (_this.showCreateFromUnopenedMemberMessage) {
+                _this.showClosedMemberQRCodeMessage();
+                return;
+            }
             if (_this.inValidCustomerCopyFrom) {
                 _this.showErrorMessage(_this.memberAccountInvalidMessage);
                 return;
@@ -106,10 +110,6 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             }
             if (_this.inValidUsername) {
                 _this.showErrorMessage(_this.usernameIsInvalid);
-                return;
-            }
-            if (_this.disallowCreateMemberQRCode) {
-                _this.showErrorMessage('You can not copy setting from closed/ suspended account.');
                 return;
             }
             _this.$.blockUI();
@@ -139,10 +139,11 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                     }
                     else {
                         _this.showErrorMessage(result.ErrMsg);
+                        _this.$.unblockUI();
                     }
-                }
+                },
+                error: function () { _this.$.unblockUI(); }
             });
-            _this.$.unblockUI();
         };
         this.reloadFrame = function (result) {
             var frms = window.top.parent.frames;

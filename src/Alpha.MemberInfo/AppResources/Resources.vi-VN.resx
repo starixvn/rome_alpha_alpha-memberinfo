@@ -462,4 +462,16 @@
   <data name="CannotGenerateMessage" xml:space="preserve">
     <value>Bạn không thể tạo lại mã QR vì tài khoản này đã được sử dụng.</value>
   </data>
+  <data name="ShowPassword" xml:space="preserve">
+    <value>Xem Mật Khẩu</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Cấp</value>
+  </data>
+  <data name="RequiredPasswordError" xml:space="preserve">
+    <value>Mật Khẩu không thể để trống.</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
 </root>

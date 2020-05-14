@@ -1,0 +1,43 @@
+﻿html, body {
+  height: auto; }
+
+.content-page {
+  width: 750px; }
+  .content-page .list-button {
+    margin: 10px 0;
+    text-align: right; }
+    .content-page .list-button .btn-submit {
+      margin-right: 0; }
+  .content-page .tblRpt .icon-indirect-login {
+    color: #333; }
+    .content-page .tblRpt .icon-indirect-login:before {
+      content: "\e913"; }
+    .content-page .tblRpt .icon-indirect-login:hover, .content-page .tblRpt .icon-indirect-login:focus {
+      text-decoration: none; }
+  .content-page .tblRpt .icon-indirect-login.disabled {
+    color: #aaa;
+    cursor: not-allowed; }
+  .content-page .tblRpt .icon-disconnect {
+    font-size: 20px;
+    font-weight: bold; }
+    .content-page .tblRpt .icon-disconnect:before {
+      content: "\e92c";
+      color: #fe0000; }
+
+.form-validation .form-group {
+  margin: 0;
+  padding: 16px 0 0 0; }
+  .form-validation .form-group label {
+    color: #333;
+    font-size: inherit;
+    font-weight: normal;
+    margin-bottom: 4px; }
+  .form-validation .form-group input[type='text'], .form-validation .form-group input[type='password'] {
+    width: 100%; }
+  .form-validation .form-group input[type="checkbox"] {
+    display: inline-block; }
+
+p {
+  margin: 0;
+  padding: 16px 0 0 0; }
+

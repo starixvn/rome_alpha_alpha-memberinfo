@@ -75,6 +75,9 @@
       <HintPath>..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Fanex.Cryptography.Aes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Cryptography.Aes.1.0.0.0\lib\net461\Fanex.Cryptography.Aes.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Data, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.2.1.0.1\lib\net461\Fanex.Data.dll</HintPath>
       <Private>True</Private>
@@ -156,6 +159,9 @@
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="RSACryptoPad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RSACryptoPad.1.0.0.0\lib\net40\RSACryptoPad.dll</HintPath>
     </Reference>
     <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
@@ -253,6 +259,11 @@
     <Compile Include="Constants\SportTypeConstants.cs" />
     <Compile Include="Criteria\GetAgentListCriteria.cs" />
     <Compile Include="Criteria\GetMasterListCriteria.cs" />
+    <Compile Include="Criteria\IndirectLoginAccount\DisconnectAccountCriteria.cs" />
+    <Compile Include="Criteria\IndirectLoginAccount\GetIndirectLoginAccountsCriteria.cs" />
+    <Compile Include="Criteria\IndirectLoginAccount\UpdatePasswordCriteria.cs" />
+    <Compile Include="Criteria\IndirectLoginAccount\NewAccountCriteria.cs" />
+    <Compile Include="Criteria\NonQueryCommandBase.cs" />
     <Compile Include="Criteria\ProblemAccount\GetProblemAccountCriteria.cs" />
     <Compile Include="Criteria\Transfer\GetTransferOptionCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\MapPlayerId3rdToCustIdCriteria.cs" />
@@ -311,6 +322,8 @@
     <Compile Include="Models\CreditBalance\CustomerClosedReason.cs" />
     <Compile Include="Models\CreditBalance\CreditBalanceItem.cs" />
     <Compile Include="Models\CreditBalance\PagedCreditBalance.cs" />
+    <Compile Include="Models\IndirectLoginAccount\IndirectLoginAccountItem.cs" />
+    <Compile Include="Models\IndirectLoginAccount\RequestInfo.cs" />
     <Compile Include="Models\IUser.cs" />
     <Compile Include="Models\MemberRequests\GetCasinoSettingResult.cs" />
     <Compile Include="Models\MemberRequests\GetSettingResult.cs" />
@@ -325,6 +338,10 @@
     <Compile Include="Models\WinLossLimit\WinLossLimitDetail.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitPage.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitProductModel.cs" />
+    <Compile Include="Params\IndirectLoginAccount\DisconnectAccountParam.cs" />
+    <Compile Include="Params\IndirectLoginAccount\NewAccountParam.cs" />
+    <Compile Include="Params\IndirectLoginAccount\RedirectParam.cs" />
+    <Compile Include="Params\IndirectLoginAccount\UpdatePasswordParam.cs" />
     <Compile Include="Params\MemberRequestParam.cs" />
     <Compile Include="Params\ProblemAccount\UpdateProblemAccountParam.cs" />
     <Compile Include="Params\ProblemAccount\GetProblemAccountParam.cs" />
@@ -336,7 +353,11 @@
     <Compile Include="Services\CacheRefService.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
+    <Compile Include="Services\AesService.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Services\CreditBalance\CreditBalanceService.cs" />
+    <Compile Include="Services\IndirectLoginAccount\IndirectLoginAccountService.cs" />
     <Compile Include="Services\MemberRequest\MemberRequestService.cs" />
     <Compile Include="Services\MemberRequest\CasinoCustomer.cs" />
     <Compile Include="Services\ProblemAccountService.cs" />
@@ -382,9 +403,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Resources.resx">
+      <SubType>Designer</SubType>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Resources.th-TH.resx">
       <SubType>Designer</SubType>

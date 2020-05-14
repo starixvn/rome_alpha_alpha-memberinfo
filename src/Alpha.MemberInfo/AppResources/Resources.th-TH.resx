@@ -468,4 +468,19 @@
   <data name="CannotGenerateMessage" xml:space="preserve">
     <value>การสร้างคิวอาร์โค้ดนี้อีกครั้งไม่สามารถทำได้ เนื่องจากมีการใช้งานแล้ว</value>
   </data>
+  <data name="Super" xml:space="preserve">
+    <value>สูงสุด</value>
+  </data>
+  <data name="ShowPassword" xml:space="preserve">
+    <value>แสดง</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>ระดับ</value>
+  </data>
+  <data name="RequiredPasswordError" xml:space="preserve">
+    <value>ขอโทษค่ะ คุณต้องใส่รหัสผ่านด้วย</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>เข้าระบบ</value>
+  </data>
 </root>

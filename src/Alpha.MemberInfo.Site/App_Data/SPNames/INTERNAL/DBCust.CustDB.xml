@@ -11,7 +11,6 @@
     <Setting Key="Age_CustomerSelMAgentList" SpName="Age_CustomerSelMAgentList" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CustomerSelAgentList" SpName="Age_CustomerSelAgentList" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CustomerSelCustWinlimit" SpName="Age_CustomerSelCustWinlimit" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
-
     <Setting Key="Age_CustomerSelByPlayerId" SpName="Age_CustomerSelByPlayerId" DbName="DBCust.CustDB.BODBDownlineNetView" />
   </Function>
   <Function Name="Problem Account">
@@ -27,7 +26,7 @@
       <Mapping DataField="MinCredit_Mem" ObjectProperty="CreditMin" />
     </Setting>
     <Setting Key="Acc_CustomerSelEditCustomer" SpName="Acc_CustomerSelEditCustomer" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
-   
+    
     <Setting Key="Acc_CustomerInsMember_Ag" SpName="Acc_CustomerInsMember_Ag" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CustomerSelSuggestUsername" SpName="Age_CustomerSelSuggestUsername" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Acc_CustomerSelCheckEnable" SpName="Acc_CustomerSelCheckEnable" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
@@ -35,5 +34,15 @@
     <Setting Key="ResetMainAccountPassword" SpName="Age_CustomerUpdPwd" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CheckQRFirstLogin" SpName="Age_CheckQRFirstLogin" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0"/>
     <Setting Key="Age_CustomerCheckExists" SpName="Age_CustomerCheckExists" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+  </Function>
+  <Function Name="Indirect Login Account">
+    <Setting Key="Age_CustomerIndirectLoginAccountSel" SpName="Age_CustomerIndirectLoginAccountSel" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0">
+      <Mapping DataField="CustIDInDirect" ObjectProperty="CustId" />
+      <Mapping DataField="SubAccIDIndirect" ObjectProperty="SubAccId" />
+      <Mapping DataField="roleid" ObjectProperty="Level" />
+    </Setting>
+    <Setting Key="Age_CustomerIndirectLoginAccountIns" SpName="Age_CustomerIndirectLoginAccountIns" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_CustomerIndirectLoginAccountDel" SpName="Age_CustomerIndirectLoginAccountDel" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_CustomerIndirectLoginAccountPwdCheck" SpName="Age_CustomerIndirectLoginAccountPwdCheck" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
   </Function>
 </Functions>

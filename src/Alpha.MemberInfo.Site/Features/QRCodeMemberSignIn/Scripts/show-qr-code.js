@@ -79,7 +79,8 @@ var ShowQRCode = /** @class */ (function () {
                     _this.$('#qr-code-image').attr('src', result.QRCodeImage);
                     _this.$('#QRCodeLink').val(result.QRCodeLink);
                     _this.$.unblockUI();
-                }
+                },
+                error: function () { _this.$.unblockUI(); }
             });
         };
         this.updateInformation = function () {

@@ -40,5 +40,7 @@
         public static string MainAppPath => GetConfigValue("MainAppPath");
 
         public static string RemoteRefURL => GetConfigValue("RemoteRefURL");
+
+        public static string IndirectLoginURL => GetConfigValue("IndirectLoginURL");
     }
 }

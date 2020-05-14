@@ -214,6 +214,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connect.
+        /// </summary>
+        public static string Connect {
+            get {
+                return ResourceManager.GetString("Connect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connect To New Account.
+        /// </summary>
+        public static string ConnectToNewAccount {
+            get {
+                return ResourceManager.GetString("ConnectToNewAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy Link.
         /// </summary>
         public static string CopyLink {
@@ -322,6 +340,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disconnect.
+        /// </summary>
+        public static string Disconnect {
+            get {
+                return ResourceManager.GetString("Disconnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected secondary account will be removed from the list. Do you want to proceed?.
+        /// </summary>
+        public static string DisconnectConfirmationMessage {
+            get {
+                return ResourceManager.GetString("DisconnectConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Domain.
         /// </summary>
         public static string Domain {
@@ -421,6 +457,69 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Indirect Log In.
+        /// </summary>
+        public static string IndirectLogIn {
+            get {
+                return ResourceManager.GetString("IndirectLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indirect Login Account.
+        /// </summary>
+        public static string IndirectLoginAccount {
+            get {
+                return ResourceManager.GetString("IndirectLoginAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This account is closed or disabled, please open it and try again..
+        /// </summary>
+        public static string IndirectLoginAccountClosedOrDisabledError {
+            get {
+                return ResourceManager.GetString("IndirectLoginAccountClosedOrDisabledError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indirect Login Account - Confirmation.
+        /// </summary>
+        public static string IndirectLoginAccountConfirmation {
+            get {
+                return ResourceManager.GetString("IndirectLoginAccountConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The account has been successfully disconnected..
+        /// </summary>
+        public static string IndirectLoginAccountDisconnectSuccessfully {
+            get {
+                return ResourceManager.GetString("IndirectLoginAccountDisconnectSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The account has been successfully connected..
+        /// </summary>
+        public static string IndirectLoginAccountNewSuccessfully {
+            get {
+                return ResourceManager.GetString("IndirectLoginAccountNewSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indirect Login Account - Password Updated.
+        /// </summary>
+        public static string IndirectLoginAccountPasswordUpdated {
+            get {
+                return ResourceManager.GetString("IndirectLoginAccountPasswordUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input Existing Member account (that you want to copy the settings).
         /// </summary>
         public static string InputExistingMemberAccount {
@@ -462,6 +561,24 @@ namespace Alpha.MemberInfo.AppResources {
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Level.
+        /// </summary>
+        public static string Level {
+            get {
+                return ResourceManager.GetString("Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
             }
         }
         
@@ -561,6 +678,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string NewGivenCredit {
             get {
                 return ResourceManager.GetString("NewGivenCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Indirect Login Account.
+        /// </summary>
+        public static string NewIndirectLoginAccount {
+            get {
+                return ResourceManager.GetString("NewIndirectLoginAccount", resourceCulture);
             }
         }
         
@@ -844,6 +970,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, password cannot be empty..
+        /// </summary>
+        public static string RequiredPasswordError {
+            get {
+                return ResourceManager.GetString("RequiredPasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid account or it is not your downline..
+        /// </summary>
+        public static string RequiredYourDownlineUsernameOrNicknameError {
+            get {
+                return ResourceManager.GetString("RequiredYourDownlineUsernameOrNicknameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reviewed.
         /// </summary>
         public static string Reviewed {
@@ -970,6 +1114,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show Password.
+        /// </summary>
+        public static string ShowPassword {
+            get {
+                return ResourceManager.GetString("ShowPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
         public static string Status {
@@ -993,6 +1146,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Supended {
             get {
                 return ResourceManager.GetString("Supended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Super.
+        /// </summary>
+        public static string Super {
+            get {
+                return ResourceManager.GetString("Super", resourceCulture);
             }
         }
         
@@ -1069,6 +1231,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The selected account&apos;s password has been updated, please input the new password..
+        /// </summary>
+        public static string UpdatePasswordHint {
+            get {
+                return ResourceManager.GetString("UpdatePasswordHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully updated!.
         /// </summary>
         public static string UpdateSuccessfully {
@@ -1137,6 +1308,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string YesterdayCashBalance {
             get {
                 return ResourceManager.GetString("YesterdayCashBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Downline Username Or Nickname.
+        /// </summary>
+        public static string YourDownlineUsernameOrNickname {
+            get {
+                return ResourceManager.GetString("YourDownlineUsernameOrNickname", resourceCulture);
             }
         }
     }

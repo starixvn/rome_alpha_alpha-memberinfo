@@ -5,7 +5,9 @@
     "QRCodeMemberSignIn/Index",
     "QRCodeMemberSignIn/CreateAccount",
     "QRCodeMemberSignIn/ShowQRCode",
-    "QRCodeMemberSignIn/GenerateQrCode"
+    "QRCodeMemberSignIn/GenerateQrCode",
+    "IndirectLoginAccount/NewAccount",
+    "IndirectLoginAccount/Disconnect"
   ],
   "sites": [
   ],

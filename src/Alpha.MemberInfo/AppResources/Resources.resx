@@ -477,4 +477,64 @@
   <data name="CannotGenerateMessage" xml:space="preserve">
     <value>You can not regenerate the QR Code cause this account is already being used by member.</value>
   </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="ConnectToNewAccount" xml:space="preserve">
+    <value>Connect To New Account</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="IndirectLogIn" xml:space="preserve">
+    <value>Indirect Log In</value>
+  </data>
+  <data name="IndirectLoginAccount" xml:space="preserve">
+    <value>Indirect Login Account</value>
+  </data>
+  <data name="IndirectLoginAccountPasswordUpdated" xml:space="preserve">
+    <value>Indirect Login Account - Password Updated</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="NewIndirectLoginAccount" xml:space="preserve">
+    <value>New Indirect Login Account</value>
+  </data>
+  <data name="ShowPassword" xml:space="preserve">
+    <value>Show Password</value>
+  </data>
+  <data name="Super" xml:space="preserve">
+    <value>Super</value>
+  </data>
+  <data name="DisconnectConfirmationMessage" xml:space="preserve">
+    <value>The selected secondary account will be removed from the list. Do you want to proceed?</value>
+  </data>
+  <data name="YourDownlineUsernameOrNickname" xml:space="preserve">
+    <value>Your Downline Username Or Nickname</value>
+  </data>
+  <data name="UpdatePasswordHint" xml:space="preserve">
+    <value>The selected account's password has been updated, please input the new password.</value>
+  </data>
+  <data name="IndirectLoginAccountConfirmation" xml:space="preserve">
+    <value>Indirect Login Account - Confirmation</value>
+  </data>
+  <data name="IndirectLoginAccountDisconnectSuccessfully" xml:space="preserve">
+    <value>The account has been successfully disconnected.</value>
+  </data>
+  <data name="IndirectLoginAccountNewSuccessfully" xml:space="preserve">
+    <value>The account has been successfully connected.</value>
+  </data>
+  <data name="RequiredPasswordError" xml:space="preserve">
+    <value>Sorry, password cannot be empty.</value>
+  </data>
+  <data name="IndirectLoginAccountClosedOrDisabledError" xml:space="preserve">
+    <value>This account is closed or disabled, please open it and try again.</value>
+  </data>
+  <data name="RequiredYourDownlineUsernameOrNicknameError" xml:space="preserve">
+    <value>Invalid account or it is not your downline.</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
 </root>

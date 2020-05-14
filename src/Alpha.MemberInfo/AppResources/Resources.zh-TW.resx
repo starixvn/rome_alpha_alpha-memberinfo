@@ -468,4 +468,19 @@
   <data name="CannotGenerateMessage" xml:space="preserve">
     <value>由於此帳戶已有人使用，您無法重新取得行動條碼。</value>
   </data>
+  <data name="Super" xml:space="preserve">
+    <value>超級</value>
+  </data>
+  <data name="ShowPassword" xml:space="preserve">
+    <value>顯示密碼</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>階層</value>
+  </data>
+  <data name="RequiredPasswordError" xml:space="preserve">
+    <value>密碼不能留空</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登入</value>
+  </data>
 </root>

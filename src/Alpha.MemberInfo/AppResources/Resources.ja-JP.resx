@@ -348,4 +348,10 @@
   <data name="CannotGenerateMessage" xml:space="preserve">
     <value>You can not regenerate the QR Code cause this account is already being used by member.</value>
   </data>
+  <data name="RequiredPasswordError" xml:space="preserve">
+    <value>申し訳ございません 。パスワードを必ず入力してください.</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>入力</value>
+  </data>
 </root>

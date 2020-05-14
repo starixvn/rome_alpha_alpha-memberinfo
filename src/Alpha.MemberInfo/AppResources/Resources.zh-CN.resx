@@ -468,4 +468,19 @@
   <data name="CannotGenerateMessage" xml:space="preserve">
     <value>由于此帐户已有人使用，您无法重新获取二维码</value>
   </data>
+  <data name="Super" xml:space="preserve">
+    <value>超级</value>
+  </data>
+  <data name="ShowPassword" xml:space="preserve">
+    <value>顯示密碼</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>阶层</value>
+  </data>
+  <data name="RequiredPasswordError" xml:space="preserve">
+    <value>密码不能留空</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登入</value>
+  </data>
 </root>
