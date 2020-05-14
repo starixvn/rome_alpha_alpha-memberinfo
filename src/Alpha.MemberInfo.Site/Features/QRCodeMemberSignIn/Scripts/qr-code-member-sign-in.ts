@@ -196,14 +196,17 @@ class QRCodeMemberSignIn {
         this.$.unblockUI();
     }
 
-    reloadFrame = (result) => {
-        const frms = window.top.parent.frames;
-        const showQRCodeLink = `${this.$('#ShowQRCodeLink').val()}?${this.$.param(result)}`;
-        if (frms && frms["main"]) {
-            frms["main"].frames['frmAddNewMember'] ?
-                frms["main"].frames['frmAddNewMember'].location = showQRCodeLink :
-                frms["main"].location = showQRCodeLink;
-        }
+	reloadFrame = (result) => {
+		const frms = window.top.parent.frames;
+		const showQRCodeLink = `${this.$('#ShowQRCodeLink').val()}?${this.$.param(result)}`;
+		if (frms && frms["main"]) {
+			frms["main"].frames['frmAddNewMember'] ?
+				frms["main"].frames['frmAddNewMember'].location = showQRCodeLink :
+				frms["main"].location = showQRCodeLink;
+		}
+		else {
+			window.location.href = showQRCodeLink;
+		}
     }
 
     showMessageIcon = (iconId: string, existedCustomer: boolean, checkCustomerCopyFrom: boolean = true) => {
