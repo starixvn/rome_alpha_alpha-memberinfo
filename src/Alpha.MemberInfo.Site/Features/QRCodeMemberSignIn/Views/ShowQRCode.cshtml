@@ -2,7 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Show QR Code";
+    ViewBag.Title = Model.CreateMode ? Resources.CreateMemberWithQRCode : Resources.FirstLoginQRCode;
 }
 
 @section Styles {
@@ -12,7 +12,7 @@
 @if (Model.ShowPageTitle)
 {
     <div class="page-title">
-        <span class="pull-left">@Resources.FirstLoginQRCode</span>
+        <span class="pull-left">@ViewBag.Title</span>
     </div>
 }
 <div id="show-qr-code">
