@@ -14,7 +14,7 @@
         public WinLossLimitPage(int numberOfRows, IEnumerable<WinLossLimitDetail> winLossLimitDetail)
         {
             NumberOfRows = numberOfRows;
-             WinLossLimitDetail = winLossLimitDetail;
+            WinLossLimitDetail = winLossLimitDetail;
         }
 
         public int NumberOfRows { get; set; }

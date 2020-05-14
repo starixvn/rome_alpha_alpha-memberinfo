@@ -23,13 +23,12 @@
 
         public WinLossLimitDataAccessImplTests()
         {
-            winLossLimitDataAccessImpl = new WinLossLimitDataAccessImpl();
-
             objectDb = Substitute.For<IObjectDb>();
             MemberInfoObjectDbFactory.CreateInstance = (settingKey) => objectDb;
 
             compareLogic = new CompareLogic();
             repository = Substitute.For<IDynamicRepository>();
+            winLossLimitDataAccessImpl = new WinLossLimitDataAccessImpl(repository);
         }
 
         [Fact]
@@ -104,7 +103,7 @@
             // Arrange
             var criteria = new MapPlayerId3rdToCustIdCriteria(1, "2");
             var expectedValue = new List<int> { 10 };
-            repository.Fetch<int>(criteria)
+            winLossLimitDataAccessImpl.MapPlayerIdToCustId(criteria)
                 .Returns(new List<int> { 10 });
 
             // Act
