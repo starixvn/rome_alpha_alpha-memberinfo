@@ -10,7 +10,7 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var expectedSettingKey = "Age_CustomerInsMember_Ag_CreditSel";
+            var expectedSettingKey = "Age_CustomerInsMember_Ag_CreditStatusSel";
             var criteria = new SelectCreditRangeCriteria("User Test");
 
             // Act

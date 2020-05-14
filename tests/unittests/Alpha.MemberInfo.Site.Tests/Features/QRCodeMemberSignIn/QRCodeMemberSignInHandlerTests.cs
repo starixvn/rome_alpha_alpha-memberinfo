@@ -238,7 +238,7 @@
                 SearchAccountName = "test"
             };
 
-            var model = new CreditRangeModel(100, 10, 1000);
+            var model = new CreditRangeModel(100, 10, 1000, "open");
             service.GetCreditRange(Arg.Any<string>()).Returns(model);
 
             service.CheckBelongingByUsername(

@@ -50,7 +50,7 @@
         [Fact]
         public void GetCreditRange_Always_ReturnsCorrectModel()
         {
-            var model = new CreditRangeModel(100, 100, 1000);
+            var model = new CreditRangeModel(100, 100, 1000, "open");
 
             repository
                 .Get<CreditRangeModel>(Arg.Any<SelectCreditRangeCriteria>())

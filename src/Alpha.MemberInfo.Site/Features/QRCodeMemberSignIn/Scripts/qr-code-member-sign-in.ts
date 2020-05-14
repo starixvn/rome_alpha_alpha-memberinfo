@@ -31,7 +31,8 @@ class QRCodeMemberSignIn {
 
     inValidCustomerCopyFrom: boolean;
     inValidUsername: boolean;
-    invalidCredit: boolean;
+	invalidCredit: boolean;
+	disallowCreateMemberQRCode: boolean;
 
     constructor(
         $: JQueryStatic,
@@ -101,6 +102,15 @@ class QRCodeMemberSignIn {
             success: result => {
                 this.$.unblockUI();
 
+				this.disallowCreateMemberQRCode = result.Status.toUpperCase() !== "OPEN";
+
+				if (this.disallowCreateMemberQRCode) {
+					this.showErrorMessage('You can not copy setting from closed/ suspended account.');
+				}
+				else {
+					this.$messageContainer.removeClass('msg msg-error').addClass('hidden');
+				}
+
                 const numberFormat = '0,0.##';
                 this.creditMin = result.CreditMin;
                 this.creditMax = result.CreditMax;
@@ -116,10 +126,9 @@ class QRCodeMemberSignIn {
         });
     }
 
-    showErrorMessage = (message, event) => {
+    showErrorMessage = (message) => {
         this.$messageContainer.removeClass('hidden').addClass('msg msg-error');
         this.$messageContent.html(message);
-        event.preventDefault();
     }
 
     checkingLocalStorage = () => {
@@ -133,7 +142,11 @@ class QRCodeMemberSignIn {
             __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
             'X-Requested-With': 'XMLHttpRequest'
         };
-    }
+	}
+
+	//watchSubmitButton = () => {
+	//	this.$('#btn-submit').prop('disabled', this.inValidCustomerCopyFrom || this.invalidCredit || this.inValidUsername || this.disallowCreateMemberQRCode);
+	//}
 
     validateCredit = () => {
         this.credit = parseFloat(this.cleave.getRawValue());
@@ -146,19 +159,24 @@ class QRCodeMemberSignIn {
         event.preventDefault();
 
         if (this.inValidCustomerCopyFrom) {
-            this.showErrorMessage(this.memberAccountInvalidMessage, event);
+            this.showErrorMessage(this.memberAccountInvalidMessage);
             return;
         }
 
         if (this.invalidCredit) {
-            this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage, event);
+            this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage);
             return;
         }
 
         if (this.inValidUsername) {
-            this.showErrorMessage(this.usernameIsInvalid, event);
+            this.showErrorMessage(this.usernameIsInvalid);
             return;
-        }
+		}
+
+		if (this.disallowCreateMemberQRCode) {
+			this.showErrorMessage('You can not copy setting from closed/ suspended account.');
+			return;
+		}
 
         this.$.blockUI();
 
@@ -188,7 +206,7 @@ class QRCodeMemberSignIn {
                     this.reloadFrame(result);
                 }
                 else {
-                    this.showErrorMessage(result.ErrMsg, event);
+                    this.showErrorMessage(result.ErrMsg);
                 }
             }
         });
