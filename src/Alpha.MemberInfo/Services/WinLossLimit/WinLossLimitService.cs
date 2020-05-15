@@ -67,7 +67,7 @@
         {
             var result = new WinLossLimitPage();
             var playerIds = !string.IsNullOrWhiteSpace(param.PlayerId) ?
-                winLossLimitDataAccess.MapPlayerIdToCustId(new MapPlayerId3rdToCustIdCriteria(param.ProductId, param.PlayerId))
+                winLossLimitDataAccess.MapPlayerIdToCustId(new MapPlayerId3rdToCustIdCriteria(param.ProductId, param.PlayerId, param.CustId, param.MasterId, param.AgentId))
                 : Enumerable.Empty<int>();
 
             if (!playerIds.Any())

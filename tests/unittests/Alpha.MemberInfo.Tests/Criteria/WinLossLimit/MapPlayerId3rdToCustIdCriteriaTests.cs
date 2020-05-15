@@ -10,8 +10,8 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var expectedSettingKey = "Acc_CustomerSelByPlayerId";
-            var criteria = new MapPlayerId3rdToCustIdCriteria(1, "2");
+            var expectedSettingKey = "Age_CustomerSelByPlayerId";
+            var criteria = new MapPlayerId3rdToCustIdCriteria(1, "2", 0);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -24,7 +24,7 @@
         public void IsValid_Always_ReturnsCorrectValue()
         {
             // Arrange
-            var criteria = new MapPlayerId3rdToCustIdCriteria(1, "2");
+            var criteria = new MapPlayerId3rdToCustIdCriteria(1, "2", 0);
 
             // Act
             var actualIsValid = criteria.IsValid();

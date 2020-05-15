@@ -101,7 +101,7 @@
         public void MapPlayerIdToCustId_Always_ReturnCorrectValue()
         {
             // Arrange
-            var criteria = new MapPlayerId3rdToCustIdCriteria(1, "2");
+            var criteria = new MapPlayerId3rdToCustIdCriteria(1, "2", 0);
             var expectedValue = new List<int> { 10 };
             winLossLimitDataAccessImpl.MapPlayerIdToCustId(criteria)
                 .Returns(new List<int> { 10 });
