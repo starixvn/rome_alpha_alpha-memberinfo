@@ -439,7 +439,7 @@
     <value>อัพเดท เครดิตใหม่</value>
   </data>
   <data name="UpdateInformation" xml:space="preserve">
-    <value>อัพเดทข้อมูล</value>
+    <value>อัปเดตข้อมูล</value>
   </data>
   <data name="GivenCreditMustBeBetweenMinMax" xml:space="preserve">
     <value>เครดิตที่ให้จะต้องอยู่ระหว่าง {0} ถึง {1}</value>
@@ -451,7 +451,7 @@
     <value>ชื่อผู้ใช้ไม่มีอยู่</value>
   </data>
   <data name="Domain" xml:space="preserve">
-    <value>Domain</value>
+    <value>โดเมน</value>
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>กรุณากรอกเครดิตสมาชิก</value>

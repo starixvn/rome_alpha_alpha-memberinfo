@@ -451,7 +451,7 @@
     <value>賬號不正確！</value>
   </data>
   <data name="Domain" xml:space="preserve">
-    <value>Domain</value>
+    <value>域名</value>
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>請輸入會員信用額</value>
