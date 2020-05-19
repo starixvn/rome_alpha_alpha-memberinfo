@@ -70,7 +70,7 @@
                 winLossLimitDataAccess.MapPlayerIdToCustId(new MapPlayerId3rdToCustIdCriteria(param.ProductId, param.PlayerId, param.CustId, param.MasterId, param.AgentId))
                 : Enumerable.Empty<int>();
 
-            if (!playerIds.Any())
+            if (!playerIds.Any() && string.IsNullOrWhiteSpace(param.PlayerId))
             {
                 result += winLossLimitDataAccess.GetWinLossLimits(new GetCustWinLossLimitCriteria(param, null));
             }
