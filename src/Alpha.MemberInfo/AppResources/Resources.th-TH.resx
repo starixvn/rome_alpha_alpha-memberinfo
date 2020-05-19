@@ -463,6 +463,6 @@
     <value>เข้าสู่ระบบคิวอาร์โค้ดครั้งแรก</value>
   </data>
   <data name="CannotCreateClosedMemberQRCode" xml:space="preserve">
-    <value>You can not copy setting from closed/ suspended account.</value>
+    <value>คุณไม่สามารถคัดลอกการตั้งค่าจากบัญชีที่ปิดไปแล้วหรือบัญชีที่ถูกระงับได้</value>
   </data>
 </root>

@@ -156,6 +156,11 @@ class QRCodeMemberSignIn {
     submitEvent = (event) => {
         event.preventDefault();
 
+		if (this.disallowCreateMemberQRCode) {
+			this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
+			return;
+		}
+
         if (this.inValidCustomerCopyFrom) {
             this.showErrorMessage(this.memberAccountInvalidMessage);
             return;
@@ -169,11 +174,6 @@ class QRCodeMemberSignIn {
         if (this.inValidUsername) {
             this.showErrorMessage(this.usernameIsInvalid);
             return;
-		}
-
-		if (this.disallowCreateMemberQRCode) {
-			this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
-			return;
 		}
 
         this.$.blockUI();
