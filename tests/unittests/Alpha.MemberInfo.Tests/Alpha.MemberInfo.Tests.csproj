@@ -295,6 +295,7 @@
     <Compile Include="Models\CreditBalance\CustomerClosedReasonTests.cs" />
     <Compile Include="Models\CreditBalance\PagedCreditBalanceTests.cs" />
     <Compile Include="Models\ProblemAccount\ProblemAccountModelTests.cs" />
+    <Compile Include="Models\ResultTests.cs" />
     <Compile Include="Models\UserLevelTests.cs" />
     <Compile Include="Params\CreditBalanceParamTests.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitDetailTests.cs" />

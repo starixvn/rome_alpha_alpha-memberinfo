@@ -336,7 +336,7 @@
 
             return new WinLossLimitViewModel(
                 query,
-                Enumerable.Empty<WinLossLimitProductModel>(),
+                Enumerable.Empty<WinLossLimitGroupProductModel>(),
                 Enumerable.Empty<CustomerInfo>(),
                 Enumerable.Empty<CustomerInfo>(),
                 new WinLossLimitPage(numberOfRows, Enumerable.Empty<WinLossLimitDetail>()),

@@ -46,7 +46,7 @@ class WinLossLimit {
 
         var self = this;
         this.productComponent.render(
-            new SingleSelectionDropdownOption("dropdown-product", "UserSelectedProductId", this.changeProduct));
+            new SingleSelectionDropdownOption("dropdown-product", "UserSelectedProductId", this.changeProduct, true, true));
 
         if (this.$masterList.length) {
             this.masterListComponent.render(

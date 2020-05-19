@@ -13,7 +13,7 @@
 
     public interface WinLossLimitService
     {
-        IEnumerable<WinLossLimitProductModel> GetWinLossLimitProducts(int custId);
+        IEnumerable<WinLossLimitGroupProductModel> GetWinLossLimitProducts(int custId);
 
         IEnumerable<CustomerInfo> GetMasterList(int custId);
 
@@ -38,15 +38,23 @@
             this.getProductName = getProductName;
         }
 
-        public IEnumerable<WinLossLimitProductModel> GetWinLossLimitProducts(int custId)
+        public IEnumerable<WinLossLimitGroupProductModel> GetWinLossLimitProducts(int custId)
         {
-            var products = dynamicRepository.Fetch<WinLossLimitProductModel>(new GetWinLossLimitProductCriteria(custId));
-            foreach (var product in products)
-            {
-                product.ProductName = getProductName(product.ProductId);
-            }
+            var groupProducts = dynamicRepository
+                .Fetch<WinLossLimitProductModel>(new GetWinLossLimitProductCriteria(custId))
+                .GroupBy(product => product.Type);
 
-            return products;
+            foreach (var group in groupProducts)
+            {
+                foreach (var product in group)
+                {
+                    product.ProductName = getProductName(product.ProductId);
+                }
+
+                yield return new WinLossLimitGroupProductModel(
+                    group.Key == 0 ? string.Empty : getProductName(group.Key),
+                    group);
+            }
         }
 
         public IEnumerable<CustomerInfo> GetMasterList(int custId)
