@@ -670,7 +670,7 @@
     <Compile Include="Features\QRCodeMemberSignIn\Requests\ShowQRCodeRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CreateAccountByQRCodeRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeMemberSignInRequest.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditRequest.cs" />
+    <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditAndStatusRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CheckExistedCustomerRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\UserNameSuggestionQuery.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLoginConfigs.cs" />

@@ -3,9 +3,9 @@
     using Fanex.Data;
     using Fanex.Data.Repository;
 
-    public class SelectCreditRangeCriteria : CriteriaBase
+    public class SelectCreditAndStatusCriteria : CriteriaBase
     {
-        public SelectCreditRangeCriteria(string searchAccountName)
+        public SelectCreditAndStatusCriteria(string searchAccountName)
         {
             SearchAccountName = searchAccountName;
         }

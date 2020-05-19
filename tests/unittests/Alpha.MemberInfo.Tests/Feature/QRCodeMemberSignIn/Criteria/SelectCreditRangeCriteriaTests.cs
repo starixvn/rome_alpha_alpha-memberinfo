@@ -11,7 +11,7 @@
         {
             // Arrange
             var expectedSettingKey = "Age_CustomerInsMember_Ag_CreditStatusSel";
-            var criteria = new SelectCreditRangeCriteria("User Test");
+            var criteria = new SelectCreditAndStatusCriteria("User Test");
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -27,7 +27,7 @@
         public void IsValid_InputSearchAccountName_ReturnsCorrectValue(string searchAccountName, bool expectedValue)
         {
             // Arrange
-            var criteria = new SelectCreditRangeCriteria(searchAccountName);
+            var criteria = new SelectCreditAndStatusCriteria(searchAccountName);
 
             // Act
             var actualIsValid = criteria.IsValid();

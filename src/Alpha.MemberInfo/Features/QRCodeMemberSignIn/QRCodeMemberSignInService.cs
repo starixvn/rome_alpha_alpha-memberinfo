@@ -11,7 +11,7 @@
     {
         IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(int actorId, string suggestionQuery, bool isInternal);
 
-        CreditRangeModel GetCreditRange(string SearchAccountName);
+        CreditAndStatusModel GetCreditAndStatus(string SearchAccountName);
 
         SportBookSettingModel GetExistedMemberSetting(int existedCustId);
 
@@ -45,8 +45,8 @@
             => dynamicRepository.Fetch<UsernameSuggestion>(
               new SelectAutoSuggestionCriteria(actorId, suggestionQuery, isInternal)).OrderBy(item => item.UserName);
 
-        public CreditRangeModel GetCreditRange(string SearchAccountName)
-            => dynamicRepository.Get<CreditRangeModel>(new SelectCreditRangeCriteria(SearchAccountName));
+        public CreditAndStatusModel GetCreditAndStatus(string SearchAccountName)
+            => dynamicRepository.Get<CreditAndStatusModel>(new SelectCreditAndStatusCriteria(SearchAccountName));
 
         public SportBookSettingModel GetExistedMemberSetting(int existedCustId)
             => dynamicRepository.Get<SportBookSettingModel>(new SelectExistedMemberSettingCriteria(existedCustId));

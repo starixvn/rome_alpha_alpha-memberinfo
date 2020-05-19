@@ -89,7 +89,7 @@
             => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
 
         [HttpPost, AntiXsrfFilter]
-        public ActionResult GetMemberCredit(GetMemberCreditRequest message)
+        public ActionResult GetMemberCreditAndStatus(GetMemberCreditAndStatusRequest message)
             => Json(mediator.Send(message));
 
         [HttpGet]

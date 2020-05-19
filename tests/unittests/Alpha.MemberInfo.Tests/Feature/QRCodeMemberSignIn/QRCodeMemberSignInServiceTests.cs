@@ -50,13 +50,13 @@
         [Fact]
         public void GetCreditRange_Always_ReturnsCorrectModel()
         {
-            var model = new CreditRangeModel(100, 100, 1000, "open");
+            var model = new CreditAndStatusModel(100, 100, 1000, "open");
 
             repository
-                .Get<CreditRangeModel>(Arg.Any<SelectCreditRangeCriteria>())
+                .Get<CreditAndStatusModel>(Arg.Any<SelectCreditAndStatusCriteria>())
                 .Returns(model);
 
-            var actualModel = serviceImpl.GetCreditRange("user Test");
+            var actualModel = serviceImpl.GetCreditAndStatus("user Test");
 
             AssertExtension.Equal(actualModel, model);
         }

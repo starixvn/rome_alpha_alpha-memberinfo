@@ -33,6 +33,7 @@ class QRCodeMemberSignIn {
     inValidUsername: boolean;
 	invalidCredit: boolean;
 	disallowCreateMemberQRCode: boolean;
+	cannotCreateClosedMemberQRCodeMessage: string;
 
     constructor(
         $: JQueryStatic,
@@ -87,7 +88,8 @@ class QRCodeMemberSignIn {
         this.$messageContent = this.$('#message-content');
         this.memberAccountInvalidMessage = this.$('#MemberAccountIsInvalid').val();
         this.usernameIsInvalid = this.$('#UsernameIsInvalid').val();
-        this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
+		this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
+		this.cannotCreateClosedMemberQRCodeMessage = this.$('#CannotCreateClosedMemberQRCode').val();
     }
 
     getMemberCredit = () => {
@@ -98,14 +100,14 @@ class QRCodeMemberSignIn {
             headers: this.getHeadersForPostRequest(),
             data: { SearchAccountName: this.$usernameCopyFrom.val() },
             dataType: 'json',
-            url: "QRCodeMemberSignIn/GetMemberCredit",
+			url: "QRCodeMemberSignIn/GetMemberCreditAndStatus",
             success: result => {
                 this.$.unblockUI();
 
-				this.disallowCreateMemberQRCode = result.Status.toUpperCase() !== "OPEN";
+				this.disallowCreateMemberQRCode = result.DisallowCreateMemberQRCode;
 
 				if (this.disallowCreateMemberQRCode) {
-					this.showErrorMessage('You can not copy setting from closed/ suspended account.');
+					this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
 				}
 				else {
 					this.$messageContainer.removeClass('msg msg-error').addClass('hidden');
@@ -144,10 +146,6 @@ class QRCodeMemberSignIn {
         };
 	}
 
-	//watchSubmitButton = () => {
-	//	this.$('#btn-submit').prop('disabled', this.inValidCustomerCopyFrom || this.invalidCredit || this.inValidUsername || this.disallowCreateMemberQRCode);
-	//}
-
     validateCredit = () => {
         this.credit = parseFloat(this.cleave.getRawValue());
         this.invalidCredit = isNaN(this.credit)  || this.credit < this.creditMin || this.credit > this.creditMax;
@@ -174,7 +172,7 @@ class QRCodeMemberSignIn {
 		}
 
 		if (this.disallowCreateMemberQRCode) {
-			this.showErrorMessage('You can not copy setting from closed/ suspended account.');
+			this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
 			return;
 		}
 

@@ -456,4 +456,7 @@
   <data name="FirstLoginQRCode" xml:space="preserve">
     <value>ĐĂNG NHẬP LẦN ĐẦU BẰNG QR</value>
   </data>
+  <data name="CannotCreateClosedMemberQRCode" xml:space="preserve">
+    <value>You can not copy setting from closed/ suspended account.</value>
+  </data>
 </root>

@@ -2,13 +2,13 @@
 {
     using Alpha.MemberInfo.AppResources;
 
-    public class CreditRangeModel
+    public class CreditAndStatusModel
     {
-        public CreditRangeModel()
+        public CreditAndStatusModel()
         {
         }
 
-        public CreditRangeModel(
+        public CreditAndStatusModel(
             decimal credit,
             decimal creditMin,
             decimal creditMax,
@@ -27,6 +27,9 @@
         public decimal CreditMax { get; }
 
         public string Status { get; }
+
+        public bool DisallowCreateMemberQRCode
+            => !Status.ToUpper().Equals("OPEN");
 
         public string GivenCreditMustBeBetweenMinMaxMessage
             => string.Format(

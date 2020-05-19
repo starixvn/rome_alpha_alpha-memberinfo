@@ -169,6 +169,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can not copy setting from closed/ suspended account..
+        /// </summary>
+        public static string CannotCreateClosedMemberQRCode {
+            get {
+                return ResourceManager.GetString("CannotCreateClosedMemberQRCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cash.
         /// </summary>
         public static string Cash {

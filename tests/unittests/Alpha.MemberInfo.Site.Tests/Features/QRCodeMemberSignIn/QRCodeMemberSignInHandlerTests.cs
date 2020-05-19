@@ -233,13 +233,13 @@
         public void HandlerGetMemberCreditRequest_Always_ReturnsCorrectViewModel()
         {
             // Arrange
-            var message = new GetMemberCreditRequest(user)
+            var message = new GetMemberCreditAndStatusRequest(user)
             {
                 SearchAccountName = "test"
             };
 
-            var model = new CreditRangeModel(100, 10, 1000, "open");
-            service.GetCreditRange(Arg.Any<string>()).Returns(model);
+            var model = new CreditAndStatusModel(100, 10, 1000, "open");
+            service.GetCreditAndStatus(Arg.Any<string>()).Returns(model);
 
             service.CheckBelongingByUsername(
               Arg.Any<int>(),

@@ -17,7 +17,7 @@
         IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
         IRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
-        IRequestHandler<GetMemberCreditRequest, CreditRangeModel>,
+        IRequestHandler<GetMemberCreditAndStatusRequest, CreditAndStatusModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>,
         IRequestHandler<GenerateQRCodeRequest, QRCodeLinkViewModel>,
         IRequestHandler<CheckExistedCustomerRequest, bool>
@@ -61,6 +61,16 @@
         {
             var model = qrCodeMemberSignInService.CheckBelongingByUsername(message.CustId, message.UsernameCopyFrom, message.SubAccId);
             var custIdCopyFrom = model.CustId;
+
+            if (qrCodeMemberSignInService.GetCreditAndStatus(message.Username).DisallowCreateMemberQRCode)
+            {
+                return new ResultCreateMemberQRCode
+                {
+                    Success = false,
+                    ErrCode = 100,
+                    ErrMsg = Resources.CannotCreateClosedMemberQRCode
+                };
+            }
 
             if (custIdCopyFrom > 0 &&
                 Enumeration.FromValue<UserLevel>((byte)model.RoleId).IsMemberLevel() &&
@@ -107,13 +117,13 @@
                 message.SuggestionQuery,
                 message.IsInternal);
 
-        public CreditRangeModel Handle(GetMemberCreditRequest message)
+        public CreditAndStatusModel Handle(GetMemberCreditAndStatusRequest message)
             => IsValidBelongingByUsername(
                 message.CustId, 
                 message.SearchAccountName, 
                 message.SubAccId) ?
-                qrCodeMemberSignInService.GetCreditRange(message.SearchAccountName) :
-                new CreditRangeModel();
+                qrCodeMemberSignInService.GetCreditAndStatus(message.SearchAccountName) :
+                new CreditAndStatusModel();
 
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {

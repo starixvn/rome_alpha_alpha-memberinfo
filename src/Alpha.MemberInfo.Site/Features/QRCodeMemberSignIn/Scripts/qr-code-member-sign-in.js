@@ -39,6 +39,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
             _this.memberAccountInvalidMessage = _this.$('#MemberAccountIsInvalid').val();
             _this.usernameIsInvalid = _this.$('#UsernameIsInvalid').val();
             _this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
+            _this.cannotCreateClosedMemberQRCodeMessage = _this.$('#CannotCreateClosedMemberQRCode').val();
         };
         this.getMemberCredit = function () {
             _this.$.blockUI();
@@ -47,10 +48,10 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 headers: _this.getHeadersForPostRequest(),
                 data: { SearchAccountName: _this.$usernameCopyFrom.val() },
                 dataType: 'json',
-                url: "QRCodeMemberSignIn/GetMemberCredit",
+                url: "QRCodeMemberSignIn/GetMemberCreditAndStatus",
                 success: function (result) {
                     _this.$.unblockUI();
-                    _this.disallowCreateMemberQRCode = result.Status.toUpperCase() !== "OPEN";
+                    _this.disallowCreateMemberQRCode = result.DisallowCreateMemberQRCode;
                     if (_this.disallowCreateMemberQRCode) {
                         _this.showErrorMessage('You can not copy setting from closed/ suspended account.');
                     }

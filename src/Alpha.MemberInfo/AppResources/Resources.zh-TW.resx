@@ -462,4 +462,7 @@
   <data name="FirstLoginQRCode" xml:space="preserve">
     <value>首次登入二維碼</value>
   </data>
+  <data name="CannotCreateClosedMemberQRCode" xml:space="preserve">
+    <value>無法複製已停用或禁用帳戶的設定。</value>
+  </data>
 </root>
