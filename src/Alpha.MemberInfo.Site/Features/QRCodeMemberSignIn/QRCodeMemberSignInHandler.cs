@@ -59,10 +59,7 @@
 
         public ResultCreateMemberQRCode Handle(CreateAccountByQRCodeRequest message)
         {
-            var model = qrCodeMemberSignInService.CheckBelongingByUsername(message.CustId, message.UsernameCopyFrom, message.SubAccId);
-            var custIdCopyFrom = model.CustId;
-
-            if (qrCodeMemberSignInService.GetCreditAndStatus(message.Username).DisallowCreateMemberQRCode)
+            if (qrCodeMemberSignInService.GetCreditAndStatus(message.UsernameCopyFrom).DisallowCreateMemberQRCode)
             {
                 return new ResultCreateMemberQRCode
                 {
@@ -71,6 +68,9 @@
                     ErrMsg = Resources.CannotCreateClosedMemberQRCode
                 };
             }
+
+            var model = qrCodeMemberSignInService.CheckBelongingByUsername(message.CustId, message.UsernameCopyFrom, message.SubAccId);
+            var custIdCopyFrom = model.CustId;
 
             if (custIdCopyFrom > 0 &&
                 Enumeration.FromValue<UserLevel>((byte)model.RoleId).IsMemberLevel() &&

@@ -117,6 +117,8 @@
 
             var custIdCopyFrom = 999;
 
+            service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
+
             service.CheckBelongingByUsername(
                 Arg.Any<int>(),
                 Arg.Any<string>(),
@@ -167,7 +169,7 @@
             };
 
             var custIdCopyFrom = -1;
-
+            service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
             service.CheckBelongingByUsername(
                 Arg.Any<int>(),
                 Arg.Any<string>(),
@@ -179,6 +181,38 @@
                 Success = false,
                 ErrCode = 100,
                 ErrMsg = "Username is invalid."
+            };
+
+            // Act
+            var actualViewModel = handler.Handle(message);
+
+            // Assert
+            AssertExtension.Equal(result, actualViewModel);
+        }
+
+        [Fact]
+        public void HandlerCreateAccountByQRCodeRequest_SuspendedCopyFrom_ReturnsErrorResult()
+        {
+            // Arrange
+            var message = new CreateAccountByQRCodeRequest(user)
+            {
+                UsernameCopyFrom = "User",
+                Credit = 100,
+                CreditMin = 10,
+                CreditMax = 1000,
+                FirstSuffix = "A",
+                SecondSuffix = "A",
+                ThirdSuffix = "A",
+                FirstName = "James",
+                ShowPageTitle = true
+            };
+
+            service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Closed"));
+            var result = new ResultCreateMemberQRCode
+            {
+                Success = false,
+                ErrCode = 100,
+                ErrMsg = "You can not copy setting from closed/ suspended account."
             };
 
             // Act
@@ -206,7 +240,7 @@
             };
 
             var custIdCopyFrom = 999;
-
+            service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
             service.CheckBelongingByUsername(
                 Arg.Any<int>(),
                 Arg.Any<string>(),
