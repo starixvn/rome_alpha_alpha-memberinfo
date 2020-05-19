@@ -66,13 +66,21 @@
         public WinLossLimitPage GetWinLossLimitPage(WinLossLimitParam param)
         {
             var result = new WinLossLimitPage();
-            var isSabaclub = param.IsSabaclub;
-            var playerId = isSabaclub && !string.IsNullOrWhiteSpace(param.PlayerId) ?
-                winLossLimitDataAccess.MapPlayerIdToCustId(new MapPlayerId3rdToCustIdCriteria(param.ProductId, param.PlayerId))
-                : (int?)null;
+            var playerIds = !string.IsNullOrWhiteSpace(param.PlayerId) ?
+                winLossLimitDataAccess.MapPlayerIdToCustId(new MapPlayerId3rdToCustIdCriteria(param.ProductId, param.PlayerId, param.CustId, param.MasterId, param.AgentId))
+                : Enumerable.Empty<int>();
 
-            var custWinLossLimits = winLossLimitDataAccess.GetWinLossLimits(new GetCustWinLossLimitCriteria(param, playerId));
-            if (!custWinLossLimits.WinLossLimitDetail.Any())
+            if (!playerIds.Any())
+            {
+                result += winLossLimitDataAccess.GetWinLossLimits(new GetCustWinLossLimitCriteria(param, null));
+            }
+
+            foreach (var playerId in playerIds)
+            {
+                result += winLossLimitDataAccess.GetWinLossLimits(new GetCustWinLossLimitCriteria(param, playerId));
+            }
+
+            if (!result.WinLossLimitDetail.Any())
             {
                 return result;
             }
@@ -80,7 +88,7 @@
             var balances = dynamicRepository.Fetch<WinLossLimitDetail>(new GetBalanceCriteria(param));
             IEnumerable<WinLossLimitDetail> outstandings = Enumerable.Empty<WinLossLimitDetail>();
 
-            foreach (var custWinLossLimit in custWinLossLimits.WinLossLimitDetail)
+            foreach (var custWinLossLimit in result.WinLossLimitDetail)
             {
                 var balance = balances.FirstOrDefault(item => item.CustId == custWinLossLimit.CustId);
                 if (balance != null)
@@ -98,7 +106,7 @@
                 }
             }
 
-            return custWinLossLimits;
+            return result;
         }
     }
 }

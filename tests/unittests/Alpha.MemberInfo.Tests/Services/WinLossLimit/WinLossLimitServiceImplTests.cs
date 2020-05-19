@@ -12,6 +12,7 @@
     using NSubstitute;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Xunit;
 
     [Trait("Category", "WinLossLimit")]
@@ -87,7 +88,7 @@
             var actualValue = winLossLimitServiceImpl.GetWinLossLimitPage(param);
 
             // Assert
-            Assert.True(compareLogic.Compare(expectedValue, actualValue).AreEqual);
+            Assert.True(compareLogic.Compare(expectedValue.WinLossLimitDetail.ToList(), actualValue.WinLossLimitDetail.ToList()).AreEqual);
         }
 
         [Fact]
@@ -118,7 +119,7 @@
             var actualValue = winLossLimitServiceImpl.GetWinLossLimitPage(param);
 
             // Assert
-            Assert.True(compareLogic.Compare(expectedValue, actualValue).AreEqual);
+            Assert.True(compareLogic.Compare(expectedValue.WinLossLimitDetail.ToList(), actualValue.WinLossLimitDetail.ToList()).AreEqual);
         }
     }
 }
