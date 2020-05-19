@@ -29,7 +29,7 @@
         public string Status { get; }
 
         public bool DisallowCreateMemberQRCode
-            => !Status.ToUpper().Equals("OPEN");
+            => string.IsNullOrEmpty(Status) || !Status.ToUpper().Equals("OPEN");
 
         public string GivenCreditMustBeBetweenMinMaxMessage
             => string.Format(

@@ -106,7 +106,7 @@ class QRCodeMemberSignIn {
 
 				this.disallowCreateMemberQRCode = result.DisallowCreateMemberQRCode;
 
-				if (this.disallowCreateMemberQRCode) {
+				if (this.disallowCreateMemberQRCode && result.Status !== null) {
 					this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
 				}
 				else {
