@@ -28,9 +28,6 @@
 
         public string Status { get; }
 
-        public bool DisallowCreateMemberQRCode
-            => string.IsNullOrEmpty(Status) || !Status.ToUpper().Equals("OPEN");
-
         public string GivenCreditMustBeBetweenMinMaxMessage
             => string.Format(
                 Resources.GivenCreditMustBeBetweenMinMax,

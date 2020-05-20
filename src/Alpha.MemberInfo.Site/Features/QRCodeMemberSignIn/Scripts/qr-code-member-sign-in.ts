@@ -32,7 +32,8 @@ class QRCodeMemberSignIn {
     inValidCustomerCopyFrom: boolean;
     inValidUsername: boolean;
 	invalidCredit: boolean;
-	disallowCreateMemberQRCode: boolean;
+
+	showCreateFromUnopenedMemberMessage: boolean;
 	cannotCreateClosedMemberQRCodeMessage: string;
 
     constructor(
@@ -102,16 +103,12 @@ class QRCodeMemberSignIn {
             dataType: 'json',
 			url: "QRCodeMemberSignIn/GetMemberCreditAndStatus",
             success: result => {
-                this.$.unblockUI();
+				this.$.unblockUI();
+				this.showCreateFromUnopenedMemberMessage = result.Status !== null && result.Status.toUpperCase() !== 'OPEN';
 
-				this.disallowCreateMemberQRCode = result.DisallowCreateMemberQRCode;
-
-				if (this.disallowCreateMemberQRCode && result.Status !== null) {
-					this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
-				}
-				else {
+				this.showCreateFromUnopenedMemberMessage ?
+					this.showClosedMemberQRCodeMessage(): 
 					this.$messageContainer.removeClass('msg msg-error').addClass('hidden');
-				}
 
                 const numberFormat = '0,0.##';
                 this.creditMin = result.CreditMin;
@@ -153,11 +150,16 @@ class QRCodeMemberSignIn {
         this.$('#icon-message-credit').removeClass().addClass(errorClass);
     }
 
+	showClosedMemberQRCodeMessage = () => {
+		this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
+		this.$(`#${this.iconMessageUsernameCopyFrom}`).removeClass().addClass('icon-close');
+	}
+
     submitEvent = (event) => {
         event.preventDefault();
 
-		if (this.disallowCreateMemberQRCode) {
-			this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
+		if (this.showCreateFromUnopenedMemberMessage) {
+			this.showClosedMemberQRCodeMessage();
 			return;
 		}
 

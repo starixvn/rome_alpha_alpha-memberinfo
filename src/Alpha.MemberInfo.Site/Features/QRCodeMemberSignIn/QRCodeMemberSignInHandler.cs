@@ -11,6 +11,7 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
     using Alpha.Products.Core.Services;
     using MediatR;
+    using System;
     using System.Collections.Generic;
 
     public class QRCodeMemberSignInHandler :
@@ -59,7 +60,10 @@
 
         public ResultCreateMemberQRCode Handle(CreateAccountByQRCodeRequest message)
         {
-            if (qrCodeMemberSignInService.GetCreditAndStatus(message.UsernameCopyFrom).DisallowCreateMemberQRCode)
+            var creditAndStatusModel = qrCodeMemberSignInService.GetCreditAndStatus(message.UsernameCopyFrom);
+
+            if(creditAndStatusModel.Status != null &&
+              !creditAndStatusModel.Status.Equals("OPEN", StringComparison.OrdinalIgnoreCase))
             {
                 return new ResultCreateMemberQRCode
                 {
