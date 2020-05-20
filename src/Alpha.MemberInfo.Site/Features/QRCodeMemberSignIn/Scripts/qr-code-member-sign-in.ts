@@ -120,8 +120,10 @@ class QRCodeMemberSignIn {
                 this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
                 this.$creditInput.val(numeral(result.Credit).format(numberFormat));
 
-                this.validateCredit();
-            }
+				this.validateCredit();
+				this.$.unblockUI();
+			},
+			error: () => { this.$.unblockUI(); }
         });
     }
 
@@ -194,24 +196,24 @@ class QRCodeMemberSignIn {
             c_f: this.$("input[name=c_f]").val()
         };
 
-        this.$.ajax({
-            method: "POST",
-            headers: this.getHeadersForPostRequest(),
-            data: data,
-            dataType: 'json',
-            url: "QRCodeMemberSignIn/CreateAccount",
-            success: (result) => {
-                if (result.ErrCode === 0) {
-                    localStorage.setItem("memberNameCopyFrom", data.UsernameCopyFrom);
-                    this.reloadFrame(result);
-                }
-                else {
-                    this.showErrorMessage(result.ErrMsg);
-                }
-            }
+		this.$.ajax({
+			method: "POST",
+			headers: this.getHeadersForPostRequest(),
+			data: data,
+			dataType: 'json',
+			url: "QRCodeMemberSignIn/CreateAccount",
+			success: (result) => {
+				if (result.ErrCode === 0) {
+					localStorage.setItem("memberNameCopyFrom", data.UsernameCopyFrom);
+					this.reloadFrame(result);
+				}
+				else {
+					this.showErrorMessage(result.ErrMsg);
+					this.$.unblockUI();
+				}
+			},
+			error: () => { this.$.unblockUI(); }
         });
-
-        this.$.unblockUI();
     }
 
 	reloadFrame = (result) => {

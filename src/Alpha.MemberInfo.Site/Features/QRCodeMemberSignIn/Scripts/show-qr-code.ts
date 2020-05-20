@@ -107,7 +107,8 @@ class ShowQRCode {
                 this.$('#qr-code-image').attr('src', result.QRCodeImage);
                 this.$('#QRCodeLink').val(result.QRCodeLink);
                 this.$.unblockUI();
-            }
+			},
+			error: () => { this.$.unblockUI(); }
         });
     }
 
