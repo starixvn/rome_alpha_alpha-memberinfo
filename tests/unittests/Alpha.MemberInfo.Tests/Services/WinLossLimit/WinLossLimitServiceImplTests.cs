@@ -121,5 +121,38 @@
             // Assert
             Assert.True(compareLogic.Compare(expectedValue.WinLossLimitDetail.ToList(), actualValue.WinLossLimitDetail.ToList()).AreEqual);
         }
+
+        [Fact]
+        public void GetWinLossLimitPage_HaveWinLossLimits_ReturnCorrectValue()
+        {
+            // Arrange
+            var param = new WinLossLimitParam(1, 0, 1, 1, "123", string.Empty, 1, 1, 1, 1);
+            var winLossLimits = new List<WinLossLimitDetail> {
+                new WinLossLimitDetail { CustId = 1 },
+                new WinLossLimitDetail { CustId = 2 },
+            };
+
+            dynamicRepository.Fetch<int>(Arg.Any<MapPlayerId3rdToCustIdCriteria>()).Returns(new List<int> { 1, 2 });
+
+            dynamicRepository.Fetch<WinLossLimitDetail>(Arg.Any<GetBalanceCriteria>()).Returns(new List<WinLossLimitDetail>
+            {
+                new WinLossLimitDetail { CustId = 2, CreditBalance = 10, DebitBalance = 20, Balance = 30 }
+            });
+
+            winLossLimitDataAccess.GetWinLossLimits(Arg.Any<GetCustWinLossLimitCriteria>()).Returns(new WinLossLimitPage(2, winLossLimits));
+
+            var expectedLimits = new List<WinLossLimitDetail> {
+                new WinLossLimitDetail { CustId = 1 },
+                new WinLossLimitDetail { CustId = 2, CreditBalance = 10, DebitBalance = 20, Balance = 30 },
+            };
+
+            var expectedValue = new WinLossLimitPage(2, expectedLimits);
+
+            // Act
+            var actualValue = winLossLimitServiceImpl.GetWinLossLimitPage(param);
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedValue.WinLossLimitDetail.ToList(), actualValue.WinLossLimitDetail.ToList()).AreEqual);
+        }
     }
 }

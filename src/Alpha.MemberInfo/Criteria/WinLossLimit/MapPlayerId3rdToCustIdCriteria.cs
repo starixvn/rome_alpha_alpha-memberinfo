@@ -19,7 +19,6 @@
 
         public int CustId { get; }
 
-
         public int Mrecommend { get; }
 
         public int Recommend { get; }
