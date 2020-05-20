@@ -95,7 +95,7 @@
         public void GetWinLossLimitPage_HaveWinLossLimitsAndNotPokerGames_ReturnCorrectValue()
         {
             // Arrange
-            var param = new WinLossLimitParam(1, 0, 1, 1, string.Empty, "123", 1, 1, 1, 1);
+            var param = new WinLossLimitParam(1, 0, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1);
             var winLossLimits = new List<WinLossLimitDetail> {
                 new WinLossLimitDetail { CustId = 1 },
                 new WinLossLimitDetail { CustId = 2 },
