@@ -9,7 +9,7 @@
         public const int Reviewed = 1;
         public const int NotReviewed = 0;
 
-        public static readonly IDictionary<int, string> Items = new Dictionary<int, string>
+        public static readonly IReadOnlyDictionary<int, string> Items = new Dictionary<int, string>
         {
             [All] = nameof(All),
             [Reviewed] = nameof(Reviewed),

@@ -402,4 +402,7 @@
   <data name="ProblemMemberAccounts" xml:space="preserve">
     <value>บัญชีสมาชิกทีมีปัญหา</value>
   </data>
+  <data name="RemainingTransferInAmount" xml:space="preserve">
+    <value>จำนวนเงินโอนเข้าคงเหลือ</value>
+  </data>
 </root>

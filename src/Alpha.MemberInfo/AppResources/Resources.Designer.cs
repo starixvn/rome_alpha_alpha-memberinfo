@@ -664,6 +664,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remaining Transfer-in Amount.
+        /// </summary>
+        public static string RemainingTransferInAmount {
+            get {
+                return ResourceManager.GetString("RemainingTransferInAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please input a valid agent account.
         /// </summary>
         public static string RequiredAgent {

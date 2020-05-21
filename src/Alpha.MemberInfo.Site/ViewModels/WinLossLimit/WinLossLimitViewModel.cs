@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.ViewModels.WinLossLimit
 {
-    using System.Collections.Generic;
     using Alpha.MemberInfo.Constants;
     using AppResources;
     using Components;
@@ -8,12 +7,16 @@
     using MemberInfo.Models.WinLossLimit;
     using Params;
     using Requests.WinLossLimit;
+    using System.Collections.Generic;
 
     public class WinLossLimitViewModel
     {
         private readonly List<int> SportTypeHasNoBetlimitSetting = new List<int> { SportTypeConstants.BBin };
 
-        private const int SabaclubSportType = 200;
+        private readonly Dictionary<int, int> NumberOfColumnBySportType = new Dictionary<int, int> {
+            {SportTypeConstants.Sabaclub, 14},
+            {SportTypeConstants.BBin,14}
+        };
 
         public WinLossLimitViewModel(
             WinLossLimitQuery message,
@@ -62,7 +65,8 @@
 
         public int SportType { get; }
 
-        public bool IsSabaclub => SportType == SabaclubSportType;
+        public bool IsSabaclub => SportType == SportTypeConstants.Sabaclub;
+        public bool IsBBin => SportType == SportTypeConstants.BBin;
 
         public int BetType { get; }
 
@@ -79,7 +83,7 @@
 
         public bool ShowPager => WinLossLimitPage.NumberOfRows >= 100;
 
-        public int NumberOfColumns => IsSabaclub ? 14 : 13;
+        public int NumberOfColumns => NumberOfColumnBySportType.ContainsKey(SportType) ? NumberOfColumnBySportType[SportType] : 13;
 
         public static string GetPlayerIdText(string playerId)
             => string.IsNullOrWhiteSpace(playerId) ? "-" : playerId;
@@ -112,7 +116,11 @@
             => maxLossLimit.HasValue && maxLossLimit.Value == 0 ? Unlimited
             : remainingBuyInAmount.HasValue ? remainingBuyInAmount.Value.ToString("#,##0.##") : "-";
 
-        private static string Unlimited 
+        public static string GetRemainingTransferInAmount(decimal? remainingTransferInAmount, decimal? maxLossLimit)
+            => maxLossLimit.HasValue && maxLossLimit.Value == 0 ? Unlimited
+            : remainingTransferInAmount.HasValue ? remainingTransferInAmount.Value.ToString("#,##0.##") : "-";
+
+        private static string Unlimited
             => Lang.Unlimited;
 
         private string UnlimitedOrNoSetting()

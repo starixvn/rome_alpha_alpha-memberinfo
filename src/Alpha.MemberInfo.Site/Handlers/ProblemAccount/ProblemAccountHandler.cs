@@ -45,15 +45,7 @@
         public IEnumerable<ProblemAccountModel> Handle(GetProblemAccountRequest message)
         {
             var models = service.Get(CreateParam(message));
-            //var models = new List<ProblemAccountModel>();
-            //for (var i = 1; i <= 100; i++)
-            //{
-            //    models.Add(new ProblemAccountModel
-            //    {
-            //        CustId = 1233434,
-            //        UserName = "jdjdjdjdjkdjdjkldjk"
-            //    });
-            //}
+
             return models;
         }
 

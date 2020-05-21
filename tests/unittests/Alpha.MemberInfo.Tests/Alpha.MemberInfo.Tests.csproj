@@ -285,6 +285,7 @@
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\ExceptionRecorder.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Helpers\ProductHelperTests.cs" />
