@@ -33,10 +33,11 @@
         public bool ShowPageTitle { get; set; } = true;
 
         public override bool IsValid() => 
-            base.IsValid() && 
-            SearchAccountId > 0 && 
-            !string.IsNullOrEmpty(SearchAccountName) && 
-            Credit <= CreditMax && 
+            base.IsValid() &&
+            !IsInternal &&
+            SearchAccountId > 0 &&
+            !string.IsNullOrEmpty(SearchAccountName) &&
+            Credit <= CreditMax &&
             Credit >= CreditMin;
     }
 }

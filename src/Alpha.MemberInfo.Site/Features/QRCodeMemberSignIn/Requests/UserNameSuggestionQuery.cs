@@ -9,12 +9,9 @@
     {
         public UserNameSuggestionQuery(IUser viewer) : base(viewer)
         {
-            IsInternal = viewer.IsInternal;
         }
 
         public string SuggestionQuery { get; set; }
-
-        public bool IsInternal { get; }
 
         public override bool IsValid() => 
             base.IsValid() && 

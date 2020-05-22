@@ -17,9 +17,10 @@
         public string Domain { get; set; }
 
         public override bool IsValid() => 
-            base.IsValid() && 
+            base.IsValid() &&
+            !IsInternal &&
             SearchAccountId > 0 &&
-            !string.IsNullOrEmpty(SearchAccountName) && 
+            !string.IsNullOrEmpty(SearchAccountName) &&
             !string.IsNullOrEmpty(Domain);
     }
 }

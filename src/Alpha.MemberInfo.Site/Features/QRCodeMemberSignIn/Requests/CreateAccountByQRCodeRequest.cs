@@ -34,9 +34,10 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
         public bool ShowPageTitle { get; set; }
 
         public override bool IsValid() =>
-            base.IsValid() && 
-            !string.IsNullOrEmpty(UsernameCopyFrom) && 
-            Credit <= CreditMax && 
+            base.IsValid() &&
+            !IsInternal &&
+            !string.IsNullOrEmpty(UsernameCopyFrom) &&
+            Credit <= CreditMax &&
             Credit >= CreditMin;
     }
 }
