@@ -15,6 +15,7 @@
         private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         private const string IndexPath = "~/Features/QRCodeMemberSignIn/Views/Index.cshtml";
         private const string ShowQRCodePath = "~/Features/QRCodeMemberSignIn/Views/ShowQRCode.cshtml";
+        private const string NotAuthorizedPath = "~/Features/QRCodeMemberSignIn/Views/_NotAuthorized.cshtml";
         private const string Separator = "; ";
         private readonly IMediator mediator;
         private readonly int ErrorCodeDefault = 998;
@@ -49,11 +50,10 @@
 
             if (message != null && !message.IsValid())
             {
-                ModelState.AddModelError("InvalidRequest", Resources.UsernameIsInvalid);
                 return Json(new ResultCreateMemberQRCode
                 {
                     ErrCode = ErrorCodeDefault,
-                    ErrMsg = Resources.UsernameIsInvalid
+                    ErrMsg = message.IsInternal ? Lang.NotAuthorized : Resources.UsernameIsInvalid
                 });
             }
 
@@ -97,7 +97,7 @@
         {
             if (message != null && !message.IsValid())
             {
-                return View(InvalidPageViewPath);
+                return View(message.IsInternal ? NotAuthorizedPath : InvalidPageViewPath);
             }
 
             var viewModel = mediator.Send(message);

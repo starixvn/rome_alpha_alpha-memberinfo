@@ -832,6 +832,7 @@
     <Content Include="Features\QRCodeMemberSignIn\Views\ShowQRCode.cshtml" />
     <Content Include="Features\QRCodeMemberSignIn\Styles\show-qr-code.scss" />
     <Content Include="Features\QRCodeMemberSignIn\Styles\_mixins.scss" />
+    <Content Include="Features\QRCodeMemberSignIn\Views\_NotAuthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
