@@ -17,6 +17,7 @@
         private const string ShowQRCodePath = "~/Features/QRCodeMemberSignIn/Views/ShowQRCode.cshtml";
         private const string NotAuthorizedPath = "~/Features/QRCodeMemberSignIn/Views/_NotAuthorized.cshtml";
         private const string Separator = "; ";
+
         private readonly IMediator mediator;
         private readonly int ErrorCodeDefault = 998;
 
