@@ -402,7 +402,7 @@
   <data name="ProblemMemberAccounts" xml:space="preserve">
     <value>บัญชีสมาชิกทีมีปัญหา</value>
   </data>
-    <data name="RemainingTransferInAmount" xml:space="preserve">
+  <data name="RemainingTransferInAmount" xml:space="preserve">
     <value>จำนวนเงินโอนเข้าคงเหลือ</value>
   </data>
   <data name="AccountInformation" xml:space="preserve">
@@ -464,5 +464,8 @@
   </data>
   <data name="CannotCreateClosedMemberQRCode" xml:space="preserve">
     <value>คุณไม่สามารถคัดลอกการตั้งค่าจากบัญชีที่ปิดไปแล้วหรือบัญชีที่ถูกระงับได้</value>
+  </data>
+  <data name="CannotGenerateMessage" xml:space="preserve">
+    <value>You can not regenerate the QR Code cause this account is already being used by member.</value>
   </data>
 </root>

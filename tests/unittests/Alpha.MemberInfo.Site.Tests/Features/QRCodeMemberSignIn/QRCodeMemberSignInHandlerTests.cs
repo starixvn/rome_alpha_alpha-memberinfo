@@ -301,7 +301,7 @@
             };
 
             qrCodeLoginConfigsHelper.LocalTest().Returns(true);
-            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
+            service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
 
             service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
             qrCodeAdapter.Generate(Arg.Any<string>()).Returns("imageBase64");
@@ -342,7 +342,7 @@
         }
 
         [Fact]
-        public void HandlerShowQRCodeRequest_InvalidFirstLogin_ReturnsNull()
+        public void HandlerShowQRCodeRequest_FirstLogin_ReturnsNull()
         {
             // Arrange
             var message = new ShowQRCodeRequest(user)
@@ -354,7 +354,7 @@
                 CreditMax = 1000
             };
 
-            service.CheckFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
+            service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
 
             // Act
             var actualViewModel = handler.Handle(message);
@@ -376,6 +376,8 @@
             qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs().Returns(
                 new QRCodeLoginConfigs("192.468.1.1", new string[] { "domain.com", "domain1.com" }, 1 , 3600));
 
+            service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
+
             qrCodeAdapter.CreateMobileLoginUrl(
                 Arg.Any<bool>(),
                 Arg.Any<string>(),
@@ -392,6 +394,25 @@
 
             // Assert
             AssertExtension.Equal(expectedViewModel, actualViewModel);
+        }
+
+        [Fact]
+        public void HandlerQGenerateQRCodeRequest_FirstLogin_ReturnsDefaultViewModel()
+        {
+            // Arrange
+            var message = new GenerateQRCodeRequest(user)
+            {
+                SearchAccountName = "test",
+                Domain = "domain.com"
+            };
+
+            service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
+
+            // Act
+            var actualViewModel = handler.Handle(message);
+
+            // Assert
+            AssertExtension.Equal(new QRCodeLinkViewModel(), actualViewModel);
         }
 
         [Theory]

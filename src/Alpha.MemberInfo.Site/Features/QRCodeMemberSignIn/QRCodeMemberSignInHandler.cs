@@ -131,7 +131,7 @@
 
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
-            if (qrCodeMemberSignInService.CheckFirstLoginByQRCode(message.SearchAccountId))
+            if (qrCodeMemberSignInService.IsNotFirstLoginByQRCode(message.SearchAccountId))
             {
                 var rawPassword = message.RawPassword;
 
@@ -184,16 +184,21 @@
 
         public QRCodeLinkViewModel Handle(GenerateQRCodeRequest message)
         {
-            var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
+            if (qrCodeMemberSignInService.IsNotFirstLoginByQRCode(message.SearchAccountId))
+            {
+                var config = qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs();
 
-            var link = qrCodeAdapter.CreateMobileLoginUrl(
-                qrCodeLoginConfigsHelper.LocalTest(),
-                message.Domain,
-                config.SiteId,
-                message.SearchAccountName,
-                config.ExpireSeconds);
+                var link = qrCodeAdapter.CreateMobileLoginUrl(
+                    qrCodeLoginConfigsHelper.LocalTest(),
+                    message.Domain,
+                    config.SiteId,
+                    message.SearchAccountName,
+                    config.ExpireSeconds);
 
-            return new QRCodeLinkViewModel(link, qrCodeAdapter.Generate(link));
+                return new QRCodeLinkViewModel(link, qrCodeAdapter.Generate(link));
+            }
+
+            return new QRCodeLinkViewModel();
         }
 
         public bool Handle(CheckExistedCustomerRequest message)
