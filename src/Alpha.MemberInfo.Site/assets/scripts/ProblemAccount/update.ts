@@ -1,4 +1,6 @@
-﻿class UpdateReviewStatus {
+﻿/// <reference path="../shared/top-windows-interface.ts" />
+
+class UpdateReviewStatus {
     $: JQueryStatic;
     topWindow: Window;
 

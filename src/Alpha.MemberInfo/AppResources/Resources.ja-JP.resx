@@ -285,4 +285,64 @@
   <data name="Master" xml:space="preserve">
     <value>マスター</value>
   </data>
+  <data name="AccountInformation" xml:space="preserve">
+    <value>Account Information</value>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Copy Link</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Create Account</value>
+  </data>
+  <data name="CreateMemberWithQRCode" xml:space="preserve">
+    <value>Create Member with QR Code</value>
+  </data>
+  <data name="FirstNameOptional" xml:space="preserve">
+    <value>First Name (Optional)</value>
+  </data>
+  <data name="InputExistingMemberAccount" xml:space="preserve">
+    <value>Input Existing Member account (that you want to copy the settings)</value>
+  </data>
+  <data name="MemberCredit" xml:space="preserve">
+    <value>Member Credit</value>
+  </data>
+  <data name="NewGivenCredit" xml:space="preserve">
+    <value>New Given Credit</value>
+  </data>
+  <data name="PleaseShowThisQRCodeToYourMember" xml:space="preserve">
+    <value>Please show this QR code to your member</value>
+  </data>
+  <data name="ThisAccountHasBeenSuccessfullyCreated" xml:space="preserve">
+    <value>The account has been successfully created.</value>
+  </data>
+  <data name="UpdateCredit" xml:space="preserve">
+    <value>Update Given Credit</value>
+  </data>
+  <data name="UpdateInformation" xml:space="preserve">
+    <value>Update Information</value>
+  </data>
+  <data name="GivenCreditMustBeBetweenMinMax" xml:space="preserve">
+    <value>Given Credit must be between {0} and {1}.</value>
+  </data>
+  <data name="MemberAccountIsInvalid" xml:space="preserve">
+    <value>Member account is invalid.</value>
+  </data>
+  <data name="UsernameIsInvalid" xml:space="preserve">
+    <value>Username unavailable!</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domain</value>
+  </data>
+  <data name="PleaseInputMemberCredit" xml:space="preserve">
+    <value>Please input Member credit</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="FirstLoginQRCode" xml:space="preserve">
+    <value>FIRST LOGIN QR CODE</value>
+  </data>
+  <data name="CannotCreateClosedMemberQRCode" xml:space="preserve">
+    <value>You can not copy setting from closed/ suspended account.</value>
+  </data>
 </root>

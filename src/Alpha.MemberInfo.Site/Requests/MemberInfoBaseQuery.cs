@@ -40,6 +40,8 @@
 
         public string IP => viewer.IP;
 
+        public bool IsInternal => viewer.IsInternal;
+
         public virtual bool IsValid()
             => CustId > 0
             && !string.IsNullOrWhiteSpace(CustName)

@@ -70,5 +70,32 @@
     "inputFiles": [
       "assets/scripts/ProblemAccount/update.js"
     ]
+  },
+  {
+    "outputFileName": "Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in.js",
+    "inputFiles": [
+      "Features/QRCodeMemberSignIn/Scripts/qr-code-member-sign-in.js",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/QRCodeMemberSignIn/bundles/qr-code-member-sign-in.css",
+    "inputFiles": [
+      "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.css",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/QRCodeMemberSignIn/Bundles/show-qr-code.js",
+    "inputFiles": [
+      "Features/QRCodeMemberSignIn/Scripts/show-qr-code.js",
+      "Features/QRCodeMemberSignIn/Scripts/ClipboardPolyfill/clipboard-polyfill.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/QRCodeMemberSignIn/Bundles/show-qr-code.css",
+    "inputFiles": [
+      "Features/QRCodeMemberSignIn/Styles/show-qr-code.css"
+    ]
   }
 ]

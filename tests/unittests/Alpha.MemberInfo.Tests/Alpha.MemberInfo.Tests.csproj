@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\..\packages\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\..\..\packages\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props')" />
+  <Import Project="..\..\..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\..\..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -86,9 +86,8 @@
       <HintPath>..\..\..\packages\Fanex.Products.1.0.0.5\lib\net461\Fanex.Products.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.RemotingRef, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.RemotingRef.1.3.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fanex.RemotingRef, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.RemotingRef.1.4.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
     </Reference>
     <Reference Include="HandHistoryLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\CasinoLibrary.2.0.3.38621\lib\net40\HandHistoryLibrary.dll</HintPath>
@@ -118,9 +117,8 @@
       <HintPath>..\..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MessagePack, Version=1.7.3.4, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MessagePack, Version=1.7.3.7, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MessagePack.1.7.3.7\lib\net45\MessagePack.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
@@ -284,6 +282,18 @@
     <Compile Include="Enumerations\EnumerationTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\ResetMainAccountPasswordCommandTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectFirstLoginByQRCodeCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\CheckExistedCustomerCritieriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectRnGStatusCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectExistedMemberSettingCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectCreditRangeCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectAutoSuggestionCriteriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\InsertMemberCommandTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\CheckEnableCustomerCritieriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\Criteria\CheckBelongingByUsernameCritieriaTests.cs" />
+    <Compile Include="Feature\QRCodeMemberSignIn\QRCodeMemberSignInServiceTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\ExceptionRecorder.cs" />
@@ -343,7 +353,7 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\packages\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\xunit.runner.visualstudio.2.2.0\build\net20\xunit.runner.visualstudio.props'))" />
+    <Error Condition="!Exists('..\..\..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

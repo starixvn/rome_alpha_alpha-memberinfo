@@ -402,7 +402,67 @@
   <data name="ProblemMemberAccounts" xml:space="preserve">
     <value>บัญชีสมาชิกทีมีปัญหา</value>
   </data>
-  <data name="RemainingTransferInAmount" xml:space="preserve">
+    <data name="RemainingTransferInAmount" xml:space="preserve">
     <value>จำนวนเงินโอนเข้าคงเหลือ</value>
+  </data>
+  <data name="AccountInformation" xml:space="preserve">
+    <value>ข้อมูลบัญชี</value>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>คัดลอกลิงค์</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>สร้างบัญชี</value>
+  </data>
+  <data name="CreateMemberWithQRCode" xml:space="preserve">
+    <value>สร้างสมาชิกด้วยคิวอาร์โค้ด</value>
+  </data>
+  <data name="FirstNameOptional" xml:space="preserve">
+    <value>ชื่อ (ตัวเลือก)</value>
+  </data>
+  <data name="InputExistingMemberAccount" xml:space="preserve">
+    <value>บัญชีสมาชิกที่มีอยู่ (ที่คุณต้องการคัดลอกการตั้งค่า)</value>
+  </data>
+  <data name="MemberCredit" xml:space="preserve">
+    <value>วงเงินเครดิตสมาชิก</value>
+  </data>
+  <data name="NewGivenCredit" xml:space="preserve">
+    <value>เครดิตใหม่ที่ได้รับ</value>
+  </data>
+  <data name="PleaseShowThisQRCodeToYourMember" xml:space="preserve">
+    <value>กรุณาแสดงคิวอาร์โค้ดนี้ให้กับสมาชิกของคุณ</value>
+  </data>
+  <data name="ThisAccountHasBeenSuccessfullyCreated" xml:space="preserve">
+    <value>สร้างบัญชีสำเร็จแล้ว</value>
+  </data>
+  <data name="UpdateCredit" xml:space="preserve">
+    <value>อัพเดท เครดิตใหม่</value>
+  </data>
+  <data name="UpdateInformation" xml:space="preserve">
+    <value>อัปเดตข้อมูล</value>
+  </data>
+  <data name="GivenCreditMustBeBetweenMinMax" xml:space="preserve">
+    <value>เครดิตที่ให้จะต้องอยู่ระหว่าง {0} ถึง {1}</value>
+  </data>
+  <data name="MemberAccountIsInvalid" xml:space="preserve">
+    <value>บัญชีสมาชิกไม่ถูกต้อง</value>
+  </data>
+  <data name="UsernameIsInvalid" xml:space="preserve">
+    <value>ชื่อผู้ใช้ไม่มีอยู่</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>โดเมน</value>
+  </data>
+  <data name="PleaseInputMemberCredit" xml:space="preserve">
+    <value>กรุณากรอกเครดิตสมาชิก</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>รหัสผ่าน</value>
+  </data>
+  <data name="FirstLoginQRCode" xml:space="preserve">
+    <value>เข้าสู่ระบบคิวอาร์โค้ดครั้งแรก</value>
+  </data>
+  <data name="CannotCreateClosedMemberQRCode" xml:space="preserve">
+    <value>คุณไม่สามารถคัดลอกการตั้งค่าจากบัญชีที่ปิดไปแล้วหรือบัญชีที่ถูกระงับได้</value>
   </data>
 </root>

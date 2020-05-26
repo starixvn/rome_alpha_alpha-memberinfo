@@ -1,7 +1,11 @@
 {
   "isActive": true,
-  "siteMainApp": "/site-main",
   "paths": [
+    "QRCodeMemberSignIn",
+    "QRCodeMemberSignIn/Index",
+    "QRCodeMemberSignIn/CreateAccount",
+    "QRCodeMemberSignIn/ShowQRCode",
+    "QRCodeMemberSignIn/GenerateQrCode"
   ],
   "sites": [
   ],

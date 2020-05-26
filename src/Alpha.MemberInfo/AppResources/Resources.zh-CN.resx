@@ -405,4 +405,64 @@
   <data name="RemainingTransferInAmount" xml:space="preserve">
     <value>转入剩余的金额</value>
   </data>
+  <data name="AccountInformation" xml:space="preserve">
+    <value>账号资料</value>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>复制链接</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>新增帐号功能</value>
+  </data>
+  <data name="CreateMemberWithQRCode" xml:space="preserve">
+    <value>用二维码创建会员</value>
+  </data>
+  <data name="FirstNameOptional" xml:space="preserve">
+    <value>名 （可选择性）</value>
+  </data>
+  <data name="InputExistingMemberAccount" xml:space="preserve">
+    <value>输入现有会员账号（您要使用于复制设置的）</value>
+  </data>
+  <data name="MemberCredit" xml:space="preserve">
+    <value>会员信用额度</value>
+  </data>
+  <data name="NewGivenCredit" xml:space="preserve">
+    <value>新信用额度</value>
+  </data>
+  <data name="PleaseShowThisQRCodeToYourMember" xml:space="preserve">
+    <value>请出示此二维码给您的会员。</value>
+  </data>
+  <data name="ThisAccountHasBeenSuccessfullyCreated" xml:space="preserve">
+    <value>此账号已成功创建。</value>
+  </data>
+  <data name="UpdateCredit" xml:space="preserve">
+    <value>更新信用额度</value>
+  </data>
+  <data name="UpdateInformation" xml:space="preserve">
+    <value>更新信息</value>
+  </data>
+  <data name="GivenCreditMustBeBetweenMinMax" xml:space="preserve">
+    <value>信用额必须 在 {0} 和 {1}之间</value>
+  </data>
+  <data name="MemberAccountIsInvalid" xml:space="preserve">
+    <value>会员账号无效。</value>
+  </data>
+  <data name="UsernameIsInvalid" xml:space="preserve">
+    <value>账号不正确！</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>域名</value>
+  </data>
+  <data name="PleaseInputMemberCredit" xml:space="preserve">
+    <value>请输入会员信用额</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="FirstLoginQRCode" xml:space="preserve">
+    <value>首次登入二维码</value>
+  </data>
+  <data name="CannotCreateClosedMemberQRCode" xml:space="preserve">
+    <value>无法复制已停用或禁用账户的设定。</value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="../shared/top-windows-interface.ts" />
+
 class BaseList {
     $: JQueryStatic;
     topWindow: Window;
