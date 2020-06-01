@@ -466,6 +466,6 @@
     <value>คุณไม่สามารถคัดลอกการตั้งค่าจากบัญชีที่ปิดไปแล้วหรือบัญชีที่ถูกระงับได้</value>
   </data>
   <data name="CannotGenerateMessage" xml:space="preserve">
-    <value>You can not regenerate the QR Code cause this account is already being used by member.</value>
+    <value>การสร้างคิวอาร์โค้ดนี้อีกครั้งไม่สามารถทำได้ เนื่องจากมีการใช้งานแล้ว</value>
   </data>
 </root>

@@ -460,6 +460,6 @@
     <value>Bạn không thể sao chép thiết lập từ tài khoản bị đóng/đình chỉ.</value>
   </data>
   <data name="CannotGenerateMessage" xml:space="preserve">
-    <value>You can not regenerate the QR Code cause this account is already being used by member.</value>
+    <value>Bạn không thể tạo lại mã QR vì tài khoản này đã được sử dụng.</value>
   </data>
 </root>

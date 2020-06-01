@@ -466,6 +466,6 @@
     <value>无法复制已停用或禁用账户的设定。</value>
   </data>
   <data name="CannotGenerateMessage" xml:space="preserve">
-    <value>You can not regenerate the QR Code cause this account is already being used by member.</value>
+    <value>由于此帐户已有人使用，您无法重新获取二维码</value>
   </data>
 </root>
