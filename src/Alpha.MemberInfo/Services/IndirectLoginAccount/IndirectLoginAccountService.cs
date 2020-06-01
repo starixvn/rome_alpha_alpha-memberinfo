@@ -130,7 +130,7 @@
                 "{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}",
                 param.IndirectCustId,
                 param.IndirectSubAccId,
-                DateTime.Now,
+                DateTime.Now.Ticks,
                 param.Language,
                 param.ActorId,
                 param.ActorSubAccId,
