@@ -4,6 +4,7 @@
     using System.Collections.Specialized;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
+    using System.Web;
 
     public static class AppSettings
     {
@@ -41,6 +42,9 @@
 
         public static string RemoteRefURL => GetConfigValue("RemoteRefURL");
 
-        public static string IndirectLoginURL => GetConfigValue("IndirectLoginURL");
+        public static string IndirectLoginURL 
+            => GetConfigValue("LocalTest") == "1" ? 
+                $"{GetConfigValue("IndirectLoginURL")}IndirectLogin/Index" : 
+                $"//{HttpContext.Current.Request.Headers["Host"].Replace("mb.", "imb.")}/ex-main/IndirectLogin/Index";
     }
 }

@@ -138,7 +138,7 @@
                 param.BrowserSize);
             parameter = new EncryptionThread().EncryptString(parameter, KeySize, param.IBCPKey);
 
-            return $"{AppSettings.IndirectLoginURL}?params={parameter}";
+            return $"{AppSettings.IndirectLoginURL}?param={parameter}";
         }
     }
 }
