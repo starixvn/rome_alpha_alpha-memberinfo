@@ -44,7 +44,7 @@
 
         public static string IndirectLoginURL 
             => GetConfigValue("LocalTest") == "1" ? 
-                $"{GetConfigValue("IndirectLoginURL")}IndirectLogin/Index" : 
-                $"//{HttpContext.Current.Request.Headers["Host"].Replace("mb.", "imb.")}/ex-main/IndirectLogin/Index";
+                $"{GetConfigValue("IndirectLoginURL")}_Authorization/IndirectLogin.aspx" : 
+                $"//{HttpContext.Current.Request.Headers["Host"].Replace("mb.", "imb.")}/ex-main/_Authorization/IndirectLogin.aspx";
     }
 }
