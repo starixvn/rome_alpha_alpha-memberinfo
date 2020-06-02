@@ -48,7 +48,10 @@ class ManageAccount {
                 async: false,
                 success: function (data) {
                     if (data.IsOk) {
-                        $this.attr("href", redirectURL + "&browserSize=" + self.getBrowserSize())
+                        if (redirectURL.indexOf("browserSize=") === -1) {
+                            $this.attr("href", redirectURL + "&browserSize=" + self.getBrowserSize());
+                        } 
+
                         isRedirect = true;
                     } else if (data.Code === 5001) {
                         self.topWindow.popupManager.open(self.rootURL + "UpdatePassword?" + queryString, undefined, 530, 280);
