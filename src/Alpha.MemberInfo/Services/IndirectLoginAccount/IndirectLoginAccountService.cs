@@ -123,11 +123,13 @@
             return result;
         }
 
+#pragma warning disable CS1998 // This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
         public async Task<string> BuildRedirectURLAsync(RedirectParam param)
+#pragma warning restore CS1998 // This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
         {
             // IndirectCustId, IndirectSubAccId, LoginTimeTicks, Language, CustId, SubAccId, Username, BrowserSize
             var parameter = string.Format(
-                "{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}",
+                "{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}",
                 param.IndirectCustId,
                 param.IndirectSubAccId,
                 DateTime.Now.Ticks,
@@ -135,7 +137,8 @@
                 param.ActorId,
                 param.ActorSubAccId,
                 param.ActorUsername,
-                param.BrowserSize);
+                param.BrowserSize,
+                param.IndirectUsername);
             parameter = new EncryptionThread().EncryptString(parameter, KeySize, param.IBCPKey);
 
             return $"{AppSettings.IndirectLoginURL}?param={parameter}";

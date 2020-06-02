@@ -93,7 +93,8 @@
                 message.ViewerSubAccId,
                 message.ViewerUsername,
                 message.BrowserSize,
-                message.IBCPKey));
+                message.IBCPKey,
+                message.CustName));
 
         private string GetHashKey()
         {

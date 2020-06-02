@@ -10,7 +10,8 @@
             int actorSubAccId,
             string actorUsername,
             string browserSize,
-            string ibcPKey)
+            string ibcPKey,
+            string indirectUsername)
         {
             IndirectCustId = indirectCustId;
             IndirectSubAccId = indirectSubAccId;
@@ -20,6 +21,7 @@
             ActorUsername = actorUsername;
             BrowserSize = browserSize;
             IBCPKey = ibcPKey;
+            IndirectUsername = indirectUsername;
         }
 
         public int IndirectCustId { get; }
@@ -37,5 +39,7 @@
         public string BrowserSize { get; }
 
         public string IBCPKey { get; }
+
+        public string IndirectUsername { get; }
     }
 }
