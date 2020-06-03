@@ -652,6 +652,9 @@
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-3.png" />
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.css" />
     <Content Include="Views\Shared\InvalidPage.cshtml" />
+    <Content Include="Web.AppSettings.local2.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
     <Content Include="Web.uat2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
@@ -830,6 +833,7 @@
     </Content>
     <Content Include="Web.AppSettings.local.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.AppSettings.napinternal.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
