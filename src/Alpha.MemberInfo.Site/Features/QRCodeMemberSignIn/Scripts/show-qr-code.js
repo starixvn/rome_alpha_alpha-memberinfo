@@ -76,8 +76,14 @@ var ShowQRCode = /** @class */ (function () {
                 dataType: 'json',
                 url: "GenerateQrCode",
                 success: function (result) {
-                    _this.$('#qr-code-image').attr('src', result.QRCodeImage);
-                    _this.$('#QRCodeLink').val(result.QRCodeLink);
+                    if (result.QRCodeLink === null || result.QRCodeLink === '') {
+                        _this.$('#message').removeClass('hidden').addClass('msg msg-error');
+                        _this.$('#message').html(_this.$('#cannot-generate-message').val());
+                    }
+                    else {
+                        _this.$('#qr-code-image').attr('src', result.QRCodeImage);
+                        _this.$('#QRCodeLink').val(result.QRCodeLink);
+                    }
                     _this.$.unblockUI();
                 },
                 error: function () { _this.$.unblockUI(); }

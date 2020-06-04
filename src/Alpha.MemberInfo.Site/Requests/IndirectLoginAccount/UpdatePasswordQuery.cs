@@ -9,5 +9,10 @@
         public UpdatePasswordQuery(IUser viewer) : base(viewer)
         {
         }
+
+        public override bool IsValid()
+        {
+            return base.IsValid() && !IsInternal;
+        }
     }
 }
