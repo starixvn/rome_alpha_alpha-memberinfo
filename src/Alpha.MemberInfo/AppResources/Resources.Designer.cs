@@ -178,6 +178,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can not regenerate the QR Code cause this account is already being used by member..
+        /// </summary>
+        public static string CannotGenerateMessage {
+            get {
+                return ResourceManager.GetString("CannotGenerateMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cash.
         /// </summary>
         public static string Cash {

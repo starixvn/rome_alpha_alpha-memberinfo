@@ -402,7 +402,7 @@
   <data name="ExportDate" xml:space="preserve">
     <value>導出日期</value>
   </data>
-   <data name="RemainingTransferInAmount" xml:space="preserve">
+  <data name="RemainingTransferInAmount" xml:space="preserve">
     <value>轉入剩余的金額</value>
   </data>
   <data name="AccountInformation" xml:space="preserve">
@@ -464,5 +464,8 @@
   </data>
   <data name="CannotCreateClosedMemberQRCode" xml:space="preserve">
     <value>無法複製已停用或禁用帳戶的設定。</value>
+  </data>
+  <data name="CannotGenerateMessage" xml:space="preserve">
+    <value>由於此帳戶已有人使用，您無法重新取得行動條碼。</value>
   </data>
 </root>

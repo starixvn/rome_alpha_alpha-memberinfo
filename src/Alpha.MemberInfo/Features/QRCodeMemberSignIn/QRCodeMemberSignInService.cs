@@ -25,7 +25,7 @@
 
         SelectRnGStatusModel GetRnGStatus(string username);
 
-        bool CheckFirstLoginByQRCode(int custId);
+        bool IsNotFirstLoginByQRCode(int custId);
 
         Result ResetMemberPassword(ResetMainAccountPasswordCommand command);
 
@@ -94,7 +94,7 @@
             return Result.CreateErrorResult(command.ErrMsg, command.ErrCode);
         }
 
-        public bool CheckFirstLoginByQRCode(int custId)
+        public bool IsNotFirstLoginByQRCode(int custId)
           => dynamicRepository.Get<bool>(new SelectFirstLoginByQRCodeCriteria(custId));
 
         public bool CheckExistedCustomer(string username)

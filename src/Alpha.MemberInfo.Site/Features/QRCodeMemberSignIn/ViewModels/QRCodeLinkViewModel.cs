@@ -2,6 +2,10 @@
 {
     public class QRCodeLinkViewModel
     {
+        public QRCodeLinkViewModel ()
+        {
+        }
+
         public QRCodeLinkViewModel(string qrCodeLink, string qrCodeImage)
         {
             QRCodeLink = qrCodeLink;

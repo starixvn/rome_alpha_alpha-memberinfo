@@ -396,7 +396,7 @@
   <data name="ReviewStatus" xml:space="preserve">
     <value>Trạng Thái Đã Xem</value>
   </data>
-   <data name="RemainingTransferInAmount" xml:space="preserve">
+  <data name="RemainingTransferInAmount" xml:space="preserve">
     <value>Tiền Có Thể Chuyển</value>
   </data>
   <data name="AccountInformation" xml:space="preserve">
@@ -458,5 +458,8 @@
   </data>
   <data name="CannotCreateClosedMemberQRCode" xml:space="preserve">
     <value>Bạn không thể sao chép thiết lập từ tài khoản bị đóng/đình chỉ.</value>
+  </data>
+  <data name="CannotGenerateMessage" xml:space="preserve">
+    <value>Bạn không thể tạo lại mã QR vì tài khoản này đã được sử dụng.</value>
   </data>
 </root>

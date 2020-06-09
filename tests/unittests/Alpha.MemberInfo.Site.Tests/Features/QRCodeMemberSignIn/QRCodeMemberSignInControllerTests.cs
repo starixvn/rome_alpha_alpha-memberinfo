@@ -30,6 +30,7 @@
             user.LevelId.Returns((byte)2);
             user.Name.Returns("UserTest");
             user.Language.Returns("En");
+            user.IsInternal.Returns(false);
 
             controller = new QRCodeMemberSignInController(mediator);
         }

@@ -1,4 +1,7 @@
-﻿@model QRCodeMemberSignInViewModel
+﻿@using Sunplus.Agent.Model.Entities;
+@using Alpha.Web.Helpers;
+
+@model QRCodeMemberSignInViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,6 +14,10 @@
         IsShowButton = false,
         FunctionName = "QRCode"
     };
+
+    var userguideLink = UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
+        MicroSites.MessageUrl("~/StaticMessage/File?id=129373") : 
+        MicroSites.HowToUseUrl("~/Index.aspx?redirectTo=QRCode");
 }
 @section Styles {
     <link href="@Configuration.CaptchaStylesheet" rel="stylesheet" />
@@ -20,6 +27,7 @@
 {
     <div class="page-title">
         <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
+        &nbsp;<a href="@userguideLink" target="_blank"><span class="icon icon-information-outline"></span></a>
     </div>
 }
 

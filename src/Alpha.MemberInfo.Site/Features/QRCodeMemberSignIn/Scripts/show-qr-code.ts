@@ -103,9 +103,16 @@ class ShowQRCode {
             data: params,
             dataType: 'json',
             url: "GenerateQrCode",
-            success: (result) => {
-                this.$('#qr-code-image').attr('src', result.QRCodeImage);
-                this.$('#QRCodeLink').val(result.QRCodeLink);
+			success: (result) => {
+				if (result.QRCodeLink === null || result.QRCodeLink === '') {
+					this.$('#message').removeClass('hidden').addClass('msg msg-error');
+					this.$('#message').html(this.$('#cannot-generate-message').val());
+				}
+				else {
+					this.$('#qr-code-image').attr('src', result.QRCodeImage);
+					this.$('#QRCodeLink').val(result.QRCodeLink);
+				}
+
                 this.$.unblockUI();
 			},
 			error: () => { this.$.unblockUI(); }
