@@ -56,10 +56,10 @@ class ShowQRCode {
             setTimeout(() => {
                 window.top.updateGivenCreditPopup.close();
             }, 1000);
-        }
-        else {
-            window.top.updateGivenCreditPopup.close();
-        }
+		}
+		else {
+			window.top.updateInformationPopup.close();
+		}
     };
 
     informationPopupOnclosing = (updateSuccessfully = false, firstName = '') => {
