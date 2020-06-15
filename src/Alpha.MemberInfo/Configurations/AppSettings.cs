@@ -43,7 +43,7 @@
         public static string RemoteRefURL => GetConfigValue("RemoteRefURL");
 
         public static string IndirectLoginURL 
-            => GetConfigValue("LocalTest") == "1" ? 
+            => !string.IsNullOrWhiteSpace(GetConfigValue("IndirectLoginURL")) ? 
                 $"{GetConfigValue("IndirectLoginURL")}_Authorization/IndirectLogin.aspx" : 
                 $"//{HttpContext.Current.Request.Headers["Host"].Replace("mb.", "imb.")}/ex-main/_Authorization/IndirectLogin.aspx";
     }
