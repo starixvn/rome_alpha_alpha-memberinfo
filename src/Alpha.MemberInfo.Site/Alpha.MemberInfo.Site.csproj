@@ -894,6 +894,9 @@
     <Content Include="Features\QRCodeMemberSignIn\Styles\show-qr-code.scss" />
     <Content Include="Features\QRCodeMemberSignIn\Styles\_mixins.scss" />
     <Content Include="Features\QRCodeMemberSignIn\Views\_NotAuthorized.cshtml" />
+    <Content Include="Web.AppSettings.pro3.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
