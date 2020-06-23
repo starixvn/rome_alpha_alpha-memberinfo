@@ -58,7 +58,7 @@ class ShowQRCode {
             }, 1000);
 		}
 		else {
-			window.top.updateInformationPopup.close();
+			window.top.updateGivenCreditPopup.close();
 		}
     };
 

@@ -537,4 +537,8 @@
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
+   <data name="GivenCreditPopupTitle" xml:space="preserve">
+    <value>Update Given Credit</value>
+  </data>
+
 </root>

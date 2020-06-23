@@ -456,6 +456,18 @@ namespace Alpha.MemberInfo.AppResources {
             }
         }
         
+         
+        /// <summary>
+        ///   Looks up a localized string similar to Update Given Credit.
+        /// </summary>
+        public static string GivenCreditPopupTitle {
+            get {
+                return ResourceManager.GetString("GivenCreditPopupTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+
         /// <summary>
         ///   Looks up a localized string similar to Indirect Log In.
         /// </summary>

@@ -354,4 +354,8 @@
   <data name="Login" xml:space="preserve">
     <value>入力</value>
   </data>
+   <data name="GivenCreditPopupTitle" xml:space="preserve">
+    <value>Update Given Credit</value>
+  </data>
+
 </root>

@@ -528,4 +528,8 @@
   <data name="UpdatePasswordHint" xml:space="preserve">
     <value>所选帐户密码已更新，请输入新密码。</value>
   </data>
+   <data name="GivenCreditPopupTitle" xml:space="preserve">
+    <value>更新信用额度</value>
+  </data>
+
 </root>

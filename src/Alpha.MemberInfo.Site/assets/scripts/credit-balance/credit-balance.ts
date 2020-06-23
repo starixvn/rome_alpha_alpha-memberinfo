@@ -71,7 +71,7 @@ class CreditBalance {
 			}, 1000);
 		}
 		else {
-			window.top.updateInformationPopup.close();
+			window.top.updateGivenCreditPopup.close();
 		}
 	}
 
@@ -94,8 +94,9 @@ class CreditBalance {
 				window.top.updateGivenCreditPopup = window.top.ageWnd.createInstance();
 			}
 
+			const popupTitle = `${self.$("#GivenCreditPopupTitle").val()} -  ${$this.data("username")}`;
 			window.top.updateGivenCreditPopup.onClosing = self.givenPopupOnclosing;
-			window.top.popupManager.openWithHanlder(top.updateGivenCreditPopup, url, `update given credit - ${$this.data("username")}`, 470, 300);
+			window.top.popupManager.openWithHanlder(top.updateGivenCreditPopup, url, popupTitle, 470, 300);
         });
 
         this.$(".balancelink, .yesterdaybalancelink").click(function () {
