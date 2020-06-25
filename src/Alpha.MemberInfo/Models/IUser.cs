@@ -46,5 +46,11 @@
         bool IsAdminCanViewVNIP { get; }
 
         bool IsInternal { get; }
+
+        int Srecommend { get; }
+
+        IEnumerable<int> IndirectLoginSuperIds { get; }
+
+        bool IsAllowedIndirectLogin { get; }
     }
 }

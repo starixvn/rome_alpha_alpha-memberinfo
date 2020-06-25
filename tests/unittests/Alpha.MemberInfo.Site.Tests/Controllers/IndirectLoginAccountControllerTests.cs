@@ -26,6 +26,7 @@
             user.Language.Returns("en-US");
             user.Name.Returns("master1");
             user.LevelId.Returns((byte)3);
+            user.IsAllowedIndirectLogin.Returns(true);
 
             mediator = Substitute.For<IMediator>();
             controller = new IndirectLoginAccountController(mediator);

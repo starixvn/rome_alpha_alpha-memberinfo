@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Requests.IndirectLoginAccount
 {
     using System.Web;
+    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Models;
     using MediatR;
 
@@ -17,6 +18,6 @@
         public HttpRequest Request => HttpContext.Current.Request;
 
         public override bool IsValid()
-            => base.IsValid() && !string.IsNullOrWhiteSpace(Password) && !IsInternal;
+            => base.IsValid() && !string.IsNullOrWhiteSpace(Password) && !IsInternal && IsAllowedIndirectLogin;
     }
 }

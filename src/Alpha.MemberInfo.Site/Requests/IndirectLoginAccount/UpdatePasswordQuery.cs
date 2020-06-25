@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Requests.IndirectLoginAccount
 {
+    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.ViewModels.IndirectLoginAccount;
     using MediatR;
@@ -12,7 +13,7 @@
 
         public override bool IsValid()
         {
-            return base.IsValid() && !IsInternal;
+            return base.IsValid() && !IsInternal && IsAllowedIndirectLogin;
         }
     }
 }

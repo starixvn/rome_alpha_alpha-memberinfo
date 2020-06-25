@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Requests.IndirectLoginAccount
 {
+    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Models;
 
     public class UpdatePasswordCommand : NewAccountCommand
@@ -10,7 +11,7 @@
 
         public override bool IsValid()
         {
-            return base.IsValid() && !IsInternal;
+            return base.IsValid() && !IsInternal && IsAllowedIndirectLogin;
         }
     }
 }
