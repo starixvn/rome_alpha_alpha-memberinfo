@@ -48,8 +48,6 @@
 
         public bool IsInternal => viewer.IsInternal;
 
-        public int Srecommend => viewer.Srecommend;
-
         public bool IsAllowedIndirectLogin => viewer.IsAllowedIndirectLogin;
 
         public virtual bool IsValid()

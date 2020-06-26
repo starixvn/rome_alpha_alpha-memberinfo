@@ -47,7 +47,7 @@
         public static string IndirectLoginURL 
             => !string.IsNullOrWhiteSpace(GetConfigValue("IndirectLoginURL")) ? 
                 $"{GetConfigValue("IndirectLoginURL")}_Authorization/IndirectLogin.aspx" : 
-                $"//{HttpContext.Current.Request.Headers["Host"].Replace("mb.", "imb.")}/ex-main/_Authorization/IndirectLogin.aspx";
+                $"//{HttpContext.Current.Request.Headers["Host"].Replace("mb.", "mb2.")}/ex-main/_Authorization/IndirectLogin.aspx";
 
         public static IEnumerable<int> IndirectLoginSuperIds
             => GetConfigValue("IndirectLogin:AllowSuperIds")

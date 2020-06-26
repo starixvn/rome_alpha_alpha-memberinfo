@@ -483,4 +483,49 @@
   <data name="Login" xml:space="preserve">
     <value>登入</value>
   </data>
+  <data name="IndirectLogIn" xml:space="preserve">
+    <value>非间接登录</value>
+  </data>
+  <data name="IndirectLoginAccount" xml:space="preserve">
+    <value>非间接登录账户</value>
+  </data>
+  <data name="IndirectLoginAccountClosedOrDisabledError" xml:space="preserve">
+    <value>此账户已关闭或已禁用，请开启它，再次重试。</value>
+  </data>
+  <data name="IndirectLoginAccountConfirmation" xml:space="preserve">
+    <value>非间接登录账户- 确认</value>
+  </data>
+  <data name="IndirectLoginAccountDisconnectSuccessfully" xml:space="preserve">
+    <value>已成功中断该账户</value>
+  </data>
+  <data name="IndirectLoginAccountNewSuccessfully" xml:space="preserve">
+    <value>该账户已成功连接</value>
+  </data>
+  <data name="IndirectLoginAccountPasswordUpdated" xml:space="preserve">
+    <value>间接登录帐户- 密码已更新</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>中断连接</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>连接</value>
+  </data>
+  <data name="DisconnectConfirmationMessage" xml:space="preserve">
+    <value>至清单中移除所选的次要账户，确定继续吗？</value>
+  </data>
+  <data name="ConnectToNewAccount" xml:space="preserve">
+    <value>连接到新账户</value>
+  </data>
+  <data name="NewIndirectLoginAccount" xml:space="preserve">
+    <value>新的间接登录账户</value>
+  </data>
+  <data name="RequiredYourDownlineUsernameOrNicknameError" xml:space="preserve">
+    <value>账户无效或不是您的下线。</value>
+  </data>
+  <data name="YourDownlineUsernameOrNickname" xml:space="preserve">
+    <value>您下线的用户名或昵称</value>
+  </data>
+  <data name="UpdatePasswordHint" xml:space="preserve">
+    <value>所选帐户密码已更新，请输入新密码。</value>
+  </data>
 </root>
