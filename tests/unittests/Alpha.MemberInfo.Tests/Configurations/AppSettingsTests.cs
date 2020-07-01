@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Tests.Configurations
 {
     using System;
+    using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.Configuration;
     using Alpha.MemberInfo.Configurations;
@@ -108,6 +109,102 @@
 
             // Assert
             Assert.Equal(excpectedMainAppPath, actualMainAppPath);
+        }
+
+        [Fact]
+        public void IndirectLoginAllowSuperIds_HasConfig_ReturnCorrectValues()
+        {
+            // Arrange
+
+            AppSettings.AppSettingValues = new NameValueCollection
+            {
+                ["IndirectLogin:AllowSuperIds"] = "1,2"
+            };
+            var expectedSetting = new List<int> { 1, 2 };
+
+            // Act
+            var actualSetting = AppSettings.IndirectLoginSuperIds;
+
+            // Assert
+            Assert.Equal(expectedSetting, actualSetting);
+        }
+
+        [Fact]
+        public void IndirectLoginAllowSuperIds_HasConfig_ReturnCorrectSetting()
+        {
+            // Arrange
+
+            AppSettings.AppSettingValues = new NameValueCollection
+            {
+                ["IndirectLogin:AllowSuperIds"] = "1,2"
+            };
+            var expectedSetting = new[] { "1", "2" };
+
+            // Act
+            var actualSetting = AppSettings.AppSettingValues["IndirectLogin:AllowSuperIds"].Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            // Assert
+            Assert.Equal(expectedSetting, actualSetting);
+        }
+
+        [InlineData(1, true)]
+        [InlineData(2, true)]
+        [InlineData(3, false)]
+        [InlineData(4, false)]
+        public void IndirectLoginIsAllowSuperIds_HasConfig_ReturnCorrectValues(int srecommend, bool expected)
+        {
+            // Arrange
+
+            AppSettings.AppSettingValues = new NameValueCollection
+            {
+                ["IndirectLogin:AllowSuperIds"] = "1,2"
+            };
+
+            // Act
+            var actualSetting = AppSettings.IsAllowedIndirectLogin(srecommend);
+
+            // Assert
+            Assert.Equal(expected, actualSetting);
+        }
+
+        [InlineData(1, false)]
+        [InlineData(2, false)]
+        [InlineData(3, false)]
+        [InlineData(4, false)]
+        public void IndirectLoginIsAllowSuperIds_HasNotConfig_ReturnCorrectValues(int srecommend, bool expected)
+        {
+            // Arrange
+
+            AppSettings.AppSettingValues = new NameValueCollection
+            {
+                ["IndirectLogin:AllowSuperIds"] = ""
+            };
+
+            // Act
+            var actualSetting = AppSettings.IsAllowedIndirectLogin(srecommend);
+
+            // Assert
+            Assert.Equal(expected, actualSetting);
+        }
+
+        [InlineData(1, true)]
+        [InlineData(2, true)]
+        [InlineData(3, true)]
+        [InlineData(4, true)]
+        public void IndirectLoginIsAllowSuperIds_HasAsteriskConfig_ReturnCorrectValues(int srecommend, bool expected)
+        {
+            // Arrange
+
+            AppSettings.AppSettingValues = new NameValueCollection
+            {
+                ["IndirectLogin:AllowSuperIds"] = "*"
+            };
+
+            // Act
+            var actualSetting = AppSettings.IsAllowedIndirectLogin(srecommend);
+
+            // Assert
+            Assert.Equal(expected, actualSetting);
         }
     }
 }

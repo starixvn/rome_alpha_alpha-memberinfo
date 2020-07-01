@@ -125,6 +125,9 @@
       <HintPath>..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Fanex.Cryptography.Aes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Cryptography.Aes.1.0.0.0\lib\net461\Fanex.Cryptography.Aes.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Data, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.2.1.0.1\lib\net461\Fanex.Data.dll</HintPath>
       <Private>True</Private>
@@ -328,6 +331,9 @@
       <HintPath>..\..\packages\Sunplus.Agent.Utilities.3.0.0.7\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Sunplus.Core.Common, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Core.Common.1.2.0.1\lib\net40\Sunplus.Core.Common.dll</HintPath>
+    </Reference>
     <Reference Include="Sunplus.Libraries.AOP, Version=1.0.4218.28561, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Libraries.AOP.1.0.4218.28561\lib\net40\Sunplus.Libraries.AOP.dll</HintPath>
       <Private>True</Private>
@@ -391,6 +397,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="UAParser, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f7377bf021646069, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\UAParser.2.1.0.0\lib\net40-Client\UAParser.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -475,6 +484,26 @@
       <DependentUpon>default.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\member-info.css" />
+    <Content Include="assets\bundles\indirect-login-account\disconnect.js" />
+    <Content Include="assets\bundles\indirect-login-account\disconnect.min.js">
+      <DependentUpon>disconnect.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\indirect-login-account\indirect-login-account.css" />
+    <Content Include="assets\bundles\indirect-login-account\indirect-login-account.min.css">
+      <DependentUpon>indirect-login-account.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\indirect-login-account\manage-account.js" />
+    <Content Include="assets\bundles\indirect-login-account\manage-account.min.js">
+      <DependentUpon>manage-account.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\indirect-login-account\new-account.js" />
+    <Content Include="assets\bundles\indirect-login-account\new-account.min.js">
+      <DependentUpon>new-account.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\indirect-login-account\update-account.js" />
+    <Content Include="assets\bundles\indirect-login-account\update-account.min.js">
+      <DependentUpon>update-account.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\member-info.min.css">
       <DependentUpon>member-info.css</DependentUpon>
     </Content>
@@ -510,6 +539,7 @@
     <Content Include="assets\bundles\win-loss-limit\win-loss-limit.min.js">
       <DependentUpon>win-loss-limit.js</DependentUpon>
     </Content>
+    <Content Include="assets\scripts\aes.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\modal.js" />
@@ -527,6 +557,12 @@
     <Content Include="assets\scripts\tests\libs\pagination\jquery.pagination.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.parser.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.resizable.js" />
+    <Content Include="assets\styles\indirect-login-account.css">
+      <DependentUpon>indirect-login-account.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\indirect-login-account.min.css">
+      <DependentUpon>indirect-login-account.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\problem-account\index.css">
       <DependentUpon>index.scss</DependentUpon>
     </Content>
@@ -616,6 +652,9 @@
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-3.png" />
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.css" />
     <Content Include="Views\Shared\InvalidPage.cshtml" />
+    <Content Include="Web.AppSettings.local2.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
     <Content Include="Web.uat2.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
@@ -656,6 +695,7 @@
     </Compile>
     <Compile Include="Constants\LanguageCode.cs" />
     <Compile Include="Controllers\CreditBalanceController.cs" />
+    <Compile Include="Controllers\IndirectLoginAccountController.cs" />
     <Compile Include="Controllers\ProblemAccountController.cs" />
     <Compile Include="Controllers\ProgressiveJackpotController.cs" />
     <Compile Include="Controllers\MemberRequestsController.cs" />
@@ -685,6 +725,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Handlers\CreditBalanceHandler.cs" />
     <Compile Include="Handlers\ExcelBaseHandler.cs" />
+    <Compile Include="Handlers\IndirectLoginAccountHandler.cs" />
     <Compile Include="Handlers\MemberRequestHandler.cs" />
     <Compile Include="Handlers\ProblemAccount\ProblemAccountExcelHandler.cs" />
     <Compile Include="Handlers\ProblemAccount\ProblemAccountHandler.cs" />
@@ -692,9 +733,18 @@
     <Compile Include="Handlers\ProgressiveJackpotHandler.cs" />
     <Compile Include="Handlers\WinLossLimitHandler.cs" />
     <Compile Include="Helpers\QueryEntityModelBinder.cs" />
+    <Compile Include="Helpers\RequestInfoHelper.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\CreditBalance\CreditBalanceQuery.cs" />
+    <Compile Include="Requests\IndirectLoginAccount\DisconnectCommand.cs" />
+    <Compile Include="Requests\IndirectLoginAccount\ManageAccountQuery.cs" />
+    <Compile Include="Requests\IndirectLoginAccount\NewAccountCommand.cs" />
+    <Compile Include="Requests\IndirectLoginAccount\NewAccountQuery.cs" />
+    <Compile Include="Requests\IndirectLoginAccount\RedirectQuery.cs" />
+    <Compile Include="Requests\IndirectLoginAccount\UpdatePasswordCommand.cs" />
+    <Compile Include="Requests\IndirectLoginAccount\UpdatePasswordQuery.cs" />
+    <Compile Include="Requests\IndirectLoginAccount\ValidateAccountQuery.cs" />
     <Compile Include="Requests\MemberRequest\ProductQuery.cs" />
     <Compile Include="Requests\MemberRequest\MemberRequestQuery.cs" />
     <Compile Include="Requests\MemberInfoBaseQuery.cs" />
@@ -712,6 +762,9 @@
     <Compile Include="ViewModels\Components\ReviewedStatusSelectionViewModel.cs" />
     <Compile Include="ViewModels\CreditBalance\CreditBalanceViewModel.cs" />
     <Compile Include="ViewModels\ExcelFileViewModel.cs" />
+    <Compile Include="ViewModels\IndirectLoginAccount\ManageAccountViewModel.cs" />
+    <Compile Include="ViewModels\IndirectLoginAccount\NewAccountViewModel.cs" />
+    <Compile Include="ViewModels\IndirectLoginAccount\UpdatePasswordViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\ProblemAccountReportViewModel.cs" />
@@ -749,6 +802,8 @@
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\Agent.xls" />
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\Member.xls" />
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\DirectDownLineAgent.xls" />
+    <Content Include="assets\styles\indirect-login-account.scss" />
+    <Content Include="App_Code\Components\Alert.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -778,6 +833,7 @@
     </Content>
     <Content Include="Web.AppSettings.local.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.AppSettings.napinternal.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
@@ -824,6 +880,11 @@
     <Content Include="Views\ProblemAccount\Index.cshtml" />
     <Content Include="Views\ProblemAccount\Update.cshtml" />
     <Content Include="Master.xls" />
+    <Content Include="Views\IndirectLoginAccount\Index.cshtml" />
+    <Content Include="Views\IndirectLoginAccount\NewAccount.cshtml" />
+    <Content Include="Views\IndirectLoginAccount\UpdatePassword.cshtml" />
+    <Content Include="Views\IndirectLoginAccount\DisconnectPopup.cshtml" />
+    <Content Include="IbcKeys\ibcpkey.snk" />
     <Content Include="Features\QRCodeMemberSignIn\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -833,6 +894,12 @@
     <Content Include="Features\QRCodeMemberSignIn\Styles\show-qr-code.scss" />
     <Content Include="Features\QRCodeMemberSignIn\Styles\_mixins.scss" />
     <Content Include="Features\QRCodeMemberSignIn\Views\_NotAuthorized.cshtml" />
+    <Content Include="Web.AppSettings.pro3.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="Web.pro3.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
@@ -841,6 +908,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\scripts\components\alert.ts" />
     <TypeScriptCompile Include="assets\scripts\components\daterangepicker.ts" />
     <TypeScriptCompile Include="assets\scripts\components\html-wrapper.ts" />
     <TypeScriptCompile Include="assets\scripts\credit-balance\columns-control.ts" />
@@ -848,17 +916,27 @@
     <TypeScriptCompile Include="assets\scripts\components\productmultiselection.ts" />
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
     <TypeScriptCompile Include="assets\scripts\credit-balance\credit-balance.ts" />
+    <TypeScriptCompile Include="assets\scripts\encryptor.ts" />
+    <TypeScriptCompile Include="assets\scripts\indirect-login-account\base-account.ts" />
+    <TypeScriptCompile Include="assets\scripts\indirect-login-account\disconnect.ts" />
+    <TypeScriptCompile Include="assets\scripts\indirect-login-account\manage-account.ts" />
+    <TypeScriptCompile Include="assets\scripts\indirect-login-account\new-account.ts" />
+    <TypeScriptCompile Include="assets\scripts\indirect-login-account\update-account.ts" />
     <TypeScriptCompile Include="assets\scripts\member-requests\member-requests.ts" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\base-list.ts" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\customer-list-helper.ts" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\update.ts" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\index.ts" />
     <TypeScriptCompile Include="assets\scripts\progressive-jackpot\progressive-jackpot.ts" />
+    <TypeScriptCompile Include="assets\scripts\tests\apps\components\alert-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\shared\top-windows-interface.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\pager-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\productmultiselection-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\components\single-selection-dropdown-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\credit-balance\credit-balance-test.ts" />
+    <TypeScriptCompile Include="assets\scripts\tests\apps\indirect-login-account\disconnect-tests.ts" />
+    <TypeScriptCompile Include="assets\scripts\tests\apps\indirect-login-account\manage-account-tests.ts" />
+    <TypeScriptCompile Include="assets\scripts\tests\apps\indirect-login-account\new-account-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\member-requests\member-requests-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\win-loss-limit\win-loss-limit-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\win-loss-limit\win-loss-limit.ts" />
@@ -890,6 +968,7 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

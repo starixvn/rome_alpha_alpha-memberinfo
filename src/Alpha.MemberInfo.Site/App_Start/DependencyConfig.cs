@@ -1,11 +1,18 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
-    using Alpha.MemberInfo.Site.Handlers;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Reflection;
+    using System.Web;
+    using System.Web.Mvc;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
+    using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
+    using Alpha.MemberInfo.Site.Handlers;
     using Alpha.Products.Core.Services;
     using Alpha.Web.Helpers;
+    using Alpha.Web.Helpers.Impl;
     using Controllers;
     using DataAccesses;
     using Fanex.Data.Repository;
@@ -28,13 +35,8 @@
     using Sunplus.Agent.Model.Casino;
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Model.Entities.Permission;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
-    using System.Web;
-    using System.Web.Mvc;
-    using Utilities.IP;
     using Sunplus.Agent.Utilities;
+    using Utilities.IP;
 
     public static class DependencyConfig
     {
@@ -123,6 +125,10 @@
             container.RegisterPerWebRequest<QRCodeMemberSignInService, QRCodeMemberSignInServiceImpl>();
             container.RegisterPerWebRequest<Encryptor, EncryptorImpl>();
             container.RegisterPerWebRequest<PasswordService, PasswordServiceImpl>();
+            
+            container.RegisterPerWebRequest<IndirectLoginAccountService, IndirectLoginAccountServiceImpl>();
+            container.RegisterPerWebRequest<SessionManager, SessionManagerImpl>();
+            container.RegisterPerWebRequest<AesService, AesServiceImpl>();
         }
 
         private static void RegisterQRCodeConfiguration()

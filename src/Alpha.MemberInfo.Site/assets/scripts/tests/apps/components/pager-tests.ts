@@ -110,6 +110,7 @@
                                  data-lablepage="Page"
                                  data-labelof="of"
                                  data-labeldisplayitems="Displays"
+                                 data-labelpage="Page"
                                  class="hide"></div>
                             <form id="report-form" type="hidden"></form>
                          </body>`);

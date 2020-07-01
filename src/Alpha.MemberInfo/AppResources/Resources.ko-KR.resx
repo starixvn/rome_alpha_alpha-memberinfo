@@ -351,4 +351,16 @@
   <data name="CannotGenerateMessage" xml:space="preserve">
     <value>You can not regenerate the QR Code cause this account is already being used by member.</value>
   </data>
+  <data name="Super" xml:space="preserve">
+    <value>슈퍼</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>레벨단계</value>
+  </data>
+  <data name="RequiredPasswordError" xml:space="preserve">
+    <value>죄송합니다. 비밀번호를 입력하지 않았습니다.</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>로그인</value>
+  </data>
 </root>

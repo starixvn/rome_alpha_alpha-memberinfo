@@ -209,21 +209,11 @@
         beforeEach(() => {
             // arrange
             setFixtures(template.normal);
-            spyOn(creditBalance, "registerPrintFunction");
-            spyOn(jQueryFake, "blockUI");
             spyOn(topWindow.popupManager, "openByRelativeUrl");
             creditBalance.cacheDOMElements();
 
             // act
             creditBalance.registerEvents();
-        });
-
-        it("_Always_Bind submit event", () => {
-            // act
-            creditBalance.creditBalanceForm.submit();
-
-            // assert
-            expect(jQueryFake.blockUI).toHaveBeenCalled();
         });
 
         it("_Always_Bind credit event", () => {

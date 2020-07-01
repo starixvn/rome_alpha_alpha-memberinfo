@@ -468,4 +468,64 @@
   <data name="CannotGenerateMessage" xml:space="preserve">
     <value>การสร้างคิวอาร์โค้ดนี้อีกครั้งไม่สามารถทำได้ เนื่องจากมีการใช้งานแล้ว</value>
   </data>
+  <data name="Super" xml:space="preserve">
+    <value>สูงสุด</value>
+  </data>
+  <data name="ShowPassword" xml:space="preserve">
+    <value>แสดง</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>ระดับ</value>
+  </data>
+  <data name="RequiredPasswordError" xml:space="preserve">
+    <value>ขอโทษค่ะ คุณต้องใส่รหัสผ่านด้วย</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>เข้าระบบ</value>
+  </data>
+  <data name="IndirectLogIn" xml:space="preserve">
+    <value>เข้าสู่ระบบทางอ้อม</value>
+  </data>
+  <data name="IndirectLoginAccount" xml:space="preserve">
+    <value>บัญชีเพื่อการเข้าสู่ระบบทางอ้อม</value>
+  </data>
+  <data name="IndirectLoginAccountClosedOrDisabledError" xml:space="preserve">
+    <value>บัญชีนี้ถูกปิดหรือปิดการใช้งานโปรดเปิดและลองอีกครั้ง</value>
+  </data>
+  <data name="IndirectLoginAccountConfirmation" xml:space="preserve">
+    <value>บัญชีเพื่อเข้าสู่ระบบทางอ้อม - การยืนยัน</value>
+  </data>
+  <data name="IndirectLoginAccountDisconnectSuccessfully" xml:space="preserve">
+    <value>ตัดการเชื่อมต่อกับบัญชีแล้ว</value>
+  </data>
+  <data name="IndirectLoginAccountNewSuccessfully" xml:space="preserve">
+    <value>การเชื่อมต่อกับบัญชีสำเร็จ</value>
+  </data>
+  <data name="IndirectLoginAccountPasswordUpdated" xml:space="preserve">
+    <value>บัญชีเพื่อการเข้าสู่ระบบทางอ้อม - รหัสผ่านแก้ไขแล้ว</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>ตัดการเชื่อมต่อ</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>เชื่อมต่อ</value>
+  </data>
+  <data name="DisconnectConfirmationMessage" xml:space="preserve">
+    <value>บัญชีที่เลือกไว้จะถูกนำออกจากรายการ ต้องการดำเนินการต่อหรือไม่?</value>
+  </data>
+  <data name="ConnectToNewAccount" xml:space="preserve">
+    <value>เชื่อมต่อกับบัญชีใหม่</value>
+  </data>
+  <data name="NewIndirectLoginAccount" xml:space="preserve">
+    <value>บัญชีใหม่เพื่อเข้าสู่ระบบทางอ้อม</value>
+  </data>
+  <data name="RequiredYourDownlineUsernameOrNicknameError" xml:space="preserve">
+    <value>บัญชีไม่ถูกต้องหรือไม่ใช่ดาวน์ไลน์ของคุณ</value>
+  </data>
+  <data name="YourDownlineUsernameOrNickname" xml:space="preserve">
+    <value>ชื่อผู้ใช้งาน(หรือชื่อเล่น)ของดาวน์ไลน์</value>
+  </data>
+  <data name="UpdatePasswordHint" xml:space="preserve">
+    <value>รหัสผ่านของบัญชีนี้มีการเปลี่ยนแปลง กรุณาบันทึกรหัสผ่านใหม่</value>
+  </data>
 </root>

@@ -48,11 +48,7 @@ class SingleSelectionDropdownComponent {
             onChange: this.onchange,
             enableClickableOptGroups: this.options.enableClickableOptGroups,
             enableCollapsibleOptGroups: this.options.enableCollapsibleOptGroups,
-            optionClass: function (element) {
-                if (self.$(element).data("isnested") === 1) {
-                    return "multiselect-nested-item";
-                }
-            }
+            optionClass: this.optionClass
         });
 
         if (this.options.enableClickableOptGroups && this.options.enableCollapsibleOptGroups) {
@@ -78,6 +74,12 @@ class SingleSelectionDropdownComponent {
         this.selectedValue = this.getSelectedItem();
         if (this.options.onChange) {
             this.options.onChange();
+        }
+    };
+
+    optionClass = (element: HTMLElement) => {
+        if (this.$(element).data("isnested") === 1) {
+            return "multiselect-nested-item";
         }
     };
 

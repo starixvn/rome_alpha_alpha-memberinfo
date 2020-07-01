@@ -20,6 +20,10 @@
     "inputFile": "assets/styles/problem-account/update.scss"
   },
   {
+    "outputFile": "assets/styles/indirect-login-account.css",
+    "inputFile": "assets/styles/indirect-login-account.scss"
+  },
+  {
     "outputFile": "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.css",
     "inputFile": "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.scss"
   },

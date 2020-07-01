@@ -462,4 +462,61 @@
   <data name="CannotGenerateMessage" xml:space="preserve">
     <value>Bạn không thể tạo lại mã QR vì tài khoản này đã được sử dụng.</value>
   </data>
+  <data name="ShowPassword" xml:space="preserve">
+    <value>Xem Mật Khẩu</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Cấp</value>
+  </data>
+  <data name="RequiredPasswordError" xml:space="preserve">
+    <value>Mật Khẩu không thể để trống.</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="IndirectLogIn" xml:space="preserve">
+    <value>Đăng Nhập Gián Tiếp</value>
+  </data>
+  <data name="IndirectLoginAccount" xml:space="preserve">
+    <value>ĐĂNG NHẬP TÀI KHOẢN GIÁN TIẾP</value>
+  </data>
+  <data name="IndirectLoginAccountClosedOrDisabledError" xml:space="preserve">
+    <value>Tài khoản này đã bị đóng hoặc vô hiệu hóa, vui lòng mở lên và thử lại.</value>
+  </data>
+  <data name="IndirectLoginAccountConfirmation" xml:space="preserve">
+    <value>Đăng Nhập Tài Khoản Gián Tiếp - Xác Nhận</value>
+  </data>
+  <data name="IndirectLoginAccountDisconnectSuccessfully" xml:space="preserve">
+    <value>Đã huỷ liên kết với tài khoản</value>
+  </data>
+  <data name="IndirectLoginAccountNewSuccessfully" xml:space="preserve">
+    <value>Đã liên kết với tài khoản</value>
+  </data>
+  <data name="IndirectLoginAccountPasswordUpdated" xml:space="preserve">
+    <value>Đăng Nhập Tài Khoản Gián Tiếp - Thay Đổi Mật Khẩu</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Huỷ Liên Kết</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Liên kết</value>
+  </data>
+  <data name="DisconnectConfirmationMessage" xml:space="preserve">
+    <value>Tài khoản này sẽ bị xoá khỏi danh sách. Bạn có muốn tiếp tục?</value>
+  </data>
+  <data name="ConnectToNewAccount" xml:space="preserve">
+    <value>Tạo Liên Kết Tài Khoản</value>
+  </data>
+  <data name="NewIndirectLoginAccount" xml:space="preserve">
+    <value>Tài Khoản Gián Tiếp Mới</value>
+  </data>
+  <data name="RequiredYourDownlineUsernameOrNicknameError" xml:space="preserve">
+    <value>Tài khoản không hợp lệ hoặc không phải là tuyến dưới của bạn.</value>
+  </data>
+  <data name="YourDownlineUsernameOrNickname" xml:space="preserve">
+    <value>Tên Tài Khoản hoặc Biệt Danh Cấp Dưới</value>
+  </data>
+  <data name="UpdatePasswordHint" xml:space="preserve">
+    <value>Mật khẩu của tài khoản này đã được thay đổi, vui lòng nhập mật khẩu mới</value>
+  </data>
 </root>

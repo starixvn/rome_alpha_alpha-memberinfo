@@ -97,5 +97,44 @@
     "inputFiles": [
       "Features/QRCodeMemberSignIn/Styles/show-qr-code.css"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/indirect-login-account/indirect-login-account.css",
+    "inputFiles": [
+      "assets/styles/indirect-login-account.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/indirect-login-account/manage-account.js",
+    "inputFiles": [
+      "assets/scripts/indirect-login-account/manage-account.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/indirect-login-account/new-account.js",
+    "inputFiles": [
+      "assets/scripts/aes.js",
+      "assets/scripts/encryptor.js",
+      "assets/scripts/components/alert.js",
+      "assets/scripts/indirect-login-account/base-account.js",
+      "assets/scripts/indirect-login-account/new-account.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/indirect-login-account/update-account.js",
+    "inputFiles": [
+      "assets/scripts/aes.js",
+      "assets/scripts/encryptor.js",
+      "assets/scripts/components/alert.js",
+      "assets/scripts/indirect-login-account/base-account.js",
+      "assets/scripts/indirect-login-account/update-account.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/indirect-login-account/disconnect.js",
+    "inputFiles": [
+      "assets/scripts/components/alert.js",
+      "assets/scripts/indirect-login-account/disconnect.js"
+    ]
   }
 ]

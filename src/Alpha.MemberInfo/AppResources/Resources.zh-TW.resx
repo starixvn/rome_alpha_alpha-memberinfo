@@ -468,4 +468,64 @@
   <data name="CannotGenerateMessage" xml:space="preserve">
     <value>由於此帳戶已有人使用，您無法重新取得行動條碼。</value>
   </data>
+  <data name="Super" xml:space="preserve">
+    <value>超級</value>
+  </data>
+  <data name="ShowPassword" xml:space="preserve">
+    <value>顯示密碼</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>階層</value>
+  </data>
+  <data name="RequiredPasswordError" xml:space="preserve">
+    <value>密碼不能留空</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="IndirectLogIn" xml:space="preserve">
+    <value>非間接登入</value>
+  </data>
+  <data name="IndirectLoginAccount" xml:space="preserve">
+    <value>非間接登入帳戶</value>
+  </data>
+  <data name="IndirectLoginAccountClosedOrDisabledError" xml:space="preserve">
+    <value>此賬戶已關閉或已禁用，請開啟它，再次重試。</value>
+  </data>
+  <data name="IndirectLoginAccountConfirmation" xml:space="preserve">
+    <value>非間接登入帳戶- 確認</value>
+  </data>
+  <data name="IndirectLoginAccountDisconnectSuccessfully" xml:space="preserve">
+    <value>已成功中斷該帳戶</value>
+  </data>
+  <data name="IndirectLoginAccountNewSuccessfully" xml:space="preserve">
+    <value>該帳戶已成功連接</value>
+  </data>
+  <data name="IndirectLoginAccountPasswordUpdated" xml:space="preserve">
+    <value>間接登入帳戶- 密碼已更新</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>中斷連接</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>連接</value>
+  </data>
+  <data name="DisconnectConfirmationMessage" xml:space="preserve">
+    <value>至清單中移除所選的次要帳戶，確定繼續嗎？</value>
+  </data>
+  <data name="ConnectToNewAccount" xml:space="preserve">
+    <value>連接到新帳戶</value>
+  </data>
+  <data name="NewIndirectLoginAccount" xml:space="preserve">
+    <value>新的間接登入帳戶</value>
+  </data>
+  <data name="RequiredYourDownlineUsernameOrNicknameError" xml:space="preserve">
+    <value>賬戶無效或不是您的下線。</value>
+  </data>
+  <data name="YourDownlineUsernameOrNickname" xml:space="preserve">
+    <value>您下線的用戶名或暱稱</value>
+  </data>
+  <data name="UpdatePasswordHint" xml:space="preserve">
+    <value>所選帳戶密碼已更新，請輸入新密碼。</value>
+  </data>
 </root>

@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
+    using Alpha.MemberInfo.Configurations;
     using MemberInfo.Models;
     using Sunplus.Agent.Model.Entities;
 
@@ -64,5 +65,11 @@
         public bool IsAdminCanViewVNIP => userSession.IsAdminCanViewVNIP;
 
         public bool IsInternal => userSession.IsInternal;
+
+        public int Srecommend => userSession.SRecommendId;
+
+        public IEnumerable<int> IndirectLoginSuperIds => AppSettings.IndirectLoginSuperIds;
+
+        public bool IsAllowedIndirectLogin => AppSettings.IsAllowedIndirectLogin(Srecommend);
     }
 }

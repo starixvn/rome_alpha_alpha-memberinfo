@@ -45,7 +45,10 @@
                 maxHeight: 300,
                 numberDisplayed: 1,
                 includeSelectAllOption: false,
-                onChange: singleSelectionDropdownComponent.onchange
+                onChange: singleSelectionDropdownComponent.onchange,
+                enableClickableOptGroups: false,
+                enableCollapsibleOptGroups: false,
+                optionClass: singleSelectionDropdownComponent.optionClass
             });
         });
     });

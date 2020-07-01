@@ -15,6 +15,7 @@
     {
         private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         private const string InvalidExcelFileName = "Invalid";
+        private const int BadRequestErrorCode = 999;
 
         protected readonly IMediator mediator;
 
@@ -36,9 +37,21 @@
         protected ActionResult Json<TResponse>(IRequest<TResponse> message)
             => (message as MemberInfoBaseQuery).IsValid() ? 
                 Json(mediator.Send(message), JsonRequestBehavior.AllowGet) :
-                Json(Result.CreateErrorResult(Lang.NotAuthorized, 999), JsonRequestBehavior.AllowGet);
+                Json(Result.CreateErrorResult(Lang.NotAuthorized, BadRequestErrorCode), JsonRequestBehavior.AllowGet);
 
         private FileContentResult GetExcelContent(ExcelFileViewModel viewModel)
             => File(viewModel.Content, ExcelFileViewModel.ContentType, viewModel.Name);
+
+        protected async Task<ActionResult> ViewAsync<TResponse>(IAsyncRequest<TResponse> message)
+            => (message as MemberInfoBaseQuery).IsValid()
+                ? View(await mediator.SendAsync(message))
+                : View(InvalidPageViewPath);
+
+        protected async Task<ActionResult> JsonAsync<TResponse>(
+            IAsyncRequest<TResponse> message,
+            JsonRequestBehavior jsonRequestBehavior = JsonRequestBehavior.AllowGet)
+            => (message as MemberInfoBaseQuery).IsValid() ?
+                Json(await mediator.SendAsync(message), jsonRequestBehavior) :
+                Json(Result.CreateErrorResult(Lang.NotAuthorized, BadRequestErrorCode), jsonRequestBehavior);
     }
 }
