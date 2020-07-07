@@ -17,7 +17,7 @@
 				@{
 					for (var i = 1; i <= 15; i++)
 					{
-						<th></th>
+						<th class="@(i >= 9 && i <= 14 ? "none" : string.Empty)"></th>
 					}
 				}
 				<th></th>
@@ -50,7 +50,7 @@
 				<th rowspan="2" class="header">
 					Last Name
 				</th>
-				<th colspan="6" class="header">
+				<th colspan="6" class="header none">
 					Commission
 				</th>
 				<th rowspan="2" class="header">
@@ -59,22 +59,22 @@
 				<th rowspan="2" class="header"></th>
 			</tr>
 			<tr class="thead-row2">
-				<th class="header">
+				<th class="header none">
 					Group A
 				</th>
-				<th class="header">
+				<th class="header none">
 					Group B
 				</th>
-				<th class="header">
+				<th class="header none">
 					Group C
 				</th>
-				<th class="header">
+				<th class="header none">
 					Group D
 				</th>
-				<th class="header">
+				<th class="header none">
 					1 X 2
 				</th>
-				<th class="header">
+				<th class="header none">
 					Other
 				</th>
 			</tr>

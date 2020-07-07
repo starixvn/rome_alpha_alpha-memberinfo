@@ -21,6 +21,7 @@ class MasterList {
 					target: -1,
 					auto: false,
 					renderer: function (api, rowIdx) {
+						let addTableCommissionTag = true;
 						const data = api.cells(rowIdx, ':hidden').eq(0).map(function (cell) {
 							const header = self.$(api.column(cell.column).header());
 							const idx = api.cell(cell).index();
@@ -35,18 +36,22 @@ class MasterList {
 							);
 
 							let commissionTable = '';
-							if (idx.column === 9) {
-								return commissionTable + "<tr><td>Commison</td></tr><tr><td><table>";
-							}
+
 							if (idx.column >= 9 && idx.column <= 14) {
-								return commissionTable +
-									`<tr data-dtr-index="${idx.column}">` +
+								if (addTableCommissionTag) {
+									addTableCommissionTag = false;
+									commissionTable = commissionTable + "<tr><td>Commison</td></tr><tr><td><table>";
+								}
+
+								commissionTable =  commissionTable + `<tr data-dtr-index="${idx.column}">` +
 									`<td class="dtr-title">${header.text()}</td> ` +
 									`<td class="dtr-data">${cellData}</td></tr>`;
-							}
 
-							if (idx.column === 14) {
-								return commissionTable + "</table></td></tr>";
+								if (idx.column === 14 && !addTableCommissionTag) {
+									commissionTable = commissionTable + '</table></td></tr>';
+								}
+
+								return commissionTable;
 							}
 
 							if (idx.column < 9 || idx.column > 14) {
