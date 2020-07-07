@@ -34,13 +34,31 @@ class MasterList {
 								dtPrivate, idx.row, idx.column, 'display'
 							);
 
-							return `<li data-dtr-index="${idx.column}">` +
-								`<span class="dtr-title">${header.text()}</span> ` +
-								`<span class="dtr-data">${cellData}</span></li>`;
+							let commissionTable = '';
+							if (idx.column === 9) {
+								return commissionTable + "<tr><td>Commison</td></tr><tr><td><table>";
+							}
+							if (idx.column >= 9 && idx.column <= 14) {
+								return commissionTable +
+									`<tr data-dtr-index="${idx.column}">` +
+									`<td class="dtr-title">${header.text()}</td> ` +
+									`<td class="dtr-data">${cellData}</td></tr>`;
+							}
+
+							if (idx.column === 14) {
+								return commissionTable + "</table></td></tr>";
+							}
+
+							if (idx.column < 9 || idx.column > 14) {
+								return `<tr data-dtr-index="${idx.column}">` +
+									`<td class="dtr-title">${header.text()}</td> ` +
+									`<td class="dtr-data">${cellData}</td></tr>`;
+							}
+							
 						}).toArray().join('');
 
 						return data ?
-							self.$(`<ul data-dtr-index="${rowIdx}"/>`).append(data) :
+							self.$(`<table data-dtr-index="${rowIdx}"/>`).append(data) :
 							false;
 					}
 				}
