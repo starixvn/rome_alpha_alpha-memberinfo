@@ -591,6 +591,10 @@
     <Content Include="assets\styles\problem-account\update.min.css">
       <DependentUpon>update.css</DependentUpon>
     </Content>
+     <Content Include="Features\CustomerList\Bundles\master-list.js" />
+    <Content Include="Features\CustomerList\Bundles\master-list.min.js">
+      <DependentUpon>master-list.js</DependentUpon>
+    </Content>
     <Content Include="assets\styles\quick-introduction.css">
       <DependentUpon>quick-introduction.scss</DependentUpon>
     </Content>
@@ -734,6 +738,11 @@
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
+     <Compile Include="Features\CustomerList\MasterListHandler.cs" />
+    <Compile Include="Features\CustomerList\MasterListController.cs" />
+    <Compile Include="Features\CustomerList\Requests\MasterListRequest.cs" />
+    <Compile Include="Features\CustomerList\ViewModels\MasterListViewModel.cs" />
+    <Compile Include="Features\CustomerList\ViewModels\CustomerListViewModelBase.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountController.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountHandler.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountWorkbook.cs" />
@@ -946,7 +955,11 @@
     <Content Include="Web.pro3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <Content Include="Features\CustomerList\Views\Index.cshtml" />
     <Content Include="Views\IndirectLoginAccount\Introduction\QuickIntroduction.cshtml" />
+     <Content Include="Features\CustomerList\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -998,6 +1011,7 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\win-loss-limit\win-loss-limit-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\win-loss-limit\win-loss-limit.ts" />
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
+    <TypeScriptCompile Include="Features\CustomerList\Scripts\master-list.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\show-qr-code.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\qr-code-member-sign-in.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />

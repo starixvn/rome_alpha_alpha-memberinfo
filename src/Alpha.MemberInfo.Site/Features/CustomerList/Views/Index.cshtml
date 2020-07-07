@@ -1,0 +1,117 @@
+﻿@model IEnumerable<MasterListViewModel>
+
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Master List";
+}
+
+@section Styles {
+	@StaticResources.AssetStyles.RenderCommon("/bundles/site-asset/data-table")
+}
+
+<div>
+	<table id="master-list" class=" tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap" style="width:100%">
+		<thead>
+			<tr>
+				<th data-priority="0"></th>
+				@{
+					for (var i = 1; i <= 15; i++)
+					{
+						<th></th>
+					}
+				}
+				<th></th>
+			</tr>
+			<tr>
+				<th rowspan="2" class="header">
+					No.
+				</th>
+				<th rowspan="2" class="header">
+					Username
+				</th>
+				<th rowspan="2" class="header">
+					Status
+				</th>
+				<th rowspan="2" class="header">
+					Edit
+				</th>
+				<th rowspan="2" class="header">
+					Member
+				</th>
+				<th rowspan="2" class="header">
+					DoubleComm
+				</th>
+				<th rowspan="2" class="header">
+					Nick Name
+				</th>
+				<th rowspan="2" class="header">
+					First Name
+				</th>
+				<th rowspan="2" class="header">
+					Last Name
+				</th>
+				<th colspan="6" class="header">
+					Commission
+				</th>
+				<th rowspan="2" class="header">
+					Login Ip
+				</th>
+				<th rowspan="2" class="header"></th>
+			</tr>
+			<tr class="thead-row2">
+				<th class="header">
+					Group A
+				</th>
+				<th class="header">
+					Group B
+				</th>
+				<th class="header">
+					Group C
+				</th>
+				<th class="header">
+					Group D
+				</th>
+				<th class="header">
+					1 X 2
+				</th>
+				<th class="header">
+					Other
+				</th>
+			</tr>
+		</thead>
+		@if (Model.Any())
+		{
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@item.No</td>
+						<td>@item.Username</td>
+						<td>@item.Status</td>
+						<td>Edit</td>
+						<td>View</td>
+						<td>@item.DoubleComm</td>
+						<td>@item.NickName</td>
+						<td>@item.FirstName</td>
+						<td>@item.LastName</td>
+						<td>@item.GroupA</td>
+						<td>@item.GroupB</td>
+						<td>@item.GroupC</td>
+						<td>@item.GroupD</td>
+						<td>@item.Group1X2</td>
+						<td>@item.GroupOther</td>
+						<td>@item.LoginIP</td>
+						<td></td>
+					</tr>
+				}
+			</tbody>
+		}
+
+	</table>
+</div>
+
+@section Scripts {
+	@StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
+
+	@StaticResources.RenderScripts("~/Features/CustomerList/Bundles/master-list")
+}
