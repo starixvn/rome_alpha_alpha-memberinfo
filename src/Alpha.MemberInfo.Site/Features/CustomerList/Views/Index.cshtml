@@ -10,14 +10,14 @@
 }
 
 <div>
-	<table id="master-list" class=" tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap" style="width:100%">
+	<table id="master-list" class="hidden tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap" style="width:100%">
 		<thead>
 			<tr>
 				<th data-priority="0"></th>
 				@{
 					for (var i = 1; i <= 15; i++)
 					{
-						<th class="@(i >= 9 && i <= 14 ? "none" : string.Empty)"></th>
+						<th class="@(i >= 9 && i <= 14 ? "desktop" : string.Empty)"></th>
 					}
 				}
 				<th></th>
@@ -27,7 +27,8 @@
 					No.
 				</th>
 				<th rowspan="2" class="header">
-					Username
+					Username <br />
+					NickName
 				</th>
 				<th rowspan="2" class="header">
 					Status
@@ -36,22 +37,25 @@
 					Edit
 				</th>
 				<th rowspan="2" class="header">
-					Member
+					Statement
 				</th>
 				<th rowspan="2" class="header">
 					DoubleComm
 				</th>
-				<th rowspan="2" class="header">
-					Nick Name
-				</th>
+				@*<th rowspan="2" class="header">
+			Nick Name
+		</th>*@
 				<th rowspan="2" class="header">
 					First Name
 				</th>
 				<th rowspan="2" class="header">
 					Last Name
 				</th>
-				<th colspan="6" class="header none">
+				<th colspan="6" class="header desktop">
 					Commission
+				</th>
+				<th rowspan="2" class="header">
+					Created Date
 				</th>
 				<th rowspan="2" class="header">
 					Login Ip
@@ -59,22 +63,22 @@
 				<th rowspan="2" class="header"></th>
 			</tr>
 			<tr class="thead-row2">
-				<th class="header none">
+				<th class="header desktop">
 					Group A
 				</th>
-				<th class="header none">
+				<th class="header desktop">
 					Group B
 				</th>
-				<th class="header none">
+				<th class="header desktop">
 					Group C
 				</th>
-				<th class="header none">
+				<th class="header desktop">
 					Group D
 				</th>
-				<th class="header none">
+				<th class="header desktop">
 					1 X 2
 				</th>
-				<th class="header none">
+				<th class="header desktop">
 					Other
 				</th>
 			</tr>
@@ -84,25 +88,29 @@
 			<tbody>
 				@foreach (var item in Model)
 				{
-					<tr>
-						<td>@item.No</td>
-						<td>@item.Username</td>
-						<td>@item.Status</td>
-						<td>Edit</td>
-						<td>View</td>
-						<td>@item.DoubleComm</td>
-						<td>@item.NickName</td>
-						<td>@item.FirstName</td>
-						<td>@item.LastName</td>
-						<td>@item.GroupA</td>
-						<td>@item.GroupB</td>
-						<td>@item.GroupC</td>
-						<td>@item.GroupD</td>
-						<td>@item.Group1X2</td>
-						<td>@item.GroupOther</td>
-						<td>@item.LoginIP</td>
-						<td></td>
-					</tr>
+				<tr>
+					<td>@item.No</td>
+					<td>
+						@item.Username <br />
+						@item.NickName
+					</td>
+					<td>@item.Status</td>
+					<td>Edit</td>
+					<td>View</td>
+					<td>@item.DoubleComm</td>
+					@*<td>@item.NickName</td>*@
+					<td>@item.FirstName</td>
+					<td>@item.LastName</td>
+					<td>@item.GroupA</td>
+					<td>@item.GroupB</td>
+					<td>@item.GroupC</td>
+					<td>@item.GroupD</td>
+					<td>@item.Group1X2</td>
+					<td>@item.GroupOther</td>
+					<td>@item.CreatedDate</td>
+					<td>@item.LoginIP</td>
+					<td></td>
+				</tr>
 				}
 			</tbody>
 		}

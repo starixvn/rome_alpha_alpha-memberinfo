@@ -1,4 +1,6 @@
-﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
+﻿using System;
+
+namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
 {
     public class MasterListViewModel : CustomerListViewModelBase
     {
@@ -9,5 +11,6 @@
         public decimal GroupD { get; set; }
         public decimal Group1X2 { get; set; }
         public decimal GroupOther { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

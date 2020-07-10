@@ -37,24 +37,24 @@ class MasterList {
 
 							let commissionTable = '';
 
-							if (idx.column >= 9 && idx.column <= 14) {
+							if (idx.column >= 8 && idx.column <= 12) {
 								if (addTableCommissionTag) {
 									addTableCommissionTag = false;
-									commissionTable = commissionTable + "<tr><td>Commison</td></tr><tr><td><table>";
+									commissionTable = commissionTable + "<tr><td><table><tr><td>Commison</td></tr>";
 								}
 
 								commissionTable =  commissionTable + `<tr data-dtr-index="${idx.column}">` +
 									`<td class="dtr-title">${header.text()}</td> ` +
 									`<td class="dtr-data">${cellData}</td></tr>`;
 
-								if (idx.column === 14 && !addTableCommissionTag) {
+								if (idx.column === 12 && !addTableCommissionTag) {
 									commissionTable = commissionTable + '</table></td></tr>';
 								}
 
 								return commissionTable;
 							}
 
-							if (idx.column < 9 || idx.column > 14) {
+							if (idx.column < 8 || idx.column > 12) {
 								return `<tr data-dtr-index="${idx.column}">` +
 									`<td class="dtr-title">${header.text()}</td> ` +
 									`<td class="dtr-data">${cellData}</td></tr>`;
@@ -73,8 +73,7 @@ class MasterList {
 				orderable: false,
 				targets: -1
 			}],
-			ordering: true,
-			order: [[0, 'desc']],
+			ordering: false,
 			paging: false,
 			searching: false,
 			bInfo: false,
@@ -89,6 +88,5 @@ class MasterList {
 
 $(function () {
 	const masterList = new MasterList($);
-
 	masterList.init();
 });
