@@ -1,6 +1,8 @@
 ﻿/// <reference path="../components/pager.ts" />
 "use strict";
 
+declare var numeral: any;
+
 interface JQuery {
     stickyTableHeaders(): void;
 }
@@ -60,6 +62,19 @@ class CreditBalance {
         this.submitButton = this.$("#btn-submit");
     };
 
+	givenPopupOnclosing = (username = null, updateSuccessfully = false, credit = 0, custid = 0) => {
+		if (updateSuccessfully === true) {
+			const creditFormat = numeral(credit);
+			this.$(`.creditlink[data-custid=${custid}]`).text(creditFormat.format('0,0.##'));
+			setTimeout(() => {
+				window.top.updateGivenCreditPopup.close();
+			}, 1000);
+		}
+		else {
+			window.top.updateGivenCreditPopup.close();
+		}
+	}
+
     registerEvents = () => {
         const self: any = this;
 
@@ -70,12 +85,18 @@ class CreditBalance {
 
         this.$(".creditlink").click(function () {
             const $this: JQuery = self.$(this);
-            const url: string = "_MemberInfo/CreditBalance/CreditTransfer.aspx"
-                + "?custid=" + $this.data("custid")
-                + "&amt=" + $this.text()
-                + "&username=" + $this.data("username")
-                + "&roleId=" + $this.data("levelid");
-            self.topWindow.popupManager.openByRelativeUrl(url, "", 400, 300);
+			const url: string = self.$("#GivenCreditLink").val()
+				+ "?SearchAccountId=" + $this.data("custid")
+				+ "&SearchAccountName=" + $this.data("username")
+				+ "&SearchAccountRoleId=" + $this.data("levelid");
+
+			if (window.top.updateGivenCreditPopup === null || window.top.updateGivenCreditPopup === undefined) {
+				window.top.updateGivenCreditPopup = window.top.ageWnd.createInstance();
+			}
+
+			const popupTitle = `${self.$("#GivenCreditPopupTitle").val()} -  ${$this.data("username")}`;
+			window.top.updateGivenCreditPopup.onClosing = self.givenPopupOnclosing;
+			window.top.popupManager.openWithHanlder(top.updateGivenCreditPopup, url, popupTitle, 470, 300);
         });
 
         this.$(".balancelink, .yesterdaybalancelink").click(function () {

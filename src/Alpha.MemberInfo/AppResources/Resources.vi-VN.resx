@@ -519,4 +519,8 @@
   <data name="UpdatePasswordHint" xml:space="preserve">
     <value>Mật khẩu của tài khoản này đã được thay đổi, vui lòng nhập mật khẩu mới</value>
   </data>
+   <data name="GivenCreditPopupTitle" xml:space="preserve">
+    <value>Cập nhật hạn mức tín dụng</value>
+  </data>
+
 </root>

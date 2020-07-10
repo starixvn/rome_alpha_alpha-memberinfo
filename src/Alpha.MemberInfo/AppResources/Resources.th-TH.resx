@@ -528,4 +528,8 @@
   <data name="UpdatePasswordHint" xml:space="preserve">
     <value>รหัสผ่านของบัญชีนี้มีการเปลี่ยนแปลง กรุณาบันทึกรหัสผ่านใหม่</value>
   </data>
+   <data name="GivenCreditPopupTitle" xml:space="preserve">
+    <value>อัพเดท เครดิตใหม่</value>
+  </data>
+
 </root>
