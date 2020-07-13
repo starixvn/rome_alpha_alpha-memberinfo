@@ -1,15 +1,26 @@
 ﻿"use strict";
+declare var accountInfoUrl;
 
 class MasterList {
 	$: JQueryStatic;
 	$table: JQuery;
+	topWindow: any;
 
-	constructor($: JQueryStatic) {
+	constructor($: JQueryStatic, topWindow: any) {
 		this.$ = $;
+		this.topWindow = topWindow;
 	}
 
 	init = () => {
 		this.initDataTable();
+		const self = this;
+
+		this.$('.edit').click(() => {
+			const url = `${accountInfoUrl}SearchAccount/EditPopup` +
+				`?SearchAccountId=23003231&SearchAccountName=SupertestTE0101` +
+				`&SearchAccountRoleId=3&UplineId=23003140&UplineName=SupertestTE01&UplineRoleId=4`;
+			self.topWindow.popupManager.open(url, "", 800, 600);
+		});
 	};
 	initDataTable = () => {
 		const self = this;
@@ -87,6 +98,6 @@ class MasterList {
 }
 
 $(function () {
-	const masterList = new MasterList($);
+	const masterList = new MasterList($, window.top);
 	masterList.init();
 });

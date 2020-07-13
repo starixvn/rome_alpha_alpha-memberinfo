@@ -7,9 +7,8 @@
 
     public class MasterListController : BaseController
     {
-        private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         private const string IndexPath = "~/Features/CustomerList/Views/Index.cshtml";
-      
+
         private readonly IMediator mediator;
 
         public MasterListController(IMediator mediator)
@@ -20,8 +19,5 @@
         [HttpGet]
         public ActionResult Index(MasterListRequest message)
             => View(IndexPath, mediator.Send(message));
-
-        public ActionResult GetCustomerAllStatus(CustomerStatusQuery message)
-           => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
     }
 }

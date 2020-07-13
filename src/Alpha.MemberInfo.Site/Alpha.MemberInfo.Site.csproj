@@ -76,10 +76,6 @@
       <HintPath>..\..\packages\Alpha.Logging.1.0.1.1\lib\net461\Alpha.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Alpha.Products.AccountInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\alpha-accountinfo\src\Alpha.Products.AccountInfo\bin\Debug\Alpha.Products.AccountInfo.dll</HintPath>
-    </Reference>
     <Reference Include="Alpha.Products.Core, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.Products.Core.1.0.0.1\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
@@ -742,12 +738,9 @@
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
-    <Compile Include="Features\CustomerList\Helpers\ProductJsonConverter.cs" />
      <Compile Include="Features\CustomerList\MasterListHandler.cs" />
     <Compile Include="Features\CustomerList\MasterListController.cs" />
-    <Compile Include="Features\CustomerList\Requests\CustomerStatusQuery.cs" />
     <Compile Include="Features\CustomerList\Requests\MasterListRequest.cs" />
-    <Compile Include="Features\CustomerList\ViewModels\CustomerStatusViewModel.cs" />
     <Compile Include="Features\CustomerList\ViewModels\MasterListViewModel.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerListViewModelBase.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountController.cs" />

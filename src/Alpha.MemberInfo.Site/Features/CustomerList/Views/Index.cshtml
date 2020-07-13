@@ -95,7 +95,7 @@
 						@item.NickName
 					</td>
 					<td>@item.Status</td>
-					<td>Edit</td>
+					<td class="edit" data-custid="">Edit</td>
 					<td>View</td>
 					<td>@item.DoubleComm</td>
 					@*<td>@item.NickName</td>*@
@@ -119,6 +119,9 @@
 </div>
 
 @section Scripts {
+	<script>
+		var accountInfoUrl = '@MicroSites.AccountInfoUrl()';
+	</script>
 	@StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
 
 	@StaticResources.RenderScripts("~/Features/CustomerList/Bundles/master-list")
