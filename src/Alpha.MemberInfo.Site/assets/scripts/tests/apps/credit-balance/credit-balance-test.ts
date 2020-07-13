@@ -142,8 +142,17 @@
     beforeEach(() => {
         topWindow = {
             popupManager: {
-                openByRelativeUrl: jasmine.any(Function)
-            }
+				openByRelativeUrl: jasmine.any(Function),
+				openWithHanlder: jasmine.any(Function)
+			},
+			ageWnd: {
+				open: jasmine.any(Function),
+				close: jasmine.any(Function),
+				createInstance: jasmine.any(Function)
+			},
+			updateGivenCreditPopup: {
+				onClosing: jasmine.any(Function)
+			}
         };
         pager = new PagerComponent($);
         columnsControl = new ColumnsControlComponent($, window.document);
@@ -208,8 +217,17 @@
     describe("_registerEvents", () => {
         beforeEach(() => {
             // arrange
-            setFixtures(template.normal);
-            spyOn(topWindow.popupManager, "openByRelativeUrl");
+			setFixtures(template.normal);
+
+			spyOn(topWindow.ageWnd, "createInstance");
+			spyOn(topWindow.ageWnd, "open");
+			spyOn(topWindow.ageWnd, "close"); 
+
+			spyOn(topWindow.popupManager, "openByRelativeUrl");
+			spyOn(topWindow.popupManager, "openWithHanlder");
+
+			spyOn(topWindow.updateGivenCreditPopup, "onClosing");
+
             creditBalance.cacheDOMElements();
 
             // act
@@ -221,7 +239,7 @@
             creditBalance.$(".creditlink").click();
 
             // assert
-            expect(topWindow.popupManager.openByRelativeUrl).toHaveBeenCalled();
+			expect(topWindow.popupManager.openWithHanlder).toHaveBeenCalled();
         });
 
         it("_Always_Bind balance event", () => {

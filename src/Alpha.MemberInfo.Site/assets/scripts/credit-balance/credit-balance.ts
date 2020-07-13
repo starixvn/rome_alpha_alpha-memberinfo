@@ -90,13 +90,13 @@ class CreditBalance {
 				+ "&SearchAccountName=" + $this.data("username")
 				+ "&SearchAccountRoleId=" + $this.data("levelid");
 
-			if (window.top.updateGivenCreditPopup === null || window.top.updateGivenCreditPopup === undefined) {
-				window.top.updateGivenCreditPopup = window.top.ageWnd.createInstance();
+			if (self.topWindow.updateGivenCreditPopup === null || self.topWindow.updateGivenCreditPopup === undefined) {
+				self.topWindow.updateGivenCreditPopup = self.topWindow.ageWnd.createInstance();
 			}
 
 			const popupTitle = `${self.$("#GivenCreditPopupTitle").val()} -  ${$this.data("username")}`;
-			window.top.updateGivenCreditPopup.onClosing = self.givenPopupOnclosing;
-			window.top.popupManager.openWithHanlder(top.updateGivenCreditPopup, url, popupTitle, 470, 300);
+			self.topWindow.updateGivenCreditPopup.onClosing = self.givenPopupOnclosing;
+			self.topWindow.popupManager.openWithHanlder(self.topWindow.updateGivenCreditPopup, url, popupTitle, 470, 300);
         });
 
         this.$(".balancelink, .yesterdaybalancelink").click(function () {
