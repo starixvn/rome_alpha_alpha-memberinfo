@@ -6,13 +6,24 @@
     using System.Web;
     using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
+    using Alpha.MemberInfo.Features.CustomerList.DataAccess;
     using Alpha.MemberInfo.Features.DormantAccountList;
+    using Alpha.MemberInfo.Features.CustomerList.Services;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
+    using Alpha.MemberInfo.Site.Features.CustomerList.Helpers;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Handlers;
+    using Alpha.Products.AccountInfo;
+    using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.AccountInfo.Setting;
+    using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
+    using Alpha.Products.AccountInfo.Status;
+    using Alpha.Products.AccountInfo.Status.ViewModels.Base;
+    using Alpha.Products.Core.Configuration;
+    using Alpha.Products.Core.ViewModels;
     using Alpha.Web.Helpers;
     using Alpha.Web.Helpers.Impl;
     using Controllers;
@@ -125,17 +136,26 @@
             container.RegisterPerWebRequest<QRCodeMemberSignInService, QRCodeMemberSignInServiceImpl>();
             container.RegisterPerWebRequest<Encryptor, EncryptorImpl>();
             container.RegisterPerWebRequest<PasswordService, PasswordServiceImpl>();
-            
+
+            container.RegisterPerWebRequest<CustomerListDataAccess, CustomerListDataAccessImpl>();
+            container.RegisterPerWebRequest<CustomerListDataService, CustomerListDataServiceImpl>();
+
             container.RegisterPerWebRequest<IndirectLoginAccountService, IndirectLoginAccountServiceImpl>();
             container.RegisterPerWebRequest<SessionManager, SessionManagerImpl>();
             container.RegisterPerWebRequest<AesService, AesServiceImpl>();
 
             container.RegisterCopyAccountServices("CloneAccount:BaseUri", "CloneAccount:ApiKey");
 
+            var productConfigFile = HttpContext.Current.Server.MapPath(
+                    AppSettingsHelper.GetProductConfigsFileRelativePath());
+
             var qrCodeconfigFilePath = HttpContext.Current.Server.MapPath(
                        AppSettingsHelper.GetQRCodeMemberSiteLoginConfigsPath());
             container.RegisterSingleton<QRCodeLoginConfigsHelper>
                 (() => new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
+              .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter(), productConfigFile))
+              .Register<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>(new StatusViewModelFactory())
+              .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
 
             container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();
             container.RegisterPerWebRequest<DormantAccountWorkbook, DormantAccountWorkbookImpl>();

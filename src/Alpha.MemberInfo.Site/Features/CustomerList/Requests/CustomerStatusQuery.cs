@@ -1,4 +1,4 @@
-﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
+﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.Requests
 {
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
@@ -12,6 +12,8 @@
         {
             this.viewer = viewer;
         }
+
+        public int SearchAccountId { get; set; }
 
         public string SearchAccountName { get; set; }
 
@@ -52,6 +54,8 @@
         public bool DisableGoldDeluxe => viewer.DisableGoldDeluxe;
 
         public bool IsValid() => IsValidSearchAccount && IsValidUpline;
+
+        public bool CanUpdateAccount => viewer.CanUpdateAccount;
 
         internal bool IsValidSearchAccount =>
             IsValidName(SearchAccountName) &&

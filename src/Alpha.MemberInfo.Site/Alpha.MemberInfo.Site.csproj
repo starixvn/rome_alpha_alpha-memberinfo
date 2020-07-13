@@ -742,6 +742,7 @@
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
+    <Compile Include="Features\CustomerList\Helpers\ProductJsonConverter.cs" />
      <Compile Include="Features\CustomerList\MasterListHandler.cs" />
     <Compile Include="Features\CustomerList\MasterListController.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusQuery.cs" />

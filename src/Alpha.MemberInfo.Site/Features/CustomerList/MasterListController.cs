@@ -1,6 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
-    using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
+    using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.Web;
     using MediatR;
     using System.Web.Mvc;
@@ -19,8 +19,9 @@
 
         [HttpGet]
         public ActionResult Index(MasterListRequest message)
-        {
-            return View(IndexPath, mediator.Send(message));
-        }
+            => View(IndexPath, mediator.Send(message));
+
+        public ActionResult GetCustomerAllStatus(CustomerStatusQuery message)
+           => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
     }
 }

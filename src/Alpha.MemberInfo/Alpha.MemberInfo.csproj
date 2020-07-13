@@ -325,6 +325,13 @@
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Features\CustomerList\CustomerListDataService.cs" />
+    <Compile Include="Features\CustomerList\CustomerListDataAccess.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerAllStatusCriteria.cs" />
+    <Compile Include="Features\CustomerList\CustomerAllStatus\CustomerStatusModel.cs" />
+    <Compile Include="Features\CustomerList\CustomerAllStatus\DCSProductStatusModel.cs" />
+    <Compile Include="Features\CustomerList\CustomerAllStatus\NonDCSProductStatusModel.cs" />
+    <Compile Include="Features\CustomerList\CustomerAllStatus\NonProductStatusModel.cs" />
     <Compile Include="Features\DormantAccountList\Criteria\GetDormantAccountsCriteria.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountService.cs" />
     <Compile Include="Features\DormantAccountList\Models\DormantAccount.cs" />
