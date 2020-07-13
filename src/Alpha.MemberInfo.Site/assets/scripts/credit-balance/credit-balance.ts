@@ -64,9 +64,8 @@ class CreditBalance {
 
 	givenPopupOnclosing = (username = null, updateSuccessfully = false, credit = 0, custid = 0) => {
 		if (updateSuccessfully === true) {
-			const creditFormat = numeral(credit);
-			this.$(`.creditlink[data-custid=${custid}]`).text(creditFormat.format('0,0.##'));
 			setTimeout(() => {
+				window.location = window.location;
 				window.top.updateGivenCreditPopup.close();
 			}, 1000);
 		}
