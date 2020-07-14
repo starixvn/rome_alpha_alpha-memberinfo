@@ -141,5 +141,7 @@
             => MicroSites.BetListsUrl($"~/RunningBetList/Index?custId={item.CustId}&custName={item.UserName}&getAll=true");
 
         public string OldMainRootPath => MicroSites.OldMainUrl();
+
+        public string GivenCreditLink => MicroSites.AccountInfoUrl($"~/SearchAccount/GivenCredit");
     }
 }
