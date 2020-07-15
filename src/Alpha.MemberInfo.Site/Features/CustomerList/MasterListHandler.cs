@@ -29,7 +29,8 @@
                 500,
                 1),
                 500, 
-                1);
+                1,
+                message);
             //var viewmodels = new List<MasterListViewModel>();
 
             //for(var i = 1; i < 50; i++)

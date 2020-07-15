@@ -8,6 +8,15 @@
     {
         public MasterListRequest(IUser viewer)
         {
+            ActorId = viewer.Id;
+            ActorName = viewer.Name;
+            ActorRoleId = viewer.LevelId;
         }
+
+        public int ActorId { get; }
+
+        public string ActorName { get; }
+
+        public byte ActorRoleId { get; }
     }
 }

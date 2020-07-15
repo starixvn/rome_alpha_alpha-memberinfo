@@ -95,7 +95,9 @@
 						@(string.IsNullOrEmpty(item.UserName2) ?"--" : item.UserName2)
 					</td>
 					<td>@item.Status</td>
-					<td class="edit" data-custid="">Edit</td>
+					<td class="edit" data-url="@Model.BuildPopupEditUrl(item.CustId, item.Username, item.RoleId, Model.ActorId, Model.ActorName, Model.ActorRoleId)">
+						Edit
+					</td>
 					<td>View</td>
 					<td>@item.DoubleCommLosing</td>
 					@*<td>@item.NickName</td>*@

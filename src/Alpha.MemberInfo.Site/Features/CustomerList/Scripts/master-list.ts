@@ -22,12 +22,10 @@ class MasterList {
 	init = () => {
 		this.initDataTable();
 
-		this.$('.edit').click((element) => {
-			const url = `${accountInfoUrl}SearchAccount/EditPopup` +
-				`?SearchAccountId=23003231&SearchAccountName=SupertestTE0101` +
-				`&SearchAccountRoleId=3&UplineId=23003140&UplineName=SupertestTE01&UplineRoleId=4`;
-			const left = this.$(element.currentTarget).offset().left + this.$(element.currentTarget).width() + 15;
-			const top = this.$(element.currentTarget).offset().top;
+		this.$('.edit').click((event) => {
+			const url = this.$(event.currentTarget).data("url");
+			const left = this.$(event.currentTarget).offset().left + this.$(event.currentTarget).width() + 15;
+			const top = this.$(event.currentTarget).offset().top;
 
 
 			if (this.topWindow.editPopupOnCustomerList === null || this.topWindow.editPopupOnCustomerList === undefined) {
