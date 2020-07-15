@@ -3,9 +3,8 @@
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using MediatR;
-    using System.Collections.Generic;
 
-    public class MasterListRequest : IRequest<IEnumerable<MasterListViewModel>>
+    public class MasterListRequest : IRequest<MasterListViewModel>
     {
         public MasterListRequest(IUser viewer)
         {

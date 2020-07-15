@@ -44,7 +44,10 @@
     <Setting Key="Age_CustomerIndirectLoginAccountDel" SpName="Age_CustomerIndirectLoginAccountDel" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_CustomerIndirectLoginAccountPwdCheck" SpName="Age_CustomerIndirectLoginAccountPwdCheck" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
-  <Function Name="Dormant Account List">
+   <Function Name="Dormant Account List">
     <Setting Key="Acc_DormantAccountList_Sel" SpName="Acc_DormantAccountList_Sel" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+  </Function>
+  <Function Name="Indirect Login Account">
+    <Setting Key="Acc_CustomerSelBySAg" SpName="Acc_CustomerSelBySAg" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>

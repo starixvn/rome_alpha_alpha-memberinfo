@@ -7,7 +7,6 @@
     using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Features.DormantAccountList;
-    using Alpha.MemberInfo.Features.CustomerList.Services;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
@@ -127,7 +126,7 @@
             container.RegisterPerWebRequest<Encryptor, EncryptorImpl>();
             container.RegisterPerWebRequest<PasswordService, PasswordServiceImpl>();
 
-            container.RegisterPerWebRequest<CustomerListDataService, CustomerListDataServiceImpl>();
+            container.RegisterPerWebRequest<CustomerListService, CustomerListServiceImpl>();
 
             container.RegisterPerWebRequest<IndirectLoginAccountService, IndirectLoginAccountServiceImpl>();
             container.RegisterPerWebRequest<SessionManager, SessionManagerImpl>();

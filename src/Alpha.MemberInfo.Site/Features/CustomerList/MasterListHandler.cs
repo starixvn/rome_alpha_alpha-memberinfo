@@ -1,42 +1,53 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
-    using Alpha.MemberInfo.Features.CustomerList.Services;
+    using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using MediatR;
-    using System;
-    using System.Collections.Generic;
 
     public class MasterListHandler :
-        IRequestHandler<MasterListRequest, IEnumerable<MasterListViewModel>>
+        IRequestHandler<MasterListRequest, MasterListViewModel>
     {
-        private readonly CustomerListDataService customerListDataService;
+        private readonly CustomerListService customerListService;
 
-        public MasterListHandler(CustomerListDataService customerListDataService)
+        public MasterListHandler(CustomerListService customerListService)
         {
-            this.customerListDataService = customerListDataService;
+            this.customerListService = customerListService;
         }
 
-        public IEnumerable<MasterListViewModel> Handle(MasterListRequest message)
+        public MasterListViewModel Handle(MasterListRequest message)
         {
-            var viewmodels = new List<MasterListViewModel>();
+            return new MasterListViewModel( 
+                customerListService.GetMasterList(
+                1176070,
+                string.Empty,
+                null,
+                null,
+                null,
+                2,
+                0, 
+                500,
+                1),
+                500, 
+                1);
+            //var viewmodels = new List<MasterListViewModel>();
 
-            for(var i = 1; i < 50; i++)
-            {
-                viewmodels.Add(new MasterListViewModel
-                {
-                    No = i,
-                    Username = $"Username {i}",
-                    Status = "Open",
-                    DoubleComm = true,
-                    FirstName = "First Name",
-                    LastName = "Last Name",
-                    LoginIP = "192.168.1.1",
-                    CreatedDate = DateTime.Now
-                });
-            }
+            //for(var i = 1; i < 50; i++)
+            //{
+            //    viewmodels.Add(new MasterListViewModel
+            //    {
+            //        No = i,
+            //        Username = $"Username {i}",
+            //        Status = "Open",
+            //        DoubleComm = true,
+            //        FirstName = "First Name",
+            //        LastName = "Last Name",
+            //        LoginIP = "192.168.1.1",
+            //        CreatedDate = DateTime.Now
+            //    });
+            //}
 
-            return viewmodels;
+            //return viewmodels;
         }
     }
 }

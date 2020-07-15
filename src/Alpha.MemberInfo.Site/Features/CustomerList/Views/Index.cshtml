@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MasterListViewModel>
+﻿@model MasterListViewModel
 
 @{
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,7 +10,7 @@
 }
 
 <div>
-	<table id="master-list" class="hidden tblRpt tblRpt-bordered tblRpt-striped tblRpt-hover display nowrap" style="width:100%">
+	<table id="master-list" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width:100%">
 		<thead>
 			<tr>
 				<th data-priority="0"></th>
@@ -27,7 +27,7 @@
 					No.
 				</th>
 				<th rowspan="2" class="header">
-					Username <br />
+					Username /<br />
 					NickName
 				</th>
 				<th rowspan="2" class="header">
@@ -83,21 +83,21 @@
 				</th>
 			</tr>
 		</thead>
-		@if (Model.Any())
+		@if (Model.DownlinesList.Any())
 		{
 			<tbody>
-				@foreach (var item in Model)
+				@foreach (var item in Model.DownlinesList)
 				{
 				<tr>
-					<td>@item.No</td>
+					<td>@item.RowNumber</td>
 					<td>
 						@item.Username <br />
-						@item.NickName
+						@(string.IsNullOrEmpty(item.UserName2) ?"--" : item.UserName2)
 					</td>
 					<td>@item.Status</td>
 					<td class="edit" data-custid="">Edit</td>
 					<td>View</td>
-					<td>@item.DoubleComm</td>
+					<td>@item.DoubleCommLosing</td>
 					@*<td>@item.NickName</td>*@
 					<td>@item.FirstName</td>
 					<td>@item.LastName</td>
@@ -105,10 +105,10 @@
 					<td>@item.GroupB</td>
 					<td>@item.GroupC</td>
 					<td>@item.GroupD</td>
-					<td>@item.Group1X2</td>
-					<td>@item.GroupOther</td>
-					<td>@item.CreatedDate</td>
-					<td>@item.LoginIP</td>
+					<td>@item.Discount1x2</td>
+					<td>@item.DiscountCS</td>
+					<td>@item.CreateDate</td>
+					<td>@item.LastLoginIP</td>
 					<td></td>
 				</tr>
 				}

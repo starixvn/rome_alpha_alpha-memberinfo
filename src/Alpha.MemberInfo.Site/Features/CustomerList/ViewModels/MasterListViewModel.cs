@@ -1,16 +1,24 @@
-﻿using System;
-
-namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
+﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
 {
-    public class MasterListViewModel : CustomerListViewModelBase
+    using Alpha.MemberInfo.Features.CustomerList.Models;
+    using System.Collections.Generic;
+
+    public class MasterListViewModel
     {
-        public string NickName { get; set; }
-        public decimal GroupA { get; set; }
-        public decimal GroupB { get; set; }
-        public decimal GroupC { get; set; }
-        public decimal GroupD { get; set; }
-        public decimal Group1X2 { get; set; }
-        public decimal GroupOther { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public MasterListViewModel(
+            IEnumerable<MasterListModel> downlinesList,
+            int totalDownlines,
+            int totalPages)
+        {
+            DownlinesList = downlinesList;
+            TotalDownlines = totalDownlines;
+            TotalPages = totalPages;
+        }
+
+        public IEnumerable<MasterListModel> DownlinesList { get; set; }
+
+        public int TotalDownlines { get; set; }
+
+        public int TotalPages { get; set; }
     }
 }

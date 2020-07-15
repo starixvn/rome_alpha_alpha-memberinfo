@@ -325,7 +325,9 @@
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Features\CustomerList\CustomerListDataService.cs" />
+    <Compile Include="Features\CustomerList\Models\MasterListModel.cs" />
+    <Compile Include="Features\CustomerList\CustomerListService.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectMasterListCriteria.cs" />
     <Compile Include="Features\DormantAccountList\Criteria\GetDormantAccountsCriteria.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountService.cs" />
     <Compile Include="Features\DormantAccountList\Models\DormantAccount.cs" />
@@ -477,9 +479,7 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\CustomerList\SPs\Criteria\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
