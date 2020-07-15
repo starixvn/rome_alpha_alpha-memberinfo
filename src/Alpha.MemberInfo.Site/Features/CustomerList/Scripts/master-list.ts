@@ -1,6 +1,10 @@
 ﻿"use strict";
 declare var accountInfoUrl;
 
+interface Window {
+	$: any
+}
+
 class MasterList {
 	$: JQueryStatic;
 	$table: JQuery;
@@ -11,17 +15,35 @@ class MasterList {
 		this.topWindow = topWindow;
 	}
 
+	editPopupOnCustomerListOnclosing() {
+		//this.topWindow.editPopupOnCustomerList.close();
+	}
+
 	init = () => {
 		this.initDataTable();
-		const self = this;
 
-		this.$('.edit').click(() => {
+		this.$('.edit').click((element) => {
 			const url = `${accountInfoUrl}SearchAccount/EditPopup` +
 				`?SearchAccountId=23003231&SearchAccountName=SupertestTE0101` +
 				`&SearchAccountRoleId=3&UplineId=23003140&UplineName=SupertestTE01&UplineRoleId=4`;
-			self.topWindow.popupManager.open(url, "", 800, 600);
+			const left = this.$(element.currentTarget).offset().left + this.$(element.currentTarget).width() + 15;
+			const top = this.$(element.currentTarget).offset().top;
+
+
+			if (this.topWindow.editPopupOnCustomerList === null || this.topWindow.editPopupOnCustomerList === undefined) {
+				this.topWindow.editPopupOnCustomerList = this.topWindow.ageWnd.createInstance();
+			}
+
+			const mainFrame = window.top.$('#main');
+			const topBody = mainFrame.parent().parent().parent();
+
+			const sidebar = this.$(topBody).find('#profile');
+
+			this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
+			this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', 200, 400, '', '', '', sidebar.width() + left, sidebar.height() + top);
 		});
 	};
+
 	initDataTable = () => {
 		const self = this;
 
