@@ -591,12 +591,28 @@
     <Content Include="assets\styles\problem-account\update.min.css">
       <DependentUpon>update.css</DependentUpon>
     </Content>
+    <Content Include="Features\CustomerList\Bundles\customer-list.css" />
+    <Content Include="Features\CustomerList\Bundles\customer-list.min.css">
+      <DependentUpon>customer-list.css</DependentUpon>
+    </Content>
      <Content Include="Features\CustomerList\Bundles\master-list.js" />
     <Content Include="Features\CustomerList\Bundles\master-list.min.js">
       <DependentUpon>master-list.js</DependentUpon>
     </Content>
+     <Content Include="Features\CustomerList\Styles\customer-list.css">
+      <DependentUpon>customer-list.scss</DependentUpon>
+    </Content>
     <Content Include="assets\styles\quick-introduction.css">
       <DependentUpon>quick-introduction.scss</DependentUpon>
+    </Content>
+     <Content Include="Features\CustomerList\Styles\customer-list.min.css">
+      <DependentUpon>customer-list.css</DependentUpon>
+    </Content>
+    <Content Include="Features\CustomerList\Styles\show-qr-code.css">
+      <DependentUpon>customer-list.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\CustomerList\Styles\show-qr-code.min.css">
+      <DependentUpon>show-qr-code.css</DependentUpon>
     </Content>
     <Content Include="Features\DormantAccountList\Bundles\dormant-account-list.css" />
     <Content Include="Features\DormantAccountList\Bundles\dormant-account-list.js" />
@@ -960,6 +976,7 @@
      <Content Include="Features\CustomerList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
+     <Content Include="Features\CustomerList\Styles\customer-list.scss" />
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>

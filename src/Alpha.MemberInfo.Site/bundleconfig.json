@@ -158,5 +158,11 @@
 		"inputFiles": [
 			"Features/CustomerList/Scripts/master-list.js"
 		]
+	},
+	{
+		"outputFileName": "Features/CustomerList/Bundles/customer-list.css",
+		"inputFiles": [
+			"Features/CustomerList/Styles/customer-list.css"
+		]
 	}
 ]

@@ -33,6 +33,14 @@
 
         public byte ActorRoleId { get; }
 
+        public string BuildMultipleEditPopupUrl(
+            byte searchAccountRoleId,
+             int uplineId,
+            string uplineName,
+            byte uplineRoleId)
+            => $"{MicroSites.AccountInfoUrl()}SearchAccount/MultipleEditPopup?SearchAccountRoleId={searchAccountRoleId}"
+            + $"&UplineId={uplineId}&UplineName={uplineName}&UplineRoleId={uplineRoleId}";
+
         public string BuildPopupEditUrl(
             int searchAccountId,
             string searchAccountName,
