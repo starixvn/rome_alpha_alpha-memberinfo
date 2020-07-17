@@ -1,6 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
 {
+    using Alpha.MemberInfo.Enumerations;
     using Alpha.MemberInfo.Features.CustomerList.Models;
+    using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.Web.Helpers;
     using System.Collections.Generic;
@@ -19,6 +21,10 @@
             ActorId = request.ActorId;
             ActorName = request.ActorName;
             ActorRoleId = request.ActorRoleId;
+
+            HideEditMultiple =
+                Enumeration.FromValue<UserLevel>(ActorRoleId).IsSuperLevel() &&
+                Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId).IsMasterLevel();
         }
 
         public IEnumerable<MasterListModel> DownlinesList { get; }
@@ -32,6 +38,8 @@
         public string ActorName { get; }
 
         public byte ActorRoleId { get; }
+
+        public bool HideEditMultiple { get; }
 
         public string BuildMultipleEditPopupUrl(
             byte searchAccountRoleId,
@@ -52,5 +60,7 @@
             $"SearchAccountId={searchAccountId}&SearchAccountName={searchAccountName}&SearchAccountRoleId={searchAccountRoleId}&" +
             $"UplineId={uplineId}&UplineName={uplineName}&UplineRoleId={uplineRoleId}";
 
+        public string BuildViewDownlineUrl(byte searchAccountRoleId)
+            => $"{MicroSites.MemberInfoUrl()}MasterList/Index?SearchAccountRoleId={searchAccountRoleId}";
     }
 }

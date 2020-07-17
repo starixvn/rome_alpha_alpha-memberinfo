@@ -11,6 +11,7 @@
             ActorId = viewer.Id;
             ActorName = viewer.Name;
             ActorRoleId = viewer.LevelId;
+            SearchAccountRoleId = viewer.LevelId;
         }
 
         public int ActorId { get; }
@@ -18,5 +19,7 @@
         public string ActorName { get; }
 
         public byte ActorRoleId { get; }
+
+        public byte SearchAccountRoleId { get; set; }
     }
 }

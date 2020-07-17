@@ -17,38 +17,41 @@
 
         public MasterListViewModel Handle(MasterListRequest message)
         {
-            return new MasterListViewModel( 
-                customerListService.GetMasterList(
-                1176070,
-                string.Empty,
-                null,
-                null,
-                null,
-                2,
-                0, 
-                500,
-                1),
-                500, 
-                1,
-                message);
-            //var viewmodels = new List<MasterListViewModel>();
-
-            //for(var i = 1; i < 50; i++)
-            //{
-            //    viewmodels.Add(new MasterListViewModel
-            //    {
-            //        No = i,
-            //        Username = $"Username {i}",
-            //        Status = "Open",
-            //        DoubleComm = true,
-            //        FirstName = "First Name",
-            //        LastName = "Last Name",
-            //        LoginIP = "192.168.1.1",
-            //        CreatedDate = DateTime.Now
-            //    });
-            //}
-
-            //return viewmodels;
+            if (message.SearchAccountRoleId == 4)
+            {
+                return new MasterListViewModel(
+                    customerListService.GetMasterList(
+                    1176070,
+                    string.Empty,
+                    null,
+                    null,
+                    null,
+                    2,
+                    0,
+                    500,
+                    1),
+                    500,
+                    1,
+                    message);
+            }
+            else
+            {
+                return new MasterListViewModel(
+               customerListService.GetAgentList(
+               1176070,
+               1176083,
+               string.Empty,
+               null,
+               null,
+               null,
+               2,
+               0,
+               500,
+               1),
+               500,
+               1,
+               message);
+            }
         }
     }
 }

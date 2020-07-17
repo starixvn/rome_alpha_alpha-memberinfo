@@ -758,7 +758,6 @@
     <Compile Include="Features\CustomerList\MasterListController.cs" />
     <Compile Include="Features\CustomerList\Requests\MasterListRequest.cs" />
     <Compile Include="Features\CustomerList\ViewModels\MasterListViewModel.cs" />
-    <Compile Include="Features\CustomerList\ViewModels\CustomerListViewModelBase.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountController.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountHandler.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountWorkbook.cs" />

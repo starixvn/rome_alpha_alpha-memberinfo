@@ -1,8 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Features.CustomerList.Criteria
 {
-    using Fanex.Data.Repository;
-
-    public class SelectMasterListCriteria : CriteriaBase
+    public class SelectMasterListCriteria : SelectCustomerListCriteriaBase
     {
         public SelectMasterListCriteria(
             int srecommend,
@@ -13,41 +11,20 @@
             byte doubleCommLosing,
             byte productUnSync,
             int pageSize,
-            int pageIndex)
+            int pageIndex): base(username,
+            enabled,
+            closed,
+            suspended,
+            doubleCommLosing,
+            productUnSync,
+            pageSize,
+            pageIndex)
         {
             SRecommend = srecommend;
-            Username = username;
-            Enabled = enabled;
-            Closed = closed;
-            Suspended = suspended;
-            DoubleCommLosing = doubleCommLosing;
-            ProductUnSync = productUnSync;
-            PageIndex = pageIndex;
-            PageSize = pageSize;
         }
 
 
         public int SRecommend { get; }
-
-        public string Username { get; }
-
-        public bool? Enabled { get; }
-
-        public bool? Closed { get; }
-
-        public bool? Suspended { get; }
-
-        public byte DoubleCommLosing { get; }
-
-        public byte ProductUnSync { get; }
-
-        public int PageSize { get; }
-
-        public int PageIndex { get; }
-
-        public int TotalPages { get; set; }
-
-        public int TotalItems { get; set; }
 
         public override string GetSettingKey() => "Acc_CustomerSelBySAg";
 

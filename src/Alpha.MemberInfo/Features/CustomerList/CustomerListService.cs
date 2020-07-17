@@ -18,6 +18,18 @@
             byte productUnSync,
             int pageSize,
             int pageIndex);
+
+        IEnumerable<MasterListModel> GetAgentList(
+            int userId,
+            int mrecommend,
+            string username,
+            bool? enabled,
+            bool? closed,
+            bool? suspended,
+            byte doubleCommLosing,
+            byte productUnSync,
+            int pageSize,
+            int pageIndex);
     }
 
     public class CustomerListServiceImpl : CustomerListService
@@ -50,5 +62,29 @@
              productUnSync,
              pageSize,
              pageIndex)).OrderBy(item => item.RowNumber);
+
+        public IEnumerable<MasterListModel> GetAgentList(
+            int userId,
+           int mrecommend,
+           string username,
+           bool? enabled,
+           bool? closed,
+           bool? suspended,
+           byte doubleCommLosing,
+           byte productUnSync,
+           int pageSize,
+           int pageIndex)
+           => dynamicRepository.Fetch<MasterListModel>(
+             new SelectAgentListCriteria(
+                 userId,
+                  mrecommend,
+            username,
+            enabled,
+            closed,
+            suspended,
+            doubleCommLosing,
+            productUnSync,
+            pageSize,
+            pageIndex)).OrderBy(item => item.RowNumber);
     }
 }

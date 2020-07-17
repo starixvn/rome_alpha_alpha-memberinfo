@@ -1,7 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Features.CustomerList.Models
 {
-    using System;
-
     public class MasterListModel
     {
         public int CustId { get; set; }

@@ -327,6 +327,8 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Features\CustomerList\Models\MasterListModel.cs" />
     <Compile Include="Features\CustomerList\CustomerListService.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectAgentListCriteria.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerListCriteriaBase.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMasterListCriteria.cs" />
     <Compile Include="Features\DormantAccountList\Criteria\GetDormantAccountsCriteria.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountService.cs" />

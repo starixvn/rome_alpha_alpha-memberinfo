@@ -51,9 +51,9 @@
 			<tr>
 				<th data-priority="0"></th>
 				@{
-					for (var i = 2; i <= 16; i++)
+					for (var i = 2; i <= (Model.HideEditMultiple ? 15 : 16); i++)
 					{
-						<th class="@(i >= 10 && i <= 15 ? "desktop" : string.Empty)"></th>
+						<th class="@(i >= (Model.HideEditMultiple ? 9 : 10) && i <= (Model.HideEditMultiple ? 15 : 16) ? "desktop" : string.Empty)"></th>
 					}
 				}
 				<th></th>
@@ -62,9 +62,12 @@
 				<th rowspan="2" class="header">
 					No.
 				</th>
-				<th rowspan="2" class="header">
-					<div class="edit-multiple" data-url="@Model.BuildMultipleEditPopupUrl(Model.DownlinesList.ToList()[0].RoleId, Model.ActorId, Model.ActorName, Model.ActorRoleId)">Multi</div>
-				</th>
+				@if (!Model.HideEditMultiple)
+				{
+					<th rowspan="2" class="header">
+						<div class="edit-multiple" data-url="@Model.BuildMultipleEditPopupUrl(Model.DownlinesList.ToList()[0].RoleId, Model.ActorId, Model.ActorName, Model.ActorRoleId)">Multi</div>
+					</th>
+				}
 				<th rowspan="2" class="header">
 					Username /<br />
 					NickName
@@ -81,9 +84,6 @@
 				<th rowspan="2" class="header">
 					DoubleComm
 				</th>
-				@*<th rowspan="2" class="header">
-			Nick Name
-		</th>*@
 				<th rowspan="2" class="header">
 					First Name
 				</th>
@@ -127,39 +127,45 @@
 			<tbody>
 				@foreach (var item in Model.DownlinesList)
 				{
-				<tr>
-					<td>@item.RowNumber</td>
-					<td>
-						<input type="checkbox" class="checkbox" data-custid="@item.CustId" data-username="@item.Username"/>
-					</td>
-					<td>
-						@item.Username <br />
-						@(string.IsNullOrEmpty(item.UserName2) ? "--" : item.UserName2)
-					</td>
-					<td>@item.Status</td>
-					<td class="edit" data-url="@Model.BuildPopupEditUrl(item.CustId, item.Username, item.RoleId, Model.ActorId, Model.ActorName, Model.ActorRoleId)">
-						Edit
-					</td>
-					<td>View</td>
-					<td>@item.DoubleCommLosing</td>
-					@*<td>@item.NickName</td>*@
-					<td>@item.FirstName</td>
-					<td>@item.LastName</td>
-					<td>@item.GroupA</td>
-					<td>@item.GroupB</td>
-					<td>@item.GroupC</td>
-					<td>@item.GroupD</td>
-					<td>@item.Discount1x2</td>
-					<td>@item.DiscountCS</td>
-					<td>@item.CreateDate</td>
-					<td>@item.LastLoginIP</td>
-					<td></td>
-				</tr>
+					<tr>
+						<td>@item.RowNumber</td>
+						@if (!Model.HideEditMultiple)
+						{
+							<td>
+								<input type="checkbox" class="checkbox" data-custid="@item.CustId" data-username="@item.Username" />
+							</td>
+						}
+						<td>
+							<a href="@Model.BuildViewDownlineUrl(item.RoleId)">
+								@item.Username <br />
+								@(string.IsNullOrEmpty(item.UserName2) ? "--" : item.UserName2)
+							</a>
+						</td>
+						<td>@item.Status</td>
+						<td class="edit" data-url="@Model.BuildPopupEditUrl(item.CustId, item.Username, item.RoleId, Model.ActorId, Model.ActorName, Model.ActorRoleId)">
+							Edit
+						</td>
+						<td>View</td>
+						<td>@item.DoubleCommLosing</td>
+						<td>@item.FirstName</td>
+						<td>@item.LastName</td>
+						<td>@item.GroupA</td>
+						<td>@item.GroupB</td>
+						<td>@item.GroupC</td>
+						<td>@item.GroupD</td>
+						<td>@item.Discount1x2</td>
+						<td>@item.DiscountCS</td>
+						<td>@item.CreateDate</td>
+						<td>@item.LastLoginIP</td>
+						<td></td>
+					</tr>
 				}
 			</tbody>
 		}
 
 	</table>
+
+	@Html.HiddenFor(m => m.HideEditMultiple)
 </div>
 
 @section Scripts {
