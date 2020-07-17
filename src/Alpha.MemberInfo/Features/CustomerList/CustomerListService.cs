@@ -30,6 +30,18 @@
             byte productUnSync,
             int pageSize,
             int pageIndex);
+
+        IEnumerable<MemberListModel> GetMemberList(
+           int userId,
+           int recommend,
+           string username,
+           bool? enabled,
+           bool? closed,
+           bool? suspended,
+           byte doubleCommLosing,
+           byte productUnSync,
+           int pageSize,
+           int pageIndex);
     }
 
     public class CustomerListServiceImpl : CustomerListService
@@ -78,6 +90,31 @@
              new SelectAgentListCriteria(
                  userId,
                   mrecommend,
+            username,
+            enabled,
+            closed,
+            suspended,
+            doubleCommLosing,
+            productUnSync,
+            pageSize,
+            pageIndex)).OrderBy(item => item.RowNumber);
+
+
+        public IEnumerable<MemberListModel> GetMemberList(
+           int userId,
+           int recommend,
+           string username,
+           bool? enabled,
+           bool? closed,
+           bool? suspended,
+           byte doubleCommLosing,
+           byte productUnSync,
+           int pageSize,
+           int pageIndex)
+              => dynamicRepository.Fetch<MemberListModel>(
+             new SelectMemberListCriteria(
+            userId,
+            recommend,
             username,
             enabled,
             closed,

@@ -34,7 +34,7 @@
                     1,
                     message);
             }
-            else
+            else if (message.SearchAccountRoleId == 3)
             {
                 return new MasterListViewModel(
                customerListService.GetAgentList(
@@ -51,6 +51,24 @@
                500,
                1,
                message);
+            }
+            else
+            {
+                return new MasterListViewModel(
+              customerListService.GetMemberList(
+              1176070,
+              1176086,
+              string.Empty,
+              null,
+              null,
+              null,
+              2,
+              0,
+              500,
+              1),
+              500,
+              1,
+              message);
             }
         }
     }

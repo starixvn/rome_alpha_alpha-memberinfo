@@ -1,6 +1,8 @@
 ﻿@model MasterListViewModel
 
 @{
+	/**/
+
 	Layout = "~/Views/Shared/_Layout.cshtml";
 	ViewBag.Title = "Master List";
 }
@@ -102,24 +104,14 @@
 				<th rowspan="2" class="header"></th>
 			</tr>
 			<tr class="thead-row2">
-				<th class="header desktop">
-					Group A
-				</th>
-				<th class="header desktop">
-					Group B
-				</th>
-				<th class="header desktop">
-					Group C
-				</th>
-				<th class="header desktop">
-					Group D
-				</th>
-				<th class="header desktop">
-					1 X 2
-				</th>
-				<th class="header desktop">
-					Other
-				</th>
+				@if (Model.ActorRoleId == 2)
+				{
+					@RenderMemberHeader()
+				}
+				else
+				{
+					@RenderMasterAgentHeader()
+				}
 			</tr>
 		</thead>
 		@if (Model.DownlinesList.Any())
@@ -149,12 +141,15 @@
 						<td>@item.DoubleCommLosing</td>
 						<td>@item.FirstName</td>
 						<td>@item.LastName</td>
-						<td>@item.GroupA</td>
-						<td>@item.GroupB</td>
-						<td>@item.GroupC</td>
-						<td>@item.GroupD</td>
-						<td>@item.Discount1x2</td>
-						<td>@item.DiscountCS</td>
+						@if (item.RoleId == 1)
+						{
+							@RenderMemberComm((MemberListModel)item)
+						}
+						else
+						{
+							@RenderMasterAgentComm((AgentListModel)item)
+						}
+
 						<td>@item.CreateDate</td>
 						<td>@item.LastLoginIP</td>
 						<td></td>
@@ -173,4 +168,69 @@
 	@*<script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.2/js/dataTables.scroller.js"></script>*@
 
 	@StaticResources.RenderScripts("~/Features/CustomerList/Bundles/master-list")
+}
+
+
+@helper RenderMasterAgentHeader()
+{
+	<th class="header desktop">
+		Group A
+	</th>
+	<th class="header desktop">
+		Group B
+	</th>
+	<th class="header desktop">
+		Group C
+	</th>
+	<th class="header desktop">
+		Group D
+	</th>
+	<th class="header desktop">
+		1 X 2
+	</th>
+	<th class="header desktop">
+		Other
+	</th>
+}
+
+@helper RenderMemberHeader()
+{
+	<th class="header desktop">
+		A Comm 1
+	</th>
+	<th class="header desktop">
+		A Comm 2
+	</th>
+	<th class="header desktop">
+		A Comm 3
+	</th>
+	<th class="header desktop">
+		P Comm 1
+	</th>
+	<th class="header desktop">
+		P Comm 2
+	</th>
+	<th class="header desktop">
+		P Comm 3
+	</th>
+}
+
+@helper RenderMasterAgentComm(AgentListModel item)
+{
+	<td>@item.GroupA</td>
+	<td>@item.GroupB</td>
+	<td>@item.GroupC</td>
+	<td>@item.GroupD</td>
+	<td>@item.Discount1x2</td>
+	<td>@item.DiscountCS</td>
+}
+
+@helper RenderMemberComm(MemberListModel item)
+{
+	<td>@item.Discount</td>
+	<td>@item.Discount1x2</td>
+	<td>@item.DiscountCS</td>
+	<td>@item.PlayerDiscount</td>
+	<td>@item.PlayerDiscount1x2</td>
+	<td>@item.PlayerDiscountCS</td>
 }

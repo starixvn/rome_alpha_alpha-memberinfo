@@ -10,7 +10,7 @@
     public class MasterListViewModel
     {
         public MasterListViewModel(
-            IEnumerable<MasterListModel> downlinesList,
+            IEnumerable<CustomerListModelBase> downlinesList,
             int totalDownlines,
             int totalPages,
             MasterListRequest request)
@@ -27,7 +27,7 @@
                 Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId).IsMasterLevel();
         }
 
-        public IEnumerable<MasterListModel> DownlinesList { get; }
+        public IEnumerable<CustomerListModelBase> DownlinesList { get; }
 
         public int TotalDownlines { get; }
 
