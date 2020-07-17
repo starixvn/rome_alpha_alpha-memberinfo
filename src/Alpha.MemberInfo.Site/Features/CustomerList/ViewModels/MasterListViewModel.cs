@@ -61,6 +61,18 @@
             $"UplineId={uplineId}&UplineName={uplineName}&UplineRoleId={uplineRoleId}";
 
         public string BuildViewDownlineUrl(byte searchAccountRoleId)
-            => $"{MicroSites.MemberInfoUrl()}MasterList/Index?SearchAccountRoleId={searchAccountRoleId}";
+            => $"{MicroSites.MemberInfoUrl()}MasterList/{ Enumeration.FromValue<UserLevel>(searchAccountRoleId).DisplayName}?SearchAccountRoleId={searchAccountRoleId}";
+
+        public string BuildStatementUrl(
+            int searchAccountId,
+            string searchAccountName,
+            byte searchAccountRoleId)
+        {
+            var actionName = searchAccountId == 1 ? "MemberStatement" : "SMAStatement";
+            return $"{MicroSites.ReportsUrl()}Statement/{actionName}?CustID={searchAccountId}&CustName={searchAccountName}&CustLevelId={searchAccountRoleId}";
+        }
+
+        public string BuildLoginIPUrl(string ip)
+            => $"{MicroSites.OldMainUrl()}_IPInfo/IPInfo.aspx?ip={ip}";
     }
 }

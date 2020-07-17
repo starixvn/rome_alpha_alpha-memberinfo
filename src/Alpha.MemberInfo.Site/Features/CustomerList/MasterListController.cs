@@ -16,6 +16,9 @@
             this.mediator = mediator;
         }
 
+        [Route("MasterList/master")]
+        [Route("MasterList/agent")]
+        [Route("MasterList/member")]
         [HttpGet]
         public ActionResult Index(MasterListRequest message)
             => View(IndexPath, mediator.Send(message));

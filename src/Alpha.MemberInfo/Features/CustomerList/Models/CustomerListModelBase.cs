@@ -32,7 +32,7 @@
 
         public bool IsInternal { get; set; }
 
-        public int DoubleCommLosing { get; set; }
+        public bool DoubleCommLosing { get; set; }
 
         public int ClosedReason { get; set; }
 

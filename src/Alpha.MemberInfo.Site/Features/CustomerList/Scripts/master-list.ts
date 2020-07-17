@@ -21,6 +21,11 @@ class MasterList {
 	init = () => {
 		this.initDataTable();
 
+		this.$('.login-ip').click((event) => {
+			const url = this.$(event.currentTarget).data("url");
+			this.openPopup(event, url, false);
+		});
+
 		this.$('.edit').click((event) => {
 			const url = this.$(event.currentTarget).data("url");
 			this.openPopup(event, url);
@@ -39,7 +44,7 @@ class MasterList {
 		});
 	};
 
-	openPopup = (event, url) => {
+	openPopup = (event, url, specificPositon = true) => {
 		const left = this.$(event.currentTarget).offset().left + this.$(event.currentTarget).width() + 15;
 		const top = this.$(event.currentTarget).offset().top;
 
@@ -53,7 +58,13 @@ class MasterList {
 		const sidebar = this.$(topBody).find('#profile');
 
 		this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
-		this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', 200, 400, '', '', '', sidebar.width() + left, sidebar.height() + top);
+
+		if (specificPositon) {
+			this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', 200, 400, '', '', '', sidebar.width() + left, sidebar.height() + top);
+		}
+		else {
+			this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', 400, 400);
+		}
 	}
 
 	initDataTable = () => {

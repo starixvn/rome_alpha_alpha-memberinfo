@@ -127,18 +127,28 @@
 								<input type="checkbox" class="checkbox" data-custid="@item.CustId" data-username="@item.Username" />
 							</td>
 						}
-						<td>
-							<a href="@Model.BuildViewDownlineUrl(item.RoleId)">
-								@item.Username <br />
-								@(string.IsNullOrEmpty(item.UserName2) ? "--" : item.UserName2)
-							</a>
-						</td>
+							<td>
+								@if (item.RoleId == 1)
+								{
+									@item.Username <br />
+									@(string.IsNullOrEmpty(item.UserName2) ? "--" : item.UserName2)
+								}
+								else
+								{
+									<a href="@Model.BuildViewDownlineUrl(item.RoleId)">
+										@item.Username <br />
+										@(string.IsNullOrEmpty(item.UserName2) ? "--" : item.UserName2)
+									</a>
+								}
+							</td>
 						<td>@item.Status</td>
 						<td class="edit" data-url="@Model.BuildPopupEditUrl(item.CustId, item.Username, item.RoleId, Model.ActorId, Model.ActorName, Model.ActorRoleId)">
 							Edit
 						</td>
-						<td>View</td>
-						<td>@item.DoubleCommLosing</td>
+						<td>
+							<a href="@Model.BuildStatementUrl(item.CustId, item.Username, item.RoleId)">View</a>
+						</td>
+						<td>@RenderDoubleComm(item.RoleId, item.DoubleCommLosing)</td>
 						<td>@item.FirstName</td>
 						<td>@item.LastName</td>
 						@if (item.RoleId == 1)
@@ -151,7 +161,9 @@
 						}
 
 						<td>@item.CreateDate</td>
-						<td>@item.LastLoginIP</td>
+						<td class="login-ip" data-url="@Model.BuildLoginIPUrl(item.LastLoginIP)">
+							@item.LastLoginIP
+						</td>
 						<td></td>
 					</tr>
 				}
@@ -170,6 +182,17 @@
 	@StaticResources.RenderScripts("~/Features/CustomerList/Bundles/master-list")
 }
 
+@helper RenderDoubleComm(byte roleId, bool doubleComm)
+{
+	if (roleId == 1)
+	{
+		<di>@(doubleComm ? "ON" : "OFF")</di>
+	}
+	else
+	{
+		<di>@(doubleComm ? "Allowed" : "Disallowed")</di>
+	}
+}
 
 @helper RenderMasterAgentHeader()
 {
