@@ -70,6 +70,6 @@
 
         public IEnumerable<int> IndirectLoginSuperIds => AppSettings.IndirectLoginSuperIds;
 
-        public bool IsAllowedIndirectLogin => AppSettings.IsAllowedIndirectLogin(Srecommend);
+        public bool IsAllowedIndirectLogin => !userSession.IsIndirectLoggedIn && AppSettings.IsAllowedIndirectLogin(Srecommend);
     }
 }
