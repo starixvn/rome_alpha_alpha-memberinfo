@@ -1,8 +1,6 @@
 ﻿@model MasterListViewModel
 
 @{
-	/**/
-
 	Layout = "~/Views/Shared/_Layout.cshtml";
 	ViewBag.Title = "Master List";
 }
@@ -12,6 +10,8 @@
 	@StaticResources.RenderStyles("~/Features/CustomerList/Bundles/customer-list")
 	@*<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.css" />*@
 }
+<div class="page-title">@Model.PageTitle</div>
+
 <form class="form-inline filter form-report" style="margin-top:15px;">
 	<div class="form-group">
 		<label>Username</label>

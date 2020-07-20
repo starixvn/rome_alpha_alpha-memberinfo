@@ -9,6 +9,13 @@
 
     public class MasterListViewModel
     {
+        private Dictionary<UserLevel, string> PageTitleDictonary = new Dictionary<UserLevel, string>
+        {
+            {UserLevel.Super, "Master Agent List"},
+            {UserLevel.Master, "Agent List"},
+            {UserLevel.Agent, "Member List"}
+        };
+
         public MasterListViewModel(
             IEnumerable<CustomerListModelBase> downlinesList,
             int totalDownlines,
@@ -25,6 +32,9 @@
             HideEditMultiple =
                 Enumeration.FromValue<UserLevel>(ActorRoleId).IsSuperLevel() &&
                 Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId).IsMasterLevel();
+
+            PageTitle = PageTitleDictonary[Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId)];
+
         }
 
         public IEnumerable<CustomerListModelBase> DownlinesList { get; }
@@ -68,11 +78,13 @@
             string searchAccountName,
             byte searchAccountRoleId)
         {
-            var actionName = searchAccountId == 1 ? "MemberStatement" : "SMAStatement";
+            var actionName = Enumeration.FromValue<UserLevel>(searchAccountRoleId).IsMemberLevel() ? "MemberStatement" : "SMAStatement";
             return $"{MicroSites.ReportsUrl()}Statement/{actionName}?CustID={searchAccountId}&CustName={searchAccountName}&CustLevelId={searchAccountRoleId}";
         }
 
         public string BuildLoginIPUrl(string ip)
             => $"{MicroSites.OldMainUrl()}_IPInfo/IPInfo.aspx?ip={ip}";
+
+        public string PageTitle { get; }
     }
 }
