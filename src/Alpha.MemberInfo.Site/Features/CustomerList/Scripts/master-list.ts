@@ -1,5 +1,15 @@
 ﻿"use strict";
 
+declare var viewModel;
+declare var oldMainUrl;
+declare var reportsUrl;
+declare var memberInfoUrl;
+declare var accountInfoUrl;
+declare var actorId;
+declare var actorName;
+declare var actorRoleId;
+declare var showEditMultiple;
+
 interface Window {
 	$: any
 }
@@ -67,13 +77,155 @@ class MasterList {
 		}
 	}
 
+	getLevelName = (roleId) => {
+		switch (roleId) {
+			case 3: return 'Master';
+			case 2: return 'Agent';
+			default: return 'Member';
+		}
+	}
 	initDataTable = () => {
 		const self = this;
 
 		const hideEditMultiple = JSON.parse(localStorage.getItem('HideEditMultiple'));
 
+		let columns = [
+			{
+				"className": "",
+				"data": "RowNumber"
+			},
+			
+			{
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					const content = `${item.Username} <br /> ${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}`;
+					const viewDownlineLink = `${memberInfoUrl}MasterList/${self.getLevelName(item.RoleId)}?SearchAccountRoleId=${item.RoleId}`;
+					return item.RoleId === 1 ? content : `<a href="${viewDownlineLink}">${content}</a>`;
+				}
+			},
+			{
+				"className": "",
+				"data": "Status"
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					const editPopupLink = `${accountInfoUrl}SearchAccount/EditPopup?` +
+						`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}&` +
+						`UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
+					return `<div href=${editPopupLink}'>Edit</div>`;
+				}
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					const actionName = item.RoleId === 1 ? "MemberStatement" : "SMAStatement";
+					const viewStatementLink = `${reportsUrl}Statement/${actionName}?CustID=${item.CustId}&CustName=${item.Username}&CustLevelId=${item.RoleId}`;
+					return `<div href='${viewStatementLink}'>View</div>`;
+				}
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					if (item.RoleId == 1) {
+						return `<div>${item.DoubleCommLosing ? "ON" : "OFF"}</div>`;
+					}
+
+					return `<div>${item.DoubleCommLosing ? "Allowed" : "Disallowed"}</div>`;
+				}
+			},
+			{
+				"className": "",
+				"data": "FirstName"
+			},
+			{
+				"className": "",
+				"data": "LastName"
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					return item.RoleId == 1 ? item.Discount : item.GroupA;
+				}
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					return item.RoleId == 1 ? item.Discount1x2 : item.GroupB;
+				}
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function(item) {
+					return item.RoleId == 1 ? item.DiscountCS : item.GroupC;
+				}
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					return item.RoleId == 1 ? item.PlayerDiscount : item.GroupD;
+				}
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					return item.RoleId == 1 ? item.PlayerDiscount1x2 : item.Discount1x2;
+				}
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					return item.RoleId == 1 ? item.PlayerDiscountCS : item.DiscountCS;
+				}
+			},
+			{
+				"className": "",
+				"data": "CreateDate"
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					const viewIP = `${oldMainUrl}_IPInfo/IPInfo.aspx?ip=${item.LastLoginIP}`;
+					return `<div href='${viewIP}'>${item.LastLoginIP}</div>`;
+				}
+			},
+			{
+				"className": "",
+				"data": null,
+				"render": function (row) {
+					return '';
+				}
+			}
+		];
+
+		const editMultipleColumn = {
+			"className": "",
+			"data": null,
+			"render": function (item) {
+				return `<input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/>`;
+			}
+		};
+
+		if (showEditMultiple) {
+			columns.splice(2, 0, editMultipleColumn);
+		}
+
 		this.$table = this.$('#master-list').DataTable({
+			"data": viewModel,
+			"columns": columns,
 			responsive: {
+				
 				details: {
 					type: 'column',
 					target: -1,
@@ -136,7 +288,7 @@ class MasterList {
 			}],
 			ordering: false,
 			paging: true,
-			pagingType: "full",
+			pagingType: "input",
 			searching: false,
 			bInfo: false,
 			fixedHeader: true,

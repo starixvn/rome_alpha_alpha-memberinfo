@@ -35,6 +35,7 @@
 
             PageTitle = PageTitleDictonary[Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId)];
 
+            //SearchAccountLevelName = Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId - 1).DisplayName;
         }
 
         public IEnumerable<CustomerListModelBase> DownlinesList { get; }
@@ -50,6 +51,8 @@
         public byte ActorRoleId { get; }
 
         public bool HideEditMultiple { get; }
+
+        //public string SearchAccountLevelName { get; }
 
         public string BuildMultipleEditPopupUrl(
             byte searchAccountRoleId,

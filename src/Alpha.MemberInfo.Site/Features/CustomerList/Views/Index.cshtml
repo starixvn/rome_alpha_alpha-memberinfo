@@ -114,7 +114,7 @@
 				}
 			</tr>
 		</thead>
-		@if (Model.DownlinesList.Any())
+		@*@if (Model.DownlinesList.Any())
 		{
 			<tbody>
 				@foreach (var item in Model.DownlinesList)
@@ -127,20 +127,20 @@
 								<input type="checkbox" class="checkbox" data-custid="@item.CustId" data-username="@item.Username" />
 							</td>
 						}
-							<td>
-								@if (item.RoleId == 1)
-								{
+						<td>
+							@if (item.RoleId == 1)
+							{
+								@item.Username <br />
+								@(string.IsNullOrEmpty(item.UserName2) ? "--" : item.UserName2)
+							}
+							else
+							{
+								<a href="@Model.BuildViewDownlineUrl(item.RoleId)">
 									@item.Username <br />
 									@(string.IsNullOrEmpty(item.UserName2) ? "--" : item.UserName2)
-								}
-								else
-								{
-									<a href="@Model.BuildViewDownlineUrl(item.RoleId)">
-										@item.Username <br />
-										@(string.IsNullOrEmpty(item.UserName2) ? "--" : item.UserName2)
-									</a>
-								}
-							</td>
+								</a>
+							}
+						</td>
 						<td>@item.Status</td>
 						<td class="edit" data-url="@Model.BuildPopupEditUrl(item.CustId, item.Username, item.RoleId, Model.ActorId, Model.ActorName, Model.ActorRoleId)">
 							Edit
@@ -168,7 +168,7 @@
 					</tr>
 				}
 			</tbody>
-		}
+		}*@
 
 	</table>
 
@@ -176,9 +176,23 @@
 </div>
 
 @section Scripts {
+	<script>
+		var oldMainUrl = '@MicroSites.OldMainUrl()';
+		var reportsUrl = '@MicroSites.ReportsUrl()';
+		var memberInfoUrl = '@MicroSites.MemberInfoUrl()';
+		var accountInfoUrl = '@MicroSites.AccountInfoUrl()';
+		var actorId = '@Model.ActorId';
+		var actorName = '@Model.ActorName';
+		var actorRoleId = '@Model.ActorRoleId';
+		var showEditMultiple = JSON.parse('@(Model.HideEditMultiple ? "false" : "true" )');
+
+		var viewModel = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.DownlinesList, Newtonsoft.Json.Formatting.Indented));
+		
+	</script>
+
 	@StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
 	@*<script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.2/js/dataTables.scroller.js"></script>*@
-
+	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.20/pagination/input.js"></script>
 	@StaticResources.RenderScripts("~/Features/CustomerList/Bundles/master-list")
 }
 
@@ -186,11 +200,11 @@
 {
 	if (roleId == 1)
 	{
-		<di>@(doubleComm ? "ON" : "OFF")</di>
+		<div>@(doubleComm ? "ON" : "OFF")</div>
 	}
 	else
 	{
-		<di>@(doubleComm ? "Allowed" : "Disallowed")</di>
+		<div>@(doubleComm ? "Allowed" : "Disallowed")</div>
 	}
 }
 
