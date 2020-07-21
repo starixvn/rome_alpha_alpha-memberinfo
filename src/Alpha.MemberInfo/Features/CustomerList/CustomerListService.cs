@@ -2,13 +2,13 @@
 {
     using Alpha.MemberInfo.Features.CustomerList.Criteria;
     using Alpha.MemberInfo.Features.CustomerList.Models;
+    using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using Fanex.Data.Repository;
-    using System.Collections.Generic;
     using System.Linq;
 
     public interface CustomerListService
     {
-        IEnumerable<MasterListModel> GetMasterList(
+        CustomerListDTO GetMasterList(
             int srecommend,
             string username,
             bool? enabled,
@@ -19,7 +19,7 @@
             int pageSize,
             int pageIndex);
 
-        IEnumerable<MasterListModel> GetAgentList(
+        CustomerListDTO GetAgentList(
             int userId,
             int mrecommend,
             string username,
@@ -31,7 +31,7 @@
             int pageSize,
             int pageIndex);
 
-        IEnumerable<MemberListModel> GetMemberList(
+        CustomerListDTO GetMemberList(
            int userId,
            int recommend,
            string username,
@@ -53,7 +53,7 @@
             this.dynamicRepository = dynamicRepository;
         }
 
-        public IEnumerable<MasterListModel> GetMasterList(
+        public CustomerListDTO GetMasterList(
             int srecommend,
             string username,
             bool? enabled,
@@ -63,8 +63,8 @@
             byte productUnSync,
             int pageSize,
             int pageIndex)
-            => dynamicRepository.Fetch<MasterListModel>(
-              new SelectMasterListCriteria(
+        {
+            var criteria = new SelectMasterListCriteria(
                    srecommend,
              username,
              enabled,
@@ -73,9 +73,14 @@
              doubleCommLosing,
              productUnSync,
              pageSize,
-             pageIndex)).OrderBy(item => item.RowNumber);
+             pageIndex);
+            
+            var model = dynamicRepository.Fetch<MasterListModel>(criteria).OrderBy(item => item.RowNumber);
 
-        public IEnumerable<MasterListModel> GetAgentList(
+            return new CustomerListDTO(model, criteria.PageSize, criteria.PageIndex, criteria.TotalItems, criteria.TotalPages);
+        }
+
+        public CustomerListDTO GetAgentList(
             int userId,
            int mrecommend,
            string username,
@@ -86,21 +91,26 @@
            byte productUnSync,
            int pageSize,
            int pageIndex)
-           => dynamicRepository.Fetch<MasterListModel>(
-             new SelectAgentListCriteria(
-                 userId,
-                  mrecommend,
-            username,
-            enabled,
-            closed,
-            suspended,
-            doubleCommLosing,
-            productUnSync,
-            pageSize,
-            pageIndex)).OrderBy(item => item.RowNumber);
+        {
+            var criteria = new SelectAgentListCriteria(
+                userId,
+                 mrecommend,
+           username,
+           enabled,
+           closed,
+           suspended,
+           doubleCommLosing,
+           productUnSync,
+           pageSize,
+           pageIndex);
+
+            var model = dynamicRepository.Fetch<MasterListModel>(criteria).OrderBy(item => item.RowNumber);
+
+            return new CustomerListDTO(model, criteria.PageSize, criteria.PageIndex, criteria.TotalItems, criteria.TotalPages);
+        }
 
 
-        public IEnumerable<MemberListModel> GetMemberList(
+        public CustomerListDTO GetMemberList(
            int userId,
            int recommend,
            string username,
@@ -111,17 +121,22 @@
            byte productUnSync,
            int pageSize,
            int pageIndex)
-              => dynamicRepository.Fetch<MemberListModel>(
-             new SelectMemberListCriteria(
-            userId,
-            recommend,
-            username,
-            enabled,
-            closed,
-            suspended,
-            doubleCommLosing,
-            productUnSync,
-            pageSize,
-            pageIndex)).OrderBy(item => item.RowNumber);
+        {
+            var criteria = new SelectMemberListCriteria(
+              userId,
+              recommend,
+              username,
+              enabled,
+              closed,
+              suspended,
+              doubleCommLosing,
+              productUnSync,
+              pageSize,
+              pageIndex);
+
+          var model = dynamicRepository.Fetch<MemberListModel>(criteria).OrderBy(item => item.RowNumber);
+
+            return new CustomerListDTO(model, criteria.PageSize, criteria.PageIndex, criteria.TotalItems, criteria.TotalPages);
+        }
     }
 }

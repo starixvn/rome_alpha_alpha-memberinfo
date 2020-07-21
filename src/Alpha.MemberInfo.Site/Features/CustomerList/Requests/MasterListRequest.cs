@@ -12,6 +12,8 @@
             ActorName = viewer.Name;
             ActorRoleId = viewer.LevelId;
             SearchAccountRoleId = viewer.LevelId;
+            PageSize = 10;
+            PageIndex = 1;
         }
 
         public int ActorId { get; }
@@ -21,5 +23,9 @@
         public byte ActorRoleId { get; }
 
         public byte SearchAccountRoleId { get; set; }
+
+        public int PageSize { get; set; }
+
+        public int PageIndex { get; set; }
     }
 }

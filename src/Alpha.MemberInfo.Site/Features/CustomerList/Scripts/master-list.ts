@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-declare var viewModel;
+//declare var viewModel;
 declare var oldMainUrl;
 declare var reportsUrl;
 declare var memberInfoUrl;
@@ -221,6 +221,9 @@ class MasterList {
 			columns.splice(2, 0, editMultipleColumn);
 		}
 
+		let pageSize = 10;
+		let pageIndex = 1;
+
 		this.$table = this.$('#master-list').DataTable({
 			serverSide: true,
 			ajax: function (data, callback, settings) {
@@ -229,22 +232,24 @@ class MasterList {
 					// dataType: 'text',
 					type: 'post',
 					data: {
-						//RecordsStart: data.start,
-						//PageSize: data.length
+						PageIndex: pageIndex,
+						PageSize: pageSize
 					},
 					success: function (data, textStatus, jQxhr) {
 						callback({
 							// draw: data.draw,
-							data: data.DownlinesList,
-							recordsTotal: data.TotalDownlines,
-							recordsFiltered: 50
+							data: data.CustomerListDTO.DownlinesList,
+							recordsTotal: data.CustomerListDTO.TotalDownlines,
+							recordsFiltered: data.CustomerListDTO.TotalDownlines
 						});
+
+						pageIndex = data.CustomerListDTO.PageIndex + 1;
+						pageSize = data.CustomerListDTO.PageSize;
 					},
 					error: function (jqXhr, textStatus, errorThrown) {
 					}
 				});
 			},
-			//"data": viewModel,
 			"columns": columns,
 			responsive: {
 				details: {

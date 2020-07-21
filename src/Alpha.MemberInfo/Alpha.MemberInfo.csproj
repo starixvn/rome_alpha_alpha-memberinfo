@@ -325,6 +325,7 @@
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Features\CustomerList\Models\CustomerListDTO.cs" />
     <Compile Include="Features\CustomerList\Models\MemberListModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerListModelBase.cs" />
     <Compile Include="Features\CustomerList\Models\AgentListModel.cs" />

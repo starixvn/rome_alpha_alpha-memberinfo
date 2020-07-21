@@ -28,10 +28,8 @@
                     null,
                     2,
                     0,
-                    500,
-                    1),
-                    500,
-                    1,
+                    message.PageSize,
+                    message.PageIndex),
                     message);
             }
             else if (message.SearchAccountRoleId == 3)
@@ -48,8 +46,6 @@
                0,
                500,
                1),
-               500,
-               1,
                message);
             }
             else
@@ -66,8 +62,6 @@
               0,
               500,
               1),
-              500,
-              1,
               message);
             }
         }

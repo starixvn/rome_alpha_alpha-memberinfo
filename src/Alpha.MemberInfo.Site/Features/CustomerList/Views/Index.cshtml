@@ -67,7 +67,7 @@
 				@if (!Model.HideEditMultiple)
 				{
 					<th rowspan="2" class="header">
-						<div class="edit-multiple" data-url="@Model.BuildMultipleEditPopupUrl(Model.DownlinesList.ToList()[0].RoleId, Model.ActorId, Model.ActorName, Model.ActorRoleId)">Multi</div>
+						<div class="edit-multiple" data-url="@Model.BuildMultipleEditPopupUrl(Model.CustomerListDTO.DownlinesList.ToList()[0].RoleId, Model.ActorId, Model.ActorName, Model.ActorRoleId)">Multi</div>
 					</th>
 				}
 				<th rowspan="2" class="header">
@@ -114,62 +114,6 @@
 				}
 			</tr>
 		</thead>
-		@*@if (Model.DownlinesList.Any())
-		{
-			<tbody>
-				@foreach (var item in Model.DownlinesList)
-				{
-					<tr>
-						<td>@item.RowNumber</td>
-						@if (!Model.HideEditMultiple)
-						{
-							<td>
-								<input type="checkbox" class="checkbox" data-custid="@item.CustId" data-username="@item.Username" />
-							</td>
-						}
-						<td>
-							@if (item.RoleId == 1)
-							{
-								@item.Username <br />
-								@(string.IsNullOrEmpty(item.UserName2) ? "--" : item.UserName2)
-							}
-							else
-							{
-								<a href="@Model.BuildViewDownlineUrl(item.RoleId)">
-									@item.Username <br />
-									@(string.IsNullOrEmpty(item.UserName2) ? "--" : item.UserName2)
-								</a>
-							}
-						</td>
-						<td>@item.Status</td>
-						<td class="edit" data-url="@Model.BuildPopupEditUrl(item.CustId, item.Username, item.RoleId, Model.ActorId, Model.ActorName, Model.ActorRoleId)">
-							Edit
-						</td>
-						<td>
-							<a href="@Model.BuildStatementUrl(item.CustId, item.Username, item.RoleId)">View</a>
-						</td>
-						<td>@RenderDoubleComm(item.RoleId, item.DoubleCommLosing)</td>
-						<td>@item.FirstName</td>
-						<td>@item.LastName</td>
-						@if (item.RoleId == 1)
-						{
-							@RenderMemberComm((MemberListModel)item)
-						}
-						else
-						{
-							@RenderMasterAgentComm((AgentListModel)item)
-						}
-
-						<td>@item.CreateDate</td>
-						<td class="login-ip" data-url="@Model.BuildLoginIPUrl(item.LastLoginIP)">
-							@item.LastLoginIP
-						</td>
-						<td></td>
-					</tr>
-				}
-			</tbody>
-		}*@
-
 	</table>
 
 	@Html.HiddenFor(m => m.HideEditMultiple)
@@ -185,9 +129,6 @@
 		var actorName = '@Model.ActorName';
 		var actorRoleId = '@Model.ActorRoleId';
 		var showEditMultiple = JSON.parse('@(Model.HideEditMultiple ? "false" : "true" )');
-
-		var viewModel = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.DownlinesList, Newtonsoft.Json.Formatting.Indented));
-		
 	</script>
 
 	@StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")

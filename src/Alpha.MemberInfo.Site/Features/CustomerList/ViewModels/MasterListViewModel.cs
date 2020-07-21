@@ -1,7 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
 {
     using Alpha.MemberInfo.Enumerations;
-    using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.Web.Helpers;
@@ -16,15 +15,9 @@
             {UserLevel.Agent, "Member List"}
         };
 
-        public MasterListViewModel(
-            IEnumerable<CustomerListModelBase> downlinesList,
-            int totalDownlines,
-            int totalPages,
-            MasterListRequest request)
+        public MasterListViewModel(CustomerListDTO customerListDTO, MasterListRequest request)
         {
-            DownlinesList = downlinesList;
-            TotalDownlines = totalDownlines;
-            TotalPages = totalPages;
+            CustomerListDTO = customerListDTO;
             ActorId = request.ActorId;
             ActorName = request.ActorName;
             ActorRoleId = request.ActorRoleId;
@@ -36,15 +29,9 @@
             PageTitle = PageTitleDictonary[Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId)];
 
             //SearchAccountLevelName = Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId - 1).DisplayName;
-
-            TotalDownlines = 1000;
         }
 
-        public IEnumerable<CustomerListModelBase> DownlinesList { get; }
-
-        public int TotalDownlines { get; }
-
-        public int TotalPages { get; }
+        public CustomerListDTO CustomerListDTO { get; }
 
         public int ActorId { get; }
 
