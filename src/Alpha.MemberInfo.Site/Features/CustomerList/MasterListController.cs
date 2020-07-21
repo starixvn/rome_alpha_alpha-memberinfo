@@ -22,5 +22,9 @@
         [HttpGet]
         public ActionResult Index(MasterListRequest message)
             => View(IndexPath, mediator.Send(message));
+
+        [HttpPost]
+        public ActionResult GetCustomerListData(MasterListRequest message)
+          => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
     }
 }

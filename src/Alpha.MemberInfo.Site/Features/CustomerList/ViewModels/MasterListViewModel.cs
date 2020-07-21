@@ -36,6 +36,8 @@
             PageTitle = PageTitleDictonary[Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId)];
 
             //SearchAccountLevelName = Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId - 1).DisplayName;
+
+            TotalDownlines = 1000;
         }
 
         public IEnumerable<CustomerListModelBase> DownlinesList { get; }

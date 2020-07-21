@@ -6,5 +6,9 @@
 }
 
 .dataTables_paginate{
-	text-align: center;	
+	text-align: center;
+	
+	span{	
+		padding-left: 5px;
+	}
 }

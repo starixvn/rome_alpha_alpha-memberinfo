@@ -222,10 +222,31 @@ class MasterList {
 		}
 
 		this.$table = this.$('#master-list').DataTable({
-			"data": viewModel,
+			serverSide: true,
+			ajax: function (data, callback, settings) {
+				self.$.ajax({
+					url: `${memberInfoUrl}MasterList/GetCustomerListData`,
+					// dataType: 'text',
+					type: 'post',
+					data: {
+						//RecordsStart: data.start,
+						//PageSize: data.length
+					},
+					success: function (data, textStatus, jQxhr) {
+						callback({
+							// draw: data.draw,
+							data: data.DownlinesList,
+							recordsTotal: data.TotalDownlines,
+							recordsFiltered: 50
+						});
+					},
+					error: function (jqXhr, textStatus, errorThrown) {
+					}
+				});
+			},
+			//"data": viewModel,
 			"columns": columns,
 			responsive: {
-				
 				details: {
 					type: 'column',
 					target: -1,
@@ -297,6 +318,14 @@ class MasterList {
 			//scrollY: 200,
 			//scrollCollapse: true,
 			//scroller: true,
+			language: {
+				oPaginate: {
+					sFirst: '<<',
+					sPrevious: '<',
+					sNext: '>',
+					sLast: '>>'
+				}
+			},
 			drawCallback: () => {
 				this.$('#master-list').removeClass('hidden');
 			}
