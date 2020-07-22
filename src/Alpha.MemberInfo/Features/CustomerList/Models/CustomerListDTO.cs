@@ -7,23 +7,15 @@
     {
         public CustomerListDTO(
             IEnumerable<CustomerListModelBase> downlinesList,
-             int pageSize,
-            int pageIndex,
             int totalDownlines,
             int totalPages)
         {
             DownlinesList = downlinesList;
             TotalDownlines = totalDownlines;
             TotalPages = totalPages;
-            PageSize = pageSize;
-            PageIndex = pageIndex;
         }
 
         public IEnumerable<CustomerListModelBase> DownlinesList { get; }
-
-        public int PageSize { get; }
-
-        public int PageIndex { get; }
 
         public int TotalDownlines { get; }
 

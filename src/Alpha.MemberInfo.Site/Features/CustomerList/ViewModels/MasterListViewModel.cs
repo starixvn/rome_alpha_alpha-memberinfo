@@ -15,9 +15,8 @@
             {UserLevel.Agent, "Member List"}
         };
 
-        public MasterListViewModel(CustomerListDTO customerListDTO, MasterListRequest request)
+        public MasterListViewModel(MasterListRequest request)
         {
-            CustomerListDTO = customerListDTO;
             ActorId = request.ActorId;
             ActorName = request.ActorName;
             ActorRoleId = request.ActorRoleId;
@@ -30,9 +29,6 @@
 
             //SearchAccountLevelName = Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId - 1).DisplayName;
         }
-
-        public CustomerListDTO CustomerListDTO { get; }
-
         public int ActorId { get; }
 
         public string ActorName { get; }
@@ -50,32 +46,6 @@
             byte uplineRoleId)
             => $"{MicroSites.AccountInfoUrl()}SearchAccount/MultipleEditPopup?SearchAccountRoleId={searchAccountRoleId}"
             + $"&UplineId={uplineId}&UplineName={uplineName}&UplineRoleId={uplineRoleId}";
-
-        public string BuildPopupEditUrl(
-            int searchAccountId,
-            string searchAccountName,
-            byte searchAccountRoleId,
-            int uplineId,
-            string uplineName,
-            byte uplineRoleId)
-            => $"{MicroSites.AccountInfoUrl()}SearchAccount/EditPopup?" +
-            $"SearchAccountId={searchAccountId}&SearchAccountName={searchAccountName}&SearchAccountRoleId={searchAccountRoleId}&" +
-            $"UplineId={uplineId}&UplineName={uplineName}&UplineRoleId={uplineRoleId}";
-
-        public string BuildViewDownlineUrl(byte searchAccountRoleId)
-            => $"{MicroSites.MemberInfoUrl()}MasterList/{ Enumeration.FromValue<UserLevel>(searchAccountRoleId).DisplayName}?SearchAccountRoleId={searchAccountRoleId}";
-
-        public string BuildStatementUrl(
-            int searchAccountId,
-            string searchAccountName,
-            byte searchAccountRoleId)
-        {
-            var actionName = Enumeration.FromValue<UserLevel>(searchAccountRoleId).IsMemberLevel() ? "MemberStatement" : "SMAStatement";
-            return $"{MicroSites.ReportsUrl()}Statement/{actionName}?CustID={searchAccountId}&CustName={searchAccountName}&CustLevelId={searchAccountRoleId}";
-        }
-
-        public string BuildLoginIPUrl(string ip)
-            => $"{MicroSites.OldMainUrl()}_IPInfo/IPInfo.aspx?ip={ip}";
 
         public string PageTitle { get; }
     }

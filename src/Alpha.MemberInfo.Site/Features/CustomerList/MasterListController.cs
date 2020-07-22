@@ -1,4 +1,4 @@
-﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
+﻿namespace Alpha.MemberInfo.Site.Features.CustomerList
 {
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.Web;
@@ -21,10 +21,10 @@
         [Route("MasterList/member")]
         [HttpGet]
         public ActionResult Index(MasterListRequest message)
-            => View(IndexPath, mediator.Send(message));
+           => View(IndexPath, mediator.Send(message));
 
         [HttpPost]
-        public ActionResult GetCustomerListData(MasterListRequest message)
+        public ActionResult GetCustomerListData(FetchDownlinesListRequest message)
           => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
     }
 }

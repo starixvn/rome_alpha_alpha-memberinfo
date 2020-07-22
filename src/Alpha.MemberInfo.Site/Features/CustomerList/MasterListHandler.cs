@@ -6,7 +6,8 @@
     using MediatR;
 
     public class MasterListHandler :
-        IRequestHandler<MasterListRequest, MasterListViewModel>
+        IRequestHandler<MasterListRequest, MasterListViewModel>,
+        IRequestHandler<FetchDownlinesListRequest, CustomerListDTO>
     {
         private readonly CustomerListService customerListService;
 
@@ -16,11 +17,13 @@
         }
 
         public MasterListViewModel Handle(MasterListRequest message)
+            => new MasterListViewModel(message);
+
+        public CustomerListDTO Handle(FetchDownlinesListRequest message)
         {
             if (message.SearchAccountRoleId == 4)
             {
-                return new MasterListViewModel(
-                    customerListService.GetMasterList(
+                return customerListService.GetMasterList(
                     1176070,
                     string.Empty,
                     null,
@@ -29,13 +32,11 @@
                     2,
                     0,
                     message.PageSize,
-                    message.PageIndex),
-                    message);
+                    message.PageIndex);
             }
             else if (message.SearchAccountRoleId == 3)
             {
-                return new MasterListViewModel(
-               customerListService.GetAgentList(
+                return customerListService.GetAgentList(
                1176070,
                1176083,
                string.Empty,
@@ -45,13 +46,11 @@
                2,
                0,
                500,
-               1),
-               message);
+               1);
             }
             else
             {
-                return new MasterListViewModel(
-              customerListService.GetMemberList(
+                return customerListService.GetMemberList(
               1176070,
               1176086,
               string.Empty,
@@ -61,8 +60,7 @@
               2,
               0,
               500,
-              1),
-              message);
+              1);
             }
         }
     }

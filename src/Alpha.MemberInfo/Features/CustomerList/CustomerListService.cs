@@ -77,7 +77,7 @@
             
             var model = dynamicRepository.Fetch<MasterListModel>(criteria).OrderBy(item => item.RowNumber);
 
-            return new CustomerListDTO(model, criteria.PageSize, criteria.PageIndex, criteria.TotalItems, criteria.TotalPages);
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages);
         }
 
         public CustomerListDTO GetAgentList(
@@ -106,7 +106,7 @@
 
             var model = dynamicRepository.Fetch<MasterListModel>(criteria).OrderBy(item => item.RowNumber);
 
-            return new CustomerListDTO(model, criteria.PageSize, criteria.PageIndex, criteria.TotalItems, criteria.TotalPages);
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages);
         }
 
 
@@ -136,7 +136,7 @@
 
           var model = dynamicRepository.Fetch<MemberListModel>(criteria).OrderBy(item => item.RowNumber);
 
-            return new CustomerListDTO(model, criteria.PageSize, criteria.PageIndex, criteria.TotalItems, criteria.TotalPages);
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages);
         }
     }
 }

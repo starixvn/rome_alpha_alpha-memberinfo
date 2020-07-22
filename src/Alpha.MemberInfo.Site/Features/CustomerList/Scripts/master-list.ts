@@ -218,39 +218,33 @@ class MasterList {
 		};
 
 		if (showEditMultiple) {
-			columns.splice(2, 0, editMultipleColumn);
+			columns.splice(1, 0, editMultipleColumn);
 		}
-
-		let pageSize = 10;
-		let pageIndex = 1;
 
 		this.$table = this.$('#master-list').DataTable({
 			serverSide: true,
 			ajax: function (data, callback, settings) {
 				self.$.ajax({
 					url: `${memberInfoUrl}MasterList/GetCustomerListData`,
-					// dataType: 'text',
+					dataType: "json",
 					type: 'post',
 					data: {
-						PageIndex: pageIndex,
-						PageSize: pageSize
+						PageIndex: (data.start / data.length) + 1,
+						PageSize: data.length
 					},
 					success: function (data, textStatus, jQxhr) {
 						callback({
 							// draw: data.draw,
-							data: data.CustomerListDTO.DownlinesList,
-							recordsTotal: data.CustomerListDTO.TotalDownlines,
-							recordsFiltered: data.CustomerListDTO.TotalDownlines
+							data: data.DownlinesList,
+							recordsTotal: data.TotalDownlines,
+							recordsFiltered: data.TotalDownlines
 						});
-
-						pageIndex = data.CustomerListDTO.PageIndex + 1;
-						pageSize = data.CustomerListDTO.PageSize;
 					},
 					error: function (jqXhr, textStatus, errorThrown) {
 					}
 				});
 			},
-			"columns": columns,
+			columns: columns,
 			responsive: {
 				details: {
 					type: 'column',
