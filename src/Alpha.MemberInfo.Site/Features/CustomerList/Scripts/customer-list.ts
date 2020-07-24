@@ -1,6 +1,4 @@
-﻿"use strict";
-
-//declare var viewModel;
+﻿//declare var viewModel;
 declare var oldMainUrl;
 declare var reportsUrl;
 declare var memberInfoUrl;
@@ -32,6 +30,7 @@ class CustomerList {
 	}
 
 	init = () => {
+		this.bidingEasyAutoComplete()
 		this.initDataTable();
 
 		this.$('.login-ip').click((event) => {
@@ -91,6 +90,7 @@ class CustomerList {
 			default: return 'Member';
 		}
 	}
+
 	initDataTable = () => {
 		const self = this;
 
@@ -349,6 +349,29 @@ class CustomerList {
 				this.$('#master-list').removeClass('hidden');
 			}
 		});
+	}
+
+	bidingEasyAutoComplete = () => {
+		const options = {
+			url: function (phrase) {
+				return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
+			},
+			getValue: 'UserName',
+			requestDelay: 200,
+			minCharNumber: 2,
+			template: {
+				type: "custom",
+				method: (value, item) => {
+					const nickname = item.UserName2 === null || item.UserName2 === '' ? '' : `(${item.UserName2})`;
+					return `<div class='suggestion'>${value} ${nickname}<div>${item.FirstName} ${item.LastName}</div></div>`;
+				}
+			},
+			list: {
+				maxNumberOfElements: 10
+			}
+		};
+
+		this.$('#txt-username').easyAutocomplete(options);
 	}
 }
 

@@ -156,13 +156,15 @@
 	{
 		"outputFileName": "Features/CustomerList/Bundles/customer-list.js",
 		"inputFiles": [
-			"Features/CustomerList/Scripts/customer-list.js"
+			"Features/CustomerList/Scripts/customer-list.js",
+			"Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
 		]
 	},
 	{
 		"outputFileName": "Features/CustomerList/Bundles/customer-list.css",
 		"inputFiles": [
-			"Features/CustomerList/Styles/customer-list.css"
+			"Features/CustomerList/Styles/customer-list.css",
+			"Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css"
 		]
 	}
 ]
