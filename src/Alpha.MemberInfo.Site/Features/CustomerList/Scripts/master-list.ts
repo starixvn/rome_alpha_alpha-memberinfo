@@ -9,6 +9,9 @@ declare var actorId;
 declare var actorName;
 declare var actorRoleId;
 declare var showEditMultiple;
+declare var searchAccountId;
+declare var searchAccountName;
+declare var searchAccountRoleId;
 
 interface Window {
 	$: any
@@ -235,6 +238,9 @@ class MasterList {
 					dataType: "json",
 					type: 'post',
 					data: {
+						SearchAccountName: searchAccountName,
+						SearchAccountId: searchAccountId,
+						SearchAccountRoleId: searchAccountRoleId,
 						PageIndex: (data.start / data.length) + 1,
 						PageSize: data.length
 					},

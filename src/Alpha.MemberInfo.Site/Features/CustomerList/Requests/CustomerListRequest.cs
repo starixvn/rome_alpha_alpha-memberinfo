@@ -4,16 +4,17 @@
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using MediatR;
 
-    public class CustomerListRequest : IRequest<MasterListViewModel>
+    public class CustomerListRequest : IRequest<CustomerListViewModel>
     {
         public CustomerListRequest(IUser viewer)
         {
             ActorId = viewer.Id;
             ActorName = viewer.Name;
             ActorRoleId = viewer.LevelId;
+
+            SearchAccountId = viewer.Id;
             SearchAccountRoleId = viewer.LevelId;
-            PageSize = 10;
-            PageIndex = 1;
+            SearchAccountRoleId = viewer.LevelId;
         }
 
         public int ActorId { get; }
@@ -22,10 +23,10 @@
 
         public byte ActorRoleId { get; }
 
+        public int SearchAccountId { get; set; }
+
+        public string SearchAccountName { get; set; }
+
         public byte SearchAccountRoleId { get; set; }
-
-        public int PageSize { get; set; }
-
-        public int PageIndex { get; set; }
     }
 }

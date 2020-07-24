@@ -1,4 +1,4 @@
-﻿@model MasterListViewModel
+﻿@model CustomerListViewModel
 
 @{
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -128,6 +128,11 @@
 		var actorId = '@Model.ActorId';
 		var actorName = '@Model.ActorName';
 		var actorRoleId = '@Model.ActorRoleId';
+
+		var searchAccountId = '@Model.SearchAccountId';
+		var searchAccountName = '@Model.SearchAccountName';
+		var searchAccountRoleId = '@Model.SearchAccountRoleId';
+
 		var showEditMultiple = JSON.parse('@(Model.HideEditMultiple ? "false" : "true" )');
 	</script>
 

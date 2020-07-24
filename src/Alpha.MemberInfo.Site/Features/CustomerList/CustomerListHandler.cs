@@ -6,7 +6,7 @@
     using MediatR;
 
     public class MasterListHandler :
-        IRequestHandler<CustomerListRequest, MasterListViewModel>,
+        IRequestHandler<CustomerListRequest, CustomerListViewModel>,
         IRequestHandler<FetchDownlinesListRequest, CustomerListDTO>
     {
         private readonly CustomerListService customerListService;
@@ -16,8 +16,8 @@
             this.customerListService = customerListService;
         }
 
-        public MasterListViewModel Handle(CustomerListRequest message)
-            => new MasterListViewModel(message);
+        public CustomerListViewModel Handle(CustomerListRequest message)
+            => new CustomerListViewModel(message);
 
         public CustomerListDTO Handle(FetchDownlinesListRequest message)
         {

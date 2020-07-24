@@ -6,7 +6,7 @@
     using Alpha.Web.Helpers;
     using System.Collections.Generic;
 
-    public class MasterListViewModel
+    public class CustomerListViewModel
     {
         private Dictionary<UserLevel, string> PageTitleDictonary = new Dictionary<UserLevel, string>
         {
@@ -15,11 +15,16 @@
             {UserLevel.Agent, "Member List"}
         };
 
-        public MasterListViewModel(CustomerListRequest request)
+        public CustomerListViewModel(CustomerListRequest request)
         {
             ActorId = request.ActorId;
             ActorName = request.ActorName;
             ActorRoleId = request.ActorRoleId;
+
+            SearchAccountId = request.SearchAccountId;
+            SearchAccountRoleId = request.SearchAccountRoleId;
+            SearchAccountName = request.SearchAccountName;
+
 
             HideEditMultiple =
                 Enumeration.FromValue<UserLevel>(ActorRoleId).IsSuperLevel() &&
@@ -36,6 +41,12 @@
         public byte ActorRoleId { get; }
 
         public bool HideEditMultiple { get; }
+
+        public int SearchAccountId { get; }
+
+        public string SearchAccountName { get; }
+
+        public byte SearchAccountRoleId { get;  }
 
         //public string SearchAccountLevelName { get; }
 
