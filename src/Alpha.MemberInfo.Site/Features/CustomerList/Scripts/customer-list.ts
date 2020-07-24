@@ -354,7 +354,7 @@ class CustomerList {
 	bidingEasyAutoComplete = () => {
 		const options = {
 			url: function (phrase) {
-				return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
+				return `${memberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}`;
 			},
 			getValue: 'UserName',
 			requestDelay: 200,

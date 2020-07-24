@@ -17,7 +17,6 @@
     public class QRCodeMemberSignInHandler :
         IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
         IAsyncRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
-        IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
         IRequestHandler<GetMemberCreditAndStatusRequest, CreditAndStatusModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>,
         IRequestHandler<GenerateQRCodeRequest, QRCodeLinkViewModel>,
@@ -105,12 +104,6 @@
                 ErrMsg = Resources.UsernameIsInvalid
             };
         }
-
-        public IEnumerable<UsernameSuggestion> Handle(UserNameSuggestionQuery message)
-            => qrCodeMemberSignInService.GetUsernamesSuggestion(
-                message.CustId,
-                message.SuggestionQuery,
-                message.IsInternal);
 
         public CreditAndStatusModel Handle(GetMemberCreditAndStatusRequest message)
             => IsValidBelongingByUsername(

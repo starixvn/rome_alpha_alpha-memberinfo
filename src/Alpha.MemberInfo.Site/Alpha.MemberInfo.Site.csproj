@@ -781,12 +781,14 @@
     <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeMemberSignInRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditAndStatusRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CheckExistedCustomerRequest.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Requests\UserNameSuggestionQuery.cs" />
+    <Compile Include="Features\Shared\Requests\UserNameSuggestionQuery.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLoginConfigs.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLinkViewModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\ShowQRCodeViewModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\MemberSiteTokenLink.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeMemberSignInViewModel.cs" />
+    <Compile Include="Features\Shared\UserNameSuggestionController.cs" />
+    <Compile Include="Features\Shared\UserNameSuggestionHandler.cs" />
     <Compile Include="Global.asax.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
       <DependentUpon>Global.asax</DependentUpon>

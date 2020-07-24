@@ -1,4 +1,4 @@
-﻿namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models
+﻿namespace Alpha.MemberInfo.Features.Shared.Models
 {
     public class UsernameSuggestion
     {

@@ -362,11 +362,12 @@
     <Compile Include="Features\QRCodeMemberSignIn\Models\SelectRnGStatusModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\CreditAndStatusModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\ResultCreateMemberQRCode.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Models\UsernameSuggestion.cs" />
+    <Compile Include="Features\Shared\Models\UsernameSuggestion.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\PasswordService.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInService.cs" />
+    <Compile Include="Features\Shared\UsernameSuggestionService.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\CasinoGameKindModel.cs" />
     <Compile Include="Models\CustomerInfo.cs" />

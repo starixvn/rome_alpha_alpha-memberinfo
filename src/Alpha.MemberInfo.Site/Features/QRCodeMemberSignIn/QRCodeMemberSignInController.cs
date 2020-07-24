@@ -86,10 +86,6 @@
             }  
         }
 
-        [HttpGet]
-        public ActionResult GetUsernamesSuggestion(UserNameSuggestionQuery message)
-            => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
-
         [HttpPost, AntiXsrfFilter]
         public ActionResult GetMemberCreditAndStatus(GetMemberCreditAndStatusRequest message)
             => Json(mediator.Send(message));

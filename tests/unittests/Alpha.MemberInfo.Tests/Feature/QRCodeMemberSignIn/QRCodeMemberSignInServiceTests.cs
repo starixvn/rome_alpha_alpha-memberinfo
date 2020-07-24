@@ -33,22 +33,22 @@
             serviceImpl = new QRCodeMemberSignInServiceImpl(repository, copyAccountService);
         }
 
-        [Fact]
-        public void GetUsernamesSuggestion_Always_ReturnsCorrectModel()
-        {
-            var model = new List<UsernameSuggestion>
-            {
-                new UsernameSuggestion("UserName", "FirstName", "LastName", "UserName2")
-            };
+        //[Fact]
+        //public void GetUsernamesSuggestion_Always_ReturnsCorrectModel()
+        //{
+        //    var model = new List<UsernameSuggestion>
+        //    {
+        //        new UsernameSuggestion("UserName", "FirstName", "LastName", "UserName2")
+        //    };
 
-            repository
-                .Fetch<UsernameSuggestion>(Arg.Any<SelectAutoSuggestionCriteria>())
-                .Returns(model as IEnumerable<UsernameSuggestion>);
+        //    repository
+        //        .Fetch<UsernameSuggestion>(Arg.Any<SelectAutoSuggestionCriteria>())
+        //        .Returns(model as IEnumerable<UsernameSuggestion>);
 
-            var actualModel = serviceImpl.GetUsernamesSuggestion(1, "test", false);
+        //    var actualModel = serviceImpl.GetUsernamesSuggestion(1, "test", false);
 
-            AssertExtension.Equal(actualModel, model);
-        }
+        //    AssertExtension.Equal(actualModel, model);
+        //}
 
         [Fact]
         public void GetCreditRange_Always_ReturnsCorrectModel()

@@ -1,11 +1,12 @@
-﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
+﻿namespace Alpha.MemberInfo.Site.Features.Shared.Requests
 {
-    using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
+    using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Requests;
     using MediatR;
     using System.Collections.Generic;
 
-    public class UserNameSuggestionQuery : QRCodeBaseQuery, IRequest<IEnumerable<UsernameSuggestion>>
+    public class UserNameSuggestionQuery : MemberInfoBaseQuery, IRequest<IEnumerable<UsernameSuggestion>>
     {
         public UserNameSuggestionQuery(IUser viewer) : base(viewer)
         {

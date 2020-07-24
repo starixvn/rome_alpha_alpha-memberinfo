@@ -8,6 +8,7 @@
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Features.DormantAccountList;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
+    using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
@@ -131,6 +132,7 @@
             container.RegisterPerWebRequest<IndirectLoginAccountService, IndirectLoginAccountServiceImpl>();
             container.RegisterPerWebRequest<SessionManager, SessionManagerImpl>();
             container.RegisterPerWebRequest<AesService, AesServiceImpl>();
+            container.RegisterPerWebRequest<UsernameSuggestionService, UsernameSuggestionServiceImpl>();
 
             container.RegisterCopyAccountServices("CloneAccount:BaseUri", "CloneAccount:ApiKey");
 

@@ -210,21 +210,21 @@
             Assert.Equal("Invalid Captcha.", data["ErrMsg"]);
         }
 
-        [Fact]
-        public void GetUsernamesSuggestion_Always_CallsMediatorUserNameSuggestionQuery()
-        {
-            // Arrange
-            var message = new UserNameSuggestionQuery(user)
-            {
-                SuggestionQuery = "AA"
-            };
+        //[Fact]
+        //public void GetUsernamesSuggestion_Always_CallsMediatorUserNameSuggestionQuery()
+        //{
+        //    // Arrange
+        //    var message = new UserNameSuggestionQuery(user)
+        //    {
+        //        SuggestionQuery = "AA"
+        //    };
 
-            // Act
-            controller.GetUsernamesSuggestion(message);
+        //    // Act
+        //    controller.GetUsernamesSuggestion(message);
 
-            // Assert
-            mediator.Received().Send(message);
-        }
+        //    // Assert
+        //    mediator.Received().Send(message);
+        //}
 
         [Fact]
         public void ShowQRCode_Always_CallsMediatorShowQRCodeRequest()

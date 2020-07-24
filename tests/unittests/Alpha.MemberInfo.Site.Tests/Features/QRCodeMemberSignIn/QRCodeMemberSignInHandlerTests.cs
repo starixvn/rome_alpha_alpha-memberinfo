@@ -74,29 +74,29 @@
             AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
 
-        [Fact]
-        public void HandlerUserNameSuggestionQuery_Always_ReturnsCorrectViewModel()
-        {
-            // Arrange
-            var message = new UserNameSuggestionQuery(user)
-            {
-                SuggestionQuery = "AA"
-            };
+        //[Fact]
+        //public void HandlerUserNameSuggestionQuery_Always_ReturnsCorrectViewModel()
+        //{
+        //    // Arrange
+        //    var message = new UserNameSuggestionQuery(user)
+        //    {
+        //        SuggestionQuery = "AA"
+        //    };
 
-            var model = new List<UsernameSuggestion>
-            {
-                new UsernameSuggestion("test1", "--", "--", "NickName1"),
-                new UsernameSuggestion("test2", "--", "--", "NickName2")
-            };
+        //    var model = new List<UsernameSuggestion>
+        //    {
+        //        new UsernameSuggestion("test1", "--", "--", "NickName1"),
+        //        new UsernameSuggestion("test2", "--", "--", "NickName2")
+        //    };
 
-            service.GetUsernamesSuggestion(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(model);
+        //    service.GetUsernamesSuggestion(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(model);
 
-            // Act
-            var actualViewModel = handler.Handle(message);
+        //    // Act
+        //    var actualViewModel = handler.Handle(message);
 
-            // Assert
-            AssertExtension.Equal(model, actualViewModel);
-        }
+        //    // Assert
+        //    AssertExtension.Equal(model, actualViewModel);
+        //}
 
         [Fact]
         public void HandlerCreateAccountByQRCodeRequest_Always_ReturnsCorrectViewModel()
