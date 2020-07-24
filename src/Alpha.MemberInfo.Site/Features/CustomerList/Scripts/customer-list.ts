@@ -17,7 +17,7 @@ interface Window {
 	$: any
 }
 
-class MasterList {
+class CustomerList {
 	$: JQueryStatic;
 	$table: JQuery;
 	topWindow: any;
@@ -353,6 +353,6 @@ class MasterList {
 }
 
 $(function () {
-	const masterList = new MasterList($, window.top);
-	masterList.init();
+	const customerList = new CustomerList($, window.top);
+	customerList.init();
 });

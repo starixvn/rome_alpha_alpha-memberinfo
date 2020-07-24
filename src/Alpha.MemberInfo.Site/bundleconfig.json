@@ -154,9 +154,9 @@
     ]
 	},
 	{
-		"outputFileName": "Features/CustomerList/Bundles/master-list.js",
+		"outputFileName": "Features/CustomerList/Bundles/customer-list.js",
 		"inputFiles": [
-			"Features/CustomerList/Scripts/master-list.js"
+			"Features/CustomerList/Scripts/customer-list.js"
 		]
 	},
 	{
