@@ -4,9 +4,9 @@
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using MediatR;
 
-    public class MasterListRequest : IRequest<MasterListViewModel>
+    public class CustomerListRequest : IRequest<MasterListViewModel>
     {
-        public MasterListRequest(IUser viewer)
+        public CustomerListRequest(IUser viewer)
         {
             ActorId = viewer.Id;
             ActorName = viewer.Name;

@@ -5,22 +5,22 @@
     using MediatR;
     using System.Web.Mvc;
 
-    public class MasterListController : BaseController
+    public class CustomerListController : BaseController
     {
         private const string IndexPath = "~/Features/CustomerList/Views/Index.cshtml";
 
         private readonly IMediator mediator;
 
-        public MasterListController(IMediator mediator)
+        public CustomerListController(IMediator mediator)
         {
             this.mediator = mediator;
         }
 
-        [Route("MasterList/master")]
-        [Route("MasterList/agent")]
-        [Route("MasterList/member")]
+        [Route("CustomerList/master")]
+        [Route("CustomerList/agent")]
+        [Route("CustomerList/member")]
         [HttpGet]
-        public ActionResult Index(MasterListRequest message)
+        public ActionResult Index(CustomerListRequest message)
            => View(IndexPath, mediator.Send(message));
 
         [HttpPost]

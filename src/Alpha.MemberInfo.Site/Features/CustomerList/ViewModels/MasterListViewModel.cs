@@ -15,7 +15,7 @@
             {UserLevel.Agent, "Member List"}
         };
 
-        public MasterListViewModel(MasterListRequest request)
+        public MasterListViewModel(CustomerListRequest request)
         {
             ActorId = request.ActorId;
             ActorName = request.ActorName;

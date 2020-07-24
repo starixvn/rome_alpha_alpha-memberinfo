@@ -11,6 +11,8 @@
             ActorId = viewer.Id;
             SearchAccountId = viewer.Id;
             SearchAccountRoleId = viewer.LevelId;
+            SearchAccountName = viewer.Name;
+
             PageSize = 10;
             PageIndex = 1;
         }

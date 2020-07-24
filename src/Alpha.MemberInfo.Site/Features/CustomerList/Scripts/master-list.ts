@@ -100,7 +100,13 @@ class MasterList {
 				"data": null,
 				"render": function (item) {
 					const content = `${item.Username} <br /> ${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}`;
-					const viewDownlineLink = `${memberInfoUrl}MasterList/${self.getLevelName(item.RoleId)}?SearchAccountRoleId=${item.RoleId}`;
+					const queryString = {
+						SearchAccountRoleId: item.RoleId,
+						SearchAccountId: item.CustId,
+						SearchAccountName: item.Username
+					};
+
+					const viewDownlineLink = `${memberInfoUrl}CustomerList/${self.getLevelName(item.RoleId - 1)}?${self.$.param(queryString)}`;
 					return item.RoleId === 1 ? content : `<a href="${viewDownlineLink}">${content}</a>`;
 				}
 			},
@@ -124,7 +130,7 @@ class MasterList {
 				"render": function (item) {
 					const actionName = item.RoleId === 1 ? "MemberStatement" : "SMAStatement";
 					const viewStatementLink = `${reportsUrl}Statement/${actionName}?CustID=${item.CustId}&CustName=${item.Username}&CustLevelId=${item.RoleId}`;
-					return `<div href='${viewStatementLink}'>View</div>`;
+					return `<a href='${viewStatementLink}'>View</a>`;
 				}
 			},
 			{
@@ -225,7 +231,7 @@ class MasterList {
 			serverSide: true,
 			ajax: function (data, callback, settings) {
 				self.$.ajax({
-					url: `${memberInfoUrl}MasterList/GetCustomerListData`,
+					url: `${memberInfoUrl}CustomerList/GetCustomerListData`,
 					dataType: "json",
 					type: 'post',
 					data: {
