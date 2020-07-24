@@ -24,43 +24,43 @@
             if (message.SearchAccountRoleId == 4)
             {
                 return customerListService.GetMasterList(
-                    1176070,
-                    string.Empty,
-                    null,
-                    null,
-                    null,
-                    2,
-                    0,
+                    message.SearchAccountId,
+                    message.Username,
+                    message.Enabled,
+                    message.Closed,
+                    message.Suspended,
+                    message.DoubleComm,
+                    message.UnconfirmSetting,
                     message.PageSize,
                     message.PageIndex);
             }
             else if (message.SearchAccountRoleId == 3)
             {
                 return customerListService.GetAgentList(
-               1176070,
-               1176083,
-               string.Empty,
-               null,
-               null,
-               null,
-               2,
-               0,
-               500,
-               1);
+               message.ActorId,
+               message.SearchAccountId,
+              message.Username,
+               message.Enabled,
+                    message.Closed,
+                    message.Suspended,
+                message.DoubleComm,
+                    message.UnconfirmSetting,
+                message.PageSize,
+                    message.PageIndex);
             }
             else
             {
                 return customerListService.GetMemberList(
-              1176070,
-              1176086,
-              string.Empty,
-              null,
-              null,
-              null,
-              2,
-              0,
-              500,
-              1);
+             message.ActorId,
+               message.SearchAccountId,
+             message.Username,
+              message.Enabled,
+                    message.Closed,
+                    message.Suspended,
+               message.DoubleComm,
+                    message.UnconfirmSetting,
+               message.PageSize,
+                    message.PageIndex);
             }
         }
     }

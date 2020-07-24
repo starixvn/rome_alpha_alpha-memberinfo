@@ -55,6 +55,10 @@ class MasterList {
 
 			this.openPopup(event, url);
 		});
+
+		this.$('.btn-submit').click(() => {
+			this.$table.ajax.reload();
+		});
 	};
 
 	openPopup = (event, url, specificPositon = true) => {
@@ -242,7 +246,11 @@ class MasterList {
 						SearchAccountId: searchAccountId,
 						SearchAccountRoleId: searchAccountRoleId,
 						PageIndex: (data.start / data.length) + 1,
-						PageSize: data.length
+						PageSize: data.length,
+						Username: self.$('#txt-username').val(),
+						Status: self.$('#statusFilter').val(),
+						DoubleComm: self.$('#dcommFilter').val(),
+						UnconfirmSetting: self.$('#unconfirmSettingFilter').val()
 					},
 					success: function (data, textStatus, jQxhr) {
 						callback({

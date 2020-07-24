@@ -25,7 +25,6 @@
             SearchAccountRoleId = request.SearchAccountRoleId;
             SearchAccountName = request.SearchAccountName;
 
-
             HideEditMultiple =
                 Enumeration.FromValue<UserLevel>(ActorRoleId).IsSuperLevel() &&
                 Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId).IsMasterLevel();

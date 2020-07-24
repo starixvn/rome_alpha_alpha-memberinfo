@@ -14,7 +14,7 @@
 
             SearchAccountId = viewer.Id;
             SearchAccountRoleId = viewer.LevelId;
-            SearchAccountRoleId = viewer.LevelId;
+            SearchAccountName = viewer.Name;
         }
 
         public int ActorId { get; }
