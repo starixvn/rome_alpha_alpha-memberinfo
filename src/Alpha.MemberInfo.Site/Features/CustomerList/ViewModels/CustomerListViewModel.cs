@@ -1,8 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
 {
     using Alpha.MemberInfo.Enumerations;
+    using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
+    using Alpha.MemberInfo.Site.Helpers;
     using Alpha.Web.Helpers;
     using System.Collections.Generic;
 
@@ -15,21 +17,26 @@
             {UserLevel.Agent, "Member List"}
         };
 
-        public CustomerListViewModel(CustomerListRequest request)
+        public CustomerListViewModel(
+            CustomerListRequest request,
+            IEnumerable<CustInfo> breadcrumbLevel)
         {
-            ActorId = request.ActorId;
-            ActorName = request.ActorName;
-            ActorRoleId = request.ActorRoleId;
+            ActorId = request.ViewerId;
+            ActorName = request.ViewerUsername;
+            ActorRoleId = request.ViewerLevelId;
 
-            SearchAccountId = request.SearchAccountId;
-            SearchAccountRoleId = request.SearchAccountRoleId;
-            SearchAccountName = request.SearchAccountName;
+            SearchAccountId = request.CustId;
+            SearchAccountRoleId = request.CustLevelId;
+            SearchAccountName = request.CustName;
 
             HideEditMultiple =
                 Enumeration.FromValue<UserLevel>(ActorRoleId).IsSuperLevel() &&
-                Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId).IsMasterLevel();
+                Enumeration.FromValue<UserLevel>(request.CustLevelId).IsMasterLevel();
 
-            PageTitle = PageTitleDictonary[Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId)];
+            PageTitle = PageTitleDictonary[Enumeration.FromValue<UserLevel>(request.CustLevelId)];
+
+            BreadcrumbLevel = breadcrumbLevel;
+            BreadcrumbLevelJson = JsonHelper.ToJsonFunc(breadcrumbLevel);
 
             //SearchAccountLevelName = Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId - 1).DisplayName;
         }
@@ -58,5 +65,9 @@
             + $"&UplineId={uplineId}&UplineName={uplineName}&UplineRoleId={uplineRoleId}";
 
         public string PageTitle { get; }
+
+        public IEnumerable<CustInfo> BreadcrumbLevel { get; }
+
+        public string BreadcrumbLevelJson { get; }
     }
 }

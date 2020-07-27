@@ -1,9 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Site.Helpers
 {
+    using Alpha.MemberInfo.Features.Shared.Models;
+    using Alpha.MemberInfo.Site.Requests;
+    using MemberInfo.Models;
+    using Newtonsoft.Json;
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Web.Mvc;
-    using MemberInfo.Models;
 
     public class QueryEntityModelBinder : DefaultModelBinder
     {
@@ -35,12 +39,34 @@
         {
             var boundModel = CallBaseBindModel(controllerContext, bindingContext);
 
+            var reportBaseQuery = boundModel as MemberInfoBaseQuery;
+            if (reportBaseQuery != null)
+            {
+                var breadcrumbLevelJson = GetBreadcrumbLevelJson(controllerContext);
+
+                if (!string.IsNullOrWhiteSpace(breadcrumbLevelJson)
+                   && breadcrumbLevelJson.LastIndexOf(",[", StringComparison.OrdinalIgnoreCase) < 0)
+                {
+                    reportBaseQuery.BreadcrumbLevel = JsonConvert.DeserializeObject<IEnumerable<CustInfo>>(
+                        breadcrumbLevelJson,
+                        new JsonSerializerSettings
+                        {
+                            Error = (sender, errorArgs) => { errorArgs.ErrorContext.Handled = true; }
+                        });
+                }
+
+                return reportBaseQuery;
+            }
+
             return boundModel;
         }
 
         protected virtual object CallBaseBindModel(
            ControllerContext controllerContext,
            ModelBindingContext bindingContext)
-            => base.BindModel(controllerContext, bindingContext);       
+            => base.BindModel(controllerContext, bindingContext);
+
+        protected virtual string GetBreadcrumbLevelJson(ControllerContext controllerContext)
+         => controllerContext.RequestContext.HttpContext.Request["BreadcrumbLevelJson"];
     }
 }

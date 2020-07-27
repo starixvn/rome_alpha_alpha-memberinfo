@@ -1,7 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Site.Requests
 {
+    using Alpha.MemberInfo.Features.Shared.Models;
     using Enumerations;
     using MemberInfo.Models;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class MemberInfoBaseQuery
     {
@@ -17,6 +20,7 @@
             CustLevelId = viewer.LevelId;
             SubAccId = viewer.SubAccId;
             SubUsername = viewer.SubAccName;
+            BreadcrumbLevel = Enumerable.Empty<CustInfo>();
         }
 
         public string SubUsername { get; set; }
@@ -52,6 +56,8 @@
         public bool IsInternal => viewer.IsInternal;
 
         public bool IsAllowedIndirectLogin => viewer.IsAllowedIndirectLogin;
+
+        public IEnumerable<CustInfo> BreadcrumbLevel { get; set; }
 
         public virtual bool IsValid()
             => CustId > 0

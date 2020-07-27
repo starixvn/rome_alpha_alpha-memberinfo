@@ -10,6 +10,7 @@ declare var showEditMultiple;
 declare var searchAccountId;
 declare var searchAccountName;
 declare var searchAccountRoleId;
+declare var breadcrumbLevelJson;;
 
 interface Window {
 	$: any
@@ -108,12 +109,12 @@ class CustomerList {
 				"render": function (item) {
 					const content = `${item.Username} <br /> ${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}`;
 					const queryString = {
-						SearchAccountRoleId: item.RoleId,
-						SearchAccountId: item.CustId,
-						SearchAccountName: item.Username
+						CustLevelId: item.RoleId,
+						CustId: item.CustId,
+						CustName: item.Username
 					};
 
-					const viewDownlineLink = `${memberInfoUrl}CustomerList/${self.getLevelName(item.RoleId - 1)}?${self.$.param(queryString)}`;
+					const viewDownlineLink = `${memberInfoUrl}CustomerList/${self.getLevelName(item.RoleId - 1)}?${self.$.param(queryString)}&BreadcrumbLevelJson=${breadcrumbLevelJson}`;
 					return item.RoleId === 1 ? content : `<a href="${viewDownlineLink}">${content}</a>`;
 				}
 			},
@@ -248,9 +249,9 @@ class CustomerList {
 					dataType: "json",
 					type: 'post',
 					data: {
-						SearchAccountName: searchAccountName,
-						SearchAccountId: searchAccountId,
-						SearchAccountRoleId: searchAccountRoleId,
+						CustName: searchAccountName,
+						CustId: searchAccountId,
+						CustLevelId: searchAccountRoleId,
 						PageIndex: (data.start / data.length) + 1,
 						PageSize: data.length,
 						Username: self.$('#txt-username').val(),
@@ -340,6 +341,7 @@ class CustomerList {
 			fixedHeader: true,
 			processing: true,
 			language: {
+				processing: '',
 				oPaginate: {
 					sFirst: '<<',
 					sPrevious: '<',
