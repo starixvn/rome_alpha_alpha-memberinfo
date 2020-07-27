@@ -20,6 +20,7 @@
             => usernameSuggestionService.GetUsernamesSuggestion(
                 message.CustId,
                 message.SuggestionQuery,
-                message.IsInternal);
+                message.IsInternal,
+                message.DirectDownlines);
     }
 }

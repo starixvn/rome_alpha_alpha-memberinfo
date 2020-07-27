@@ -1,6 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Features.Shared
 {
-    using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
+    using Alpha.MemberInfo.Features.Shared.Criteria;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Fanex.Data.Repository;
     using System.Collections.Generic;
@@ -8,7 +8,11 @@
 
     public interface UsernameSuggestionService
     {
-        IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(int actorId, string suggestionQuery, bool isInternal);
+        IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(
+            int actorId, 
+            string suggestionQuery, 
+            bool isInternal,
+            bool directDownline);
     }
 
     public class UsernameSuggestionServiceImpl : UsernameSuggestionService
@@ -20,8 +24,12 @@
             this.dynamicRepository = dynamicRepository;
         }
 
-        public IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(int actorId, string suggestionQuery, bool isInternal)
+        public IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(
+            int actorId, 
+            string suggestionQuery, 
+            bool isInternal, 
+            bool directDownline)
             => dynamicRepository.Fetch<UsernameSuggestion>(
-              new SelectAutoSuggestionCriteria(actorId, suggestionQuery, isInternal)).OrderBy(item => item.UserName);
+              new SelectAutoSuggestionCriteria(actorId, suggestionQuery, isInternal, directDownline)).OrderBy(item => item.UserName);
     }
 }

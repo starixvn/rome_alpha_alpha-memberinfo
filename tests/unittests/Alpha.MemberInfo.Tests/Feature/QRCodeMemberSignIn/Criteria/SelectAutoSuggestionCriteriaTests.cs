@@ -1,6 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Tests.Criteria
 {
-    using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
+    using Alpha.MemberInfo.Features.Shared.Criteria;
     using Xunit;
 
     [Trait("Category", "QRCodeMemberSignIn")]
@@ -11,7 +11,7 @@
         {
             // Arrange
             var expectedSettingKey = "Age_CustomerSelUserSearch";
-            var criteria = new SelectAutoSuggestionCriteria(1, "aa", false);
+            var criteria = new SelectAutoSuggestionCriteria(1, "aa", false, false);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -27,7 +27,7 @@
         public void IsValid_InputActorId_ReturnsCorrectValue(int actorId, bool expectedValue)
         {
             // Arrange
-            var criteria = new SelectAutoSuggestionCriteria(actorId, "aa", false);
+            var criteria = new SelectAutoSuggestionCriteria(actorId, "aa", false, false);
 
             // Act
             var actualIsValid = criteria.IsValid();

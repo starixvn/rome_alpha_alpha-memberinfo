@@ -356,7 +356,7 @@
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectRnGStatusCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectCreditAndStatusCriteria.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectAutoSuggestionCriteria.cs" />
+    <Compile Include="Features\Shared\Criteria\SelectAutoSuggestionCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\CheckBelongingByUsernameModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\PasswordModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\SelectRnGStatusModel.cs" />

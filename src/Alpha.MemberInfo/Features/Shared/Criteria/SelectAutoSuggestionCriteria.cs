@@ -1,15 +1,22 @@
-﻿namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria
+﻿namespace Alpha.MemberInfo.Features.Shared.Criteria
 {
     using Fanex.Data;
     using Fanex.Data.Repository;
 
     public class SelectAutoSuggestionCriteria : CriteriaBase
     {
-        public SelectAutoSuggestionCriteria(int actorId, string suggestionQuery, bool isInternal)
+        public SelectAutoSuggestionCriteria(
+            int actorId, 
+            string suggestionQuery, 
+            bool isInternal,
+            bool directDownline)
         {
             ActorId = actorId;
             SuggestionQuery = suggestionQuery;
             IsInternal = isInternal;
+
+            IsAccInfo = false;
+            DirectDownline = directDownline;
         }
 
         public int UserId => ActorId;
@@ -22,6 +29,10 @@
         
         [SpParam(SqlParamName = "isInternalAgent")]
         public bool IsInternal { get; }
+
+        public bool DirectDownline { get; }
+
+        public bool IsAccInfo { get; }
 
         public override string GetSettingKey() => "Age_CustomerSelUserSearch";
 

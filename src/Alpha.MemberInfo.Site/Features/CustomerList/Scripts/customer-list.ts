@@ -354,7 +354,7 @@ class CustomerList {
 	bidingEasyAutoComplete = () => {
 		const options = {
 			url: function (phrase) {
-				return `${memberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}`;
+				return `${memberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&DirectDownlines=true`;
 			},
 			getValue: 'UserName',
 			requestDelay: 200,

@@ -10,9 +10,12 @@
     {
         public UserNameSuggestionQuery(IUser viewer) : base(viewer)
         {
+            DirectDownlines = false;
         }
 
         public string SuggestionQuery { get; set; }
+
+        public bool DirectDownlines { get; set; }
 
         public override bool IsValid() => 
             base.IsValid() && 
