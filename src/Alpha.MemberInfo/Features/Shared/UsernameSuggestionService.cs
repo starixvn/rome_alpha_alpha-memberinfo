@@ -30,6 +30,10 @@
             bool isInternal, 
             bool directDownline)
             => dynamicRepository.Fetch<UsernameSuggestion>(
-              new SelectAutoSuggestionCriteria(actorId, suggestionQuery, isInternal, directDownline)).OrderBy(item => item.UserName);
+              new SelectAutoSuggestionCriteria(
+                  actorId, 
+                  suggestionQuery, 
+                  isInternal, 
+                  directDownline)).OrderBy(item => item.UserName);
     }
 }

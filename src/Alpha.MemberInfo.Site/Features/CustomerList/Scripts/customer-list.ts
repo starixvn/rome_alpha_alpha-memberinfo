@@ -44,7 +44,7 @@ class CustomerList {
 		});
 
 		this.$('.edit-multiple').click((event) => {
-			let usernames=[], custids = [];
+			let usernames = [], custids = [];
 			this.$('input.checkbox:checkbox:checked').each((index, element) => {
 				usernames.push(this.$(element).data("username"));
 				custids.push(this.$(element).data("custid"));
@@ -101,7 +101,7 @@ class CustomerList {
 				"className": "",
 				"data": "RowNumber"
 			},
-			
+
 			{
 				"className": "",
 				"data": null,
@@ -176,7 +176,7 @@ class CustomerList {
 			{
 				"className": "",
 				"data": null,
-				"render": function(item) {
+				"render": function (item) {
 					return item.RoleId == 1 ? item.DiscountCS : item.GroupC;
 				}
 			},
@@ -234,7 +234,13 @@ class CustomerList {
 			columns.splice(1, 0, editMultipleColumn);
 		}
 
-		this.$table = this.$('#master-list').DataTable({
+		this.$table = this.$('#customer-list').on('processing.dt', function (e, settings, processing) {
+			if (processing) {
+				self.$.blockUI();
+			} else {
+				self.$.unblockUI();
+			}
+		}).DataTable({
 			serverSide: true,
 			ajax: function (data, callback, settings) {
 				self.$.ajax({
@@ -296,7 +302,7 @@ class CustomerList {
 									commissionTable = commissionTable + "<tr><td><table><tr><td>Commison</td></tr>";
 								}
 
-								commissionTable =  commissionTable + `<tr data-dtr-index="${idx.column}">` +
+								commissionTable = commissionTable + `<tr data-dtr-index="${idx.column}">` +
 									`<td class="dtr-title">${header.text()}</td> ` +
 									`<td class="dtr-data">${cellData}</td></tr>`;
 
@@ -312,7 +318,7 @@ class CustomerList {
 									`<td class="dtr-title">${header.text()}</td> ` +
 									`<td class="dtr-data">${cellData}</td></tr>`;
 							}
-							
+
 						}).toArray().join('');
 
 						return data ?
@@ -333,10 +339,6 @@ class CustomerList {
 			bInfo: false,
 			fixedHeader: true,
 			processing: true,
-			//deferRender: true,
-			//scrollY: 200,
-			//scrollCollapse: true,
-			//scroller: true,
 			language: {
 				oPaginate: {
 					sFirst: '<<',
@@ -346,7 +348,7 @@ class CustomerList {
 				}
 			},
 			drawCallback: () => {
-				this.$('#master-list').removeClass('hidden');
+				this.$('#customer-list').removeClass('hidden');
 			}
 		});
 	}
