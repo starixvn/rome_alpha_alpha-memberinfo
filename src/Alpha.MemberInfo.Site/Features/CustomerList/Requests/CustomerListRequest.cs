@@ -2,10 +2,9 @@
 {
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
-    using Alpha.MemberInfo.Site.Requests;
     using MediatR;
 
-    public class CustomerListRequest : MemberInfoBaseQuery, IRequest<CustomerListViewModel>
+    public class CustomerListRequest : FetchDownlinesListRequesBase, IRequest<CustomerListViewModel>
     {
         public CustomerListRequest(IUser viewer) : base(viewer)
         {

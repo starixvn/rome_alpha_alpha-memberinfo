@@ -33,26 +33,28 @@
 	<div class="form-group">
 		<label>Status</label>
 		<select id="statusFilter" name="statusFilter">
-			<option value="0">All</option>
-			<option value="1">Open</option>
-			<option value="2">Suspended</option>
-			<option value="3">Closed</option>
-			<option value="4">Disabled</option>
+			@foreach (var option in Model.StatusOptions)
+			{
+				<option value="@option.Value" selected="@option.Value.Equals(Model.Status)">@option.Text</option>
+			}
 		</select>
 	</div>
 	<div class="form-group">
 		<label>Double Comm</label>
 		<select id="dcommFilter" name="dcommFilter">
-			<option value="2">All</option>
-			<option value="1">Allowed</option>
-			<option value="0">Disallowed</option>
+			@foreach (var option in Model.DoubleCommOptions)
+			{
+				<option value="@option.Value" selected="@option.Value.Equals(Model.DoubleComm)">@option.Text</option>
+			}
 		</select>
 	</div>
 	<div class="form-group">
 		<label>Unconfirmed Setting</label>
 		<select id="unconfirmSettingFilter" name="unconfirmSettingFilter">
-			<option value="0">Not Filter</option>
-			<option value="6">Casino</option>
+			@foreach (var option in Model.UnconfirmedSettingOptions)
+			{
+				<option value="@option.Value" selected="@option.Value.Equals(Model.UnconfirmSetting)">@option.Text</option>
+			}
 		</select>
 	</div>
 	<div class="form-group">

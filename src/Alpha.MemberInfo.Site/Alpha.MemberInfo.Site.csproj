@@ -761,6 +761,7 @@
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
      <Compile Include="Features\CustomerList\MasterListHandler.cs" />
     <Compile Include="Features\CustomerList\CustomerListController.cs" />
+    <Compile Include="Features\CustomerList\Requests\FetchDownlinesListRequesBase.cs" />
     <Compile Include="Features\CustomerList\Requests\FetchDownlinesListRequest.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerListRequest.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerListViewModel.cs" />

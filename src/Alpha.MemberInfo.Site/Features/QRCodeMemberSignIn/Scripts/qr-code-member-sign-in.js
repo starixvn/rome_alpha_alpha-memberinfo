@@ -193,7 +193,7 @@ var QRCodeMemberSignIn = /** @class */ (function () {
         this.bidingEasyAutoComplete = function () {
             var options = {
                 url: function (phrase) {
-                    return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
+                    return _this.$('#member-info-url').val() + "UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=" + phrase;
                 },
                 getValue: 'UserName',
                 requestDelay: 200,

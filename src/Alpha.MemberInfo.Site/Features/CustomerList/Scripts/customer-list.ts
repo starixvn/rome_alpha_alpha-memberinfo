@@ -10,7 +10,7 @@ declare var showEditMultiple;
 declare var searchAccountId;
 declare var searchAccountName;
 declare var searchAccountRoleId;
-declare var breadcrumbLevelJson;;
+declare var breadcrumbLevelJson;
 
 interface Window {
 	$: any
@@ -92,11 +92,43 @@ class CustomerList {
 		}
 	}
 
-	initDataTable = () => {
-		const self = this;
+	renderUsernameColumn = (item) => {
+		const content = `${item.Username} <br /> ${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}`;
+		const queryString = {
+			CustLevelId: item.RoleId,
+			CustId: item.CustId,
+			CustName: item.Username,
+			Status: self.$('#statusFilter').val(),
+			DoubleComm: self.$('#dcommFilter').val(),
+			UnconfirmSetting: self.$('#unconfirmSettingFilter').val()
+		};
 
-		const hideEditMultiple = JSON.parse(localStorage.getItem('HideEditMultiple'));
+		const viewDownlineLink = `${memberInfoUrl}CustomerList/${this.getLevelName(item.RoleId - 1)}?${self.$.param(queryString)}&BreadcrumbLevelJson=${breadcrumbLevelJson}`;
+		return item.RoleId === 1 ? content : `<a href="${viewDownlineLink}">${content}</a>`;
+	}
 
+	renderEditColumn = (item) => {
+		const editPopupLink = `${accountInfoUrl}SearchAccount/EditPopup?` +
+			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}&` +
+			`UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
+		return `<div href=${editPopupLink}'>Edit</div>`;
+	}
+
+	renderStatementColumn = (item) => {
+		const actionName = item.RoleId === 1 ? "MemberStatement" : "SMAStatement";
+		const viewStatementLink = `${reportsUrl}Statement/${actionName}?CustID=${item.CustId}&CustName=${item.Username}&CustLevelId=${item.RoleId}`;
+		return `<a href='${viewStatementLink}'>View</a>`;
+	}
+
+	renderDoubleCommColumn = (item) => {
+		if (item.RoleId == 1) {
+			return `<div>${item.DoubleCommLosing ? "ON" : "OFF"}</div>`;
+		}
+
+		return `<div>${item.DoubleCommLosing ? "Allowed" : "Disallowed"}</div>`;
+	}
+
+	buildDataTableColumns = () => {
 		let columns = [
 			{
 				"className": "",
@@ -106,17 +138,7 @@ class CustomerList {
 			{
 				"className": "",
 				"data": null,
-				"render": function (item) {
-					const content = `${item.Username} <br /> ${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}`;
-					const queryString = {
-						CustLevelId: item.RoleId,
-						CustId: item.CustId,
-						CustName: item.Username
-					};
-
-					const viewDownlineLink = `${memberInfoUrl}CustomerList/${self.getLevelName(item.RoleId - 1)}?${self.$.param(queryString)}&BreadcrumbLevelJson=${breadcrumbLevelJson}`;
-					return item.RoleId === 1 ? content : `<a href="${viewDownlineLink}">${content}</a>`;
-				}
+				"render": item => this.renderUsernameColumn(item)
 			},
 			{
 				"className": "",
@@ -125,32 +147,17 @@ class CustomerList {
 			{
 				"className": "",
 				"data": null,
-				"render": function (item) {
-					const editPopupLink = `${accountInfoUrl}SearchAccount/EditPopup?` +
-						`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}&` +
-						`UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
-					return `<div href=${editPopupLink}'>Edit</div>`;
-				}
+				"render": item => this.renderEditColumn(item)
 			},
 			{
 				"className": "",
 				"data": null,
-				"render": function (item) {
-					const actionName = item.RoleId === 1 ? "MemberStatement" : "SMAStatement";
-					const viewStatementLink = `${reportsUrl}Statement/${actionName}?CustID=${item.CustId}&CustName=${item.Username}&CustLevelId=${item.RoleId}`;
-					return `<a href='${viewStatementLink}'>View</a>`;
-				}
+				"render": item => this.renderStatementColumn(item)
 			},
 			{
 				"className": "",
 				"data": null,
-				"render": function (item) {
-					if (item.RoleId == 1) {
-						return `<div>${item.DoubleCommLosing ? "ON" : "OFF"}</div>`;
-					}
-
-					return `<div>${item.DoubleCommLosing ? "Allowed" : "Disallowed"}</div>`;
-				}
+				"render": item => this.renderDoubleCommColumn(item)
 			},
 			{
 				"className": "",
@@ -235,97 +242,103 @@ class CustomerList {
 			columns.splice(1, 0, editMultipleColumn);
 		}
 
-		this.$table = this.$('#customer-list').on('processing.dt', function (e, settings, processing) {
-			if (processing) {
-				self.$.blockUI();
-			} else {
-				self.$.unblockUI();
-			}
-		}).DataTable({
-			serverSide: true,
-			ajax: function (data, callback, settings) {
-				self.$.ajax({
-					url: `${memberInfoUrl}CustomerList/GetCustomerListData`,
-					dataType: "json",
-					type: 'post',
-					data: {
-						CustName: searchAccountName,
-						CustId: searchAccountId,
-						CustLevelId: searchAccountRoleId,
-						PageIndex: (data.start / data.length) + 1,
-						PageSize: data.length,
-						Username: self.$('#txt-username').val(),
-						Status: self.$('#statusFilter').val(),
-						DoubleComm: self.$('#dcommFilter').val(),
-						UnconfirmSetting: self.$('#unconfirmSettingFilter').val()
-					},
-					success: function (data, textStatus, jQxhr) {
-						callback({
-							// draw: data.draw,
-							data: data.DownlinesList,
-							recordsTotal: data.TotalDownlines,
-							recordsFiltered: data.TotalDownlines
-						});
-					},
-					error: function (jqXhr, textStatus, errorThrown) {
-					}
+		return columns
+	}
+
+	callAjax = (data, callback) => {
+		this.$.ajax({
+			url: `${memberInfoUrl}CustomerList/GetCustomerListData`,
+			dataType: "json",
+			type: 'post',
+			data: {
+				CustName: searchAccountName,
+				CustId: searchAccountId,
+				CustLevelId: searchAccountRoleId,
+				PageIndex: (data.start / data.length) + 1,
+				PageSize: data.length,
+				//Username: self.$('#txt-username').val(),
+				//Status: self.$('#statusFilter').val(),
+				//DoubleComm: self.$('#dcommFilter').val(),
+				//UnconfirmSetting: self.$('#unconfirmSettingFilter').val()
+			},
+			success: function (data, textStatus, jQxhr) {
+				callback({
+					// draw: data.draw,
+					data: data.DownlinesList,
+					recordsTotal: data.TotalDownlines,
+					recordsFiltered: data.TotalDownlines
 				});
 			},
-			columns: columns,
+			error: function (jqXhr, textStatus, errorThrown) {
+			}
+		});
+	}
+
+	renderDetailColumn = (api, rowIdx) => {
+		let addTableCommissionTag = true;
+		const data = api.cells(rowIdx, ':hidden').eq(0).map(function (cell) {
+			const header = self.$(api.column(cell.column).header());
+			const idx = api.cell(cell).index();
+
+			if (header.hasClass('control') || header.hasClass('never')) {
+				return '';
+			}
+
+			const dtPrivate = api.settings()[0];
+			const cellData = dtPrivate.oApi._fnGetCellData(
+				dtPrivate, idx.row, idx.column, 'display'
+			);
+
+			let commissionTable = '';
+
+			const start = showEditMultiple ? 9 : 8;
+			const end = showEditMultiple ? 13 : 12;
+
+			if (idx.column >= start && idx.column <= end) {
+				if (addTableCommissionTag) {
+					addTableCommissionTag = false;
+					commissionTable = commissionTable + "<tr><td><table><tr><td>Commison</td></tr>";
+				}
+
+				commissionTable = commissionTable + `<tr data-dtr-index="${idx.column}">` +
+					`<td class="dtr-title">${header.text()}</td> ` +
+					`<td class="dtr-data">${cellData}</td></tr>`;
+
+				if (idx.column === end && !addTableCommissionTag) {
+					commissionTable = commissionTable + '</table></td></tr>';
+				}
+
+				return commissionTable;
+			}
+
+			if (idx.column < start || idx.column > end) {
+				return `<tr data-dtr-index="${idx.column}">` +
+					`<td class="dtr-title">${header.text()}</td> ` +
+					`<td class="dtr-data">${cellData}</td></tr>`;
+			}
+
+		}).toArray().join('');
+
+		return data ?
+			self.$(`<table data-dtr-index="${rowIdx}"/>`).append(data) :
+			false;
+	}
+
+	initDataTable = () => {
+		const self = this;
+
+		this.$table = this.$('#customer-list').on('processing.dt',
+			(e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
+			.DataTable({
+			serverSide: true,
+			ajax: (data, callback) => this.callAjax(data, callback),
+			columns: this.buildDataTableColumns(),
 			responsive: {
 				details: {
 					type: 'column',
 					target: -1,
 					auto: false,
-					renderer: function (api, rowIdx) {
-						let addTableCommissionTag = true;
-						const data = api.cells(rowIdx, ':hidden').eq(0).map(function (cell) {
-							const header = self.$(api.column(cell.column).header());
-							const idx = api.cell(cell).index();
-
-							if (header.hasClass('control') || header.hasClass('never')) {
-								return '';
-							}
-
-							const dtPrivate = api.settings()[0];
-							const cellData = dtPrivate.oApi._fnGetCellData(
-								dtPrivate, idx.row, idx.column, 'display'
-							);
-
-							let commissionTable = '';
-
-							const start = hideEditMultiple ? 8 : 9;
-							const end = hideEditMultiple ? 12 : 13;
-
-							if (idx.column >= start && idx.column <= end) {
-								if (addTableCommissionTag) {
-									addTableCommissionTag = false;
-									commissionTable = commissionTable + "<tr><td><table><tr><td>Commison</td></tr>";
-								}
-
-								commissionTable = commissionTable + `<tr data-dtr-index="${idx.column}">` +
-									`<td class="dtr-title">${header.text()}</td> ` +
-									`<td class="dtr-data">${cellData}</td></tr>`;
-
-								if (idx.column === end && !addTableCommissionTag) {
-									commissionTable = commissionTable + '</table></td></tr>';
-								}
-
-								return commissionTable;
-							}
-
-							if (idx.column < start || idx.column > end) {
-								return `<tr data-dtr-index="${idx.column}">` +
-									`<td class="dtr-title">${header.text()}</td> ` +
-									`<td class="dtr-data">${cellData}</td></tr>`;
-							}
-
-						}).toArray().join('');
-
-						return data ?
-							self.$(`<table data-dtr-index="${rowIdx}"/>`).append(data) :
-							false;
-					}
+					renderer: (api, rowIdx) => this.renderDetailColumn(api, rowIdx)
 				}
 			},
 			columnDefs: [{
@@ -349,17 +362,13 @@ class CustomerList {
 					sLast: '>>'
 				}
 			},
-			drawCallback: () => {
-				this.$('#customer-list').removeClass('hidden');
-			}
+			drawCallback: () => this.$('#customer-list').removeClass('hidden')
 		});
 	}
 
 	bidingEasyAutoComplete = () => {
 		const options = {
-			url: function (phrase) {
-				return `${memberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&DirectDownlines=true`;
-			},
+			url: phrase => `${memberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&DirectDownlines=true`,
 			getValue: 'UserName',
 			requestDelay: 200,
 			minCharNumber: 2,

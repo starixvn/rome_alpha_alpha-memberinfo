@@ -2,12 +2,12 @@
 {
     public class CustInfo
     {
-        //public CustInfo(int custId, string custName, byte custLevelId)
-        //{
-        //    CustId = custId;
-        //    CustName = custName;
-        //    CustLevelId = custLevelId;
-        //}
+        public CustInfo(int custId, string custName, byte custLevelId)
+        {
+            CustId = custId;
+            CustName = custName;
+            CustLevelId = custLevelId;
+        }
 
         public int CustId { get; set; }
 

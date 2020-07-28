@@ -37,10 +37,7 @@
                 }
             }
 
-            breadcrumbLevel.Add(new CustInfo{
-               CustId = message.CustId,
-               CustName = message.CustName,
-               CustLevelId = message.CustLevelId });
+            breadcrumbLevel.Add(new CustInfo(message.CustId, message.CustName, message.CustLevelId));
 
             return new CustomerListViewModel(message, breadcrumbLevel);
         }
