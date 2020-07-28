@@ -43,7 +43,8 @@
             Status = request.Status;
             DoubleComm = request.DoubleComm;
             UnconfirmSetting = request.UnconfirmSetting;
-            //SearchAccountLevelName = Enumeration.FromValue<UserLevel>(request.SearchAccountRoleId - 1).DisplayName;
+
+            DownlineLevelName = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel().DisplayName;
         }
         public int ActorId { get; }
 
@@ -69,15 +70,7 @@
 
         public int PageIndex { get; }
 
-        //public string SearchAccountLevelName { get; }
-
-        public string BuildMultipleEditPopupUrl(
-            byte searchAccountRoleId,
-             int uplineId,
-            string uplineName,
-            byte uplineRoleId)
-            => $"{MicroSites.AccountInfoUrl()}SearchAccount/MultipleEditPopup?SearchAccountRoleId={searchAccountRoleId}"
-            + $"&UplineId={uplineId}&UplineName={uplineName}&UplineRoleId={uplineRoleId}";
+        public string DownlineLevelName { get; }
 
         public string PageTitle { get; }
 

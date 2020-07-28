@@ -10,6 +10,7 @@ declare var searchAccountId;
 declare var searchAccountName;
 declare var searchAccountRoleId;
 declare var breadcrumbLevelJson;
+declare var downlineLevelName;
 
 interface Window {
 	$: any
@@ -49,14 +50,6 @@ class CustomerListDataTable {
 			this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', 400, 400);
 	}
 
-	getLevelName = (roleId) => {
-		switch (roleId) {
-			case 3: return 'Master';
-			case 2: return 'Agent';
-			default: return 'Member';
-		}
-	}
-
 	renderUsernameColumn = (item) => {
 		const content = `${item.Username} <br /> ${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}`;
 		const queryString = {
@@ -68,7 +61,7 @@ class CustomerListDataTable {
 			UnconfirmSetting: this.$('#unconfirmSettingFilter').val()
 		};
 
-		const viewDownlineLink = `${memberInfoUrl}CustomerList/${this.getLevelName(item.RoleId - 1)}?${this.$.param(queryString)}&BreadcrumbLevelJson=${breadcrumbLevelJson}`;
+		const viewDownlineLink = `${memberInfoUrl}CustomerList/${downlineLevelName}?${this.$.param(queryString)}&BreadcrumbLevelJson=${breadcrumbLevelJson}`;
 		return item.RoleId === 1 ? content : `<a href="${viewDownlineLink}">${content}</a>`;
 	}
 
