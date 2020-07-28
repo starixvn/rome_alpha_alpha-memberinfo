@@ -1,6 +1,11 @@
 ﻿/// <reference path="customer-list-datatable.ts" />
 
 declare var memberInfoUrl;
+declare var accountInfoUrl;
+declare var actorId;
+declare var actorName;
+declare var actorRoleId;
+declare var searchAccountRoleId;
 
 interface Window {
 	$: any
@@ -18,16 +23,26 @@ class CustomerList extends CustomerListDataTable {
 
 	init = () => {
 		this.bidingEasyAutoComplete();
+
 		this.initDataTable();
 
-		this.$('.edit-multiple').click((event) => {
+		this.$('.edit-multiple').click(event => {
 			let usernames = [], custids = [];
 			this.$('input.checkbox:checkbox:checked').each((index, element) => {
 				usernames.push(this.$(element).data("username"));
 				custids.push(this.$(element).data("custid"));
 			});
 
-			const url = `${this.$(event.currentTarget).data("url")}&custids=${custids.join(',')}&usernames=${usernames.join(',')}`;
+			const params = {
+				UplineId: actorId,
+				UplineName: actorName,
+				UplineRoleId: actorRoleId,
+				SearchAccountRoleId: searchAccountRoleId - 1,
+				custids: custids.join(','),
+				usernames: usernames.join(',')
+			};
+
+			const url = `${accountInfoUrl}SearchAccount/MultipleEditPopup?${this.$.param(params)}`;
 
 			this.openPopup(event, url);
 		});
