@@ -98,7 +98,7 @@
         public IEnumerable<CustomerListOption> DoubleCommOptions
              => new List<CustomerListOption>
                 {
-                    new CustomerListOption(1 , "All"),
+                    new CustomerListOption(2 , "All"),
                     new CustomerListOption(0 , "Allowed"),
                     new CustomerListOption(1 , "Disallowed")
                 };

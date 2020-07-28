@@ -156,6 +156,7 @@
 	{
 		"outputFileName": "Features/CustomerList/Bundles/customer-list.js",
 		"inputFiles": [
+			"Features/CustomerList/Scripts/customer-list-datatable.js",
 			"Features/CustomerList/Scripts/customer-list.js",
 			"Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
 		]
