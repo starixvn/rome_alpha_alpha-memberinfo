@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D00A2D4E-7115-48A5-A8A5-5DA2354CF1E9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alpha.Products.AccountInfo</RootNamespace>
+    <AssemblyName>Alpha.Products.AccountInfo</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Alpha.Products.AccountInfo.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Alpha.Products.AccountInfo.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Alpha.Products.Core, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Products.Core.1.0.0.1\lib\net461\Alpha.Products.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Alpha.SubAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Alpha.Web, Version=1.0.7.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Web.1.0.7.2\lib\net461\Alpha.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Logging.1.0.0.0\lib\net40\Fanex.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Products, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Products.1.0.0.5\lib\net461\Fanex.Products.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Logging.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.5.1\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.2.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.2.3\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
+    </Reference>
+    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Utilities.3.0.0.4\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configurations\AppSettings.cs" />
+    <Compile Include="DataKey.cs" />
+    <Compile Include="Requests\SearchAccountRequest.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Requests\ISearchAccountInfoRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchAccountConfigurationLoader.cs" />
+    <Compile Include="SearchAccountProperties.cs" />
+    <Compile Include="Setting\SettingMultipleViewModelFactory.cs" />
+    <Compile Include="Setting\SettingViewModelFactory.cs" />
+    <Compile Include="Setting\ViewModels\Base\ISettingItemMultipleViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Base\ISettingItemViewModel.cs" />
+    <Compile Include="Setting\ViewModels\BetSettingViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Multiple\SuspendedMultipleViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductMultipleViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\GoldDeluxe\GoldDeluxeMultipleViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\Keno\KenoMultipleViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\NG2\Ng2ProductMultipleViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\NG2\Ng2ProductViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\GoldDeluxe\GoldDeluxeViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Base\ProductSettingItemViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\Keno\KenoViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\RnGCasino\RNGCasinoMultipleViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\RnGCasino\RNGCasinoViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\Sportsbook2\Sportsbook2MultipeViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\Sportsbook2\Sportsbook2ViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookMultipleViewModel.cs" />
+    <Compile Include="Setting\ViewModels\RemoveOtpViewModel.cs" />
+    <Compile Include="Setting\ViewModels\ResetPasswordViewModel.cs" />
+    <Compile Include="Setting\ViewModels\TransferViewModel.cs" />
+    <Compile Include="Setting\ViewModels\CommissionViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductViewModel.cs" />
+    <Compile Include="Setting\ViewModels\EditInfoViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Base\SettingItemViewModel.cs" />
+    <Compile Include="Setting\ViewModels\ResetSecurityCodeViewModel.cs" />
+    <Compile Include="Setting\ViewModels\SportsbookMinPTViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookViewModel.cs" />
+    <Compile Include="Status\StatusViewModelFactory.cs" />
+    <Compile Include="Status\ViewModels\Base\ConfirmStatusItemViewModelBase.cs" />
+    <Compile Include="Status\ViewModels\ConfirmAllowAutoMasterPTViewModel.cs" />
+    <Compile Include="Status\ViewModels\ConfirmAllowOutrightViewModel.cs" />
+    <Compile Include="Status\ViewModels\ConfirmClosedViewModel.cs" />
+    <Compile Include="Status\ViewModels\ConfirmTransferBalanceDailyViewModel.cs" />
+    <Compile Include="Status\ViewModels\ConfirmDoubleCommViewModel.cs" />
+    <Compile Include="Status\ViewModels\Base\IStatusItemViewModel.cs" />
+    <Compile Include="Status\ViewModels\Base\ProductStatusItemViewModel.cs" />
+    <Compile Include="Status\ViewModels\Base\StatusItemViewModel.cs" />
+    <Compile Include="Status\ViewModels\ConfirmSuspendedViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Multiple\DoubleCommMultipleViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Alpha.Products.AccountInfo.ruleset" />
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_CreateNewNuGetPackage\Config.ps1" />
+    <None Include="_CreateNewNuGetPackage\DoNotModify\CreateNuGetPackage.ps1" />
+    <None Include="_CreateNewNuGetPackage\DoNotModify\New-NuGetPackage.ps1" />
+    <None Include="_CreateNewNuGetPackage\DoNotModify\UploadNuGetPackage.ps1" />
+    <None Include="_CreateNewNuGetPackage\RunMeToUploadNuGetPackage.cmd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_CreateNewNuGetPackage\DoNotModify\NuGet.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>REM Create a NuGet package for this project and place the .nupkg file in the project's output directory.
+REM If you see this in Visual Studio's Error List window, check the Output window's Build tab for the actual error.
+ECHO Creating NuGet package in Post-Build event...
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "&amp; '$(ProjectDir)_CreateNewNuGetPackage\DoNotModify\CreateNuGetPackage.ps1' -ProjectFilePath '$(ProjectPath)' -OutputDirectory '$(TargetDir)' -BuildConfiguration '$(ConfigurationName)' -BuildPlatform '$(PlatformName)'"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

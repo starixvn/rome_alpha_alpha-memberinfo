@@ -1,10 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.Shared.ViewModels
 {
+    using Alpha.MemberInfo.Features.Shared.Models;
+    using Alpha.MemberInfo.Site.Helpers;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using Alpha.MemberInfo.Features.Shared.Models;
-    using Helpers;
 
     public class BreadcrumbLevelViewModel
     {

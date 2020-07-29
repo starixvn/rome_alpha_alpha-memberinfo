@@ -6,14 +6,26 @@
     using System.Web;
     using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
+    using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.DormantAccountList;
+    using Alpha.MemberInfo.Features.CustomerList.AppResources;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
+    using Alpha.MemberInfo.Site.Features.Shared.Helpers;
     using Alpha.MemberInfo.Site.Handlers;
+    using Alpha.Products.AccountInfo;
+    using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.AccountInfo.Setting;
+    using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
+    using Alpha.Products.AccountInfo.Status;
+    using Alpha.Products.AccountInfo.Status.ViewModels.Base;
+    using Alpha.Products.Core.Configuration;
+    using Alpha.Products.Core.ViewModels;
+    using Alpha.SecurityCode.Services;
     using Alpha.Web.Helpers;
     using Alpha.Web.Helpers.Impl;
     using Controllers;
@@ -39,6 +51,7 @@
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Model.Entities.Permission;
     using Sunplus.Agent.Utilities;
+    using System;
     using Utilities.IP;
 
     public static class DependencyConfig
@@ -65,6 +78,8 @@
             container.Verify();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+
+            StartConfiguration(container);
         }
 
         private static void RegisterMediator(Container container)
@@ -99,7 +114,7 @@
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<IPService, IPServiceImpl>();
-
+            container.RegisterSingleton<SecurityCodeChecker, SecurityCodeCheckerImpl>();
             container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
 
             container.RegisterPerWebRequest<CasinoService, CasinoServiceImpl>();
@@ -127,33 +142,43 @@
             container.RegisterPerWebRequest<Encryptor, EncryptorImpl>();
             container.RegisterPerWebRequest<PasswordService, PasswordServiceImpl>();
 
+            container.RegisterPerWebRequest<CustomerListDataAccess, CustomerListDataAccessImpl>();
             container.RegisterPerWebRequest<CustomerListService, CustomerListServiceImpl>();
-
+            
             container.RegisterPerWebRequest<IndirectLoginAccountService, IndirectLoginAccountServiceImpl>();
             container.RegisterPerWebRequest<SessionManager, SessionManagerImpl>();
             container.RegisterPerWebRequest<AesService, AesServiceImpl>();
             container.RegisterPerWebRequest<UsernameSuggestionService, UsernameSuggestionServiceImpl>();
 
             container.RegisterCopyAccountServices("CloneAccount:BaseUri", "CloneAccount:ApiKey");
+            }
+       private static void StartConfiguration(Container container)
+        {
+            SimpleServiceLocator
+               .Instance
+               .Register<Func<int, string>>(new CacheRefServiceImpl(container.GetInstance<IRemotingRefService>()).GetProductName)
+               .Register<Func<string, string>>(CustomerListResourse.ResourceManager.GetString)
+               .Register<Func<string, string, string>>(MicroSites.GetMicroSiteUrl);
+        }
 
+        private static void RegisterQRCodeConfiguration()
+        {
             var productConfigFile = HttpContext.Current.Server.MapPath(
                     AppSettingsHelper.GetProductConfigsFileRelativePath());
 
             var qrCodeconfigFilePath = HttpContext.Current.Server.MapPath(
-                       AppSettingsHelper.GetQRCodeMemberSiteLoginConfigsPath());
-            container.RegisterSingleton<QRCodeLoginConfigsHelper>
-                (() => new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
-                  
-                  SimpleServiceLocator
+                    AppSettingsHelper.GetQRCodeMemberSiteLoginConfigsPath());
+
+            SimpleServiceLocator
               .Instance
-              .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter(), productConfigFile))
+               .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter(), productConfigFile))
               .Register<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>(new StatusViewModelFactory())
               .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
+              .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>(new SettingMultipleViewModelFactory())
               .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
 
 
             container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();
             container.RegisterPerWebRequest<DormantAccountWorkbook, DormantAccountWorkbookImpl>();
-        }
     }
 }

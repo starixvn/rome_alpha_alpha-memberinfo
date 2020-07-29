@@ -352,6 +352,11 @@
       <HintPath>..\..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
@@ -761,10 +766,15 @@
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
      <Compile Include="Features\CustomerList\MasterListHandler.cs" />
     <Compile Include="Features\CustomerList\CustomerListController.cs" />
+    <Compile Include="Features\CustomerList\Requests\CustomerStatusMultipleQuery.cs" />
+    <Compile Include="Features\CustomerList\Requests\CustomerStatusQuery.cs" />
+    <Compile Include="Features\CustomerList\Requests\CustomerStatusQueryBase.cs" />
     <Compile Include="Features\CustomerList\Requests\FetchDownlinesListRequesBase.cs" />
     <Compile Include="Features\CustomerList\Requests\FetchDownlinesListRequest.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerListRequest.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerListViewModel.cs" />
+    <Compile Include="Features\CustomerList\ViewModels\CustomerStatusMultipleViewModel.cs" />
+    <Compile Include="Features\CustomerList\ViewModels\CustomerStatusViewModel.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountController.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountHandler.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountWorkbook.cs" />
@@ -782,6 +792,9 @@
     <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeMemberSignInRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditAndStatusRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CheckExistedCustomerRequest.cs" />
+    <Compile Include="Features\Shared\Helpers\ProductJsonConverter.cs" />
+    <Compile Include="Features\Shared\MemberInfoBaseController.cs" />
+    <Compile Include="Features\Shared\Requests\BaseRequest.cs" />
     <Compile Include="Features\Shared\Requests\UserNameSuggestionQuery.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLoginConfigs.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLinkViewModel.cs" />
@@ -989,6 +1002,9 @@
       <SubType>Designer</SubType>
     </Content>
      <Content Include="Features\CustomerList\Styles\customer-list.scss" />
+    <Content Include="Features\Shared\Views\NoInformation.cshtml" />
+    <Content Include="Features\CustomerList\Views\EditPopup.cshtml" />
+    <Content Include="Features\CustomerList\Views\EditPopupMultiple.cshtml" />
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1004,6 +1020,10 @@
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
       <Project>{50b673a0-c10b-4551-b0a0-76edcbf5ce12}</Project>
       <Name>Alpha.MemberInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alpha.Products.AccountInfo\Alpha.Products.AccountInfo.csproj">
+      <Project>{d00a2d4e-7115-48a5-a8a5-5da2354cf1e9}</Project>
+      <Name>Alpha.Products.AccountInfo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

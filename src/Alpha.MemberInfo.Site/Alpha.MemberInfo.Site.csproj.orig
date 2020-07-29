@@ -352,6 +352,11 @@
       <HintPath>..\..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
@@ -596,14 +601,10 @@
     <Content Include="Features\CustomerList\Bundles\customer-list.min.css">
       <DependentUpon>customer-list.css</DependentUpon>
     </Content>
-<<<<<<< HEAD
-     <Content Include="Features\CustomerList\Bundles\master-list.js" />
-=======
     <Content Include="Features\CustomerList\Bundles\customer-list.min.js">
       <DependentUpon>customer-list.js</DependentUpon>
     </Content>
-    <Content Include="Features\CustomerList\Bundles\master-list.js" />
->>>>>>> 111111- rename files
+     <Content Include="Features\CustomerList\Bundles\master-list.js" />
     <Content Include="Features\CustomerList\Bundles\master-list.min.js">
       <DependentUpon>master-list.js</DependentUpon>
     </Content>
@@ -765,15 +766,24 @@
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
      <Compile Include="Features\CustomerList\MasterListHandler.cs" />
     <Compile Include="Features\CustomerList\CustomerListController.cs" />
+    <Compile Include="Features\CustomerList\Requests\CustomerStatusMultipleQuery.cs" />
+    <Compile Include="Features\CustomerList\Requests\CustomerStatusQuery.cs" />
+    <Compile Include="Features\CustomerList\Requests\CustomerStatusQueryBase.cs" />
+    <Compile Include="Features\CustomerList\Requests\FetchDownlinesListRequesBase.cs" />
     <Compile Include="Features\CustomerList\Requests\FetchDownlinesListRequest.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerListRequest.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerListViewModel.cs" />
+<<<<<<< HEAD
     <Compile Include="Features\DormantAccountList\DormantAccountController.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountHandler.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountWorkbook.cs" />
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountExcelQuery.cs" />
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountQuery.cs" />
     <Compile Include="Features\DormantAccountList\ViewModels\DormantAccountViewModel.cs" />
+=======
+    <Compile Include="Features\CustomerList\ViewModels\CustomerStatusMultipleViewModel.cs" />
+    <Compile Include="Features\CustomerList\ViewModels\CustomerStatusViewModel.cs" />
+>>>>>>> 111111- move alpha product
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QRCodeLoginConfigsHelperImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapterImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInController.cs" />
@@ -785,12 +795,18 @@
     <Compile Include="Features\QRCodeMemberSignIn\Requests\QRCodeMemberSignInRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditAndStatusRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CheckExistedCustomerRequest.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Requests\UserNameSuggestionQuery.cs" />
+    <Compile Include="Features\Shared\Helpers\ProductJsonConverter.cs" />
+    <Compile Include="Features\Shared\MemberInfoBaseController.cs" />
+    <Compile Include="Features\Shared\Requests\BaseRequest.cs" />
+    <Compile Include="Features\Shared\Requests\UserNameSuggestionQuery.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLoginConfigs.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLinkViewModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\ShowQRCodeViewModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\MemberSiteTokenLink.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeMemberSignInViewModel.cs" />
+    <Compile Include="Features\Shared\UserNameSuggestionController.cs" />
+    <Compile Include="Features\Shared\UserNameSuggestionHandler.cs" />
+    <Compile Include="Features\Shared\ViewModels\BreadcrumbLevelViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
       <DependentUpon>Global.asax</DependentUpon>
@@ -805,8 +821,10 @@
     <Compile Include="Handlers\ProblemAccount\ProblemAccountWorkbook.cs" />
     <Compile Include="Handlers\ProgressiveJackpotHandler.cs" />
     <Compile Include="Handlers\WinLossLimitHandler.cs" />
+    <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\QueryEntityModelBinder.cs" />
     <Compile Include="Helpers\RequestInfoHelper.cs" />
+    <Compile Include="Helpers\UrlHelper.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\CreditBalance\CreditBalanceQuery.cs" />
@@ -877,6 +895,7 @@
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\DirectDownLineAgent.xls" />
     <Content Include="assets\styles\indirect-login-account.scss" />
     <Content Include="App_Code\Components\Alert.cshtml" />
+    <Content Include="App_Code\Components\Breadcrumb.cshtml" />
     <Content Include="assets\styles\quick-introduction.scss">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
@@ -989,6 +1008,7 @@
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
+<<<<<<< HEAD
     <Content Include="Features\DormantAccountList\Views\Index.cshtml" />
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_en-US.cshtml" />
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_vi-VN.cshtml" />
@@ -996,11 +1016,21 @@
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_zh-TW.cshtml" />
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_zh-CN.cshtml" />
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.scss" />
+=======
+    <Content Include="Features\CustomerList\Styles\customer-list.scss" />
+    <Content Include="Features\Shared\Views\NoInformation.cshtml" />
+    <Content Include="Features\CustomerList\Views\EditPopup.cshtml" />
+    <Content Include="Features\CustomerList\Views\EditPopupMultiple.cshtml" />
+>>>>>>> 111111- move alpha product
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
       <Project>{50b673a0-c10b-4551-b0a0-76edcbf5ce12}</Project>
       <Name>Alpha.MemberInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alpha.Products.AccountInfo\Alpha.Products.AccountInfo.csproj">
+      <Project>{d00a2d4e-7115-48a5-a8a5-5da2354cf1e9}</Project>
+      <Name>Alpha.Products.AccountInfo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -1036,12 +1066,9 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\member-requests\member-requests-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\win-loss-limit\win-loss-limit-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\win-loss-limit\win-loss-limit.ts" />
-<<<<<<< HEAD
-    <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
-    <TypeScriptCompile Include="Features\CustomerList\Scripts\master-list.ts" />
-=======
+    <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-datatable.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list.ts" />
->>>>>>> 111111- rename files
+    <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\show-qr-code.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\qr-code-member-sign-in.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />

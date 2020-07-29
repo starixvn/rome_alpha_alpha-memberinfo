@@ -1,0 +1,38 @@
+﻿namespace Alpha.Products.AccountInfo.Configurations
+{
+    using System;
+    using System.Collections.Specialized;
+    using System.Configuration;
+
+    public static class AppSettings
+    {
+        [ThreadStatic]
+        private static NameValueCollection appSettingValues;
+
+        public static NameValueCollection AppSettingValues
+        {
+            get { return appSettingValues ?? ConfigurationManager.AppSettings; }
+
+            set { appSettingValues = value; }
+        }
+
+        public static string StoredProcedurePath => GetConfigValue("StoredProcedurePath");
+
+        public static string Ng2AppPath => GetConfigValue("NG2SiteVirtualPath");
+
+        public static string GetConfigValue(string configName) => AppSettingValues[configName];
+
+        public static void Verify()
+        {
+            Require(StoredProcedurePath, nameof(StoredProcedurePath));
+        }
+
+        private static void Require(string key, string keyName)
+        {
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                throw new ConfigurationErrorsException($"{keyName} is null or whitespace");
+            }
+        }
+    }
+}

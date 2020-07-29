@@ -1,9 +1,9 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.Requests
 {
     using Alpha.MemberInfo.Models;
-    using Alpha.MemberInfo.Site.Requests;
+    using Alpha.MemberInfo.Site.Features.Shared.Requests;
 
-    public class FetchDownlinesListRequesBase : MemberInfoBaseQuery
+    public class FetchDownlinesListRequesBase : BaseRequest
     {
         public FetchDownlinesListRequesBase(IUser viewer) : base(viewer)
         {

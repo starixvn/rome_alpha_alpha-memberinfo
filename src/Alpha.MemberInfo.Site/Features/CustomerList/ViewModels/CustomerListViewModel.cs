@@ -5,7 +5,6 @@
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Helpers;
-    using Alpha.Web.Helpers;
     using System.Collections.Generic;
 
     public class CustomerListViewModel

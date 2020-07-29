@@ -66,7 +66,7 @@ class CustomerListDataTable {
 	}
 
 	renderEditColumn = (item) => {
-		const editPopupLink = `${accountInfoUrl}SearchAccount/EditPopup?` +
+		const editPopupLink = `${memberInfoUrl}CustomerList/EditPopup?` +
 			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
 			`&UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
 		return `<div class='edit' data-url='${editPopupLink}'>Edit</div>`;
@@ -174,19 +174,19 @@ class CustomerListDataTable {
 			}
 		];
 
-		const editMultipleColumn = {
-			"className": "",
-			"data": null,
-			"render": function (item) {
-				return `<input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/>`;
-			}
-		};
-
 		if (showEditMultiple) {
+			const editMultipleColumn = {
+				"className": "",
+				"data": null,
+				"render": function (item) {
+					return `<input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/>`;
+				}
+			};
+
 			columns.splice(1, 0, editMultipleColumn);
 		}
 
-		return columns
+		return columns;
 	}
 
 	callAjax = (data, callback) => {

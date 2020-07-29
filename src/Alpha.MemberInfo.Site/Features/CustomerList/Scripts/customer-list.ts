@@ -42,7 +42,7 @@ class CustomerList extends CustomerListDataTable {
 				usernames: usernames.join(',')
 			};
 
-			const url = `${accountInfoUrl}SearchAccount/MultipleEditPopup?${this.$.param(params)}`;
+			const url = `${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`;
 
 			this.openPopup(event, url);
 		});

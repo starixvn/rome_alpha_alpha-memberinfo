@@ -1,4 +1,4 @@
-﻿namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn
+﻿namespace Alpha.MemberInfo.Features.CustomerList
 {
     using Alpha.MemberInfo.Features.CustomerList.Criteria;
     using Alpha.MemberInfo.Features.CustomerList.Models;
@@ -42,16 +42,22 @@
            byte productUnSync,
            int pageSize,
            int pageIndex);
+
+        CustomerStatusModel GetCustomerStatus(int custId);
     }
 
     public class CustomerListServiceImpl : CustomerListService
     {
         private readonly IDynamicRepository dynamicRepository;
+        private readonly CustomerListDataAccess customerListDataAccess;
 
-        public CustomerListServiceImpl(IDynamicRepository dynamicRepository)
+        public CustomerListServiceImpl(
+            IDynamicRepository dynamicRepository,
+            CustomerListDataAccess customerListDataAccess)
         {
             this.dynamicRepository = dynamicRepository;
-        }
+            this.customerListDataAccess = customerListDataAccess;
+    }
 
         public CustomerListDTO GetMasterList(
             int srecommend,
@@ -138,5 +144,8 @@
 
             return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages);
         }
+
+        public CustomerStatusModel GetCustomerStatus(int custId)
+          => customerListDataAccess.GetCustomerStatus(new SelectCustomerAllStatusModelCriteria(custId));
     }
 }
