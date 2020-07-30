@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Products.AccountInfo", "src\Alpha.Products.AccountInfo\Alpha.Products.AccountInfo.csproj", "{D00A2D4E-7115-48A5-A8A5-5DA2354CF1E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Products.AccountInfo.Tests", "tests\unittests\Alpha.Products.AccountInfo.Tests\Alpha.Products.AccountInfo.Tests.csproj", "{B8E0E958-763B-423B-8E63-E9B99EB99B59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{D00A2D4E-7115-48A5-A8A5-5DA2354CF1E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D00A2D4E-7115-48A5-A8A5-5DA2354CF1E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D00A2D4E-7115-48A5-A8A5-5DA2354CF1E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E0E958-763B-423B-8E63-E9B99EB99B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E0E958-763B-423B-8E63-E9B99EB99B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E0E958-763B-423B-8E63-E9B99EB99B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E0E958-763B-423B-8E63-E9B99EB99B59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{40837E4A-DF8A-480B-A3F5-0788114035CA} = {38180993-75FE-4FE9-9BD3-04EC30DB7658}
 		{3FE29494-CB1E-4ACE-B30F-393CFBD13716} = {38180993-75FE-4FE9-9BD3-04EC30DB7658}
 		{D00A2D4E-7115-48A5-A8A5-5DA2354CF1E9} = {29192AD6-5DCF-4811-BD64-55B60CCFF647}
+		{B8E0E958-763B-423B-8E63-E9B99EB99B59} = {38180993-75FE-4FE9-9BD3-04EC30DB7658}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9B8486FC-1FBB-4CCE-B62A-D977837095C0}
