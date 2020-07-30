@@ -2,6 +2,7 @@
 {
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
+    using System.Collections.Generic;
 
     public class SportsbookMultipleViewModel : SportsbookViewModel, ISettingItemMultipleViewModel
     {
@@ -11,11 +12,20 @@
 
         public override string Text => $"Edit Multiple {Request.GetProductName(ProductId)}";
 
+        protected override Dictionary<string, string> QueryStringParamaters
+        => new Dictionary<string, string>
+        {
+            ["m"] = "1",
+            ["custId"] = SearchAccount.Id.ToString(),
+            ["user"] = SearchAccount.Username,
+            [$"{SearchAccount.Upline.CustomerLevel.DisplayName}id"] = SearchAccount.Upline.Id.ToString()
+        };
+
         protected override string BaseAddress
         {
             get
             {
-                var useCase = $"{Actor.CustomerLevel.DisplayName}/EditMultiple{SearchAccount.CustomerLevel.DisplayName}";
+                var useCase = $"{Actor.CustomerLevel.DisplayName}/EditMultiple{SearchAccount.CustomerLevel.DisplayName}s";
 
                 return $"{OldMainUrl}_MemberInfo/PositionTaking/{useCase}.aspx";
             }

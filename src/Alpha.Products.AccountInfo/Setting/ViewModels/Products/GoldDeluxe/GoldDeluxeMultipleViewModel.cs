@@ -20,6 +20,7 @@
             {
                 ["uplineId"] = Actor.Id.ToString(),
                 ["uplineLevel"] = Actor.CusomerLevelValue.ToString(),
+                ["customerLevel"] = SearchAccount.CusomerLevelValue.ToString(),
                 ["actorId"] = Actor.Id.ToString(),
                 ["customerIds"] = Request.GetData<string>("customerIds"),
                 ["usernames"] = Request.GetData<string>("usernames"),

@@ -19,14 +19,14 @@
         [Route("CustomerList/member")]
         [HttpGet]
         public ActionResult Index(CustomerListRequest message)
-                  => View(IndexPath, mediator.Send(message));
+          => View(message, IndexPath);
 
         [HttpPost]
         public ActionResult GetCustomerListData(FetchDownlinesListRequest message)
           => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
 
         public ActionResult GetCustomerAllStatus(CustomerStatusQuery message)
-          => Json(message);
+           => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
 
         public ActionResult EditPopup(CustomerStatusQuery message)
           => View(message, EditPopupViewPath);

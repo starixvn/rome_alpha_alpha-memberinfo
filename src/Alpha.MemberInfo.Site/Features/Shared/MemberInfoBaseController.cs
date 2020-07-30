@@ -22,29 +22,19 @@
             this.mediator = mediator;
         }
 
-        //protected ActionResult View<TResponse>(IRequest<TResponse> message, string viewPath)
-        //     => (message as BaseRequest).IsValid() ?
-        //        View(viewPath, mediator.Send(message)) : View(NoInformationPageViewPath);
-
         protected ActionResult View<TResponse>(IRequest<TResponse> message, string viewPath)
-            => View(viewPath, mediator.Send(message));
-
-        //protected ActionResult JsonData<TResponse>(
-        //   IRequest<TResponse> message,
-        //   JsonRequestBehavior jsonRequestBehavior = JsonRequestBehavior.AllowGet)
-        //{
-        //    if (!(message as BaseRequest).IsValid())
-        //    {
-        //        return Json(ErrorDefault, jsonRequestBehavior);
-        //    }
-
-        //    return Json(mediator.Send(message), jsonRequestBehavior);
-        //}
+             => (message as BaseRequest).IsValid() ?
+                View(viewPath, mediator.Send(message)) : View(NoInformationPageViewPath);
 
         protected ActionResult JsonData<TResponse>(
-        IRequest<TResponse> message,
-        JsonRequestBehavior jsonRequestBehavior = JsonRequestBehavior.AllowGet)
+           IRequest<TResponse> message,
+           JsonRequestBehavior jsonRequestBehavior = JsonRequestBehavior.AllowGet)
         {
+            if (!(message as BaseRequest).IsValid())
+            {
+                return Json(ErrorDefault, jsonRequestBehavior);
+            }
+
             return Json(mediator.Send(message), jsonRequestBehavior);
         }
     }
