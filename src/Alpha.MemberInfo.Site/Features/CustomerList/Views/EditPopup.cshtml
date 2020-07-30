@@ -7,6 +7,11 @@
 
 @section Styles {
 	@StaticResources.AssetStyles.RenderCommon("/bundles/site-asset/data-table")
+<style>
+	li {
+		padding: 3px;
+	}
+</style>
 }
 
 <div>
@@ -15,9 +20,9 @@
 		{
 			if (item.Visible)
 			{
-			<li class="edit-popup" data-url="@item.Url">
-				@item.Text
-			</li>
+				<li class="edit-popup" data-url="@item.Url">
+					@item.Text
+				</li>
 			}
 		}
 
@@ -39,6 +44,7 @@
 			const topBody = mainFrame.parent().parent().parent();
 
 			$(topBody).find('div[id^="page-popup-"]').find('.modal-header').addClass('hidden');
+			$(topBody).find('div[id^="page-popup-"]').find('.modal-body').css({height: '100%'})
 
 			$(topBody).find('div[id^="page-popup-"]').off('mouseleave').on('mouseleave', () => {
 				window.top.editPopupOnCustomerList.close();

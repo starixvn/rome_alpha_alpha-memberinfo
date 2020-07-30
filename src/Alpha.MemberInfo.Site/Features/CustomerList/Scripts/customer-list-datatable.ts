@@ -46,7 +46,7 @@ class CustomerListDataTable {
 		this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
 
 		specificPositon ?
-			this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', 200, 400, '', '', '', sidebar.width() + left, sidebar.height() + top) :
+			this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', 200, 450, '', '', '', sidebar.width() + left, sidebar.height() + top) :
 			this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', 400, 400);
 	}
 
