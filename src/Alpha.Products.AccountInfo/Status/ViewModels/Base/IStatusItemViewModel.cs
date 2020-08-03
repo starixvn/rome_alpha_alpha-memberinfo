@@ -11,5 +11,7 @@
         bool Disabled { get; }
 
         bool Checked { get; }
+
+        bool ShowInCustomerList { get; }
     }
 }

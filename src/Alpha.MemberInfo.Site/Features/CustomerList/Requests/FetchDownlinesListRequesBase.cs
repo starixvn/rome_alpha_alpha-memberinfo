@@ -9,6 +9,7 @@
         {
             PageSize = 10;
             PageIndex = 1;
+            DoubleComm = 2;
         }
 
         public string Username { get; set; }

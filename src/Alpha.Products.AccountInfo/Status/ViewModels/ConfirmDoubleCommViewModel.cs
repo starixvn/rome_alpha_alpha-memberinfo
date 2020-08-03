@@ -16,6 +16,8 @@
 
         public override bool Checked => Request.GetData<bool>(DataKey.SearchAccount.IsAllowedDoubleComm);
 
+        public override bool ShowInCustomerList => true;
+
         internal override string SuffixMessage
         {
             get

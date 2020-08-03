@@ -8,15 +8,11 @@
     {
         public CustomerStatusViewModel(
             IEnumerable<IStatusItemViewModel> status,
-            IEnumerable<ISettingItemViewModel> settings,
-            bool isMultiple = false)
+            IEnumerable<ISettingItemViewModel> settings)
         {
             Status = status;
             Settings = settings;
-            IsMultiple = isMultiple;
         }
-
-        public bool IsMultiple { get; }
 
         public IEnumerable<IStatusItemViewModel> Status { get; }
 

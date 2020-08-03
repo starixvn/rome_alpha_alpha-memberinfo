@@ -1005,6 +1005,7 @@
     <Content Include="Features\Shared\Views\NoInformation.cshtml" />
     <Content Include="Features\CustomerList\Views\EditPopup.cshtml" />
     <Content Include="Features\CustomerList\Views\EditPopupMultiple.cshtml" />
+    <Content Include="Features\CustomerList\Views\StatusPopup.cshtml" />
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>

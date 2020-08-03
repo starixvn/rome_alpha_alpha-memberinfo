@@ -68,9 +68,9 @@
 			<tr>
 				<th data-priority="0"></th>
 				@{
-					for (var i = 2; i <= (Model.HideEditMultiple ? 15 : 16); i++)
+					for (var i = 2; i <= (Model.HideEditMultiple ? 14 : 15); i++)
 					{
-						<th class="@(i >= (Model.HideEditMultiple ? 9 : 10) && i <= (Model.HideEditMultiple ? 15 : 16) ? "desktop" : string.Empty)"></th>
+						<th class="@(i >= (Model.HideEditMultiple ? 8 : 9) && i <= (Model.HideEditMultiple ? 14 : 15) ? "desktop" : string.Empty)"></th>
 					}
 				}
 				<th></th>
@@ -97,9 +97,6 @@
 				</th>
 				<th rowspan="2" class="header">
 					Statement
-				</th>
-				<th rowspan="2" class="header">
-					DoubleComm
 				</th>
 				<th rowspan="2" class="header">
 					First Name
@@ -132,6 +129,16 @@
 	</table>
 
 	@Html.HiddenFor(m => m.HideEditMultiple)
+
+	<div class="modal modal-sm fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					gshshgd
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 @section Scripts {

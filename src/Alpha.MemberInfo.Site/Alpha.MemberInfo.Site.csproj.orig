@@ -773,17 +773,14 @@
     <Compile Include="Features\CustomerList\Requests\FetchDownlinesListRequest.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerListRequest.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerListViewModel.cs" />
-<<<<<<< HEAD
+    <Compile Include="Features\CustomerList\ViewModels\CustomerStatusMultipleViewModel.cs" />
+    <Compile Include="Features\CustomerList\ViewModels\CustomerStatusViewModel.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountController.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountHandler.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountWorkbook.cs" />
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountExcelQuery.cs" />
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountQuery.cs" />
     <Compile Include="Features\DormantAccountList\ViewModels\DormantAccountViewModel.cs" />
-=======
-    <Compile Include="Features\CustomerList\ViewModels\CustomerStatusMultipleViewModel.cs" />
-    <Compile Include="Features\CustomerList\ViewModels\CustomerStatusViewModel.cs" />
->>>>>>> 111111- move alpha product
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QRCodeLoginConfigsHelperImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapterImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInController.cs" />
@@ -1005,10 +1002,13 @@
       <SubType>Designer</SubType>
     </Content>
      <Content Include="Features\CustomerList\Styles\customer-list.scss" />
+    <Content Include="Features\Shared\Views\NoInformation.cshtml" />
+    <Content Include="Features\CustomerList\Views\EditPopup.cshtml" />
+    <Content Include="Features\CustomerList\Views\EditPopupMultiple.cshtml" />
+<<<<<<< HEAD
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
-<<<<<<< HEAD
     <Content Include="Features\DormantAccountList\Views\Index.cshtml" />
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_en-US.cshtml" />
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_vi-VN.cshtml" />
@@ -1017,11 +1017,8 @@
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_zh-CN.cshtml" />
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.scss" />
 =======
-    <Content Include="Features\CustomerList\Styles\customer-list.scss" />
-    <Content Include="Features\Shared\Views\NoInformation.cshtml" />
-    <Content Include="Features\CustomerList\Views\EditPopup.cshtml" />
-    <Content Include="Features\CustomerList\Views\EditPopupMultiple.cshtml" />
->>>>>>> 111111- move alpha product
+    <Content Include="Features\CustomerList\Views\StatusPopup.cshtml" />
+>>>>>>> 111111- change to bootstrap popup
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">

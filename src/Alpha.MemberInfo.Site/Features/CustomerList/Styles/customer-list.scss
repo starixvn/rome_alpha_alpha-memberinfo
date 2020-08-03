@@ -16,3 +16,20 @@
 .easy-autocomplete {
 	display: inline-block;	
 }
+
+input[type=checkbox] {
+	display: inline-block;
+}
+
+ul,
+ol {
+	margin-top: 0;
+	 margin-bottom: 0; 
+}
+
+#page-popup, .modal {
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-o-box-shadow: none !important;
+	box-shadow: none !important;
+}

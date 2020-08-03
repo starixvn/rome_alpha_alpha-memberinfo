@@ -44,10 +44,26 @@ class CustomerList extends CustomerListDataTable {
 
 			const url = `${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`;
 
-			this.openPopup(event, url);
+			this.openPopup(event, url, 200, 300);
 		});
 
 		this.$('.btn-submit').click(() => this.$table.ajax.reload());
+
+		this.$('.modal-content').on('mouseleave', () => {
+			this.$('#exampleModal').modal('hide');
+		});
+
+		this.$('#exampleModal').on('shown.bs.modal', () => {
+			this.$('#exampleModal').height(this.$('.modal-dialog').outerHeight());
+
+			if (this.$('body').height() - this.$('#exampleModal').position().top < this.$('.modal-dialog').outerHeight()) {
+				this.$('#exampleModal').css({
+					top: this.$('body').height() - this.$('.modal-dialog').outerHeight()
+				});
+			}
+			
+			//this.$('#exampleModal').width(this.$('.modal-content').width());
+		});
 	};
 
 	bidingEasyAutoComplete = () => {

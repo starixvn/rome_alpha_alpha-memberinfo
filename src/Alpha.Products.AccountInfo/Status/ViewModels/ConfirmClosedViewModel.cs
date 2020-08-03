@@ -15,6 +15,8 @@
 
         public override bool ReloadCustomerInfo => true;
 
+        public override bool ShowInCustomerList => true;
+
         internal override string SuffixMessage => 
             !Request.SearchAccount.IsMember && !Checked ?
                     "InCaseClosedDownlinesMessage" : "InCaseChangeClosedStatusMessage";
