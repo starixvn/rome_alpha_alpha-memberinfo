@@ -280,11 +280,11 @@ class CustomerListDataTable {
 		});
 
 		this.$('.edit').click(event => {
-			this.callPopupAjax(event, this.buildEditSingleSettingPopupHtml);
+			this.callPopupAjax(event, this.$(event.currentTarget).data("url"), this.buildEditSingleSettingPopupHtml);
 		});
 
 		this.$('.status-popup').click(event => {
-			this.callPopupAjax(event, this.buildEditStatusPopupHtml);
+			this.callPopupAjax(event, this.$(event.currentTarget).data("url"), this.buildEditStatusPopupHtml);
 		});
 	}
 
@@ -310,11 +310,11 @@ class CustomerListDataTable {
 		this.$('.modal-body').empty().append(html.join(''));
 	}
 
-	callPopupAjax = (event, buldHtml) => {
+	callPopupAjax = (event, url, buldHtml) => {
 		this.$.blockUI();
 		this.$.ajax({
 			type: 'GET',
-			url: this.$(event.currentTarget).data("url"),
+			url: url,
 			data: {},
 			dataType: 'json',
 			success: (data, textStatus, jqXHR) => {
@@ -326,17 +326,50 @@ class CustomerListDataTable {
 			}
 		})
 	}
-	
+
 	openBootstrapPopupModal = (event) => {
-		const left = this.$(event.currentTarget).offset().left + this.$(event.currentTarget).width();
-		const top = this.$(event.currentTarget).offset().top;
+		const element = this.$(event.currentTarget),
+			left = this.$(element).offset().left + this.$(element).width() + 5,
+			height = this.$('.modal-dialog').outerHeight(),
+			width = this.$('.modal-dialog').outerWidth(),
+			bodyHeight = this.$('body').height();
+
+		let top = this.$(element).offset().top;
+
+		if (bodyHeight - top < height) {
+			top = bodyHeight - height;
+		}
 
 		this.$('#exampleModal').css({
 			top: top,
-			left: left
-		});
-		
-		this.$('#exampleModal').modal({ show: true, backdrop: false });
+			left: left,
+			height: height === 0 ? 'auto' : height,
+			width: width === 0 ? 'auto' : width
+		}).modal({
+			show: true,
+			backdrop: false
+			});
+	}
+
+	adjustPopupPosition = (event) => {
+		const element = this.$(event.currentTarget),
+			left = this.$(element).offset().left + this.$(element).width() + 5,
+			height = this.$('.modal-dialog').height(),
+			width = this.$('.modal-dialog').width(),
+			bodyHeight = this.$('body').height();
+
+		let top = this.$(element).offset().top;
+
+		if (bodyHeight - top < height) {
+			top = bodyHeight - height;
+		}
+
+		this.$('#exampleModal').css({
+			top: top,
+			left: left,
+			height: height === 0 ? 'auto' : height,
+			width: width === 0 ? 'auto' : width
+		})
 	}
 
 	initDataTable = () => {
@@ -376,6 +409,6 @@ class CustomerListDataTable {
 					}
 				},
 				drawCallback: () => this.drawCallback()
-		});
+			});
 	}
 }

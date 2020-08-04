@@ -26,6 +26,8 @@ class CustomerList extends CustomerListDataTable {
 
 		this.initDataTable();
 
+	
+
 		this.$('.edit-multiple').click(event => {
 			let usernames = [], custids = [];
 			this.$('input.checkbox:checkbox:checked').each((index, element) => {
@@ -44,27 +46,58 @@ class CustomerList extends CustomerListDataTable {
 
 			const url = `${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`;
 
-			this.openPopup(event, url, 200, 300);
+			this.callPopupAjax(event, url, this.buildEditMultipleSettingPopupHtml);
 		});
 
 		this.$('.btn-submit').click(() => this.$table.ajax.reload());
 
 		this.$('.modal-content').on('mouseleave', () => {
-			this.$('#exampleModal').modal('hide');
+			//this.$('#exampleModal').modal('hide');
 		});
+
+		//this.$(document).on('show.bs.modal', '#exampleModal', () => {
+		//	const height = this.$('.modal-dialog').height();
+		//	const width = this.$('.modal-dialog').width();
+		//	const bodyHeight = this.$('body').height();
+
+		//	this.$('#exampleModal').height(height);
+
+		//	if (bodyHeight - this.$('#exampleModal').position().top < height) {
+		//		this.$('#exampleModal').css({
+		//			top: bodyHeight - height,
+		//			height: height === 0 ? 'auto' : height,
+		//			width: width === 0 ? 'auto' : width
+		//		});
+		//	}
+		//})
 
 		this.$('#exampleModal').on('shown.bs.modal', () => {
-			this.$('#exampleModal').height(this.$('.modal-dialog').outerHeight());
+			const height = this.$('.modal-dialog').height();
+			const width = this.$('.modal-dialog').width();
+			const bodyHeight = this.$('body').height();
 
-			if (this.$('body').height() - this.$('#exampleModal').position().top < this.$('.modal-dialog').outerHeight()) {
+			this.$('#exampleModal').height(height);
+
+			if (bodyHeight - this.$('#exampleModal').position().top < height) {
 				this.$('#exampleModal').css({
-					top: this.$('body').height() - this.$('.modal-dialog').outerHeight()
+					top: bodyHeight - height,
+					height: height === 0 ? 'auto' : height,
+					width: width === 0 ? 'auto' : width
 				});
 			}
-			
-			//this.$('#exampleModal').width(this.$('.modal-content').width());
 		});
 	};
+
+	buildEditMultipleSettingPopupHtml = (settings) => {
+		let html = ['<ul>'];
+		this.$.each(settings, (key, item) => {
+			if (item.Visible) {
+				html.push(`<li class="edit-popup" data-url="${item.Url}">${item.Text}</li>`);
+			}
+		});
+
+		this.$('.modal-body').empty().append(html.join(''));
+	}
 
 	bidingEasyAutoComplete = () => {
 		const options = {

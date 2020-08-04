@@ -29,13 +29,13 @@
         public ActionResult GetCustomerAllStatus(CustomerStatusQuery message)
            => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
 
-        public ActionResult EditPopup(CustomerStatusQuery message)
-          => View(message, EditPopupViewPath);
+        //public ActionResult EditPopup(CustomerStatusQuery message)
+        //  => View(message, EditPopupViewPath);
 
         public ActionResult MultipleEditPopup(CustomerStatusMultipleQuery message)
-          => View(message, EditPopupMultiplePath);
+          => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
 
-        public ActionResult StatusPopup(CustomerStatusQuery message)
-         => View(message, StatusPopupPath);
+        //public ActionResult StatusPopup(CustomerStatusQuery message)
+        // => View(message, StatusPopupPath);
     }
 }
