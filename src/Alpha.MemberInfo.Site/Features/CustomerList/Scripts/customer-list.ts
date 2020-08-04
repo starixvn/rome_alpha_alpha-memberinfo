@@ -26,8 +26,6 @@ class CustomerList extends CustomerListDataTable {
 
 		this.initDataTable();
 
-	
-
 		this.$('.edit-multiple').click(event => {
 			let usernames = [], custids = [];
 			this.$('input.checkbox:checkbox:checked').each((index, element) => {
@@ -46,30 +44,14 @@ class CustomerList extends CustomerListDataTable {
 
 			const url = `${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`;
 
-			this.callPopupAjax(event, url, this.buildEditMultipleSettingPopupHtml);
+			this.callPopupAjax(event, url, this.buildEditMultipleSettingPopupHtml, this.bindingEditMultipleSettingPopup);
 		});
 
 		this.$('.btn-submit').click(() => this.$table.ajax.reload());
 
 		this.$('.modal-content').on('mouseleave', () => {
-			//this.$('#exampleModal').modal('hide');
+			this.$('#exampleModal').modal('hide');
 		});
-
-		//this.$(document).on('show.bs.modal', '#exampleModal', () => {
-		//	const height = this.$('.modal-dialog').height();
-		//	const width = this.$('.modal-dialog').width();
-		//	const bodyHeight = this.$('body').height();
-
-		//	this.$('#exampleModal').height(height);
-
-		//	if (bodyHeight - this.$('#exampleModal').position().top < height) {
-		//		this.$('#exampleModal').css({
-		//			top: bodyHeight - height,
-		//			height: height === 0 ? 'auto' : height,
-		//			width: width === 0 ? 'auto' : width
-		//		});
-		//	}
-		//})
 
 		this.$('#exampleModal').on('shown.bs.modal', () => {
 			const height = this.$('.modal-dialog').height();
@@ -88,11 +70,18 @@ class CustomerList extends CustomerListDataTable {
 		});
 	};
 
+	bindingEditMultipleSettingPopup = () => {
+		this.$('.edit-multiple-settings').click(event => {
+			const url = this.$(event.currentTarget).data("url");
+			this.openPopup(event, url, 800, 600);
+			});
+	}
+
 	buildEditMultipleSettingPopupHtml = (settings) => {
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
 			if (item.Visible) {
-				html.push(`<li class="edit-popup" data-url="${item.Url}">${item.Text}</li>`);
+				html.push(`<li class="edit-multiple-settings" data-url="${item.Url}">${item.Text}</li>`);
 			}
 		});
 

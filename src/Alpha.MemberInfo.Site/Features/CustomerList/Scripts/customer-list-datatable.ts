@@ -30,10 +30,7 @@ class CustomerListDataTable {
 		//this.topWindow.editPopupOnCustomerList.close();
 	}
 
-	openPopup = (event, url, width, height, specificPositon = true) => {
-		const left = this.$(event.currentTarget).offset().left + this.$(event.currentTarget).width() + 15;
-		const top = this.$(event.currentTarget).offset().top;
-
+	openPopup = (event, url, width = 800, height = 600) => {
 		if (this.topWindow.editPopupOnCustomerList === null || this.topWindow.editPopupOnCustomerList === undefined) {
 			this.topWindow.editPopupOnCustomerList = this.topWindow.ageWnd.createInstance();
 		}
@@ -41,13 +38,10 @@ class CustomerListDataTable {
 		const mainFrame = window.top.$('#main');
 		const topBody = mainFrame.parent().parent().parent();
 
-		const sidebar = this.$(topBody).find('#profile');
-
 		this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
 
-		specificPositon ?
-			this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height, '', '', '', sidebar.width() + left, sidebar.height() + top) :
-			this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
+		this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
+			
 	}
 
 	renderUsernameColumn = (item) => {
@@ -276,11 +270,15 @@ class CustomerListDataTable {
 		this.$('#customer-list').removeClass('hidden');
 		this.$('.login-ip').click(event => {
 			const url = this.$(event.currentTarget).data("url");
-			this.openPopup(event, url, 400, 600, false);
+			this.openPopup(event, url, 400, 600);
 		});
 
 		this.$('.edit').click(event => {
-			this.callPopupAjax(event, this.$(event.currentTarget).data("url"), this.buildEditSingleSettingPopupHtml);
+			this.callPopupAjax(
+				event,
+				this.$(event.currentTarget).data("url"),
+				this.buildEditSingleSettingPopupHtml,
+				this.bindingEditSinglePopup);
 		});
 
 		this.$('.status-popup').click(event => {
@@ -299,6 +297,13 @@ class CustomerListDataTable {
 		this.$('.modal-body').empty().append(html.join(''));
 	}
 
+	bindingEditSinglePopup = () => {
+		this.$('.edit-popup').click(event => {
+			const url = this.$(event.currentTarget).data("url");
+			this.openPopup(event, url, 800, 600);
+		});
+	}
+
 	buildEditStatusPopupHtml = (data) => {
 		let html = ['<ul>'];
 		this.$.each(data.Status, (key, item) => {
@@ -310,7 +315,7 @@ class CustomerListDataTable {
 		this.$('.modal-body').empty().append(html.join(''));
 	}
 
-	callPopupAjax = (event, url, buldHtml) => {
+	callPopupAjax = (event, url, buldHtml, bindingSettingEvent = undefined) => {
 		this.$.blockUI();
 		this.$.ajax({
 			type: 'GET',
@@ -319,7 +324,7 @@ class CustomerListDataTable {
 			dataType: 'json',
 			success: (data, textStatus, jqXHR) => {
 				buldHtml(data);
-				this.openBootstrapPopupModal(event);
+				this.openBootstrapPopupModal(event, bindingSettingEvent);
 			},
 			complete: (jqXHR, textStatus) => {
 				this.$.unblockUI();
@@ -327,7 +332,7 @@ class CustomerListDataTable {
 		})
 	}
 
-	openBootstrapPopupModal = (event) => {
+	openBootstrapPopupModal = (event, bindingSettingEvent = undefined) => {
 		const element = this.$(event.currentTarget),
 			left = this.$(element).offset().left + this.$(element).width() + 5,
 			height = this.$('.modal-dialog').outerHeight(),
@@ -349,6 +354,10 @@ class CustomerListDataTable {
 			show: true,
 			backdrop: false
 			});
+
+		if (typeof bindingSettingEvent !== "undefined") {
+			bindingSettingEvent();
+		}
 	}
 
 	adjustPopupPosition = (event) => {
