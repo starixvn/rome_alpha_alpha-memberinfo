@@ -13,7 +13,7 @@
         helpModal: null
     },
 
-    readQuickIntroductionCookieName: 'readQuickIntroduction',
+    readQuickIntroductionCookieName: 'readQuickIntroductionIndirectLoginAccount',
 
     cacheElements: function () {
         quickIntroduction.domElements.beginModel = $('#beginModal');
@@ -63,11 +63,15 @@
     },
     checkItem: function(){
         if (quickIntroduction.domElements.carouselMain.find(".carousel-inner .item:first").hasClass("active")) {
+            quickIntroduction.domElements.carouselMain.find(".carousel-inner .item:first").show();
             quickIntroduction.domElements.leftCarousel.hide();
             quickIntroduction.domElements.rightCarousel.show();
+            quickIntroduction.domElements.carouselMain.find(".carousel-inner .item:last").hide();
         } else if (quickIntroduction.domElements.carouselMain.find(".carousel-inner .item:last").hasClass("active")) {
+            quickIntroduction.domElements.carouselMain.find(".carousel-inner .item:last").show();
             quickIntroduction.domElements.leftCarousel.show();
             quickIntroduction.domElements.rightCarousel.hide();
+            quickIntroduction.domElements.carouselMain.find(".carousel-inner .item:first").hide();
         } else {
             quickIntroduction.domElements.bothCarousel.show();
         }

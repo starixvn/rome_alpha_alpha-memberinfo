@@ -109,7 +109,7 @@
     "outputFileName": "assets/bundles/indirect-login-account/manage-account.js",
     "inputFiles": [
       "assets/scripts/indirect-login-account/manage-account.js",
-      "assets/scripts/quick-introduction.js"
+      "assets/scripts/indirect-login-account/quick-introduction.js"
     ]
   },
   {
