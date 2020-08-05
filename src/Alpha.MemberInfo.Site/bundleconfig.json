@@ -101,13 +101,15 @@
   {
     "outputFileName": "assets/bundles/indirect-login-account/indirect-login-account.css",
     "inputFiles": [
-      "assets/styles/indirect-login-account.css"
+      "assets/styles/indirect-login-account.css",
+      "assets/styles/quick-introduction.css"
     ]
   },
   {
     "outputFileName": "assets/bundles/indirect-login-account/manage-account.js",
     "inputFiles": [
-      "assets/scripts/indirect-login-account/manage-account.js"
+      "assets/scripts/indirect-login-account/manage-account.js",
+      "assets/scripts/quick-introduction.js"
     ]
   },
   {

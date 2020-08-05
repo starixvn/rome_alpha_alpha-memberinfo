@@ -540,6 +540,7 @@
       <DependentUpon>win-loss-limit.js</DependentUpon>
     </Content>
     <Content Include="assets\scripts\aes.js" />
+    <Content Include="assets\scripts\indirect-login-account\quick-introduction.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\modal.js" />
@@ -551,6 +552,9 @@
     <Content Include="assets\scripts\tests\libs\jquery\cookie.js" />
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
     <Content Include="assets\scripts\tests\libs\jquery\stickytableheaders.js" />
+    <Content Include="assets\styles\images\arrow.png" />
+    <Content Include="assets\styles\images\Slide2.png" />
+    <Content Include="assets\styles\images\Slide3.png" />
     <Content Include="assets\styles\images\star.gif" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.draggable.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.linkbutton.js" />
@@ -804,6 +808,7 @@
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\DirectDownLineAgent.xls" />
     <Content Include="assets\styles\indirect-login-account.scss" />
     <Content Include="App_Code\Components\Alert.cshtml" />
+    <Content Include="assets\styles\quick-introduction.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -900,6 +905,7 @@
     <Content Include="Web.pro3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <Content Include="Views\IndirectLoginAccount\Introduction\QuickIntroduction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
