@@ -3,6 +3,8 @@
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.Shared.Models;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using Alpha.Products.AccountInfo;
@@ -22,7 +24,8 @@
         IRequestHandler<CustomerListRequest, CustomerListViewModel>,
         IRequestHandler<FetchDownlinesListRequest, CustomerListDTO>,
         IRequestHandler<CustomerStatusQuery, CustomerStatusViewModel>,
-        IRequestHandler<CustomerStatusMultipleQuery, IEnumerable<ISettingItemMultipleViewModel>>
+        IRequestHandler<CustomerStatusMultipleQuery, IEnumerable<ISettingItemMultipleViewModel>>,
+        IRequestHandler<CustomerNonProductStatusCommand, Result>
     {
         private readonly CustomerListService customerListService;
         private readonly GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel> settingMultipleViewModelFactory;
@@ -131,6 +134,19 @@
 
         public IEnumerable<ISettingItemMultipleViewModel> Handle(CustomerStatusMultipleQuery message)
            => BuildCustomerStatusMultiple(message, message.CustomerIds, message.Usernames);
+
+        public Result Handle(CustomerNonProductStatusCommand message)
+          => customerListService.UpdateCustomerStatus(
+              new UpdateCustomerStatusParam(
+                  message.SearchAccountId,
+                  message.ActorId,
+                  message.SubAccountId,
+                  message.Language,
+                  message.IP,
+                  message.StatusValue,
+                  message.StatusName,
+                  message.ActorName));
+
 
         internal CustomerStatusViewModel BuildCustomerStatus(CustomerStatusQuery message)
         {

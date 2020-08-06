@@ -2,6 +2,8 @@
 {
     using Alpha.MemberInfo.Features.CustomerList.Criteria;
     using Alpha.MemberInfo.Features.CustomerList.Models;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using Fanex.Data.Repository;
     using System.Linq;
@@ -44,6 +46,8 @@
            int pageIndex);
 
         CustomerStatusModel GetCustomerStatus(int custId);
+
+        Result UpdateCustomerStatus(UpdateCustomerStatusParam param);
     }
 
     public class CustomerListServiceImpl : CustomerListService
@@ -147,5 +151,16 @@
 
         public CustomerStatusModel GetCustomerStatus(int custId)
           => customerListDataAccess.GetCustomerStatus(new SelectCustomerAllStatusModelCriteria(custId));
+
+
+        public Result UpdateCustomerStatus(UpdateCustomerStatusParam param)
+            => customerListDataAccess.UpdateCustomerStatus(new UpdateCustomerStatusCommand(
+                   param.SearchAccountId,
+                   param.ActorId,
+                   param.SubAccountId,
+                   param.Language,
+                   param.IP,
+                   param.StatusName,
+                   param.StatusValue));
     }
 }

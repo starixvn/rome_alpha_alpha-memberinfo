@@ -766,6 +766,7 @@
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
      <Compile Include="Features\CustomerList\MasterListHandler.cs" />
     <Compile Include="Features\CustomerList\CustomerListController.cs" />
+    <Compile Include="Features\CustomerList\Requests\CustomerNonProductStatusCommand.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusMultipleQuery.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusQuery.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusQueryBase.cs" />
@@ -1003,9 +1004,10 @@
     </Content>
      <Content Include="Features\CustomerList\Styles\customer-list.scss" />
     <Content Include="Features\Shared\Views\NoInformation.cshtml" />
+<<<<<<< HEAD
     <Content Include="Features\CustomerList\Views\EditPopup.cshtml" />
     <Content Include="Features\CustomerList\Views\EditPopupMultiple.cshtml" />
-<<<<<<< HEAD
+    <Content Include="Features\CustomerList\Views\StatusPopup.cshtml" />
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1017,8 +1019,7 @@
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_zh-CN.cshtml" />
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.scss" />
 =======
-    <Content Include="Features\CustomerList\Views\StatusPopup.cshtml" />
->>>>>>> 111111- change to bootstrap popup
+>>>>>>> 111111- clone update customer non status
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">

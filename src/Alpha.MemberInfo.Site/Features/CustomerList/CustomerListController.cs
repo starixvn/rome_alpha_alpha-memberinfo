@@ -2,6 +2,7 @@
 {
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Features.Shared;
+    using Alpha.Web.Filters;
     using MediatR;
     using System.Web.Mvc;
 
@@ -37,5 +38,9 @@
 
         //public ActionResult StatusPopup(CustomerStatusQuery message)
         // => View(message, StatusPopupPath);
+
+        [HttpPost, AntiXsrfFilter]
+        public ActionResult UpdateCustomerStatus(CustomerNonProductStatusCommand command)
+          => Json(mediator.Send(command), JsonRequestBehavior.DenyGet);
     }
 }

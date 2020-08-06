@@ -52,4 +52,13 @@
     <Setting Key="Acc_CustomerSelByMAg" SpName="Acc_CustomerSelByMAg" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_CustomerSelByAg" SpName="Acc_CustomerSelByAg" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
+
+  <Function Name="Customer List">
+    <Setting Key="Acc_CustomerUpdClosed" SpName="Acc_CustomerUpdClosed" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerUpdSuspended" SpName="Acc_CustomerUpdSuspended" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerUpdMaster_DisableAutoMPT" SpName="Acc_CustomerUpdMaster_DisableAutoMPT" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerUpdDisableOutright" SpName="Acc_CustomerUpdDisableOutright" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerUpdDoubleCommLosing" SpName="Acc_CustomerUpdDoubleCommLosing" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+
+  </Function>
 </Functions>

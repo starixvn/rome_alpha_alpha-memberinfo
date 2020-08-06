@@ -766,6 +766,7 @@
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
      <Compile Include="Features\CustomerList\MasterListHandler.cs" />
     <Compile Include="Features\CustomerList\CustomerListController.cs" />
+    <Compile Include="Features\CustomerList\Requests\CustomerNonProductStatusCommand.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusMultipleQuery.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusQuery.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusQueryBase.cs" />
@@ -1003,9 +1004,6 @@
     </Content>
      <Content Include="Features\CustomerList\Styles\customer-list.scss" />
     <Content Include="Features\Shared\Views\NoInformation.cshtml" />
-    <Content Include="Features\CustomerList\Views\EditPopup.cshtml" />
-    <Content Include="Features\CustomerList\Views\EditPopupMultiple.cshtml" />
-    <Content Include="Features\CustomerList\Views\StatusPopup.cshtml" />
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>

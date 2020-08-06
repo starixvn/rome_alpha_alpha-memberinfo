@@ -282,7 +282,11 @@ class CustomerListDataTable {
 		});
 
 		this.$('.status-popup').click(event => {
-			this.callPopupAjax(event, this.$(event.currentTarget).data("url"), this.buildEditStatusPopupHtml);
+			this.callPopupAjax(
+				event,
+				this.$(event.currentTarget).data("url"),
+				this.buildEditStatusPopupHtml,
+				this.bindingEditStautsPopup);
 		});
 	}
 
@@ -297,6 +301,37 @@ class CustomerListDataTable {
 		this.$('.modal-body').empty().append(html.join(''));
 	}
 
+	bindingEditStautsPopup = () => {
+		this.$('.edit-status-popup').click(event => {
+			const url = this.$(event.currentTarget).data("url"),
+				params = this.$(event.currentTarget).data("param");
+
+			this.topWindow.bootboxConfirm(
+				this.$(event.currentTarget).data("message"),
+				event.target,
+				() => this.updateCustomerStatus(url, params)
+			);
+		});
+	}
+
+	updateCustomerStatus = (action, params) => {
+		this.$.ajax({
+			url: memberInfoUrl + 'CustomerList/' + action,
+			dataType: "json",
+			type: 'post',
+			headers: {
+				__RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
+				'X-Requested-With': 'XMLHttpRequest'
+			},
+			data: params,
+			success: function (data, textStatus, jQxhr) {
+				
+			},
+			error: function (jqXhr, textStatus, errorThrown) {
+			}
+		});
+	}
+
 	bindingEditSinglePopup = () => {
 		this.$('.edit-popup').click(event => {
 			const url = this.$(event.currentTarget).data("url");
@@ -308,7 +343,7 @@ class CustomerListDataTable {
 		let html = ['<ul>'];
 		this.$.each(data.Status, (key, item) => {
 			if (item.Visible && item.ShowInCustomerList) {
-				html.push(`<li class="edit-popup" data-url="${item.Url}"><input type="checkbox" /> ${item.Text}</li>`);
+				html.push(`<li class="edit-status-popup" data-url="${item.Url}" data-param='${item.JsonParams}' data-message='${item.ConfirmMessage}'><input type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
 			}
 		});
 

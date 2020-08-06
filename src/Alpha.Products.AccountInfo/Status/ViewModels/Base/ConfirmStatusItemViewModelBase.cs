@@ -12,7 +12,7 @@
         {
         }
 
-        public override string Url => $"{AccountInfoUrl}SearchAccount/UpdateCustomerStatus";
+        public override string Url => "UpdateCustomerStatus";
 
         public virtual string ConfirmMessage => Request.GetResource($"{GetType().Name}{SuffixMessage}");
 
