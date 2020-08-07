@@ -277,11 +277,20 @@ class CustomerListDataTable {
 		});
 
 		this.$('.edit').click(event => {
-			this.callPopupAjax(
-				event,
-				this.$(event.currentTarget).data("url"),
-				this.buildEditSingleSettingPopupHtml,
-				this.bindingEditSinglePopup);
+			const custId = this.$(event.currentTarget).data("custid");
+			const settings = this.statusSettingArray.filter(x => x.custId === custId);
+
+			if (settings.length > 0) {
+				this.buildEditSingleSettingPopupHtml(settings[0].data);
+				this.openBootstrapPopupModal(event, this.bindingEditSinglePopup);
+			}
+			else {
+				this.callPopupAjax(
+					event,
+					this.$(event.currentTarget).data("url"),
+					this.buildEditSingleSettingPopupHtml,
+					this.bindingEditSinglePopup);
+			}
 		});
 
 		this.$('.status-popup').click(event => {
@@ -330,18 +339,21 @@ class CustomerListDataTable {
 			data: params,
 			success: (data, textStatus, jQxhr) => {
 				if (data.IsSuccessful) {
-					this.$.each(this.statusSettingArray, (index, item) => {
-						if (item.custId === custId) {
-							this.$.each(item.data.Status, (index1, status) => {
-								if (status.DisplayOrder === displayOrder) {
-									status.Checked = !status.Checked;
-								}
-							})
-						}
-					});
+					if (displayOrder === 1 || displayOrder === 2) {
+						this.$('.btn-submit').click();
+					}
+					//this.$.each(this.statusSettingArray, (index, item) => {
+					//	if (item.custId === custId) {
+					//		this.$.each(item.data.Status, (index1, status) => {
+					//			if (status.DisplayOrder === displayOrder) {
+					//				status.Checked = !status.Checked;
+					//			}
+					//		})
+					//	}
+					//});
 				}
 				else {
-					this.topWindow.bootboxAlert('fdagffsd', parentEvent.target);
+					this.topWindow.bootboxAlert(data.Message, parentEvent.target);
 				}
 			},
 			complete: (jqXHR, textStatus) => {
@@ -373,38 +385,30 @@ class CustomerListDataTable {
 
 	callPopupAjax = (event, url, buldHtml, bindingSettingEvent = undefined, isStoreData = true) => {
 		const custId = this.$(event.currentTarget).data("custid");
-		const settings = this.statusSettingArray.filter(x => x.custId === custId);
 
-		if (settings.length > 0) {
-			buldHtml(settings[0].data, custId);
-			this.openBootstrapPopupModal(event, bindingSettingEvent);
-		}
-		else {
-			this.$.blockUI();
-			this.$.ajax({
-				type: 'GET',
-				url: url,
-				data: {},
-				dataType: 'json',
-				success: (data, textStatus, jqXHR) => {
-					if (isStoreData) {
-						this.statusSettingArray.push({
-							custId: custId,
-							data: data
-						})
-					}
-
-					buldHtml(data, custId);
-					this.openBootstrapPopupModal(event, bindingSettingEvent);
-				},
-				complete: (jqXHR, textStatus) => {
-					this.$.unblockUI();
-				},
-				error: function (jqXhr, textStatus, errorThrown) {
-					this.$.unblockUI();
+		this.$.blockUI();
+		this.$.ajax({
+			type: 'GET',
+			url: url,
+			dataType: 'json',
+			success: (data, textStatus, jqXHR) => {
+				if (isStoreData) {
+					this.statusSettingArray.push({
+						custId: custId,
+						data: data
+					})
 				}
-			})
-		}
+
+				buldHtml(data, custId);
+				this.openBootstrapPopupModal(event, bindingSettingEvent);
+			},
+			complete: (jqXHR, textStatus) => {
+				this.$.unblockUI();
+			},
+			error: function (jqXhr, textStatus, errorThrown) {
+				this.$.unblockUI();
+			}
+		})
 	}
 
 	openBootstrapPopupModal = (event, bindingSettingEvent = undefined) => {
