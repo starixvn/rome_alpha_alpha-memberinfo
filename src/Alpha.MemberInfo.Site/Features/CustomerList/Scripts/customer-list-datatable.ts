@@ -71,7 +71,7 @@ class CustomerListDataTable {
 		const statusPopupLink = `${memberInfoUrl}CustomerList/GetCustomerAllStatus?` +
 			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
 			`&UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
-		return `<div class='status-popup' data-custid='${item.CustId}' data-url='${statusPopupLink}'>${item.Status}</div>`;
+		return `<div id='status-${item.CustId}' class='status-popup' data-custid='${item.CustId}' data-url='${statusPopupLink}'>${item.Status}</div>`;
 	}
 
 	renderStatementColumn = (item) => {
@@ -304,20 +304,21 @@ class CustomerListDataTable {
 		this.$('.modal-body').empty().append(html.join(''));
 	}
 
-	bindingEditStautsPopup = () => {
+	bindingEditStautsPopup = (parentEvent) => {
 		this.$('.edit-status-popup').click(event => {
 			const url = this.$(event.currentTarget).data("url"),
 				params = this.$(event.currentTarget).data("param");
 
 			this.topWindow.bootboxConfirm(
 				this.$(event.currentTarget).data("message"),
-				event.target,
-				() => this.updateCustomerStatus(url, params, this.$(event.currentTarget).data("custid"), this.$(event.currentTarget).data("displayorder"))
+				parentEvent.target,
+				() => this.updateCustomerStatus(parentEvent, url, params, this.$(event.currentTarget).data("custid"), this.$(event.currentTarget).data("displayorder"))
 			);
 		});
 	}
 
-	updateCustomerStatus = (action, params, custId, displayOrder) => {
+	updateCustomerStatus = (parentEvent, action, params, custId, displayOrder) => {
+		this.$.blockUI();
 		this.$.ajax({
 			url: memberInfoUrl + 'CustomerList/' + action,
 			dataType: "json",
@@ -339,8 +340,15 @@ class CustomerListDataTable {
 						}
 					});
 				}
+				else {
+					this.topWindow.bootboxAlert('fdagffsd', parentEvent.target);
+				}
+			},
+			complete: (jqXHR, textStatus) => {
+				this.$.unblockUI();
 			},
 			error: function (jqXhr, textStatus, errorThrown) {
+				this.$.unblockUI();
 			}
 		});
 	}
@@ -364,13 +372,11 @@ class CustomerListDataTable {
 	}
 
 	callPopupAjax = (event, url, buldHtml, bindingSettingEvent = undefined, isStoreData = true) => {
-		
 		const custId = this.$(event.currentTarget).data("custid");
-
-		const settings = this.statusSettingArray.filter(x => x.custId === custId).map(x => x.data);
+		const settings = this.statusSettingArray.filter(x => x.custId === custId);
 
 		if (settings.length > 0) {
-			buldHtml(settings[0], custId);
+			buldHtml(settings[0].data, custId);
 			this.openBootstrapPopupModal(event, bindingSettingEvent);
 		}
 		else {
@@ -392,6 +398,9 @@ class CustomerListDataTable {
 					this.openBootstrapPopupModal(event, bindingSettingEvent);
 				},
 				complete: (jqXHR, textStatus) => {
+					this.$.unblockUI();
+				},
+				error: function (jqXhr, textStatus, errorThrown) {
 					this.$.unblockUI();
 				}
 			})
@@ -422,7 +431,7 @@ class CustomerListDataTable {
 			});
 
 		if (typeof bindingSettingEvent !== "undefined") {
-			bindingSettingEvent();
+			bindingSettingEvent(event);
 		}
 	}
 
