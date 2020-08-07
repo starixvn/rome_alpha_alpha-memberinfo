@@ -21,31 +21,28 @@ class CustomerListDataTable {
 	$table: JQuery;
 	topWindow: any;
 	statusSettingArray: any;
+	customerListPopup: CustomerListPopup;
+	customerListServices: CustomerListServices;
+	editSingleSetting: EditSingleSetting;
+	editStatus: EditStatus;
 
-	constructor($: JQueryStatic, topWindow: any) {
+	constructor(
+		$: JQueryStatic,
+		topWindow: any,
+		customerListPopup: CustomerListPopup,
+		customerListServices: CustomerListServices,
+		editSingleSetting: EditSingleSetting,
+		editStatus: EditStatus) {
 		this.$ = $;
 		this.topWindow = topWindow;
+
+		this.customerListPopup = customerListPopup;
+		this.customerListServices = customerListServices;
+		this.editSingleSetting = editSingleSetting;
+		this.editStatus = editStatus;
 	}
 
-	editPopupOnCustomerListOnclosing() {
-		//this.topWindow.editPopupOnCustomerList.close();
-	}
-
-	openPopup = (event, url, width = 800, height = 600) => {
-		if (this.topWindow.editPopupOnCustomerList === null || this.topWindow.editPopupOnCustomerList === undefined) {
-			this.topWindow.editPopupOnCustomerList = this.topWindow.ageWnd.createInstance();
-		}
-
-		const mainFrame = window.top.$('#main');
-		const topBody = mainFrame.parent().parent().parent();
-
-		this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
-
-		this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
-			
-	}
-
-	renderUsernameColumn = (item) => {
+	renderUsernameColumn = item => {
 		const content = `${item.Username} <br /> ${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}`;
 		const queryString = {
 			CustLevelId: item.RoleId,
@@ -60,32 +57,24 @@ class CustomerListDataTable {
 		return item.RoleId === 1 ? content : `<a href="${viewDownlineLink}">${content}</a>`;
 	}
 
-	renderEditColumn = (item) => {
+	renderEditColumn = item => {
 		const editPopupLink = `${memberInfoUrl}CustomerList/GetCustomerAllStatus?` +
 			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
 			`&UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
 		return `<div class='edit' data-custid='${item.CustId}' data-url='${editPopupLink}'>Edit</div>`;
 	}
 
-	renderStatusColumn = (item) => {
+	renderStatusColumn = item => {
 		const statusPopupLink = `${memberInfoUrl}CustomerList/GetCustomerAllStatus?` +
 			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
 			`&UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
 		return `<div id='status-${item.CustId}' class='status-popup' data-custid='${item.CustId}' data-url='${statusPopupLink}'>${item.Status}</div>`;
 	}
 
-	renderStatementColumn = (item) => {
+	renderStatementColumn = item => {
 		const actionName = item.RoleId === 1 ? "MemberStatement" : "SMAStatement";
 		const viewStatementLink = `${reportsUrl}Statement/${actionName}?CustID=${item.CustId}&CustName=${item.Username}&CustLevelId=${item.RoleId}`;
 		return `<a href='${viewStatementLink}'>View</a>`;
-	}
-
-	renderDoubleCommColumn = (item) => {
-		if (item.RoleId == 1) {
-			return `<div>${item.DoubleCommLosing ? "ON" : "OFF"}</div>`;
-		}
-
-		return `<div>${item.DoubleCommLosing ? "Allowed" : "Disallowed"}</div>`;
 	}
 
 	buildDataTableColumns = () => {
@@ -186,36 +175,6 @@ class CustomerListDataTable {
 		return columns;
 	}
 
-	callAjax = (data, callback) => {
-		const self = this;
-		this.$.ajax({
-			url: `${memberInfoUrl}CustomerList/GetCustomerListData`,
-			dataType: "json",
-			type: 'post',
-			data: {
-				CustName: searchAccountName,
-				CustId: searchAccountId,
-				CustLevelId: searchAccountRoleId,
-				PageIndex: (data.start / data.length) + 1,
-				PageSize: data.length,
-				Username: self.$('#txt-username').val(),
-				Status: self.$('#statusFilter').val(),
-				DoubleComm: self.$('#dcommFilter').val(),
-				UnconfirmSetting: self.$('#unconfirmSettingFilter').val()
-			},
-			success: function (data, textStatus, jQxhr) {
-				callback({
-					// draw: data.draw,
-					data: data.DownlinesList,
-					recordsTotal: data.TotalDownlines,
-					recordsFiltered: data.TotalDownlines
-				});
-			},
-			error: function (jqXhr, textStatus, errorThrown) {
-			}
-		});
-	}
-
 	renderDetailColumn = (api, rowIdx) => {
 		const self = this;
 		let addTableCommissionTag = true;
@@ -273,7 +232,7 @@ class CustomerListDataTable {
 		this.$('#customer-list').removeClass('hidden');
 		this.$('.login-ip').click(event => {
 			const url = this.$(event.currentTarget).data("url");
-			this.openPopup(event, url, 400, 600);
+			this.customerListPopup.openPopup(url, 400, 600);
 		});
 
 		this.$('.edit').click(event => {
@@ -281,183 +240,46 @@ class CustomerListDataTable {
 			const settings = this.statusSettingArray.filter(x => x.custId === custId);
 
 			if (settings.length > 0) {
-				this.buildEditSingleSettingPopupHtml(settings[0].data);
-				this.openBootstrapPopupModal(event, this.bindingEditSinglePopup);
+				this.editSingleSetting.buildEditSingleSettingPopupHtml(settings[0].data);
+				this.customerListPopup.openBootstrapPopupModal(event, this.editSingleSetting.bindingEditSinglePopup);
 			}
 			else {
-				this.callPopupAjax(
+				this.buildPopupHtml(
 					event,
 					this.$(event.currentTarget).data("url"),
-					this.buildEditSingleSettingPopupHtml,
-					this.bindingEditSinglePopup);
+					this.editSingleSetting.buildEditSingleSettingPopupHtml,
+					this.editSingleSetting.bindingEditSinglePopup);
 			}
 		});
 
 		this.$('.status-popup').click(event => {
-			this.callPopupAjax(
+			this.buildPopupHtml(
 				event,
 				this.$(event.currentTarget).data("url"),
-				this.buildEditStatusPopupHtml,
-				this.bindingEditStautsPopup);
+				this.editStatus.buildEditStatusPopupHtml,
+				this.editStatus.bindingEditStatusPopup);
 		});
 	}
 
-	buildEditSingleSettingPopupHtml = (data) => {
-		let html = ['<ul>'];
-		this.$.each(data.Settings, (key, item) => {
-			if (item.Visible) {
-				html.push(`<li class="edit-popup" data-url="${item.Url}">${item.Text}</li>`);
-			}
-		});
+	buildPopupHtml = (event, url, buldPopupHtml, bindingSettingEvent, isStoreData = true) => {
+		this.customerListServices.callAjax(
+			url,
+			'GET',
+			{},
+			data => {
+				const custId = this.$(event.currentTarget).data("custid");
 
-		this.$('.modal-body').empty().append(html.join(''));
-	}
-
-	bindingEditStautsPopup = (parentEvent) => {
-		this.$('.edit-status-popup').click(event => {
-			const url = this.$(event.currentTarget).data("url"),
-				params = this.$(event.currentTarget).data("param");
-
-			this.topWindow.bootboxConfirm(
-				this.$(event.currentTarget).data("message"),
-				parentEvent.target,
-				() => this.updateCustomerStatus(parentEvent, url, params, this.$(event.currentTarget).data("custid"), this.$(event.currentTarget).data("displayorder"))
-			);
-		});
-	}
-
-	updateCustomerStatus = (parentEvent, action, params, custId, displayOrder) => {
-		this.$.blockUI();
-		this.$.ajax({
-			url: memberInfoUrl + 'CustomerList/' + action,
-			dataType: "json",
-			type: 'post',
-			headers: {
-				__RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
-				'X-Requested-With': 'XMLHttpRequest'
-			},
-			data: params,
-			success: (data, textStatus, jQxhr) => {
-				if (data.IsSuccessful) {
-					if (displayOrder === 1 || displayOrder === 2) {
-						this.$('.btn-submit').click();
-					}
-					//this.$.each(this.statusSettingArray, (index, item) => {
-					//	if (item.custId === custId) {
-					//		this.$.each(item.data.Status, (index1, status) => {
-					//			if (status.DisplayOrder === displayOrder) {
-					//				status.Checked = !status.Checked;
-					//			}
-					//		})
-					//	}
-					//});
-				}
-				else {
-					this.topWindow.bootboxAlert(data.Message, parentEvent.target);
-				}
-			},
-			complete: (jqXHR, textStatus) => {
-				this.$.unblockUI();
-			},
-			error: function (jqXhr, textStatus, errorThrown) {
-				this.$.unblockUI();
-			}
-		});
-	}
-
-	bindingEditSinglePopup = () => {
-		this.$('.edit-popup').click(event => {
-			const url = this.$(event.currentTarget).data("url");
-			this.openPopup(event, url, 800, 600);
-		});
-	}
-
-	buildEditStatusPopupHtml = (data, custId) => {
-		let html = ['<ul>'];
-		this.$.each(data.Status, (key, item) => {
-			if (item.Visible && item.ShowInCustomerList) {
-				html.push(`<li class="edit-status-popup" data-custid='${custId}' data-displayorder='${item.DisplayOrder}' data-url="${item.Url}" data-param='${item.JsonParams}' data-message='${item.ConfirmMessage}'><input type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
-			}
-		});
-
-		this.$('.modal-body').empty().append(html.join(''));
-	}
-
-	callPopupAjax = (event, url, buldHtml, bindingSettingEvent = undefined, isStoreData = true) => {
-		const custId = this.$(event.currentTarget).data("custid");
-
-		this.$.blockUI();
-		this.$.ajax({
-			type: 'GET',
-			url: url,
-			dataType: 'json',
-			success: (data, textStatus, jqXHR) => {
 				if (isStoreData) {
 					this.statusSettingArray.push({
 						custId: custId,
 						data: data
-					})
+					});
 				}
 
-				buldHtml(data, custId);
-				this.openBootstrapPopupModal(event, bindingSettingEvent);
-			},
-			complete: (jqXHR, textStatus) => {
-				this.$.unblockUI();
-			},
-			error: function (jqXhr, textStatus, errorThrown) {
-				this.$.unblockUI();
+				buldPopupHtml(data, custId);
+				thiscustomerListPopup..openBootstrapPopupModal(event, bindingSettingEvent);
 			}
-		})
-	}
-
-	openBootstrapPopupModal = (event, bindingSettingEvent = undefined) => {
-		const element = this.$(event.currentTarget),
-			left = this.$(element).offset().left + this.$(element).width() + 5,
-			height = this.$('.modal-dialog').outerHeight(),
-			width = this.$('.modal-dialog').outerWidth(),
-			bodyHeight = this.$('body').height();
-
-		let top = this.$(element).offset().top;
-
-		if (bodyHeight - top < height) {
-			top = bodyHeight - height;
-		}
-
-		this.$('#exampleModal').css({
-			top: top,
-			left: left,
-			height: height === 0 ? 'auto' : height,
-			width: width === 0 ? 'auto' : width
-		}).modal({
-			show: true,
-			backdrop: false
-			});
-
-		if (typeof bindingSettingEvent !== "undefined") {
-			bindingSettingEvent(event);
-		}
-	}
-
-	adjustPopupPosition = (event) => {
-		const element = this.$(event.currentTarget),
-			left = this.$(element).offset().left + this.$(element).width() + 5,
-			height = this.$('.modal-dialog').height(),
-			width = this.$('.modal-dialog').width(),
-			bodyHeight = this.$('body').height();
-
-		let top = this.$(element).offset().top;
-
-		if (bodyHeight - top < height) {
-			top = bodyHeight - height;
-		}
-
-		this.$('#exampleModal').css({
-			top: top,
-			left: left,
-			height: height === 0 ? 'auto' : height,
-			width: width === 0 ? 'auto' : width
-		})
+		);
 	}
 
 	initDataTable = () => {
@@ -465,7 +287,7 @@ class CustomerListDataTable {
 			(e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
 			.DataTable({
 				serverSide: true,
-				ajax: (data, callback) => this.callAjax(data, callback),
+				ajax: (data, callback) => this.customerListServices.getCutomerList(data, callback),
 				columns: this.buildDataTableColumns(),
 				responsive: {
 					details: {
@@ -496,7 +318,7 @@ class CustomerListDataTable {
 						sLast: '>>'
 					}
 				},
-				drawCallback: () => this.drawCallback()
+				drawCallback: this.drawCallback
 			});
 	}
 }

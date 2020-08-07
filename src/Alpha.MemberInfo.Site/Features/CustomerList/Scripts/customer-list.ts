@@ -15,10 +15,19 @@ class CustomerList extends CustomerListDataTable {
 	$: JQueryStatic;
 	$table: JQuery;
 	topWindow: any;
+	customerListPopup: CustomerListPopup;
+	customerListServices: CustomerListServices;
+	editSingleSetting: EditSingleSetting;
+	editStatus: EditStatus;
 
-	constructor($: JQueryStatic, topWindow: any) {
-		super($, topWindow);
-		this.topWindow = topWindow;
+	constructor(
+		$: JQueryStatic,
+		topWindow: any,
+		customerListPopup: CustomerListPopup,
+		customerListServices: CustomerListServices,
+		editSingleSetting: EditSingleSetting,
+		editStatus: EditStatus) {
+		super($, topWindow, customerListPopup, customerListServices, editSingleSetting, editStatus);
 	}
 
 	init = () => {
@@ -42,7 +51,7 @@ class CustomerList extends CustomerListDataTable {
 				usernames: usernames.join(',')
 			};
 
-			this.callPopupAjax(
+			this.buildPopupHtml(
 				event,
 				`${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`,
 				this.buildEditMultipleSettingPopupHtml,
@@ -74,10 +83,7 @@ class CustomerList extends CustomerListDataTable {
 	};
 
 	bindingEditMultipleSettingPopup = () => {
-		this.$('.edit-multiple-settings').click(event => {
-			const url = this.$(event.currentTarget).data("url");
-			this.openPopup(event, url, 800, 600);
-			});
+		this.$('.edit-multiple-settings').click(event => this.customerListPopup.openPopup(this.$(event.currentTarget).data("url"), 800, 600));
 	}
 
 	buildEditMultipleSettingPopupHtml = (settings) => {
@@ -114,6 +120,11 @@ class CustomerList extends CustomerListDataTable {
 }
 
 $(function () {
-	const customerList = new CustomerList($, window.top);
+	const customerListPopup = new CustomerListPopup($, window.top),
+		customerListServices = new CustomerListServices($, window.top),
+		editSingleSetting = new EditSingleSetting($, window.top, customerListPopup),
+		editStatus = new EditStatus($, window.top, customerListServices),
+		customerList = new CustomerList($, window.top, customerListPopup, customerListServices, editSingleSetting, editStatus);
+
 	customerList.init();
 });

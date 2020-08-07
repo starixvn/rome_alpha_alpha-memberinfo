@@ -156,6 +156,10 @@
 	{
 		"outputFileName": "Features/CustomerList/Bundles/customer-list.js",
 		"inputFiles": [
+			"Features/CustomerList/Scripts/customer-list-popup.js",
+			"Features/CustomerList/Scripts/customer-list-services.js",
+			"Features/CustomerList/Scripts/edit-status.js",
+			"Features/CustomerList/Scripts/edit-single-setting.js",
 			"Features/CustomerList/Scripts/customer-list-datatable.js",
 			"Features/CustomerList/Scripts/customer-list.js",
 			"Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
