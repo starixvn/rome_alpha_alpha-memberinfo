@@ -44,7 +44,7 @@ class CustomerList extends CustomerListDataTable {
 
 			const url = `${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`;
 
-			this.callPopupAjax(event, url, this.buildEditMultipleSettingPopupHtml, this.bindingEditMultipleSettingPopup);
+			this.callPopupAjax(event, url, this.buildEditMultipleSettingPopupHtml, this.bindingEditMultipleSettingPopup, false);
 		});
 
 		this.$('.btn-submit').click(() => this.$table.ajax.reload());

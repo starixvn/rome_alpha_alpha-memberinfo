@@ -41,5 +41,7 @@
         public abstract bool Checked { get; }
 
         protected virtual string AccountInfoUrl => Request.GetMicroSiteUrl(MicroSiteConstants.AccountInfo, "~/");
+
+        protected virtual string MemberInfoUrl => Request.GetMicroSiteUrl(MicroSiteConstants.MemberInfo, "~/");
     }
 } 

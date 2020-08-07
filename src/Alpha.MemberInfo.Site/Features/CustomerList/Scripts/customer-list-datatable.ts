@@ -20,6 +20,7 @@ class CustomerListDataTable {
 	$: JQueryStatic;
 	$table: JQuery;
 	topWindow: any;
+	statusSettingArray: any;
 
 	constructor($: JQueryStatic, topWindow: any) {
 		this.$ = $;
@@ -63,14 +64,14 @@ class CustomerListDataTable {
 		const editPopupLink = `${memberInfoUrl}CustomerList/GetCustomerAllStatus?` +
 			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
 			`&UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
-		return `<div class='edit' data-url='${editPopupLink}'>Edit</div>`;
+		return `<div class='edit' data-custid='${item.CustId}' data-url='${editPopupLink}'>Edit</div>`;
 	}
 
 	renderStatusColumn = (item) => {
 		const statusPopupLink = `${memberInfoUrl}CustomerList/GetCustomerAllStatus?` +
 			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
 			`&UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
-		return `<div class='status-popup' data-url='${statusPopupLink}'>${item.Status}</div>`;
+		return `<div class='status-popup' data-custid='${item.CustId}' data-url='${statusPopupLink}'>${item.Status}</div>`;
 	}
 
 	renderStatementColumn = (item) => {
@@ -267,6 +268,8 @@ class CustomerListDataTable {
 	}
 
 	drawCallback = () => {
+		this.statusSettingArray = [];
+
 		this.$('#customer-list').removeClass('hidden');
 		this.$('.login-ip').click(event => {
 			const url = this.$(event.currentTarget).data("url");
@@ -350,21 +353,39 @@ class CustomerListDataTable {
 		this.$('.modal-body').empty().append(html.join(''));
 	}
 
-	callPopupAjax = (event, url, buldHtml, bindingSettingEvent = undefined) => {
-		this.$.blockUI();
-		this.$.ajax({
-			type: 'GET',
-			url: url,
-			data: {},
-			dataType: 'json',
-			success: (data, textStatus, jqXHR) => {
-				buldHtml(data);
-				this.openBootstrapPopupModal(event, bindingSettingEvent);
-			},
-			complete: (jqXHR, textStatus) => {
-				this.$.unblockUI();
-			}
-		})
+	callPopupAjax = (event, url, buldHtml, bindingSettingEvent = undefined, isStoreData = true) => {
+		
+		const custId = this.$(event.currentTarget).data("custid");
+
+		const settings = this.statusSettingArray.filter(x => x.custId === custId).map(x => x.data);
+
+		if (settings.length > 0) {
+			buldHtml(settings[0]);
+			this.openBootstrapPopupModal(event, bindingSettingEvent);
+		}
+		else {
+			this.$.blockUI();
+			this.$.ajax({
+				type: 'GET',
+				url: url,
+				data: {},
+				dataType: 'json',
+				success: (data, textStatus, jqXHR) => {
+					if (isStoreData) {
+						this.statusSettingArray.push({
+							custId: custId,
+							data: data
+						})
+					}
+
+					buldHtml(data);
+					this.openBootstrapPopupModal(event, bindingSettingEvent);
+				},
+				complete: (jqXHR, textStatus) => {
+					this.$.unblockUI();
+				}
+			})
+		}
 	}
 
 	openBootstrapPopupModal = (event, bindingSettingEvent = undefined) => {
