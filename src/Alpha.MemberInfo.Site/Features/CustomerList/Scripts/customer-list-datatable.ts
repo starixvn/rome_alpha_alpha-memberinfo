@@ -312,12 +312,12 @@ class CustomerListDataTable {
 			this.topWindow.bootboxConfirm(
 				this.$(event.currentTarget).data("message"),
 				event.target,
-				() => this.updateCustomerStatus(url, params)
+				() => this.updateCustomerStatus(url, params, this.$(event.currentTarget).data("custid"), this.$(event.currentTarget).data("displayorder"))
 			);
 		});
 	}
 
-	updateCustomerStatus = (action, params) => {
+	updateCustomerStatus = (action, params, custId, displayOrder) => {
 		this.$.ajax({
 			url: memberInfoUrl + 'CustomerList/' + action,
 			dataType: "json",
@@ -327,8 +327,18 @@ class CustomerListDataTable {
 				'X-Requested-With': 'XMLHttpRequest'
 			},
 			data: params,
-			success: function (data, textStatus, jQxhr) {
-				
+			success: (data, textStatus, jQxhr) => {
+				if (data.IsSuccessful) {
+					this.$.each(this.statusSettingArray, (index, item) => {
+						if (item.custId === custId) {
+							this.$.each(item.data.Status, (index1, status) => {
+								if (status.DisplayOrder === displayOrder) {
+									status.Checked = !status.Checked;
+								}
+							})
+						}
+					});
+				}
 			},
 			error: function (jqXhr, textStatus, errorThrown) {
 			}
@@ -342,11 +352,11 @@ class CustomerListDataTable {
 		});
 	}
 
-	buildEditStatusPopupHtml = (data) => {
+	buildEditStatusPopupHtml = (data, custId) => {
 		let html = ['<ul>'];
 		this.$.each(data.Status, (key, item) => {
 			if (item.Visible && item.ShowInCustomerList) {
-				html.push(`<li class="edit-status-popup" data-url="${item.Url}" data-param='${item.JsonParams}' data-message='${item.ConfirmMessage}'><input type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
+				html.push(`<li class="edit-status-popup" data-custid='${custId}' data-displayorder='${item.DisplayOrder}' data-url="${item.Url}" data-param='${item.JsonParams}' data-message='${item.ConfirmMessage}'><input type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
 			}
 		});
 
@@ -360,7 +370,7 @@ class CustomerListDataTable {
 		const settings = this.statusSettingArray.filter(x => x.custId === custId).map(x => x.data);
 
 		if (settings.length > 0) {
-			buldHtml(settings[0]);
+			buldHtml(settings[0], custId);
 			this.openBootstrapPopupModal(event, bindingSettingEvent);
 		}
 		else {
@@ -378,7 +388,7 @@ class CustomerListDataTable {
 						})
 					}
 
-					buldHtml(data);
+					buldHtml(data, custId);
 					this.openBootstrapPopupModal(event, bindingSettingEvent);
 				},
 				complete: (jqXHR, textStatus) => {
