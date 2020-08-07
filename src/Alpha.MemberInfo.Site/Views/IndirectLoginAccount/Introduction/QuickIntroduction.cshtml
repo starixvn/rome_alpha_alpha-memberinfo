@@ -1,7 +1,19 @@
 ﻿@{
     Layout = null;
-}
+    string slide1, slide2, lang;
+    var userSession = Sunplus.Agent.Model.Entities.UserSession.Current;
+    if (userSession.Language.Equals("vi-VN", StringComparison.OrdinalIgnoreCase))
+    {
+        lang = "vi-VN";
+    }
+    else
+    {
+        lang = "en-US";
+    }
 
+    slide1 = $"~/assets/styles/images/slide2.{lang}.png";
+    slide2 = $"~/assets/styles/images/slide3.{lang}.png";
+}
 <!-- Begin Modal -->
 <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>-->
 
@@ -12,12 +24,12 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong class="modal-title">Take a quick tour of Indirect Login Account</strong></p>
-                <p>Indirectly access multiple downline accounts from a single place</p>
+                <p><strong class="modal-title">@Lang.viewQuickGuideIndirectLogin</strong></p>
+                <p>@Lang.viewQuickGuideDetail</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn-default" data-dismiss="modal" aria-label="Close" id="btnClose"><span aria-hidden="true">Not now</span></button>
-                <button class="btn-submit js-let-go-btn" data-toggle="modal"><span>Let's go</span></button>
+                <button type="button" class="btn-default" data-dismiss="modal" aria-label="Close" id="btnClose"><span aria-hidden="true">@Lang.viewQuickGuideNotNow</span></button>
+                <button class="btn-submit js-let-go-btn" data-toggle="modal"><span>@Lang.viewQuickGuideLetsgo</span></button>
             </div>
         </div>
     </div>
@@ -34,11 +46,11 @@
                 <div id="carousel-main" class="carousel slide carousel-fade" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="slider"><img src="~/assets/styles/images/slide2.png" /></div>
+                        <div class="item active" style="margin-right: -4px">
+                            <div class="slider"><img src="@Url.Content(slide1)" /></div>
                         </div>
                         <div class="item">
-                            <div class="slider"><img src="~/assets/styles/images/slide3.png" /></div>
+                            <div class="slider"><img src="@Url.Content(slide2)" /></div>
                         </div>
                     </div>
                     <div class="carousel-caption">

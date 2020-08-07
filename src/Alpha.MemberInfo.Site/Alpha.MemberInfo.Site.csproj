@@ -553,8 +553,10 @@
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
     <Content Include="assets\scripts\tests\libs\jquery\stickytableheaders.js" />
     <Content Include="assets\styles\images\arrow.png" />
-    <Content Include="assets\styles\images\Slide2.png" />
-    <Content Include="assets\styles\images\Slide3.png" />
+    <Content Include="assets\styles\images\Slide2.en-US.png" />
+    <Content Include="assets\styles\images\Slide2.vi-VN.png" />
+    <Content Include="assets\styles\images\Slide3.en-US.png" />
+    <Content Include="assets\styles\images\Slide3.vi-VN.png" />
     <Content Include="assets\styles\images\star.gif" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.draggable.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.linkbutton.js" />
