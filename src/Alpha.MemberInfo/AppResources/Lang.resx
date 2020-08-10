@@ -186,4 +186,7 @@
   <data name="viewQuickGuideLetsgo" xml:space="preserve">
     <value>Let's go</value>
   </data>
+  <data name="viewQuickGuideTitle" xml:space="preserve">
+    <value>Connect to your downline account</value>
+  </data>
 </root>

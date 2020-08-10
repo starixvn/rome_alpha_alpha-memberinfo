@@ -186,4 +186,7 @@
   <data name="viewQuickGuideLetsgo" xml:space="preserve">
     <value>Đi nào</value>
   </data>
+  <data name="viewQuickGuideTitle" xml:space="preserve">
+    <value>Kết nối với tài khoản cấp dưới</value>
+  </data>
 </root>

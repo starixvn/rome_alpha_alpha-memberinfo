@@ -259,6 +259,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connect to your downline account.
+        /// </summary>
+        public static string viewQuickGuideTitle {
+            get {
+                return ResourceManager.GetString("viewQuickGuideTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wednesday.
         /// </summary>
         public static string Wednesday {

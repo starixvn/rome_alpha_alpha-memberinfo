@@ -488,7 +488,9 @@
     <Content Include="assets\bundles\indirect-login-account\disconnect.min.js">
       <DependentUpon>disconnect.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\indirect-login-account\indirect-login-account.css" />
+    <Content Include="assets\bundles\indirect-login-account\indirect-login-account.css">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Content>
     <Content Include="assets\bundles\indirect-login-account\indirect-login-account.min.css">
       <DependentUpon>indirect-login-account.css</DependentUpon>
     </Content>
@@ -810,7 +812,9 @@
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\DirectDownLineAgent.xls" />
     <Content Include="assets\styles\indirect-login-account.scss" />
     <Content Include="App_Code\Components\Alert.cshtml" />
-    <Content Include="assets\styles\quick-introduction.scss" />
+    <Content Include="assets\styles\quick-introduction.scss">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Content>
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
