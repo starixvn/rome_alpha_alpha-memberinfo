@@ -1058,7 +1058,6 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\member-requests\member-requests-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\win-loss-limit\win-loss-limit-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\win-loss-limit\win-loss-limit.ts" />
-    <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-datatable - Copy.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-popup.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-services.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\edit-multiple-setting.ts" />

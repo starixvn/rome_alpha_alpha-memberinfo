@@ -24,17 +24,22 @@ class EditSingleSetting {
 		const settings = this.customerListServices.statusSettingArray.filter(x => x.custId === custId);
 
 		if (settings.length > 0) {
-			this.buildEditSingleSettingPopupHtml(settings[0].data);
-			this.customerListPopup.openBootstrapPopupModal(event, settings[0].data.Settings, this.buildEditSingleSettingPopupHtml, this.bindingEditSinglePopup);
+			this.buildEditSingleSettingPopupHtml(settings[0].data.Settings);
+			this.customerListPopup.openBootstrapPopupModal(
+				event,
+				settings[0].data.Settings,
+				this.buildEditSingleSettingPopupHtml,
+				this.bindingEditSinglePopup);
 		}
 		else {
-			this.customerListServices.getSettings(custId, this.$(event.currentTarget).data("url"), true, data => {
-				this.customerListPopup.openBootstrapPopupModal(
+			this.customerListServices.getSettings(
+				custId,
+				this.$(event.currentTarget).data("url"),
+				data => this.customerListPopup.openBootstrapPopupModal(
 					event,
 					data.Settings,
 					this.buildEditSingleSettingPopupHtml,
-					this.bindingEditSinglePopup);
-			});
+					this.bindingEditSinglePopup));
 		}
 	}
 

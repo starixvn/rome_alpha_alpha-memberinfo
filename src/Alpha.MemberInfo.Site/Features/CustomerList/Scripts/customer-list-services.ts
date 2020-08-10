@@ -27,7 +27,7 @@ class CustomerListServices {
 			},
 			data: params,
 			success: onSuccess,
-			complete: this.$.unblockUI,
+			//complete: this.$.unblockUI,
 			error: this.$.unblockUI
 		});
 	}
@@ -50,6 +50,7 @@ class CustomerListServices {
 			'post',
 			params,
 			data => {
+				this.$.unblockUI();
 				callback({
 					data: data.DownlinesList,
 					recordsTotal: data.TotalDownlines,
@@ -66,12 +67,14 @@ class CustomerListServices {
 		data => updateCustomerStatusSuccess(parentEvent, data, displayOrder)
 	)
 
-	getSettings = (custId, url, isStoreData = true, callback = undefined) => {
+	getSettings = (custId, url, callback = undefined, isStoreData = true,) => {
 		this.callAjax(
 			url,
 			'GET',
 			{},
 			data => {
+				this.$.unblockUI();
+
 				if (isStoreData) { // not store for update multiple
 					this.statusSettingArray.push({ custId, data });
 				}

@@ -44,13 +44,15 @@ class EditMultipleSetting {
 
 			custids.length === 1 ?
 				this.editSingleSetting.bindingEditSingleOnMainPage(event) : 
-				this.customerListServices.getSettings(custids[0], `${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`, true, data => {
-				this.customerListPopup.openBootstrapPopupModal(
-					event,
-					data,
-					this.buildEditMultipleSettingPopupHtml,
-					this.bindingEditMultipleSettingOnPopup);
-			});
+				this.customerListServices.getSettings(
+					custids[0],
+					`${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`,
+					data => this.customerListPopup.openBootstrapPopupModal(
+						event,
+						data,
+						this.buildEditMultipleSettingPopupHtml,
+						this.bindingEditMultipleSettingOnPopup),
+					false);
 		}
 	}
 

@@ -21,13 +21,15 @@ class EditStatus {
 	}
 
 	bindingEditStatusOnMainPage = event => {
-		this.customerListServices.getSettings(this.$(event.currentTarget).data("custid"), this.$(event.currentTarget).data("url"), true, data => {
-			this.customerListPopup.openBootstrapPopupModal(
+		this.customerListServices.getSettings(
+			this.$(event.currentTarget).data("custid"),
+			this.$(event.currentTarget).data("url"),
+			data => this.customerListPopup.openBootstrapPopupModal(
 				event,
 				data.Status,
 				this.buildEditStatusPopupHtml,
-				this.bindingEditStatusPopup);
-		});
+				this.bindingEditStatusPopup)
+		);
 	}
 
 	private buildEditStatusPopupHtml = (statusArray, custId) => {
@@ -63,8 +65,13 @@ class EditStatus {
 			if (displayOrder === 1 || displayOrder === 2) {
 				this.$('.btn-submit').click();
 			}
+
+			setTimeout(() => {
+				this.$.unblockUI();
+			}, 1500);
 		}
 		else {
+			this.$.unblockUI();
 			this.topWindow.bootboxAlert(data.Message, parentEvent.target);
 		}
 	}
