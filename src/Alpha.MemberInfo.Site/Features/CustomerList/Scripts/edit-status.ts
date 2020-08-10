@@ -1,8 +1,4 @@
-﻿interface Window {
-	$: any
-}
-
-class EditStatus {
+﻿class EditStatus {
 	$: JQueryStatic;
 	topWindow: any;
 	customerListServices: CustomerListServices;
@@ -20,19 +16,19 @@ class EditStatus {
 		this.customerListPopup = customerListPopup;
 	}
 
-	bindingEditStatusOnMainPage = event => {
-		this.customerListServices.getSettings(
-			this.$(event.currentTarget).data("custid"),
-			this.$(event.currentTarget).data("url"),
-			data => this.customerListPopup.openBootstrapPopupModal(
-				event,
-				data.Status,
-				this.buildEditStatusPopupHtml,
-				this.bindingEditStatusPopup)
-		);
-	}
+	bindingEvent = () => this.$('.status-popup').click(event => this.openPopup(event));
 
-	private buildEditStatusPopupHtml = (statusArray, custId) => {
+	private openPopup = event => this.customerListServices.getSettings(
+		this.$(event.currentTarget).data("custid"),
+		this.$(event.currentTarget).data("url"),
+		data => this.customerListPopup.openBootstrapModal(
+			event,
+			data.Status,
+			this.buildPopupHtml,
+			this.bindingEventOnPopup)
+	)
+
+	private buildPopupHtml = (statusArray, custId) => {
 		let html = ['<ul>'];
 		this.$.each(statusArray, (key, item) => {
 			if (item.Visible && item.ShowInCustomerList) {
@@ -43,7 +39,7 @@ class EditStatus {
 		this.$('.modal-body').empty().append(html.join(''));
 	}
 
-	private  bindingEditStatusPopup = parentEvent => {
+	private bindingEventOnPopup = parentEvent => {
 		this.$('.edit-status-popup').click(event => {
 			const $target = this.$(event.currentTarget),
 				url = $target.data("url"),

@@ -1,49 +1,40 @@
-﻿interface Window {
-	$: any
-}
-
-class EditSingleSetting {
+﻿class EditSingleSetting {
 	$: JQueryStatic;
-	topWindow: any;
 	customerListPopup: CustomerListPopup;
 	customerListServices: CustomerListServices;
 
 	constructor(
 		$: JQueryStatic,
-		topWindow: any,
 		customerListPopup: CustomerListPopup,
 		customerListServices: CustomerListServices) {
 		this.$ = $;
-		this.topWindow = topWindow;
 		this.customerListPopup = customerListPopup;
 		this.customerListServices = customerListServices;
 	}
 
-	bindingEditSingleOnMainPage = (event) => {
+	bindingEvent = () => this.$('.edit').click(event => this.openPopup(event));
+
+	openPopup = event => {
 		const custId = this.$(event.currentTarget).data("custid");
 		const settings = this.customerListServices.statusSettingArray.filter(x => x.custId === custId);
 
-		if (settings.length > 0) {
-			this.buildEditSingleSettingPopupHtml(settings[0].data.Settings);
-			this.customerListPopup.openBootstrapPopupModal(
+		settings.length > 0 ?
+			this.customerListPopup.openBootstrapModal(
 				event,
 				settings[0].data.Settings,
-				this.buildEditSingleSettingPopupHtml,
-				this.bindingEditSinglePopup);
-		}
-		else {
+				this.buildPopupHtml,
+				this.bindingEventOnPopup) :
 			this.customerListServices.getSettings(
 				custId,
 				this.$(event.currentTarget).data("url"),
-				data => this.customerListPopup.openBootstrapPopupModal(
+				data => this.customerListPopup.openBootstrapModal(
 					event,
 					data.Settings,
-					this.buildEditSingleSettingPopupHtml,
-					this.bindingEditSinglePopup));
-		}
+					this.buildPopupHtml,
+					this.bindingEventOnPopup));
 	}
 
-	private buildEditSingleSettingPopupHtml = settings => {
+	private buildPopupHtml = settings => {
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
 			if (item.Visible) {
@@ -54,10 +45,5 @@ class EditSingleSetting {
 		this.$('.modal-body').empty().append(html.join(''));
 	}
 
-	private  bindingEditSinglePopup = () => {
-		this.$('.edit-popup').click(event => {
-			const url = this.$(event.currentTarget).data("url");
-			this.customerListPopup.openPopup(url, 800, 600);
-		});
-	}
+	private bindingEventOnPopup = () => this.$('.edit-popup').click(event => this.customerListPopup.openPopup(this.$(event.currentTarget).data("url"), 800, 600));
 }

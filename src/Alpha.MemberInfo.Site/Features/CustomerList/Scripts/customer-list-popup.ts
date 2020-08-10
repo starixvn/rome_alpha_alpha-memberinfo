@@ -1,8 +1,4 @@
-﻿interface Window {
-	$: any
-}
-
-class CustomerListPopup {
+﻿class CustomerListPopup {
 	$: JQueryStatic;
 	topWindow: any;
 
@@ -24,7 +20,29 @@ class CustomerListPopup {
 		this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
 	}
 
-	openBootstrapPopupModal = (event, data, buldPopupHtml, bindingSettingEvent) => {
+	bindingBootstrapModalEvent = () => {
+		this.$('.modal-content').on('mouseleave', () => {
+			this.$('#exampleModal').modal('hide');
+		});
+
+		this.$('#exampleModal').on('shown.bs.modal', () => {
+			const height = this.$('.modal-dialog').height();
+			const width = this.$('.modal-dialog').width();
+			const bodyHeight = this.$('body').height();
+
+			this.$('#exampleModal').height(height);
+
+			if (bodyHeight - this.$('#exampleModal').position().top < height) {
+				this.$('#exampleModal').css({
+					top: bodyHeight - height,
+					height: height === 0 ? 'auto' : height,
+					width: width === 0 ? 'auto' : width
+				});
+			}
+		});
+	}
+
+	openBootstrapModal = (event, data, buldPopupHtml, bindingSettingEvent) => {
 		buldPopupHtml(data, this.$(event.currentTarget).data("custid"));
 
 		const element = this.$(event.currentTarget),

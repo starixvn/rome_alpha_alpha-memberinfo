@@ -1,16 +1,10 @@
-﻿interface Window {
-	$: any
-}
-
-class CustomerListServices {
+﻿class CustomerListServices {
 	$: JQueryStatic;
-	topWindow: any;
 	statusSettingArray: any;
 	customerListPopup: CustomerListPopup;
 
-	constructor($: JQueryStatic, topWindow: any, customerListPopup: CustomerListPopup) {
+	constructor($: JQueryStatic, customerListPopup: CustomerListPopup) {
 		this.$ = $;
-		this.topWindow = topWindow;
 		this.customerListPopup = customerListPopup;
 		this.statusSettingArray = []
 	}
@@ -64,26 +58,22 @@ class CustomerListServices {
 		memberInfoUrl + 'CustomerList/' + action,
 		'post',
 		params,
-		data => updateCustomerStatusSuccess(parentEvent, data, displayOrder)
-	)
+		data => updateCustomerStatusSuccess(parentEvent, data, displayOrder))
 
-	getSettings = (custId, url, callback = undefined, isStoreData = true,) => {
-		this.callAjax(
-			url,
-			'GET',
-			{},
-			data => {
-				this.$.unblockUI();
+	getSettings = (custId, url, callback, isStoreData = true) => this.callAjax(
+		url,
+		'GET',
+		{},
+		data => {
+			this.$.unblockUI();
 
-				if (isStoreData) { // not store for update multiple
-					this.statusSettingArray.push({ custId, data });
-				}
-
-				if (typeof callback === 'function') {
-					callback.apply(this, [data]);
-
-				}
+			if (isStoreData) { // not store for update multiple
+				this.statusSettingArray.push({ custId, data });
 			}
-		);
-	}
+
+			if (typeof callback === 'function') {
+				callback.apply(this, [data]);
+			}
+		}
+	)
 }

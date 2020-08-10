@@ -1,28 +1,23 @@
-﻿interface Window {
-	$: any
-}
-
-class EditMultipleSetting {
+﻿class EditMultipleSetting {
 	$: JQueryStatic;
-	topWindow: any;
 	customerListPopup: CustomerListPopup;
 	customerListServices: CustomerListServices;
 	editSingleSetting: EditSingleSetting;
 
 	constructor(
 		$: JQueryStatic,
-		topWindow: any,
 		customerListPopup: CustomerListPopup,
 		customerListServices: CustomerListServices,
 		editSingleSetting: EditSingleSetting) {
 		this.$ = $;
-		this.topWindow = topWindow;
 		this.customerListPopup = customerListPopup;
 		this.customerListServices = customerListServices;
 		this.editSingleSetting = editSingleSetting;
 	}
 
-	bindingEditMultipleSettingOnMainPage = (event) => {
+	bindingEditMultipleEvent = () => this.$('.edit-multiple').click(event => this.openPopup(event));
+
+	private openPopup = event => {
 		let usernames = [], custids = [];
 		this.$('input.checkbox:checkbox:checked').each((index, element) => {
 			usernames.push(this.$(element).data("username"));
@@ -43,24 +38,20 @@ class EditMultipleSetting {
 			this.$('.edit-multiple').data("url", this.$(`#setting-${custids[0]}`).data('url'));
 
 			custids.length === 1 ?
-				this.editSingleSetting.bindingEditSingleOnMainPage(event) : 
+				this.editSingleSetting.openPopup(event) : 
 				this.customerListServices.getSettings(
 					custids[0],
 					`${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`,
-					data => this.customerListPopup.openBootstrapPopupModal(
+					data => this.customerListPopup.openBootstrapModal(
 						event,
 						data,
-						this.buildEditMultipleSettingPopupHtml,
-						this.bindingEditMultipleSettingOnPopup),
+						this.buildPopupHtml,
+						this.bindingEventOnPopup),
 					false);
 		}
 	}
 
-	private bindingEditMultipleSettingOnPopup = () => {
-		this.$('.edit-multiple-settings').click(event => this.customerListPopup.openPopup(this.$(event.currentTarget).data("url"), 800, 600));
-	}
-
-	private buildEditMultipleSettingPopupHtml = (settings) => {
+	private buildPopupHtml = settings => {
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
 			if (item.Visible) {
@@ -70,4 +61,6 @@ class EditMultipleSetting {
 
 		this.$('.modal-body').empty().append(html.join(''));
 	}
+
+	private bindingEventOnPopup = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openPopup(this.$(event.currentTarget).data("url"), 800, 600));
 }

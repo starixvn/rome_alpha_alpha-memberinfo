@@ -12,15 +12,9 @@ declare var searchAccountRoleId;
 declare var breadcrumbLevelJson;
 declare var downlineLevelName;
 
-interface Window {
-	$: any
-}
-
 class CustomerListDataTable {
 	$: JQueryStatic;
 	$table: JQuery;
-	topWindow: any;
-	//statusSettingArray: any;
 	customerListPopup: CustomerListPopup;
 	customerListServices: CustomerListServices;
 	editSingleSetting: EditSingleSetting;
@@ -28,14 +22,11 @@ class CustomerListDataTable {
 
 	constructor(
 		$: JQueryStatic,
-		topWindow: any,
 		customerListPopup: CustomerListPopup,
 		customerListServices: CustomerListServices,
 		editSingleSetting: EditSingleSetting,
 		editStatus: EditStatus) {
 		this.$ = $;
-		this.topWindow = topWindow;
-
 		this.customerListPopup = customerListPopup;
 		this.customerListServices = customerListServices;
 		this.editSingleSetting = editSingleSetting;
@@ -229,14 +220,16 @@ class CustomerListDataTable {
 	drawCallback = () => {
 		this.$('#customer-list').removeClass('hidden');
 
+		this.$('.btn-submit').click(() => this.$table.ajax.reload());
+
 		this.$('.login-ip').click(event => {
 			const url = this.$(event.currentTarget).data("url");
 			this.customerListPopup.openPopup(url, 400, 600);
 		});
 
-		this.$('.edit').click(event => this.editSingleSetting.bindingEditSingleOnMainPage(event));
+		this.editSingleSetting.bindingEvent();
 
-		this.$('.status-popup').click(event => this.editStatus.bindingEditStatusOnMainPage(event));
+		this.editStatus.bindingEvent();
 	}
 
 	initDataTable = () => {
