@@ -18,6 +18,7 @@ class CustomerList extends CustomerListDataTable {
 	customerListPopup: CustomerListPopup;
 	customerListServices: CustomerListServices;
 	editSingleSetting: EditSingleSetting;
+	editMultipleSetting: EditMultipleSetting;
 	editStatus: EditStatus;
 
 	constructor(
@@ -26,8 +27,10 @@ class CustomerList extends CustomerListDataTable {
 		customerListPopup: CustomerListPopup,
 		customerListServices: CustomerListServices,
 		editSingleSetting: EditSingleSetting,
+		editMultipleSetting: EditMultipleSetting,
 		editStatus: EditStatus) {
 		super($, topWindow, customerListPopup, customerListServices, editSingleSetting, editStatus);
+		this.editMultipleSetting = editMultipleSetting;
 	}
 
 	init = () => {
@@ -35,29 +38,7 @@ class CustomerList extends CustomerListDataTable {
 
 		this.initDataTable();
 
-		this.$('.edit-multiple').click(event => {
-			let usernames = [], custids = [];
-			this.$('input.checkbox:checkbox:checked').each((index, element) => {
-				usernames.push(this.$(element).data("username"));
-				custids.push(this.$(element).data("custid"));
-			});
-
-			const params = {
-				UplineId: actorId,
-				UplineName: actorName,
-				UplineRoleId: actorRoleId,
-				SearchAccountRoleId: searchAccountRoleId - 1,
-				custids: custids.join(','),
-				usernames: usernames.join(',')
-			};
-
-			this.buildPopupHtml(
-				event,
-				`${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`,
-				this.buildEditMultipleSettingPopupHtml,
-				this.bindingEditMultipleSettingPopup,
-				false);
-		});
+		this.$('.edit-multiple').click(event => this.editMultipleSetting.bindingEditMultipleSettingOnMainPage(event));
 
 		this.$('.btn-submit').click(() => this.$table.ajax.reload());
 
@@ -81,21 +62,6 @@ class CustomerList extends CustomerListDataTable {
 			}
 		});
 	};
-
-	bindingEditMultipleSettingPopup = () => {
-		this.$('.edit-multiple-settings').click(event => this.customerListPopup.openPopup(this.$(event.currentTarget).data("url"), 800, 600));
-	}
-
-	buildEditMultipleSettingPopupHtml = (settings) => {
-		let html = ['<ul>'];
-		this.$.each(settings, (key, item) => {
-			if (item.Visible) {
-				html.push(`<li class="edit-multiple-settings" data-url="${item.Url}">${item.Text}</li>`);
-			}
-		});
-
-		this.$('.modal-body').empty().append(html.join(''));
-	}
 
 	bidingEasyAutoComplete = () => {
 		const options = {
@@ -121,10 +87,11 @@ class CustomerList extends CustomerListDataTable {
 
 $(function () {
 	const customerListPopup = new CustomerListPopup($, window.top),
-		customerListServices = new CustomerListServices($, window.top),
-		editSingleSetting = new EditSingleSetting($, window.top, customerListPopup),
-		editStatus = new EditStatus($, window.top, customerListServices),
-		customerList = new CustomerList($, window.top, customerListPopup, customerListServices, editSingleSetting, editStatus);
+		customerListServices = new CustomerListServices($, window.top, customerListPopup),
+		editSingleSetting = new EditSingleSetting($, window.top, customerListPopup, customerListServices),
+		editMultipleSetting = new EditMultipleSetting($, window.top, customerListPopup, customerListServices, editSingleSetting),
+		editStatus = new EditStatus($, window.top, customerListServices, customerListPopup),
+		customerList = new CustomerList($, window.top, customerListPopup, customerListServices, editSingleSetting, editMultipleSetting, editStatus);
 
 	customerList.init();
 });

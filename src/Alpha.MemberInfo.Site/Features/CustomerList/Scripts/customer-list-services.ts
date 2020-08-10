@@ -5,13 +5,17 @@
 class CustomerListServices {
 	$: JQueryStatic;
 	topWindow: any;
+	statusSettingArray: any;
+	customerListPopup: CustomerListPopup;
 
-	constructor($: JQueryStatic, topWindow: any) {
+	constructor($: JQueryStatic, topWindow: any, customerListPopup: CustomerListPopup) {
 		this.$ = $;
 		this.topWindow = topWindow;
+		this.customerListPopup = customerListPopup;
+		this.statusSettingArray = []
 	}
 
-	callAjax = (url, type, params, onSuccess) => {
+	private callAjax = (url, type, params, onSuccess) => {
 		this.$.blockUI();
 		this.$.ajax({
 			url: url,
@@ -55,20 +59,26 @@ class CustomerListServices {
 		);
 	}
 
-	updateCustomerStatus = (parentEvent, action, params, displayOrder) => {
+	updateCustomerStatus = (parentEvent, action, params, displayOrder, updateCustomerStatusSuccess) => this.callAjax(
+		memberInfoUrl + 'CustomerList/' + action,
+		'post',
+		params,
+		data => updateCustomerStatusSuccess(parentEvent, data, displayOrder)
+	)
+
+	getSettings = (custId, url, isStoreData = true, callback = undefined) => {
 		this.callAjax(
-			memberInfoUrl + 'CustomerList/' + action,
-			'post',
-			params,
+			url,
+			'GET',
+			{},
 			data => {
-				if (data.IsSuccessful) {
-					// Closed or Suspended
-					if (displayOrder === 1 || displayOrder === 2) {
-						this.$('.btn-submit').click();
-					}
+				if (isStoreData) { // not store for update multiple
+					this.statusSettingArray.push({ custId, data });
 				}
-				else {
-					this.topWindow.bootboxAlert(data.Message, parentEvent.target);
+
+				if (typeof callback === 'function') {
+					callback.apply(this, [data]);
+
 				}
 			}
 		);

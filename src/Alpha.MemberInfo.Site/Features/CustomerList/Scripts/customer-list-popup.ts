@@ -15,7 +15,18 @@ class CustomerListPopup {
 		//this.topWindow.editPopupOnCustomerList.close();
 	}
 
-	openBootstrapPopupModal = (event, bindingSettingEvent) => {
+	openPopup = (url, width = 800, height = 600) => {
+		if (this.topWindow.editPopupOnCustomerList === null || this.topWindow.editPopupOnCustomerList === undefined) {
+			this.topWindow.editPopupOnCustomerList = this.topWindow.ageWnd.createInstance();
+		}
+
+		this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
+		this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
+	}
+
+	openBootstrapPopupModal = (event, data, buldPopupHtml, bindingSettingEvent) => {
+		buldPopupHtml(data, this.$(event.currentTarget).data("custid"));
+
 		const element = this.$(event.currentTarget),
 			left = this.$(element).offset().left + this.$(element).width() + 5,
 			height = this.$('.modal-dialog').outerHeight(),
@@ -39,14 +50,5 @@ class CustomerListPopup {
 		});
 
 		bindingSettingEvent(event);
-	}
-
-	openPopup = (url, width = 800, height = 600) => {
-		if (this.topWindow.editPopupOnCustomerList === null || this.topWindow.editPopupOnCustomerList === undefined) {
-			this.topWindow.editPopupOnCustomerList = this.topWindow.ageWnd.createInstance();
-		}
-
-		this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
-		this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
 	}
 }
