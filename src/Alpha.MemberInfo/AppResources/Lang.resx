@@ -174,4 +174,19 @@
   <data name="NotAuthorized" xml:space="preserve">
     <value>You are not authorized on this function.</value>
   </data>
+  <data name="viewQuickGuideIndirectLogin" xml:space="preserve">
+    <value>Take a quick tour of Indirect Login Account</value>
+  </data>
+  <data name="viewQuickGuideDetail" xml:space="preserve">
+    <value>Indirectly access multiple downline accounts from a single place</value>
+  </data>
+  <data name="viewQuickGuideNotNow" xml:space="preserve">
+    <value>Not now</value>
+  </data>
+  <data name="viewQuickGuideLetsgo" xml:space="preserve">
+    <value>Let's go</value>
+  </data>
+  <data name="viewQuickGuideTitle" xml:space="preserve">
+    <value>Connect to your downline account</value>
+  </data>
 </root>

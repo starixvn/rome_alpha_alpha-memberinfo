@@ -223,6 +223,51 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Indirectly access multiple downline accounts from a single place.
+        /// </summary>
+        public static string viewQuickGuideDetail {
+            get {
+                return ResourceManager.GetString("viewQuickGuideDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take a quick tour of Indirect Login Account.
+        /// </summary>
+        public static string viewQuickGuideIndirectLogin {
+            get {
+                return ResourceManager.GetString("viewQuickGuideIndirectLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let&apos;s go.
+        /// </summary>
+        public static string viewQuickGuideLetsgo {
+            get {
+                return ResourceManager.GetString("viewQuickGuideLetsgo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not now.
+        /// </summary>
+        public static string viewQuickGuideNotNow {
+            get {
+                return ResourceManager.GetString("viewQuickGuideNotNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connect to your downline account.
+        /// </summary>
+        public static string viewQuickGuideTitle {
+            get {
+                return ResourceManager.GetString("viewQuickGuideTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wednesday.
         /// </summary>
         public static string Wednesday {

@@ -174,4 +174,19 @@
   <data name="NotAuthorized" xml:space="preserve">
     <value>Bạn không được cho phép sử dụng chức năng này.</value>
   </data>
+  <data name="viewQuickGuideIndirectLogin" xml:space="preserve">
+    <value>Xem hướng dẫn Đăng Nhập Tài Khoản Gián Tiếp</value>
+  </data>
+  <data name="viewQuickGuideDetail" xml:space="preserve">
+    <value>Cho phép truy cập gián tiếp đến nhiều tài khoản từ một nơi duy nhất</value>
+  </data>
+  <data name="viewQuickGuideNotNow" xml:space="preserve">
+    <value>Không phải bây giờ</value>
+  </data>
+  <data name="viewQuickGuideLetsgo" xml:space="preserve">
+    <value>Đi nào</value>
+  </data>
+  <data name="viewQuickGuideTitle" xml:space="preserve">
+    <value>Kết nối với tài khoản cấp dưới</value>
+  </data>
 </root>

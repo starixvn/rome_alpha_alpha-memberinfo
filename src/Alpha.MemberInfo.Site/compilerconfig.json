@@ -30,5 +30,9 @@
   {
     "outputFile": "Features/QRCodeMemberSignIn/Styles/show-qr-code.css",
     "inputFile": "Features/QRCodeMemberSignIn/Styles/show-qr-code.scss"
+  },
+  {
+    "outputFile": "assets/styles/quick-introduction.css",
+    "inputFile": "assets/styles/quick-introduction.scss"
   }
 ]
