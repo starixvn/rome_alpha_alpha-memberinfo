@@ -1,17 +1,27 @@
 ﻿class CustomerListPopup {
-	$: JQueryStatic;
-	topWindow: any;
+	private $: JQueryStatic;
+	private topWindow: any;
+	private $bootstrapContainer: JQuery;
+	private $bootstrapModalDialog: JQuery;
+	private $bootstrapModalContent: JQuery;
 
 	constructor($: JQueryStatic, topWindow: any) {
 		this.$ = $;
 		this.topWindow = topWindow;
+		this.cacheDom();
 	}
 
-	editPopupOnCustomerListOnclosing() {
+	private cacheDom = () => {
+		this.$bootstrapContainer = this.$('#bootstrap-modal');
+		this.$bootstrapModalDialog = this.$('.modal-dialog');
+		this.$bootstrapModalContent = this.$('.modal-content');
+	}
+
+	public editPopupOnCustomerListOnclosing() {
 		//this.topWindow.editPopupOnCustomerList.close();
 	}
 
-	openPopup = (url, width = 800, height = 600) => {
+	public openPopup = (url, width = 800, height = 600) => {
 		if (this.topWindow.editPopupOnCustomerList === null || this.topWindow.editPopupOnCustomerList === undefined) {
 			this.topWindow.editPopupOnCustomerList = this.topWindow.ageWnd.createInstance();
 		}
@@ -20,20 +30,18 @@
 		this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
 	}
 
-	bindingBootstrapModalEvent = () => {
-		this.$('.modal-content').on('mouseleave', () => {
-			this.$('#exampleModal').modal('hide');
-		});
+	public bindingBootstrapModalEvent = () => {
+		this.$bootstrapModalContent.on('mouseleave', () => this.$bootstrapContainer.modal('hide'));
 
-		this.$('#exampleModal').on('shown.bs.modal', () => {
-			const height = this.$('.modal-dialog').height();
-			const width = this.$('.modal-dialog').width();
+		this.$bootstrapContainer.on('shown.bs.modal', () => {
 			const bodyHeight = this.$('body').height();
+			const height = this.$bootstrapModalDialog.height();
+			const width = this.$bootstrapModalDialog.width();
 
-			this.$('#exampleModal').height(height);
+			this.$bootstrapContainer.height(height);
 
-			if (bodyHeight - this.$('#exampleModal').position().top < height) {
-				this.$('#exampleModal').css({
+			if (bodyHeight - this.$bootstrapContainer.position().top < height) {
+				this.$bootstrapContainer.css({
 					top: bodyHeight - height,
 					height: height === 0 ? 'auto' : height,
 					width: width === 0 ? 'auto' : width
@@ -42,13 +50,13 @@
 		});
 	}
 
-	openBootstrapModal = (event, data, buldPopupHtml, bindingSettingEvent) => {
+	public openBootstrapModal = (event, data, buldPopupHtml, bindingSettingEvent) => {
 		buldPopupHtml(data, this.$(event.currentTarget).data("custid"));
 
 		const element = this.$(event.currentTarget),
 			left = this.$(element).offset().left + this.$(element).width() + 5,
-			height = this.$('.modal-dialog').outerHeight(),
-			width = this.$('.modal-dialog').outerWidth(),
+			height = this.$bootstrapModalDialog.outerHeight(),
+			width = this.$bootstrapModalDialog.outerWidth(),
 			bodyHeight = this.$('body').height();
 
 		let top = this.$(element).offset().top;
@@ -57,7 +65,7 @@
 			top = bodyHeight - height;
 		}
 
-		this.$('#exampleModal').css({
+		this.$bootstrapContainer.css({
 			top: top,
 			left: left,
 			height: height === 0 ? 'auto' : height,

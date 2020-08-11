@@ -1,21 +1,24 @@
 ﻿class EditMultipleSetting {
-	$: JQueryStatic;
-	customerListPopup: CustomerListPopup;
-	customerListServices: CustomerListServices;
-	editSingleSetting: EditSingleSetting;
+	private $: JQueryStatic;
+	private customerListPopup: CustomerListPopup;
+	private customerListServices: CustomerListServices;
+	private editSingleSetting: EditSingleSetting;
+	private viewModel: CustomerListViewModel;
 
 	constructor(
 		$: JQueryStatic,
+		viewModel: CustomerListViewModel,
 		customerListPopup: CustomerListPopup,
 		customerListServices: CustomerListServices,
 		editSingleSetting: EditSingleSetting) {
 		this.$ = $;
+		this.viewModel = viewModel;
 		this.customerListPopup = customerListPopup;
 		this.customerListServices = customerListServices;
 		this.editSingleSetting = editSingleSetting;
 	}
 
-	bindingEditMultipleEvent = () => this.$('.edit-multiple').click(event => this.openPopup(event));
+	public bindingEvent = () => this.$('.edit-multiple').click(event => this.openPopup(event));
 
 	private openPopup = event => {
 		let usernames = [], custids = [];
@@ -25,10 +28,10 @@
 		});
 
 		const params = {
-			UplineId: actorId,
-			UplineName: actorName,
-			UplineRoleId: actorRoleId,
-			SearchAccountRoleId: searchAccountRoleId - 1,
+			UplineId: this.viewModel.ActorId,
+			UplineName: this.viewModel.ActorName,
+			UplineRoleId: this.viewModel.ActorRoleId,
+			SearchAccountRoleId: this.viewModel.SearchAccountRoleId - 1,
 			custids: custids.join(','),
 			usernames: usernames.join(',')
 		};
@@ -41,7 +44,7 @@
 				this.editSingleSetting.openPopup(event) : 
 				this.customerListServices.getSettings(
 					custids[0],
-					`${memberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`,
+					`${this.viewModel.MemberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`,
 					data => this.customerListPopup.openBootstrapModal(
 						event,
 						data,

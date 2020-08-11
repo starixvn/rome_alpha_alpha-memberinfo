@@ -162,6 +162,7 @@
 			"Features/CustomerList/Scripts/edit-single-setting.js",
 			"Features/CustomerList/Scripts/edit-multiple-setting.js",
 			"Features/CustomerList/Scripts/customer-list-datatable.js",
+			"Features/CustomerList/Scripts/customer-list-viewmodel.js",
 			"Features/CustomerList/Scripts/customer-list.js",
 			"Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
 		]

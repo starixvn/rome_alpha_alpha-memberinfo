@@ -1,74 +1,68 @@
-﻿declare var oldMainUrl;
-declare var reportsUrl;
-declare var memberInfoUrl;
-declare var accountInfoUrl;
-declare var actorId;
-declare var actorName;
-declare var actorRoleId;
-declare var showEditMultiple;
-declare var searchAccountId;
-declare var searchAccountName;
-declare var searchAccountRoleId;
-declare var breadcrumbLevelJson;
-declare var downlineLevelName;
-
-class CustomerListDataTable {
-	$: JQueryStatic;
-	$table: JQuery;
-	customerListPopup: CustomerListPopup;
-	customerListServices: CustomerListServices;
-	editSingleSetting: EditSingleSetting;
-	editStatus: EditStatus;
+﻿class CustomerListDataTable {
+	private $: JQueryStatic;
+	private $table: JQuery;
+	private customerListPopup: CustomerListPopup;
+	private customerListServices: CustomerListServices;
+	private editSingleSetting: EditSingleSetting;
+	private editStatus: EditStatus;
+	private viewModel: CustomerListViewModel;
 
 	constructor(
 		$: JQueryStatic,
+		viewModel: CustomerListViewModel,
 		customerListPopup: CustomerListPopup,
 		customerListServices: CustomerListServices,
 		editSingleSetting: EditSingleSetting,
 		editStatus: EditStatus) {
 		this.$ = $;
+		this.viewModel = viewModel;
 		this.customerListPopup = customerListPopup;
 		this.customerListServices = customerListServices;
 		this.editSingleSetting = editSingleSetting;
 		this.editStatus = editStatus;
 	}
 
-	renderUsernameColumn = item => {
-		const content = `${item.Username} <br /> ${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}`;
-		const queryString = {
-			CustLevelId: item.RoleId,
-			CustId: item.CustId,
-			CustName: item.Username,
-			Status: this.$('#statusFilter').val(),
-			DoubleComm: this.$('#dcommFilter').val(),
-			UnconfirmSetting: this.$('#unconfirmSettingFilter').val()
-		};
-
-		const viewDownlineLink = `${memberInfoUrl}CustomerList/${downlineLevelName}?${this.$.param(queryString)}&BreadcrumbLevelJson=${breadcrumbLevelJson}`;
-		return item.RoleId === 1 ? content : `<a href="${viewDownlineLink}">${content}</a>`;
+	public initDataTable = () => {
+		this.$table = this.$('#customer-list').on('processing.dt',
+			(e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
+			.DataTable({
+				serverSide: true,
+				ajax: (data, callback) => this.customerListServices.getCutomerList(data, callback),
+				columns: this.buildDataTableColumns(),
+				responsive: {
+					details: {
+						type: 'column',
+						target: -1,
+						auto: false,
+						renderer: (api, rowIdx) => this.renderDetailColumn(api, rowIdx)
+					}
+				},
+				columnDefs: [{
+					className: 'control',
+					orderable: false,
+					targets: -1
+				}],
+				ordering: false,
+				paging: true,
+				pagingType: "input",
+				searching: false,
+				bInfo: false,
+				fixedHeader: true,
+				processing: true,
+				language: {
+					processing: '',
+					oPaginate: {
+						sFirst: '<<',
+						sPrevious: '<',
+						sNext: '>',
+						sLast: '>>'
+					}
+				},
+				drawCallback: this.drawCallback
+			});
 	}
 
-	renderEditColumn = item => {
-		const editPopupLink = `${memberInfoUrl}CustomerList/GetCustomerAllStatus?` +
-			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
-			`&UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
-		return `<div class='edit' id='setting-${item.CustId}' data-custid='${item.CustId}' data-url='${editPopupLink}'>Edit</div>`;
-	}
-
-	renderStatusColumn = item => {
-		const statusPopupLink = `${memberInfoUrl}CustomerList/GetCustomerAllStatus?` +
-			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
-			`&UplineId=${actorId}&UplineName=${actorName}&UplineRoleId=${actorRoleId}`;
-		return `<div id='status-${item.CustId}' class='status-popup' data-custid='${item.CustId}' data-url='${statusPopupLink}'>${item.Status}</div>`;
-	}
-
-	renderStatementColumn = item => {
-		const actionName = item.RoleId === 1 ? "MemberStatement" : "SMAStatement";
-		const viewStatementLink = `${reportsUrl}Statement/${actionName}?CustID=${item.CustId}&CustName=${item.Username}&CustLevelId=${item.RoleId}`;
-		return `<a href='${viewStatementLink}'>View</a>`;
-	}
-
-	buildDataTableColumns = () => {
+	private buildDataTableColumns = () => {
 		let columns = [
 			{
 				"className": "",
@@ -139,10 +133,7 @@ class CustomerListDataTable {
 			{
 				"className": "",
 				"data": null,
-				"render": function (item) {
-					const viewIP = `${oldMainUrl}_IPInfo/IPInfo.aspx?ip=${item.LastLoginIP}`;
-					return `<div class='login-ip' data-url='${viewIP}'>${item.LastLoginIP}</div>`;
-				}
+				"render": item => `<div class='login-ip' data-url='${`${this.viewModel.OldMainUrl}_IPInfo/IPInfo.aspx?ip=${item.LastLoginIP}`}'>${item.LastLoginIP}</div>`
 			},
 			{
 				"className": "",
@@ -151,13 +142,11 @@ class CustomerListDataTable {
 			}
 		];
 
-		if (showEditMultiple) {
+		if (this.viewModel.ShowEditMultiple) {
 			const editMultipleColumn = {
 				"className": "",
 				"data": null,
-				"render": function (item) {
-					return `<input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/>`;
-				}
+				"render": item => `<input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/>`
 			};
 
 			columns.splice(1, 0, editMultipleColumn);
@@ -166,7 +155,42 @@ class CustomerListDataTable {
 		return columns;
 	}
 
-	renderDetailColumn = (api, rowIdx) => {
+	private renderUsernameColumn = item => {
+		const content = `${item.Username} <br /> ${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}`;
+		const queryString = {
+			CustLevelId: item.RoleId,
+			CustId: item.CustId,
+			CustName: item.Username,
+			Status: this.$('#statusFilter').val(),
+			DoubleComm: this.$('#dcommFilter').val(),
+			UnconfirmSetting: this.$('#unconfirmSettingFilter').val()
+		};
+
+		const viewDownlineLink = `${this.viewModel.MemberInfoUrl}CustomerList/${this.viewModel.DownlineLevelName}?${this.$.param(queryString)}&BreadcrumbLevelJson=${this.viewModel.BreadcrumbLevelJson}`;
+		return item.RoleId === 1 ? content : `<a href="${viewDownlineLink}">${content}</a>`;
+	}
+
+	private renderEditColumn = item => {
+		const editPopupLink = `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerAllStatus?` +
+			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
+			`&UplineId=${this.viewModel.ActorId}&UplineName=${this.viewModel.ActorName}&UplineRoleId=${this.viewModel.ActorRoleId}`;
+		return `<div class='edit' id='setting-${item.CustId}' data-custid='${item.CustId}' data-url='${editPopupLink}'>Edit</div>`;
+	}
+
+	private renderStatusColumn = item => {
+		const statusPopupLink = `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerAllStatus?` +
+			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
+			`&UplineId=${this.viewModel.ActorId}&UplineName=${this.viewModel.ActorName}&UplineRoleId=${this.viewModel.ActorRoleId}`;
+		return `<div id='status-${item.CustId}' class='status-popup' data-custid='${item.CustId}' data-url='${statusPopupLink}'>${item.Status}</div>`;
+	}
+
+	private renderStatementColumn = item => {
+		const actionName = item.RoleId === 1 ? "MemberStatement" : "SMAStatement";
+		const viewStatementLink = `${this.viewModel.ReportsUrl}Statement/${actionName}?CustID=${item.CustId}&CustName=${item.Username}&CustLevelId=${item.RoleId}`;
+		return `<a href='${viewStatementLink}'>View</a>`;
+	}
+
+	private renderDetailColumn = (api, rowIdx) => {
 		const self = this;
 		let addTableCommissionTag = true;
 		const data = api.cells(rowIdx, ':hidden').eq(0).map(function (cell) {
@@ -182,10 +206,11 @@ class CustomerListDataTable {
 				dtPrivate, idx.row, idx.column, 'display'
 			);
 
-			let commissionTable = '';
-
-			const start = showEditMultiple ? 8 : 7;
-			const end = showEditMultiple ? 12 : 11;
+			let commissionTable = '', start = 7, end = 11;
+			if (self.viewModel.ShowEditMultiple) {
+				start += 1;
+				end += 1
+			}
 
 			if (idx.column >= start && idx.column <= end) {
 				if (addTableCommissionTag) {
@@ -213,62 +238,19 @@ class CustomerListDataTable {
 		}).toArray().join('');
 
 		return data ?
-			self.$(`<table data-dtr-index="${rowIdx}"/>`).append(data) :
+			self.$(`<table data-dtr-index="${rowIdx}"/>`).append(data) : 
 			false;
 	}
 
-	drawCallback = () => {
+	private drawCallback = () => {
 		this.$('#customer-list').removeClass('hidden');
 
 		this.$('.btn-submit').click(() => this.$table.ajax.reload());
 
-		this.$('.login-ip').click(event => {
-			const url = this.$(event.currentTarget).data("url");
-			this.customerListPopup.openPopup(url, 400, 600);
-		});
+		this.$('.login-ip').click(event => this.customerListPopup.openPopup(this.$(event.currentTarget).data("url"), 400, 600));
 
 		this.editSingleSetting.bindingEvent();
 
 		this.editStatus.bindingEvent();
-	}
-
-	initDataTable = () => {
-		this.$table = this.$('#customer-list').on('processing.dt',
-			(e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
-			.DataTable({
-				serverSide: true,
-				ajax: (data, callback) => this.customerListServices.getCutomerList(data, callback),
-				columns: this.buildDataTableColumns(),
-				responsive: {
-					details: {
-						type: 'column',
-						target: -1,
-						auto: false,
-						renderer: (api, rowIdx) => this.renderDetailColumn(api, rowIdx)
-					}
-				},
-				columnDefs: [{
-					className: 'control',
-					orderable: false,
-					targets: -1
-				}],
-				ordering: false,
-				paging: true,
-				pagingType: "input",
-				searching: false,
-				bInfo: false,
-				fixedHeader: true,
-				processing: true,
-				language: {
-					processing: '',
-					oPaginate: {
-						sFirst: '<<',
-						sPrevious: '<',
-						sNext: '>',
-						sLast: '>>'
-					}
-				},
-				drawCallback: this.drawCallback
-			});
 	}
 }

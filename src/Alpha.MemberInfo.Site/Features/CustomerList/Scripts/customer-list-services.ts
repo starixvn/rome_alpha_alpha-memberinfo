@@ -1,11 +1,11 @@
 ﻿class CustomerListServices {
-	$: JQueryStatic;
-	statusSettingArray: any;
-	customerListPopup: CustomerListPopup;
+	private $: JQueryStatic;
+	public statusSettingArray: any;
+	private viewModel: CustomerListViewModel;
 
-	constructor($: JQueryStatic, customerListPopup: CustomerListPopup) {
+	constructor($: JQueryStatic, viewModel: CustomerListViewModel) {
 		this.$ = $;
-		this.customerListPopup = customerListPopup;
+		this.viewModel = viewModel;
 		this.statusSettingArray = []
 	}
 
@@ -26,11 +26,11 @@
 		});
 	}
 
-	getCutomerList = (data, callback) => {
+	public getCutomerList = (data, callback) => {
 		const params = {
-			CustName: searchAccountName,
-			CustId: searchAccountId,
-			CustLevelId: searchAccountRoleId,
+			CustName: this.viewModel.SearchAccountName,
+			CustId: this.viewModel.SearchAccountId,
+			CustLevelId: this.viewModel.SearchAccountRoleId,
 			PageIndex: (data.start / data.length) + 1,
 			PageSize: data.length,
 			Username: this.$('#txt-username').val(),
@@ -40,7 +40,7 @@
 		};
 
 		this.callAjax(
-			`${memberInfoUrl}CustomerList/GetCustomerListData`,
+			`${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerListData`,
 			'post',
 			params,
 			data => {
@@ -54,13 +54,21 @@
 		);
 	}
 
-	updateCustomerStatus = (parentEvent, action, params, displayOrder, updateCustomerStatusSuccess) => this.callAjax(
-		memberInfoUrl + 'CustomerList/' + action,
-		'post',
-		params,
-		data => updateCustomerStatusSuccess(parentEvent, data, displayOrder))
+	public updateCustomerStatus = (event, parentEvent, updateCustomerStatusSuccess) => {
+		const $target = this.$(event.currentTarget),
+			action = $target.data("url"),
+			params = $target.data("param"),
+			displayOrder = $target.data("displayorder"),
+			message = $target.data("message");
 
-	getSettings = (custId, url, callback, isStoreData = true) => this.callAjax(
+		this.callAjax(
+			this.viewModel.MemberInfoUrl + 'CustomerList/' + action,
+			'post',
+			params,
+			data => updateCustomerStatusSuccess(parentEvent, data, displayOrder))
+	}
+
+	public getSettings = (custId, url, callback, isStoreData = true) => this.callAjax(
 		url,
 		'GET',
 		{},

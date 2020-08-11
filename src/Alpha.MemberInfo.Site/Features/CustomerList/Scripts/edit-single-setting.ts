@@ -1,7 +1,7 @@
 ﻿class EditSingleSetting {
-	$: JQueryStatic;
-	customerListPopup: CustomerListPopup;
-	customerListServices: CustomerListServices;
+	private $: JQueryStatic;
+	private customerListPopup: CustomerListPopup;
+	private customerListServices: CustomerListServices;
 
 	constructor(
 		$: JQueryStatic,
@@ -12,9 +12,9 @@
 		this.customerListServices = customerListServices;
 	}
 
-	bindingEvent = () => this.$('.edit').click(event => this.openPopup(event));
+	public bindingEvent = () => this.$('.edit').click(event => this.openPopup(event));
 
-	openPopup = event => {
+	public openPopup = event => {
 		const custId = this.$(event.currentTarget).data("custid");
 		const settings = this.customerListServices.statusSettingArray.filter(x => x.custId === custId);
 

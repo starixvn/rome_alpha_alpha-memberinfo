@@ -1,39 +1,35 @@
-﻿declare var memberInfoUrl;
-declare var accountInfoUrl;
-declare var actorId;
-declare var actorName;
-declare var actorRoleId;
-declare var searchAccountRoleId;
-
-class CustomerList {
-	$: JQueryStatic;
-	customerListPopup: CustomerListPopup;
-	editMultipleSetting: EditMultipleSetting;
-	customerListDataTable: CustomerListDataTable;
+﻿class CustomerList {
+	private $: JQueryStatic;
+	private customerListPopup: CustomerListPopup;
+	private editMultipleSetting: EditMultipleSetting;
+	private customerListDataTable: CustomerListDataTable;
+	private viewModel: CustomerListViewModel;
 
 	constructor(
 		$: JQueryStatic,
+		viewModel: CustomerListViewModel,
 		editMultipleSetting: EditMultipleSetting,
 		customerListPopup: CustomerListPopup,
 		customerListDataTable: CustomerListDataTable) {
 		this.$ = $;
+		this.viewModel = viewModel;
 		this.customerListDataTable = customerListDataTable;
 		this.customerListPopup = customerListPopup;
 		this.editMultipleSetting = editMultipleSetting;
 	}
 
-	init = () => {
+	public init = () => {
 		this.bidingEasyAutoComplete();
 
 		this.customerListDataTable.initDataTable();
 
-		this.editMultipleSetting.bindingEditMultipleEvent();
+		this.editMultipleSetting.bindingEvent();
 
 		this.customerListPopup.bindingBootstrapModalEvent();
 	};
 
-	bidingEasyAutoComplete = () => this.$('#txt-username').easyAutocomplete({
-		url: phrase => `${memberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&DirectDownlines=true`,
+	private bidingEasyAutoComplete = () => this.$('#txt-username').easyAutocomplete({
+		url: phrase => `${this.viewModel.MemberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&DirectDownlines=true`,
 		getValue: 'UserName',
 		requestDelay: 200,
 		minCharNumber: 2,
@@ -51,13 +47,29 @@ class CustomerList {
 }
 
 $(function () {
+	const viewModel = new CustomerListViewModel(
+		parseInt($('#actorId').val()),
+		$('#actorName').val(),
+		parseInt($('#actorRoleId').val()),
+		parseInt($('#searchAccountId').val()),
+		$('#searchAccountName').val(),
+		parseInt($('#searchAccountRoleId').val()),
+		$('#downlineLevelName').val(),
+		JSON.parse($('#showEditMultiple').val()),
+		$('#breadcrumbLevelJson').val(),
+		$('#oldMainUrl').val(),
+		$('#reportsUrl').val(),
+		$('#memberInfoUrl').val(),
+		$('#accountInfoUrl').val()
+	);
+
 	const customerListPopup = new CustomerListPopup($, window.top),
-		customerListServices = new CustomerListServices($, customerListPopup),
+		customerListServices = new CustomerListServices($, viewModel),
 		editSingleSetting = new EditSingleSetting($, customerListPopup, customerListServices),
-		editMultipleSetting = new EditMultipleSetting($, customerListPopup, customerListServices, editSingleSetting),
+		editMultipleSetting = new EditMultipleSetting($, viewModel, customerListPopup, customerListServices, editSingleSetting),
 		editStatus = new EditStatus($, window.top, customerListServices, customerListPopup),
-		customerListDataTable = new CustomerListDataTable($, customerListPopup, customerListServices, editSingleSetting, editStatus),
-		customerList = new CustomerList($, editMultipleSetting, customerListPopup, customerListDataTable);
+		customerListDataTable = new CustomerListDataTable($, viewModel, customerListPopup, customerListServices, editSingleSetting, editStatus),
+		customerList = new CustomerList($, viewModel, editMultipleSetting, customerListPopup, customerListDataTable);
 
 	customerList.init();
 });

@@ -1,9 +1,8 @@
 ﻿class EditStatus {
-	$: JQueryStatic;
-	topWindow: any;
-	customerListServices: CustomerListServices;
-	customerListPopup: CustomerListPopup;
-	statusArray: any;
+	private $: JQueryStatic;
+	private topWindow: any;
+	private customerListServices: CustomerListServices;
+	private customerListPopup: CustomerListPopup;
 
 	constructor(
 		$: JQueryStatic,
@@ -16,17 +15,13 @@
 		this.customerListPopup = customerListPopup;
 	}
 
-	bindingEvent = () => this.$('.status-popup').click(event => this.openPopup(event));
+	public bindingEvent = () => this.$('.status-popup').click(event => this.openPopup(event));
 
 	private openPopup = event => this.customerListServices.getSettings(
 		this.$(event.currentTarget).data("custid"),
 		this.$(event.currentTarget).data("url"),
-		data => this.customerListPopup.openBootstrapModal(
-			event,
-			data.Status,
-			this.buildPopupHtml,
-			this.bindingEventOnPopup)
-	)
+		data => this.customerListPopup.openBootstrapModal(event, data.Status, this.buildPopupHtml, this.bindingEventOnPopup)
+	);
 
 	private buildPopupHtml = (statusArray, custId) => {
 		let html = ['<ul>'];
@@ -39,21 +34,12 @@
 		this.$('.modal-body').empty().append(html.join(''));
 	}
 
-	private bindingEventOnPopup = parentEvent => {
-		this.$('.edit-status-popup').click(event => {
-			const $target = this.$(event.currentTarget),
-				url = $target.data("url"),
-				params = $target.data("param"),
-				displayOrder = $target.data("displayorder"),
-				message = $target.data("message");
-
-			this.topWindow.bootboxConfirm(
-				message,
-				parentEvent.target,
-				() => this.customerListServices.updateCustomerStatus(parentEvent, url, params, displayOrder, this.updateCustomerStatusSuccess)
-			);
-		});
-	}
+	private bindingEventOnPopup = parentEvent => this.$('.edit-status-popup').click(event =>
+		this.topWindow.bootboxConfirm(
+			this.$(event.currentTarget).data("message"),
+			parentEvent.target,
+			() => this.customerListServices.updateCustomerStatus(event, parentEvent, this.updateCustomerStatusSuccess)
+		));
 
 	private updateCustomerStatusSuccess = (parentEvent, data, displayOrder) => {
 		if (data.IsSuccessful) {
