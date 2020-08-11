@@ -12,9 +12,9 @@
         {
         }
 
-        public string CustomerIds { get; set; } = "1176083, 33278659";
+        public string CustIds { get; set; }
 
-        public string Usernames { get; set; } = "master1, master1p1";
+        public string Usernames { get; set; }
 
         public override string SearchAccountName
         {
@@ -30,7 +30,7 @@
         {
             get
             {
-                var customerIds = CustomerIds.Split(',');
+                var customerIds = CustIds.Split(',');
 
                 return Converter.ToInt(customerIds[0]);
             }
@@ -38,7 +38,7 @@
 
         public override bool IsValid() => 
             base.IsValid() &&
-            !string.IsNullOrEmpty(CustomerIds) && 
+            !string.IsNullOrEmpty(CustIds) && 
             !string.IsNullOrEmpty(Usernames);
     }
 }

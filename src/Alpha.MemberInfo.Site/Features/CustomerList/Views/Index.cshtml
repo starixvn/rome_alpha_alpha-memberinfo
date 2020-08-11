@@ -2,7 +2,7 @@
 
 @{
 	Layout = "~/Views/Shared/_Layout.cshtml";
-	ViewBag.Title = "Master List";
+	ViewBag.Title = "Customer List";
 }
 
 @section Styles {
@@ -154,6 +154,9 @@
 <input type="hidden" id="reportsUrl" value='@MicroSites.ReportsUrl()'>
 <input type="hidden" id="memberInfoUrl" value='@MicroSites.MemberInfoUrl()'>
 <input type="hidden" id="accountInfoUrl" value='@MicroSites.AccountInfoUrl()'>
+<input type="hidden" id="arrayCustID" name="arrayCustID" value=''>
+<input type="hidden" id="arrayUserName" name="arrayUserName" value=''>
+<input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
 
 @section Scripts {
 	@StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
@@ -205,24 +208,4 @@
 	<th class="header desktop">
 		P Comm 3
 	</th>
-}
-
-@helper RenderMasterAgentComm(AgentListModel item)
-{
-	<td>@item.GroupA</td>
-	<td>@item.GroupB</td>
-	<td>@item.GroupC</td>
-	<td>@item.GroupD</td>
-	<td>@item.Discount1x2</td>
-	<td>@item.DiscountCS</td>
-}
-
-@helper RenderMemberComm(MemberListModel item)
-{
-	<td>@item.Discount</td>
-	<td>@item.Discount1x2</td>
-	<td>@item.DiscountCS</td>
-	<td>@item.PlayerDiscount</td>
-	<td>@item.PlayerDiscount1x2</td>
-	<td>@item.PlayerDiscountCS</td>
 }

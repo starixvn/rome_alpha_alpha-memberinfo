@@ -133,7 +133,7 @@
             => BuildCustomerStatus(message);
 
         public IEnumerable<ISettingItemMultipleViewModel> Handle(CustomerStatusMultipleQuery message)
-           => BuildCustomerStatusMultiple(message, message.CustomerIds, message.Usernames);
+           => BuildCustomerStatusMultiple(message, message.CustIds, message.Usernames);
 
         public Result Handle(CustomerNonProductStatusCommand message)
           => customerListService.UpdateCustomerStatus(

@@ -41,7 +41,7 @@
 
 		this.callAjax(
 			`${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerListData`,
-			'post',
+			'POST',
 			params,
 			data => {
 				this.$.unblockUI();
@@ -58,12 +58,11 @@
 		const $target = this.$(event.currentTarget),
 			action = $target.data("url"),
 			params = $target.data("param"),
-			displayOrder = $target.data("displayorder"),
-			message = $target.data("message");
+			displayOrder = $target.data("displayorder");
 
 		this.callAjax(
 			this.viewModel.MemberInfoUrl + 'CustomerList/' + action,
-			'post',
+			'POST',
 			params,
 			data => updateCustomerStatusSuccess(parentEvent, data, displayOrder))
 	}

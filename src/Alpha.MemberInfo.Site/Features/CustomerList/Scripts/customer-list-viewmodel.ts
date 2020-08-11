@@ -41,5 +41,11 @@
 		this.MemberInfoUrl = memberInfoUrl;
 		this.AccountInfoUrl = accountInfoUrl;
 	}
+}
 
+enum CustomerLevel {
+	Member = 1,
+	Agent,
+	Master,
+	Super
 }

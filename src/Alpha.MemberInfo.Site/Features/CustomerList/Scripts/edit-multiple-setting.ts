@@ -40,6 +40,12 @@
 			this.$('.edit-multiple').data("custid", custids[0]);
 			this.$('.edit-multiple').data("url", this.$(`#setting-${custids[0]}`).data('url'));
 
+			this.$('#arrayCustID').val(custids.join('^'));
+			this.$('#arrayUserName').val(usernames.join('^'));
+
+			//Synced Casino Array
+			//this.$('#arrayStatusRnCasino').val(custids.join('^'));
+
 			custids.length === 1 ?
 				this.editSingleSetting.openPopup(event) : 
 				this.customerListServices.getSettings(

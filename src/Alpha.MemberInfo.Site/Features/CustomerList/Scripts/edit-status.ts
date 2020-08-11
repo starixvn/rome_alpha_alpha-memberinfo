@@ -27,7 +27,10 @@
 		let html = ['<ul>'];
 		this.$.each(statusArray, (key, item) => {
 			if (item.Visible && item.ShowInCustomerList) {
-				html.push(`<li class="edit-status-popup" data-custid='${custId}' data-displayorder='${item.DisplayOrder}' data-url="${item.Url}" data-param='${item.JsonParams}' data-message='${item.ConfirmMessage}'><input type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
+				html.push(
+					`<li class="edit-status-popup" data-custid='${custId}' data-displayorder='${item.DisplayOrder}'` +
+					`data-url="${item.Url}" data-param='${item.JsonParams}' data-message='${item.ConfirmMessage}'>` +
+					`<input type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
 			}
 		});
 
@@ -38,8 +41,7 @@
 		this.topWindow.bootboxConfirm(
 			this.$(event.currentTarget).data("message"),
 			parentEvent.target,
-			() => this.customerListServices.updateCustomerStatus(event, parentEvent, this.updateCustomerStatusSuccess)
-		));
+			() => this.customerListServices.updateCustomerStatus(event, parentEvent, this.updateCustomerStatusSuccess)));
 
 	private updateCustomerStatusSuccess = (parentEvent, data, displayOrder) => {
 		if (data.IsSuccessful) {
@@ -48,9 +50,7 @@
 				this.$('.btn-submit').click();
 			}
 
-			setTimeout(() => {
-				this.$.unblockUI();
-			}, 1500);
+			setTimeout(() => this.$.unblockUI(), 1500);
 		}
 		else {
 			this.$.unblockUI();

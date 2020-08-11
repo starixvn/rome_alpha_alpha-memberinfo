@@ -28,6 +28,7 @@
 
 		this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
 		this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
+		this.topWindow.clearPopupSubtitle(true);
 	}
 
 	public bindingBootstrapModalEvent = () => {

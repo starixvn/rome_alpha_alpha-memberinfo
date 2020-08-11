@@ -68,7 +68,6 @@
 				"className": "",
 				"data": "RowNumber"
 			},
-
 			{
 				"className": "",
 				"data": null,
@@ -99,32 +98,32 @@
 			{
 				"className": "",
 				"data": null,
-				"render": item => item.RoleId == 1 ? item.Discount : item.GroupA
+				"render": item => item.RoleId == CustomerLevel.Member ? item.Discount : item.GroupA
 			},
 			{
 				"className": "",
 				"data": null,
-				"render": item => item.RoleId == 1 ? item.Discount1x2 : item.GroupB
+				"render": item => item.RoleId == CustomerLevel.Member ? item.Discount1x2 : item.GroupB
 			},
 			{
 				"className": "",
 				"data": null,
-				"render": item => item.RoleId == 1 ? item.DiscountCS : item.GroupC
+				"render": item => item.RoleId == CustomerLevel.Member ? item.DiscountCS : item.GroupC
 			},
 			{
 				"className": "",
 				"data": null,
-				"render": item => item.RoleId == 1 ? item.PlayerDiscount : item.GroupD
+				"render": item => item.RoleId == CustomerLevel.Member ? item.PlayerDiscount : item.GroupD
 			},
 			{
 				"className": "",
 				"data": null,
-				"render": item => item.RoleId == 1 ? item.PlayerDiscount1x2 : item.Discount1x2
+				"render": item => item.RoleId == CustomerLevel.Member ? item.PlayerDiscount1x2 : item.Discount1x2
 			},
 			{
 				"className": "",
 				"data": null,
-				"render": item => item.RoleId == 1 ? item.PlayerDiscountCS : item.DiscountCS
+				"render": item => item.RoleId == CustomerLevel.Member ? item.PlayerDiscountCS : item.DiscountCS
 			},
 			{
 				"className": "",
@@ -167,26 +166,34 @@
 		};
 
 		const viewDownlineLink = `${this.viewModel.MemberInfoUrl}CustomerList/${this.viewModel.DownlineLevelName}?${this.$.param(queryString)}&BreadcrumbLevelJson=${this.viewModel.BreadcrumbLevelJson}`;
-		return item.RoleId === 1 ? content : `<a href="${viewDownlineLink}">${content}</a>`;
+		return item.RoleId === CustomerLevel.Member ? content : `<a href="${viewDownlineLink}">${content}</a>`;
 	}
 
-	private renderEditColumn = item => {
-		const editPopupLink = `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerAllStatus?` +
-			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
-			`&UplineId=${this.viewModel.ActorId}&UplineName=${this.viewModel.ActorName}&UplineRoleId=${this.viewModel.ActorRoleId}`;
-		return `<div class='edit' id='setting-${item.CustId}' data-custid='${item.CustId}' data-url='${editPopupLink}'>Edit</div>`;
-	}
+	private renderEditColumn = item => `<div class='edit' id='setting-${item.CustId}' data-custid='${item.CustId}' data-url='${this.buildGetAllStatusLink(item)}'>Edit</div>`;
 
-	private renderStatusColumn = item => {
-		const statusPopupLink = `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerAllStatus?` +
-			`SearchAccountId=${item.CustId}&SearchAccountName=${item.Username}&SearchAccountRoleId=${item.RoleId}` +
-			`&UplineId=${this.viewModel.ActorId}&UplineName=${this.viewModel.ActorName}&UplineRoleId=${this.viewModel.ActorRoleId}`;
-		return `<div id='status-${item.CustId}' class='status-popup' data-custid='${item.CustId}' data-url='${statusPopupLink}'>${item.Status}</div>`;
+	private renderStatusColumn = item => `<div id='status-${item.CustId}' class='status-popup' data-custid='${item.CustId}' data-url='${this.buildGetAllStatusLink(item)}'>${item.Status}</div>`;
+
+	private buildGetAllStatusLink = item => {
+		const queryString = {
+			SearchAccountId: item.CustId,
+			SearchAccountName: item.Username,
+			SearchAccountRoleId: item.RoleId,
+			UplineId: this.viewModel.ActorId,
+			UplineName: this.viewModel.ActorName,
+			UplineRoleId: this.viewModel.ActorRoleId
+		};
+
+		return `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerAllStatus?${this.$.param(queryString)}`;
 	}
 
 	private renderStatementColumn = item => {
-		const actionName = item.RoleId === 1 ? "MemberStatement" : "SMAStatement";
-		const viewStatementLink = `${this.viewModel.ReportsUrl}Statement/${actionName}?CustID=${item.CustId}&CustName=${item.Username}&CustLevelId=${item.RoleId}`;
+		const queryString = {
+			CustId: item.CustId,
+			CustName: item.Username,
+			CustLevelId: item.RoleId
+		}, actionName = item.RoleId === CustomerLevel.Member ? 'MemberStatement' : 'SMAStatement';
+
+		const viewStatementLink = `${this.viewModel.ReportsUrl}Statement/${actionName}?${this.$.param(queryString)}`;
 		return `<a href='${viewStatementLink}'>View</a>`;
 	}
 
