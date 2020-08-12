@@ -7,9 +7,7 @@
     {
         public FetchDownlinesListRequesBase(IUser viewer) : base(viewer)
         {
-            //PageSize = 50;
-            //PageIndex = 1;
-            //DoubleComm = 2;
+            DoubleComm = 2;
         }
 
         public string Username { get; set; }

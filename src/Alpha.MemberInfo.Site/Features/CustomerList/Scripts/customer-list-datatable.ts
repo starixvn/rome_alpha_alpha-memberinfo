@@ -45,14 +45,20 @@
 				ordering: false,
 				paging: true,
 				pagingType: "input",
-				lengthMenu: [10, 50, 100, 500],
 				pageLength: this.viewModel.IsMobileView ? 50 : 500,
 				searching: false,
 				bInfo: false,
 				fixedHeader: true,
 				processing: true,
+				dom: '<"top"iflp<"clear">>rt<"bottom"ifp<"clear">>',
 				language: {
 					processing: '',
+					lengthMenu: 'Page Size <select>' +
+						'<option value="10">10</option>' +
+						'<option value="50">50</option>' +
+						'<option value="100">100</option>' +
+						'<option value="500">500</option>' +
+						'</select>',
 					oPaginate: {
 						sFirst: '<<',
 						sPrevious: '<',
