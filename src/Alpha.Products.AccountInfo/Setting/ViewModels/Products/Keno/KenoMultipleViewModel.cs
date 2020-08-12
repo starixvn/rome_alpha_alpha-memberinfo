@@ -12,6 +12,8 @@
 
         public override string Text => $"Edit Multiple {base.Text}";
 
+        public override string Icon => "icon-edit Enable";
+
         protected override string BaseAddress
             => OldMainUrl + "customersetting/kenosetting/kenosetting/" + 
             (SearchAccount.IsMember

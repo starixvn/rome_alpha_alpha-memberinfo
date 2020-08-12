@@ -12,6 +12,8 @@
 
         public override string Text => $"Edit Multiple {Request.GetResource("GoldDeluxeViewModelText")}";
 
+        public override string Icon => "icon-edit Enable";
+
         protected override string BaseAddress 
             => $"{OldMainUrl}GoldDeluxeSetting/GoldDeluxe/EditSettingMultiple";
 

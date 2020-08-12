@@ -30,5 +30,7 @@
                 return $"{OldMainUrl}_MemberInfo/PositionTaking/{useCase}.aspx";
             }
         }
+
+        public override string Icon => "icon-edit Enable";
     }
 }

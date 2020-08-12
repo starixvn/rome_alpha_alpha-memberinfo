@@ -3,7 +3,6 @@
 	private topWindow: any;
 	private $bootstrapContainer: JQuery;
 	private $bootstrapModalDialog: JQuery;
-	private $bootstrapModalContent: JQuery;
 
 	constructor($: JQueryStatic, topWindow: any) {
 		this.$ = $;
@@ -14,7 +13,6 @@
 	private cacheDom = () => {
 		this.$bootstrapContainer = this.$('#bootstrap-modal');
 		this.$bootstrapModalDialog = this.$('.modal-dialog');
-		this.$bootstrapModalContent = this.$('.modal-content');
 	}
 
 	public editPopupOnCustomerListOnclosing() {
@@ -31,31 +29,20 @@
 		this.topWindow.clearPopupSubtitle(true);
 	}
 
-	public bindingBootstrapModalEvent = () => {
-		this.$bootstrapModalContent.on('mouseleave', () => this.$bootstrapContainer.modal('hide'));
+	public openBootstrapModal = (event, data, buildPopupHtml, bindingPopupEvent) => {
+		buildPopupHtml(data, this.$(event.currentTarget).data("custid"));
+		bindingPopupEvent(event);
 
-		this.$bootstrapContainer.on('shown.bs.modal', () => {
-			const bodyHeight = this.$('body').height();
-			const height = this.$bootstrapModalDialog.height();
-			const width = this.$bootstrapModalDialog.width();
+		this.$bootstrapContainer
+			.css({ height: 'auto', width: 'auto', top: 0 })
+			.modal({ show: true, backdrop: false });
 
-			this.$bootstrapContainer.height(height);
-
-			if (bodyHeight - this.$bootstrapContainer.position().top < height) {
-				this.$bootstrapContainer.css({
-					top: bodyHeight - height,
-					height: height === 0 ? 'auto' : height,
-					width: width === 0 ? 'auto' : width
-				});
-			}
-		});
+		this.fixBootstrapDimension(event);
 	}
 
-	public openBootstrapModal = (event, data, buldPopupHtml, bindingSettingEvent) => {
-		buldPopupHtml(data, this.$(event.currentTarget).data("custid"));
-
+	private fixBootstrapDimension = event => {
 		const element = this.$(event.currentTarget),
-			left = this.$(element).offset().left + this.$(element).width() + 5,
+			left = this.$(element).offset().left + this.$(element).outerWidth(),
 			height = this.$bootstrapModalDialog.outerHeight(),
 			width = this.$bootstrapModalDialog.outerWidth(),
 			bodyHeight = this.$('body').height();
@@ -66,16 +53,6 @@
 			top = bodyHeight - height;
 		}
 
-		this.$bootstrapContainer.css({
-			top: top,
-			left: left,
-			height: height === 0 ? 'auto' : height,
-			width: width === 0 ? 'auto' : width
-		}).modal({
-			show: true,
-			backdrop: false
-		});
-
-		bindingSettingEvent(event);
+		this.$bootstrapContainer.css({top, left, height, width});
 	}
 }

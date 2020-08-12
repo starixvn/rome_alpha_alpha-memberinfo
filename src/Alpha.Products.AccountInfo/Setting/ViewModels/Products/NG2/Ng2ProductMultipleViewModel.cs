@@ -14,5 +14,7 @@
         }
 
         public override string Text => $"Edit Multiple {base.Text}";
+
+        public override string Icon => "icon-edit Enable";
     }
 }

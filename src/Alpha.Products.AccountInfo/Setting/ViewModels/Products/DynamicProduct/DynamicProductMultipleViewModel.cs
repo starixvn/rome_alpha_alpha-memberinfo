@@ -16,6 +16,8 @@
 
         public override string Text => $"Edit Multiple {base.Text}";
 
+        public override string Icon => "icon-edit Enable";
+
         protected override Dictionary<string, string> QueryStringParamaters
         {
             get

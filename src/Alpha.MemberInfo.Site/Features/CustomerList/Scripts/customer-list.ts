@@ -20,12 +20,8 @@
 
 	public init = () => {
 		this.bidingEasyAutoComplete();
-
 		this.customerListDataTable.initDataTable();
-
 		this.editMultipleSetting.bindingEvent();
-
-		this.customerListPopup.bindingBootstrapModalEvent();
 	};
 
 	private bidingEasyAutoComplete = () => this.$('#txt-username').easyAutocomplete({

@@ -10,5 +10,7 @@
         }
 
         public override string Text => $"Edit Multiple {Request.GetResource("RNGCasinoViewModelText")}";
+
+        public override string Icon => "icon-edit Enable";
     }
 }

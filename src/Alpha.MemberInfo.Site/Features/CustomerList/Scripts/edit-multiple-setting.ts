@@ -64,7 +64,7 @@
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
 			if (item.Visible) {
-				html.push(`<li class="edit-multiple-settings" data-url="${item.Url}">${item.Text}</li>`);
+				html.push(`<li class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
 			}
 		});
 

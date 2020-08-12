@@ -38,7 +38,7 @@
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
 			if (item.Visible) {
-				html.push(`<li class="edit-popup" data-url="${item.Url}">${item.Text}</li>`);
+				html.push(`<li class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
 			}
 		});
 

@@ -11,5 +11,7 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
         }
 
         public override string Text => $"Edit Multiple {Request.GetResource("Sportsbook2ViewModelText")}";
+
+        public override string Icon => "icon-edit Enable";
     }
 }

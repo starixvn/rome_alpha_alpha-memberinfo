@@ -43,6 +43,8 @@
             }
         }
 
+        public virtual string Icon => "icon-edit Enable";
+
         protected abstract string BaseAddress { get; }
 
         protected abstract Dictionary<string, string> QueryStringParamaters { get; }
