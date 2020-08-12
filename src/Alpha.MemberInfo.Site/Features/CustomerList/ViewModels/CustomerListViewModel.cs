@@ -18,7 +18,8 @@
 
         public CustomerListViewModel(
             CustomerListRequest request,
-            IEnumerable<CustInfo> breadcrumbLevel)
+            IEnumerable<CustInfo> breadcrumbLevel,
+            bool isMobile)
         {
             ActorId = request.ViewerId;
             ActorName = request.ViewerUsername;
@@ -42,6 +43,7 @@
             Status = request.Status;
             DoubleComm = request.DoubleComm;
             UnconfirmSetting = request.UnconfirmSetting;
+            IsMobileView = isMobile;
 
             DownlineLevelName = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel().DisplayName;
         }
@@ -72,6 +74,8 @@
         public string DownlineLevelName { get; }
 
         public string PageTitle { get; }
+
+        public bool IsMobileView { get; }
 
         public IEnumerable<CustInfo> BreadcrumbLevel { get; }
 

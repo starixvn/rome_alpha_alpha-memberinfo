@@ -45,6 +45,8 @@
 				ordering: false,
 				paging: true,
 				pagingType: "input",
+				lengthMenu: [10, 50, 100, 500],
+				pageLength: this.viewModel.IsMobileView ? 50 : 500,
 				searching: false,
 				bInfo: false,
 				fixedHeader: true,

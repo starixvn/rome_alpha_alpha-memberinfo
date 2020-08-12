@@ -109,6 +109,7 @@
 
         private static void RegisterServices(Container container)
         {
+            container.RegisterSingleton<BrowserHelper, BrowserHelperImpl>();
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();

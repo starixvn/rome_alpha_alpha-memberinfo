@@ -22,6 +22,7 @@
 		this.bidingEasyAutoComplete();
 		this.customerListDataTable.initDataTable();
 		this.editMultipleSetting.bindingEvent();
+		this.customerListPopup.bindingBootstrapModalEvent();
 	};
 
 	private bidingEasyAutoComplete = () => this.$('#txt-username').easyAutocomplete({
@@ -52,6 +53,7 @@ $(function () {
 		parseInt($('#searchAccountRoleId').val()),
 		$('#downlineLevelName').val(),
 		JSON.parse($('#showEditMultiple').val()),
+		JSON.parse($('#isMobileView').val()),
 		$('#breadcrumbLevelJson').val(),
 		$('#oldMainUrl').val(),
 		$('#reportsUrl').val(),

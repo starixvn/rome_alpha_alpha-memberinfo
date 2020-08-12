@@ -7,9 +7,9 @@
     {
         public FetchDownlinesListRequesBase(IUser viewer) : base(viewer)
         {
-            PageSize = 10;
-            PageIndex = 1;
-            DoubleComm = 2;
+            //PageSize = 50;
+            //PageIndex = 1;
+            //DoubleComm = 2;
         }
 
         public string Username { get; set; }
@@ -32,5 +32,7 @@
 
         public bool? Closed
             => Status.Equals(1) || Status.Equals(3)? (bool?)Status.Equals(3) : null;
+
+        public bool IsMobile { get; set; }
     }
 }

@@ -15,7 +15,7 @@
 		this.$bootstrapModalDialog = this.$('.modal-dialog');
 	}
 
-	public editPopupOnCustomerListOnclosing() {
+	private editPopupOnCustomerListOnclosing() {
 		//this.topWindow.editPopupOnCustomerList.close();
 	}
 
@@ -28,6 +28,8 @@
 		this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
 		this.topWindow.clearPopupSubtitle(true);
 	}
+
+	public bindingBootstrapModalEvent = () => this.$bootstrapContainer.on('mouseleave', () => this.$bootstrapContainer.modal('hide'));
 
 	public openBootstrapModal = (event, data, buildPopupHtml, bindingPopupEvent) => {
 		buildPopupHtml(data, this.$(event.currentTarget).data("custid"));

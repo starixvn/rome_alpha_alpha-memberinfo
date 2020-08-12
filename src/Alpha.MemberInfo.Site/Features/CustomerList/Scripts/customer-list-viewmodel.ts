@@ -7,6 +7,7 @@
 	SearchAccountRoleId: number;
 	DownlineLevelName: string;
 	ShowEditMultiple: boolean;
+	IsMobileView: boolean;
 	BreadcrumbLevelJson: string;
 	OldMainUrl: string;
 	ReportsUrl: string;
@@ -22,6 +23,7 @@
 		searchAccountRoleId: number,
 		downlineLevelName: string,
 		showEditMultiple: boolean,
+		isMobileView: boolean,
 		breadcrumbLevelJson: string,
 		oldMainUrl: string,
 		reportsUrl: string,
@@ -35,6 +37,7 @@
 		this.SearchAccountName = searchAccountName;
 		this.DownlineLevelName = downlineLevelName;
 		this.ShowEditMultiple = showEditMultiple;
+		this.IsMobileView = isMobileView;
 		this.BreadcrumbLevelJson = breadcrumbLevelJson;
 		this.OldMainUrl = oldMainUrl;
 		this.ReportsUrl = reportsUrl;

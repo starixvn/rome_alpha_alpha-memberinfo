@@ -16,6 +16,7 @@
     using Alpha.Products.Core.Shared;
     using Alpha.Products.Core.ViewModels;
     using Alpha.SecurityCode.Services;
+    using Alpha.Web.Helpers;
     using MediatR;
     using System.Collections.Generic;
     using System.Linq;
@@ -32,11 +33,13 @@
         private readonly GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel> settingViewModelFactory;
         private readonly GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel> statusViewModelFactory;
         private readonly SecurityCodeChecker securityCodeChecker;
+        private readonly BrowserHelper browserHelper;
 
         public MasterListHandler(
             CustomerListService customerListService,
-            SecurityCodeChecker securityCodeChecker)
-              : this(customerListService, null, null, null, securityCodeChecker)
+            SecurityCodeChecker securityCodeChecker,
+            BrowserHelper browserHelper)
+              : this(customerListService, null, null, null, securityCodeChecker, browserHelper)
         {
         }
 
@@ -45,7 +48,8 @@
     GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel> settingMultipleViewModelFactory,
     GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel> settingViewModelFactory,
     GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel> statusViewModelFactory,
-    SecurityCodeChecker securityCodeChecker)
+    SecurityCodeChecker securityCodeChecker,
+     BrowserHelper browserHelper)
         {
             this.customerListService = customerListService;
 
@@ -59,6 +63,7 @@
                  SimpleServiceLocator.GetService<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>();
 
             this.securityCodeChecker = securityCodeChecker;
+            this.browserHelper = browserHelper;
         }
 
         public CustomerListViewModel Handle(CustomerListRequest message)
@@ -81,7 +86,7 @@
 
             breadcrumbLevel.Add(new CustInfo(message.CustId, message.CustName, message.CustLevelId));
 
-            return new CustomerListViewModel(message, breadcrumbLevel);
+            return new CustomerListViewModel(message, breadcrumbLevel, browserHelper.IsMobile(isOnlyTablet: false));
         }
 
         public CustomerListDTO Handle(FetchDownlinesListRequest message)
