@@ -3,6 +3,7 @@
 	private topWindow: any;
 	private $bootstrapContainer: JQuery;
 	private $bootstrapModalDialog: JQuery;
+	private $bootstrapModalContent: JQuery;
 
 	constructor($: JQueryStatic, topWindow: any) {
 		this.$ = $;
@@ -13,6 +14,7 @@
 	private cacheDom = () => {
 		this.$bootstrapContainer = this.$('#bootstrap-modal');
 		this.$bootstrapModalDialog = this.$('.modal-dialog');
+		this.$bootstrapModalContent = this.$('.modal-content');
 	}
 
 	private editPopupOnCustomerListOnclosing() {
@@ -45,8 +47,8 @@
 	private fixBootstrapDimension = event => {
 		const element = this.$(event.currentTarget),
 			left = this.$(element).offset().left + this.$(element).outerWidth(),
-			height = this.$bootstrapModalDialog.outerHeight(),
-			width = this.$bootstrapModalDialog.outerWidth(),
+			height = this.$bootstrapModalContent.outerHeight(),
+			width = this.$bootstrapModalContent.outerWidth(),
 			bodyHeight = this.$('body').height();
 
 		let top = this.$(element).offset().top;
@@ -55,6 +57,7 @@
 			top = bodyHeight - height;
 		}
 
-		this.$bootstrapContainer.css({top, left, height, width});
+		this.$bootstrapContainer.css({ top, left, height, width });
+		this.$bootstrapModalDialog.css({ width: 'inherit' });
 	}
 }

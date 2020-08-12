@@ -65,3 +65,32 @@ ol {
 	max-width: 700px;
 	margin: 0px;
 }
+
+.form-group {
+	margin-right:25px !important;
+
+	label {
+		font-size: 13px;
+		color: #333;
+	}
+}
+
+.txt-search {
+	font-style: italic;	
+}
+
+.left{
+text-align: left;	
+}
+
+.right {
+	text-align: right;
+}
+
+a, a:hover, a:focus {
+	color: #337ab7 !important;
+}
+
+.icon-table-edit{
+	font-size: 18px;
+}

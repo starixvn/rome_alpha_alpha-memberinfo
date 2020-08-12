@@ -73,77 +73,76 @@
 	private buildDataTableColumns = () => {
 		let columns = [
 			{
-				"className": "",
+				"className": 'center',
 				"data": "RowNumber"
 			},
 			{
-				"className": "",
+				"className": 'left',
 				"data": null,
 				"render": item => this.renderUsernameColumn(item)
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": item => this.renderStatusColumn(item)
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": null,
 				"render": item => this.renderEditColumn(item)
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": null,
 				"render": item => this.renderStatementColumn(item)
 			},
 			{
-				"className": "",
+				"className": 'left',
 				"data": "FirstName"
 			},
 			{
-				"className": "",
+				"className": 'left',
 				"data": "LastName"
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": null,
 				"render": item => item.RoleId == CustomerLevel.Member ? item.Discount : item.GroupA
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": null,
 				"render": item => item.RoleId == CustomerLevel.Member ? item.Discount1x2 : item.GroupB
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": null,
 				"render": item => item.RoleId == CustomerLevel.Member ? item.DiscountCS : item.GroupC
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": null,
 				"render": item => item.RoleId == CustomerLevel.Member ? item.PlayerDiscount : item.GroupD
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": null,
 				"render": item => item.RoleId == CustomerLevel.Member ? item.PlayerDiscount1x2 : item.Discount1x2
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": null,
 				"render": item => item.RoleId == CustomerLevel.Member ? item.PlayerDiscountCS : item.DiscountCS
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": "CreateDate"
 			},
 			{
-				"className": "",
+				"className": 'center',
 				"data": null,
 				"render": item => `<div class='login-ip' data-url='${`${this.viewModel.OldMainUrl}_IPInfo/IPInfo.aspx?ip=${item.LastLoginIP}`}'>${item.LastLoginIP}</div>`
 			},
 			{
-				"className": "",
 				"data": null,
 				"render": () => ''
 			}
@@ -151,7 +150,7 @@
 
 		if (this.viewModel.ShowEditMultiple) {
 			const editMultipleColumn = {
-				"className": "",
+				"className": 'center',
 				"data": null,
 				"render": item => `<input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/>`
 			};
@@ -177,7 +176,7 @@
 		return item.RoleId === CustomerLevel.Member ? content : `<a href="${viewDownlineLink}">${content}</a>`;
 	}
 
-	private renderEditColumn = item => `<div class='edit' id='setting-${item.CustId}' data-custid='${item.CustId}' data-url='${this.buildGetAllStatusLink(item)}'>Edit</div>`;
+	private renderEditColumn = item => `<div class='edit icon-table-edit' id='setting-${item.CustId}' data-custid='${item.CustId}' data-url='${this.buildGetAllStatusLink(item)}' />`;
 
 	private renderStatusColumn = item => `<div id='status-${item.CustId}' class='status-popup' data-custid='${item.CustId}' data-url='${this.buildGetAllStatusLink(item)}'>${item.Status}</div>`;
 
