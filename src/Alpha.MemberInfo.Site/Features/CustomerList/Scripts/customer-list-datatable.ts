@@ -158,7 +158,7 @@
 			{
 				"className": 'center',
 				"data": null,
-				"render": item => `<div class='login-ip' data-url='${`${this.viewModel.OldMainUrl}_IPInfo/IPInfo.aspx?ip=${item.LastLoginIP}`}'>${item.LastLoginIP}</div>`
+				"render": item => this.renderLoginIP(item)
 			},
 			{
 				"data": null,
@@ -194,21 +194,26 @@
 		return item.RoleId === CustomerLevel.Member ? content : `<a href="${viewDownlineLink}">${content}</a>`;
 	}
 
-	private renderEditColumn = item => `<div class='edit icon-table-edit' id='setting-${item.CustId}' data-custid='${item.CustId}' data-url='${this.buildGetAllStatusLink(item)}' />`;
-
-	private renderStatusColumn = item => `<a class='status-popup' id='status-${item.CustId}' data-custid='${item.CustId}' data-url='${this.buildGetAllStatusLink(item)}'> <span>${item.Status}</span><span class='icon-menu-down'/></a>`;
-
-	private buildGetAllStatusLink = item => {
-		const queryString = {
-			SearchAccountId: item.CustId,
-			SearchAccountName: item.Username,
-			SearchAccountRoleId: item.RoleId,
-			UplineId: this.viewModel.ActorId,
-			UplineName: this.viewModel.ActorName,
-			UplineRoleId: this.viewModel.ActorRoleId
+	private renderEditColumn = item => {
+		const attrs = {
+			'class': 'edit icon-table-edit',
+			'id': `setting-${item.CustId}`,
+			'data-custid': item.CustId,
+			'data-url': this.buildGetAllStatusLink(item)
 		};
 
-		return `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerAllStatus?${this.$.param(queryString)}`;
+		return `<div ${this.buildAttributes(attrs)}/>`;
+	}
+
+	private renderStatusColumn = item => {
+		const attrs = {
+			'class': 'status-popup',
+			'id': `status-${item.CustId}`,
+			'data-custid': item.CustId,
+			'data-url': this.buildGetAllStatusLink(item)
+		};
+
+		return `<a ${this.buildAttributes(attrs)}><span>${item.Status}</span><span class='icon-menu-down'/></a>`;
 	}
 
 	private renderStatementColumn = item => {
@@ -220,6 +225,19 @@
 
 		const viewStatementLink = `${this.viewModel.ReportsUrl}Statement/${actionName}?${this.$.param(queryString)}`;
 		return `<a href='${viewStatementLink}'>View</a>`;
+	}
+
+	private renderLoginIP = item => {
+		if (item.LastLoginIP === '' || item.LastLoginIP === null) {
+			return '---';
+		}
+
+		const attrs = {
+			'class': 'login-ip',
+			'data-url': `${this.viewModel.OldMainUrl}_IPInfo/IPInfo.aspx?ip=${item.LastLoginIP}`
+		};
+
+		return `<a ${this.buildAttributes(attrs)}>${item.LastLoginIP}</a>`
 	}
 
 	private renderDetailColumn = (api, rowIdx) => {
@@ -285,4 +303,23 @@
 
 		this.editStatus.bindingEvent();
 	}
+
+	private buildGetAllStatusLink = item => {
+		const queryString = {
+			SearchAccountId: item.CustId,
+			SearchAccountName: item.Username,
+			SearchAccountRoleId: item.RoleId,
+			UplineId: this.viewModel.ActorId,
+			UplineName: this.viewModel.ActorName,
+			UplineRoleId: this.viewModel.ActorRoleId
+		};
+
+		return `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerAllStatus?${this.$.param(queryString)}`;
+	}
+
+	private buildAttributes = attrs => {
+		return this.$.map(attrs, (key, value) => {
+			return `${value}='${key}'`;
+		}).join(' ');
+	};
 }
