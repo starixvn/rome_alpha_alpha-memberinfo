@@ -18,7 +18,10 @@
 		this.editSingleSetting = editSingleSetting;
 	}
 
-	public bindingEvent = () => this.$('.edit-multiple').click(event => this.openPopup(event));
+	public bindingEvent = () => {
+		//private selectAll = event => this.$('tbody .checkbox').prop('checked', this.$(event.currentTarget).prop("checked"));
+		this.$('.edit-multiple').click(event => this.openPopup(event));
+	}
 
 	private openPopup = event => {
 		let usernames = [], custids = [];

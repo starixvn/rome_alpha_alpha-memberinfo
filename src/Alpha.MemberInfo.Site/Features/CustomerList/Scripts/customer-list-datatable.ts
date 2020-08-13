@@ -22,6 +22,20 @@
 		this.editStatus = editStatus;
 	}
 
+	private getRowClass = (data) => {
+		if (!data.Enabled) {
+			return statusClasses.Disabled.Css;
+		}
+		else if (data.Closed) {
+			return statusClasses.Closed.filter(closedReason => data.ClosedReason === closedReason.Id)[0].Css;
+		}
+		else if (data.Suspended) {
+			return statusClasses.Suspended.Css;
+		}
+
+		return data.Enabled.Css;
+	}
+
 	public initDataTable = () => {
 		this.$table = this.$('#customer-list').on('processing.dt',
 			(e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
@@ -29,6 +43,9 @@
 				serverSide: true,
 				ajax: (data, callback) => this.customerListServices.getCutomerList(data, callback),
 				columns: this.buildDataTableColumns(),
+				createdRow: (row, data, dataIndex) => {
+					this.$(row).removeClass('odd even').addClass(this.getRowClass(data));
+				},
 				responsive: {
 					details: {
 						type: 'column',
@@ -42,6 +59,7 @@
 					orderable: false,
 					targets: -1
 				}],
+				stripeClasses: [],
 				ordering: false,
 				paging: true,
 				pagingType: "input",

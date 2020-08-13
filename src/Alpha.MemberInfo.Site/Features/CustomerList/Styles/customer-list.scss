@@ -1,7 +1,9 @@
-﻿.dataTables_length
-{
-	label{
-		float:right;	
+﻿.dataTables_length {
+	label {
+		font-size: 13px !important;
+		color: #333 !important;
+		float: right;
+		margin-right: 5px;
 	}
 }
 
@@ -15,7 +17,7 @@
 }
 
 .easy-autocomplete {
-	display: inline-block;	
+	display: inline-block;
 }
 
 input[type=checkbox] {
@@ -67,7 +69,7 @@ ol {
 }
 
 .form-group {
-	margin-right:25px !important;
+	margin-right: 25px !important;
 
 	label {
 		font-size: 13px;
@@ -76,11 +78,11 @@ ol {
 }
 
 .txt-search {
-	font-style: italic;	
+	font-style: italic;
 }
 
-.left{
-text-align: left;	
+.left {
+	text-align: left;
 }
 
 .right {
@@ -91,6 +93,30 @@ a, a:hover, a:focus {
 	color: #337ab7 !important;
 }
 
-.icon-table-edit{
+.icon-table-edit {
 	font-size: 18px;
+}
+
+.closed-wrongPwdOthers {
+	background-color: #ccc7ba !important;
+}
+
+.closed-byAdmin {
+	background-color: #b3a2c7 !important;
+}
+
+.closed-byUpline {
+	background-color: #f79646 !important;
+}
+
+.closed-wrongOTPSC {
+	background-color: #86c5e4 !important;
+}
+
+.RowBgSuspended {
+	background-color: #f8ded7 !important;
+}
+
+.RowBgDisabled {
+	background-color: #a0a97a !important;
 }

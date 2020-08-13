@@ -22,9 +22,9 @@
 		this.bidingEasyAutoComplete();
 		this.customerListDataTable.initDataTable();
 		this.editMultipleSetting.bindingEvent();
-		//this.customerListPopup.bindingBootstrapModalEvent();
+		this.customerListPopup.bindingBootstrapModalEvent();
 	};
-
+	
 	private bidingEasyAutoComplete = () => this.$('#txt-username').easyAutocomplete({
 		url: phrase => `${this.viewModel.MemberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&DirectDownlines=true`,
 		getValue: 'UserName',

@@ -52,3 +52,40 @@ enum CustomerLevel {
 	Master,
 	Super
 }
+
+const ClosedReason = {
+	ByOtherReason: 0,
+	ByAdmin: 1,
+	ByUpline: 2,
+	ByWrongOTPSC: 3
+};
+
+const statusClasses = {
+	Closed: [
+		{
+			Id: ClosedReason.ByOtherReason,
+			Css: 'closed-wrongPwdOthers'
+		},
+		{
+			Id: ClosedReason.ByAdmin,
+			Css: 'closed-byAdmin'
+		},
+		{
+			Id: ClosedReason.ByUpline,
+			Css: 'closed-byUpline'
+		},
+		{
+			Id: ClosedReason.ByWrongOTPSC,
+			Css: 'closed-wrongOTPSC'
+		}
+	],
+	Suspended: {
+		Css: 'RowBgSuspended'
+	},
+	Disabled: {
+		Css: 'RowBgDisabled'
+	},
+	Enabled: {
+		Css: 'enabled'
+	}
+};
