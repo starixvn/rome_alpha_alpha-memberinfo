@@ -45,12 +45,12 @@
 	private fixBootstrapDimension = event => {
 		this.$bootstrapModalDialog.css({ width: 'inherit' });
 		const element = this.$(event.currentTarget),
-			left = this.$(element).position().left + this.$(element).outerWidth(),
+			left = this.$(element).offset().left + this.$(element).width(),
 			height = this.$bootstrapModalDialog.outerHeight(),
 			width = this.$bootstrapModalDialog.outerWidth(),
 			bodyHeight = this.$('body').height();
 
-		let top = this.$(element).position().top - this.$(document).scrollTop();
+		let top = this.$(element).offset().top - this.$(document).scrollTop();
 
 		if (bodyHeight - top < height) {
 			top = bodyHeight - height;

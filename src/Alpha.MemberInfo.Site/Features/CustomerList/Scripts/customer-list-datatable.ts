@@ -196,7 +196,7 @@
 
 	private renderEditColumn = item => `<div class='edit icon-table-edit' id='setting-${item.CustId}' data-custid='${item.CustId}' data-url='${this.buildGetAllStatusLink(item)}' />`;
 
-	private renderStatusColumn = item => `<div id='status-${item.CustId}' class='status-popup' data-custid='${item.CustId}' data-url='${this.buildGetAllStatusLink(item)}'>${item.Status}</div>`;
+	private renderStatusColumn = item => `<a class='status-popup' id='status-${item.CustId}' data-custid='${item.CustId}' data-url='${this.buildGetAllStatusLink(item)}'> <span>${item.Status}</span><span class='icon-menu-down'/></a>`;
 
 	private buildGetAllStatusLink = item => {
 		const queryString = {
