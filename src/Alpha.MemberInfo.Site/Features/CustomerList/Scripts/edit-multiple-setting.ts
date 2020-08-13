@@ -19,8 +19,17 @@
 	}
 
 	public bindingEvent = () => {
-		//private selectAll = event => this.$('tbody .checkbox').prop('checked', this.$(event.currentTarget).prop("checked"));
+		this.$("div.top").prepend('<div class="select-all">Select <a class="check-all">All</a>|<a class="uncheck-all">None</a></div>');
+
 		this.$('.edit-multiple').click(event => this.openPopup(event));
+
+		this.$('.check-all').click(() => {
+			this.$('tbody .checkbox').prop('checked', true);
+		});
+
+		this.$('.uncheck-all').click(() => {
+			this.$('tbody .checkbox').prop('checked', false);
+		});
 	}
 
 	private openPopup = event => {
