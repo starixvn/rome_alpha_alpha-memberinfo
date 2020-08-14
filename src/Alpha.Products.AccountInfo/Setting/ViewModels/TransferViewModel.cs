@@ -14,7 +14,7 @@
         protected override string BaseAddress 
             => $"{OldMainUrl}_MemberInfo/TransferCondition/EditTransferCondition.aspx";
 
-        protected override Dictionary<string, string> QueryStringParamaters
+        public override Dictionary<string, string> QueryStringParamaters
           => new Dictionary<string, string>
           {
               ["custId"] = SearchAccount.Id.ToString(),

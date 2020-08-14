@@ -20,7 +20,7 @@
             ? $"{Actor.CustomerLevel.DisplayName}EditMember"
             : $"Edit{SearchAccount.CustomerLevel.DisplayName}");
 
-        protected override Dictionary<string, string> QueryStringParamaters
+        public Dictionary<string, string> QueryStringParamaters
          => new Dictionary<string, string>
          {
              ["custId"] = SearchAccount.Id.ToString(),

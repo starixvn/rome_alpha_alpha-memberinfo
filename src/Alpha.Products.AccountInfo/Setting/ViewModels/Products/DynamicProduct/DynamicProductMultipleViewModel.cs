@@ -1,8 +1,8 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
 {
-    using System.Collections.Generic;
     using Alpha.Products.AccountInfo.Requests;
     using Base;
+    using System.Collections.Generic;
 
     /// <summary>
     ///     View model for all products use DCS
@@ -18,7 +18,7 @@
 
         public override string Icon => "icon-edit Enable";
 
-        protected override Dictionary<string, string> QueryStringParamaters
+        public Dictionary<string, string> QueryStringParamaters
         {
             get
             {
@@ -35,7 +35,8 @@
                     ["customerLevel"] = SearchAccount.CusomerLevelValue.ToString(),
                     ["subAccId"] = Actor.SubAccountId.ToString(),
                     ["formType"] = "1",
-                    ["isForcingMode"] = "false"
+                    ["isForcingMode"] = "false",
+                    ["language"] = "E"
                 };
 
                 if (SearchAccount.IsMember)

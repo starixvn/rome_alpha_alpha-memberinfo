@@ -15,18 +15,48 @@
 		this.$bootstrapModalDialog = this.$('.modal-dialog');
 	}
 
-	private editPopupOnCustomerListOnclosing() {
-		//this.topWindow.editPopupOnCustomerList.close();
-	}
+	//private editPopupOnCustomerListOnclosing() {
+	//	//this.topWindow.editPopupOnCustomerList.close();
+	//}
 
-	public openPopup = (url, width = 800, height = 600) => {
-		if (this.topWindow.editPopupOnCustomerList === null || this.topWindow.editPopupOnCustomerList === undefined) {
-			this.topWindow.editPopupOnCustomerList = this.topWindow.ageWnd.createInstance();
+	//public openPopupPreUrl = (url, width = 800, height = 600) => {
+	//	this.topWindow.popupManager.open('', '', 880, null, null, null, null, null, null, {
+	//		preUrl: url
+	//	});
+	//}
+	//public openPopup = (url, width = 800, height = 600) => {
+	//	if (this.topWindow.editPopupOnCustomerList === null || this.topWindow.editPopupOnCustomerList === undefined) {
+	//		this.topWindow.editPopupOnCustomerList = this.topWindow.ageWnd.createInstance();
+	//	}
+
+	//	this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
+	//	this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
+	//	this.topWindow.clearPopupSubtitle(true);
+	//}
+
+	public openProductPopup = (event, method = 'get') => {
+		this.$('#myIframeForm').attr('action', this.$(event.currentTarget).data("url"));
+		this.$('#myIframeForm').attr('method', method);
+
+		const params = this.$(event.currentTarget).data("params");
+
+		this.$('#myIframeForm').empty();
+
+		if (params !== undefined && params !== null) {
+			const attrs = this.$.map(params, (key, value) => {
+				return `<input type="hidden"  name='${value}' id='${value}' value='${key}'/>`;
+			}).join(' ');
+
+			this.$('#myIframeForm').append(attrs);
 		}
 
-		this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
-		this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
-		this.topWindow.clearPopupSubtitle(true);
+		this.$('#myIframeForm').submit();
+
+		this.$('#myIframe').css({ width: '700px', height: '700px' });
+
+		this.$('#bootstrap-modal-product')
+			.css({ height: '750px', width: '710px', top: 10 })
+			.modal({ show: true, backdrop: false });
 	}
 
 	public bindingBootstrapModalEvent = () => this.$bootstrapContainer.on('mouseleave', () => this.$bootstrapContainer.modal('hide'));

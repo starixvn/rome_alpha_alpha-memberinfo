@@ -297,7 +297,7 @@
 
 		this.$('.btn-submit').click(() => this.$table.ajax.reload());
 
-		this.$('.login-ip').click(event => this.customerListPopup.openPopup(this.$(event.currentTarget).data("url"), 400, 600));
+		//this.$('.login-ip').click(event => this.customerListPopup.openPopup(this.$(event.currentTarget).data("url"), 400, 600));
 
 		this.editSingleSetting.bindingEvent();
 

@@ -13,7 +13,7 @@
 
         public override string Text => Request.GetProductName(ProductId);
 
-        protected override Dictionary<string, string> QueryStringParamaters
+        public override Dictionary<string, string> QueryStringParamaters
          => new Dictionary<string, string>
          {
              ["m"] = "0",

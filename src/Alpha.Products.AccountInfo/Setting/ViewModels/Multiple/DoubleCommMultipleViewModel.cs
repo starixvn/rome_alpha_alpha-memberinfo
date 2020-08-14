@@ -17,7 +17,9 @@
         protected override string BaseAddress 
             => $"{OldMainUrl}_AccountInfo/ComfirmMultiEditDoubleComm.aspx";
 
-        protected override Dictionary<string, string> QueryStringParamaters
+        public override Dictionary<string, string> QueryStringParamaters => new Dictionary<string, string>();
+
+        public Dictionary<string, string> QueryStringParamatersMultiple
             => new Dictionary<string, string>
             {
                 ["arCID"] = Request.GetData<string>("customerIds")

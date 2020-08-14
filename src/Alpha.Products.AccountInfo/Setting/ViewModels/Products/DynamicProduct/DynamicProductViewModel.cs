@@ -19,7 +19,9 @@
         protected override string BaseAddress 
             => $"{OldMainUrl}dcs/viewcustomersetting";
 
-        protected override Dictionary<string, string> QueryStringParamaters
+        public override string Url => BaseAddress;
+
+        public override Dictionary<string, string> QueryStringParamaters
         {
             get
             {

@@ -17,7 +17,7 @@
         protected override string BaseAddress 
             => OldMainUrl + (Request.SearchAccount.IsMember ? EditMemberCommisionUrl : EditCommissionUrl);
 
-        protected override Dictionary<string, string> QueryStringParamaters
+        public override Dictionary<string, string> QueryStringParamaters
         {
             get
             {

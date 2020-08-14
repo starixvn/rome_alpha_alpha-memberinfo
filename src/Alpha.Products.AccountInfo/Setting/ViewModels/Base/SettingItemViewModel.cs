@@ -45,9 +45,9 @@
 
         public virtual string Icon => "icon-edit Enable";
 
-        protected abstract string BaseAddress { get; }
+        public abstract Dictionary<string, string> QueryStringParamaters { get; }
 
-        protected abstract Dictionary<string, string> QueryStringParamaters { get; }
+        protected abstract string BaseAddress { get; }
 
         protected virtual string OldMainUrl => Request.GetMicroSiteUrl(MicroSiteConstants.OldMain,"~/");
 

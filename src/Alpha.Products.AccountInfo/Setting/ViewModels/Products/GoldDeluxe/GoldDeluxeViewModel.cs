@@ -14,7 +14,7 @@
         protected override string BaseAddress 
             => $"{OldMainUrl}GoldDeluxeSetting/GoldDeluxe/EditSetting";
 
-        protected override Dictionary<string, string> QueryStringParamaters
+        public override Dictionary<string, string> QueryStringParamaters
             => new Dictionary<string, string>
             {
                 ["uplineId"] = Actor.Id.ToString(),

@@ -1,4 +1,18 @@
-﻿.select-all {
+﻿.modal-header {
+	border-bottom: 1px solid #e5e5e5 !important;
+
+	h5 {
+		display: inline-block !important;
+		border-bottom: none !important;
+	}
+
+	button {
+		display: inline-block !important;
+		margin-top: 8px !important;
+	}
+}
+
+.select-all {
 	display: inline-block;
 	float: left;
 	position: relative;
@@ -7,7 +21,7 @@
 	a {
 		font-weight: bold;
 		color: #333;
-		margin-left:5px;
+		margin-left: 5px;
 	}
 }
 

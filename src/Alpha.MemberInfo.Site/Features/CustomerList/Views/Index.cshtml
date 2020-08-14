@@ -82,7 +82,7 @@
 				@if (!Model.HideEditMultiple)
 				{
 					<th rowspan="2" class="header">
-						<div class="edit-multiple icon-view-grid" data-url=""/>
+						<div class="edit-multiple icon-view-grid" data-url="" />
 					</th>
 				}
 				<th rowspan="2" class="header">
@@ -134,6 +134,27 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-body">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<form target="myIframe" action="" method="" id="myIframeForm">
+		<input type="hidden" value="someval" />
+		<input type="submit">
+	</form>
+
+	<div class="modal modal-sm fade" id="bootstrap-modal-product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body-product">
+					<iFrame src="" name="myIframe" id="myIframe"></iFrame>
 				</div>
 			</div>
 		</div>

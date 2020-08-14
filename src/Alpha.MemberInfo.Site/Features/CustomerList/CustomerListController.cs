@@ -27,6 +27,7 @@
         public ActionResult GetCustomerAllStatus(CustomerStatusQuery message)
            => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
 
+        [HttpPost]
         public ActionResult MultipleEditPopup(CustomerStatusMultipleQuery message)
           => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
 

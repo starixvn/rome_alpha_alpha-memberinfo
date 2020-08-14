@@ -14,7 +14,7 @@
         protected override string BaseAddress
             => $"{OldMainUrl}_MemberInfo/PositionTaking/{Actor.CustomerLevel.DisplayName}/EditMinPT{SearchAccount.CustomerLevel.DisplayName}.aspx";
 
-        protected override Dictionary<string, string> QueryStringParamaters
+        public override Dictionary<string, string> QueryStringParamaters
             => new Dictionary<string, string>
             {
                 ["custId"] = SearchAccount.Id.ToString(),

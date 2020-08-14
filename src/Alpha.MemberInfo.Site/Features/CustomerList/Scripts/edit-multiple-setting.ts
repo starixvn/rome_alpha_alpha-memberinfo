@@ -59,15 +59,17 @@
 			//this.$('#arrayStatusRnCasino').val(custids.join('^'));
 
 			custids.length === 1 ?
-				this.editSingleSetting.openPopup(event) : 
+				this.editSingleSetting.openPopup(event) :
 				this.customerListServices.getSettings(
 					custids[0],
-					`${this.viewModel.MemberInfoUrl}CustomerList/MultipleEditPopup?${this.$.param(params)}`,
+					`${this.viewModel.MemberInfoUrl}CustomerList/MultipleEditPopup`,
 					data => this.customerListPopup.openBootstrapModal(
 						event,
 						data,
 						this.buildPopupHtml,
 						this.bindingEventOnPopup),
+					'POST',
+					params,
 					false);
 		}
 	}
@@ -76,12 +78,12 @@
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
 			if (item.Visible) {
-				html.push(`<li class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+				html.push(`<li data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
 			}
 		});
 
 		this.$('.modal-body').empty().append(html.join(''));
 	}
 
-	private bindingEventOnPopup = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openPopup(this.$(event.currentTarget).data("url"), 800, 600));
+	private bindingEventOnPopup = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openProductPopup(event, 'post'))
 }

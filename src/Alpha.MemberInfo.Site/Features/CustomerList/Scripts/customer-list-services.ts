@@ -9,7 +9,7 @@
 		this.statusSettingArray = []
 	}
 
-	private callAjax = (url, type, params, onSuccess) => {
+	public callAjax = (url, type, params, onSuccess) => {
 		this.$.blockUI();
 		this.$.ajax({
 			url: url,
@@ -67,10 +67,10 @@
 			data => updateCustomerStatusSuccess(parentEvent, data, displayOrder))
 	}
 
-	public getSettings = (custId, url, callback, isStoreData = true) => this.callAjax(
+	public getSettings = (custId, url, callback, type = "GET", params = {}, isStoreData = true) => this.callAjax(
 		url,
-		'GET',
-		{},
+		type,
+		params,
 		data => {
 			this.$.unblockUI();
 

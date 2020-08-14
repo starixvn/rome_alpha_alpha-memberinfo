@@ -12,7 +12,7 @@
 
         public override string Text => $"Edit Multiple {Request.GetProductName(ProductId)}";
 
-        protected override Dictionary<string, string> QueryStringParamaters
+        public Dictionary<string, string> QueryStringParamaters
         => new Dictionary<string, string>
         {
             ["m"] = "1",
