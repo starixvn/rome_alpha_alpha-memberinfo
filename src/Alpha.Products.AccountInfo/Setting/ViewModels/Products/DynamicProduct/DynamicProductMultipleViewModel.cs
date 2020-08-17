@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
 {
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.Core.Configuration;
     using Base;
     using System.Collections.Generic;
 
@@ -9,8 +10,8 @@
     /// </summary>
     public class DynamicProductMultipleViewModel : DynamicProductViewModel, ISettingItemMultipleViewModel
     {
-        public DynamicProductMultipleViewModel(ISearchAccountInfoRequest request, int productId)
-            : base(request, productId)
+        public DynamicProductMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
+            : base(request, productItem)
         {
         }
 

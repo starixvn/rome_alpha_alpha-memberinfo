@@ -9,9 +9,12 @@ namespace Alpha.MemberInfo.Site.Features.Shared.Helpers
     public class ProductJsonConverter : IProductJsonConverter
     {
         public IDictionary<string, string> ToProductConfig(string productJson)
-            => JObject.Parse(productJson)
+        {
+
+            return JObject.Parse(productJson)
             .Properties()
             .ToDictionary(jproperty => jproperty.Name, jproperty => jproperty.Value.ToString());
+        }
 
         public IList<string> ToProductConfigs(string productConfigJson)
             => JObject.Parse(productConfigJson)["products"]

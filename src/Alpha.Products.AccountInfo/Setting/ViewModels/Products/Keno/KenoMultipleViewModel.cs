@@ -2,11 +2,13 @@
 {
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
+    using Alpha.Products.Core.Configuration;
     using System.Collections.Generic;
 
     public class KenoMultipleViewModel : KenoViewModel, ISettingItemMultipleViewModel
     {
-        public KenoMultipleViewModel(ISearchAccountInfoRequest request) : base(request)
+        public KenoMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+            : base(request, productItem)
         {
         }
 

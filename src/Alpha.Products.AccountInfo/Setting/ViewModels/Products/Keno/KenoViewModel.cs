@@ -1,13 +1,14 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
 {
-    using System.Collections.Generic;
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.Core.Configuration;
     using Base;
-    using static Alpha.Products.Core.Shared.ProductConstants;
+    using System.Collections.Generic;
 
     public class KenoViewModel : ProductSettingItemViewModel
     {
-        public KenoViewModel(ISearchAccountInfoRequest request) : base(request, Keno)
+        public KenoViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+            : base(request, productItem)
         {
         }
 

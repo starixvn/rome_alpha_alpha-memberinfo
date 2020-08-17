@@ -1,12 +1,10 @@
 ﻿class CustomerListPopup {
 	private $: JQueryStatic;
-	private topWindow: any;
 	private $bootstrapContainer: JQuery;
 	private $bootstrapModalDialog: JQuery;
 
-	constructor($: JQueryStatic, topWindow: any) {
+	constructor($: JQueryStatic) {
 		this.$ = $;
-		this.topWindow = topWindow;
 		this.cacheDom();
 	}
 
@@ -15,26 +13,10 @@
 		this.$bootstrapModalDialog = this.$('.modal-dialog');
 	}
 
-	//private editPopupOnCustomerListOnclosing() {
-	//	//this.topWindow.editPopupOnCustomerList.close();
-	//}
-
-	//public openPopupPreUrl = (url, width = 800, height = 600) => {
-	//	this.topWindow.popupManager.open('', '', 880, null, null, null, null, null, null, {
-	//		preUrl: url
-	//	});
-	//}
-	//public openPopup = (url, width = 800, height = 600) => {
-	//	if (this.topWindow.editPopupOnCustomerList === null || this.topWindow.editPopupOnCustomerList === undefined) {
-	//		this.topWindow.editPopupOnCustomerList = this.topWindow.ageWnd.createInstance();
-	//	}
-
-	//	this.topWindow.editPopupOnCustomerList.onClosing = this.editPopupOnCustomerListOnclosing;
-	//	this.topWindow.popupManager.openWithHanlder(this.topWindow.editPopupOnCustomerList, url, '', width, height);
-	//	this.topWindow.clearPopupSubtitle(true);
-	//}
-
 	public openProductPopup = (event, method = 'get') => {
+		this.$.blockUI();
+
+		this.$('#myIframe').attr('src', '');
 		this.$('#myIframeForm').attr('action', this.$(event.currentTarget).data("url"));
 		this.$('#myIframeForm').attr('method', method);
 
@@ -43,23 +25,37 @@
 		this.$('#myIframeForm').empty();
 
 		if (params !== undefined && params !== null) {
-			const attrs = this.$.map(params, (key, value) => {
-				return `<input type="hidden"  name='${value}' id='${value}' value='${key}'/>`;
-			}).join(' ');
+			const attrs = this.$.map(params, (value, key) => `<input type="hidden"  name='${key}' id='${key}' value='${value}'/>`).join(' ');
 
 			this.$('#myIframeForm').append(attrs);
 		}
 
 		this.$('#myIframeForm').submit();
 
-		this.$('#myIframe').css({ width: '700px', height: '700px' });
+		const width = this.$(event.currentTarget).data("width"),
+			height = this.$(event.currentTarget).data("height");
 
+		this.$('#myIframe').css({ width: `${width}px`, height: `${height}px` });
+
+		this.$('#bootstrap-modal-product .modal-title').text(this.$(event.currentTarget).data("title"));
 		this.$('#bootstrap-modal-product')
 			.css({ height: '750px', width: '710px', top: 10 })
 			.modal({ show: true, backdrop: false });
+
+		setTimeout(() => {
+			this.$('#myIframe').contents().find('.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr').css('display', 'none');
+		}, 500);
+	
+		this.$.unblockUI();
 	}
 
-	public bindingBootstrapModalEvent = () => this.$bootstrapContainer.on('mouseleave', () => this.$bootstrapContainer.modal('hide'));
+	public bindingBootstrapModalEvent = () => {
+		this.$bootstrapContainer.on('mouseleave', () => this.$bootstrapContainer.modal('hide'));
+
+		this.$("#bootstrap-modal-product").on("hidden.bs.modal",  () => {
+			this.$('#myIframe').attr('src', 'about:blank');
+		});
+	}
 
 	public openBootstrapModal = (event, data, buildPopupHtml, bindingPopupEvent) => {
 		buildPopupHtml(data, this.$(event.currentTarget).data("custid"));

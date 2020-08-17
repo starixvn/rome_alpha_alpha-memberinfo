@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.Core.Configuration;
     using Base;
 
     /// <summary>
@@ -9,8 +10,8 @@
     /// </summary>
     public class DynamicProductViewModel : ProductSettingItemViewModel
     {
-        public DynamicProductViewModel(ISearchAccountInfoRequest request, int productId)
-            : base(request, productId)
+        public DynamicProductViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
+            : base(request, productItem)
         {
         }
 
@@ -18,8 +19,6 @@
 
         protected override string BaseAddress 
             => $"{OldMainUrl}dcs/viewcustomersetting";
-
-        public override string Url => BaseAddress;
 
         public override Dictionary<string, string> QueryStringParamaters
         {

@@ -61,7 +61,7 @@ $(function () {
 		$('#accountInfoUrl').val()
 	);
 
-	const customerListPopup = new CustomerListPopup($, window.top),
+	const customerListPopup = new CustomerListPopup($),
 		customerListServices = new CustomerListServices($, viewModel),
 		editSingleSetting = new EditSingleSetting($, customerListPopup, customerListServices),
 		editMultipleSetting = new EditMultipleSetting($, viewModel, customerListPopup, customerListServices, editSingleSetting),

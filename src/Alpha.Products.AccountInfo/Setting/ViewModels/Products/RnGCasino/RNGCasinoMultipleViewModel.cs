@@ -2,11 +2,13 @@
 {
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
+    using Alpha.Products.Core.Configuration;
     using System.Collections.Generic;
 
     public class RNGCasinoMultipleViewModel : RNGCasinoViewModel, ISettingItemMultipleViewModel
     {
-        public RNGCasinoMultipleViewModel(ISearchAccountInfoRequest request) : base(request)
+        public RNGCasinoMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+            : base(request, productItem)
         {
         }
 

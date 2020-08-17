@@ -1,22 +1,28 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting.ViewModels.Base
 {
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.Core.Configuration;
 
     public abstract class ProductSettingItemViewModel : SettingItemViewModel
     {
         private const int MaxSettingTypesOfAProduct = 5;
         protected readonly ISearchAccountInfoRequest Request;
+        protected readonly IConfigurationItem productItem;
 
-        protected ProductSettingItemViewModel(ISearchAccountInfoRequest request, int productId)
-            : base(request, productId * MaxSettingTypesOfAProduct)
+        protected ProductSettingItemViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
+            : base(request, productItem.ProductId * MaxSettingTypesOfAProduct)
         {
-            ProductId = productId;
+            this.productItem = productItem;
             Request = request;
         }
 
-        internal int ProductId { get; }
+        internal int ProductId => productItem.ProductId;
 
         public override bool Visible => Actor.IsNotSuper || SearchAccount.IsNotAgent;
+
+        public virtual int Width => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Width;
+
+        public virtual int Height => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Height;
 
         public override string Icon
         {

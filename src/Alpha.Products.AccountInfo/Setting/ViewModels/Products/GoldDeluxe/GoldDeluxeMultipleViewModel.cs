@@ -2,11 +2,13 @@
 {
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
+    using Alpha.Products.Core.Configuration;
     using System.Collections.Generic;
 
     public class GoldDeluxeMultipleViewModel : GoldDeluxeViewModel, ISettingItemMultipleViewModel
     {
-        public GoldDeluxeMultipleViewModel(ISearchAccountInfoRequest request) : base(request)
+        public GoldDeluxeMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+            : base(request, productItem)
         {
         }
 

@@ -2,12 +2,14 @@
 {
     using System.Collections.Generic;
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.Core.Configuration;
     using Base;
     using static Alpha.Products.Core.Shared.ProductConstants;
 
     public class RNGCasinoViewModel : ProductSettingItemViewModel
     {
-        public RNGCasinoViewModel(ISearchAccountInfoRequest request) : base(request, RNGCasino)
+        public RNGCasinoViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+            : base(request, productItem)
         {
         }
 

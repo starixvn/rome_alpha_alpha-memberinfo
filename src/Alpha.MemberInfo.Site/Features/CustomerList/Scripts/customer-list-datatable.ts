@@ -234,7 +234,8 @@
 
 		const attrs = {
 			'class': 'login-ip',
-			'data-url': `${this.viewModel.OldMainUrl}_IPInfo/IPInfo.aspx?ip=${item.LastLoginIP}`
+			'data-url': `${this.viewModel.OldMainUrl}_IPInfo/IPInfo.aspx?ip=${item.LastLoginIP}`,
+			'data-title': 'Login IP'
 		};
 
 		return `<a ${this.buildAttributes(attrs)}>${item.LastLoginIP}</a>`
@@ -297,7 +298,7 @@
 
 		this.$('.btn-submit').click(() => this.$table.ajax.reload());
 
-		//this.$('.login-ip').click(event => this.customerListPopup.openPopup(this.$(event.currentTarget).data("url"), 400, 600));
+		this.$('.login-ip').click(event => this.customerListPopup.openProductPopup(event));
 
 		this.editSingleSetting.bindingEvent();
 
@@ -317,9 +318,5 @@
 		return `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerAllStatus?${this.$.param(queryString)}`;
 	}
 
-	private buildAttributes = attrs => {
-		return this.$.map(attrs, (key, value) => {
-			return `${value}='${key}'`;
-		}).join(' ');
-	};
+	private buildAttributes = attrs => this.$.map(attrs, (value, key) => `${key}='${value}'`).join(' ');
 }

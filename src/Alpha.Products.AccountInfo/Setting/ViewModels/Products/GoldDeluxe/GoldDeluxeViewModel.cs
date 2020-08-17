@@ -1,13 +1,14 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
 {
-    using System.Collections.Generic;
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.Core.Configuration;
     using Base;
-    using static Alpha.Products.Core.Shared.ProductConstants;
+    using System.Collections.Generic;
 
     public class GoldDeluxeViewModel : ProductSettingItemViewModel
     {
-        public GoldDeluxeViewModel(ISearchAccountInfoRequest request) : base(request, GoldDeluxe)
+        public GoldDeluxeViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) : 
+            base(request, productItem)
         {
         }
 

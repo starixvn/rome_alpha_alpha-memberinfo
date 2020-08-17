@@ -2,6 +2,7 @@
 {
     using Alpha.Products.AccountInfo.Configurations;
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.Core.Configuration;
     using Alpha.Web.Helpers;
 
     /// <summary>
@@ -9,8 +10,8 @@
     /// </summary>
     public class Ng2ProductViewModel : DynamicProductViewModel
     {
-        public Ng2ProductViewModel(ISearchAccountInfoRequest request, int productId)
-            : base(request, productId)
+        public Ng2ProductViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
+            : base(request, productItem)
         {
         }
 

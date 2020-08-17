@@ -3,10 +3,12 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
 {
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
+    using Alpha.Products.Core.Configuration;
 
     public class Sportsbook2MultipeViewModel : Sportsbook2ViewModel, ISettingItemMultipleViewModel
     {
-        public Sportsbook2MultipeViewModel(ISearchAccountInfoRequest request) : base(request)
+        public Sportsbook2MultipeViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+            : base(request, productItem)
         {
         }
 

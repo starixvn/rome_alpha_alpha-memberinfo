@@ -2,11 +2,12 @@
 namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
 {
     using Alpha.Products.AccountInfo.Requests;
-    using static Alpha.Products.Core.Shared.ProductConstants;
+    using Alpha.Products.Core.Configuration;
 
     public class Sportsbook2ViewModel : DynamicProductViewModel
     {
-        public Sportsbook2ViewModel(ISearchAccountInfoRequest request) : base(request, Sportsbook2)
+        public Sportsbook2ViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+            : base(request, productItem)
         {
         }
 

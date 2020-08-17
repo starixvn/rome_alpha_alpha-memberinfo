@@ -40,25 +40,25 @@ namespace Alpha.Products.AccountInfo.Setting
             switch (productItem.ProductId)
             {
                 case Sportsbook:
-                    return new SportsbookViewModel(request);
+                    return new SportsbookViewModel(request, productItem);
 
                 case RNGCasino:
-                    return new RNGCasinoViewModel(request);
+                    return new RNGCasinoViewModel(request, productItem);
 
                 case Keno:
-                    return new KenoViewModel(request);
+                    return new KenoViewModel(request, productItem);
 
                 case GoldDeluxe:
-                    return new GoldDeluxeViewModel(request);
+                    return new GoldDeluxeViewModel(request, productItem);
 
                 case Sportsbook2:
-                    return new Sportsbook2ViewModel(request);
+                    return new Sportsbook2ViewModel(request, productItem);
 
                 case NG2:
-                    return new Ng2ProductViewModel(request, productItem.ProductId);
+                    return new Ng2ProductViewModel(request, productItem);
 
                 default:
-                    return new DynamicProductViewModel(request, productItem.ProductId);
+                    return new DynamicProductViewModel(request, productItem);
             }
         }
     }

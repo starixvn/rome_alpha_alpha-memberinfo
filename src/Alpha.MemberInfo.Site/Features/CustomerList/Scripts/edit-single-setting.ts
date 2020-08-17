@@ -38,7 +38,7 @@
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
 			if (item.Visible) {
-				html.push(`<li data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+				html.push(`<li data-title='${item.Text}' data-width='${item.Width}' data-height='${item.Height}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
 			}
 		});
 
