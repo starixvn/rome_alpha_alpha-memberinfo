@@ -20,9 +20,9 @@
 
         public override bool Visible => Actor.IsNotSuper || SearchAccount.IsNotAgent;
 
-        public virtual int Width => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Width;
+        public virtual string Width => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Width;
 
-        public virtual int Height => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Height;
+        public virtual string Height => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Height;
 
         public override string Icon
         {

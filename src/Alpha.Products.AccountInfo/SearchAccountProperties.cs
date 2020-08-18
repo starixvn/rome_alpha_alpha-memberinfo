@@ -21,7 +21,7 @@ namespace Alpha.Products.AccountInfo
 
     public class SettingProperty : IExtendProductProperty
     {
-        public SettingProperty(bool show, int width, int height)
+        public SettingProperty(bool show, string width, string height)
         {
             this.Show = show;
             this.Width = width;
@@ -30,8 +30,8 @@ namespace Alpha.Products.AccountInfo
 
         public bool Show { get; set; }
 
-        public int Width { get; set; }
+        public string Width { get; set; }
 
-        public int Height { get; set; }
+        public string Height { get; set; }
     }
 }

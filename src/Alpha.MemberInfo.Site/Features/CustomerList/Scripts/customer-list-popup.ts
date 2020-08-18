@@ -35,16 +35,16 @@
 		const width = this.$(event.currentTarget).data("width"),
 			height = this.$(event.currentTarget).data("height");
 
-		this.$('#myIframe').css({ width: `${width}px`, height: `${height}px` });
+		//this.$('#myIframe').css({ width: `${width}`, height: `${height}` });
 
 		this.$('#bootstrap-modal-product .modal-title').text(this.$(event.currentTarget).data("title"));
 		this.$('#bootstrap-modal-product')
-			.css({ height: '750px', width: '710px', top: 10 })
+			.css({ height: height, width: width })
 			.modal({ show: true, backdrop: false });
 
 		setTimeout(() => {
 			this.$('#myIframe').contents().find('.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr').css('display', 'none');
-		}, 500);
+		}, 1000);
 	
 		this.$.unblockUI();
 	}

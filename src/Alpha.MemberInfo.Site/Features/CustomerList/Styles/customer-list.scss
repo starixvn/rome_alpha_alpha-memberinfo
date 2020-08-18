@@ -155,3 +155,27 @@ a, a:hover, a:focus {
 .RowBgDisabled {
 	background-color: #a0a97a !important;
 }
+
+#bootstrap-modal-product {
+	.modal-dialog {
+		width: 100% !important;
+		height: 100% !important;
+		max-width: 100% !important;
+
+		.modal-content {
+			width: 100% !important;
+			height: 100% !important;
+
+			.modal-body-product {
+				width: 100%;
+				height: 100%;
+
+				/*margin: 0 10px 0 10px;*/
+			}
+		}
+	}
+}
+
+body:not(.modal-open) {
+	padding-right: 0px !important;
+}
