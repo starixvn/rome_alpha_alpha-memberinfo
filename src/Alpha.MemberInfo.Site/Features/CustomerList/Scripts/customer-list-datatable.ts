@@ -44,7 +44,7 @@
 				ajax: (data, callback) => this.customerListServices.getCutomerList(data, callback),
 				columns: this.buildDataTableColumns(),
 				createdRow: (row, data, dataIndex) => {
-					this.$(row).removeClass('odd even').addClass(this.getRowClass(data));
+					this.$(row).addClass(this.getRowClass(data));
 				},
 				responsive: {
 					details: {
@@ -235,7 +235,9 @@
 		const attrs = {
 			'class': 'login-ip',
 			'data-url': `${this.viewModel.OldMainUrl}_IPInfo/IPInfo.aspx?ip=${item.LastLoginIP}`,
-			'data-title': 'Login IP'
+			'data-title': 'Login IP',
+			'data-width': '500px',
+			'data-height': '400px'
 		};
 
 		return `<a ${this.buildAttributes(attrs)}>${item.LastLoginIP}</a>`

@@ -2,9 +2,11 @@
 	private $: JQueryStatic;
 	private $bootstrapContainer: JQuery;
 	private $bootstrapModalDialog: JQuery;
+	private topWindow: any;
 
-	constructor($: JQueryStatic) {
+	constructor($: JQueryStatic, topWindow: any) {
 		this.$ = $;
+		this.topWindow = topWindow;
 		this.cacheDom();
 	}
 
@@ -39,8 +41,35 @@
 
 		this.$('#bootstrap-modal-product .modal-title').text(this.$(event.currentTarget).data("title"));
 		this.$('#bootstrap-modal-product')
-			.css({ height: height, width: width })
+			.css({ height: '100%', width: '1160px' })
 			.modal({ show: true, backdrop: false });
+
+		this.$.unblockUI();
+	}
+
+	private initFrame = () => {
+		setTimeout(() => {
+			const headerClassesOrId = '.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr';
+			this.$('#myIframe').contents().find(headerClassesOrId).css('display', 'none');
+		}, 1000);
+
+		
+
+		//setTimeout(() => {
+		//	const height01 = this.$('#myIframe').contents().find('body').outerHeight();
+		//	const height02 = this.topWindow.$('#main').contents().find('#bootstrap-modal-product').find('.modal-header').outerHeight();
+		//	const paddingBottom = 20;
+
+		//	const mainBodyHeight = this.topWindow.$('#main').contents().find('body').height() - height02;
+
+		//	const height = height01 > mainBodyHeight ? '100%' : height01 + height02 + paddingBottom;
+
+		//	//const width = this.$('#myIframe').contents().find('body').outerWidth();
+
+		//	//const height = this.$('#bootstrap-modal-product').find('.modal-dialog').height();
+		//	this.topWindow.$('#main').contents().find('#bootstrap-modal-product').css({ height });
+		//}, 1500);
+		
 	}
 
 	public bindingBootstrapModalEvent = () => {
@@ -51,13 +80,12 @@
 		});
 
 		this.$('#bootstrap-modal-product').on('shown.bs.modal', () => {
-			const headerClassesOrId = '.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr';
-			this.$('#myIframe').contents().find(headerClassesOrId).css('display', 'none');
 
-			const height01 = this.$('#myIframe').contents().find('body').outerHeight();
-			const height = this.$('#bootstrap-modal-product').find('.modal-dialog').height();
-			this.$('#bootstrap-modal-product').css({ height01 });
-			this.$.unblockUI();
+			this.initFrame.apply(this.$('#myIframe').contents());
+
+			//const height01 = this.$('#myIframe').contents().find('body').outerHeight();
+			//const height = this.$('#bootstrap-modal-product').find('.modal-dialog').height();
+			//this.$('#bootstrap-modal-product').css({ height01 });
 		});
 	}
 

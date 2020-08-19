@@ -90,6 +90,7 @@ ol {
 	-o-box-shadow: none !important;
 	box-shadow: none !important;
 	width: auto;
+	overflow:hidden !important;
 }
 
 .modal-dialog {
@@ -181,6 +182,10 @@ body:not(.modal-open) {
 
 .detail-table, .commission-table {
 	width: 100%;
+
+	/*tr {
+		border-bottom: 1px solid black;	
+	}*/
 
 	tr > td:last-of-type {
 		text-align: right;
