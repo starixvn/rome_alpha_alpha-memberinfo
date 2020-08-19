@@ -24,5 +24,9 @@
             {
                 ["arCID"] = Request.GetData<string>("customerIds")
             };
+
+        public override string Width => "150px";
+
+        public override string Height => "500px";
     }
 }

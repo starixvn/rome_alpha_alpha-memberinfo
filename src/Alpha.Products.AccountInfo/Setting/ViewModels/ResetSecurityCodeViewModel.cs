@@ -26,5 +26,9 @@
             SearchAccount.IsNotMember &&
             Request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission) &&
             Request.GetData<bool>(DataKey.SearchAccount.IsEnableSecurityCode);
+
+        public override string Width => "700px";
+
+        public override string Height => "600px";
     }
 }

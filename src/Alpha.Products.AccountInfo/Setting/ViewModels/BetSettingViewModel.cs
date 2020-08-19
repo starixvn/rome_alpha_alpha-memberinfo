@@ -20,5 +20,9 @@
                 ["custId"] = SearchAccount.Id.ToString(),
                 ["username"] = SearchAccount.Username
             };
+
+        public override string Width => "930px";
+
+        public override string Height => "650px";
     }
 }

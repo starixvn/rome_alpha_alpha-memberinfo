@@ -266,7 +266,7 @@
 			if (idx.column >= start && idx.column <= end) {
 				if (addTableCommissionTag) {
 					addTableCommissionTag = false;
-					commissionTable = commissionTable + "<tr><td><table><tr><td>Commison</td></tr>";
+					commissionTable = commissionTable + "<tr><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr><td class='commission-header'>Commission</td></tr>";
 				}
 
 				commissionTable = commissionTable + `<tr data-dtr-index="${idx.column}">` +
@@ -289,7 +289,7 @@
 		}).toArray().join('');
 
 		return data ?
-			self.$(`<table data-dtr-index="${rowIdx}"/>`).append(data) : 
+			self.$(`<table class="detail-table" data-dtr-index="${rowIdx}"/>`).append(data) : 
 			false;
 	}
 

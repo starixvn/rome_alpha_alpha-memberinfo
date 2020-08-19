@@ -56,5 +56,9 @@
         protected virtual string AccountInfoUrl => Request.GetMicroSiteUrl(MicroSiteConstants.AccountInfo, "~/");
 
         public virtual bool Visible => Request.ActorIsEdittingDirectDownline;
+
+        public abstract string Width { get; }
+
+        public abstract string Height { get; }
     }
 }

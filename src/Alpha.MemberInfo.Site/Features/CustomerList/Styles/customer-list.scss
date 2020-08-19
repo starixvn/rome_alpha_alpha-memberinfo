@@ -169,8 +169,7 @@ a, a:hover, a:focus {
 			.modal-body-product {
 				width: 100%;
 				height: 100%;
-
-				/*margin: 0 10px 0 10px;*/
+				padding: 0 10px 0 10px;
 			}
 		}
 	}
@@ -178,4 +177,24 @@ a, a:hover, a:focus {
 
 body:not(.modal-open) {
 	padding-right: 0px !important;
+}
+
+.detail-table, .commission-table {
+	width: 100%;
+
+	tr > td:last-of-type {
+		text-align: right;
+	}
+
+
+	tr > td:first-of-type {
+		text-align: left;
+	}
+}
+
+.commission-wrapper {
+	padding: 0px !important;
+	.commission-header{
+		font-weight:bold;	
+	}
 }

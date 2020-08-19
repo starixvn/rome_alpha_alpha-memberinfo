@@ -18,11 +18,11 @@
 
         internal int ProductId => productItem.ProductId;
 
-        public override bool Visible => Actor.IsNotSuper || SearchAccount.IsNotAgent;
+        public override bool Visible => (Actor.IsNotSuper || SearchAccount.IsNotAgent) && (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Show;
 
-        public virtual string Width => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Width;
+        public override string Width => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Width;
 
-        public virtual string Height => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Height;
+        public override string Height => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Height;
 
         public override string Icon
         {

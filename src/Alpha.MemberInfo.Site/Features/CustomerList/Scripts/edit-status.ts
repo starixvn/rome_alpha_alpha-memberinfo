@@ -26,7 +26,7 @@
 	private buildPopupHtml = (statusArray, custId) => {
 		let html = ['<ul>'];
 		this.$.each(statusArray, (key, item) => {
-			if (item.Visible && item.ShowInCustomerList) {
+			if (item.ShowInCustomerList) {
 				html.push(
 					`<li class="edit-status-popup" data-custid='${custId}' data-displayorder='${item.DisplayOrder}'` +
 					`data-url="${item.Url}" data-param='${item.JsonParams}' data-message='${item.ConfirmMessage}'>` +

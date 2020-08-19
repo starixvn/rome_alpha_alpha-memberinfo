@@ -41,12 +41,6 @@
 		this.$('#bootstrap-modal-product')
 			.css({ height: height, width: width })
 			.modal({ show: true, backdrop: false });
-
-		setTimeout(() => {
-			this.$('#myIframe').contents().find('.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr').css('display', 'none');
-		}, 1000);
-	
-		this.$.unblockUI();
 	}
 
 	public bindingBootstrapModalEvent = () => {
@@ -54,6 +48,16 @@
 
 		this.$("#bootstrap-modal-product").on("hidden.bs.modal",  () => {
 			this.$('#myIframe').attr('src', 'about:blank');
+		});
+
+		this.$('#bootstrap-modal-product').on('shown.bs.modal', () => {
+			const headerClassesOrId = '.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr';
+			this.$('#myIframe').contents().find(headerClassesOrId).css('display', 'none');
+
+			const height01 = this.$('#myIframe').contents().find('body').outerHeight();
+			const height = this.$('#bootstrap-modal-product').find('.modal-dialog').height();
+			this.$('#bootstrap-modal-product').css({ height01 });
+			this.$.unblockUI();
 		});
 	}
 

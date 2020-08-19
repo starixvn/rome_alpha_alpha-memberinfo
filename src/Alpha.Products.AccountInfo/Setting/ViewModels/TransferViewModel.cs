@@ -26,5 +26,9 @@
             && (SearchAccount.IsMaster
                 || (SearchAccount.IsAgent
                      && Request.GetData<bool>(DataKey.Actor.CanEditDailyTransferOption)));
+
+        public override string Width => "665px";
+
+        public override string Height => "260px";
     }
 }
