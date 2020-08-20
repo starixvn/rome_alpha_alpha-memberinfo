@@ -35,9 +35,5 @@
                 return query;
             }
         }
-
-        public override string Width => "1024px";
-
-        public override string Height => SearchAccount.IsMember ? "430px" : "310px";
     }
 }

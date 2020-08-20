@@ -25,9 +25,5 @@
             base.Visible &&
             SearchAccount.IsNotMember &&
             Request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission);
-
-        public override string Width => "700px";
-
-        public override string Height => "330px";
     }
 }

@@ -18,11 +18,7 @@
 
         internal int ProductId => productItem.ProductId;
 
-        public override bool Visible => (Actor.IsNotSuper || SearchAccount.IsNotAgent) && (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Show;
-
-        public override string Width => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Width;
-
-        public override string Height => (productItem.ExtendProductProperty as SearchAccountProperties).Setting.Height;
+        public override bool Visible => Actor.IsNotSuper || SearchAccount.IsNotAgent;
 
         public override string Icon
         {

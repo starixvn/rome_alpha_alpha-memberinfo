@@ -7,35 +7,12 @@ namespace Alpha.Products.AccountInfo
 
     public class SearchAccountConfigurationLoader : DefaultConfigurationLoader
     {
-        private readonly IProductJsonConverter jsonConverter;
-
         public SearchAccountConfigurationLoader(IProductJsonConverter jsonConverter, string productConfigFilePath)
             : base("accountInfo", jsonConverter, productConfigFilePath)
         {
-            this.jsonConverter = jsonConverter;
         }
 
         protected override IExtendProductProperty BuildExtendProductProperty(IDictionary<string, string> extendedPropertyData)
-        {
-            var settingProperty = BuildProductProperty<SettingProperty>(jsonConverter.ToProductConfig(extendedPropertyData["setting"]));
-            ////new SearchAccountProperties();
-            //return BuildProductProperty<SearchAccountProperties>(extendedPropertyData);
-
-            return new SearchAccountProperties(
-                settingProperty, 
-                bool.Parse(extendedPropertyData["status"]),
-                bool.Parse(extendedPropertyData["statusOnProductLevel"]));
-        }
-
-        protected override IDictionary<string, string> GetExtendedPropertyData(IDictionary<string, string> productConfig)
-        {
-            var extendedPropertyName = "accountInfoProperties";
-
-            
-
-            return productConfig.ContainsKey(extendedPropertyName)
-                            ? jsonConverter.ToProductConfig(productConfig[extendedPropertyName])
-                            : new Dictionary<string, string>();
-        }
+            => BuildProductProperty<SearchAccountProperties>(extendedPropertyData);
     }
 }

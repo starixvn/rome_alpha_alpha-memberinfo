@@ -5,33 +5,17 @@ namespace Alpha.Products.AccountInfo
 
     public class SearchAccountProperties : IExtendProductProperty
     {
-        public SearchAccountProperties(SettingProperty setting, bool status, bool statusOnProductLevel)
+        public SearchAccountProperties(bool setting, bool status, bool statusOnProductLevel)
         {
             Setting = setting;
             Status = status;
             StatusOnProductLevel = statusOnProductLevel;
         }
 
-        public SettingProperty Setting { get; }
+        public bool Setting { get; }
 
         public bool Status { get; }
 
         public bool StatusOnProductLevel { get; }
-    }
-
-    public class SettingProperty : IExtendProductProperty
-    {
-        public SettingProperty(bool show, string width, string height)
-        {
-            this.Show = show;
-            this.Width = width;
-            this.Height = height;
-        }
-
-        public bool Show { get; set; }
-
-        public string Width { get; set; }
-
-        public string Height { get; set; }
     }
 }

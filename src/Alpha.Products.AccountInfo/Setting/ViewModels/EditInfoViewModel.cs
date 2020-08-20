@@ -22,9 +22,5 @@
                 ["username"] = SearchAccount.Username,
                 ["isSyncCasino"] = Request.SearchAccount.ProductStatusOf(ProductConstants.RNGCasino).Synced ? "1" : "0"
             };
-
-        public override string Width => "700px";
-
-        public override string Height => "330px";
     }
 }

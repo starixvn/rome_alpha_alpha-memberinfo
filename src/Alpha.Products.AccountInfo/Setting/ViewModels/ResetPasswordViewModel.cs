@@ -24,9 +24,5 @@
           };
 
         public override bool Visible => Actor.IsMainAccount || Request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission);
-
-        public override string Width => "700px";
-
-        public override string Height => "600px";
     }
 }

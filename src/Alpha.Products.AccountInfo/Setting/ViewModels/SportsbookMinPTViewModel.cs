@@ -22,9 +22,5 @@
             };
 
         public override bool Visible => base.Visible && SearchAccount.IsNotMember;
-
-        public override string Width => "1024px";
-
-        public override string Height => "100%";
     }
 }

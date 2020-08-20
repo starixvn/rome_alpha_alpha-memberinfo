@@ -44,9 +44,7 @@ namespace Alpha.Products.AccountInfo.Requests
 
         public Func<string, string, string> GetMicroSiteUrl { get; }
 
-        public virtual Func<IConfigurationItem, bool> Predicate { get; }
-
-        public virtual Func<IConfigurationItem, SettingProperty> SettingPredicate { get; }
+        public abstract Func<IConfigurationItem, bool> Predicate { get; }
     }
 
     public class SettingSearchAccountRequest : SearchAccountRequest
@@ -61,7 +59,7 @@ namespace Alpha.Products.AccountInfo.Requests
         {
         }
 
-        public override Func<IConfigurationItem, SettingProperty> SettingPredicate
+        public override Func<IConfigurationItem, bool> Predicate
 #pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             => config => (config.ExtendProductProperty as SearchAccountProperties).Setting;
 
@@ -75,7 +73,7 @@ namespace Alpha.Products.AccountInfo.Requests
             ICustomer searchAccount,
             Func<string, string> getResource = null,
             Func<int, string> getProductName = null,
-            Func<string, string, string> getMicroSiteUrl= null)
+            Func<string, string, string> getMicroSiteUrl = null)
             : base(actor, searchAccount, getResource, getProductName, getMicroSiteUrl)
         {
         }

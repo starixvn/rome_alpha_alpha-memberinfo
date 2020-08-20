@@ -25,9 +25,5 @@
                 ["CustIds"] = Request.GetData<string>("customerIds"),
                 ["RoleId"] = SearchAccount.CusomerLevelValue.ToString()
             };
-
-        public override string Width => "800px";
-
-        public override string Height => "500px";
     }
 }
