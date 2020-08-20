@@ -8,6 +8,8 @@
 @section Styles {
 	@StaticResources.AssetStyles.RenderCommon("/bundles/site-asset/data-table")
 	@StaticResources.RenderStyles("~/Features/CustomerList/Bundles/customer-list")
+
+	@StaticResources.RenderStylesWithMedia(767, "~/Features/CustomerList/Styles/customer-list-07")
 	@*<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.css" />*@
 }
 <div class="page-title">
@@ -29,7 +31,7 @@
 <div class="form-inline filter form-report" style="margin-top:15px;">
 	<div class="form-group">
 		<label>Username</label>
-		<input type="text" class="txt-search" id="txt-username" placeholder="Username/Nickname or First/Last Name"/>
+		<input type="text" class="txt-search" id="txt-username" placeholder="Username/Nickname or First/Last Name" />
 	</div>
 	<div class="form-group">
 		<label>Status</label>
@@ -133,6 +135,15 @@
 	<div class="modal modal-sm fade" id="bootstrap-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
+				@if (Model.IsMobileView)
+				{
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				}
 				<div class="modal-body">
 				</div>
 			</div>

@@ -1,0 +1,41 @@
+﻿
+@function calculateScale($num, $scale: 0.7) {
+	@return $num / $scale;
+}
+
+body {
+	font-size: calculateScale(13px) !important;
+}
+
+
+
+.dataTables_length {
+	label {
+		font-size: calculateScale(13px) !important;
+	}
+}
+
+
+ul,
+ol {
+	li {
+		&.icon-edit, &.icon-refresh, &.edit-status-popup {
+			font-size: calculateScale(13px);
+			line-height: calculateScale(24px);
+		}
+	}
+}
+
+.form-group {
+	label {
+		font-size: calculateScale(13px)
+	}
+}
+
+.icon-table-edit {
+	font-size: calculateScale(13px);
+}
+
+#bootstrap-modal {
+	padding-right: 0px !important;
+}

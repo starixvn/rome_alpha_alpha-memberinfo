@@ -37,7 +37,7 @@
 	private buildPopupHtml = settings => {
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
-			html.push(`<li data-title='${item.Text}' data-width='${item.Width}' data-height='${item.Height}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+			html.push(`<li data-title='${item.Text}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
 		});
 
 		this.$('.modal-body').empty().append(html.join(''));

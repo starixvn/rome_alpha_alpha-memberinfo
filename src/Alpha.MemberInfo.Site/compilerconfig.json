@@ -42,6 +42,10 @@
 	{
 		"outputFile": "Features/CustomerList/Styles/customer-list.css",
 		"inputFile": "Features/CustomerList/Styles/customer-list.scss"
+	},
+	{
+		"outputFile": "Features/CustomerList/Styles/customer-list-07.css",
+		"inputFile": "Features/CustomerList/Styles/customer-list-07.scss"
 	}
 
 ]

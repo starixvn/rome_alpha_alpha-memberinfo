@@ -62,7 +62,7 @@
 				stripeClasses: [],
 				ordering: false,
 				paging: true,
-				pagingType: "input",
+				pagingType: "first_last_numbers",
 				pageLength: this.viewModel.IsMobileView ? 50 : 500,
 				searching: false,
 				bInfo: false,
