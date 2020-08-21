@@ -64,7 +64,7 @@
 			this.viewModel.MemberInfoUrl + 'CustomerList/' + action,
 			'POST',
 			params,
-			data => updateCustomerStatusSuccess(parentEvent, data, displayOrder))
+			data => updateCustomerStatusSuccess(event, parentEvent, data, displayOrder))
 	}
 
 	public getSettings = (custId, url, callback, type = "GET", params = {}, isStoreData = true) => this.callAjax(

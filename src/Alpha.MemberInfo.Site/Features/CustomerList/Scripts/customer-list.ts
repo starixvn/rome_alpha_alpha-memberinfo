@@ -65,7 +65,7 @@ $(function () {
 		customerListServices = new CustomerListServices($, viewModel),
 		editSingleSetting = new EditSingleSetting($, customerListPopup, customerListServices),
 		editMultipleSetting = new EditMultipleSetting($, viewModel, customerListPopup, customerListServices, editSingleSetting),
-		editStatus = new EditStatus($, window.top, customerListServices, customerListPopup),
+		editStatus = new EditStatus($, window.top, viewModel.IsMobileView, customerListServices, customerListPopup),
 		customerListDataTable = new CustomerListDataTable($, viewModel, customerListPopup, customerListServices, editSingleSetting, editStatus),
 		customerList = new CustomerList($, viewModel, editMultipleSetting, customerListPopup, customerListDataTable);
 

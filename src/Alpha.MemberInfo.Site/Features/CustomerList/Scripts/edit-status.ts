@@ -3,14 +3,17 @@
 	private topWindow: any;
 	private customerListServices: CustomerListServices;
 	private customerListPopup: CustomerListPopup;
+	private isMobile: boolean;
 
 	constructor(
 		$: JQueryStatic,
 		topWindow: any,
+		isMobile: boolean,
 		customerListServices: CustomerListServices,
 		customerListPopup: CustomerListPopup) {
 		this.$ = $;
 		this.topWindow = topWindow;
+		this.isMobile = isMobile;
 		this.customerListServices = customerListServices;
 		this.customerListPopup = customerListPopup;
 	}
@@ -40,21 +43,23 @@
 	private bindingEventOnPopup = parentEvent => this.$('.edit-status-popup').click(event =>
 		this.topWindow.bootboxConfirm(
 			this.$(event.currentTarget).data("message"),
-			parentEvent.target,
+			this.isMobile ? event.target : parentEvent.target,
 			() => this.customerListServices.updateCustomerStatus(event, parentEvent, this.updateCustomerStatusSuccess)));
 
-	private updateCustomerStatusSuccess = (parentEvent, data, displayOrder) => {
+	private updateCustomerStatusSuccess = (event, parentEvent, data, displayOrder) => {
 		if (data.IsSuccessful) {
 			// Closed or Suspended
 			if (displayOrder === 1 || displayOrder === 2) {
 				this.$('.btn-submit').click();
 			}
 
+			this.customerListPopup.CloseStatusPopup();
+
 			setTimeout(() => this.$.unblockUI(), 1500);
 		}
 		else {
 			this.$.unblockUI();
-			this.topWindow.bootboxAlert(data.Message, parentEvent.target);
+			this.topWindow.bootboxAlert(data.Message, this.isMobile ? event.target : parentEvent.target);
 		}
 	}
 }

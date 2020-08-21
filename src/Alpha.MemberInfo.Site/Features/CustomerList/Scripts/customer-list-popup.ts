@@ -85,16 +85,33 @@
 	public bindingBootstrapModalEvent = () => {
 		this.$bootstrapContainer.on('mouseleave ', () => this.$bootstrapContainer.modal('hide'));
 
-		this.$("#bootstrap-modal-product").on("hidden.bs.modal",  () => {
-			this.$('#myIframe').attr('src', 'about:blank');
+		//this.$("#bootstrap-modal").on("hide.bs.modal", () => {
+		//	this.topWindow.$('#content').css({ padding: '' });
+		//});
+
+		this.$('#close-edit-popup').click(() => {
+			this.topWindow.$('#content').css({ padding: '' });
+			this.CloseStatusPopup();
 		});
 
-		this.$("#bootstrap-modal").on("hidden.bs.modal", () => {
+		this.$('#close-product-popup').click(() => {
 			this.topWindow.$('#content').css({ padding: '' });
+			this.$('#myIframe').attr('src', 'about:blank');
+			this.$("#bootstrap-modal-product").modal('hide');
+
 		});
+
+		//this.$("#bootstrap-modal-product").on("hide.bs.modal-product", () => {
+		//	this.topWindow.$('#content').css({ padding: '' });
+		//	this.$('#myIframe').attr('src', 'about:blank');
+		//});
+
+		//this.$("#bootstrap-modal-product").on("hidden.bs.modal", () => {
+		//});
+
 
 		this.$('#bootstrap-modal-product').on('shown.bs.modal', () => {
-
+			this.topWindow.$('#content').css({ padding: '0px' });
 			this.initFrame.apply(this.$('#myIframe').contents());
 
 			//const height01 = this.$('#myIframe').contents().find('body').outerHeight();
@@ -102,6 +119,8 @@
 			//this.$('#bootstrap-modal-product').css({ height01 });
 		});
 	}
+
+	public CloseStatusPopup = () => this.$bootstrapContainer.modal('hide');
 
 	public openBootstrapModal = (event, data, buildPopupHtml, bindingPopupEvent) => {
 		buildPopupHtml(data, this.$(event.currentTarget).data("custid"));
