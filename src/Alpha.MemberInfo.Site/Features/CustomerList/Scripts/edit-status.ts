@@ -37,7 +37,11 @@
 			}
 		});
 
-		this.$('.modal-body').empty().append(html.join(''));
+		this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
+
+		if (this.isMobile) {
+			this.$('#bootstrap-modal').find('.modal-title').empty().append('Edit Status');
+		}
 	}
 
 	private bindingEventOnPopup = parentEvent => this.$('.edit-status-popup').click(event =>
@@ -53,7 +57,7 @@
 				this.$('.btn-submit').click();
 			}
 
-			this.customerListPopup.CloseStatusPopup();
+			this.customerListPopup.closeStatusPopup();
 
 			setTimeout(() => this.$.unblockUI(), 1500);
 		}

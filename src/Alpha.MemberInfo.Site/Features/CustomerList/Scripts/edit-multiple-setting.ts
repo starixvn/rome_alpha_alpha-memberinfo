@@ -80,7 +80,11 @@
 			html.push(`<li data-title='${item.Text}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
 		});
 
-		this.$('.modal-body').empty().append(html.join(''));
+		this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
+
+		if (this.viewModel.IsMobileView) {
+			this.$('#bootstrap-modal').find('.modal-title').empty().append('Edit Multiple Setting');
+		}
 	}
 
 	private bindingEventOnPopup = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openProductPopup(event, 'post'))

@@ -8,6 +8,10 @@ body {
 }
 
 
+input[type=checkbox] {
+	width: 20px !important;
+	height: 20px !important;
+}
 
 .dataTables_length {
 	label {
@@ -15,6 +19,9 @@ body {
 	}
 }
 
+.icon-table-edit, .icon-view-grid {
+	font-size: calculateScale(18px) !important;
+}
 
 ul,
 ol {
@@ -27,8 +34,14 @@ ol {
 }
 
 .form-group {
-	label {
-		font-size: calculateScale(13px)
+	padding-bottom: 10px !important;
+
+	label, .txt-search {
+		font-size: calculateScale(13px);
+	}
+
+	.txt-search{
+		width: 360px !important;	
 	}
 }
 
@@ -38,4 +51,14 @@ ol {
 
 #bootstrap-modal {
 	padding-right: 0px !important;
+}
+
+.modal-header {
+	.modal-title {
+		font-size: calculateScale(13px) !important;
+	}
+
+	button {
+		font-size: 32px !important;
+	}
 }

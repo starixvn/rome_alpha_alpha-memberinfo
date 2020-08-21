@@ -91,7 +91,7 @@
 
 		this.$('#close-edit-popup').click(() => {
 			this.topWindow.$('#content').css({ padding: '' });
-			this.CloseStatusPopup();
+			this.closeStatusPopup();
 		});
 
 		this.$('#close-product-popup').click(() => {
@@ -120,7 +120,7 @@
 		});
 	}
 
-	public CloseStatusPopup = () => this.$bootstrapContainer.modal('hide');
+	public closeStatusPopup = () => this.$bootstrapContainer.modal('hide');
 
 	public openBootstrapModal = (event, data, buildPopupHtml, bindingPopupEvent) => {
 		buildPopupHtml(data, this.$(event.currentTarget).data("custid"));

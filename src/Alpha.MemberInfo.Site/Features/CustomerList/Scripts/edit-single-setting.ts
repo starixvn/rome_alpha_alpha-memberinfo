@@ -2,12 +2,15 @@
 	private $: JQueryStatic;
 	private customerListPopup: CustomerListPopup;
 	private customerListServices: CustomerListServices;
+	private isMobile: boolean;
 
 	constructor(
 		$: JQueryStatic,
+		isMobile: boolean,
 		customerListPopup: CustomerListPopup,
 		customerListServices: CustomerListServices) {
 		this.$ = $;
+		this.isMobile = isMobile;
 		this.customerListPopup = customerListPopup;
 		this.customerListServices = customerListServices;
 	}
@@ -40,7 +43,11 @@
 			html.push(`<li data-title='${item.Text}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
 		});
 
-		this.$('.modal-body').empty().append(html.join(''));
+		this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
+
+		if (this.isMobile) {
+			this.$('#bootstrap-modal').find('.modal-title').empty().append('Edit Setting');
+		}
 	}
 
 	private bindingEventOnPopup = () => this.$('.edit-popup').click(event => this.customerListPopup.openProductPopup(event))
