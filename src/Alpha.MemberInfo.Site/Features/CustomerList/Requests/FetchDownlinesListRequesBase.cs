@@ -2,12 +2,14 @@
 {
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.Shared.Requests;
+    using System;
 
     public class FetchDownlinesListRequesBase : BaseRequest
     {
         public FetchDownlinesListRequesBase(IUser viewer) : base(viewer)
         {
             DoubleComm = 2;
+            LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
         }
 
         public string Username { get; set; }
@@ -32,5 +34,7 @@
             => Status.Equals(1) || Status.Equals(3)? (bool?)Status.Equals(3) : null;
 
         public bool IsMobile { get; set; }
+
+        public bool LimitedDateToShowInfo { get; }
     }
 }

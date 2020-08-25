@@ -19,7 +19,8 @@
         public CustomerListViewModel(
             CustomerListRequest request,
             IEnumerable<CustInfo> breadcrumbLevel,
-            bool isMobile)
+            bool isMobile,
+            bool limitedDateToShowInfo)
         {
             ActorId = request.ViewerId;
             ActorName = request.ViewerUsername;
@@ -44,7 +45,7 @@
             DoubleComm = request.DoubleComm;
             UnconfirmSetting = request.UnconfirmSetting;
             IsMobileView = isMobile;
-
+            LimitedDateToShowInfo = limitedDateToShowInfo;
             DownlineLevelName = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel().DisplayName;
         }
         public int ActorId { get; }
@@ -52,6 +53,8 @@
         public string ActorName { get; }
 
         public byte ActorRoleId { get; }
+
+        public UserLevel ActorLevel => Enumeration.FromValue<UserLevel>(ActorRoleId);
 
         public bool HideEditMultiple { get; }
 
@@ -76,6 +79,8 @@
         public string PageTitle { get; }
 
         public bool IsMobileView { get; }
+
+        public bool LimitedDateToShowInfo { get; }
 
         public IEnumerable<CustInfo> BreadcrumbLevel { get; }
 

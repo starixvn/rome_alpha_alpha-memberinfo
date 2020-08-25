@@ -10,40 +10,11 @@
 
     public interface CustomerListService
     {
-        CustomerListDTO GetMasterList(
-            int srecommend,
-            string username,
-            bool? enabled,
-            bool? closed,
-            bool? suspended,
-            byte doubleCommLosing,
-            byte productUnSync,
-            int pageSize,
-            int pageIndex);
+        CustomerListDTO GetMasterList(MasterListParam param);
 
-        CustomerListDTO GetAgentList(
-            int userId,
-            int mrecommend,
-            string username,
-            bool? enabled,
-            bool? closed,
-            bool? suspended,
-            byte doubleCommLosing,
-            byte productUnSync,
-            int pageSize,
-            int pageIndex);
+        CustomerListDTO GetAgentList(AgentListParam param);
 
-        CustomerListDTO GetMemberList(
-           int userId,
-           int recommend,
-           string username,
-           bool? enabled,
-           bool? closed,
-           bool? suspended,
-           byte doubleCommLosing,
-           byte productUnSync,
-           int pageSize,
-           int pageIndex);
+        CustomerListDTO GetMemberList(MemberListParam param);
 
         CustomerStatusModel GetCustomerStatus(int custId);
 
@@ -63,95 +34,64 @@
             this.customerListDataAccess = customerListDataAccess;
     }
 
-        public CustomerListDTO GetMasterList(
-            int srecommend,
-            string username,
-            bool? enabled,
-            bool? closed,
-            bool? suspended,
-            byte doubleCommLosing,
-            byte productUnSync,
-            int pageSize,
-            int pageIndex)
+        public CustomerListDTO GetMasterList(MasterListParam param)
         {
             var criteria = new SelectMasterListCriteria(
-                   srecommend,
-             username,
-             enabled,
-             closed,
-             suspended,
-             doubleCommLosing,
-             productUnSync,
-             pageSize,
-             pageIndex);
+                param.Srecommend,
+                param.Username,
+                param.Enabled,
+                param.Closed,
+                param.Suspended,
+                param.DoubleCommLosing,
+                param.ProductUnSync,
+                param.PageSize,
+                param.PageIndex);
             
             var model = dynamicRepository.Fetch<MasterListModel>(criteria).OrderBy(item => item.RowNumber);
 
-            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages);
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
         }
 
-        public CustomerListDTO GetAgentList(
-            int userId,
-           int mrecommend,
-           string username,
-           bool? enabled,
-           bool? closed,
-           bool? suspended,
-           byte doubleCommLosing,
-           byte productUnSync,
-           int pageSize,
-           int pageIndex)
+        public CustomerListDTO GetAgentList(AgentListParam param)
         {
             var criteria = new SelectAgentListCriteria(
-                userId,
-                 mrecommend,
-           username,
-           enabled,
-           closed,
-           suspended,
-           doubleCommLosing,
-           productUnSync,
-           pageSize,
-           pageIndex);
+                param.UserId,
+                param.Mrecommend,
+                param.Username,
+                param.Enabled,
+                param.Closed,
+                param.Suspended,
+                param.DoubleCommLosing,
+                param.ProductUnSync,
+                param.PageSize,
+                param.PageIndex);
 
             var model = dynamicRepository.Fetch<MasterListModel>(criteria).OrderBy(item => item.RowNumber);
 
-            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages);
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
         }
 
-
-        public CustomerListDTO GetMemberList(
-           int userId,
-           int recommend,
-           string username,
-           bool? enabled,
-           bool? closed,
-           bool? suspended,
-           byte doubleCommLosing,
-           byte productUnSync,
-           int pageSize,
-           int pageIndex)
+        public CustomerListDTO GetMemberList(MemberListParam param)
         {
             var criteria = new SelectMemberListCriteria(
-              userId,
-              recommend,
-              username,
-              enabled,
-              closed,
-              suspended,
-              doubleCommLosing,
-              productUnSync,
-              pageSize,
-              pageIndex);
+                param.UserId,
+                param.Recommend,
+                param.Username,
+                param.Enabled,
+                param.Closed,
+                param.Suspended,
+                param.DoubleCommLosing,
+                param.ProductUnSync,
+                param.PageSize,
+                param.PageIndex);
 
-          var model = dynamicRepository.Fetch<MemberListModel>(criteria).OrderBy(item => item.RowNumber);
+            var model = dynamicRepository.Fetch<MemberListModel>(criteria).OrderBy(item => item.RowNumber);
 
-            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages);
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
         }
 
         public CustomerStatusModel GetCustomerStatus(int custId)
           => customerListDataAccess.GetCustomerStatus(new SelectCustomerAllStatusModelCriteria(custId));
-
 
         public Result UpdateCustomerStatus(UpdateCustomerStatusParam param)
             => customerListDataAccess.UpdateCustomerStatus(new UpdateCustomerStatusCommand(

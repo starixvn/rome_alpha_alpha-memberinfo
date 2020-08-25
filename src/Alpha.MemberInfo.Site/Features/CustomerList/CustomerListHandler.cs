@@ -39,17 +39,17 @@
             CustomerListService customerListService,
             SecurityCodeChecker securityCodeChecker,
             BrowserHelper browserHelper)
-              : this(customerListService, null, null, null, securityCodeChecker, browserHelper)
+            : this(customerListService, null, null, null, securityCodeChecker, browserHelper)
         {
         }
 
         internal MasterListHandler(
-     CustomerListService customerListService,
-    GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel> settingMultipleViewModelFactory,
-    GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel> settingViewModelFactory,
-    GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel> statusViewModelFactory,
-    SecurityCodeChecker securityCodeChecker,
-     BrowserHelper browserHelper)
+            CustomerListService customerListService,
+            GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel> settingMultipleViewModelFactory,
+            GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel> settingViewModelFactory,
+            GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel> statusViewModelFactory,
+            SecurityCodeChecker securityCodeChecker,
+            BrowserHelper browserHelper)
         {
             this.customerListService = customerListService;
 
@@ -86,14 +86,15 @@
 
             breadcrumbLevel.Add(new CustInfo(message.CustId, message.CustName, message.CustLevelId));
 
-            return new CustomerListViewModel(message, breadcrumbLevel, browserHelper.IsMobile(isOnlyTablet: false));
+            return new CustomerListViewModel(message, breadcrumbLevel, browserHelper.IsMobile(isOnlyTablet: false), message.LimitedDateToShowInfo);
         }
 
         public CustomerListDTO Handle(FetchDownlinesListRequest message)
         {
-            if (message.CustLevelId == 4)
+            if (message.CustLevel.IsSuperLevel())
             {
                 return customerListService.GetMasterList(
+                    new MasterListParam(
                     message.CustId,
                     message.Username,
                     message.Enabled,
@@ -102,35 +103,40 @@
                     message.DoubleComm,
                     message.UnconfirmSetting,
                     message.PageSize,
-                    message.PageIndex);
+                    message.PageIndex,
+                    message.LimitedDateToShowInfo));
             }
-            else if (message.CustLevelId == 3)
+            else if (message.CustLevel.IsMasterLevel())
             {
                 return customerListService.GetAgentList(
-               message.ViewerId,
-               message.CustId,
-              message.Username,
-               message.Enabled,
+                    new AgentListParam(
+                    message.ViewerId,
+                    message.CustId,
+                    message.Username,
+                    message.Enabled,
                     message.Closed,
                     message.Suspended,
-                message.DoubleComm,
+                    message.DoubleComm,
                     message.UnconfirmSetting,
-                message.PageSize,
-                    message.PageIndex);
+                    message.PageSize,
+                    message.PageIndex,
+                    message.LimitedDateToShowInfo));
             }
             else
             {
                 return customerListService.GetMemberList(
-             message.ViewerId,
-               message.CustId,
-             message.Username,
-              message.Enabled,
+                    new MemberListParam(
+                    message.ViewerId,
+                    message.CustId,
+                    message.Username,
+                    message.Enabled,
                     message.Closed,
                     message.Suspended,
-               message.DoubleComm,
+                    message.DoubleComm,
                     message.UnconfirmSetting,
-               message.PageSize,
-                    message.PageIndex);
+                    message.PageSize,
+                    message.PageIndex,
+                    message.LimitedDateToShowInfo));
             }
         }
 

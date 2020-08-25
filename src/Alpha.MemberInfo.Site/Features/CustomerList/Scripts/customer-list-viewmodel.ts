@@ -13,6 +13,7 @@
 	ReportsUrl: string;
 	MemberInfoUrl: string;
 	AccountInfoUrl: string;
+	LimitedDateToShowInfo: boolean
 
 	constructor(
 		actorId: number,
@@ -28,7 +29,8 @@
 		oldMainUrl: string,
 		reportsUrl: string,
 		memberInfoUrl: string,
-		accountInfoUrl: string) {
+		accountInfoUrl: string,
+		limitedDateToShowInfo: boolean) {
 		this.ActorId = actorId;
 		this.ActorName = actorName;
 		this.ActorRoleId = actorRoleId;
@@ -43,6 +45,7 @@
 		this.ReportsUrl = reportsUrl;
 		this.MemberInfoUrl = memberInfoUrl;
 		this.AccountInfoUrl = accountInfoUrl;
+		this.LimitedDateToShowInfo = limitedDateToShowInfo;
 	}
 }
 

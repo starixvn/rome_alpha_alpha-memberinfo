@@ -62,3 +62,11 @@ ol {
 		font-size: 32px !important;
 	}
 }
+
+.page-title, .form-report, .select-all {
+	padding-left: 10px;
+}
+
+#customer-list_wrapper .top .dataTables_paginate {
+	left: 10% !important;
+}

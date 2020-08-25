@@ -62,8 +62,8 @@
 				stripeClasses: [],
 				ordering: false,
 				paging: true,
-				pagingType: "first_last_numbers",
-				pageLength: this.viewModel.IsMobileView ? 50 : 500,
+				pagingType: this.viewModel.IsMobileView ? "first_last_numbers" : "input",
+				pageLength: 500,
 				searching: false,
 				bInfo: false,
 				fixedHeader: true,
@@ -153,10 +153,6 @@
 			},
 			{
 				"className": 'center',
-				"data": "CreateDate"
-			},
-			{
-				"className": 'center',
 				"data": null,
 				"render": item => this.renderLoginIP(item)
 			},
@@ -174,6 +170,15 @@
 			};
 
 			columns.splice(1, 0, editMultipleColumn);
+		}
+
+		if (!this.viewModel.LimitedDateToShowInfo) {
+			const createDateColumn = {
+				"className": 'center',
+				"data": "CreateDate"
+			};
+
+			columns.splice(columns.length - 2, 0, createDateColumn);
 		}
 
 		return columns;
@@ -259,8 +264,13 @@
 				dtPrivate, idx.row, idx.column, 'display'
 			);
 
-			let commissionTable = '', start = 7, end = 11;
+			let commissionTable = '', start = 6, end = 10;
 			if (self.viewModel.ShowEditMultiple) {
+				start += 1;
+				end += 1
+			}
+
+			if (!self.viewModel.LimitedDateToShowInfo) {
 				start += 1;
 				end += 1
 			}

@@ -3,6 +3,22 @@
 @{
 	Layout = "~/Views/Shared/_Layout.cshtml";
 	ViewBag.Title = "Customer List";
+
+	var commColumnStart = 7;
+	var commColumnEnd = 13;
+
+	if (!Model.HideEditMultiple)
+	{
+		commColumnStart = commColumnStart + 1;
+		commColumnEnd = commColumnEnd + 1;
+	}
+
+	if (!Model.LimitedDateToShowInfo)
+	{
+		commColumnStart = commColumnStart + 1;
+		commColumnEnd = commColumnEnd + 1;
+	}
+
 }
 
 @section Styles {
@@ -13,7 +29,6 @@
 	@*<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.css" />*@
 }
 <div class="page-title">
-
 	@if (!string.IsNullOrWhiteSpace(Model.PageTitle))
 	{
 		<span class="text-title pull-left">
@@ -64,15 +79,15 @@
 		<input type="submit" value="@Resources.Submit" class="btn-submit" />
 	</div>
 </div>
-<div>
+<div style="width: 100%;">
 	<table id="customer-list" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width:100%">
 		<thead>
 			<tr>
 				<th data-priority="0"></th>
 				@{
-					for (var i = 2; i <= (Model.HideEditMultiple ? 14 : 15); i++)
+					for (var i = 2; i <= commColumnEnd; i++)
 					{
-						<th class="@(i >= (Model.HideEditMultiple ? 8 : 9) && i <= (Model.HideEditMultiple ? 14 : 15) ? "desktop" : string.Empty)"></th>
+						<th class="@(i >= commColumnStart && i <= commColumnEnd ? "desktop" : string.Empty)"></th>
 					}
 				}
 				<th></th>
@@ -109,16 +124,19 @@
 				<th colspan="6" class="header desktop">
 					Commission
 				</th>
-				<th rowspan="2" class="header">
-					Created Date
-				</th>
+				@if (!Model.LimitedDateToShowInfo)
+				{
+					<th rowspan="2" class="header">
+						Created Date
+					</th>
+				}
 				<th rowspan="2" class="header">
 					Login Ip
 				</th>
 				<th rowspan="2" class="header"></th>
 			</tr>
 			<tr class="thead-row2">
-				@if (Model.ActorRoleId == 2)
+				@if (Model.ActorLevel.IsAgentLevel())
 				{
 					@RenderMemberHeader()
 				}
@@ -139,7 +157,7 @@
 				{
 					<div class="modal-header">
 						<h5 class="modal-title"></h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"  id="close-edit-popup">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-edit-popup">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
@@ -179,21 +197,22 @@
 <input type="hidden" id="searchAccountName" value="@Model.SearchAccountName">
 <input type="hidden" id="searchAccountRoleId" value="@Model.SearchAccountRoleId">
 <input type="hidden" id="downlineLevelName" value="@Model.DownlineLevelName">
-<input type="hidden" id="showEditMultiple" value='@(Model.HideEditMultiple ? "false" : "true" )'>
-<input type="hidden" id="isMobileView" value='@(Model.IsMobileView ? "true" : "false" )'>
+<input type="hidden" id="showEditMultiple" value='@(Model.HideEditMultiple ? "false" : "true")'>
+<input type="hidden" id="isMobileView" value='@(Model.IsMobileView ? "true" : "false")'>
 <input type="hidden" id="breadcrumbLevelJson" value='@Model.BreadcrumbLevelJson'>
 <input type="hidden" id="oldMainUrl" value='@MicroSites.OldMainUrl()'>
 <input type="hidden" id="reportsUrl" value='@MicroSites.ReportsUrl()'>
 <input type="hidden" id="memberInfoUrl" value='@MicroSites.MemberInfoUrl()'>
-<input type="hidden" id="accountInfoUrl" value='@MicroSites.AccountInfoUrl()'>
+<input type="hidden" id="limitedDateToShowInfo" value='@(Model.LimitedDateToShowInfo ? "true" : "false")'>
+<input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
 <input type="hidden" id="arrayCustID" name="arrayCustID" value=''>
 <input type="hidden" id="arrayUserName" name="arrayUserName" value=''>
 <input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
-
 @section Scripts {
 	@StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
 	@*<script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.2/js/dataTables.scroller.js"></script>*@
 	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.20/pagination/input.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.21/pagination/select.js"></script>
 	@StaticResources.RenderScripts("~/Features/CustomerList/Bundles/customer-list")
 }
 

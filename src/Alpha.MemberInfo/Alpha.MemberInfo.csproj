@@ -341,6 +341,10 @@
     <Compile Include="Features\CustomerList\Models\AgentListModel.cs" />
     <Compile Include="Features\CustomerList\Models\MasterListModel.cs" />
     <Compile Include="Features\CustomerList\CustomerListService.cs" />
+    <Compile Include="Features\CustomerList\Params\MasterListParam.cs" />
+    <Compile Include="Features\CustomerList\Params\AgentListParam.cs" />
+    <Compile Include="Features\CustomerList\Params\MemberListParam.cs" />
+    <Compile Include="Features\CustomerList\Params\CustomerListParamBase.cs" />
     <Compile Include="Features\CustomerList\Params\UpdateCustomerStatusParam.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerAllStatusModelCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMemberListCriteria.cs" />
