@@ -82,7 +82,8 @@
 						sPrevious: '<',
 						sNext: '>',
 						sLast: '>>'
-					}
+					},
+					"emptyTable": "There is no data."
 				},
 				drawCallback: this.drawCallback
 			});

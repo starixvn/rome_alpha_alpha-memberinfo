@@ -66,7 +66,7 @@
 			}
 		</select>
 	</div>
-	<div class="form-group">
+	<div class="form-group @(Model.UnconfirmedSettingOptions.Count().Equals(1) ? "hidden" : string.Empty)">
 		<label>Unconfirmed Setting</label>
 		<select id="unconfirmSettingFilter" name="unconfirmSettingFilter">
 			@foreach (var option in Model.UnconfirmedSettingOptions)
@@ -87,7 +87,8 @@
 				@{
 					for (var i = 2; i <= commColumnEnd; i++)
 					{
-						<th class="@(i >= commColumnStart && i <= commColumnEnd ? "desktop" : string.Empty)"></th>
+						<th class=""></th>
+						@*<th class="@(i >= commColumnStart && i <= commColumnEnd ? "desktop" : string.Empty)"></th>*@
 					}
 				}
 				<th></th>

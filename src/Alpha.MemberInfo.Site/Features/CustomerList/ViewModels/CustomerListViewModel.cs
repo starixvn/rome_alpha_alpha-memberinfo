@@ -16,9 +16,12 @@
             {UserLevel.Agent, "Member List"}
         };
 
+        private IEnumerable<UnsyncedProductModel> UnsyncedProducts;
+
         public CustomerListViewModel(
             CustomerListRequest request,
             IEnumerable<CustInfo> breadcrumbLevel,
+            IEnumerable<UnsyncedProductModel> unsyncedProducts,
             bool isMobile,
             bool limitedDateToShowInfo)
         {
@@ -49,7 +52,9 @@
 
             DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
             DownlineLevelName = DownlineLevel.DisplayName;
+            UnsyncedProducts = unsyncedProducts;
         }
+
         public int ActorId { get; }
 
         public string ActorName { get; }
@@ -78,8 +83,8 @@
 
         public string DownlineLevelName { get; }
 
-        public UserLevel DownlineLevel { get;
-        }
+        public UserLevel DownlineLevel { get; }
+
         public string PageTitle { get; }
 
         public bool IsMobileView { get; }
@@ -109,11 +114,22 @@
                 };
 
         public IEnumerable<CustomerListOption> UnconfirmedSettingOptions
-             => new List<CustomerListOption>
+        {
+            get
+            {
+                var options = new List<CustomerListOption>
                 {
-                    new CustomerListOption(0 , "Not Filte"),
-                    new CustomerListOption(6 , "Casino")
+                    new CustomerListOption(0 , "Not Filter")
                 };
+
+                foreach(var product in UnsyncedProducts)
+                {
+                    options.Add(new CustomerListOption(product.Id, product.Name));
+                }
+
+                return options;
+            }
+        }
     }
 
     public class CustomerListOption

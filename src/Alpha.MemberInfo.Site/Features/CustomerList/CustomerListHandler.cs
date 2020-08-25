@@ -4,6 +4,7 @@
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services;
     using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
@@ -34,12 +35,14 @@
         private readonly GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel> statusViewModelFactory;
         private readonly SecurityCodeChecker securityCodeChecker;
         private readonly BrowserHelper browserHelper;
+        private readonly CacheRefService cacheRefService;
 
         public MasterListHandler(
             CustomerListService customerListService,
             SecurityCodeChecker securityCodeChecker,
-            BrowserHelper browserHelper)
-            : this(customerListService, null, null, null, securityCodeChecker, browserHelper)
+            BrowserHelper browserHelper,
+            CacheRefService cacheRefService)
+            : this(customerListService, null, null, null, securityCodeChecker, browserHelper, cacheRefService)
         {
         }
 
@@ -49,7 +52,8 @@
             GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel> settingViewModelFactory,
             GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel> statusViewModelFactory,
             SecurityCodeChecker securityCodeChecker,
-            BrowserHelper browserHelper)
+            BrowserHelper browserHelper,
+            CacheRefService cacheRefService)
         {
             this.customerListService = customerListService;
 
@@ -64,10 +68,14 @@
 
             this.securityCodeChecker = securityCodeChecker;
             this.browserHelper = browserHelper;
+            this.cacheRefService = cacheRefService;
         }
 
         public CustomerListViewModel Handle(CustomerListRequest message)
         {
+            var unsyncedProducts = customerListService.GetUnsyncedProductIds(message.ViewerId)
+                .Select(productId => new UnsyncedProductModel(productId, cacheRefService.GetProductName(productId)));
+
             var breadcrumbLevel = new List<CustInfo>();
 
             if (message.BreadcrumbLevel != null
@@ -86,7 +94,7 @@
 
             breadcrumbLevel.Add(new CustInfo(message.CustId, message.CustName, message.CustLevelId));
 
-            return new CustomerListViewModel(message, breadcrumbLevel, browserHelper.IsMobile(isOnlyTablet: false), message.LimitedDateToShowInfo);
+            return new CustomerListViewModel(message, breadcrumbLevel, unsyncedProducts, browserHelper.IsMobile(isOnlyTablet: false), message.LimitedDateToShowInfo);
         }
 
         public CustomerListDTO Handle(FetchDownlinesListRequest message)
