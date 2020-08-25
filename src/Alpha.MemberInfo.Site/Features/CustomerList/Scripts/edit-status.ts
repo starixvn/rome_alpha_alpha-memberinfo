@@ -18,7 +18,7 @@
 		this.customerListPopup = customerListPopup;
 	}
 
-	public bindingEvent = () => this.$('.status-popup').click(event => this.openPopup(event));
+	public bindingEvent = () => this.$('.status-popup').unbind().bind('click', event => this.openPopup(event));
 
 	private openPopup = event => this.customerListServices.getSettings(
 		this.$(event.currentTarget).data("custid"),

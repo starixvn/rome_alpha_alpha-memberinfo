@@ -309,9 +309,9 @@
 	private drawCallback = () => {
 		this.$('#customer-list').removeClass('hidden');
 
-		this.$('.btn-submit').click(() => this.$table.ajax.reload());
+		this.$('.btn-submit').unbind().bind('click', () => this.$table.ajax.reload());
 
-		this.$('.login-ip').click(event => this.customerListPopup.openProductPopup(event));
+		this.$('.login-ip').unbind().bind('click', event => this.customerListPopup.openProductPopup(event));
 
 		this.editSingleSetting.bindingEvent();
 

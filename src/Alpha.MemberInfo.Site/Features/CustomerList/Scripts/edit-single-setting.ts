@@ -15,7 +15,7 @@
 		this.customerListServices = customerListServices;
 	}
 
-	public bindingEvent = () => this.$('.edit').click(event => this.openPopup(event));
+	public bindingEvent = () => this.$('.edit').unbind().bind('click', event => this.openPopup(event));
 
 	public openPopup = event => {
 		const custId = this.$(event.currentTarget).data("custid");
