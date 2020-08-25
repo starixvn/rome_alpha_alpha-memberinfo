@@ -136,7 +136,7 @@
 				<th rowspan="2" class="header"></th>
 			</tr>
 			<tr class="thead-row2">
-				@if (Model.ActorLevel.IsAgentLevel())
+				@if (Model.DownlineLevel.IsMemberLevel())
 				{
 					@RenderMemberHeader()
 				}

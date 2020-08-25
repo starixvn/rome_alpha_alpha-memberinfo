@@ -13,6 +13,7 @@
         public CustomerListController(IMediator mediator) : base(mediator)
         {
         }
+
         [Route("CustomerList/master")]
         [Route("CustomerList/agent")]
         [Route("CustomerList/member")]

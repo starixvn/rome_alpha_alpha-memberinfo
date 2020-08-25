@@ -63,7 +63,7 @@
 				ordering: false,
 				paging: true,
 				pagingType: this.viewModel.IsMobileView ? "first_last_numbers" : "input",
-				pageLength: 500,
+				pageLength: this.viewModel.IsMobileView ? 100 : 500,
 				searching: false,
 				bInfo: false,
 				fixedHeader: true,

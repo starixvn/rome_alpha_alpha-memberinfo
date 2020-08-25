@@ -90,11 +90,10 @@
         }
 
         public CustomerListDTO Handle(FetchDownlinesListRequest message)
-        {
-            if (message.CustLevel.IsSuperLevel())
-            {
-                return customerListService.GetMasterList(
-                    new MasterListParam(
+            => customerListService.GetCustomerList(
+                    new CustomerListParam(
+                    message.CustLevel,
+                    message.CustLevelId,
                     message.CustId,
                     message.Username,
                     message.Enabled,
@@ -105,40 +104,6 @@
                     message.PageSize,
                     message.PageIndex,
                     message.LimitedDateToShowInfo));
-            }
-            else if (message.CustLevel.IsMasterLevel())
-            {
-                return customerListService.GetAgentList(
-                    new AgentListParam(
-                    message.ViewerId,
-                    message.CustId,
-                    message.Username,
-                    message.Enabled,
-                    message.Closed,
-                    message.Suspended,
-                    message.DoubleComm,
-                    message.UnconfirmSetting,
-                    message.PageSize,
-                    message.PageIndex,
-                    message.LimitedDateToShowInfo));
-            }
-            else
-            {
-                return customerListService.GetMemberList(
-                    new MemberListParam(
-                    message.ViewerId,
-                    message.CustId,
-                    message.Username,
-                    message.Enabled,
-                    message.Closed,
-                    message.Suspended,
-                    message.DoubleComm,
-                    message.UnconfirmSetting,
-                    message.PageSize,
-                    message.PageIndex,
-                    message.LimitedDateToShowInfo));
-            }
-        }
 
         public CustomerStatusViewModel Handle(CustomerStatusQuery message)
             => BuildCustomerStatus(message);
@@ -157,7 +122,6 @@
                   message.StatusValue,
                   message.StatusName,
                   message.ActorName));
-
 
         internal CustomerStatusViewModel BuildCustomerStatus(CustomerStatusQuery message)
         {

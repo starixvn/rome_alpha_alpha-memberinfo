@@ -46,7 +46,9 @@
             UnconfirmSetting = request.UnconfirmSetting;
             IsMobileView = isMobile;
             LimitedDateToShowInfo = limitedDateToShowInfo;
-            DownlineLevelName = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel().DisplayName;
+
+            DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
+            DownlineLevelName = DownlineLevel.DisplayName;
         }
         public int ActorId { get; }
 
@@ -76,6 +78,8 @@
 
         public string DownlineLevelName { get; }
 
+        public UserLevel DownlineLevel { get;
+        }
         public string PageTitle { get; }
 
         public bool IsMobileView { get; }

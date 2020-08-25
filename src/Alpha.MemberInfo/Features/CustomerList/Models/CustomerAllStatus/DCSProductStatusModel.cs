@@ -4,7 +4,6 @@
     {
         public DCSProductStatusModel() { }
 
-#pragma warning disable S107 // Methods should not have too many parameters
         public DCSProductStatusModel(
              int productId,
              int sportType,
@@ -16,7 +15,6 @@
              bool isHiddenUpline,
              bool isDisabledUpline,
              bool hasDownline)
-#pragma warning restore S107 // Methods should not have too many parameters
         {
             ProductId = productId;
             SportType = sportType;
@@ -48,6 +46,6 @@
 
         public bool IsDisabledUpline { get; private set; }
 
-        public bool HasDownline { get; }
+        public bool HasDownline { get; private set; }
     }
 }

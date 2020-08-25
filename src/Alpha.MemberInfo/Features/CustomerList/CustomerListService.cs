@@ -6,15 +6,12 @@
     using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using Fanex.Data.Repository;
-    using System.Linq;
+    using System;
+    using System.Collections.Generic;
 
     public interface CustomerListService
     {
-        CustomerListDTO GetMasterList(MasterListParam param);
-
-        CustomerListDTO GetAgentList(AgentListParam param);
-
-        CustomerListDTO GetMemberList(MemberListParam param);
+        CustomerListDTO GetCustomerList(CustomerListParam param);
 
         CustomerStatusModel GetCustomerStatus(int custId);
 
@@ -25,82 +22,101 @@
     {
         private readonly IDynamicRepository dynamicRepository;
         private readonly CustomerListDataAccess customerListDataAccess;
+        private readonly IDictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>> buildCriteria;
 
         public CustomerListServiceImpl(
             IDynamicRepository dynamicRepository,
             CustomerListDataAccess customerListDataAccess)
+            : this(dynamicRepository, customerListDataAccess, null)
+        {
+        }
+
+        internal CustomerListServiceImpl(
+            IDynamicRepository dynamicRepository,
+            CustomerListDataAccess customerListDataAccess,
+            IDictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>> buildCriteria)
         {
             this.dynamicRepository = dynamicRepository;
             this.customerListDataAccess = customerListDataAccess;
-    }
-
-        public CustomerListDTO GetMasterList(MasterListParam param)
-        {
-            var criteria = new SelectMasterListCriteria(
-                param.Srecommend,
-                param.Username,
-                param.Enabled,
-                param.Closed,
-                param.Suspended,
-                param.DoubleCommLosing,
-                param.ProductUnSync,
-                param.PageSize,
-                param.PageIndex);
-            
-            var model = dynamicRepository.Fetch<MasterListModel>(criteria).OrderBy(item => item.RowNumber);
-
-            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
+            this.buildCriteria = buildCriteria ??
+                  new Dictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>>
+                {
+                    {UserLevel.Super, BuildMasterListCriteria},
+                    {UserLevel.Master, BuildAgentListCriteria},
+                    {UserLevel.Agent, BuildMemberListCriteria}
+                };
         }
 
-        public CustomerListDTO GetAgentList(AgentListParam param)
-        {
-            var criteria = new SelectAgentListCriteria(
-                param.UserId,
-                param.Mrecommend,
-                param.Username,
-                param.Enabled,
-                param.Closed,
-                param.Suspended,
-                param.DoubleCommLosing,
-                param.ProductUnSync,
-                param.PageSize,
-                param.PageIndex);
-
-            var model = dynamicRepository.Fetch<MasterListModel>(criteria).OrderBy(item => item.RowNumber);
-
-            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
-        }
-
-        public CustomerListDTO GetMemberList(MemberListParam param)
-        {
-            var criteria = new SelectMemberListCriteria(
-                param.UserId,
-                param.Recommend,
-                param.Username,
-                param.Enabled,
-                param.Closed,
-                param.Suspended,
-                param.DoubleCommLosing,
-                param.ProductUnSync,
-                param.PageSize,
-                param.PageIndex);
-
-            var model = dynamicRepository.Fetch<MemberListModel>(criteria).OrderBy(item => item.RowNumber);
-
-            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
-        }
+        public CustomerListDTO GetCustomerList(CustomerListParam param)
+            => buildCriteria[param.CustLevel](param);
 
         public CustomerStatusModel GetCustomerStatus(int custId)
-          => customerListDataAccess.GetCustomerStatus(new SelectCustomerAllStatusModelCriteria(custId));
+            => customerListDataAccess.GetCustomerStatus(new SelectCustomerAllStatusModelCriteria(custId));
 
         public Result UpdateCustomerStatus(UpdateCustomerStatusParam param)
             => customerListDataAccess.UpdateCustomerStatus(new UpdateCustomerStatusCommand(
-                   param.SearchAccountId,
-                   param.ActorId,
-                   param.SubAccountId,
-                   param.Language,
-                   param.IP,
-                   param.StatusName,
-                   param.StatusValue));
+                param.SearchAccountId,
+                param.ActorId,
+                param.SubAccountId,
+                param.Language,
+                param.IP,
+                param.StatusName,
+                param.StatusValue));
+
+        internal CustomerListDTO BuildMasterListCriteria(CustomerListParam param)
+        {
+            var criteria = new SelectMasterListCriteria(
+              param.DirectUplineId,
+              param.Username,
+              param.Enabled,
+              param.Closed,
+              param.Suspended,
+              param.DoubleCommLosing,
+              param.ProductUnSync,
+              param.PageSize,
+              param.PageIndex);
+
+            var model = dynamicRepository.Fetch<MasterListModel>(criteria);
+
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
+        }
+
+        internal CustomerListDTO BuildAgentListCriteria(CustomerListParam param)
+        {
+            var criteria = new SelectAgentListCriteria(
+                param.UserId,
+                param.DirectUplineId,
+                param.Username,
+                param.Enabled,
+                param.Closed,
+                param.Suspended,
+                param.DoubleCommLosing,
+                param.ProductUnSync,
+                param.PageSize,
+                param.PageIndex);
+
+            var model = dynamicRepository.Fetch<AgentListModel>(criteria);
+
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
+        }
+
+        internal CustomerListDTO BuildMemberListCriteria(CustomerListParam param)
+        {
+            var criteria = new SelectMemberListCriteria(
+                param.UserId,
+                param.DirectUplineId,
+                param.Username,
+                param.Enabled,
+                param.Closed,
+                param.Suspended,
+                param.DoubleCommLosing,
+                param.ProductUnSync,
+                param.PageSize,
+                param.PageIndex);
+
+            var model = dynamicRepository.Fetch<MemberListModel>(criteria);
+
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
+        }
     }
 }
