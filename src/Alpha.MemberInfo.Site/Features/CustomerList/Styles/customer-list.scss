@@ -17,7 +17,7 @@
 	float: left;
 	position: relative;
 	justify-content: center;
-	vertical-align:middle;
+	vertical-align: middle;
 	/*margin-top: 15px;*/
 	height: 30px;
 	align-items: center;
@@ -78,26 +78,28 @@ input[type=checkbox] {
 	display: inline-block;
 }
 
-ul,
-ol {
-	margin-top: 0;
-	margin-bottom: 0;
+#customer-list {
+	ul,
+	ol {
+		margin-top: 0;
+		margin-bottom: 0;
 
-	li {
-		display: block !important;
+		li {
+			display: block !important;
 
-		&.Disable_edit:before {
-			color: #bbb !important;
-		}
+			&.Disable_edit:before {
+				color: #bbb !important;
+			}
 
-		&.icon-edit, &.icon-refresh {
-			font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
-			font-size: 13px;
-			line-height: 24px;
+			&.icon-edit, &.icon-refresh {
+				font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
+				font-size: 13px;
+				line-height: 24px;
 
-			&:before {
-				margin-right: 5px;
-				font-family: 'Iconalpha';
+				&:before {
+					margin-right: 5px;
+					font-family: 'Iconalpha';
+				}
 			}
 		}
 	}
@@ -109,7 +111,7 @@ ol {
 	-o-box-shadow: none !important;
 	box-shadow: none !important;
 	width: auto;
-	overflow:hidden !important;
+	overflow: hidden !important;
 }
 
 .modal-dialog {
@@ -201,11 +203,9 @@ body:not(.modal-open) {
 
 .detail-table, .commission-table {
 	width: 100%;
-
 	/*tr {
 		border-bottom: 1px solid black;	
 	}*/
-
 	tr > td:last-of-type {
 		text-align: right;
 	}
@@ -218,11 +218,37 @@ body:not(.modal-open) {
 
 .commission-wrapper {
 	padding: 0px !important;
-	.commission-header{
-		font-weight:bold;	
+
+	.commission-header {
+		font-weight: bold;
 	}
 }
 
 .dataTables_empty {
-	text-align: center;	
+	text-align: center;
+}
+
+.page-title {
+	.breadcrumb {
+		border-bottom: none;
+		float: left;
+		padding: 0 12px;
+
+		a:hover {
+			color: #045ace;
+			text-decoration: underline;
+		}
+
+		&:before, &:after {
+			color: #333;
+		}
+
+		&:before {
+			content: '(';
+		}
+
+		&:after {
+			content: ')';
+		}
+	}
 }

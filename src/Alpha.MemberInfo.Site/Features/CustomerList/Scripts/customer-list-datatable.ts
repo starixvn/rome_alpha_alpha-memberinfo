@@ -43,9 +43,7 @@
 				serverSide: true,
 				ajax: (data, callback) => this.customerListServices.getCutomerList(data, callback),
 				columns: this.buildDataTableColumns(),
-				createdRow: (row, data, dataIndex) => {
-					this.$(row).addClass(this.getRowClass(data));
-				},
+				createdRow: (row, data, dataIndex) => this.$(row).addClass(this.getRowClass(data)),
 				responsive: {
 					details: {
 						type: 'column',
