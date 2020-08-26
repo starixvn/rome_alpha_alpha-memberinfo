@@ -102,10 +102,10 @@
 						<div class="edit-multiple icon-view-grid" data-url="" />
 					</th>
 				}
-					<th rowspan="2" class="header">
-						@CustomerListResources.Username <br />
-						@CustomerListResources.NickName
-					</th>
+				<th rowspan="2" class="header">
+					@CustomerListResources.Username <br />
+					@CustomerListResources.NickName
+				</th>
 				<th rowspan="2" class="header">
 					@CustomerListResources.Status
 				</th>
@@ -126,13 +126,13 @@
 				</th>
 				@if (!Model.LimitedDateToShowInfo)
 				{
-				<th rowspan="2" class="header">
-					@CustomerListResources.CreatedDate
-				</th>
-				}
 					<th rowspan="2" class="header">
-						@CustomerListResources.LoginIP
+						@CustomerListResources.CreatedDate
 					</th>
+				}
+				<th rowspan="2" class="header">
+					@CustomerListResources.LoginIP
+				</th>
 				<th rowspan="2" class="header"></th>
 			</tr>
 			<tr class="thead-row2">
@@ -215,6 +215,7 @@
 	@*<script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.2/js/dataTables.scroller.js"></script>*@
 	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.20/pagination/input.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.21/pagination/select.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.21/i18n/Vietnamese.json"></script>
 	@StaticResources.RenderScripts("~/Features/CustomerList/Bundles/customer-list")
 }
 

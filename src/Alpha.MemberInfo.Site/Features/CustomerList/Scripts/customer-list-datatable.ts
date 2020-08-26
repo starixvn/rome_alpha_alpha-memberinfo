@@ -79,7 +79,8 @@
 						sFirst: '<<',
 						sPrevious: '<',
 						sNext: '>',
-						sLast: '>>'
+						sLast: '>>',
+						info: `${this.viewModel.CustomerListResources.Page} _INPUT_ ${this.viewModel.CustomerListResources.Of} _TOTAL_`
 					},
 					emptyTable: this.viewModel.CustomerListResources.ThereIsNoData
 				},
