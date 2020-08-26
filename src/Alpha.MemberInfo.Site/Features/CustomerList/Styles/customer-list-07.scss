@@ -23,12 +23,14 @@ input[type=checkbox] {
 	font-size: calculateScale(18px) !important;
 }
 
-ul,
-ol {
-	li {
-		&.icon-edit, &.icon-refresh, &.edit-status-popup {
-			font-size: calculateScale(13px);
-			line-height: calculateScale(24px);
+#bootstrap-modal {
+	ul,
+	ol {
+		li {
+			&.icon-edit, &.icon-refresh, &.edit-status-popup {
+				font-size: calculateScale(13px);
+				line-height: calculateScale(24px);
+			}
 		}
 	}
 }

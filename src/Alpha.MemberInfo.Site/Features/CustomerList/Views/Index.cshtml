@@ -9,14 +9,14 @@
 
 	if (!Model.HideEditMultiple)
 	{
-		commColumnStart = commColumnStart + 1;
-		commColumnEnd = commColumnEnd + 1;
+		commColumnStart++;
+		commColumnEnd++;
 	}
 
 	if (!Model.LimitedDateToShowInfo)
 	{
-		commColumnStart = commColumnStart + 1;
-		commColumnEnd = commColumnEnd + 1;
+		commColumnStart++;
+		commColumnEnd++;
 	}
 
 }
@@ -28,6 +28,7 @@
 	@StaticResources.RenderStylesWithMedia(767, "~/Features/CustomerList/Styles/customer-list-07")
 	@*<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.css" />*@
 }
+
 <div class="page-title">
 	@if (!string.IsNullOrWhiteSpace(Model.PageTitle))
 	{
@@ -40,7 +41,6 @@
 	{
 		@Breadcrumb.Render(new BreadcrumbLevelViewModel(Model.BreadcrumbLevel, Model.BreadcrumbLevelJson), Request.Url.Query, null)
 	}
-
 </div>
 
 <div class="form-inline filter form-report" style="margin-top:15px;">
@@ -87,8 +87,7 @@
 				@{
 					for (var i = 2; i <= commColumnEnd; i++)
 					{
-						<th class=""></th>
-						@*<th class="@(i >= commColumnStart && i <= commColumnEnd ? "desktop" : string.Empty)"></th>*@
+						<th class="@(i >= commColumnStart && i <= commColumnEnd ? "desktop" : string.Empty)"></th>
 					}
 				}
 				<th></th>

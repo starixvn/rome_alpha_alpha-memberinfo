@@ -158,7 +158,7 @@
             SimpleServiceLocator
                .Instance
                .Register<Func<int, string>>(new CacheRefServiceImpl(container.GetInstance<IRemotingRefService>()).GetProductName)
-               .Register<Func<string, string>>(CustomerListResourse.ResourceManager.GetString)
+               .Register<Func<string, string>>(ProductResources.ResourceManager.GetString)
                .Register<Func<string, string, string>>(MicroSites.GetMicroSiteUrl);
         }
 
@@ -171,12 +171,12 @@
                     AppSettingsHelper.GetQRCodeMemberSiteLoginConfigsPath());
 
             SimpleServiceLocator
-              .Instance
-               .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter(), productConfigFile))
-              .Register<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>(new StatusViewModelFactory())
-              .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
-              .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>(new SettingMultipleViewModelFactory())
-              .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
+                .Instance
+                .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter(), productConfigFile))
+                .Register<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>(new StatusViewModelFactory())
+                .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
+                .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>(new SettingMultipleViewModelFactory())
+                .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
 
 
             container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();

@@ -6,12 +6,9 @@
     using System.Web;
     using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
-<<<<<<< HEAD
-    using Alpha.MemberInfo.Features.DormantAccountList;
-=======
     using Alpha.MemberInfo.Features.CustomerList;
+    using Alpha.MemberInfo.Features.DormantAccountList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources;
->>>>>>> 111111- move alpha product
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
@@ -54,15 +51,7 @@
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Model.Entities.Permission;
     using Sunplus.Agent.Utilities;
-<<<<<<< HEAD
-=======
     using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
-    using System.Web;
-    using System.Web.Mvc;
->>>>>>> 111111- move alpha product
     using Utilities.IP;
 
     public static class DependencyConfig
@@ -120,6 +109,7 @@
 
         private static void RegisterServices(Container container)
         {
+            container.RegisterSingleton<BrowserHelper, BrowserHelperImpl>();
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
@@ -168,7 +158,7 @@
             SimpleServiceLocator
                .Instance
                .Register<Func<int, string>>(new CacheRefServiceImpl(container.GetInstance<IRemotingRefService>()).GetProductName)
-               .Register<Func<string, string>>(CustomerListResourse.ResourceManager.GetString)
+               .Register<Func<string, string>>(ProductResources.ResourceManager.GetString)
                .Register<Func<string, string, string>>(MicroSites.GetMicroSiteUrl);
         }
 
@@ -181,19 +171,25 @@
                     AppSettingsHelper.GetQRCodeMemberSiteLoginConfigsPath());
 
             SimpleServiceLocator
+<<<<<<< HEAD
               .Instance
                .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter(), productConfigFile))
               .Register<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>(new StatusViewModelFactory())
               .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
               .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>(new SettingMultipleViewModelFactory())
               .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
+=======
+                .Instance
+                .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter(), productConfigFile))
+                .Register<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>(new StatusViewModelFactory())
+                .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
+                .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>(new SettingMultipleViewModelFactory())
+                .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
+        }
+>>>>>>> 111111-  restructure resources
 
-<<<<<<< HEAD
 
             container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();
             container.RegisterPerWebRequest<DormantAccountWorkbook, DormantAccountWorkbookImpl>();
-        }
-=======
->>>>>>> 111111- move alpha product
     }
 }
