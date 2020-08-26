@@ -127,16 +127,16 @@
     <value>Hoa hồng Agent 3</value>
   </data>
   <data name="AgentList" xml:space="preserve">
-    <value>Agent List</value>
+    <value>Các Agent</value>
   </data>
   <data name="All" xml:space="preserve">
-    <value>All</value>
+    <value>Tất cả</value>
   </data>
   <data name="Allowed" xml:space="preserve">
-    <value>Allowed</value>
+    <value>Cho phép</value>
   </data>
   <data name="Closed" xml:space="preserve">
-    <value>Closed</value>
+    <value>Bị khóa</value>
   </data>
   <data name="Commission" xml:space="preserve">
     <value>Hoa hồng</value>
@@ -145,10 +145,10 @@
     <value>Ngày tạo</value>
   </data>
   <data name="Disabled" xml:space="preserve">
-    <value>Disabled</value>
+    <value>Vô hiệu hóa</value>
   </data>
   <data name="Disallowed" xml:space="preserve">
-    <value>Disallowed</value>
+    <value>Không cho</value>
   </data>
   <data name="DoubleComm" xml:space="preserve">
     <value>Nhân đôi hoa hồng</value>
@@ -190,10 +190,10 @@
     <value>IP đăng nhập</value>
   </data>
   <data name="MasterAgentList" xml:space="preserve">
-    <value>Master Agent List</value>
+    <value>Danh sách Master</value>
   </data>
   <data name="MemberList" xml:space="preserve">
-    <value>Member List</value>
+    <value>Danh sách Member</value>
   </data>
   <data name="NickName" xml:space="preserve">
     <value>Biệt Danh</value>
@@ -202,22 +202,25 @@
     <value>No.</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>None</value>
+    <value>Bỏ Chọn</value>
+  </data>
+  <data name="NotFilter" xml:space="preserve">
+    <value>Không dùng</value>
   </data>
   <data name="Of" xml:space="preserve">
     <value>of</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Mở</value>
   </data>
   <data name="Other" xml:space="preserve">
     <value>Khác</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Page</value>
+    <value>Trang</value>
   </data>
   <data name="PageSize" xml:space="preserve">
-    <value>Page Size</value>
+    <value>Số dòng</value>
   </data>
   <data name="PComm1" xml:space="preserve">
     <value>Hoa hồng Member 1</value>
@@ -229,7 +232,7 @@
     <value>Hoa hồng Member 3</value>
   </data>
   <data name="Select" xml:space="preserve">
-    <value>Select</value>
+    <value>Lưa chọn</value>
   </data>
   <data name="Statement" xml:space="preserve">
     <value>Sao kê</value>
@@ -238,10 +241,10 @@
     <value>Trạng thái</value>
   </data>
   <data name="Suspended" xml:space="preserve">
-    <value>Suspended</value>
+    <value>Bị đình chỉ</value>
   </data>
   <data name="ThereIsNoData" xml:space="preserve">
-    <value>There is no data.</value>
+    <value>Thông tin chưa được cập nhật</value>
   </data>
   <data name="UnconfirmedSetting" xml:space="preserve">
     <value>Chưa Thiết Lập</value>
@@ -253,6 +256,6 @@
     <value>Tên đăng nhập/Biệt Danh hoặc Tên/Họ</value>
   </data>
   <data name="View" xml:space="preserve">
-    <value>View</value>
+    <value>Xem</value>
   </data>
 </root>

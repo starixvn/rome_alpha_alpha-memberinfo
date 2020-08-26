@@ -255,4 +255,7 @@
   <data name="View" xml:space="preserve">
     <value>View</value>
   </data>
+  <data name="NotFilter" xml:space="preserve">
+    <value>Not Filter</value>
+  </data>
 </root>

@@ -1,7 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
 {
-    using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Enumerations;
+    using Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResources;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
@@ -13,14 +13,14 @@
 
     public class CustomerListViewModel
     {
-        private Dictionary<UserLevel, string> PageTitleDictonary = new Dictionary<UserLevel, string>
+        private readonly Dictionary<UserLevel, string> PageTitleDictonary = new Dictionary<UserLevel, string>
         {
-            {UserLevel.Super, "Master Agent List"},
-            {UserLevel.Master, "Agent List"},
-            {UserLevel.Agent, "Member List"}
+            {UserLevel.Super, CustomerListResources.MasterAgentList},
+            {UserLevel.Master, CustomerListResources.AgentList},
+            {UserLevel.Agent, CustomerListResources.MemberList}
         };
 
-        private IEnumerable<UnsyncedProductModel> UnsyncedProducts;
+        private readonly IEnumerable<UnsyncedProductModel> UnsyncedProducts;
 
         public CustomerListViewModel(
             CustomerListRequest request,
@@ -60,7 +60,7 @@
             UnsyncedProducts = unsyncedProducts;
 
             var ConvertResourcesJson = convertResourcesJson ?? SimpleServiceLocator.GetService<Func<string, ResourceManager, string>>();
-            CustomerListResources = ConvertResourcesJson(request.Language, Resources.ResourceManager);
+            Resources = ConvertResourcesJson(request.Language, CustomerListResources.ResourceManager);
         }
 
         public int ActorId { get; }
@@ -103,24 +103,24 @@
 
         public string BreadcrumbLevelJson { get; }
 
-        public string CustomerListResources { get; }
+        public string Resources { get; }
 
         public IEnumerable<CustomerListOption> StatusOptions
              => new List<CustomerListOption>
                 {
-                    new CustomerListOption(0 , "All"),
-                    new CustomerListOption(1 , "Open"),
-                    new CustomerListOption(2 , "Suspended"),
-                    new CustomerListOption(3 , "Closed"),
-                    new CustomerListOption(4 , "Disabled")
+                    new CustomerListOption(0 , CustomerListResources.All),
+                    new CustomerListOption(1 , CustomerListResources.Open),
+                    new CustomerListOption(2 , CustomerListResources.Suspended),
+                    new CustomerListOption(3 , CustomerListResources.Closed),
+                    new CustomerListOption(4 , CustomerListResources.Disabled)
                 };
 
         public IEnumerable<CustomerListOption> DoubleCommOptions
              => new List<CustomerListOption>
                 {
-                    new CustomerListOption(2 , "All"),
-                    new CustomerListOption(0 , "Allowed"),
-                    new CustomerListOption(1 , "Disallowed")
+                    new CustomerListOption(2 , CustomerListResources.All),
+                    new CustomerListOption(0 , CustomerListResources.Allowed),
+                    new CustomerListOption(1 , CustomerListResources.Disallowed)
                 };
 
         public IEnumerable<CustomerListOption> UnconfirmedSettingOptions
@@ -129,7 +129,7 @@
             {
                 var options = new List<CustomerListOption>
                 {
-                    new CustomerListOption(0 , "Not Filter")
+                    new CustomerListOption(0 , CustomerListResources.NotFilter)
                 };
 
                 foreach(var product in UnsyncedProducts)

@@ -127,7 +127,7 @@
     <value>エージェント手数料 (3)</value>
   </data>
   <data name="AgentList" xml:space="preserve">
-    <value>Agent List</value>
+    <value>エージェントリスト</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>All</value>
@@ -136,7 +136,7 @@
     <value>Allowed</value>
   </data>
   <data name="Closed" xml:space="preserve">
-    <value>Closed</value>
+    <value>閉鎖</value>
   </data>
   <data name="Commission" xml:space="preserve">
     <value>手数料</value>
@@ -184,7 +184,7 @@
     <value>Master Agent List</value>
   </data>
   <data name="MemberList" xml:space="preserve">
-    <value>Member List</value>
+    <value>お客様リスト</value>
   </data>
   <data name="NickName" xml:space="preserve">
     <value>ニックネーム</value>
@@ -196,16 +196,16 @@
     <value>None</value>
   </data>
   <data name="Of" xml:space="preserve">
-    <value>of</value>
+    <value>/</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>開設</value>
   </data>
   <data name="Other" xml:space="preserve">
     <value>Other</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Page</value>
+    <value>ページ</value>
   </data>
   <data name="PageSize" xml:space="preserve">
     <value>Page Size</value>
@@ -232,7 +232,7 @@
     <value>Suspended</value>
   </data>
   <data name="ThereIsNoData" xml:space="preserve">
-    <value>There is no data.</value>
+    <value>情報がありません</value>
   </data>
   <data name="UnconfirmedSetting" xml:space="preserve">
     <value>Unconfirmed Setting</value>
@@ -244,7 +244,7 @@
     <value>Username/Nickname or First/Last Name</value>
   </data>
   <data name="View" xml:space="preserve">
-    <value>View</value>
+    <value>表示</value>
   </data>
   <data name="EditMultipleSetting" xml:space="preserve">
     <value>Edit Multiple Setting</value>
@@ -254,5 +254,8 @@
   </data>
   <data name="EditStatus" xml:space="preserve">
     <value>Edit Status</value>
+  </data>
+  <data name="NotFilter" xml:space="preserve">
+    <value>Not Filter</value>
   </data>
 </root>

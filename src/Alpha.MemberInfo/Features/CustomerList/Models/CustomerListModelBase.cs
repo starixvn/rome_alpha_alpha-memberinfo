@@ -1,4 +1,6 @@
-﻿namespace Alpha.MemberInfo.Features.CustomerList.Models
+﻿using Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResources;
+
+namespace Alpha.MemberInfo.Features.CustomerList.Models
 {
     public class CustomerListModelBase
     {
@@ -112,20 +114,20 @@
                 {
                     if (Closed)
                     {
-                        return "Closed";
+                        return CustomerListResources.Closed;
                     }
                     else if (Suspended)
                     {
-                        return "Suspended";
+                        return CustomerListResources.Suspended;
                     }
                     else
                     {
-                        return "Open";
+                        return CustomerListResources.Open;
                     }
                 }
                 else
                 {
-                    return "Disable";
+                    return CustomerListResources.Disabled;
                 }
             }
         }

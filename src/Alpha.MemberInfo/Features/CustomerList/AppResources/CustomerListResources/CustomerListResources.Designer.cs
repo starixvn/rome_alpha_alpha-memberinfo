@@ -323,6 +323,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not Filter.
+        /// </summary>
+        public static string NotFilter {
+            get {
+                return ResourceManager.GetString("NotFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to of.
         /// </summary>
         public static string Of {

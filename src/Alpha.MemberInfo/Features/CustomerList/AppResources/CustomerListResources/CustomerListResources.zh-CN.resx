@@ -127,16 +127,16 @@
     <value>代理佣金(3)</value>
   </data>
   <data name="AgentList" xml:space="preserve">
-    <value>Agent List</value>
+    <value>代理</value>
   </data>
   <data name="All" xml:space="preserve">
-    <value>All</value>
+    <value>全部</value>
   </data>
   <data name="Allowed" xml:space="preserve">
-    <value>Allowed</value>
+    <value>允许</value>
   </data>
   <data name="Closed" xml:space="preserve">
-    <value>Closed</value>
+    <value>关闭</value>
   </data>
   <data name="Commission" xml:space="preserve">
     <value>佣金</value>
@@ -145,10 +145,10 @@
     <value>新增日期</value>
   </data>
   <data name="Disabled" xml:space="preserve">
-    <value>Disabled</value>
+    <value>禁用</value>
   </data>
   <data name="Disallowed" xml:space="preserve">
-    <value>Disallowed</value>
+    <value>禁止</value>
   </data>
   <data name="DoubleComm" xml:space="preserve">
     <value>双倍佣金</value>
@@ -190,10 +190,10 @@
     <value>最后登入IP</value>
   </data>
   <data name="MasterAgentList" xml:space="preserve">
-    <value>Master Agent List</value>
+    <value>总代理名单</value>
   </data>
   <data name="MemberList" xml:space="preserve">
-    <value>Member List</value>
+    <value>会员</value>
   </data>
   <data name="NickName" xml:space="preserve">
     <value>昵称</value>
@@ -202,22 +202,25 @@
     <value>No.</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>None</value>
+    <value>没有</value>
+  </data>
+  <data name="NotFilter" xml:space="preserve">
+    <value>未过滤</value>
   </data>
   <data name="Of" xml:space="preserve">
-    <value>of</value>
+    <value>之第</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>开启</value>
   </data>
   <data name="Other" xml:space="preserve">
     <value>其他</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Page</value>
+    <value>页</value>
   </data>
   <data name="PageSize" xml:space="preserve">
-    <value>Page Size</value>
+    <value>页面范围</value>
   </data>
   <data name="PComm1" xml:space="preserve">
     <value>会员佣金(1)</value>
@@ -229,7 +232,7 @@
     <value>会员佣金(3)</value>
   </data>
   <data name="Select" xml:space="preserve">
-    <value>Select</value>
+    <value>选择</value>
   </data>
   <data name="Statement" xml:space="preserve">
     <value>账目</value>
@@ -238,10 +241,10 @@
     <value>状态</value>
   </data>
   <data name="Suspended" xml:space="preserve">
-    <value>Suspended</value>
+    <value>暫停</value>
   </data>
   <data name="ThereIsNoData" xml:space="preserve">
-    <value>There is no data.</value>
+    <value>没资料显示</value>
   </data>
   <data name="UnconfirmedSetting" xml:space="preserve">
     <value>未确认设定</value>
@@ -253,6 +256,6 @@
     <value>用户名/昵称或名/姓</value>
   </data>
   <data name="View" xml:space="preserve">
-    <value>View</value>
+    <value>游览</value>
   </data>
 </root>

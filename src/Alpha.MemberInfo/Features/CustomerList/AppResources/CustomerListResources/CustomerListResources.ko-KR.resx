@@ -127,16 +127,16 @@
     <value>A 수수료 3</value>
   </data>
   <data name="AgentList" xml:space="preserve">
-    <value>Agent List</value>
+    <value>에이전트 목록</value>
   </data>
   <data name="All" xml:space="preserve">
-    <value>All</value>
+    <value>모든</value>
   </data>
   <data name="Allowed" xml:space="preserve">
-    <value>Allowed</value>
+    <value>허용</value>
   </data>
   <data name="Closed" xml:space="preserve">
-    <value>Closed</value>
+    <value>중지</value>
   </data>
   <data name="Commission" xml:space="preserve">
     <value>수수료</value>
@@ -145,10 +145,10 @@
     <value>작성일</value>
   </data>
   <data name="Disabled" xml:space="preserve">
-    <value>Disabled</value>
+    <value>비활성화</value>
   </data>
   <data name="Disallowed" xml:space="preserve">
-    <value>Disallowed</value>
+    <value>불허용</value>
   </data>
   <data name="DoubleComm" xml:space="preserve">
     <value>더블 커미션</value>
@@ -190,10 +190,10 @@
     <value>로그인 아이피</value>
   </data>
   <data name="MasterAgentList" xml:space="preserve">
-    <value>Master Agent List</value>
+    <value>마스터 에이전트 목록</value>
   </data>
   <data name="MemberList" xml:space="preserve">
-    <value>Member List</value>
+    <value>고객 리스트</value>
   </data>
   <data name="NickName" xml:space="preserve">
     <value>닉네임</value>
@@ -202,22 +202,25 @@
     <value>No.</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>None</value>
+    <value>없음</value>
+  </data>
+  <data name="NotFilter" xml:space="preserve">
+    <value>Not Filter</value>
   </data>
   <data name="Of" xml:space="preserve">
-    <value>of</value>
+    <value>부터</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>열기</value>
   </data>
   <data name="Other" xml:space="preserve">
     <value>기타</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Page</value>
+    <value>페이지</value>
   </data>
   <data name="PageSize" xml:space="preserve">
-    <value>Page Size</value>
+    <value>웹페이지 크기</value>
   </data>
   <data name="PComm1" xml:space="preserve">
     <value>P 수수료 1</value>
@@ -229,7 +232,7 @@
     <value>P 수수료 3</value>
   </data>
   <data name="Select" xml:space="preserve">
-    <value>Select</value>
+    <value>선택</value>
   </data>
   <data name="Statement" xml:space="preserve">
     <value>기록</value>
@@ -238,10 +241,10 @@
     <value>상황</value>
   </data>
   <data name="Suspended" xml:space="preserve">
-    <value>Suspended</value>
+    <value>보류</value>
   </data>
   <data name="ThereIsNoData" xml:space="preserve">
-    <value>There is no data.</value>
+    <value>가능한 정보가 없습니다</value>
   </data>
   <data name="UnconfirmedSetting" xml:space="preserve">
     <value>Unconfirmed Setting</value>
@@ -253,6 +256,6 @@
     <value>Username/Nickname or First/Last Name</value>
   </data>
   <data name="View" xml:space="preserve">
-    <value>View</value>
+    <value>보기</value>
   </data>
 </root>

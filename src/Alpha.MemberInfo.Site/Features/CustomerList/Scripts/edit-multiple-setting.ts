@@ -22,7 +22,7 @@
 		this.$("div.top").prepend(
 			`<div class="select-all">${this.viewModel.CustomerListResources.Select}` +
 			`<a class="check-all">${this.viewModel.CustomerListResources.All}</a> | ` +
-			`<a class="uncheck-all">${this.viewModel.CustomerListResources.All}</a></div>`);
+			`<a class="uncheck-all">${this.viewModel.CustomerListResources.None}</a></div>`);
 
 		this.$('.edit-multiple').click(event => this.openPopup(event));
 

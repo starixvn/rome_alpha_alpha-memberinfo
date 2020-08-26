@@ -127,16 +127,16 @@
     <value>คอมมิชชั่นของAgent สำหรับประเภทการเดิมพันชนิดที่ 3</value>
   </data>
   <data name="AgentList" xml:space="preserve">
-    <value>Agent List</value>
+    <value>รายชื่อ เอเจนต์</value>
   </data>
   <data name="All" xml:space="preserve">
-    <value>All</value>
+    <value>ทั้งหมด</value>
   </data>
   <data name="Allowed" xml:space="preserve">
-    <value>Allowed</value>
+    <value>อนุญาต</value>
   </data>
   <data name="Closed" xml:space="preserve">
-    <value>Closed</value>
+    <value>ปิด</value>
   </data>
   <data name="Commission" xml:space="preserve">
     <value>คอมมิชชั่น</value>
@@ -145,10 +145,10 @@
     <value>สร้างขึ้นเมื่อ</value>
   </data>
   <data name="Disabled" xml:space="preserve">
-    <value>Disabled</value>
+    <value>ปิดการใช้งาน</value>
   </data>
   <data name="Disallowed" xml:space="preserve">
-    <value>Disallowed</value>
+    <value>ไม่อนุญาต</value>
   </data>
   <data name="DoubleComm" xml:space="preserve">
     <value>คอมสองเท่า</value>
@@ -190,10 +190,10 @@
     <value>IP สุดท้ายที่เข้าระบบ</value>
   </data>
   <data name="MasterAgentList" xml:space="preserve">
-    <value>Master Agent List</value>
+    <value>รายชื่อตัวแทนหลัก</value>
   </data>
   <data name="MemberList" xml:space="preserve">
-    <value>Member List</value>
+    <value>รายชื่อลูกค้า</value>
   </data>
   <data name="NickName" xml:space="preserve">
     <value>ชื่อเล่น</value>
@@ -202,22 +202,25 @@
     <value>No.</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>None</value>
+    <value>ไม่ใช่</value>
+  </data>
+  <data name="NotFilter" xml:space="preserve">
+    <value>Not Filter</value>
   </data>
   <data name="Of" xml:space="preserve">
-    <value>of</value>
+    <value>ของ</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>เปิด</value>
   </data>
   <data name="Other" xml:space="preserve">
     <value>อื่นๆ</value>
   </data>
   <data name="Page" xml:space="preserve">
-    <value>Page</value>
+    <value>หน้า</value>
   </data>
   <data name="PageSize" xml:space="preserve">
-    <value>Page Size</value>
+    <value>ขนาดหน้า</value>
   </data>
   <data name="PComm1" xml:space="preserve">
     <value>คอมมิชชั่นของผู้เล่น สำหรับประเภทการเดิมพันชนิดที่ 1</value>
@@ -229,7 +232,7 @@
     <value>คอมมิชชั่นของผู้เล่น สำหรับประเภทการเดิมพันชนิดที่ 3</value>
   </data>
   <data name="Select" xml:space="preserve">
-    <value>Select</value>
+    <value>เลือก</value>
   </data>
   <data name="Statement" xml:space="preserve">
     <value>บัญชี</value>
@@ -238,10 +241,10 @@
     <value>สถานะ</value>
   </data>
   <data name="Suspended" xml:space="preserve">
-    <value>Suspended</value>
+    <value>การแข่งขันถูกระงับ</value>
   </data>
   <data name="ThereIsNoData" xml:space="preserve">
-    <value>There is no data.</value>
+    <value>ไม่มีข้อมูล</value>
   </data>
   <data name="UnconfirmedSetting" xml:space="preserve">
     <value>Unconfirmed Setting</value>
@@ -253,6 +256,6 @@
     <value>ยูเซอร์เนม/ชื่อเล่น หรือ ชื่อ/นามสุกล</value>
   </data>
   <data name="View" xml:space="preserve">
-    <value>View</value>
+    <value>ดู</value>
   </data>
 </root>
