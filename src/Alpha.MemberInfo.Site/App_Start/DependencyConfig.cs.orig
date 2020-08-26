@@ -7,12 +7,8 @@
     using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Features.CustomerList;
-<<<<<<< HEAD
-    using Alpha.MemberInfo.Features.DormantAccountList;
-    using Alpha.MemberInfo.Features.CustomerList.AppResources;
-=======
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
->>>>>>> 111111-  add customerlist resources
+    using Alpha.MemberInfo.Features.DormantAccountList;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
@@ -56,6 +52,15 @@
     using Sunplus.Agent.Model.Entities.Permission;
     using Sunplus.Agent.Utilities;
     using System;
+<<<<<<< HEAD
+=======
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Reflection;
+    using System.Resources;
+    using System.Web;
+    using System.Web.Mvc;
+>>>>>>> 111111-  resources on client
     using Utilities.IP;
 
     public static class DependencyConfig
@@ -163,7 +168,8 @@
                .Instance
                .Register<Func<int, string>>(new CacheRefServiceImpl(container.GetInstance<IRemotingRefService>()).GetProductName)
                .Register<Func<string, string>>(ProductResources.ResourceManager.GetString)
-               .Register<Func<string, string, string>>(MicroSites.GetMicroSiteUrl);
+               .Register<Func<string, string, string>>(MicroSites.GetMicroSiteUrl)
+               .Register<Func<string, ResourceManager, string>>(ResourcesJsonConverter.ToConvert);
         }
 
         private static void RegisterQRCodeConfiguration()

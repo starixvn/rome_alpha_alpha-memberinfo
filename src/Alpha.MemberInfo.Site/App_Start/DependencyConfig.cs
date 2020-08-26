@@ -52,6 +52,7 @@
     using Sunplus.Agent.Model.Entities.Permission;
     using Sunplus.Agent.Utilities;
     using System;
+    using System.Resources;
     using Utilities.IP;
 
     public static class DependencyConfig
@@ -159,7 +160,8 @@
                .Instance
                .Register<Func<int, string>>(new CacheRefServiceImpl(container.GetInstance<IRemotingRefService>()).GetProductName)
                .Register<Func<string, string>>(ProductResources.ResourceManager.GetString)
-               .Register<Func<string, string, string>>(MicroSites.GetMicroSiteUrl);
+               .Register<Func<string, string, string>>(MicroSites.GetMicroSiteUrl)
+               .Register<Func<string, ResourceManager, string>>(ResourcesJsonConverter.ToConvert);
         }
 
         private static void RegisterQRCodeConfiguration()

@@ -89,6 +89,42 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Agent List.
+        /// </summary>
+        public static string AgentList {
+            get {
+                return ResourceManager.GetString("AgentList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allowed.
+        /// </summary>
+        public static string Allowed {
+            get {
+                return ResourceManager.GetString("Allowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed.
+        /// </summary>
+        public static string Closed {
+            get {
+                return ResourceManager.GetString("Closed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Commission.
         /// </summary>
         public static string Commission {
@@ -107,6 +143,24 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disabled.
+        /// </summary>
+        public static string Disabled {
+            get {
+                return ResourceManager.GetString("Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disallowed.
+        /// </summary>
+        public static string Disallowed {
+            get {
+                return ResourceManager.GetString("Disallowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Double Comm.
         /// </summary>
         public static string DoubleComm {
@@ -121,6 +175,33 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Setting.
+        /// </summary>
+        public static string EditMultipleSetting {
+            get {
+                return ResourceManager.GetString("EditMultipleSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Setting.
+        /// </summary>
+        public static string EditSetting {
+            get {
+                return ResourceManager.GetString("EditSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Status.
+        /// </summary>
+        public static string EditStatus {
+            get {
+                return ResourceManager.GetString("EditStatus", resourceCulture);
             }
         }
         
@@ -197,6 +278,24 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Master Agent List.
+        /// </summary>
+        public static string MasterAgentList {
+            get {
+                return ResourceManager.GetString("MasterAgentList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member List.
+        /// </summary>
+        public static string MemberList {
+            get {
+                return ResourceManager.GetString("MemberList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NickName.
         /// </summary>
         public static string NickName {
@@ -215,11 +314,56 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string None {
+            get {
+                return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to of.
+        /// </summary>
+        public static string Of {
+            get {
+                return ResourceManager.GetString("Of", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string Open {
+            get {
+                return ResourceManager.GetString("Open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Other.
         /// </summary>
         public static string Other {
             get {
                 return ResourceManager.GetString("Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page.
+        /// </summary>
+        public static string Page {
+            get {
+                return ResourceManager.GetString("Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Size.
+        /// </summary>
+        public static string PageSize {
+            get {
+                return ResourceManager.GetString("PageSize", resourceCulture);
             }
         }
         
@@ -251,6 +395,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select.
+        /// </summary>
+        public static string Select {
+            get {
+                return ResourceManager.GetString("Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Statement.
         /// </summary>
         public static string Statement {
@@ -265,6 +418,24 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspended.
+        /// </summary>
+        public static string Suspended {
+            get {
+                return ResourceManager.GetString("Suspended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no data..
+        /// </summary>
+        public static string ThereIsNoData {
+            get {
+                return ResourceManager.GetString("ThereIsNoData", resourceCulture);
             }
         }
         
@@ -292,6 +463,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string UsernamePlaceHolder {
             get {
                 return ResourceManager.GetString("UsernamePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View.
+        /// </summary>
+        public static string View {
+            get {
+                return ResourceManager.GetString("View", resourceCulture);
             }
         }
     }

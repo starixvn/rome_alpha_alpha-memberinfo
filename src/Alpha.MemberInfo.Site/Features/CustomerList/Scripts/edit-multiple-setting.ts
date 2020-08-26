@@ -19,7 +19,10 @@
 	}
 
 	public bindingEvent = () => {
-		this.$("div.top").prepend('<div class="select-all">Select <a class="check-all">All</a>|<a class="uncheck-all">None</a></div>');
+		this.$("div.top").prepend(
+			`<div class="select-all">${this.viewModel.CustomerListResources.Select}` +
+			`<a class="check-all">${this.viewModel.CustomerListResources.All}</a> | ` +
+			`<a class="uncheck-all">${this.viewModel.CustomerListResources.All}</a></div>`);
 
 		this.$('.edit-multiple').click(event => this.openPopup(event));
 

@@ -69,7 +69,7 @@
 				dom: '<"top"iflp<"clear">>rt<"bottom"ifp<"clear">>',
 				language: {
 					processing: '',
-					lengthMenu: 'Page Size <select>' +
+					lengthMenu: `${this.viewModel.CustomerListResources.PageSize} <select>` +
 						'<option value="10">10</option>' +
 						'<option value="50">50</option>' +
 						'<option value="100">100</option>' +
@@ -81,7 +81,7 @@
 						sNext: '>',
 						sLast: '>>'
 					},
-					"emptyTable": "There is no data."
+					emptyTable: this.viewModel.CustomerListResources.ThereIsNoData
 				},
 				drawCallback: this.drawCallback
 			});
@@ -228,7 +228,7 @@
 		}, actionName = item.RoleId === CustomerLevel.Member ? 'MemberStatement' : 'SMAStatement';
 
 		const viewStatementLink = `${this.viewModel.ReportsUrl}Statement/${actionName}?${this.$.param(queryString)}`;
-		return `<a href='${viewStatementLink}'>View</a>`;
+		return `<a href='${viewStatementLink}'>${this.viewModel.CustomerListResources.View}</a>`;
 	}
 
 	private renderLoginIP = item => {

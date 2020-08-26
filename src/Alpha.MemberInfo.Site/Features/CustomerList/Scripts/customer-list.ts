@@ -59,7 +59,8 @@ $(function () {
 		$('#reportsUrl').val(),
 		$('#memberInfoUrl').val(),
 		$('#accountInfoUrl').val(),
-		JSON.parse($('#limitedDateToShowInfo').val())
+		JSON.parse($('#limitedDateToShowInfo').val()),
+		$.parseJSON($('#customerListResources').val())
 	);
 
 	const customerListPopup = new CustomerListPopup($, window.top, viewModel.IsMobileView),

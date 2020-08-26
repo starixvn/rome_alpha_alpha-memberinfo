@@ -18,7 +18,6 @@
 		commColumnStart++;
 		commColumnEnd++;
 	}
-
 }
 
 @section Styles {
@@ -87,7 +86,8 @@
 				@{
 					for (var i = 2; i <= commColumnEnd; i++)
 					{
-						<th class="@(i >= commColumnStart && i <= commColumnEnd ? "desktop" : string.Empty)"></th>
+						<th class=""></th>
+						//<th class="@(i >= commColumnStart && i <= commColumnEnd ? "desktop" : string.Empty)"></th>
 					}
 				}
 				<th></th>
@@ -204,6 +204,7 @@
 <input type="hidden" id="reportsUrl" value='@MicroSites.ReportsUrl()'>
 <input type="hidden" id="memberInfoUrl" value='@MicroSites.MemberInfoUrl()'>
 <input type="hidden" id="limitedDateToShowInfo" value='@(Model.LimitedDateToShowInfo ? "true" : "false")'>
+<input type="hidden" id="customerListResources" value='@Model.CustomerListResources'>
 <input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
 <input type="hidden" id="arrayCustID" name="arrayCustID" value=''>
 <input type="hidden" id="arrayUserName" name="arrayUserName" value=''>
@@ -242,22 +243,22 @@
 
 @helper RenderMemberHeader()
 {
-	<th class="header desktop">
+	<th class="header">
 		@CustomerListResources.AComm1
 	</th>
-	<th class="header desktop">
+	<th class="header">
 		@CustomerListResources.AComm2
 	</th>
-	<th class="header desktop">
+	<th class="header">
 		@CustomerListResources.AComm3
 	</th>
-	<th class="header desktop">
+	<th class="header">
 		@CustomerListResources.PComm1
 	</th>
-	<th class="header desktop">
+	<th class="header">
 		@CustomerListResources.PComm2
 	</th>
-	<th class="header desktop">
+	<th class="header">
 		@CustomerListResources.PComm3
 	</th>
 }

@@ -126,11 +126,29 @@
   <data name="AComm3" xml:space="preserve">
     <value>エージェント手数料 (3)</value>
   </data>
+  <data name="AgentList" xml:space="preserve">
+    <value>Agent List</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Allowed" xml:space="preserve">
+    <value>Allowed</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
   <data name="Commission" xml:space="preserve">
     <value>手数料</value>
   </data>
   <data name="CreatedDate" xml:space="preserve">
     <value>Created Date</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Disallowed" xml:space="preserve">
+    <value>Disallowed</value>
   </data>
   <data name="DoubleComm" xml:space="preserve">
     <value>Double Comm</value>
@@ -162,14 +180,35 @@
   <data name="LoginIP" xml:space="preserve">
     <value>最後のログインIP</value>
   </data>
+  <data name="MasterAgentList" xml:space="preserve">
+    <value>Master Agent List</value>
+  </data>
+  <data name="MemberList" xml:space="preserve">
+    <value>Member List</value>
+  </data>
   <data name="NickName" xml:space="preserve">
     <value>ニックネーム</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No.</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
   <data name="Other" xml:space="preserve">
     <value>Other</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="PageSize" xml:space="preserve">
+    <value>Page Size</value>
   </data>
   <data name="PComm1" xml:space="preserve">
     <value>ポジション 手数料  (1)</value>
@@ -180,11 +219,20 @@
   <data name="PComm3" xml:space="preserve">
     <value>ポジション 手数料 (3)</value>
   </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
   <data name="Statement" xml:space="preserve">
     <value>明細書</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>状態</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>Suspended</value>
+  </data>
+  <data name="ThereIsNoData" xml:space="preserve">
+    <value>There is no data.</value>
   </data>
   <data name="UnconfirmedSetting" xml:space="preserve">
     <value>Unconfirmed Setting</value>
@@ -194,5 +242,17 @@
   </data>
   <data name="UsernamePlaceHolder" xml:space="preserve">
     <value>Username/Nickname or First/Last Name</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="EditMultipleSetting" xml:space="preserve">
+    <value>Edit Multiple Setting</value>
+  </data>
+  <data name="EditSetting" xml:space="preserve">
+    <value>Edit Setting</value>
+  </data>
+  <data name="EditStatus" xml:space="preserve">
+    <value>Edit Status</value>
   </data>
 </root>

@@ -1,11 +1,15 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
 {
+    using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Enumerations;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Helpers;
+    using Alpha.Products.Core.Services;
+    using System;
     using System.Collections.Generic;
+    using System.Resources;
 
     public class CustomerListViewModel
     {
@@ -23,7 +27,8 @@
             IEnumerable<CustInfo> breadcrumbLevel,
             IEnumerable<UnsyncedProductModel> unsyncedProducts,
             bool isMobile,
-            bool limitedDateToShowInfo)
+            bool limitedDateToShowInfo,
+            Func<string, ResourceManager, string> convertResourcesJson = null)
         {
             ActorId = request.ViewerId;
             ActorName = request.ViewerUsername;
@@ -53,6 +58,9 @@
             DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
             DownlineLevelName = DownlineLevel.DisplayName;
             UnsyncedProducts = unsyncedProducts;
+
+            var ConvertResourcesJson = convertResourcesJson ?? SimpleServiceLocator.GetService<Func<string, ResourceManager, string>>();
+            CustomerListResources = ConvertResourcesJson(request.Language, Resources.ResourceManager);
         }
 
         public int ActorId { get; }
@@ -94,6 +102,8 @@
         public IEnumerable<CustInfo> BreadcrumbLevel { get; }
 
         public string BreadcrumbLevelJson { get; }
+
+        public string CustomerListResources { get; }
 
         public IEnumerable<CustomerListOption> StatusOptions
              => new List<CustomerListOption>
