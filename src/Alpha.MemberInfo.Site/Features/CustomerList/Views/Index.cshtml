@@ -45,11 +45,11 @@
 
 <div class="form-inline filter form-report" style="margin-top:15px;">
 	<div class="form-group">
-		<label>Username</label>
-		<input type="text" class="txt-search" id="txt-username" placeholder="Username/Nickname or First/Last Name" />
+		<label>@CustomerListResources.Username</label>
+		<input type="text" class="txt-search" id="txt-username" placeholder="@CustomerListResources.UsernamePlaceHolder" />
 	</div>
 	<div class="form-group">
-		<label>Status</label>
+		<label>@CustomerListResources.Status</label>
 		<select id="statusFilter" name="statusFilter">
 			@foreach (var option in Model.StatusOptions)
 			{
@@ -58,7 +58,7 @@
 		</select>
 	</div>
 	<div class="form-group">
-		<label>Double Comm</label>
+		<label>@CustomerListResources.DoubleComm</label>
 		<select id="dcommFilter" name="dcommFilter">
 			@foreach (var option in Model.DoubleCommOptions)
 			{
@@ -67,7 +67,7 @@
 		</select>
 	</div>
 	<div class="form-group @(Model.UnconfirmedSettingOptions.Count().Equals(1) ? "hidden" : string.Empty)">
-		<label>Unconfirmed Setting</label>
+		<label>@CustomerListResources.UnconfirmedSetting</label>
 		<select id="unconfirmSettingFilter" name="unconfirmSettingFilter">
 			@foreach (var option in Model.UnconfirmedSettingOptions)
 			{
@@ -94,7 +94,7 @@
 			</tr>
 			<tr>
 				<th rowspan="2" class="header">
-					No.
+					@CustomerListResources.No
 				</th>
 				@if (!Model.HideEditMultiple)
 				{
@@ -102,37 +102,37 @@
 						<div class="edit-multiple icon-view-grid" data-url="" />
 					</th>
 				}
+					<th rowspan="2" class="header">
+						@CustomerListResources.Username <br />
+						@CustomerListResources.NickName
+					</th>
 				<th rowspan="2" class="header">
-					Username <br />
-					NickName
+					@CustomerListResources.Status
 				</th>
 				<th rowspan="2" class="header">
-					Status
+					@CustomerListResources.Edit
 				</th>
 				<th rowspan="2" class="header">
-					Edit
+					@CustomerListResources.Statement
 				</th>
 				<th rowspan="2" class="header">
-					Statement
+					@CustomerListResources.FirstName
 				</th>
 				<th rowspan="2" class="header">
-					First Name
-				</th>
-				<th rowspan="2" class="header">
-					Last Name
+					@CustomerListResources.LastName
 				</th>
 				<th colspan="6" class="header desktop">
-					Commission
+					@CustomerListResources.Commission
 				</th>
 				@if (!Model.LimitedDateToShowInfo)
 				{
-					<th rowspan="2" class="header">
-						Created Date
-					</th>
-				}
 				<th rowspan="2" class="header">
-					Login Ip
+					@CustomerListResources.CreatedDate
 				</th>
+				}
+					<th rowspan="2" class="header">
+						@CustomerListResources.LoginIP
+					</th>
 				<th rowspan="2" class="header"></th>
 			</tr>
 			<tr class="thead-row2">
@@ -208,6 +208,7 @@
 <input type="hidden" id="arrayCustID" name="arrayCustID" value=''>
 <input type="hidden" id="arrayUserName" name="arrayUserName" value=''>
 <input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
+
 @section Scripts {
 	@StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
 	@*<script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.2/js/dataTables.scroller.js"></script>*@
@@ -220,43 +221,43 @@
 @helper RenderMasterAgentHeader()
 {
 	<th class="header desktop">
-		Group A
+		@CustomerListResources.GroupA
 	</th>
 	<th class="header desktop">
-		Group B
+		@CustomerListResources.GroupB
 	</th>
 	<th class="header desktop">
-		Group C
+		@CustomerListResources.GroupC
 	</th>
 	<th class="header desktop">
-		Group D
+		@CustomerListResources.GroupD
 	</th>
 	<th class="header desktop">
-		1 X 2
+		@CustomerListResources.Group1X2
 	</th>
 	<th class="header desktop">
-		Other
+		@CustomerListResources.Other
 	</th>
 }
 
 @helper RenderMemberHeader()
 {
 	<th class="header desktop">
-		A Comm 1
+		@CustomerListResources.AComm1
 	</th>
 	<th class="header desktop">
-		A Comm 2
+		@CustomerListResources.AComm2
 	</th>
 	<th class="header desktop">
-		A Comm 3
+		@CustomerListResources.AComm3
 	</th>
 	<th class="header desktop">
-		P Comm 1
+		@CustomerListResources.PComm1
 	</th>
 	<th class="header desktop">
-		P Comm 2
+		@CustomerListResources.PComm2
 	</th>
 	<th class="header desktop">
-		P Comm 3
+		@CustomerListResources.PComm3
 	</th>
 }

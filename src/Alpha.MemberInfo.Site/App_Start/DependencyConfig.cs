@@ -7,8 +7,8 @@
     using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Features.CustomerList;
+    using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
     using Alpha.MemberInfo.Features.DormantAccountList;
-    using Alpha.MemberInfo.Features.CustomerList.AppResources;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;

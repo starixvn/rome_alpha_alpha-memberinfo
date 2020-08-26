@@ -7,8 +7,12 @@
     using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Features.CustomerList;
+<<<<<<< HEAD
     using Alpha.MemberInfo.Features.DormantAccountList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources;
+=======
+    using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
+>>>>>>> 111111-  add customerlist resources
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
@@ -171,22 +175,12 @@
                     AppSettingsHelper.GetQRCodeMemberSiteLoginConfigsPath());
 
             SimpleServiceLocator
-<<<<<<< HEAD
-              .Instance
-               .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter(), productConfigFile))
-              .Register<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>(new StatusViewModelFactory())
-              .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
-              .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>(new SettingMultipleViewModelFactory())
-              .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
-=======
                 .Instance
                 .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter(), productConfigFile))
                 .Register<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>(new StatusViewModelFactory())
                 .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
                 .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>(new SettingMultipleViewModelFactory())
                 .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
-        }
->>>>>>> 111111-  restructure resources
 
 
             container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();

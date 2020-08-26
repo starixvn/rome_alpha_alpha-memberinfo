@@ -325,7 +325,12 @@
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Features\CustomerList\AppResources\ProductResources.Designer.cs">
+    <Compile Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.Designer.cs">
+      <DependentUpon>CustomerListResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\CustomerList\AppResources\ProductResources\ProductResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductResources.resx</DependentUpon>
@@ -497,13 +502,23 @@
     <EmbeddedResource Include="AppResources\Resources.zh-TW.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources.ko-KR.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources.zh-TW.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources.zh-CN.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources.vi-VN.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources.th-TH.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources.ja-JP.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources.resx">
+    <EmbeddedResource Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.ko-KR.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.th-TH.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.vi-VN.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.zh-CN.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.zh-TW.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CustomerListResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.ja-JP.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.ko-KR.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.zh-TW.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.zh-CN.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.vi-VN.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.th-TH.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.ja-JP.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>

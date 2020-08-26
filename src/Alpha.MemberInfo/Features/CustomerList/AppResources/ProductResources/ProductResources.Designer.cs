@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Alpha.MemberInfo.Features.CustomerList.AppResources {
+namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
     using System;
     
     
@@ -39,7 +39,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources", typeof(ProductResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources.ProductResou" +
+                            "rces", typeof(ProductResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
