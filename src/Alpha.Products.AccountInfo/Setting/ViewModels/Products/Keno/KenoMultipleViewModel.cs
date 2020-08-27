@@ -22,7 +22,9 @@
             ? $"{Actor.CustomerLevel.DisplayName}EditMember"
             : $"Edit{SearchAccount.CustomerLevel.DisplayName}");
 
-        public Dictionary<string, string> QueryStringParamaters
+        public override string Url => BaseAddress;
+
+        public override Dictionary<string, string> QueryStringParamaters
          => new Dictionary<string, string>
          {
              ["custId"] = SearchAccount.Id.ToString(),

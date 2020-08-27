@@ -36,7 +36,7 @@ namespace Alpha.Products.AccountInfo.Setting
                     return new SportsbookMultipleViewModel(request, productItem);
 
                 case RNGCasino:
-                    return new RNGCasinoMultipleViewModel(request, productItem);
+                    return new RnGCasinoMultipleViewModel(request, productItem);
 
                 case Keno:
                     return new KenoMultipleViewModel(request, productItem);

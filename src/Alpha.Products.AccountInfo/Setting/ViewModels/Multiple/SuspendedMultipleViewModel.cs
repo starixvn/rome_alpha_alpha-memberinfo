@@ -6,7 +6,7 @@
 
     public class SuspendedMultipleViewModel : SettingItemViewModel, ISettingItemMultipleViewModel
     {
-        private const int DisplayOrder = 1001;
+        private new const int DisplayOrder = 1001;
 
         public SuspendedMultipleViewModel(ISearchAccountInfoRequest request) : base(request, DisplayOrder)
         {
@@ -17,9 +17,9 @@
         protected override string BaseAddress 
             => $"{AccountInfoUrl}UnsuspendDownlines/EditMultiple";
 
-        public override Dictionary<string, string> QueryStringParamaters => new Dictionary<string, string>();
+        public override string Url => BaseAddress;
 
-        public Dictionary<string, string> QueryStringParamatersMultiple
+        public override Dictionary<string, string> QueryStringParamaters
             => new Dictionary<string, string>
             {
                 ["CustIds"] = Request.GetData<string>("customerIds"),

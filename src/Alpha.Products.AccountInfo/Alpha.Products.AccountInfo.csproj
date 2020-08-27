@@ -110,8 +110,8 @@
     <Compile Include="Setting\ViewModels\Products\GoldDeluxe\GoldDeluxeViewModel.cs" />
     <Compile Include="Setting\ViewModels\Base\ProductSettingItemViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\Keno\KenoViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Products\RnGCasino\RNGCasinoMultipleViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Products\RnGCasino\RNGCasinoViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\RnGCasino\RnGCasinoMultipleViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Products\RnGCasino\RnGCasinoViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook2\Sportsbook2MultipeViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook2\Sportsbook2ViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookMultipleViewModel.cs" />

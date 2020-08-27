@@ -14,7 +14,7 @@
 
         public override string Text => Request.GetResource("EditMultipleSportsbookText");
 
-        public Dictionary<string, string> QueryStringParamaters
+        public override Dictionary<string, string> QueryStringParamaters
         => new Dictionary<string, string>
         {
             ["m"] = "1",
@@ -32,6 +32,8 @@
                 return $"{OldMainUrl}_MemberInfo/PositionTaking/{useCase}.aspx";
             }
         }
+
+        public override string Url => BaseAddress;
 
         public override string Icon => "icon-edit Enable";
     }

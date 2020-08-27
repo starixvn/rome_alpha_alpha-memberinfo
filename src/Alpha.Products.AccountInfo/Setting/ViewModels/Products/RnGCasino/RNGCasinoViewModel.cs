@@ -5,9 +5,9 @@
     using Base;
     using System.Collections.Generic;
 
-    public class RNGCasinoViewModel : ProductSettingItemViewModel
+    public class RnGCasinoViewModel : ProductSettingItemViewModel
     {
-        public RNGCasinoViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+        public RnGCasinoViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
             : base(request, productItem)
         {
         }

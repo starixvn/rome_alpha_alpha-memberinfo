@@ -6,7 +6,7 @@
 
     public class DoubleCommMultipleViewModel : SettingItemViewModel, ISettingItemMultipleViewModel
     {
-        private const int DisplayOrder = 1000;
+        private new const int DisplayOrder = 1000;
 
         public DoubleCommMultipleViewModel(ISearchAccountInfoRequest request) : base(request, DisplayOrder)
         {

@@ -5,9 +5,6 @@
     using Base;
     using System.Collections.Generic;
 
-    /// <summary>
-    ///     View model for all products use DCS
-    /// </summary>
     public class DynamicProductMultipleViewModel : DynamicProductViewModel, ISettingItemMultipleViewModel
     {
         public DynamicProductMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
@@ -19,7 +16,9 @@
 
         public override string Icon => "icon-edit Enable";
 
-        public Dictionary<string, string> QueryStringParamaters
+        public override string Url => base.BaseAddress;
+
+        public override Dictionary<string, string> QueryStringParamaters
         {
             get
             {

@@ -3,11 +3,10 @@
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
     using Alpha.Products.Core.Configuration;
-    using System.Collections.Generic;
 
-    public class RNGCasinoMultipleViewModel : RNGCasinoViewModel, ISettingItemMultipleViewModel
+    public class RnGCasinoMultipleViewModel : RnGCasinoViewModel, ISettingItemMultipleViewModel
     {
-        public RNGCasinoMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+        public RnGCasinoMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
             : base(request, productItem)
         {
         }
@@ -16,8 +15,6 @@
 
         public override string Icon => "icon-edit Enable";
 
-        public override Dictionary<string, string> QueryStringParamaters => new Dictionary<string, string>();
-
-        public Dictionary<string, string> QueryStringParamatersMultiple => base.QueryStringParamaters;
+        public override string Url => base.BaseAddress;
     }
 }
