@@ -354,7 +354,7 @@
   <data name="ResetSecurityCodeViewModelText" xml:space="preserve">
     <value>Thay đổi Mã bảo mật</value>
   </data>
-  <data name="RNGCasinoViewModelText" xml:space="preserve">
+  <data name="RnGCasinoViewModelText" xml:space="preserve">
     <value>Casino</value>
   </data>
   <data name="Setting" xml:space="preserve">
@@ -441,7 +441,7 @@
   <data name="EditMultipleGoldDeluxeText" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Gold Deluxe</value>
   </data>
-  <data name="EditMultipleRNGKenoText" xml:space="preserve">
+  <data name="EditMultipleRnGKenoText" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho RNG Keno</value>
   </data>
   <data name="EditMultipleSportsbook2" xml:space="preserve">

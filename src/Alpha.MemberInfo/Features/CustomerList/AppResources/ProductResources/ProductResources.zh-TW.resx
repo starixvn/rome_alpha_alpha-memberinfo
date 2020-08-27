@@ -354,7 +354,7 @@
   <data name="ResetSecurityCodeViewModelText" xml:space="preserve">
     <value>重置保安碼</value>
   </data>
-  <data name="RNGCasinoViewModelText" xml:space="preserve">
+  <data name="RnGCasinoViewModelText" xml:space="preserve">
     <value>娛樂城</value>
   </data>
   <data name="Setting" xml:space="preserve">
@@ -387,7 +387,7 @@
   <data name="SuspendedByUplineTooltip" xml:space="preserve">
     <value>此賬號被上線間接暫停</value>
   </data>
-  <data name="SyncRNGCasinoViewModelText" xml:space="preserve">
+  <data name="SyncRnGCasinoViewModelText" xml:space="preserve">
     <value>娛樂城同步校準</value>
   </data>
   <data name="ThisAccountWasDisabled" xml:space="preserve">

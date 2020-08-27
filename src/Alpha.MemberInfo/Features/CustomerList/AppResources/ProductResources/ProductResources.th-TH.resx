@@ -354,7 +354,7 @@
   <data name="ResetSecurityCodeViewModelText" xml:space="preserve">
     <value>Reset Security Code</value>
   </data>
-  <data name="RNGCasinoViewModelText" xml:space="preserve">
+  <data name="RnGCasinoViewModelText" xml:space="preserve">
     <value>คาสิโน</value>
   </data>
   <data name="Setting" xml:space="preserve">
@@ -384,7 +384,7 @@
   <data name="SuspendedByUplineTooltip" xml:space="preserve">
     <value>บัญชีนี้ถูกระงับจากอัพไลน์โดยทางอ้อม</value>
   </data>
-  <data name="SyncRNGCasinoViewModelText" xml:space="preserve">
+  <data name="SyncRnGCasinoViewModelText" xml:space="preserve">
     <value>คาสิโนตรงกัน</value>
   </data>
   <data name="ThisAccountWasDisabled" xml:space="preserve">

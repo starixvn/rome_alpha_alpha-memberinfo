@@ -865,9 +865,9 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         /// <summary>
         ///   Looks up a localized string similar to Casino.
         /// </summary>
-        public static string RNGCasinoViewModelText {
+        public static string RnGCasinoViewModelText {
             get {
-                return ResourceManager.GetString("RNGCasinoViewModelText", resourceCulture);
+                return ResourceManager.GetString("RnGCasinoViewModelText", resourceCulture);
             }
         }
         
@@ -955,9 +955,9 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         /// <summary>
         ///   Looks up a localized string similar to Sync Casino.
         /// </summary>
-        public static string SyncRNGCasinoViewModelText {
+        public static string SyncRnGCasinoViewModelText {
             get {
-                return ResourceManager.GetString("SyncRNGCasinoViewModelText", resourceCulture);
+                return ResourceManager.GetString("SyncRnGCasinoViewModelText", resourceCulture);
             }
         }
         
