@@ -15,7 +15,7 @@
         {
         }
 
-        public override string Text => $"Edit Multiple {base.Text}";
+        public override string Text => $"{Request.GetResource("EditMultiple")} {Request.GetProductName(productItem.ProductId)}";
 
         public override string Icon => "icon-edit Enable";
 

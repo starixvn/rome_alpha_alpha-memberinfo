@@ -12,7 +12,7 @@
         {
         }
 
-        public override string Text => $"Edit Multiple {Request.GetResource("ConfirmDoubleCommViewModelText")}";
+        public override string Text => Request.GetResource("EditMultipleDoubleCommText");
 
         protected override string BaseAddress 
             => $"{OldMainUrl}_AccountInfo/ComfirmMultiEditDoubleComm.aspx";

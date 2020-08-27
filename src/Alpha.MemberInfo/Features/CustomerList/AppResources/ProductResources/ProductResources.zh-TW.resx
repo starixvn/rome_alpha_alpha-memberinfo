@@ -438,4 +438,37 @@
   <data name="YesterdayCash" xml:space="preserve">
     <value>昨天馀額</value>
   </data>
+  <data name="EditMultipleCasinoText" xml:space="preserve">
+    <value>修改多重娛樂城</value>
+  </data>
+  <data name="EditMultipleGoldDeluxeText" xml:space="preserve">
+    <value>修改多重GD真人娛樂場</value>
+  </data>
+  <data name="EditMultipleRNGKenoText" xml:space="preserve">
+    <value>修改多重快樂彩</value>
+  </data>
+  <data name="EditMultipleSportsbook2" xml:space="preserve">
+    <value>修改多重體育博彩2</value>
+  </data>
+  <data name="EditMultipleSportsbookText" xml:space="preserve">
+    <value>修改多重體育博彩</value>
+  </data>
+  <data name="EditMultipleLiveCasinoText" xml:space="preserve">
+    <value>Edit Multiple Live Casino</value>
+  </data>
+  <data name="EditMultipleVoidbridgeText" xml:space="preserve">
+    <value>Edit Multiple Macau Games</value>
+  </data>
+  <data name="EditMultiple" xml:space="preserve">
+    <value>修改多重賬號</value>
+  </data>
+  <data name="EditMultipleDoubleCommText" xml:space="preserve">
+    <value>修改多重雙倍佣金</value>
+  </data>
+  <data name="EditMultipleSuspendedStatusText" xml:space="preserve">
+    <value>修改多重暫停狀態</value>
+  </data>
+  <data name="EditMultipleVirtualSportsText" xml:space="preserve">
+    <value>编辑多重虚拟运动</value>
+  </data>
 </root>

@@ -12,7 +12,7 @@
         {
         }
 
-        public override string Text => $"Edit Multiple {Request.GetResource("GoldDeluxeViewModelText")}";
+        public override string Text => Request.GetResource("EditMultipleGoldDeluxeText");
 
         public override string Icon => "icon-edit Enable";
 

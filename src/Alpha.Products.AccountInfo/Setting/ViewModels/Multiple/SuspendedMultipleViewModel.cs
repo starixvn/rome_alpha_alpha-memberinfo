@@ -12,7 +12,7 @@
         {
         }
 
-        public override string Text => $"Edit Multiple {Request.GetResource("ConfirmSuspendedViewModelText")}";
+        public override string Text => Request.GetResource("EditMultipleSuspendedStatusText");
 
         protected override string BaseAddress 
             => $"{AccountInfoUrl}UnsuspendDownlines/EditMultiple";

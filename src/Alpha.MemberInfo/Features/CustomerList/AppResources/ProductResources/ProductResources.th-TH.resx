@@ -435,4 +435,37 @@
   <data name="YesterdayCash" xml:space="preserve">
     <value>เงินสดเมื่อวาน</value>
   </data>
+  <data name="EditMultipleCasinoText" xml:space="preserve">
+    <value>แก้ไขคาสิโนหลายฝ่าย</value>
+  </data>
+  <data name="EditMultipleGoldDeluxeText" xml:space="preserve">
+    <value>Edit Multiple Gold Deluxe</value>
+  </data>
+  <data name="EditMultipleRNGKenoText" xml:space="preserve">
+    <value>แก้ไขคีโน่หลายทาง</value>
+  </data>
+  <data name="EditMultipleSportsbook2" xml:space="preserve">
+    <value>แก้ไข หน้ากีฬาแบบหลายบัญชี 2</value>
+  </data>
+  <data name="EditMultipleSportsbookText" xml:space="preserve">
+    <value>แก้ไขรายการของกีฬาหลายฝ่าย</value>
+  </data>
+  <data name="EditMultipleLiveCasinoText" xml:space="preserve">
+    <value>Edit Multiple Live Casino</value>
+  </data>
+  <data name="EditMultipleVoidbridgeText" xml:space="preserve">
+    <value>Edit Multiple Macau Games</value>
+  </data>
+  <data name="EditMultiple" xml:space="preserve">
+    <value>แก้ไข หลากหลาย</value>
+  </data>
+  <data name="EditMultipleDoubleCommText" xml:space="preserve">
+    <value>แก้ไขดับเบิ้ลคอมหลายยูเซอร์</value>
+  </data>
+  <data name="EditMultipleSuspendedStatusText" xml:space="preserve">
+    <value>แก้ไขสถานะการระงับหลายทาง</value>
+  </data>
+  <data name="EditMultipleVirtualSportsText" xml:space="preserve">
+    <value>แก้ไขกีฬาอนิเมชั่นหลายสาย</value>
+  </data>
 </root>

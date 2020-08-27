@@ -12,7 +12,7 @@
         {
         }
 
-        public override string Text => $"Edit Multiple {base.Text}";
+        public override string Text => Request.GetResource("EditMultipleRNGKenoText");
 
         public override string Icon => "icon-edit Enable";
 

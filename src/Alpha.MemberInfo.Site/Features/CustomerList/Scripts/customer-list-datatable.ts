@@ -37,21 +37,34 @@
 	}
 
 	public initDataTable = () => {
-		this.$table = this.$('#customer-list').on('processing.dt',
-			(e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
+		const details = {
+			type: 'column',
+			target: -1,
+			auto: false,
+			renderer: (api, rowIdx) => this.renderDetailColumn(api, rowIdx)
+		},
+			lengthMenu = `${this.viewModel.CustomerListResources.PageSize} <select>` +
+				'<option value="10">10</option>' +
+				'<option value="50">50</option>' +
+				'<option value="100">100</option>' +
+				'<option value="500">500</option>' +
+				'</select>',
+			oPaginate = {
+				sFirst: '<<',
+				sPrevious: '<',
+				sNext: '>',
+				sLast: '>>',
+				info: `${this.viewModel.CustomerListResources.Page} _INPUT_ ${this.viewModel.CustomerListResources.Of} _TOTAL_`
+			};
+
+		this.$table = this.$('#customer-list')
+			.on('processing.dt',(e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
 			.DataTable({
 				serverSide: true,
 				ajax: (data, callback) => this.customerListServices.getCutomerList(data, callback),
 				columns: this.buildDataTableColumns(),
 				createdRow: (row, data, dataIndex) => this.$(row).addClass(this.getRowClass(data)),
-				responsive: {
-					details: {
-						type: 'column',
-						target: -1,
-						auto: false,
-						renderer: (api, rowIdx) => this.renderDetailColumn(api, rowIdx)
-					}
-				},
+				responsive: { details },
 				columnDefs: [{
 					className: 'control',
 					orderable: false,
@@ -69,19 +82,8 @@
 				dom: '<"top"iflp<"clear">>rt<"bottom"ifp<"clear">>',
 				language: {
 					processing: '',
-					lengthMenu: `${this.viewModel.CustomerListResources.PageSize} <select>` +
-						'<option value="10">10</option>' +
-						'<option value="50">50</option>' +
-						'<option value="100">100</option>' +
-						'<option value="500">500</option>' +
-						'</select>',
-					oPaginate: {
-						sFirst: '<<',
-						sPrevious: '<',
-						sNext: '>',
-						sLast: '>>',
-						info: `${this.viewModel.CustomerListResources.Page} _INPUT_ ${this.viewModel.CustomerListResources.Of} _TOTAL_`
-					},
+					lengthMenu,
+					oPaginate,
 					emptyTable: this.viewModel.CustomerListResources.ThereIsNoData
 				},
 				drawCallback: this.drawCallback
@@ -301,7 +303,7 @@
 		}).toArray().join('');
 
 		return data ?
-			self.$(`<table class="detail-table" data-dtr-index="${rowIdx}"/>`).append(data) : 
+			self.$(`<table class="detail-table" data-dtr-index="${rowIdx}"/>`).append(data) :
 			false;
 	}
 

@@ -12,7 +12,7 @@
         {
         }
 
-        public override string Text => $"Edit Multiple {Request.GetProductName(ProductId)}";
+        public override string Text => Request.GetResource("EditMultipleSportsbookText");
 
         public Dictionary<string, string> QueryStringParamaters
         => new Dictionary<string, string>

@@ -467,6 +467,96 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple.
+        /// </summary>
+        public static string EditMultiple {
+            get {
+                return ResourceManager.GetString("EditMultiple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Casino.
+        /// </summary>
+        public static string EditMultipleCasinoText {
+            get {
+                return ResourceManager.GetString("EditMultipleCasinoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Double Comm.
+        /// </summary>
+        public static string EditMultipleDoubleCommText {
+            get {
+                return ResourceManager.GetString("EditMultipleDoubleCommText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Gold Deluxe.
+        /// </summary>
+        public static string EditMultipleGoldDeluxeText {
+            get {
+                return ResourceManager.GetString("EditMultipleGoldDeluxeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Live Casino.
+        /// </summary>
+        public static string EditMultipleLiveCasinoText {
+            get {
+                return ResourceManager.GetString("EditMultipleLiveCasinoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple RNG Keno.
+        /// </summary>
+        public static string EditMultipleRNGKenoText {
+            get {
+                return ResourceManager.GetString("EditMultipleRNGKenoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Sportsbook.
+        /// </summary>
+        public static string EditMultipleSportsbookText {
+            get {
+                return ResourceManager.GetString("EditMultipleSportsbookText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Suspended Status.
+        /// </summary>
+        public static string EditMultipleSuspendedStatusText {
+            get {
+                return ResourceManager.GetString("EditMultipleSuspendedStatusText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Virtual Sports.
+        /// </summary>
+        public static string EditMultipleVirtualSportsText {
+            get {
+                return ResourceManager.GetString("EditMultipleVirtualSportsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Macau Games.
+        /// </summary>
+        public static string EditMultipleVoidbridgeText {
+            get {
+                return ResourceManager.GetString("EditMultipleVoidbridgeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fax.
         /// </summary>
         public static string Fax {

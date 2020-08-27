@@ -735,4 +735,37 @@
   <data name="YesterdayCash1" xml:space="preserve">
     <value>어제의 현금</value>
   </data>
+  <data name="EditMultipleCasinoText" xml:space="preserve">
+    <value>멀티플 카지노 수정하기</value>
+  </data>
+  <data name="EditMultipleGoldDeluxeText" xml:space="preserve">
+    <value>Edit Multiple Gold Deluxe</value>
+  </data>
+  <data name="EditMultipleRNGKenoText" xml:space="preserve">
+    <value>Edit Multiple RNG Keno</value>
+  </data>
+  <data name="EditMultipleSportsbook2Text" xml:space="preserve">
+    <value>Edit Multiple Sportsbook 2</value>
+  </data>
+  <data name="EditMultipleSportsbookText" xml:space="preserve">
+    <value>멀티플 스포츠 북 수정하기</value>
+  </data>
+  <data name="EditMultipleLiveCasinoText" xml:space="preserve">
+    <value>Edit Multiple Live Casino</value>
+  </data>
+  <data name="EditMultipleVoidbridgeText" xml:space="preserve">
+    <value>Edit Multiple Macau Games</value>
+  </data>
+  <data name="EditMultiple" xml:space="preserve">
+    <value>복합 수정</value>
+  </data>
+  <data name="EditMultipleDoubleCommText" xml:space="preserve">
+    <value>멀티 더블 커미션 수정하기</value>
+  </data>
+  <data name="EditMultipleSuspendedStatusText" xml:space="preserve">
+    <value>Edit Multiple Suspended Status</value>
+  </data>
+  <data name="EditMultipleVirtualSportsText" xml:space="preserve">
+    <value>가상 스포츠 멀티수정</value>
+  </data>
 </root>
