@@ -61,16 +61,14 @@
 	public bindingBootstrapModalEvent = () => {
 		this.$bootstrapContainer.unbind().bind('mouseleave ', () => this.$bootstrapContainer.modal('hide'));
 
-		this.$('#close-edit-popup').unbind().bind('click', () => {
+		this.$('#bootstrap-modal').on('hidden.bs.modal', () => {
 			this.topWindow.$('#content').css({ padding: '' });
-			this.closeStatusPopup();
 		});
 
-		this.$('#close-product-popup').unbind().bind('click',() => {
-			this.topWindow.$('#content').css({ padding: '' });
+		this.$('#bootstrap-modal-product').on('hidden.bs.modal', () => {
+					this.topWindow.$('#content').css({ padding: '' });
 			this.$('#myIframe').attr('src', 'about:blank');
 			this.$("#bootstrap-modal-product").modal('hide');
-
 		});
 
 		this.$('#bootstrap-modal-product').on('shown.bs.modal', () => {
