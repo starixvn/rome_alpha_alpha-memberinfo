@@ -45,9 +45,6 @@
 
 $(function () {
 	const viewModel = new CustomerListViewModel(
-		parseInt($('#actorId').val()),
-		$('#actorName').val(),
-		parseInt($('#actorRoleId').val()),
 		parseInt($('#searchAccountId').val()),
 		$('#searchAccountName').val(),
 		parseInt($('#searchAccountRoleId').val()),

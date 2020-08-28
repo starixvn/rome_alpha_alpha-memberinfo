@@ -43,9 +43,9 @@
 		});
 
 		const params = {
-			UplineId: this.viewModel.ActorId,
-			UplineName: this.viewModel.ActorName,
-			UplineRoleId: this.viewModel.ActorRoleId,
+			UplineId: this.viewModel.SearchAccountId,
+			UplineName: this.viewModel.SearchAccountRoleId,
+			UplineRoleId: this.viewModel.SearchAccountRoleId,
 			SearchAccountRoleId: this.viewModel.SearchAccountRoleId - 1,
 			custids: custids.join(','),
 			usernames: usernames.join(',')

@@ -1,7 +1,4 @@
 ﻿class CustomerListViewModel {
-	ActorId: number;
-	ActorName: string;
-	ActorRoleId: number;
 	SearchAccountId: number;
 	SearchAccountName: string;
 	SearchAccountRoleId: number;
@@ -17,9 +14,6 @@
 	CustomerListResources: any;
 
 	constructor(
-		actorId: number,
-		actorName: string,
-		actorRoleId: number,
 		searchAccountId: number,
 		searchAccountName: string,
 		searchAccountRoleId: number,
@@ -33,9 +27,6 @@
 		accountInfoUrl: string,
 		limitedDateToShowInfo: boolean,
 		customerListResources: any) {
-		this.ActorId = actorId;
-		this.ActorName = actorName;
-		this.ActorRoleId = actorRoleId;
 		this.SearchAccountId = searchAccountId;
 		this.SearchAccountRoleId = searchAccountRoleId;
 		this.SearchAccountName = searchAccountName;

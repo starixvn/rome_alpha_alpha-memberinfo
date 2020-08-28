@@ -324,9 +324,9 @@
 			SearchAccountId: item.CustId,
 			SearchAccountName: item.Username,
 			SearchAccountRoleId: item.RoleId,
-			UplineId: this.viewModel.ActorId,
-			UplineName: this.viewModel.ActorName,
-			UplineRoleId: this.viewModel.ActorRoleId
+			UplineId: this.viewModel.SearchAccountId,
+			UplineName: this.viewModel.SearchAccountName,
+			UplineRoleId: this.viewModel.SearchAccountRoleId
 		};
 
 		return `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerAllStatus?${this.$.param(queryString)}`;

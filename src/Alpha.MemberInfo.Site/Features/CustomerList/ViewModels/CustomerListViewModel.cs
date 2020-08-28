@@ -15,9 +15,9 @@
     {
         private readonly Dictionary<UserLevel, string> PageTitleDictonary = new Dictionary<UserLevel, string>
         {
-            {UserLevel.Super, CustomerListResources.MasterAgentList},
-            {UserLevel.Master, CustomerListResources.AgentList},
-            {UserLevel.Agent, CustomerListResources.MemberList}
+            { UserLevel.Super, CustomerListResources.MasterAgentList },
+            { UserLevel.Master, CustomerListResources.AgentList },
+            { UserLevel.Agent, CustomerListResources.MemberList }
         };
 
         private readonly IEnumerable<UnsyncedProductModel> UnsyncedProducts;
@@ -30,16 +30,12 @@
             bool limitedDateToShowInfo,
             Func<string, ResourceManager, string> convertResourcesJson = null)
         {
-            ActorId = request.ViewerId;
-            ActorName = request.ViewerUsername;
-            ActorRoleId = request.ViewerLevelId;
-
             SearchAccountId = request.CustId;
             SearchAccountRoleId = request.CustLevelId;
             SearchAccountName = request.CustName;
 
             HideEditMultiple =
-                Enumeration.FromValue<UserLevel>(ActorRoleId).IsSuperLevel() &&
+                Enumeration.FromValue<UserLevel>(request.ViewerLevelId).IsSuperLevel() &&
                 Enumeration.FromValue<UserLevel>(request.CustLevelId).IsMasterLevel();
 
             PageTitle = PageTitleDictonary[Enumeration.FromValue<UserLevel>(request.CustLevelId)];
@@ -63,15 +59,13 @@
             Resources = ConvertResourcesJson(request.Language, CustomerListResources.ResourceManager);
         }
 
-        public int ActorId { get; }
-
-        public string ActorName { get; }
-
-        public byte ActorRoleId { get; }
-
-        public UserLevel ActorLevel => Enumeration.FromValue<UserLevel>(ActorRoleId);
-
         public bool HideEditMultiple { get; }
+
+        public int UplineId { get; }
+
+        public string UplineName { get; }
+
+        public byte UplineRoleId { get; }
 
         public int SearchAccountId { get; }
 
@@ -132,7 +126,7 @@
                     new CustomerListOption(0 , CustomerListResources.NotFilter)
                 };
 
-                foreach(var product in UnsyncedProducts)
+                foreach (var product in UnsyncedProducts)
                 {
                     options.Add(new CustomerListOption(product.Id, product.Name));
                 }
