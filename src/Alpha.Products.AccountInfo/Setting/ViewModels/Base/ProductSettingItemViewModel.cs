@@ -16,7 +16,7 @@
             Request = request;
         }
 
-        internal int ProductId => productItem.ProductId;
+        public int ProductId => productItem.ProductId;
 
         public override bool Visible => Actor.IsNotSuper || SearchAccount.IsNotAgent;
 

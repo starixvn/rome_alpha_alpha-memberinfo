@@ -61,7 +61,7 @@
                 SimpleServiceLocator.GetService<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>();
 
             this.settingViewModelFactory = settingViewModelFactory ??
-            SimpleServiceLocator.GetService<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>();
+                SimpleServiceLocator.GetService<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>();
 
             this.statusViewModelFactory = statusViewModelFactory ??
                  SimpleServiceLocator.GetService<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>();
@@ -100,8 +100,8 @@
         public CustomerListDTO Handle(FetchDownlinesListRequest message)
             => customerListService.GetCustomerList(
                     new CustomerListParam(
+                    message.ViewerId,
                     message.CustLevel,
-                    message.CustLevelId,
                     message.CustId,
                     message.Username,
                     message.Enabled,
@@ -117,7 +117,7 @@
             => BuildCustomerStatus(message);
 
         public IEnumerable<ISettingItemMultipleViewModel> Handle(CustomerStatusMultipleQuery message)
-           => BuildCustomerStatusMultiple(message, message.CustIds, message.Usernames);
+           => BuildCustomerStatusMultiple(message);
 
         public Result Handle(CustomerNonProductStatusCommand message)
           => customerListService.UpdateCustomerStatus(
@@ -162,10 +162,7 @@
                 BuildCustomerProductSettings(actor, searchAccount, message, customerStatusModel));
         }
 
-        internal IEnumerable<ISettingItemMultipleViewModel> BuildCustomerStatusMultiple(
-            CustomerStatusMultipleQuery message,
-            string customerIds,
-            string usernames)
+        internal IEnumerable<ISettingItemMultipleViewModel> BuildCustomerStatusMultiple(CustomerStatusMultipleQuery message)
         {
             var customerStatusModel = customerListService.GetCustomerStatus(message.SearchAccountId);
 
@@ -191,7 +188,7 @@
                BuildSearchAccountProductStatus(customerStatusModel.NonDCSProduct, customerStatusModel.DCSProducts.ToList()),
                upline);
 
-            return BuildCustomerProductMultipleSettings(actor, searchAccount, message, customerStatusModel, customerIds, usernames);
+            return BuildCustomerProductMultipleSettings(actor, searchAccount, message, customerStatusModel);
 
         }
 
@@ -321,18 +318,17 @@
            Customer actor,
            Customer searchAccount,
            CustomerStatusMultipleQuery message,
-           CustomerStatusModel model,
-           string customerIds,
-           string usernames)
+           CustomerStatusModel model)
         {
             var request = new SettingSearchAccountRequest(actor, searchAccount);
             request
                  .AddData(DataKey.Actor.CanEditDailyTransferOption, model.NonProduct.TransferDaily)
                  .AddData(DataKey.Actor.HasUpdateAccountPermission, message.CanUpdateAccount)
                  .AddData(DataKey.SearchAccount.IsEnableSecurityCode, securityCodeChecker.IsEnableSecurityCode())
-                 .AddData("customerIds", customerIds)
-                 .AddData("usernames", usernames)
-                 .AddData("customerNames", usernames);
+                 .AddData("customerIds", message.CustIds)
+                 .AddData("usernames", message.Usernames)
+                 .AddData("customerNames", message.Usernames)
+                 .AddData("language", message.Language);
 
             return settingMultipleViewModelFactory.GetViewModels(request).Where(setting => setting.Visible).OrderBy(setting => setting.DisplayOrder);
         }

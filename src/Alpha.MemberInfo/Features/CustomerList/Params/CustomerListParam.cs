@@ -1,12 +1,12 @@
-﻿using Alpha.MemberInfo.Models;
-
-namespace Alpha.MemberInfo.Site.Features.CustomerList.Params
+﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.Params
 {
+    using Alpha.MemberInfo.Models;
+
     public class CustomerListParam
     {
         public CustomerListParam(
-            UserLevel custLevel,
             int userId,
+            UserLevel directUplineCustLevel,
             int directUplineId,
             string username,
             bool? enabled,
@@ -20,7 +20,7 @@ namespace Alpha.MemberInfo.Site.Features.CustomerList.Params
         {
             UserId = userId;
             DirectUplineId = directUplineId;
-            CustLevel = custLevel;
+            DirectUplineCustLevel = directUplineCustLevel;
             Username = username;
             Enabled = enabled;
             Closed = closed;
@@ -36,7 +36,7 @@ namespace Alpha.MemberInfo.Site.Features.CustomerList.Params
 
         public int DirectUplineId { get; }
 
-        public UserLevel CustLevel { get; }
+        public UserLevel DirectUplineCustLevel { get; }
 
         public string Username { get; }
 

@@ -36,7 +36,7 @@
                     ["subAccId"] = Actor.SubAccountId.ToString(),
                     ["formType"] = "1",
                     ["isForcingMode"] = "false",
-                    ["language"] = "E"
+                    ["language"] = Request.GetData<string>("language")
                 };
 
                 if (SearchAccount.IsMember)

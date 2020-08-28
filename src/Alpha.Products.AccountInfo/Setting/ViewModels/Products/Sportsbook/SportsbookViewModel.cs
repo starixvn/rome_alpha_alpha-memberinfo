@@ -14,6 +14,8 @@
 
         public override string Text => Request.GetProductName(ProductId);
 
+        public override string Icon => "icon-edit Enable";
+
         public override Dictionary<string, string> QueryStringParamaters
          => new Dictionary<string, string>
          {

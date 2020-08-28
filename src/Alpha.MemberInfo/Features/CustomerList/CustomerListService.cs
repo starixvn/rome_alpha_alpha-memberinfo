@@ -53,7 +53,7 @@
             => dynamicRepository.Fetch<int>(new SelectUnsyncProductsCriteria(custId));
 
         public CustomerListDTO GetCustomerList(CustomerListParam param)
-            => buildCriteria[param.CustLevel](param);
+            => buildCriteria[param.DirectUplineCustLevel](param);
 
         public CustomerStatusModel GetCustomerStatus(int custId)
             => customerListDataAccess.GetCustomerStatus(new SelectCustomerAllStatusModelCriteria(custId));
