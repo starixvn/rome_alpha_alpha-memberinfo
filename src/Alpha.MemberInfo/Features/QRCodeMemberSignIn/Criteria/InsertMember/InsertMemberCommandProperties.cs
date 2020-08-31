@@ -5,6 +5,7 @@
     public partial class InsertMemberCommand
     {
         public bool IsQRCode { get; }
+        public decimal CreditMax { get; private set; }
         public string Username { get; }
         public string FirstName { get; }
         public string LastName { get; set; } = string.Empty;
@@ -167,6 +168,7 @@
         public string ErrMsg { get; set; }
         public bool Success { get; set; }
         public int CustId { get; set; }
+        public string CopyFromUsername { get; internal set; }
 
         public override string GetSettingKey() => "Acc_CustomerInsMember_Ag";
 

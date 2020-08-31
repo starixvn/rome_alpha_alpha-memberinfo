@@ -34,7 +34,9 @@
                 "En",
                 0,
                 10,
-                "ABC");
+                "ABC",
+                "a",
+                3);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -60,7 +62,9 @@
                 "En",
                 0,
                 10,
-                "ABC");
+                "ABC",
+                "a",
+                3);
 
             // Act
             var actualIsValid = criteria.IsValid();
@@ -86,7 +90,9 @@
                  "En",
                  0,
                  10,
-                 "ABC");
+                 "ABC",
+                "a",
+                3);
 
             // Act
             var actualIsValid = criteria.IsValid();
@@ -112,7 +118,9 @@
                   "En",
                   0,
                   10,
-                  "ABC");
+                  "ABC",
+                "a",
+                3);
 
             // Act
             var actualIsValid = criteria.IsValid();

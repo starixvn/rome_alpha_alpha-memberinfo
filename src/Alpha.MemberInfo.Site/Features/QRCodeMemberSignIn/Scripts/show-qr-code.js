@@ -3,9 +3,6 @@ var ShowQRCode = /** @class */ (function () {
     function ShowQRCode($, topWindow) {
         var _this = this;
         this.init = function () {
-            if (JSON.parse(_this.$('#CreateMode').val().toLowerCase())) {
-                _this.correctSettingInCaseCreateMode();
-            }
             _this.username = _this.$('#SearchAccountName').val();
             _this.$('#btn-copy-link').click(function () {
                 clipboard.writeText(_this.$('#QRCodeLink').val());
@@ -49,14 +46,6 @@ var ShowQRCode = /** @class */ (function () {
             else {
                 window.top.updateInformationPopup.close();
             }
-        };
-        this.correctSettingInCaseCreateMode = function () {
-            _this.$.ajax({
-                method: "GET",
-                url: _this.$('#CorrectDataUrl').val(),
-                cache: false,
-                success: function () { }
-            });
         };
         this.domainOnChange = function () {
             _this.$.blockUI();

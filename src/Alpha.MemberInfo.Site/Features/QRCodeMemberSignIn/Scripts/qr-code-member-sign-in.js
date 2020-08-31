@@ -132,10 +132,12 @@ var QRCodeMemberSignIn = /** @class */ (function () {
                 data: data,
                 dataType: 'json',
                 url: "QRCodeMemberSignIn/CreateAccount",
-                success: function (result) {
-                    if (result.ErrCode === 0) {
+                success: function (result, status, xqr) {
+                    if (result.ErrCode === 0 || status === "302" || xqr.status === 302) {
                         localStorage.setItem("memberNameCopyFrom", data.UsernameCopyFrom);
-                        _this.reloadFrame(result);
+                        setTimeout(function () {
+                            _this.reloadFrame(result);
+                        }, 1000);
                     }
                     else {
                         _this.showErrorMessage(result.ErrMsg);

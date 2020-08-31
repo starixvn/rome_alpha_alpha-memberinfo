@@ -9,7 +9,6 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
-    using Alpha.Products.Core.Services;
     using MediatR;
     using System;
     using System.Collections.Generic;
@@ -29,14 +28,6 @@
         private readonly PasswordService passwordService;
 
         public QRCodeMemberSignInHandler(
-           QrCodeAdapter qrCodeAdapter,
-           QRCodeMemberSignInService qrCodeMemberSignInService,
-           PasswordService passwordService)
-            : this(qrCodeAdapter, qrCodeMemberSignInService, passwordService, null)
-        {
-        }
-
-        internal QRCodeMemberSignInHandler(
             QrCodeAdapter qrCodeAdapter,
             QRCodeMemberSignInService qrCodeMemberSignInService,
             PasswordService passwordService,
@@ -45,8 +36,7 @@
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
             this.passwordService = passwordService;
-            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper ??
-                    SimpleServiceLocator.GetService<QRCodeLoginConfigsHelper>();
+            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper;
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
@@ -95,7 +85,9 @@
                         message.Language,
                         message.SubAccId,
                         message.Credit,
-                        passwordModel.EncodePassword));
+                        passwordModel.EncodePassword,
+                        message.UsernameCopyFrom,
+                        message.CreditMax));
 
                 result.CustIdCopyFrom = custIdCopyFrom;
 

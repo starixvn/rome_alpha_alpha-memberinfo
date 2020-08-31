@@ -17,9 +17,13 @@
             string language,
             int subAccId,
             decimal credit,
-            string password)
+            string password,
+            string copyFromUsername,
+            decimal creditMax)
         {
             IsQRCode = true;
+            CreditMax = creditMax;
+            CopyFromUsername = copyFromUsername;
             Username = username;
             FirstName = firstName;
             ActorId = actorId;

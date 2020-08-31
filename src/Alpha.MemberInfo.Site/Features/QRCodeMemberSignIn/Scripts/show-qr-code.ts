@@ -23,10 +23,6 @@ class ShowQRCode {
    }
 
     init = () => {
-        if (JSON.parse(this.$('#CreateMode').val().toLowerCase())) {
-            this.correctSettingInCaseCreateMode();
-        }
-
         this.username = this.$('#SearchAccountName').val();
 
         this.$('#btn-copy-link').click(() => {
@@ -72,15 +68,6 @@ class ShowQRCode {
         else {
             window.top.updateInformationPopup.close();
         }
-    };
-
-    correctSettingInCaseCreateMode = () => {
-        this.$.ajax({
-            method: "GET",
-            url: this.$('#CorrectDataUrl').val(),
-            cache: false,
-            success: () => { }
-        });
     };
 
     domainOnChange = () => {

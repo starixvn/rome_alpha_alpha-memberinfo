@@ -71,8 +71,5 @@
             => $"{MicroSites.AccountInfoUrl()}SearchAccount/GivenCredit" +
             $"?SearchAccountId={SearchAccountId}&SearchAccountName={SearchAccountName}&SearchAccountRoleId=1" +
             $"&GivenCreditMin={CreditMin}&GivenCreditMax={CreditMax}";
-
-        public string CorrectDataUrl
-            => $"{MicroSites.OldMainUrl()}/QRCodeMemberSignIn/CorrectData?custId={SearchAccountId}&custIdFrom={custIdFrom}&username={SearchAccountName}";
     }
 }
