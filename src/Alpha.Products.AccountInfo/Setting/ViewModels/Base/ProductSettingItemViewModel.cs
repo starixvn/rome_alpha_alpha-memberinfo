@@ -6,14 +6,14 @@
     public abstract class ProductSettingItemViewModel : SettingItemViewModel
     {
         private const int MaxSettingTypesOfAProduct = 5;
-        protected readonly ISearchAccountInfoRequest Request;
+        protected readonly ISearchAccountInfoRequest request;
         protected readonly IConfigurationItem productItem;
 
         protected ProductSettingItemViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem.ProductId * MaxSettingTypesOfAProduct)
         {
             this.productItem = productItem;
-            Request = request;
+            this.request = request;
         }
 
         public int ProductId => productItem.ProductId;
@@ -24,8 +24,9 @@
         {
             get
             {
-                var customerStatus = Request.SearchAccount.ProductStatusOf(ProductId);
-                if(!customerStatus.Synced)
+                var customerStatus = request.SearchAccount.ProductStatusOf(ProductId);
+
+                if (!customerStatus.Synced)
                 {
                     return "icon-refresh Synchronize";
                 }

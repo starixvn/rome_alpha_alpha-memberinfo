@@ -12,7 +12,7 @@
         {
         }
 
-        public override string Text => Request.GetProductName(ProductId);
+        public override string Text => request.GetProductName(ProductId);
 
         protected override string BaseAddress
             => OldMainUrl + "customersetting/kenosetting/kenosetting/" + 

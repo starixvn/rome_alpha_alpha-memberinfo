@@ -11,7 +11,7 @@
         {
         }
 
-        public override string Text => Request.GetResource("EditMultipleCasinoText");
+        public override string Text => request.GetResource("EditMultipleCasinoText");
 
         public override string Icon => "icon-edit Enable";
 

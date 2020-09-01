@@ -12,7 +12,7 @@
         {
         }
 
-        public override string Text => Request.GetResource("EditMultipleGoldDeluxeText");
+        public override string Text => request.GetResource("EditMultipleGoldDeluxeText");
 
         public override string Icon => "icon-edit Enable";
 
@@ -28,8 +28,8 @@
                 ["uplineLevel"] = Actor.CusomerLevelValue.ToString(),
                 ["customerLevel"] = SearchAccount.CusomerLevelValue.ToString(),
                 ["actorId"] = Actor.Id.ToString(),
-                ["customerIds"] = Request.GetData<string>("customerIds"),
-                ["usernames"] = Request.GetData<string>("usernames"),
+                ["customerIds"] = request.GetData<string>("customerIds"),
+                ["usernames"] = request.GetData<string>("usernames"),
                 ["level"] = SearchAccount.CusomerLevelValue.ToString(),
                 ["subAccId"] = Actor.SubAccountId.ToString(),
                 ["formType"] = "1",

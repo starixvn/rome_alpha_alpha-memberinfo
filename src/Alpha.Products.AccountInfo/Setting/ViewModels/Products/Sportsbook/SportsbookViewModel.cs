@@ -12,7 +12,7 @@
         {
         }
 
-        public override string Text => Request.GetProductName(ProductId);
+        public override string Text => request.GetProductName(ProductId);
 
         public override string Icon => "icon-edit Enable";
 

@@ -12,7 +12,7 @@
         {
         }
 
-        public override string Text => $"{Request.GetResource("EditMultiple")} {Request.GetProductName(productItem.ProductId)}";
+        public override string Text => $"{request.GetResource("EditMultiple")} {request.GetProductName(productItem.ProductId)}";
 
         public override string Icon => "icon-edit Enable";
 
@@ -29,14 +29,14 @@
                     ["productId"] = ProductId.ToString(),
                     ["uplineId"] = Actor.Id.ToString(),
                     ["actorId"] = Actor.Id.ToString(),
-                    ["customerIds"] = Request.GetData<string>("customerIds"),
-                    ["usernames"] = Request.GetData<string>("usernames"),
-                    ["customerNames"] = Request.GetData<string>("usernames"),
+                    ["customerIds"] = request.GetData<string>("customerIds"),
+                    ["usernames"] = request.GetData<string>("usernames"),
+                    ["customerNames"] = request.GetData<string>("usernames"),
                     ["customerLevel"] = SearchAccount.CusomerLevelValue.ToString(),
                     ["subAccId"] = Actor.SubAccountId.ToString(),
                     ["formType"] = "1",
                     ["isForcingMode"] = "false",
-                    ["language"] = Request.GetData<string>("language")
+                    ["language"] = request.GetData<string>("language")
                 };
 
                 if (SearchAccount.IsMember)

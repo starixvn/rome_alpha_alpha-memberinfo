@@ -13,9 +13,9 @@
         }
 
         public override string Text => 
-            Request.ActorIsEdittingDirectDownline && !SearchAccount.ProductStatusOf(ProductId).Synced ?
-            Request.GetResource($"Sync{GetType().Name}Text") :
-            Request.GetResource($"{GetType().Name}Text");
+            request.ActorIsEdittingDirectDownline && !SearchAccount.ProductStatusOf(ProductId).Synced ?
+            request.GetResource($"Sync{GetType().Name}Text") :
+            request.GetResource($"{GetType().Name}Text");
 
         protected override string BaseAddress
         {
@@ -47,7 +47,7 @@
                     return false;
                 }
 
-                if (Request.ActorIsEdittingDirectDownline)
+                if (request.ActorIsEdittingDirectDownline)
                 {
                     return Actor.ProductStatusOf(ProductId).Synced;
                 }

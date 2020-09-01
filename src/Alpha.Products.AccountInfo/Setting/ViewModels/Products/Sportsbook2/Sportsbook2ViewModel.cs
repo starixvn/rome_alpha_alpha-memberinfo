@@ -11,6 +11,6 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
         {
         }
 
-        public override string Text => Request.GetResource($"{GetType().Name}Text");
+        public override string Text => request.GetResource($"{GetType().Name}Text");
     }
 }
