@@ -87,7 +87,8 @@
                         message.Credit,
                         passwordModel.EncodePassword,
                         message.UsernameCopyFrom,
-                        message.CreditMax));
+                        message.CreditMax,
+                        message.SubUsername));
 
                 result.CustIdCopyFrom = custIdCopyFrom;
 

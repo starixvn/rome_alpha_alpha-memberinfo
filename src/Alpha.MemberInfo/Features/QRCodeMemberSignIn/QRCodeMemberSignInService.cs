@@ -61,6 +61,8 @@
             var result = copyAccountService.Copy(new CopyAccountParams(
                 command.ActorId,
                 UserLevel.Agent.Value,
+                command.SubAccId,
+                command.SubUsername,
                 command.Username,
                 command.Password,
                 command.Phone,
@@ -75,7 +77,7 @@
                 AlphaSite,
                 isQrCode: true));
 
-            if (result != null && result.IsSuccess)
+            if (result != null)
             {
                 return new ResultCreateMemberQRCode
                 {

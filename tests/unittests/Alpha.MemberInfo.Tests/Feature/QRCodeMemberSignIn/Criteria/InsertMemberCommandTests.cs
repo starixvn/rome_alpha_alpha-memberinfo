@@ -36,7 +36,8 @@
                 10,
                 "ABC",
                 "a",
-                3);
+                3,
+                string.Empty);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -64,7 +65,8 @@
                 10,
                 "ABC",
                 "a",
-                3);
+                3,
+                string.Empty);
 
             // Act
             var actualIsValid = criteria.IsValid();
@@ -92,7 +94,8 @@
                  10,
                  "ABC",
                 "a",
-                3);
+                3,
+                string.Empty);
 
             // Act
             var actualIsValid = criteria.IsValid();
@@ -120,7 +123,8 @@
                   10,
                   "ABC",
                 "a",
-                3);
+                3,
+                string.Empty);
 
             // Act
             var actualIsValid = criteria.IsValid();

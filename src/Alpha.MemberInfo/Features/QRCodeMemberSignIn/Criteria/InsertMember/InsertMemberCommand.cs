@@ -19,8 +19,10 @@
             decimal credit,
             string password,
             string copyFromUsername,
-            decimal creditMax)
+            decimal creditMax,
+            string subUsername)
         {
+            SubUsername = subUsername;
             IsQRCode = true;
             CreditMax = creditMax;
             CopyFromUsername = copyFromUsername;
