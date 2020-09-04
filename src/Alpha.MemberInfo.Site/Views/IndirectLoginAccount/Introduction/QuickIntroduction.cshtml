@@ -1,18 +1,15 @@
 ﻿@{
     Layout = null;
     string slide1, slide2, lang;
-    var userSession = Sunplus.Agent.Model.Entities.UserSession.Current;
-    if (userSession.Language.Equals("vi-VN", StringComparison.OrdinalIgnoreCase))
-    {
-        lang = "vi-VN";
-    }
-    else
-    {
-        lang = "en-US";
-    }
+    lang = Sunplus.Agent.Model.Entities.UserSession.Current.Language;
 
-    slide1 = $"~/assets/styles/images/slide2.{lang}.png";
-    slide2 = $"~/assets/styles/images/slide3.{lang}.png";
+    var folder = "~/assets/styles/images/";
+    var imgLang = File.Exists(Server.MapPath($"{folder}slide2.{lang}.png")) ?
+        lang : "en-US";
+
+
+    slide1 = $"{folder}slide2.{imgLang}.png";
+    slide2 = $"{folder}slide3.{imgLang}.png";
 }
 <!-- Begin Modal -->
 <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>-->
