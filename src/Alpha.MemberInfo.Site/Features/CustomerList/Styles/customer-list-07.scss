@@ -7,68 +7,69 @@ body {
 	font-size: calculateScale(13px) !important;
 }
 
+.customer-list {
+	.modal-header {
+		.modal-title {
+			font-size: calculateScale(13px) !important;
+		}
 
-input[type=checkbox] {
-	width: 20px !important;
-	height: 20px !important;
-}
-
-.dataTables_length {
-	label {
-		font-size: calculateScale(13px) !important;
+		button {
+			font-size: 32px !important;
+		}
 	}
-}
 
-.icon-table-edit, .icon-view-grid {
-	font-size: calculateScale(18px) !important;
-}
+	.page-title, .form-report, .select-all {
+		padding-left: 10px;
+	}
 
-#bootstrap-modal {
-	ul,
-	ol {
-		li {
-			&.icon-edit, &.icon-refresh, &.edit-status-popup {
-				font-size: calculateScale(13px);
-				line-height: calculateScale(24px);
+	.form-group {
+		padding-bottom: 10px !important;
+
+		label, .txt-search {
+			font-size: calculateScale(13px);
+		}
+
+		.txt-search {
+			width: 360px !important;
+		}
+	}
+
+	.dataTables_length {
+		label {
+			font-size: calculateScale(13px) !important;
+		}
+	}
+
+	#tbl-customer-list {
+		input[type=checkbox] {
+			width: 20px !important;
+			height: 20px !important;
+		}
+
+		.icon-table-edit, .icon-view-grid {
+			font-size: calculateScale(18px) !important;
+		}
+	}
+
+	#bootstrap-modal {
+		padding-right: 0px !important;
+
+		ul,
+		ol {
+			li {
+				&.icon-edit, &.icon-refresh, &.edit-status-popup {
+					font-size: calculateScale(13px) !important;
+					line-height: calculateScale(24px) !important;
+				}
 			}
 		}
 	}
-}
 
-.form-group {
-	padding-bottom: 10px !important;
-
-	label, .txt-search {
-		font-size: calculateScale(13px);
+	.icon-table-edit {
+		font-size: calculateScale(18px);
 	}
 
-	.txt-search{
-		width: 360px !important;	
+	#customer-list_wrapper .top .dataTables_paginate {
+		left: 10% !important;
 	}
-}
-
-.icon-table-edit {
-	font-size: calculateScale(13px);
-}
-
-#bootstrap-modal {
-	padding-right: 0px !important;
-}
-
-.modal-header {
-	.modal-title {
-		font-size: calculateScale(13px) !important;
-	}
-
-	button {
-		font-size: 32px !important;
-	}
-}
-
-.page-title, .form-report, .select-all {
-	padding-left: 10px;
-}
-
-#customer-list_wrapper .top .dataTables_paginate {
-	left: 10% !important;
 }

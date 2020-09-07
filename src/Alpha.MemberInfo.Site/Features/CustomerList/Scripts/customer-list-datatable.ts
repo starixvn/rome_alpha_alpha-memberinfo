@@ -57,7 +57,7 @@
 				info: `${this.viewModel.CustomerListResources.Page} _INPUT_ ${this.viewModel.CustomerListResources.Of} _TOTAL_`
 			};
 
-		this.$table = this.$('#customer-list')
+		this.$table = this.$('#tbl-customer-list')
 			.on('processing.dt',(e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
 			.DataTable({
 				serverSide: true,
@@ -308,7 +308,7 @@
 	}
 
 	private drawCallback = () => {
-		this.$('#customer-list').removeClass('hidden');
+		this.$('#tbl-customer-list').removeClass('hidden');
 
 		this.$('.btn-submit').unbind().bind('click', () => this.$table.ajax.reload());
 
