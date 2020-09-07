@@ -15,8 +15,6 @@
 
         CreditAndStatusModel GetCreditAndStatus(string SearchAccountName);
 
-        SportBookSettingModel GetExistedMemberSetting(int existedCustId);
-
         ResultCreateMemberQRCode CreateMemberByQRCode(InsertMemberCommand command);
 
         CheckBelongingByUsernameModel CheckBelongingByUsername(int actorId, string username, int subAccountId);
@@ -52,9 +50,6 @@
 
         public CreditAndStatusModel GetCreditAndStatus(string SearchAccountName)
             => dynamicRepository.Get<CreditAndStatusModel>(new SelectCreditAndStatusCriteria(SearchAccountName));
-
-        public SportBookSettingModel GetExistedMemberSetting(int existedCustId)
-            => dynamicRepository.Get<SportBookSettingModel>(new SelectExistedMemberSettingCriteria(existedCustId));
 
         public ResultCreateMemberQRCode CreateMemberByQRCode(InsertMemberCommand command)
         {

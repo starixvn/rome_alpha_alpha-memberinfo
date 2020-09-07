@@ -288,10 +288,14 @@
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Constants\CasinoGameKind.cs" />
-    <Compile Include="Constants\CloseReasonConstants.cs" />
+    <Compile Include="Constants\CloseReasonConstants.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Constants\ProblemAccountStatusConstants.cs" />
     <Compile Include="Constants\ProductId.cs" />
-    <Compile Include="Constants\ReviewStatusConstant.cs" />
+    <Compile Include="Constants\ReviewStatusConstant.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Constants\SportTypeConstants.cs" />
     <Compile Include="Criteria\GetAgentListCriteria.cs" />
     <Compile Include="Criteria\GetMasterListCriteria.cs" />
@@ -299,7 +303,9 @@
     <Compile Include="Criteria\IndirectLoginAccount\GetIndirectLoginAccountsCriteria.cs" />
     <Compile Include="Criteria\IndirectLoginAccount\UpdatePasswordCriteria.cs" />
     <Compile Include="Criteria\IndirectLoginAccount\NewAccountCriteria.cs" />
-    <Compile Include="Criteria\NonQueryCommandBase.cs" />
+    <Compile Include="Criteria\NonQueryCommandBase.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Criteria\ProblemAccount\GetProblemAccountCriteria.cs" />
     <Compile Include="Criteria\Transfer\GetTransferOptionCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\MapPlayerId3rdToCustIdCriteria.cs" />
@@ -337,7 +343,6 @@
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectFirstLoginByQRCodeCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectRnGStatusCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteria.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectExistedMemberSettingCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectCreditAndStatusCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectAutoSuggestionCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\CheckBelongingByUsernameModel.cs" />
@@ -345,7 +350,6 @@
     <Compile Include="Features\QRCodeMemberSignIn\Models\SelectRnGStatusModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\CreditAndStatusModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\ResultCreateMemberQRCode.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Models\SportBookSettingModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\UsernameSuggestion.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\PasswordService.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
@@ -366,17 +370,23 @@
     <Compile Include="Models\MemberRequests\MemberRequestModel.cs" />
     <Compile Include="Models\ProblemAccount\ProblemAccountModel.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProgressiveJackpot\JackpotGameSetting.cs" />
+    <Compile Include="Models\ProgressiveJackpot\JackpotGameSetting.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\UserLevel.cs" />
-    <Compile Include="Models\WinLossLimit\WinLossLimitGroupProductModel.cs" />
+    <Compile Include="Models\WinLossLimit\WinLossLimitGroupProductModel.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Params\CreditBalanceParam.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitDetail.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitPage.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitProductModel.cs" />
     <Compile Include="Params\IndirectLoginAccount\DisconnectAccountParam.cs" />
     <Compile Include="Params\IndirectLoginAccount\NewAccountParam.cs" />
-    <Compile Include="Params\IndirectLoginAccount\RedirectParam.cs" />
+    <Compile Include="Params\IndirectLoginAccount\RedirectParam.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Params\IndirectLoginAccount\UpdatePasswordParam.cs" />
     <Compile Include="Params\MemberRequestParam.cs" />
     <Compile Include="Params\ProblemAccount\UpdateProblemAccountParam.cs" />

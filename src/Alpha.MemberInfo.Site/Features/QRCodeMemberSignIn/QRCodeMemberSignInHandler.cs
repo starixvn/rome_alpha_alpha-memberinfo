@@ -70,13 +70,10 @@
                 Enumeration.FromValue<UserLevel>((byte)model.RoleId).IsMemberLevel() &&
                 qrCodeMemberSignInService.IsEnableCustomer(custIdCopyFrom))
             {
-                var setting = qrCodeMemberSignInService.GetExistedMemberSetting(custIdCopyFrom);
-
                 var passwordModel = passwordService.CreateMemberPasswordRandom();
 
                 var result = qrCodeMemberSignInService.CreateMemberByQRCode(
                     new InsertMemberCommand(
-                        setting,
                         message.Username,
                         message.FirstName ?? string.Empty,
                         message.CustId,
@@ -168,7 +165,6 @@
                     message.CreateMode,
                     message.ShowPageTitle,
                     rngCasinoStatusModel.SyncCS,
-                    message.CustIdCopyFrom,
                     rawPassword);
             }
 

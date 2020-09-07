@@ -65,20 +65,6 @@
         }
 
         [Fact]
-        public void GetExistedMemberSetting_Always_ReturnsCorrectModel()
-        {
-            var model = anyValueCreatorFixture.Create<SportBookSettingModel>();
-
-            repository
-                .Get<SportBookSettingModel>(Arg.Any<SelectExistedMemberSettingCriteria>())
-                .Returns(model);
-
-            var actualModel = serviceImpl.GetExistedMemberSetting(1);
-
-            AssertExtension.Equal(actualModel, model);
-        }
-
-        [Fact]
         public void CreateMemberByQRCode_Always_ReturnsCorrecResult()
         {
             var result = new ResultCreateMemberQRCode();
