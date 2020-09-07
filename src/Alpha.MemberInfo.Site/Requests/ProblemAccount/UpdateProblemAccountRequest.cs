@@ -6,14 +6,16 @@
 
     public class UpdateProblemAccountRequest : MemberInfoBaseQuery, IRequest<UpdateReviewStatusViewModel>
     {
-        public UpdateProblemAccountRequest(IUser viewer):base(viewer)
-        {            
+        public UpdateProblemAccountRequest(IUser viewer) : base(viewer)
+        {
         }
+
+        protected readonly byte MemberRoleId = UserLevel.Member.Value;
 
         public string UserNames { get; set; }
 
         public string Ids { get; set; }
 
-        public byte RoleId { get; set; }
+        public byte RoleId => MemberRoleId;
     }
 }
