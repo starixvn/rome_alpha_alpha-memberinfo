@@ -174,4 +174,19 @@
   <data name="NotAuthorized" xml:space="preserve">
     <value>您没有使用此功能的权限</value>
   </data>
+  <data name="viewQuickGuideDetail" xml:space="preserve">
+    <value>从一个位置非间接访问多个下线账户</value>
+  </data>
+  <data name="viewQuickGuideIndirectLogin" xml:space="preserve">
+    <value>快速浏览非间接登入账户</value>
+  </data>
+  <data name="viewQuickGuideNotNow" xml:space="preserve">
+    <value>还不行</value>
+  </data>
+  <data name="viewQuickGuideLetsgo" xml:space="preserve">
+    <value>现在开始</value>
+  </data>
+  <data name="viewQuickGuideTitle" xml:space="preserve">
+    <value>连接到您下线的账户</value>
+  </data>
 </root>
