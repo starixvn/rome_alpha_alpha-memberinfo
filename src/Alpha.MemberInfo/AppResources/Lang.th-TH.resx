@@ -174,4 +174,19 @@
   <data name="NotAuthorized" xml:space="preserve">
     <value>คุณไม่มีอำนาจในการเข้าใช้งานฟังก์ชันนี้</value>
   </data>
+  <data name="viewQuickGuideDetail" xml:space="preserve">
+    <value>เข้าถึงบัญชีดาวน์ไลน์หลายบัญชีโดยทางอ้อมจากที่เดียว</value>
+  </data>
+  <data name="viewQuickGuideIndirectLogin" xml:space="preserve">
+    <value>ดูข้อแนะนำสั้น ๆ เกี่ยวกับบัญชีเข้าสู่ระบบทางอ้อม</value>
+  </data>
+  <data name="viewQuickGuideNotNow" xml:space="preserve">
+    <value>ไม่ใช่ตอนนี้</value>
+  </data>
+  <data name="viewQuickGuideLetsgo" xml:space="preserve">
+    <value>เริ่มตอนนี้</value>
+  </data>
+  <data name="viewQuickGuideTitle" xml:space="preserve">
+    <value>เชื่อมต่อกับบัญชีดาวน์ไลน์ของคุณ</value>
+  </data>
 </root>
