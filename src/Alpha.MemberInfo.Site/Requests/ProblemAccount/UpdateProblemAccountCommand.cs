@@ -9,13 +9,11 @@
         {
         }
 
-        protected readonly byte MemberRoleId = UserLevel.Member.Value;
-
         public bool IsAffectedAllDownlines { get; set; }
 
         public string Ids { get; set; }
 
-        public byte RoleId => MemberRoleId;
+        public byte RoleId { get; set; }
 
         public override bool IsValid()
             => base.IsValid() && !IsInternal;

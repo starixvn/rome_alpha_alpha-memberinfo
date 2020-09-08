@@ -16,7 +16,17 @@
 </div>
 <div id="page_main">
     <div id="page_main">
-        <ul id="nav-tabs" class="nav nav-tabs" role="tablist"> 
+        <ul id="nav-tabs" class="nav nav-tabs" role="tablist">
+            @if (Model.Query.CustLevel.IsSuperLevel())
+            {
+                @RenderTab(UserLevel.Master, Resources.Master)
+            }
+
+            @if (Model.Query.CustLevel.IsMasterOrSuperLevel())
+            {
+                @RenderTab(UserLevel.Agent, Resources.Agent)
+            }
+
             @RenderTab(UserLevel.Member, Resources.Member)
         </ul>
         <div class="tab-content">

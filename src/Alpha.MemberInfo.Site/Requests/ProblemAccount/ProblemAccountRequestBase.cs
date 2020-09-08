@@ -12,9 +12,8 @@
             FromDate = DateTime.Now.AddDays(-13);
             ToDate = DateTime.Now;
             UserSelectedReviewedStatusId = ReviewStatusConstant.All;
+            SearchRoleId = CustLevel.GetDirectDownLineLevel().Value;
         }
-
-        protected readonly byte MemberRoleId = UserLevel.Member.Value;
 
         public DateTime FromDate { get; set; }
 
@@ -27,7 +26,7 @@
         [AllowHtml]
         public string UplineName { get; set; }
 
-        public byte SearchRoleId => MemberRoleId;
+        public byte SearchRoleId { get; set; }
 
         [AllowHtml]
         public string UserName { get; set; }
