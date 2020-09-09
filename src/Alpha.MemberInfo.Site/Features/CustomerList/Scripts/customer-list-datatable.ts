@@ -73,7 +73,7 @@
 				stripeClasses: [],
 				ordering: false,
 				paging: true,
-				pagingType: this.viewModel.IsMobileView ? "first_last_numbers" : "input",
+				pagingType: "input",
 				pageLength: this.viewModel.IsMobileView ? 100 : 500,
 				searching: false,
 				bInfo: false,
@@ -92,10 +92,6 @@
 
 	private buildDataTableColumns = () => {
 		let columns = [
-			{
-				"className": 'center',
-				"data": "RowNumber"
-			},
 			{
 				"className": 'left',
 				"data": null,
@@ -164,6 +160,15 @@
 			}
 		];
 
+		if (!this.viewModel.IsMobileView) {
+			const rowNumberColumn = {
+				"className": 'center',
+				"data": "RowNumber"
+			};
+
+			columns.splice(0, 0, rowNumberColumn);
+		}
+
 		if (this.viewModel.ShowEditMultiple) {
 			const editMultipleColumn = {
 				"className": 'center',
@@ -171,7 +176,7 @@
 				"render": item => `<input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/>`
 			};
 
-			columns.splice(1, 0, editMultipleColumn);
+			columns.splice(this.viewModel.IsMobileView ? 0 : 1, 0, editMultipleColumn);
 		}
 
 		if (!this.viewModel.LimitedDateToShowInfo) {

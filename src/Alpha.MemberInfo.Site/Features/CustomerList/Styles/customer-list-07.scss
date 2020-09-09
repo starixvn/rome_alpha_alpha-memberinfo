@@ -69,7 +69,7 @@ body {
 		font-size: calculateScale(18px);
 	}
 
-	#customer-list_wrapper .top .dataTables_paginate {
-		left: 10% !important;
+	.dataTables_paginate {
+		left: 20% !important;
 	}
 }

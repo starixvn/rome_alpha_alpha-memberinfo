@@ -78,8 +78,7 @@
 
             var breadcrumbLevel = new List<CustInfo>();
 
-            if (message.BreadcrumbLevel != null
-                && message.BreadcrumbLevel.Any())
+            if (message.BreadcrumbLevel != null && message.BreadcrumbLevel.Any())
             {
                 foreach (var custInfo in message.BreadcrumbLevel)
                 {

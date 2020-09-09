@@ -19,20 +19,20 @@
 	}
 
 	public bindingEvent = () => {
-		this.$("div.top").prepend(
-			`<div class="select-all">${this.viewModel.CustomerListResources.Select}` +
-			`<a class="check-all">${this.viewModel.CustomerListResources.All}</a> | ` +
-			`<a class="uncheck-all">${this.viewModel.CustomerListResources.None}</a></div>`);
+		//this.$("div.top").prepend(
+		//	`<div class="select-all">${this.viewModel.CustomerListResources.Select}` +
+		//	`<a class="check-all">${this.viewModel.CustomerListResources.All}</a> | ` +
+		//	`<a class="uncheck-all">${this.viewModel.CustomerListResources.None}</a></div>`);
 
 		this.$('.edit-multiple').click(event => this.openPopup(event));
 
-		this.$('.check-all').click(() => {
-			this.$('tbody .checkbox').prop('checked', true);
+		this.$('#select-all').click(() => {
+			this.$('tbody .checkbox').prop('checked', this.$('#select-all').is(':checked'));
 		});
 
-		this.$('.uncheck-all').click(() => {
-			this.$('tbody .checkbox').prop('checked', false);
-		});
+		//this.$('.uncheck-all').click(() => {
+		//	this.$('tbody .checkbox').prop('checked', false);
+		//});
 	}
 
 	private openPopup = event => {
@@ -80,7 +80,7 @@
 	private buildPopupHtml = settings => {
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
-			html.push(`<li data-title='${item.Text}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+			html.push(`<li data-title='${item.Text}' data-synced='${item.Synced}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
 		});
 
 		this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
