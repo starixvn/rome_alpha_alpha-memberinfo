@@ -30,5 +30,10 @@
 
         [AllowHtml]
         public string UserName { get; set; }
+
+        public override bool IsValid()
+        {
+            return base.IsValid() && ActorLevel.IsSuperLevel();
+        }
     }
 }
