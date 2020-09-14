@@ -18,12 +18,12 @@
 		this.customerListPopup = customerListPopup;
 	}
 
-	public bindingEvent = () => this.$('.status-popup').unbind().bind('click', event => this.openPopup(event));
+	public bindingEvent = () => this.$('.status-popup').unbind().bind('click', event => this.openPopup(this.$(event.currentTarget)));
 
-	private openPopup = event => this.customerListServices.getSettings(
-		this.$(event.currentTarget).data("custid"),
-		this.$(event.currentTarget).data("url"),
-		data => this.customerListPopup.openBootstrapModal(event, data.Status, this.buildPopupHtml, this.bindingEventOnPopup)
+	private openPopup = element => this.customerListServices.getSettings(
+		this.$(element).data("custid"),
+		this.$(element).data("url"),
+		data => this.customerListPopup.openBootstrapModal(element, data.Status, this.buildPopupHtml, this.bindingPopupEvent)
 	);
 
 	private buildPopupHtml = (statusArray, custId) => {
@@ -44,13 +44,13 @@
 		}
 	}
 
-	private bindingEventOnPopup = parentEvent => this.$('.edit-status-popup').click(event =>
+	private bindingPopupEvent = parentElement => this.$('.edit-status-popup').click(event =>
 		this.topWindow.bootboxConfirm(
 			this.$(event.currentTarget).data("message"),
-			this.isMobile ? event.target : parentEvent.target,
-			() => this.customerListServices.updateCustomerStatus(event, parentEvent, this.updateCustomerStatusSuccess)));
+			this.isMobile ? event.target : this.$(parentElement).context,
+			() => this.customerListServices.updateCustomerStatus(event.currentTarget, this.$(parentElement).context, this.updateCustomerStatusSuccess)));
 
-	private updateCustomerStatusSuccess = (event, parentEvent, data, displayOrder) => {
+	private updateCustomerStatusSuccess = (currentTarget, parentTarget, data, displayOrder) => {
 		if (data.IsSuccessful) {
 			// Closed or Suspended
 			if (displayOrder === 1 || displayOrder === 2) {
@@ -63,7 +63,7 @@
 		}
 		else {
 			this.$.unblockUI();
-			this.topWindow.bootboxAlert(data.Message, this.isMobile ? event.target : parentEvent.target);
+			this.topWindow.bootboxAlert(data.Message, this.isMobile ? currentTarget : parentTarget);
 		}
 	}
 }

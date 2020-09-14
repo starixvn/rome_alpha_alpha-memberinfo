@@ -15,26 +15,26 @@
 		this.customerListServices = customerListServices;
 	}
 
-	public bindingEvent = () => this.$('.edit').unbind().bind('click', event => this.openPopup(event));
+	public bindingEvent = () => this.$('.edit').unbind().bind('click', event => this.openPopup(this.$(event.currentTarget)));
 
-	public openPopup = event => {
-		const custId = this.$(event.currentTarget).data("custid");
+	public openPopup = element => {
+		const custId = this.$(element).data("custid");
 		const settings = this.customerListServices.statusSettingArray.filter(x => x.custId === custId);
 
 		settings.length > 0 ?
 			this.customerListPopup.openBootstrapModal(
-				event,
+				element,
 				settings[0].data.Settings,
 				this.buildPopupHtml,
-				this.bindingEventOnPopup) :
+				this.bindingPopupEvent) :
 			this.customerListServices.getSettings(
 				custId,
-				this.$(event.currentTarget).data("url"),
+				this.$(element).data("url"),
 				data => this.customerListPopup.openBootstrapModal(
-					event,
+					element,
 					data.Settings,
 					this.buildPopupHtml,
-					this.bindingEventOnPopup));
+					this.bindingPopupEvent));
 	}
 
 	private buildPopupHtml = settings => {
@@ -50,5 +50,5 @@
 		}
 	}
 
-	private bindingEventOnPopup = () => this.$('.edit-popup').click(event => this.customerListPopup.openProductPopup(event))
+	private bindingPopupEvent = () => this.$('.edit-popup').click(event => this.customerListPopup.openProductPopup(event.currentTarget))
 }

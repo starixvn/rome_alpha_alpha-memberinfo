@@ -54,8 +54,8 @@
 		);
 	}
 
-	public updateCustomerStatus = (event, parentEvent, updateCustomerStatusSuccess) => {
-		const $target = this.$(event.currentTarget),
+	public updateCustomerStatus = (currentTarget, parentTarget, updateCustomerStatusSuccess) => {
+		const $target = this.$(currentTarget),
 			action = $target.data("url"),
 			params = $target.data("param"),
 			displayOrder = $target.data("displayorder");
@@ -64,7 +64,7 @@
 			this.viewModel.MemberInfoUrl + 'CustomerList/' + action,
 			'POST',
 			params,
-			data => updateCustomerStatusSuccess(event, parentEvent, data, displayOrder))
+			data => updateCustomerStatusSuccess(currentTarget, parentTarget, data, displayOrder))
 	}
 
 	public getSettings = (custId, url, callback, type = "GET", params = {}, isStoreData = true) => this.callAjax(

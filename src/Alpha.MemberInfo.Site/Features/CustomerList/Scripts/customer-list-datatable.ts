@@ -58,7 +58,7 @@
 			};
 
 		this.$table = this.$('#tbl-customer-list')
-			.on('processing.dt',(e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
+			.on('processing.dt', (e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
 			.DataTable({
 				serverSide: true,
 				ajax: (data, callback) => this.customerListServices.getCutomerList(data, callback),
@@ -88,6 +88,10 @@
 				},
 				drawCallback: this.drawCallback
 			});
+
+		this.$table.on('responsive-display.dt', function (e, datatable, row, showHide, update) {
+			console.log('Details for row ' + row.index() + ' ' + (showHide ? 'shown' : 'hidden'));
+		});
 	}
 
 	private buildDataTableColumns = () => {
@@ -252,7 +256,7 @@
 			'data-height': '400px'
 		};
 
-		return `<a ${this.buildAttributes(attrs)}>${item.LastLoginIP}</a>`
+		return `<a ${this.buildAttributes(attrs)} onclick="customerListPopup.openProductPopup(this)">${item.LastLoginIP}</a>`
 	}
 
 	private renderDetailColumn = (api, rowIdx) => {

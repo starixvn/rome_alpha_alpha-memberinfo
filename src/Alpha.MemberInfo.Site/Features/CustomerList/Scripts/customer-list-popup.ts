@@ -17,14 +17,14 @@
 		this.$bootstrapModalDialog = this.$('.modal-dialog');
 	}
 
-	public openProductPopup = (event, method = 'get') => {
+	public openProductPopup = (currentTarget, method = 'get') => {
 		this.$.blockUI();
 
 		this.$('#myIframe').attr('src', '');
-		this.$('#myIframeForm').attr('action', this.$(event.currentTarget).data("url"));
+		this.$('#myIframeForm').attr('action', this.$(currentTarget).data("url"));
 		this.$('#myIframeForm').attr('method', method);
 
-		const params = this.$(event.currentTarget).data("params");
+		const params = this.$(currentTarget).data("params");
 
 		this.$('#myIframeForm').empty();
 
@@ -43,7 +43,7 @@
 			width = bodyWidth < 1160 ? `${bodyWidth - 50}px` : '1160px';
 		}
 
-		this.$('#bootstrap-modal-product .modal-title').text(this.$(event.currentTarget).data("title"));
+		this.$('#bootstrap-modal-product .modal-title').text(this.$(currentTarget).data("title"));
 		this.$('#bootstrap-modal-product')
 			.css({ height: '100%', width })
 			.modal({ show: true, backdrop: false });
@@ -78,9 +78,9 @@
 
 	public closeStatusPopup = () => this.$bootstrapContainer.modal('hide');
 
-	public openBootstrapModal = (event, data, buildPopupHtml, bindingPopupEvent) => {
-		buildPopupHtml(data, this.$(event.currentTarget).data("custid"));
-		bindingPopupEvent(event);
+	public openBootstrapModal = (element, data, buildPopupHtml, bindingPopupEvent) => {
+		buildPopupHtml(data, this.$(element).data("custid"));
+		bindingPopupEvent(element);
 
 		if (this.isMobile) {
 			this.topWindow.$('#content').css({ padding: '0px' });
@@ -94,18 +94,17 @@
 				.css({ height: 'auto', width: 'auto', top: 0 })
 				.modal({ show: true, backdrop: false });
 
-			this.fixBootstrapDimension(event);
+			this.fixBootstrapDimension(element);
 		}
 	}
 
-	private fixBootstrapDimension = event => {
+	private fixBootstrapDimension = element => {
 		if (this.isMobile) {
 			this.$bootstrapContainer.css({ top : 0, left: 0, height: '100%', width: '100%' });
 		}
 		else {
 			this.$bootstrapModalDialog.css({ width: 'inherit' });
-			const element = this.$(event.currentTarget),
-				height = this.$bootstrapModalDialog.outerHeight(),
+			const height = this.$bootstrapModalDialog.outerHeight(),
 				width = this.$bootstrapModalDialog.outerWidth(),
 				bodyHeight = this.$('body').height();
 

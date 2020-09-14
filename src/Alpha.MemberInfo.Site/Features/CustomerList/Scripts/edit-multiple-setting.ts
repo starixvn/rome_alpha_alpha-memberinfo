@@ -19,12 +19,10 @@
 	}
 
 	public bindingEvent = () => {
-		//this.$("div.top").prepend(
-		//	`<div class="select-all">${this.viewModel.CustomerListResources.Select}` +
-		//	`<a class="check-all">${this.viewModel.CustomerListResources.All}</a> | ` +
-		//	`<a class="uncheck-all">${this.viewModel.CustomerListResources.None}</a></div>`);
+		this.$("div.top").prepend(
+			`<div class="edit-multiple"><input type="button" value="Multiple Edit"></div>`);
 
-		this.$('.edit-multiple').click(event => this.openPopup(event));
+		this.$('.edit-multiple').click(event => this.openPopup(this.$('#select-all')));
 
 		this.$('#select-all').click(() => {
 			this.$('tbody .checkbox').prop('checked', this.$('#select-all').is(':checked'));
@@ -35,7 +33,7 @@
 		//});
 	}
 
-	private openPopup = event => {
+	private openPopup = element => {
 		let usernames = [], custids = [];
 		this.$('input.checkbox:checkbox:checked').each((index, element) => {
 			usernames.push(this.$(element).data("username"));
@@ -62,15 +60,15 @@
 			//this.$('#arrayStatusRnCasino').val(custids.join('^'));
 
 			custids.length === 1 ?
-				this.editSingleSetting.openPopup(event) :
+				this.editSingleSetting.openPopup(this.$(`#setting-${custids[0]}`)) :
 				this.customerListServices.getSettings(
 					custids[0],
 					`${this.viewModel.MemberInfoUrl}CustomerList/MultipleEditPopup`,
 					data => this.customerListPopup.openBootstrapModal(
-						event,
+						element,
 						data,
 						this.buildPopupHtml,
-						this.bindingEventOnPopup),
+						this.bindingPopupEvent),
 					'POST',
 					params,
 					false);
@@ -90,5 +88,5 @@
 		}
 	}
 
-	private bindingEventOnPopup = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openProductPopup(event, 'post'))
+	private bindingPopupEvent = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openProductPopup(event, 'post'))
 }

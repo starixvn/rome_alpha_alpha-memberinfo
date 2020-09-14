@@ -25,7 +25,6 @@
 	@StaticResources.RenderStyles("~/Features/CustomerList/Bundles/customer-list")
 
 	@StaticResources.RenderStylesWithMedia(767, "~/Features/CustomerList/Styles/customer-list-07")
-	@*<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.css" />*@
 }
 
 <div class="customer-list">
@@ -114,7 +113,7 @@
 					@if (!Model.HideEditMultiple)
 					{
 						<th rowspan="2" class="header">
-							<input type="checkbox" id="select-all"/>
+							<input type="checkbox" id="select-all" />
 						</th>
 					}
 					<th rowspan="2" class="header">
@@ -231,11 +230,7 @@
 </div>
 
 @section Scripts {
-	@StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
-	@*<script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.2/js/dataTables.scroller.js"></script>*@
-	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.20/pagination/input.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.21/pagination/select.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.21/i18n/Vietnamese.json"></script>
+	@StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
 	@StaticResources.RenderScripts("~/Features/CustomerList/Bundles/customer-list")
 }
 
