@@ -12,10 +12,11 @@
     using MediatR;
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public class QRCodeMemberSignInHandler :
         IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
-        IRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
+        IAsyncRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
         IRequestHandler<GetMemberCreditAndStatusRequest, CreditAndStatusModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>,
@@ -48,7 +49,7 @@
                message.ShowPageTitle,
                message.ErrorMessage);
 
-        public ResultCreateMemberQRCode Handle(CreateAccountByQRCodeRequest message)
+        public async Task<ResultCreateMemberQRCode> Handle(CreateAccountByQRCodeRequest message)
         {
             var creditAndStatusModel = qrCodeMemberSignInService.GetCreditAndStatus(message.UsernameCopyFrom);
 
@@ -72,7 +73,7 @@
             {
                 var passwordModel = passwordService.CreateMemberPasswordRandom();
 
-                var result = qrCodeMemberSignInService.CreateMemberByQRCode(
+                var result = await qrCodeMemberSignInService.CreateMemberByQRCode(
                     new InsertMemberCommand(
                         message.Username,
                         message.FirstName ?? string.Empty,
@@ -85,7 +86,7 @@
                         passwordModel.EncodePassword,
                         message.UsernameCopyFrom,
                         message.CreditMax,
-                        message.SubUsername));
+                        message.SubUsername)).ConfigureAwait(false);
 
                 result.CustIdCopyFrom = custIdCopyFrom;
 

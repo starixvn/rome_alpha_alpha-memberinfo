@@ -81,7 +81,7 @@
                });
 
             var actualResult = serviceImpl.CreateMemberByQRCode(
-                anyValueCreatorFixture.Create<InsertMemberCommand>());
+                anyValueCreatorFixture.Create<InsertMemberCommand>()).Result;
 
             Assert.Equal(actualResult.CustId, result.CustId);
             Assert.Equal(actualResult.ErrCode, result.ErrCode);

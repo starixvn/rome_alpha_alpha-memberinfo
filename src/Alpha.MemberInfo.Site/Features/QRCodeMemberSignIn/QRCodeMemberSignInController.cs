@@ -8,6 +8,7 @@
     using Alpha.Web.Filters;
     using MediatR;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Web.Mvc;
 
     public class QRCodeMemberSignInController : BaseController
@@ -38,7 +39,7 @@
         }
 
         [HttpPost, CaptchaValidation, AntiXsrfFilter]
-        public ActionResult CreateAccount(CreateAccountByQRCodeRequest message)
+        public async Task<ActionResult> CreateAccount(CreateAccountByQRCodeRequest message)
         {
             if (!ModelState.IsValid)
             {
@@ -58,7 +59,7 @@
                 });
             }
 
-            var result = mediator.Send(message);
+            var result = await mediator.SendAsync(message).ConfigureAwait(false);
 
             if (result.Success)
             {
@@ -69,12 +70,12 @@
                     result.CustIdCopyFrom,
                     result.RawPassword,
                     SearchAccountId = result.CustId,
-                    SearchAccountName = message.Username,
-                    message.FirstName,
-                    message.Credit,
-                    message.CreditMin,
-                    message.CreditMax,
-                    message.ShowPageTitle,
+                    SearchAccountName = message?.Username,
+                    message?.FirstName,
+                    message?.Credit,
+                    message?.CreditMin,
+                    message?.CreditMax,
+                    message?.ShowPageTitle,
                     CreateMode = true
                 });
             }

@@ -8,6 +8,7 @@
     using Fanex.Data.Repository;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     public interface QRCodeMemberSignInService
     {
@@ -15,7 +16,7 @@
 
         CreditAndStatusModel GetCreditAndStatus(string SearchAccountName);
 
-        ResultCreateMemberQRCode CreateMemberByQRCode(InsertMemberCommand command);
+        Task<ResultCreateMemberQRCode> CreateMemberByQRCode(InsertMemberCommand command);
 
         CheckBelongingByUsernameModel CheckBelongingByUsername(int actorId, string username, int subAccountId);
 
@@ -51,9 +52,9 @@
         public CreditAndStatusModel GetCreditAndStatus(string SearchAccountName)
             => dynamicRepository.Get<CreditAndStatusModel>(new SelectCreditAndStatusCriteria(SearchAccountName));
 
-        public ResultCreateMemberQRCode CreateMemberByQRCode(InsertMemberCommand command)
+        public async Task<ResultCreateMemberQRCode> CreateMemberByQRCode(InsertMemberCommand command)
         {
-            var result = copyAccountService.Copy(new CopyAccountParams(
+            var result = await copyAccountService.CopyAsync(new CopyAccountParams(
                 command.ActorId,
                 UserLevel.Agent.Value,
                 command.SubAccId,
@@ -70,7 +71,7 @@
                 command.Language,
                 command.IP,
                 AlphaSite,
-                isQrCode: true));
+                isQrCode: true)).ConfigureAwait(false);
 
             if (result != null)
             {

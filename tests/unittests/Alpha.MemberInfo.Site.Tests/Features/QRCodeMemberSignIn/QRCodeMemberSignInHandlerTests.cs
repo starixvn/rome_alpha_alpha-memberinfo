@@ -145,7 +145,7 @@
             var actualViewModel = handler.Handle(message);
 
             // Assert
-            AssertExtension.Equal(result, actualViewModel);
+            AssertExtension.Equal(result, actualViewModel.Result);
         }
 
         [Fact]
@@ -184,7 +184,7 @@
             var actualViewModel = handler.Handle(message);
 
             // Assert
-            AssertExtension.Equal(result, actualViewModel);
+            AssertExtension.Equal(result, actualViewModel.Result);
         }
 
         [Fact]
@@ -216,7 +216,7 @@
             var actualViewModel = handler.Handle(message);
 
             // Assert
-            AssertExtension.Equal(result, actualViewModel);
+            AssertExtension.Equal(result, actualViewModel.Result);
         }
 
         [Fact]
@@ -257,7 +257,7 @@
             var actualViewModel = handler.Handle(message);
 
             // Assert
-            AssertExtension.Equal(result, actualViewModel);
+            AssertExtension.Equal(result, actualViewModel.Result);
         }
 
         [Fact]

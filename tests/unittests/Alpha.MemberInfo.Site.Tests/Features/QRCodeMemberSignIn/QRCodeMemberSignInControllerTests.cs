@@ -52,9 +52,9 @@
         public void Index_QueryIsNotValid_ReturnInvalidPageView()
         {
             // Arrange
-            var user = Substitute.For<IUser>();
-            user.LevelId.Returns((byte)3);
-            var message = new QRCodeMemberSignInRequest(user);
+            var iuser = Substitute.For<IUser>();
+            iuser.LevelId.Returns((byte)3);
+            var message = new QRCodeMemberSignInRequest(iuser);
 
             // Act
             var actualView = controller.Index(message) as ViewResult;
@@ -88,12 +88,12 @@
                 CustIdCopyFrom = 2,
                 ErrCode = 0,
                 ErrMsg = string.Empty
-            }; ;
+            };
 
-            mediator.Send(Arg.Any<CreateAccountByQRCodeRequest>()).Returns(result);
+            mediator.SendAsync(Arg.Any<CreateAccountByQRCodeRequest>()).Returns(result);
 
             // Act
-            var actualData = controller.CreateAccount(message) as JsonResult;
+            var actualData = controller.CreateAccount(message).Result as JsonResult;
             IDictionary<string, object> data = new RouteValueDictionary(actualData.Data);
 
             // Assert
@@ -137,10 +137,10 @@
                 ErrMsg = "User is not availble"
             };
 
-            mediator.Send(Arg.Any<CreateAccountByQRCodeRequest>()).Returns(result);
+            mediator.SendAsync(Arg.Any<CreateAccountByQRCodeRequest>()).Returns(result);
 
             // Act
-            var actualData = controller.CreateAccount(message) as JsonResult;
+            var actualData = controller.CreateAccount(message).Result as JsonResult;
             IDictionary<string, object> data = new RouteValueDictionary(actualData.Data);
 
             // Assert
@@ -174,7 +174,7 @@
             };
 
             // Act
-            var actualData = controller.CreateAccount(message) as JsonResult;
+            var actualData = controller.CreateAccount(message).Result as JsonResult;
             IDictionary<string, object> data = new RouteValueDictionary(actualData.Data);
 
             // Assert
@@ -202,7 +202,7 @@
             controller.ModelState.AddModelError("QRCode", "Invalid Captcha.");
 
             // Act
-            var actualData = controller.CreateAccount(message) as JsonResult;
+            var actualData = controller.CreateAccount(message).Result as JsonResult;
             IDictionary<string, object> data = new RouteValueDictionary(actualData.Data);
 
             // Assert
@@ -260,8 +260,8 @@
             decimal creditMax)
         {
             // Arrange
-            var user = Substitute.For<IUser>();
-            var message = new ShowQRCodeRequest(user)
+            var iuser = Substitute.For<IUser>();
+            var message = new ShowQRCodeRequest(iuser)
             {
                 SearchAccountId = searchAccountId,
                 SearchAccountName = searchAccountName,
