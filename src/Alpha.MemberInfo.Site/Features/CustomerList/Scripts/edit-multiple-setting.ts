@@ -19,11 +19,8 @@
 	}
 
 	public bindingEvent = () => {
-		this.$('.edit-multiple').click(event => this.openPopup(this.$(event.currentTarget)));
-
-		this.$('#select-all').click(() => {
-			this.$('tbody .checkbox').prop('checked', this.$('#select-all').is(':checked'));
-		});
+		this.$('.edit-multiple').unbind().bind("click", event => this.openPopup(this.$(event.currentTarget)));
+		this.$('#select-all').unbind().bind("click", () => this.$('tbody .checkbox').prop('checked', this.$('#select-all').is(':checked')));
 	}
 
 	private openPopup = element => {

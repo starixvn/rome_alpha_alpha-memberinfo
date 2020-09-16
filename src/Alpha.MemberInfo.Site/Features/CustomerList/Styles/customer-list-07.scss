@@ -49,6 +49,14 @@ body {
 		.icon-table-edit, .icon-view-grid {
 			font-size: calculateScale(18px) !important;
 		}
+
+		.commission-table {
+			tr:not(:first-child) {
+				td:first-child {
+					padding-left: 20px !important;
+				}
+			}
+		}
 	}
 
 	#bootstrap-modal {
