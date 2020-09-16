@@ -41,7 +41,8 @@
 			type: 'column',
 			target: -1,
 			auto: false,
-			renderer: (api, rowIdx) => this.renderDetailColumn(api, rowIdx)
+			renderer: (api, rowIdx) => this.renderDetailColumn(api, rowIdx),
+			bindingCallback: this.drawCallback
 		},
 			lengthMenu = `${this.viewModel.CustomerListResources.PageSize} <select>` +
 				'<option value="10">10</option>' +
@@ -88,14 +89,15 @@
 				},
 				drawCallback: this.drawCallback
 			});
-
-		this.$table.on('responsive-display.dt', function (e, datatable, row, showHide, update) {
-			console.log('Details for row ' + row.index() + ' ' + (showHide ? 'shown' : 'hidden'));
-		});
 	}
 
 	private buildDataTableColumns = () => {
 		let columns = [
+			{
+				"className": 'center',
+				"data": null,
+				"render": item => this.renderEditColumn(item)
+			},
 			{
 				"className": 'left',
 				"data": null,
@@ -104,11 +106,6 @@
 			{
 				"className": 'center',
 				"data": item => this.renderStatusColumn(item)
-			},
-			{
-				"className": 'center',
-				"data": null,
-				"render": item => this.renderEditColumn(item)
 			},
 			{
 				"className": 'center',
@@ -256,7 +253,7 @@
 			'data-height': '400px'
 		};
 
-		return `<a ${this.buildAttributes(attrs)} onclick="customerListPopup.openProductPopup(this)">${item.LastLoginIP}</a>`
+		return `<a ${this.buildAttributes(attrs)}>${item.LastLoginIP}</a>`
 	}
 
 	private renderDetailColumn = (api, rowIdx) => {
@@ -289,7 +286,7 @@
 			if (idx.column >= start && idx.column <= end) {
 				if (addTableCommissionTag) {
 					addTableCommissionTag = false;
-					commissionTable = commissionTable + "<tr><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr><td class='commission-header'>Commission</td></tr>";
+					commissionTable = commissionTable + "<tr><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr><td class='commission-header'>CommissionText</td></tr>";
 				}
 
 				commissionTable = commissionTable + `<tr data-dtr-index="${idx.column}">` +
@@ -317,11 +314,12 @@
 	}
 
 	private drawCallback = () => {
+
 		this.$('#tbl-customer-list').removeClass('hidden');
 
 		this.$('.btn-submit').unbind().bind('click', () => this.$table.ajax.reload());
 
-		this.$('.login-ip').unbind().bind('click', event => this.customerListPopup.openProductPopup(event));
+		this.$('.login-ip').unbind().bind('click', event => this.customerListPopup.openProductPopup(event.currentTarget));
 
 		this.editSingleSetting.bindingEvent();
 

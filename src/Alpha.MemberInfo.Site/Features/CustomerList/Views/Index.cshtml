@@ -117,13 +117,6 @@
 						</th>
 					}
 					<th rowspan="2" class="header">
-						@CustomerListResources.Username <br />
-						@CustomerListResources.NickName
-					</th>
-					<th rowspan="2" class="header">
-						@CustomerListResources.Status
-					</th>
-					<th rowspan="2" class="header">
 						@if (!Model.HideEditMultiple)
 						{
 							<div class="edit-multiple icon-view-grid" data-url="" />
@@ -132,30 +125,38 @@
 						{
 							<span>@CustomerListResources.Edit</span>
 						}
-						</th>
+					</th>
+					<th rowspan="2" class="header">
+						@CustomerListResources.Username <br />
+						@CustomerListResources.NickName
+					</th>
+					<th rowspan="2" class="header">
+						@CustomerListResources.Status
+					</th>
+
+					<th rowspan="2" class="header">
+						@CustomerListResources.Statement
+					</th>
+					<th rowspan="2" class="header">
+						@CustomerListResources.FirstName
+					</th>
+					<th rowspan="2" class="header">
+						@CustomerListResources.LastName
+					</th>
+					<th colspan="6" class="header desktop">
+						@CustomerListResources.Commission
+					</th>
+					@if (!Model.LimitedDateToShowInfo)
+					{
 						<th rowspan="2" class="header">
-							@CustomerListResources.Statement
+							@CustomerListResources.CreatedDate
 						</th>
-						<th rowspan="2" class="header">
-							@CustomerListResources.FirstName
-						</th>
-						<th rowspan="2" class="header">
-							@CustomerListResources.LastName
-						</th>
-						<th colspan="6" class="header desktop">
-							@CustomerListResources.Commission
-						</th>
-						@if (!Model.LimitedDateToShowInfo)
-						{
-							<th rowspan="2" class="header">
-								@CustomerListResources.CreatedDate
-							</th>
-						}
-						<th rowspan="2" class="header">
-							@CustomerListResources.LoginIP
-						</th>
-						<th rowspan="2" class="header"></th>
-					</tr>
+					}
+					<th rowspan="2" class="header">
+						@CustomerListResources.LoginIP
+					</th>
+					<th rowspan="2" class="header"></th>
+				</tr>
 				<tr class="thead-row2">
 					@if (Model.DownlineLevel.IsMemberLevel())
 					{
