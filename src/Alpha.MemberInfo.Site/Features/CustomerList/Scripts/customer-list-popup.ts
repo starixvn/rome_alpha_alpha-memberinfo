@@ -60,6 +60,8 @@
 
 	public bindingBootstrapModalEvent = () => {
 		this.$bootstrapContainer.unbind().bind('mouseleave ', () => this.$bootstrapContainer.modal('hide'));
+		this.$('#bootstrap-modal').find('.icon-back, .btn-cancel').unbind().bind("click", event => this.$('#bootstrap-modal').modal('hide'));
+		this.$('#bootstrap-modal-product').find('.icon-back, .btn-cancel').unbind().bind("click", event => this.$('#bootstrap-modal-product').modal('hide'));
 
 		//this.$('#bootstrap-modal').on('hidden.bs.modal', () => {
 		//	this.topWindow.$('#content').css({ padding: '' });

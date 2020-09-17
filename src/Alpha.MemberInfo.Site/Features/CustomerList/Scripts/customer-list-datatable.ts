@@ -286,7 +286,7 @@
 			if (idx.column >= start && idx.column <= end) {
 				if (addTableCommissionTag) {
 					addTableCommissionTag = false;
-					commissionTable = commissionTable + "<tr><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr><td class='commission-header'>CommissionText</td></tr>";
+					commissionTable = commissionTable + `<tr><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr><td class='commission-header'>${self.$('#commissionText').val()}</td></tr>`;
 				}
 
 				commissionTable = commissionTable + `<tr data-dtr-index="${idx.column}">` +
