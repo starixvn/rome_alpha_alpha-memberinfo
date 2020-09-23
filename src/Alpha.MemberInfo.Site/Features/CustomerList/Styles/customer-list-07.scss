@@ -24,16 +24,13 @@ body {
 
 	.form-group {
 		padding-bottom: 10px !important;
-
 		label, .txt-search {
 			font-size: calculateScale(13px);
 		}
-
 		.txt-search {
 			width: 360px !important;
 		}
 	}
-
 	.dataTables_length {
 		label {
 			font-size: calculateScale(13px) !important;
@@ -79,5 +76,36 @@ body {
 
 	.dataTables_paginate {
 		left: 20% !important;
+    }
+
+    .filter {
+        .form-group {
+            margin-right: 0;
+            margin-bottom: 15px;
+
+            .txt-search, label {
+                font-size: calculateScale(13px);
+            }
+
+            label {
+                display: block;
+            }
+
+            .txt-search {
+                height: calculateScale(36px);
+                width: 100% !important;
+            }
+        }
+
+        .username-box {
+            width: 100%;
+            .easy-autocomplete {
+                width: 100% !important;
+            }
+        }
+
+        .status-box, .comm-box, .unconfirm-box {
+            width: 50%;
+        } 
 	}
 }

@@ -85,7 +85,7 @@
 		bindingPopupEvent(element);
 
 		if (this.isMobile) {
-			this.topWindow.$('#content').css({ padding: '0px' });
+			//this.topWindow.$('#content').css({ padding: '0px' });
 
 			this.$bootstrapContainer.find('.modal-dialog').css({ height: '100%', width: '100%' })
 			this.$bootstrapContainer.css({ top: 0, left: 0, height: '100%', width: '100%', paddingRight: '0px' }).modal({ show: true, backdrop: false });

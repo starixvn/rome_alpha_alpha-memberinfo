@@ -88,7 +88,6 @@ $link-hover-color: #F60;
         float: left;
         left: 40%;
         text-align: center;
-        /*margin-top: 10px;*/
         display: flex;
         position: relative;
         justify-content: center;
@@ -109,7 +108,7 @@ $link-hover-color: #F60;
     }
 
     .form-group {
-        margin-right: 25px !important;
+        margin-right: 25px;
 
         label {
             font-size: 13px;
