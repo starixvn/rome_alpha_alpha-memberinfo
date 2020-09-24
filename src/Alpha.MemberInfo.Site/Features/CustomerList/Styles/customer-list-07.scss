@@ -1,87 +1,74 @@
-﻿
-@function calculateScale($num, $scale: 0.7) {
-	@return $num / $scale;
-}
+﻿@import "../../../assets/styles/abstracts/_mixins.scss";
 
 body {
 	font-size: calculateScale(13px) !important;
 }
 
 .customer-list {
-	.modal-header {
-		.modal-title {
-			font-size: calculateScale(13px) !important;
-		}
+    .modal-header {
+        .modal-title {
+            font-size: calculateScale(13px) !important;
+        }
 
-		button {
-			font-size: 32px !important;
-		}
-	}
-
-	.page-title, .form-report, .select-all {
+        button {
+            font-size: 32px !important;
+        }
+    }
+    /*.page-title, .form-report, .select-all {
 		padding-left: 10px;
-	}
+	}*/
+    .dataTables_length {
+        label {
+            font-size: calculateScale(13px) !important;
+        }
+    }
 
-	.form-group {
-		padding-bottom: 10px !important;
-		label, .txt-search {
-			font-size: calculateScale(13px);
-		}
-		.txt-search {
-			width: 360px !important;
-		}
-	}
-	.dataTables_length {
-		label {
-			font-size: calculateScale(13px) !important;
-		}
-	}
+    #tbl-customer-list {
+        input[type=checkbox] {
+            width: 20px !important;
+            height: 20px !important;
+        }
 
-	#tbl-customer-list {
-		input[type=checkbox] {
-			width: 20px !important;
-			height: 20px !important;
-		}
+        .icon-table-edit, .icon-view-grid {
+            font-size: calculateScale(18px) !important;
+        }
 
-		.icon-table-edit, .icon-view-grid {
-			font-size: calculateScale(18px) !important;
-		}
+        .commission-table {
+            tr:not(:first-child) {
+                td:first-child {
+                    padding-left: 20px !important;
+                }
+            }
+        }
+    }
 
-		.commission-table {
-			tr:not(:first-child) {
-				td:first-child {
-					padding-left: 20px !important;
-				}
-			}
-		}
-	}
+    #bootstrap-modal {
+        padding-right: 0px !important;
 
-	#bootstrap-modal {
-		padding-right: 0px !important;
+        ul,
+        ol {
+            li {
+                &.icon-edit, &.icon-refresh, &.edit-status-popup {
+                    font-size: calculateScale(13px) !important;
+                    line-height: calculateScale(24px) !important;
+                }
+            }
+        }
+    }
 
-		ul,
-		ol {
-			li {
-				&.icon-edit, &.icon-refresh, &.edit-status-popup {
-					font-size: calculateScale(13px) !important;
-					line-height: calculateScale(24px) !important;
-				}
-			}
-		}
-	}
+    .icon-table-edit {
+        font-size: calculateScale(18px);
+    }
 
-	.icon-table-edit {
-		font-size: calculateScale(18px);
-	}
-
-	.dataTables_paginate {
-		left: 20% !important;
+    .dataTables_paginate {
+        left: 20% !important;
     }
 
     .filter {
         .form-group {
             margin-right: 0;
             margin-bottom: 15px;
+            padding-bottom: 10px !important;
 
             .txt-search, label {
                 font-size: calculateScale(13px);
@@ -91,21 +78,40 @@ body {
                 display: block;
             }
 
-            .txt-search {
+            .txt-search, select {
                 height: calculateScale(36px);
                 width: 100% !important;
+            }
+
+            [class*="btn-"] {
+                height: calculateScale(36px);
+                width: 100%;
+            }
+
+            .btn-submit {
+                position: relative;
+                top: 15px;
+                margin-right: 0;
             }
         }
 
         .username-box {
             width: 100%;
+
             .easy-autocomplete {
                 width: 100% !important;
             }
         }
 
-        .status-box, .comm-box, .unconfirm-box {
-            width: 50%;
-        } 
-	}
+        .status-box, .unconfirm-box {
+            width: 52.5%;
+            padding-right: 5%;
+            box-sizing: border-box;
+        }
+
+        .comm-box, .btn-box {
+            width: 47.5%;
+        }
+
+    }
 }

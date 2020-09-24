@@ -169,9 +169,9 @@
 	},
 	{
 		"outputFileName": "Features/CustomerList/Bundles/customer-list.css",
-		"inputFiles": [
-			"Features/CustomerList/Styles/customer-list.css",
-			"Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css"
-		]
+    "inputFiles": [
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
+      "Features/CustomerList/Styles/customer-list.css"
+    ]
 	}
 ]

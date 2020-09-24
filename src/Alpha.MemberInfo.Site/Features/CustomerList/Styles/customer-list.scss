@@ -1,4 +1,6 @@
-﻿body:not(.modal-open) {
+﻿@import "../../../assets/styles/abstracts/_mixins.scss";
+
+body:not(.modal-open) {
 	padding-right: 0px !important;
 }
 
@@ -35,6 +37,11 @@ $link-hover-color: #F60;
 
     .easy-autocomplete {
         display: inline-block;
+
+        input {
+            box-shadow: none;
+            border-color: #c4c4c4;
+        }
     }
 
     .modal-header {
@@ -114,6 +121,19 @@ $link-hover-color: #F60;
             font-size: 13px;
             color: #333;
         }
+
+        select {
+            appearance: auto;
+            box-shadow: none;
+            border-radius: 4px;
+            border: 1px solid #c4c4c4;
+        }
+
+        [class*="btn-"] {
+            box-shadow: none;
+            border-radius: 4px;
+        }
+
     }
 
     .txt-search {
