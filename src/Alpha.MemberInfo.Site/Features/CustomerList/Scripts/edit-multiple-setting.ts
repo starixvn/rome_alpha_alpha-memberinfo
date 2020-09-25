@@ -19,7 +19,7 @@
 	}
 
 	public bindingEvent = () => {
-		this.$('.edit-multiple').unbind().bind("click", event => this.openPopup(this.$(event.currentTarget)));
+		this.$('.edit-multiple').unbind().bind("click", event => this.openPopup(event.currentTarget));
 		this.$('#select-all').unbind().bind("click", () => this.$('tbody .checkbox').prop('checked', this.$('#select-all').is(':checked')));
 	}
 
@@ -68,7 +68,7 @@
 	private buildPopupHtml = settings => {
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
-			html.push(`<li data-title='${item.Text}' data-synced='${item.Synced}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+			html.push(`<li data-title='${item.Text}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
 		});
 
 		this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
@@ -78,5 +78,5 @@
 		}
 	}
 
-	private bindingPopupEvent = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openProductPopup(event, 'post'))
+	private bindingPopupEvent = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openProductPopup(event.currentTarget, 'post'))
 }

@@ -16,5 +16,7 @@
         public override string Icon => "icon-edit Enable";
 
         public override string Url => base.BaseAddress;
+
+        //public string SyncedCasinoList => request.GetData<string>("syncedCasinoList");
     }
 }

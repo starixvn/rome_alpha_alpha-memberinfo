@@ -340,7 +340,7 @@
     <Compile Include="Features\CustomerList\Models\CustomerAllStatus\DCSProductStatusModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerAllStatus\NonDCSProductStatusModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerAllStatus\NonProductStatusModel.cs" />
-    <Compile Include="Features\CustomerList\Models\stringName.cs" />
+    <Compile Include="Features\CustomerList\Models\SyncedCasinoModel.cs" />
     <Compile Include="Features\CustomerList\Models\UnsyncedProductModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerListDTO.cs" />
     <Compile Include="Features\CustomerList\Models\MemberListModel.cs" />
@@ -351,6 +351,7 @@
     <Compile Include="Features\CustomerList\Params\CustomerListParam.cs" />
     <Compile Include="Features\CustomerList\Params\UpdateCustomerStatusParam.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerAllStatusModelCriteria.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectSyncedCasinoList.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectUnsyncProductsCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMemberListCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectAgentListCriteria.cs" />
