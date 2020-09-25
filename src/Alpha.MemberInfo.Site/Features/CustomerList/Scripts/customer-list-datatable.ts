@@ -262,6 +262,7 @@ class CustomerListDataTable {
 		const self = this;
 		let addTableCommissionTag = true;
 		const data = api.cells(rowIdx, ':hidden').eq(0).map(function (cell) {
+			const statusCss = self.getRowClass(api.data()[rowIdx]);
 			const header = self.$(api.column(cell.column).header());
 			const idx = api.cell(cell).index();
 
@@ -288,10 +289,10 @@ class CustomerListDataTable {
 			if (idx.column >= start && idx.column <= end) {
 				if (addTableCommissionTag) {
 					addTableCommissionTag = false;
-					commissionTable = commissionTable + `<tr><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr><td class='commission-header'>${self.$('#commissionText').val()}</td></tr>`;
+					commissionTable = commissionTable + `<tr class="${statusCss}"><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr class="${statusCss}"><td class='commission-header'>${self.$('#commissionText').val()}</td></tr>`;
 				}
 
-				commissionTable = commissionTable + `<tr data-dtr-index="${idx.column}">` +
+				commissionTable = commissionTable + `<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
 					`<td class="dtr-title">${header.text()}</td> ` +
 					`<td class="dtr-data">${cellData}</td></tr>`;
 
@@ -303,7 +304,7 @@ class CustomerListDataTable {
 			}
 
 			if (idx.column < start || idx.column > end) {
-				return `<tr data-dtr-index="${idx.column}">` +
+				return `<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
 					`<td class="dtr-title">${header.text()}</td> ` +
 					`<td class="dtr-data">${cellData}</td></tr>`;
 			}

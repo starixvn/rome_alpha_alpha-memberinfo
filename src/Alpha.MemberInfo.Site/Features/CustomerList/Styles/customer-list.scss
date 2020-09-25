@@ -181,6 +181,10 @@ $link-hover-color: #F60;
 		.detail-table, .commission-table {
 			width: 100%;
 
+			td {
+				border-top: 1px solid #d1d1d1;
+			}
+
 			tr > td:last-of-type {
 				text-align: right;
 			}
