@@ -171,16 +171,49 @@
 		</table>
 
 		@Html.AntiForgeryToken()
+	</div>
 
-		<div class="modal modal-sm fade" id="bootstrap-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
+	<div class="modal modal-sm fade" id="bootstrap-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				@if (Model.IsMobileView)
+				{
+					<div class="modal-header">
+						<div class="icon-back"></div>
+						<h5 class="modal-title"></h5>
+					</div>
+				}
+				else
+				{
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				}
+				<div class="modal-body">
+				</div>
+				@if (Model.IsMobileView)
+				{
+					<div class="modal-footer">
+						<input type="button" value="@Resources.Cancel" class="btn-cancel" />
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+
+	<form target="myIframe" action="" id="myIframeForm">
+		<input type="hidden" value="" />
+		<input type="submit" class="hidden">
+	</form>
+
+	<div class="modal modal-product modal-sm fade" id="bootstrap-modal-product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel01" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title"></h5>
 					@if (Model.IsMobileView)
 					{
-						<div class="modal-header">
-							<div class="icon-back"></div>
-							<h5 class="modal-title"></h5>
-						</div>
+						<div class="icon-back"> </div>
 					}
 					else
 					{
@@ -188,53 +221,19 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					}
-					<div class="modal-body">
-					</div>
-					@if (Model.IsMobileView)
-					{
-					<div class="modal-footer">
-						<input type="button" value="@Resources.Cancel" class="btn-cancel" />
-					</div>
-					}
 				</div>
-			</div>
-		</div>
-
-		<form target="myIframe" action="" id="myIframeForm">
-			<input type="hidden" value="" />
-			<input type="submit" class="hidden">
-		</form>
-
-		<div class="modal modal-product modal-sm fade" id="bootstrap-modal-product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel01" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title"></h5>
-						@if (Model.IsMobileView)
-						{
-							<div class="icon-back"> </div>
-						}
-						else
-						{
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						}
-					</div>
-					<div class="modal-body-product">
-						<iFrame src="" name="myIframe" id="myIframe" style="width:100%; height:95%;"></iFrame>
-					</div>
-					@*@if (Model.IsMobileView)
+				<div class="modal-body-product">
+					<iFrame src="" name="myIframe" id="myIframe" style="width:100%; height:95%;"></iFrame>
+				</div>
+				@*@if (Model.IsMobileView)
 					{
 						<div class="modal-footer">
 							<input type="button" value="@Resources.Cancel" class="btn-cancel" />
 						</div>
 					}*@
-				</div>
 			</div>
 		</div>
 	</div>
-
 	<input type="hidden" id="searchAccountId" value="@Model.SearchAccountId">
 	<input type="hidden" id="searchAccountName" value="@Model.SearchAccountName">
 	<input type="hidden" id="searchAccountRoleId" value="@Model.SearchAccountRoleId">
