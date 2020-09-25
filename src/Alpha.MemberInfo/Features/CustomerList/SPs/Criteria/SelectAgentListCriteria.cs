@@ -29,7 +29,7 @@
 
         public int MRecommend { get; }
 
-        public override string GetSettingKey() => "Acc_CustomerSelByMAg";
+        public override string GetSettingKey() => "Age_CustomerSelByMAg";
 
         public override bool IsValid() => MRecommend > 0;
     }

@@ -26,7 +26,7 @@
 
         public int SRecommend { get; }
 
-        public override string GetSettingKey() => "Acc_CustomerSelBySAg";
+        public override string GetSettingKey() => "Age_CustomerSelBySAg";
 
         public override bool IsValid() => SRecommend > 0;
     }
