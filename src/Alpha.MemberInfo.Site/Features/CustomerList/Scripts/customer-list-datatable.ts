@@ -1,4 +1,6 @@
-﻿class CustomerListDataTable {
+﻿"use strict";
+
+class CustomerListDataTable {
 	private $: JQueryStatic;
 	private $table: JQuery;
 	private customerListPopup: CustomerListPopup;

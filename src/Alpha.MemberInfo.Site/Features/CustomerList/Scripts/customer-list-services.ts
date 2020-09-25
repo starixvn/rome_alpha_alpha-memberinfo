@@ -1,4 +1,6 @@
-﻿class CustomerListServices {
+﻿"use strict";
+
+class CustomerListServices {
 	private $: JQueryStatic;
 	public statusSettingArray: any;
 	private viewModel: CustomerListViewModel;

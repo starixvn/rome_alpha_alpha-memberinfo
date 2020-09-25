@@ -1,4 +1,5 @@
-﻿class EditStatus {
+﻿"use strict";
+class EditStatus {
 	private $: JQueryStatic;
 	private topWindow: any;
 	private customerListServices: CustomerListServices;

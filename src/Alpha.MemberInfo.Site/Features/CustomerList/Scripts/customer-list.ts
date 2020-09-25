@@ -1,24 +1,47 @@
-﻿class CustomerList {
+﻿/// <reference path="../../../assets/scripts/components/single-selection-dropdown.ts" />
+"use strict";
+
+class CustomerList {
 	private $: JQueryStatic;
 	private customerListPopup: CustomerListPopup;
 	private editMultipleSetting: EditMultipleSetting;
 	private customerListDataTable: CustomerListDataTable;
 	private viewModel: CustomerListViewModel;
 
+	private statusDropdown: SingleSelectionDropdownComponent;
+	private doubleCommDropdown: SingleSelectionDropdownComponent;
+	private unconfirmSettingDropdown: SingleSelectionDropdownComponent;
+
 	constructor(
 		$: JQueryStatic,
 		viewModel: CustomerListViewModel,
 		editMultipleSetting: EditMultipleSetting,
 		customerListPopup: CustomerListPopup,
-		customerListDataTable: CustomerListDataTable) {
+		customerListDataTable: CustomerListDataTable,
+		statusDropdown: SingleSelectionDropdownComponent,
+		doubleCommDropdown: SingleSelectionDropdownComponent,
+		unconfirmSettingDropdown: SingleSelectionDropdownComponent) {
 		this.$ = $;
 		this.viewModel = viewModel;
 		this.customerListDataTable = customerListDataTable;
 		this.customerListPopup = customerListPopup;
 		this.editMultipleSetting = editMultipleSetting;
+
+		this.statusDropdown = statusDropdown;
+		this.doubleCommDropdown = doubleCommDropdown;
+		this.unconfirmSettingDropdown = unconfirmSettingDropdown;
 	}
 
 	public init = () => {
+		this.statusDropdown.render(
+			new SingleSelectionDropdownOption("statusFilter", "StatusId", () => { }, true, true));
+
+		this.doubleCommDropdown.render(
+			new SingleSelectionDropdownOption("dcommFilter", "DoubleCommId", () => { }, true, true));
+
+		this.unconfirmSettingDropdown.render(
+			new SingleSelectionDropdownOption("unconfirmSettingFilter", "UnconfirmSettingId", () => { }, true, true));
+
 		this.bidingEasyAutoComplete();
 		this.customerListDataTable.initDataTable();
 		this.editMultipleSetting.bindingEvent();
@@ -66,7 +89,15 @@ $(function () {
 		editMultipleSetting = new EditMultipleSetting($, viewModel, customerListPopup, customerListServices, editSingleSetting),
 		editStatus = new EditStatus($, window.top, viewModel.IsMobileView, customerListServices, customerListPopup),
 		customerListDataTable = new CustomerListDataTable($, viewModel, customerListPopup, customerListServices, editSingleSetting, editStatus),
-		customerList = new CustomerList($, viewModel, editMultipleSetting, customerListPopup, customerListDataTable);
+		customerList = new CustomerList(
+			$,
+			viewModel,
+			editMultipleSetting,
+			customerListPopup,
+			customerListDataTable,
+			new SingleSelectionDropdownComponent($),
+			new SingleSelectionDropdownComponent($),
+			new SingleSelectionDropdownComponent($));
 
 	customerList.init();
 });

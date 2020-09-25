@@ -1,4 +1,6 @@
-﻿class CustomerListViewModel {
+﻿"use strict";
+
+class CustomerListViewModel {
 	SearchAccountId: number;
 	SearchAccountName: string;
 	SearchAccountRoleId: number;

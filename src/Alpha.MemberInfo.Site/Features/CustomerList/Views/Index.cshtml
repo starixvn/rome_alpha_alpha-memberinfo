@@ -234,6 +234,9 @@
 			</div>
 		</div>
 	</div>
+	@Html.Hidden("StatusId", Model.Status)
+	@Html.Hidden("DoubleCommId", Model.DoubleComm)
+	@Html.Hidden("UnconfirmSettingId", Model.UnconfirmSetting)
 	<input type="hidden" id="searchAccountId" value="@Model.SearchAccountId">
 	<input type="hidden" id="searchAccountName" value="@Model.SearchAccountName">
 	<input type="hidden" id="searchAccountRoleId" value="@Model.SearchAccountRoleId">
@@ -255,6 +258,7 @@
 
 @section Scripts {
 	@StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
+	@StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
 	@StaticResources.RenderScripts("~/Features/CustomerList/Bundles/customer-list")
 }
 

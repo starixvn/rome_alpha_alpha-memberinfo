@@ -1,4 +1,6 @@
-﻿class EditMultipleSetting {
+﻿"use strict";
+
+class EditMultipleSetting {
 	private $: JQueryStatic;
 	private customerListPopup: CustomerListPopup;
 	private customerListServices: CustomerListServices;

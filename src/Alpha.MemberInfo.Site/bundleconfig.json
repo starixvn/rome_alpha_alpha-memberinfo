@@ -156,6 +156,7 @@
 	{
 		"outputFileName": "Features/CustomerList/Bundles/customer-list.js",
 		"inputFiles": [
+			"assets/scripts/components/single-selection-dropdown.js",
 			"Features/CustomerList/Scripts/customer-list-popup.js",
 			"Features/CustomerList/Scripts/customer-list-services.js",
 			"Features/CustomerList/Scripts/edit-status.js",
@@ -163,8 +164,7 @@
 			"Features/CustomerList/Scripts/edit-multiple-setting.js",
 			"Features/CustomerList/Scripts/customer-list-datatable.js",
 			"Features/CustomerList/Scripts/customer-list-viewmodel.js",
-			"Features/CustomerList/Scripts/customer-list.js",
-			"Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
+			"Features/CustomerList/Scripts/customer-list.js"
 		]
 	},
 	{

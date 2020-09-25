@@ -1,4 +1,6 @@
-﻿class EditSingleSetting {
+﻿"use strict";
+
+class EditSingleSetting {
 	private $: JQueryStatic;
 	private customerListPopup: CustomerListPopup;
 	private customerListServices: CustomerListServices;

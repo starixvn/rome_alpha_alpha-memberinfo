@@ -1,4 +1,6 @@
-﻿class CustomerListPopup {
+﻿"use strict";
+
+class CustomerListPopup {
 	private $: JQueryStatic;
 	private $bootstrapContainer: JQuery;
 	private $bootstrapModalDialog: JQuery;
