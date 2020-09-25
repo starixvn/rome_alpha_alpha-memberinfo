@@ -667,8 +667,10 @@
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.min.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.themes.min.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.js" />
-    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.min.js" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\ClipboardPolyfill\clipboard-polyfill.js" />
+    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.min.js">
+      <DependentUpon>jquery.easy-autocomplete.js</DependentUpon>
+    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in.css">
       <DependentUpon>qr-code-member-sign-in.scss</DependentUpon>
     </Content>
@@ -1097,7 +1099,9 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Features\Shared\Assets\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
