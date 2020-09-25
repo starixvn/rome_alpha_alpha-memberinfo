@@ -1,14 +1,14 @@
 ﻿[
   {
-    "outputFile": "assets/bundles/member-info.css",
+    "outputFile": "assets/styles/member-info.css",
     "inputFile": "assets/styles/member-info.scss"
   },
   {
-    "outputFile": "assets/bundles/credit-balance.css",
+    "outputFile": "assets/styles/credit-balance.css",
     "inputFile": "assets/styles/credit-balance.scss"
   },
   {
-    "outputFile": "assets/bundles/win-loss-limit.css",
+    "outputFile": "assets/styles/win-loss-limit.css",
     "inputFile": "assets/styles/win-loss-limit.scss"
   },
   {
