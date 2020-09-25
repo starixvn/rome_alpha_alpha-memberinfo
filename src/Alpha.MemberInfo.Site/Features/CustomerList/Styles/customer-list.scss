@@ -181,20 +181,20 @@ $link-hover-color: #F60;
 		.detail-table, .commission-table {
 			width: 100%;
 
-			td {
-				border-top: 1px solid #d1d1d1;
-			}
+			tr {
+				td {
+					border-top: 1px solid #d1d1d1;
 
-			tr > td:last-of-type {
-				text-align: right;
-			}
+					&:first-of-type {
+						text-align: left;
+					}
 
-			tr > td:first-of-type {
-				text-align: left;
+					&:last-of-type {
+						text-align: right;
+					}
+				}
 			}
 		}
-
-
 		.commission-wrapper {
 			padding: 0px !important;
 
@@ -206,7 +206,6 @@ $link-hover-color: #F60;
 		.dataTables_empty {
 			text-align: center;
 		}
-
 
 		.icon-table-edit {
 			font-size: 18px;

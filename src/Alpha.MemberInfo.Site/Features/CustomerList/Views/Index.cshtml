@@ -87,6 +87,10 @@
 					{
 						<th></th>
 					}
+					@if (!Model.HideEditMultiple)
+					{
+						<th></th>
+					}
 					<th></th>
 					<th></th>
 					<th></th>
@@ -98,8 +102,10 @@
 					<th></th>
 					<th></th>
 					<th></th>
-					<th></th>
-					<th></th>
+					@if (!Model.LimitedDateToShowInfo)
+					{
+						<th></th>
+					}
 					<th></th>
 					<th></th>
 				</tr>

@@ -66,7 +66,7 @@ class CustomerListDataTable {
 				serverSide: true,
 				ajax: (data, callback) => this.customerListServices.getCutomerList(data, callback),
 				columns: this.buildDataTableColumns(),
-				createdRow: (row, data, dataIndex) => this.$(row).addClass(this.getRowClass(data)),
+				createdRow: (row, data) => this.$(row).addClass(this.getRowClass(data)),
 				responsive: { details },
 				columnDefs: [{
 					className: 'control',
@@ -261,8 +261,11 @@ class CustomerListDataTable {
 	private renderDetailColumn = (api, rowIdx) => {
 		const self = this;
 		let addTableCommissionTag = true;
-		const data = api.cells(rowIdx, ':hidden').eq(0).map(function (cell) {
-			const statusCss = self.getRowClass(api.data()[rowIdx]);
+		let commissionColumns = [];
+		let otherColumns = [];
+		const statusCss = self.getRowClass(api.data()[rowIdx]);
+
+		api.cells(rowIdx, ':hidden').eq(0).each(function (cell) {
 			const header = self.$(api.column(cell.column).header());
 			const idx = api.cell(cell).index();
 
@@ -275,7 +278,7 @@ class CustomerListDataTable {
 				dtPrivate, idx.row, idx.column, 'display'
 			);
 
-			let commissionTable = '', start = 6, end = 10;
+			let start = 6, end = 11;
 			if (self.viewModel.ShowEditMultiple) {
 				start += 1;
 				end += 1
@@ -289,30 +292,28 @@ class CustomerListDataTable {
 			if (idx.column >= start && idx.column <= end) {
 				if (addTableCommissionTag) {
 					addTableCommissionTag = false;
-					commissionTable = commissionTable + `<tr class="${statusCss}"><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr class="${statusCss}"><td class='commission-header'>${self.$('#commissionText').val()}</td></tr>`;
+					commissionColumns.push(`<tr class="${statusCss}"><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr class="${statusCss}"><td class='commission-header'>${self.$('#commissionText').val()}</td></tr>`);
 				}
 
-				commissionTable = commissionTable + `<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
+				commissionColumns.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
 					`<td class="dtr-title">${header.text()}</td> ` +
-					`<td class="dtr-data">${cellData}</td></tr>`;
+					`<td class="dtr-data">${cellData}</td></tr>`);
 
 				if (idx.column === end && !addTableCommissionTag) {
-					commissionTable = commissionTable + '</table></td></tr>';
+					commissionColumns.push('</table></td></tr>');
 				}
-
-				return commissionTable;
 			}
 
 			if (idx.column < start || idx.column > end) {
-				return `<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
+				otherColumns.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
 					`<td class="dtr-title">${header.text()}</td> ` +
-					`<td class="dtr-data">${cellData}</td></tr>`;
+					`<td class="dtr-data">${cellData}</td></tr>`)
 			}
+		});
 
-		}).toArray().join('');
-
-		return data ?
-			self.$(`<table class="detail-table" data-dtr-index="${rowIdx}"/>`).append(data) :
+		const detailsColumn = otherColumns.concat(commissionColumns);
+		return detailsColumn ?
+			self.$(`<table class="detail-table" data-dtr-index="${rowIdx}"/>`).append(detailsColumn.join('')) :
 			false;
 	}
 

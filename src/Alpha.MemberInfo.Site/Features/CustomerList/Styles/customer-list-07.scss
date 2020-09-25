@@ -1,7 +1,7 @@
 ﻿@import "../../../assets/styles/abstracts/_mixins.scss";
 
 body {
-	font-size: calculateScale(13px) !important;
+    font-size: calculateScale(13px) !important;
     background-color: #fff;
 }
 
@@ -16,8 +16,8 @@ body {
         }
     }
     /*.page-title, .form-report, .select-all {
-		padding-left: 10px;
-	}*/
+        padding-left: 10px;
+    }*/
     .dataTables_length {
         label {
             font-size: calculateScale(13px) !important;
@@ -34,11 +34,21 @@ body {
             font-size: calculateScale(18px) !important;
         }
 
-        .commission-table {
-            tr:not(:first-child) {
-                td:first-child {
-                    padding-left: 20px !important;
+        .detail-table {
+            tr:first-of-type td {
+                border-top: none !important;
+            }
+
+
+            .commission-table {
+                tr:first-of-type td {
+                    border-top: none !important;
                 }
+                /*tr:not(:first-child) {
+                        td:first-child {
+                            padding-left: 20px !important;
+                        }
+                    }*/
             }
         }
     }
