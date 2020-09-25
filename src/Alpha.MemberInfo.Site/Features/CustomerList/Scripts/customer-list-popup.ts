@@ -62,20 +62,15 @@ class CustomerListPopup {
 
 	public bindingBootstrapModalEvent = () => {
 		this.$bootstrapContainer.unbind().bind('mouseleave ', () => this.$bootstrapContainer.modal('hide'));
+
 		this.$('#bootstrap-modal').find('.icon-back, .btn-cancel').unbind().bind("click", event => this.$('#bootstrap-modal').modal('hide'));
 		this.$('#bootstrap-modal-product').find('.icon-back, .btn-cancel').unbind().bind("click", event => this.$('#bootstrap-modal-product').modal('hide'));
 
-		//this.$('#bootstrap-modal').on('hidden.bs.modal', () => {
-		//	this.topWindow.$('#content').css({ padding: '' });
-		//});
-
 		this.$('#bootstrap-modal-product').on('hidden.bs.modal', () => {
-					//this.topWindow.$('#content').css({ padding: '' });
 			this.$('#myIframe').attr('src', 'about:blank');
 		});
 
 		this.$('#bootstrap-modal-product').on('shown.bs.modal', () => {
-			//this.topWindow.$('#content').css({ padding: '0px' });
 			this.initFrame.apply(this.$('#myIframe').contents());
 		});
 	}
@@ -87,8 +82,6 @@ class CustomerListPopup {
 		bindingPopupEvent(element);
 
 		if (this.isMobile) {
-			//this.topWindow.$('#content').css({ padding: '0px' });
-
 			this.$bootstrapContainer.find('.modal-dialog').css({ height: '100%', width: '100%' })
 			this.$bootstrapContainer.css({ top: 0, left: 0, height: '100%', width: '100%', paddingRight: '0px' }).modal({ show: true, backdrop: false });
 
