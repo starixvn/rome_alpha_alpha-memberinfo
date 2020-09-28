@@ -3,21 +3,6 @@
 @{
 	Layout = "~/Views/Shared/_Layout.cshtml";
 	ViewBag.Title = "Customer List";
-
-	var commColumnStart = 7;
-	var commColumnEnd = 13;
-
-	if (!Model.HideEditMultiple)
-	{
-		commColumnStart++;
-		commColumnEnd++;
-	}
-
-	if (!Model.LimitedDateToShowInfo)
-	{
-		commColumnStart++;
-		commColumnEnd++;
-	}
 }
 
 @section Styles {
@@ -42,7 +27,7 @@
 		}
 	</div>
 
-	<div class="form-inline filter form-report" style="margin-top:15px;">
+	<div class="form-inline filter form-report">
 		<div class="form-group username-box">
 			<label>@CustomerListResources.Username</label>
 			<input type="text" class="txt-search" id="txt-username" placeholder="@CustomerListResources.UsernamePlaceHolder" />
@@ -79,105 +64,101 @@
 		</div>
 	</div>
 
-	<div style="width: 100%;">
-		<table id="tbl-customer-list" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width:100%">
-			<thead>
-				<tr>
-					@if (!Model.IsMobileView)
-					{
-						<th></th>
-					}
+	<table id="tbl-customer-list" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap">
+		<thead>
+			<tr>
+				@if (!Model.IsMobileView)
+				{
+					<th></th>
+				}
+				@if (!Model.HideEditMultiple)
+				{
+					<th></th>
+				}
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				@if (!Model.LimitedDateToShowInfo)
+				{
+					<th></th>
+				}
+				<th></th>
+				<th></th>
+			</tr>
+			<tr>
+				@if (!Model.IsMobileView)
+				{
+					<th rowspan="2" class="header">
+						@CustomerListResources.No
+					</th>
+				}
+				@if (!Model.HideEditMultiple)
+				{
+					<th rowspan="2" class="header">
+						<input type="checkbox" id="select-all" />
+					</th>
+				}
+				<th rowspan="2" class="header">
 					@if (!Model.HideEditMultiple)
 					{
-						<th></th>
-					}
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					@if (!Model.LimitedDateToShowInfo)
-					{
-						<th></th>
-					}
-					<th></th>
-					<th></th>
-				</tr>
-				<tr>
-					@if (!Model.IsMobileView)
-					{
-						<th rowspan="2" class="header">
-							@CustomerListResources.No
-						</th>
-					}
-					@if (!Model.HideEditMultiple)
-					{
-						<th rowspan="2" class="header">
-							<input type="checkbox" id="select-all" />
-						</th>
-					}
-					<th rowspan="2" class="header">
-						@if (!Model.HideEditMultiple)
-						{
-							<div class="edit-multiple icon-view-grid" data-url="" />
-						}
-						else
-						{
-							<span>@CustomerListResources.Edit</span>
-						}
-					</th>
-					<th rowspan="2" class="header">
-						@CustomerListResources.Username <br />
-						@CustomerListResources.NickName
-					</th>
-					<th rowspan="2" class="header">
-						@CustomerListResources.Status
-					</th>
-
-					<th rowspan="2" class="header">
-						@CustomerListResources.Statement
-					</th>
-					<th rowspan="2" class="header">
-						@CustomerListResources.FirstName
-					</th>
-					<th rowspan="2" class="header">
-						@CustomerListResources.LastName
-					</th>
-					<th colspan="6" class="header desktop">
-						@CustomerListResources.Commission
-					</th>
-					@if (!Model.LimitedDateToShowInfo)
-					{
-						<th rowspan="2" class="header">
-							@CustomerListResources.CreatedDate
-						</th>
-					}
-					<th rowspan="2" class="header">
-						@CustomerListResources.LoginIP
-					</th>
-					<th rowspan="2" class="header"></th>
-				</tr>
-				<tr class="thead-row2">
-					@if (Model.DownlineLevel.IsMemberLevel())
-					{
-						@RenderMemberHeader()
+						<div class="edit-multiple icon-view-grid" data-url="" />
 					}
 					else
 					{
-						@RenderMasterAgentHeader()
+						<span>@CustomerListResources.Edit</span>
 					}
-				</tr>
-			</thead>
-		</table>
+				</th>
+				<th rowspan="2" class="header">
+					@CustomerListResources.Username <br />
+					@CustomerListResources.NickName
+				</th>
+				<th rowspan="2" class="header">
+					@CustomerListResources.Status
+				</th>
 
-		@Html.AntiForgeryToken()
-	</div>
+				<th rowspan="2" class="header">
+					@CustomerListResources.Statement
+				</th>
+				<th rowspan="2" class="header">
+					@CustomerListResources.FirstName
+				</th>
+				<th rowspan="2" class="header">
+					@CustomerListResources.LastName
+				</th>
+				<th colspan="6" class="header desktop">
+					@CustomerListResources.Commission
+				</th>
+				@if (!Model.LimitedDateToShowInfo)
+				{
+					<th rowspan="2" class="header">
+						@CustomerListResources.CreatedDate
+					</th>
+				}
+				<th rowspan="2" class="header">
+					@CustomerListResources.LoginIP
+				</th>
+				<th rowspan="2" class="header"></th>
+			</tr>
+			<tr class="thead-row2">
+				@if (Model.DownlineLevel.IsMemberLevel())
+				{
+					@RenderMemberHeader()
+				}
+				else
+				{
+					@RenderMasterAgentHeader()
+				}
+			</tr>
+		</thead>
+	</table>
 
 	<div class="modal modal-sm fade" id="bootstrap-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -234,6 +215,8 @@
 			</div>
 		</div>
 	</div>
+
+	@Html.AntiForgeryToken()
 	@Html.Hidden("StatusId", Model.Status)
 	@Html.Hidden("DoubleCommId", Model.DoubleComm)
 	@Html.Hidden("UnconfirmSettingId", Model.UnconfirmSetting)
