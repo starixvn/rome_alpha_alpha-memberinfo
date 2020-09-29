@@ -5,182 +5,181 @@ body {
     background-color: #fff;
 }
 
-.customer-list {
-    .modal-header {
-        .modal-title {
-            font-size: calculateScale(13px) !important;
-        }
-
-        button {
-            font-size: 32px !important;
-        }
+.modal-header {
+    .modal-title {
+        font-size: calculateScale(13px) !important;
     }
-    /*.page-title, .form-report, .select-all {
+
+    button {
+        font-size: 32px !important;
+    }
+}
+/*.page-title, .form-report, .select-all {
         padding-left: 10px;
     }*/
-    .dataTables_length {
-        label {
-            font-size: calculateScale(13px) !important;
-        }
+.dataTables_length {
+    label {
+        font-size: calculateScale(13px) !important;
+    }
+}
+
+.dataTable {
+    input[type=checkbox] {
+        width: 20px !important;
+        height: 20px !important;
     }
 
-    #tbl-customer-list {
-        input[type=checkbox] {
-            width: 20px !important;
-            height: 20px !important;
+    .icon-table-edit, .icon-view-grid {
+        font-size: calculateScale(18px) !important;
+    }
+
+    .detail-table {
+        tr:first-of-type td {
+            border-top: none !important;
         }
 
-        .icon-table-edit, .icon-view-grid {
-            font-size: calculateScale(18px) !important;
-        }
 
-        .detail-table {
+        .commission-table {
             tr:first-of-type td {
                 border-top: none !important;
             }
+        }
+    }
+}
 
+#bootstrap-modal, #bootstrap-modal-product {
+    padding-right: 0px !important;
+    width: calc(100% + 24px) !important;
+    height: calc(100% + 8px) !important;
+    left: -12px !important;
 
-            .commission-table {
-                tr:first-of-type td {
-                    border-top: none !important;
-                }
+    .modal-dialog {
+        display: block;
+        overflow: hidden;
+    }
+}
+
+#bootstrap-modal, #bootstrap-modal-product {
+
+    ul,
+    ol {
+        li {
+            padding: 4px 0;
+
+            &.icon-edit, &.icon-refresh, &.edit-status-popup {
+                font-size: calculateScale(13px) !important;
+                line-height: calculateScale(24px) !important;
             }
         }
     }
 
-    #bootstrap-modal, #bootstrap-modal-product {
-        padding-right: 0px !important;
-        width: calc(100% + 24px) !important;
-        height: calc(100% + 8px) !important;
-        left: -12px !important;
-        .modal-dialog {
-            display: block;
-            overflow: hidden;
-        }
-    }
+    .modal-content {
+        display: flex;
+        flex-direction: column;
 
-    #bootstrap-modal, #bootstrap-modal-product {
+        .modal-body {
+            flex-grow: 1;
+            padding: 8px 16px;
+            height: calc(100% - 55px);
+            overflow: auto;
 
-        ul,
-        ol {
-            li {
-                padding: 4px 0;
-
-                &.icon-edit, &.icon-refresh, &.edit-status-popup {
-                    font-size: calculateScale(13px) !important;
-                    line-height: calculateScale(24px) !important;
-                }
+            input[type="checkbox"] {
+                width: calculateScale(16px);
+                height: calculateScale(16px);
             }
         }
 
-        .modal-content {
-            display: flex;
-            flex-direction: column;
+        .modal-footer {
+            text-align: center;
 
-            .modal-body {
-                flex-grow: 1;
-                padding: 8px 16px;
-                height: calc(100% - 55px);
-                overflow: auto;
-
-                input[type="checkbox"] {
-                    width: calculateScale(16px);
-                    height: calculateScale(16px);
-                }
-            }
-
-            .modal-footer {
-                text-align: center;
-
-                .btn-cancel {
-                    width: 100%;
-                    height: calculateScale(36px);
-                    border-radius: 4px;
-                }
-            }
-        }
-
-        .modal-header {
-            display: block;
-            align-items: center;
-            border-bottom: 1px solid #ccc;
-            position: relative;
-
-            .modal-title {
-                color: #333;
-                padding: 14px 0;
-            }
-
-            .icon-close {
-                top: 12px;
-                left: unset;
-                right: -12px;
-                font-size: calculateScale(18px);
-                position: absolute;
-            }
-        }
-    }
-
-    .icon-table-edit {
-        font-size: calculateScale(18px);
-    }
-
-    .dataTables_paginate {
-        left: 20% !important;
-    }
-
-    .filter {
-        .form-group {
-            margin-right: 0;
-            margin-bottom: 15px;
-            padding-bottom: 10px !important;
-
-            .txt-search, label {
-                font-size: calculateScale(13px);
-            }
-
-            label {
-                display: block;
-            }
-
-            .txt-search, select, [class*="btn-"] {
+            .btn-cancel {
+                width: 100%;
                 height: calculateScale(36px);
-                width: 100% !important;
-            }
-
-            .btn-submit {
-                position: relative;
-                top: 15px;
-                margin-right: 0;
-            }
-
-            .btn-group button.multiselect {
-                background: transparent;
-                font-size: calculateScale(13px);
-
-                .caret {
-                    top: 22px;
-                    border-width: calculateScale(4px);
-                }
+                border-radius: 4px;
             }
         }
+    }
 
-        .username-box {
-            width: 100%;
+    .modal-header {
+        display: block;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        position: relative;
 
-            .easy-autocomplete {
-                width: 100% !important;
+        .modal-title {
+            color: #333;
+            padding: 14px 0;
+        }
+
+        .icon-close {
+            top: 12px;
+            left: unset;
+            right: -12px;
+            font-size: calculateScale(18px);
+            position: absolute;
+        }
+    }
+}
+
+.icon-table-edit {
+    font-size: calculateScale(18px);
+}
+
+.dataTables_paginate {
+    left: 20% !important;
+}
+
+.filter {
+    .form-group {
+        margin-right: 0;
+        margin-bottom: 15px;
+        padding-bottom: 10px !important;
+
+        .txt-search, label {
+            font-size: calculateScale(13px);
+        }
+
+        label {
+            display: block;
+        }
+
+        .txt-search, select, [class*="btn-"] {
+            height: calculateScale(36px);
+            width: 100% !important;
+        }
+
+        .btn-submit {
+            position: relative;
+            top: 15px;
+            margin-right: 0;
+        }
+
+        .btn-group button.multiselect {
+            background: transparent;
+            font-size: calculateScale(13px);
+
+            .caret {
+                top: 22px;
+                border-width: calculateScale(4px);
             }
         }
+    }
 
-        .status-box, .unconfirm-box {
-            width: 52%;
-            padding-right: 4%;
-            box-sizing: border-box;
-        }
+    .username-box {
+        width: 100%;
 
-        .comm-box, .btn-box {
-            width: 47%;
+        .easy-autocomplete {
+            width: 100% !important;
         }
+    }
+
+    .status-box, .unconfirm-box {
+        width: 52%;
+        padding-right: 4%;
+        box-sizing: border-box;
+    }
+
+    .comm-box, .btn-box {
+        width: 47%;
     }
 }
