@@ -1,285 +1,275 @@
 ﻿@model CustomerListViewModel
 
 @{
-	Layout = "~/Views/Shared/_Layout.cshtml";
-	ViewBag.Title = "Customer List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Customer List";
 }
 
 @section Styles {
-	@StaticResources.AssetStyles.RenderCommon("/bundles/site-asset/data-table")
-	@StaticResources.RenderStyles("~/Features/CustomerList/Bundles/customer-list")
+    @StaticResources.AssetStyles.RenderCommon("/bundles/site-asset/data-table")
+    @StaticResources.RenderStyles("~/Features/CustomerList/Bundles/customer-list")
 
-	@StaticResources.RenderStylesWithMedia(767, "~/Features/CustomerList/Styles/customer-list-07")
+    @StaticResources.RenderStylesWithMedia(767, "~/Features/CustomerList/Styles/customer-list-07")
 }
 
 <div class="customer-list">
-	<div class="page-title">
-		@if (!string.IsNullOrWhiteSpace(Model.PageTitle))
-		{
-			<span class="text-title pull-left">
-				@Model.PageTitle
-			</span>
-		}
+    <div class="page-title">
+        @if (!string.IsNullOrWhiteSpace(Model.PageTitle))
+        {
+            <span class="text-title pull-left">
+                @Model.PageTitle
+            </span>
+        }
 
-		@if (!string.IsNullOrWhiteSpace(Request.Url.Query))
-		{
-			@Breadcrumb.Render(new BreadcrumbLevelViewModel(Model.BreadcrumbLevel, Model.BreadcrumbLevelJson), Request.Url.Query, null)
-		}
-	</div>
+        @if (!string.IsNullOrWhiteSpace(Request.Url.Query))
+        {
+            @Breadcrumb.Render(new BreadcrumbLevelViewModel(Model.BreadcrumbLevel, Model.BreadcrumbLevelJson), Request.Url.Query, null)
+        }
+    </div>
 
-	<div class="form-inline filter form-report">
-		<div class="form-group username-box">
-			<label>@CustomerListResources.Username</label>
-			<input type="text" class="txt-search" id="txt-username" placeholder="@CustomerListResources.UsernamePlaceHolder" />
-		</div>
-		<div class="form-group status-box">
-			<label>@CustomerListResources.Status</label>
-			<select id="statusFilter" name="statusFilter">
-				@foreach (var option in Model.StatusOptions)
-				{
-					<option value="@option.Value" selected="@option.Value.Equals(Model.Status)">@option.Text</option>
-				}
-			</select>
-		</div>
-		<div class="form-group comm-box">
-			<label>@CustomerListResources.DoubleComm</label>
-			<select id="dcommFilter" name="dcommFilter">
-				@foreach (var option in Model.DoubleCommOptions)
-				{
-					<option value="@option.Value" selected="@option.Value.Equals(Model.DoubleComm)">@option.Text</option>
-				}
-			</select>
-		</div>
-		<div class="form-group unconfirm-box @(Model.UnconfirmedSettingOptions.Count().Equals(1) ? "hidden" : string.Empty)">
-			<label>@CustomerListResources.UnconfirmedSetting</label>
-			<select id="unconfirmSettingFilter" name="unconfirmSettingFilter">
-				@foreach (var option in Model.UnconfirmedSettingOptions)
-				{
-					<option value="@option.Value" selected="@option.Value.Equals(Model.UnconfirmSetting)">@option.Text</option>
-				}
-			</select>
-		</div>
-		<div class="form-group btn-box">
-			<input type="submit" value="@Resources.Submit" class="btn-submit" />
-		</div>
-	</div>
+    <div class="form-inline filter form-report">
+        <div class="form-group username-box">
+            <label>@CustomerListResources.Username</label>
+            <input type="text" class="txt-search" id="txt-username" placeholder="@CustomerListResources.UsernamePlaceHolder" />
+        </div>
+        <div class="form-group status-box">
+            <label>@CustomerListResources.Status</label>
+            <select id="statusFilter" name="statusFilter">
+                @foreach (var option in Model.StatusOptions)
+                {
+                    <option value="@option.Value" selected="@option.Value.Equals(Model.Status)">@option.Text</option>
+                }
+            </select>
+        </div>
+        <div class="form-group comm-box">
+            <label>@CustomerListResources.DoubleComm</label>
+            <select id="dcommFilter" name="dcommFilter">
+                @foreach (var option in Model.DoubleCommOptions)
+                {
+                    <option value="@option.Value" selected="@option.Value.Equals(Model.DoubleComm)">@option.Text</option>
+                }
+            </select>
+        </div>
+        <div class="form-group unconfirm-box @(Model.UnconfirmedSettingOptions.Count().Equals(1) ? "hidden" : string.Empty)">
+            <label>@CustomerListResources.UnconfirmedSetting</label>
+            <select id="unconfirmSettingFilter" name="unconfirmSettingFilter">
+                @foreach (var option in Model.UnconfirmedSettingOptions)
+                {
+                    <option value="@option.Value" selected="@option.Value.Equals(Model.UnconfirmSetting)">@option.Text</option>
+                }
+            </select>
+        </div>
+        <div class="form-group btn-box">
+            <input type="submit" value="@Resources.Submit" class="btn-submit" />
+        </div>
+    </div>
 
-	<table id="tbl-customer-list" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap">
-		<thead>
-			<tr>
-				@if (!Model.IsMobileView)
-				{
-					<th></th>
-				}
-				@if (!Model.HideEditMultiple)
-				{
-					<th></th>
-				}
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				@if (!Model.LimitedDateToShowInfo)
-				{
-					<th></th>
-				}
-				<th></th>
-				<th></th>
-			</tr>
-			<tr>
-				@if (!Model.IsMobileView)
-				{
-					<th rowspan="2" class="header">
-						@CustomerListResources.No
-					</th>
-				}
-				@if (!Model.HideEditMultiple)
-				{
-					<th rowspan="2" class="header">
-						<input type="checkbox" id="select-all" />
-					</th>
-				}
-				<th rowspan="2" class="header">
-					@if (!Model.HideEditMultiple)
-					{
-						<div class="edit-multiple icon-view-grid" data-url="" />
-					}
-					else
-					{
-						<span>@CustomerListResources.Edit</span>
-					}
-				</th>
-				<th rowspan="2" class="header">
-					@CustomerListResources.Username <br />
-					@CustomerListResources.NickName
-				</th>
-				<th rowspan="2" class="header">
-					@CustomerListResources.Status
-				</th>
+    <table id="tbl-customer-list" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap">
+        <thead>
+            <tr>
+                @if (!Model.IsMobileView)
+                {
+                    <th></th>
+                }
+                @if (!Model.HideEditMultiple)
+                {
+                    <th></th>
+                }
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                @if (!Model.LimitedDateToShowInfo)
+                {
+                    <th></th>
+                }
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                @if (!Model.IsMobileView)
+                {
+                    <th rowspan="2" class="header">
+                        @CustomerListResources.No
+                    </th>
+                }
+                @if (!Model.HideEditMultiple)
+                {
+                    <th rowspan="2" class="header">
+                        <input type="checkbox" id="select-all" />
+                    </th>
+                }
+                <th rowspan="2" class="header">
+                    @if (!Model.HideEditMultiple)
+                    {
+                        <div class="edit-multiple icon-view-grid" data-url="" />
+                    }
+                    else
+                    {
+                        <span>@CustomerListResources.Edit</span>
+                    }
+                </th>
+                <th rowspan="2" class="header">
+                    @CustomerListResources.Username <br />
+                    @CustomerListResources.NickName
+                </th>
+                <th rowspan="2" class="header">
+                    @CustomerListResources.Status
+                </th>
 
-				<th rowspan="2" class="header">
-					@CustomerListResources.Statement
-				</th>
-				<th rowspan="2" class="header">
-					@CustomerListResources.FirstName
-				</th>
-				<th rowspan="2" class="header">
-					@CustomerListResources.LastName
-				</th>
-				<th colspan="6" class="header desktop">
-					@CustomerListResources.Commission
-				</th>
-				@if (!Model.LimitedDateToShowInfo)
-				{
-					<th rowspan="2" class="header">
-						@CustomerListResources.CreatedDate
-					</th>
-				}
-				<th rowspan="2" class="header">
-					@CustomerListResources.LoginIP
-				</th>
-				<th rowspan="2" class="header"></th>
-			</tr>
-			<tr class="thead-row2">
-				@if (Model.DownlineLevel.IsMemberLevel())
-				{
-					@RenderMemberHeader()
-				}
-				else
-				{
-					@RenderMasterAgentHeader()
-				}
-			</tr>
-		</thead>
-	</table>
+                <th rowspan="2" class="header">
+                    @CustomerListResources.Statement
+                </th>
+                <th rowspan="2" class="header">
+                    @CustomerListResources.FirstName
+                </th>
+                <th rowspan="2" class="header">
+                    @CustomerListResources.LastName
+                </th>
+                <th colspan="6" class="header desktop">
+                    @CustomerListResources.Commission
+                </th>
+                @if (!Model.LimitedDateToShowInfo)
+                {
+                    <th rowspan="2" class="header">
+                        @CustomerListResources.CreatedDate
+                    </th>
+                }
+                <th rowspan="2" class="header">
+                    @CustomerListResources.LoginIP
+                </th>
+                <th rowspan="2" class="header"></th>
+            </tr>
+            <tr class="thead-row2">
+                @if (Model.DownlineLevel.IsMemberLevel())
+                {
+                    @RenderMemberHeader()
+                }
+                else
+                {
+                    @RenderMasterAgentHeader()
+                }
+            </tr>
+        </thead>
+    </table>
 
-	<div class="modal modal-sm fade" id="bootstrap-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				@if (Model.IsMobileView)
-				{
+    <div class="modal modal-sm fade" id="bootstrap-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                @if (Model.IsMobileView)
+                {
                 <div class="modal-header">
                     <h5 class="modal-title"></h5>
-                    <div class="icon-close"></div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-edit-popup">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-				}
-				<div class="modal-body">
-				</div>
-				@*@if (Model.IsMobileView)
-				{
-					<div class="modal-footer">
-						<input type="button" value="@Resources.Cancel" class="btn-cancel" />
-					</div>
-				}*@
-			</div>
-		</div>
-	</div>
+                }
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<form target="myIframe" action="" id="myIframeForm">
-		<input type="hidden" value="" />
-		<input type="submit" class="hidden">
-	</form>
+    <form target="myIframe" action="" id="myIframeForm">
+        <input type="hidden" value="" />
+        <input type="submit" class="hidden">
+    </form>
 
-	<div class="modal modal-product modal-sm fade" id="bootstrap-modal-product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel01" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title"></h5>
-					@if (Model.IsMobileView)
-					{
-						<div class="icon-back"> </div>
-					}
-					else
-					{
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					}
-				</div>
-				<div class="modal-body-product">
-					<iFrame src="" name="myIframe" id="myIframe" style="width:100%; height:95%;"></iFrame>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="modal modal-product modal-sm fade" id="bootstrap-modal-product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel01" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-product-popup">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body-product">
+                    <iFrame src="" name="myIframe" id="myIframe" style="width:100%; height:95%;"></iFrame>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	@Html.AntiForgeryToken()
-	@Html.Hidden("StatusId", Model.Status)
-	@Html.Hidden("DoubleCommId", Model.DoubleComm)
-	@Html.Hidden("UnconfirmSettingId", Model.UnconfirmSetting)
-	<input type="hidden" id="searchAccountId" value="@Model.SearchAccountId">
-	<input type="hidden" id="searchAccountName" value="@Model.SearchAccountName">
-	<input type="hidden" id="searchAccountRoleId" value="@Model.SearchAccountRoleId">
-	<input type="hidden" id="downlineLevelName" value="@Model.DownlineLevelName">
-	<input type="hidden" id="showEditMultiple" value='@(Model.HideEditMultiple ? "false" : "true")'>
-	<input type="hidden" id="isMobileView" value='@(Model.IsMobileView ? "true" : "false")'>
-	<input type="hidden" id="breadcrumbLevelJson" value='@Model.BreadcrumbLevelJson'>
-	<input type="hidden" id="oldMainUrl" value='@MicroSites.OldMainUrl()'>
-	<input type="hidden" id="reportsUrl" value='@MicroSites.ReportsUrl()'>
-	<input type="hidden" id="memberInfoUrl" value='@MicroSites.MemberInfoUrl()'>
-	<input type="hidden" id="limitedDateToShowInfo" value='@(Model.LimitedDateToShowInfo ? "true" : "false")'>
-	<input type="hidden" id="customerListResources" value='@Model.Resources'>
-	<input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
-	<input type="hidden" id="arrayCustID" name="arrayCustID" value=''>
-	<input type="hidden" id="arrayUserName" name="arrayUserName" value=''>
-	<input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
-	<input type="hidden" id="commissionText" value='@CustomerListResources.Commission'>
+    @Html.AntiForgeryToken()
+    @Html.Hidden("StatusId", Model.Status)
+    @Html.Hidden("DoubleCommId", Model.DoubleComm)
+    @Html.Hidden("UnconfirmSettingId", Model.UnconfirmSetting)
+    <input type="hidden" id="searchAccountId" value="@Model.SearchAccountId">
+    <input type="hidden" id="searchAccountName" value="@Model.SearchAccountName">
+    <input type="hidden" id="searchAccountRoleId" value="@Model.SearchAccountRoleId">
+    <input type="hidden" id="downlineLevelName" value="@Model.DownlineLevelName">
+    <input type="hidden" id="showEditMultiple" value='@(Model.HideEditMultiple ? "false" : "true")'>
+    <input type="hidden" id="isMobileView" value='@(Model.IsMobileView ? "true" : "false")'>
+    <input type="hidden" id="breadcrumbLevelJson" value='@Model.BreadcrumbLevelJson'>
+    <input type="hidden" id="oldMainUrl" value='@MicroSites.OldMainUrl()'>
+    <input type="hidden" id="reportsUrl" value='@MicroSites.ReportsUrl()'>
+    <input type="hidden" id="memberInfoUrl" value='@MicroSites.MemberInfoUrl()'>
+    <input type="hidden" id="limitedDateToShowInfo" value='@(Model.LimitedDateToShowInfo ? "true" : "false")'>
+    <input type="hidden" id="customerListResources" value='@Model.Resources'>
+    <input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
+    <input type="hidden" id="arrayCustID" name="arrayCustID" value=''>
+    <input type="hidden" id="arrayUserName" name="arrayUserName" value=''>
+    <input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
+    <input type="hidden" id="commissionText" value='@CustomerListResources.Commission'>
 </div>
 
 @section Scripts {
-	@StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
-	@StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
-	@StaticResources.RenderScripts("~/Features/CustomerList/Bundles/customer-list")
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
+    @StaticResources.RenderScripts("~/Features/CustomerList/Bundles/customer-list")
 }
 
 
 @helper RenderMasterAgentHeader()
 {
-	<th class="header desktop">
-		@CustomerListResources.GroupA
-	</th>
-	<th class="header desktop">
-		@CustomerListResources.GroupB
-	</th>
-	<th class="header desktop">
-		@CustomerListResources.GroupC
-	</th>
-	<th class="header desktop">
-		@CustomerListResources.GroupD
-	</th>
-	<th class="header desktop">
-		@CustomerListResources.Group1X2
-	</th>
-	<th class="header desktop">
-		@CustomerListResources.Other
-	</th>
+    <th class="header desktop">
+        @CustomerListResources.GroupA
+    </th>
+    <th class="header desktop">
+        @CustomerListResources.GroupB
+    </th>
+    <th class="header desktop">
+        @CustomerListResources.GroupC
+    </th>
+    <th class="header desktop">
+        @CustomerListResources.GroupD
+    </th>
+    <th class="header desktop">
+        @CustomerListResources.Group1X2
+    </th>
+    <th class="header desktop">
+        @CustomerListResources.Other
+    </th>
 }
 
 @helper RenderMemberHeader()
 {
-	<th class="header">
-		@CustomerListResources.AComm1
-	</th>
-	<th class="header">
-		@CustomerListResources.AComm2
-	</th>
-	<th class="header">
-		@CustomerListResources.AComm3
-	</th>
-	<th class="header">
-		@CustomerListResources.PComm1
-	</th>
-	<th class="header">
-		@CustomerListResources.PComm2
-	</th>
-	<th class="header">
-		@CustomerListResources.PComm3
-	</th>
+    <th class="header">
+        @CustomerListResources.AComm1
+    </th>
+    <th class="header">
+        @CustomerListResources.AComm2
+    </th>
+    <th class="header">
+        @CustomerListResources.AComm3
+    </th>
+    <th class="header">
+        @CustomerListResources.PComm1
+    </th>
+    <th class="header">
+        @CustomerListResources.PComm2
+    </th>
+    <th class="header">
+        @CustomerListResources.PComm3
+    </th>
 }
