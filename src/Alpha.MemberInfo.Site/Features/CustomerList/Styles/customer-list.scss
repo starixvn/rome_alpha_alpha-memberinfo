@@ -2,302 +2,302 @@
 
 
 body:not(.modal-open) {
-    padding-right: 0px !important;
+	padding-right: 0px !important;
 }
 
 $link-color: #045ace;
 $link-hover-color: #F60;
 
-.customer-list {
-    input[type="checkbox"] {
-        display: inline-block;
-    }
 
-    a {
-        color: $link-color;
+input[type="checkbox"] {
+	display: inline-block;
+}
 
-        &:hover, &:focus {
-            color: $link-hover-color;
-            text-decoration: none;
-        }
-    }
+a {
+	color: $link-color;
 
-    .breadcrumb {
-        border-bottom: none;
-        float: left;
-        padding: 0 12px;
-        color: #333;
+	&:hover, &:focus {
+		color: $link-hover-color;
+		text-decoration: none;
+	}
+}
 
-        &:before, &:after {
-        }
+.breadcrumb {
+	border-bottom: none;
+	float: left;
+	padding: 0 12px;
+	color: #333;
 
-        &:before {
-            content: '(';
-        }
+	&:before, &:after {
+	}
 
-        &:after {
-            content: ')';
-        }
-    }
+	&:before {
+		content: '(';
+	}
 
-    .easy-autocomplete {
-        display: inline-block;
+	&:after {
+		content: ')';
+	}
+}
 
-        input {
-            box-shadow: none;
-            border-color: #c4c4c4;
-        }
-    }
+.easy-autocomplete {
+	display: inline-block;
 
-    .modal-header {
-        border-bottom: 1px solid #e5e5e5 !important;
+	input {
+		box-shadow: none;
+		border-color: #c4c4c4;
+	}
+}
 
-        h5 {
-            display: inline-block !important;
-            border-bottom: none !important;
-        }
+.modal-header {
+	border-bottom: 1px solid #e5e5e5 !important;
 
-        button {
-            display: inline-block !important;
-            margin-top: 8px !important;
-        }
-    }
+	h5 {
+		display: inline-block !important;
+		border-bottom: none !important;
+	}
 
-    .select-all {
-        display: flex;
-        float: left;
-        position: relative;
-        justify-content: center;
-        vertical-align: middle;
-        height: 30px;
-        align-items: center;
+	button {
+		display: inline-block !important;
+		margin-top: 8px !important;
+	}
+}
 
-        a {
-            font-weight: bold;
-            color: #333;
-            margin-left: 5px;
-        }
-    }
+.select-all {
+	display: flex;
+	float: left;
+	position: relative;
+	justify-content: center;
+	vertical-align: middle;
+	height: 30px;
+	align-items: center;
 
-    .dataTables_length {
-        float: right;
-        display: flex;
-        position: relative;
-        justify-content: center;
-        vertical-align: middle;
-        height: 30px;
-        align-items: center;
+	a {
+		font-weight: bold;
+		color: #333;
+		margin-left: 5px;
+	}
+}
 
-        label {
-            font-size: 13px !important;
-            color: #333 !important;
-            float: right;
-            margin-right: 5px;
-        }
-    }
+.dataTables_length {
+	float: right;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	vertical-align: middle;
+	height: 30px;
+	align-items: center;
 
-    .dataTables_paginate {
-        float: left;
-        left: 40%;
-        text-align: center;
-        display: flex;
-        position: relative;
-        justify-content: center;
-        vertical-align: middle;
-        height: 30px;
-        align-items: center;
+	label {
+		font-size: 13px !important;
+		color: #333 !important;
+		float: right;
+		margin-right: 5px;
+	}
+}
 
-        .paginate_input {
-            width: 50px;
-            text-align: center;
-            height: 20px;
-            margin: 0 5px 0 5px;
-        }
+.dataTables_paginate {
+	float: left;
+	left: 40%;
+	text-align: center;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	vertical-align: middle;
+	height: 30px;
+	align-items: center;
 
-        span {
-            padding-left: 5px;
-        }
-    }
+	.paginate_input {
+		width: 50px;
+		text-align: center;
+		height: 20px;
+		margin: 0 5px 0 5px;
+	}
 
-    .form-group {
-        margin-right: 25px;
+	span {
+		padding-left: 5px;
+	}
+}
 
-        label {
-            font-size: 13px;
-            color: #333;
-        }
+.form-group {
+	margin-right: 25px;
 
-        .btn-group {
-            appearance: auto;
-            box-shadow: none;
-            border-radius: 4px;
-            border: 1px solid #c4c4c4;
-            margin: 0;
-            .dropdown-menu {
-                width: 100%;
-            }
-        }
+	label {
+		font-size: 13px;
+		color: #333;
+	}
 
-        [class*="btn-"] {
-            box-shadow: none;
-            border-radius: 4px;
-        }
+	.btn-group {
+		appearance: auto;
+		box-shadow: none;
+		border-radius: 4px;
+		border: 1px solid #c4c4c4;
+		margin: 0;
 
-        .btn {
-            text-transform: none !important;
-        }
+		.dropdown-menu {
+			width: 100%;
+		}
+	}
 
-        .btn-group {
-            float: none !important;
-        }
-    }
+	[class*="btn-"] {
+		box-shadow: none;
+		border-radius: 4px;
+	}
 
-    .txt-search {
-        font-style: italic;
-    }
+	.btn {
+		text-transform: none !important;
+	}
 
-    .left {
-        text-align: left;
-    }
+	.btn-group {
+		float: none !important;
+	}
+}
 
-    .right {
-        text-align: right;
-    }
+.txt-search {
+	font-style: italic;
+}
 
-    #tbl-customer-list {
-        width: 100% !important;
+.left {
+	text-align: left;
+}
 
-        .status-popup {
-            span:first-child {
-                cursor: pointer;
-            }
-        }
+.right {
+	text-align: right;
+}
 
-        .icon-table-edit {
-            cursor: pointer;
+.dataTable {
+	width: 100% !important;
 
-            &:hover {
-                color: $link-hover-color;
-            }
-        }
+	.status-popup {
+		span:first-child {
+			cursor: pointer;
+		}
+	}
 
-        input[type=checkbox] {
-            display: inline-block;
-        }
+	.icon-table-edit {
+		cursor: pointer;
 
-        .detail-table, .commission-table {
-            width: 100%;
+		&:hover {
+			color: $link-hover-color;
+		}
+	}
 
-            tr {
-                td {
-                    border-top: 1px solid #d1d1d1;
+	input[type=checkbox] {
+		display: inline-block;
+	}
 
-                    &:first-of-type {
-                        text-align: left;
-                    }
+	.detail-table, .commission-table {
+		width: 100%;
 
-                    &:last-of-type {
-                        text-align: right;
-                    }
-                }
-            }
-        }
+		tr {
+			td {
+				border-top: 1px solid #d1d1d1;
 
-        .commission-wrapper {
-            padding: 0px !important;
+				&:first-of-type {
+					text-align: left;
+				}
 
-            .commission-header {
-                font-weight: bold;
-            }
-        }
+				&:last-of-type {
+					text-align: right;
+				}
+			}
+		}
+	}
 
-        .dataTables_empty {
-            text-align: center;
-        }
+	.commission-wrapper {
+		padding: 0px !important;
 
-        .icon-table-edit {
-            font-size: 18px;
-        }
+		.commission-header {
+			font-weight: bold;
+		}
+	}
 
-        .closed-wrongPwdOthers {
-            background-color: #ccc7ba !important;
-        }
+	.dataTables_empty {
+		text-align: center;
+	}
 
-        .closed-byAdmin {
-            background-color: #b3a2c7 !important;
-        }
+	.icon-table-edit {
+		font-size: 18px;
+	}
 
-        .closed-byUpline {
-            background-color: #f79646 !important;
-        }
+	.closed-wrongPwdOthers {
+		background-color: #ccc7ba !important;
+	}
 
-        .closed-wrongOTPSC {
-            background-color: #86c5e4 !important;
-        }
+	.closed-byAdmin {
+		background-color: #b3a2c7 !important;
+	}
 
-        .RowBgSuspended {
-            background-color: #f8ded7 !important;
-        }
+	.closed-byUpline {
+		background-color: #f79646 !important;
+	}
 
-        .RowBgDisabled {
-            background-color: #a0a97a !important;
-        }
-    }
+	.closed-wrongOTPSC {
+		background-color: #86c5e4 !important;
+	}
 
-    #bootstrap-modal {
-        .modal-dialog {
-            position: relative;
-            display: table; /* This is important */
-            overflow-y: auto;
-            overflow-x: auto;
-            width: auto;
-            min-width: 150px;
-            max-width: 700px;
-            margin: 0px;
-        }
+	.RowBgSuspended {
+		background-color: #f8ded7 !important;
+	}
 
-        ul,
-        ol {
-            margin-top: 0;
-            margin-bottom: 0;
+	.RowBgDisabled {
+		background-color: #a0a97a !important;
+	}
+}
 
-            li {
-                display: block !important;
+#bootstrap-modal {
+	.modal-dialog {
+		position: relative;
+		display: table; /* This is important */
+		overflow-y: auto;
+		overflow-x: auto;
+		width: auto;
+		min-width: 150px;
+		max-width: 700px;
+		margin: 0px;
+	}
 
-                &.Disable_edit:before {
-                    color: #bbb !important;
-                }
+	ul,
+	ol {
+		margin-top: 0;
+		margin-bottom: 0;
 
-                &.icon-edit, &.icon-refresh {
-                    font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
-                    font-size: 13px;
-                    line-height: 24px;
+		li {
+			display: block !important;
 
-                    &:before {
-                        margin-right: 5px;
-                        font-family: 'Iconalpha';
-                    }
-                }
-            }
-        }
-    }
+			&.Disable_edit:before {
+				color: #bbb !important;
+			}
 
-    #bootstrap-modal-product {
-        .modal-dialog {
-            width: 100% !important;
-            height: 100% !important;
-            max-width: 100% !important;
+			&.icon-edit, &.icon-refresh {
+				font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
+				font-size: 13px;
+				line-height: 24px;
 
-            .modal-content {
-                width: 100% !important;
-                height: 100% !important;
+				&:before {
+					margin-right: 5px;
+					font-family: 'Iconalpha';
+				}
+			}
+		}
+	}
+}
 
-                .modal-body-product {
-                    width: 100%;
-                    height: 100%;
-                    padding: 0 10px 0 10px;
-                }
-            }
-        }
-    }
+#bootstrap-modal-product {
+	.modal-dialog {
+		width: 100% !important;
+		height: 100% !important;
+		max-width: 100% !important;
+
+		.modal-content {
+			width: 100% !important;
+			height: 100% !important;
+
+			.modal-body-product {
+				width: 100%;
+				height: 100%;
+				padding: 0 10px 0 10px;
+			}
+		}
+	}
 }
