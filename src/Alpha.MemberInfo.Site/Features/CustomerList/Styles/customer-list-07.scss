@@ -48,7 +48,7 @@ body {
         }
     }
 
-    #bootstrap-modal {
+    #bootstrap-modal, #bootstrap-modal-product {
         padding-right: 0px !important;
         width: calc(100% + 24px) !important;
         height: calc(100% + 8px) !important;
@@ -58,6 +58,7 @@ body {
         ol {
             li {
                 padding: 4px 0;
+
                 &.icon-edit, &.icon-refresh, &.edit-status-popup {
                     font-size: calculateScale(13px) !important;
                     line-height: calculateScale(24px) !important;
