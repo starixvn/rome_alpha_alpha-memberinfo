@@ -91,7 +91,20 @@ class CustomerListDataTable {
 				},
 				drawCallback: this.drawCallback
 			});
+
+		this.$("#tbl-customer-list").find('tbody').on('click', 'td.control', event => this.doAdjustHeader(event));
 	}
+
+	private doAdjustHeader = (event) => {
+		this.$table.fixedHeader.adjust();
+
+		if (this.$(event.currentTarget).closest("tr").is(":last-child")) {
+			setTimeout(() => {
+				const scrollTo = this.$(document).height();
+				this.$(window).scrollTop(scrollTo + 15);
+			}, 100);
+		}
+	};
 
 	private buildDataTableColumns = () => {
 		let columns = [
