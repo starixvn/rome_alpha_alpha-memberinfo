@@ -53,6 +53,13 @@ body {
         width: calc(100% + 24px) !important;
         height: calc(100% + 8px) !important;
         left: -12px !important;
+        .modal-dialog {
+            display: block;
+            overflow: hidden;
+        }
+    }
+
+    #bootstrap-modal, #bootstrap-modal-product {
 
         ul,
         ol {
@@ -72,7 +79,9 @@ body {
 
             .modal-body {
                 flex-grow: 1;
-                padding: 16px;
+                padding: 8px 16px;
+                height: calc(100% - 55px);
+                overflow: auto;
 
                 input[type="checkbox"] {
                     width: calculateScale(16px);
