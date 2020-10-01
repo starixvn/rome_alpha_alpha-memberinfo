@@ -2,12 +2,22 @@
 {
     using System;
     using AccountInfo.Setting.ViewModels.Products;
+    using Alpha.Products.Core.Configuration;
+    using NSubstitute;
     using Utility;
     using Xunit;
 
     [Trait("Setting.ViewModels", "Product.SportsbookViewModel")]
     public class SportsbookViewModelTests
     {
+        private readonly IConfigurationItem ProductItem;
+
+        public SportsbookViewModelTests()
+        {
+            ProductItem = Substitute.For<IConfigurationItem>();
+            ProductItem.ProductId.Returns(1);
+        }
+
         [Theory]
         [InlineData(4, 3, "MicroSiteName/_MemberInfo/PositionTaking/Super/EditMaster.aspx")]
         [InlineData(4, 1, "MicroSiteName/_MemberInfo/PositionTaking/Super/EditMember.aspx")]
@@ -17,7 +27,7 @@
         public void Url_Start_With_BaseAddress(byte actorLevel, byte searchAccountLevel, string baseAddress)
         {
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
-            var viewModel = new SportsbookViewModel(request);
+            var viewModel = new SportsbookViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.StartsWith(baseAddress, StringComparison.OrdinalIgnoreCase) == true);
         }
@@ -26,7 +36,7 @@
         public void Url_QueryString_User_Returns_Username_Of_SearchAccount()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new SportsbookViewModel(request);
+            var viewModel = new SportsbookViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.IndexOf($"user={request.SearchAccount.Username}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -35,7 +45,7 @@
         public void Url_QueryString_CustId_Returns_CustId_Of_SearchAccount()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new SportsbookViewModel(request);
+            var viewModel = new SportsbookViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.IndexOf($"custId={request.SearchAccount.Id}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -49,7 +59,7 @@
         public void Url_QueryString_Returns_CustId_Of_SearchAccount_Upline(byte actorLevel, byte searchAccountLevel, string uplineIdParam)
         {
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
-            var viewModel = new SportsbookViewModel(request);
+            var viewModel = new SportsbookViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.IndexOf($"{uplineIdParam}={request.SearchAccount.Upline.Id}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -58,7 +68,7 @@
         public void Url_QueryString_M_Returns_Multiple_Param_Is_False()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new SportsbookViewModel(request);
+            var viewModel = new SportsbookViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.IndexOf("m=0", StringComparison.OrdinalIgnoreCase) >= 0);
         }

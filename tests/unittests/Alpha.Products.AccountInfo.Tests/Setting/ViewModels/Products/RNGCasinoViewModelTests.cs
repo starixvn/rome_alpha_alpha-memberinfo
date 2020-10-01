@@ -1,15 +1,25 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
+    using Alpha.Products.AccountInfo.Setting.ViewModels.Products;
+    using Alpha.Products.Core.Configuration;
+    using Core.Models;
+    using NSubstitute;
     using System;
     using System.Collections.Generic;
-    using AccountInfo.Setting.ViewModels.Products;
-    using Core.Models;
     using Utility;
     using Xunit;
 
     [Trait("Setting.ViewModels", "Product.RNGCasinoViewModel")]
     public class RNGCasinoViewModelTests
     {
+        private readonly IConfigurationItem ProductItem;
+
+        public RNGCasinoViewModelTests()
+        {
+            ProductItem = Substitute.For<IConfigurationItem>();
+            ProductItem.ProductId.Returns(6);
+        }
+
         [Theory]
         [InlineData(4, 3, "MicroSiteName/CustomerSetting/Casino/Master/EditMaster")]
         [InlineData(4, 1, "MicroSiteName/CustomerSetting/Casino/Member/EditMemberBySuper")]
@@ -19,7 +29,7 @@
         public void Url_Start_With_BaseAddress(byte actorLevel, byte searchAccountLevel, string baseAddress)
         {
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
-            var viewModel = new RNGCasinoViewModel(request);
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.StartsWith(baseAddress, StringComparison.OrdinalIgnoreCase) == true);
         }
@@ -28,7 +38,7 @@
         public void Url_QueryString_Username_Returns_Username_Of_SearchAccount()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new RNGCasinoViewModel(request);
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.IndexOf($"username={request.SearchAccount.Username}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -43,7 +53,7 @@
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act
-            var viewModel = new RNGCasinoViewModel(request);
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
 
             // Assert
             Assert.True(viewModel.Visible);
@@ -58,7 +68,7 @@
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act
-            var viewModel = new RNGCasinoViewModel(request);
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
 
             // Assert
             Assert.False(viewModel.Visible);
@@ -78,7 +88,7 @@
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act
-            var viewModel = new RNGCasinoViewModel(request);
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
 
             // Assert
             Assert.False(viewModel.Visible);
@@ -100,7 +110,7 @@
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act
-            var viewModel = new RNGCasinoViewModel(request);
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
 
             // Assert
             Assert.Equal(expectedValue, viewModel.Visible);
@@ -121,7 +131,7 @@
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act
-            var viewModel = new RNGCasinoViewModel(request);
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
 
             // Assert
             Assert.False(viewModel.Visible);
@@ -147,7 +157,7 @@
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act
-            var viewModel = new RNGCasinoViewModel(request);
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
 
             // Assert
             Assert.False(viewModel.Visible);
@@ -174,7 +184,7 @@
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act
-            var viewModel = new RNGCasinoViewModel(request);
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
 
             // Assert
             Assert.True(viewModel.Visible);

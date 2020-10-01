@@ -3,13 +3,23 @@
     using System;
     using System.Collections.Generic;
     using AccountInfo.Setting.ViewModels.Products;
+    using Alpha.Products.Core.Configuration;
     using Core.Models;
+    using NSubstitute;
     using Utility;
     using Xunit;
 
     [Trait("Setting.ViewModels", "Product.KenoViewModel")]
     public class KenoViewModelTests
     {
+        private readonly IConfigurationItem ProductItem;
+
+        public KenoViewModelTests()
+        {
+            ProductItem = Substitute.For<IConfigurationItem>();
+            ProductItem.ProductId.Returns(8);
+        }
+
         [Theory]
         [InlineData(4, 3, "MicroSiteName/customersetting/kenosetting/kenosetting/EditMaster")]
         [InlineData(4, 1, "MicroSiteName/customersetting/kenosetting/kenosetting/SuperEditMember")]
@@ -19,7 +29,7 @@
         public void Url_Start_With_BaseAddress(byte actorLevel, byte searchAccountLevel, string baseAddress)
         {
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
-            var viewModel = new KenoViewModel(request);
+            var viewModel = new KenoViewModel(request, ProductItem);
 
             Assert.StartsWith(baseAddress, viewModel.Url, StringComparison.OrdinalIgnoreCase);
         }
@@ -28,7 +38,7 @@
         public void Url_QueryString_CustId_Returns_CustId_Of_SearchAccount()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new KenoViewModel(request);
+            var viewModel = new KenoViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.IndexOf($"custId={request.SearchAccount.Id}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -37,7 +47,7 @@
         public void Url_QueryString_Username_Returns_Username_Of_SearchAccount()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new KenoViewModel(request);
+            var viewModel = new KenoViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.IndexOf($"username={request.SearchAccount.Username}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -46,7 +56,7 @@
         public void Url_QueryString_UserId_Return_CustId_Of_Actor()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new KenoViewModel(request);
+            var viewModel = new KenoViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.IndexOf($"userId={request.Actor.Id}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -55,7 +65,7 @@
         public void Url_QueryString_SubAccId_Return_SubAccId_Of_Actor()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new KenoViewModel(request);
+            var viewModel = new KenoViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.IndexOf($"SubAccId={request.Actor.SubAccountId}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -76,7 +86,7 @@
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act
-            var viewModel = new KenoViewModel(request);
+            var viewModel = new KenoViewModel(request, ProductItem);
 
             // Assert
             Assert.Equal(expectedValue, viewModel.Visible);
@@ -92,7 +102,7 @@
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act
-            var viewModel = new KenoViewModel(request);
+            var viewModel = new KenoViewModel(request, ProductItem);
 
             // Assert
             Assert.True(viewModel.Visible);
@@ -107,7 +117,7 @@
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act
-            var viewModel = new KenoViewModel(request);
+            var viewModel = new KenoViewModel(request, ProductItem);
 
             // Assert
             Assert.False(viewModel.Visible);
