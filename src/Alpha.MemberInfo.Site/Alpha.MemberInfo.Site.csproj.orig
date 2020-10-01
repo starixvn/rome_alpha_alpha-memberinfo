@@ -490,7 +490,6 @@
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\member-info.css" />
     <Content Include="assets\bundles\indirect-login-account\disconnect.js" />
     <Content Include="assets\bundles\indirect-login-account\disconnect.min.js">
       <DependentUpon>disconnect.js</DependentUpon>
@@ -512,9 +511,6 @@
     <Content Include="assets\bundles\indirect-login-account\update-account.js" />
     <Content Include="assets\bundles\indirect-login-account\update-account.min.js">
       <DependentUpon>update-account.js</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\member-info.min.css">
-      <DependentUpon>member-info.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\member-requests\member-requests.js" />
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
@@ -604,21 +600,20 @@
     <Content Include="Features\CustomerList\Bundles\customer-list.min.js">
       <DependentUpon>customer-list.js</DependentUpon>
     </Content>
+<<<<<<< HEAD
      <Content Include="Features\CustomerList\Bundles\master-list.js" />
     <Content Include="Features\CustomerList\Bundles\master-list.min.js">
       <DependentUpon>master-list.js</DependentUpon>
     </Content>
-<<<<<<< HEAD
-     <Content Include="Features\CustomerList\Styles\customer-list.css">
 =======
+>>>>>>> 000 - edit bundle
     <Content Include="Features\CustomerList\Styles\customer-list-07.css">
       <DependentUpon>customer-list-07.scss</DependentUpon>
     </Content>
     <Content Include="Features\CustomerList\Styles\customer-list-07.min.css">
       <DependentUpon>customer-list-07.css</DependentUpon>
     </Content>
-    <Content Include="Features\CustomerList\Styles\customer-list.css">
->>>>>>> 111111- close popup and edit frame padding / confirm popup
+     <Content Include="Features\CustomerList\Styles\customer-list.css">
       <DependentUpon>customer-list.scss</DependentUpon>
     </Content>
     <Content Include="assets\styles\quick-introduction.css">
@@ -626,13 +621,6 @@
     </Content>
      <Content Include="Features\CustomerList\Styles\customer-list.min.css">
       <DependentUpon>customer-list.css</DependentUpon>
-    </Content>
-<<<<<<< HEAD
-    <Content Include="Features\CustomerList\Styles\show-qr-code.css">
-      <DependentUpon>customer-list.scss</DependentUpon>
-    </Content>
-    <Content Include="Features\CustomerList\Styles\show-qr-code.min.css">
-      <DependentUpon>show-qr-code.css</DependentUpon>
     </Content>
     <Content Include="Features\DormantAccountList\Bundles\dormant-account-list.css" />
     <Content Include="Features\DormantAccountList\Bundles\dormant-account-list.js" />
@@ -648,8 +636,6 @@
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.min.css">
       <DependentUpon>dormant-account-list.css</DependentUpon>
     </Content>
-=======
->>>>>>> 111111- close popup and edit frame padding / confirm popup
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.css">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
@@ -680,8 +666,10 @@
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.min.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\easy-autocomplete.themes.min.css" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.js" />
-    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.min.js" />
     <Content Include="Features\QRCodeMemberSignIn\Scripts\ClipboardPolyfill\clipboard-polyfill.js" />
+    <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.min.js">
+      <DependentUpon>jquery.easy-autocomplete.js</DependentUpon>
+    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in.css">
       <DependentUpon>qr-code-member-sign-in.scss</DependentUpon>
     </Content>
@@ -835,6 +823,7 @@
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\QueryEntityModelBinder.cs" />
     <Compile Include="Helpers\RequestInfoHelper.cs" />
+    <Compile Include="Features\Shared\Helpers\ResourcesJsonConverter.cs" />
     <Compile Include="Helpers\UrlHelper.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1017,7 +1006,7 @@
     </Content>
      <Content Include="Features\CustomerList\Styles\customer-list.scss" />
     <Content Include="Features\Shared\Views\NoInformation.cshtml" />
-<<<<<<< HEAD
+    <Content Include="Features\CustomerList\Styles\customer-list-07.scss" />
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1028,9 +1017,6 @@
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_zh-TW.cshtml" />
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_zh-CN.cshtml" />
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.scss" />
-=======
-    <Content Include="Features\CustomerList\Styles\customer-list-07.scss" />
->>>>>>> 111111- close popup and edit frame padding / confirm popup
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
@@ -1112,7 +1098,9 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Features\Shared\Assets\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

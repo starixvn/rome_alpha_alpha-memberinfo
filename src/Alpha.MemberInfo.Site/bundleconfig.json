@@ -14,7 +14,7 @@
 	{
 		"outputFileName": "assets/bundles/win-loss-limit.css",
 		"inputFiles": [
-			"assets/bundles/win-loss-limit.css"
+			"assets/styles/win-loss-limit.css"
 		]
 	},
 	{

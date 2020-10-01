@@ -490,7 +490,6 @@
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\member-info.css" />
     <Content Include="assets\bundles\indirect-login-account\disconnect.js" />
     <Content Include="assets\bundles\indirect-login-account\disconnect.min.js">
       <DependentUpon>disconnect.js</DependentUpon>
@@ -512,9 +511,6 @@
     <Content Include="assets\bundles\indirect-login-account\update-account.js" />
     <Content Include="assets\bundles\indirect-login-account\update-account.min.js">
       <DependentUpon>update-account.js</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\member-info.min.css">
-      <DependentUpon>member-info.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\member-requests\member-requests.js" />
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
@@ -605,9 +601,6 @@
       <DependentUpon>customer-list.js</DependentUpon>
     </Content>
      <Content Include="Features\CustomerList\Bundles\master-list.js" />
-    <Content Include="Features\CustomerList\Bundles\master-list.min.js">
-      <DependentUpon>master-list.js</DependentUpon>
-    </Content>
     <Content Include="Features\CustomerList\Styles\customer-list-07.css">
       <DependentUpon>customer-list-07.scss</DependentUpon>
     </Content>
