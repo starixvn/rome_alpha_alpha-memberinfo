@@ -150,6 +150,9 @@ a {
 
 	.btn-group {
 		float: none !important;
+        button.multiselect {
+            box-shadow: none;
+        }
 	}
 }
 
