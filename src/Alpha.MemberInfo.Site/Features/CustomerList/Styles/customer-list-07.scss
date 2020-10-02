@@ -14,9 +14,11 @@ body {
         font-size: 32px !important;
     }
 }
-/*.page-title, .form-report, .select-all {
-        padding-left: 10px;
-    }*/
+
+    .page-title {
+        font-size: calculateScale(13px);
+    }
+
 .dataTables_length {
     label {
         font-size: calculateScale(13px) !important;
@@ -157,7 +159,9 @@ body {
         .btn-group button.multiselect {
             background: transparent;
             font-size: calculateScale(13px);
-
+                .multiselect-selected-text {
+                    width: 100%;
+                }
             .caret {
                 top: 22px;
                 border-width: calculateScale(4px);
