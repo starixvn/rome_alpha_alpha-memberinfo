@@ -297,11 +297,6 @@ class CustomerListDataTable {
 				end += 1
 			}
 
-			if (!self.viewModel.LimitedDateToShowInfo) {
-				start += 1;
-				end += 1
-			}
-
 			if (idx.column >= start && idx.column <= end) {
 				if (addTableCommissionTag) {
 					addTableCommissionTag = false;
