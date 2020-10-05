@@ -291,13 +291,13 @@ class CustomerListDataTable {
 				dtPrivate, idx.row, idx.column, 'display'
 			);
 
-			let start = 6, end = 11;
+			let commisionIndexStart = 6, commisionIndexEnd = 11;
 			if (self.viewModel.ShowEditMultiple) {
-				start += 1;
-				end += 1
+				commisionIndexStart += 1;
+				commisionIndexEnd += 1
 			}
 
-			if (idx.column >= start && idx.column <= end) {
+			if (idx.column >= commisionIndexStart && idx.column <= commisionIndexEnd) {
 				if (addTableCommissionTag) {
 					addTableCommissionTag = false;
 					commissionColumns.push(`<tr class="${statusCss}"><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr class="${statusCss}"><td class='commission-header'>${self.$('#commissionText').val()}</td></tr>`);
@@ -307,12 +307,12 @@ class CustomerListDataTable {
 					`<td class="dtr-title">${header.text()}</td> ` +
 					`<td class="dtr-data">${cellData}</td></tr>`);
 
-				if (idx.column === end && !addTableCommissionTag) {
+				if (idx.column === commisionIndexEnd && !addTableCommissionTag) {
 					commissionColumns.push('</table></td></tr>');
 				}
 			}
 
-			if (idx.column < start || idx.column > end) {
+			if (idx.column < commisionIndexStart || idx.column > commisionIndexEnd) {
 				otherColumns.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
 					`<td class="dtr-title">${header.text()}</td> ` +
 					`<td class="dtr-data">${cellData}</td></tr>`)

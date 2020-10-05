@@ -70,7 +70,9 @@ class EditMultipleSetting {
 	private buildPopupHtml = settings => {
 		let html = ['<ul>'];
 		this.$.each(settings, (key, item) => {
-			html.push(`<li data-title='${item.Text}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+			const methodByProductArray = [1, 6, 8];
+			const method = this.$.inArray(item.ProductId, methodByProductArray) !== -1 ? 'GET' : 'POST';
+			html.push(`<li data-title='${item.Text}' data-method='${method}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
 		});
 
 		this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
@@ -80,5 +82,5 @@ class EditMultipleSetting {
 		}
 	}
 
-	private bindingPopupEvent = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openProductPopup(event.currentTarget, 'post'))
+	private bindingPopupEvent = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openProductPopup(event.currentTarget, this.$(event.currentTarget).data("method")))
 }
