@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Tests.Services.MemberRequest
 {
+    using Alpha.CopyAccount.Services;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
@@ -19,15 +20,17 @@
         private readonly CompareLogic compareLogic;
         private readonly AnyValueCreatorFixture anyValueCreatorFixture;
         private readonly IDynamicRepository repository;
+        private readonly ICopyAccountService copyAccountService;
 
         public QRCodeMemberSignInServiceTests(AnyValueCreatorFixture anyValueCreatorFixture)
         {
             this.anyValueCreatorFixture = anyValueCreatorFixture;
 
             repository = Substitute.For<IDynamicRepository>();
+            copyAccountService = Substitute.For<ICopyAccountService>();
             compareLogic = new CompareLogic();
 
-            serviceImpl = new QRCodeMemberSignInServiceImpl(repository);
+            serviceImpl = new QRCodeMemberSignInServiceImpl(repository, copyAccountService);
         }
 
         [Fact]
@@ -62,30 +65,9 @@
         }
 
         [Fact]
-        public void GetExistedMemberSetting_Always_ReturnsCorrectModel()
-        {
-            var model = anyValueCreatorFixture.Create<SportBookSettingModel>();
-
-            repository
-                .Get<SportBookSettingModel>(Arg.Any<SelectExistedMemberSettingCriteria>())
-                .Returns(model);
-
-            var actualModel = serviceImpl.GetExistedMemberSetting(1);
-
-            AssertExtension.Equal(actualModel, model);
-        }
-
-        [Fact]
         public void CreateMemberByQRCode_Always_ReturnsCorrecResult()
         {
-            var result = new ResultCreateMemberQRCode
-            {
-                CustId = 1,
-                CustIdCopyFrom = 2,
-                Success = true,
-                ErrCode = 0,
-                ErrMsg = string.Empty
-            };
+            var result = new ResultCreateMemberQRCode();
 
             repository
                .When(repo => repo.Execute(Arg.Any<InsertMemberCommand>()))
@@ -99,7 +81,7 @@
                });
 
             var actualResult = serviceImpl.CreateMemberByQRCode(
-                anyValueCreatorFixture.Create<InsertMemberCommand>());
+                anyValueCreatorFixture.Create<InsertMemberCommand>()).Result;
 
             Assert.Equal(actualResult.CustId, result.CustId);
             Assert.Equal(actualResult.ErrCode, result.ErrCode);

@@ -5,7 +5,6 @@
     public class ShowQRCodeViewModel
     {
         private readonly bool syncRnGCasino;
-        private readonly int custIdFrom;
 
         public ShowQRCodeViewModel(
             decimal credit,
@@ -20,7 +19,6 @@
             bool createMode,
             bool showPageTitle,
             bool syncRnGCasino,
-            int custIdFrom,
             string rawPassword)
         {
             Credit = credit;
@@ -36,7 +34,6 @@
             ShowPageTitle = showPageTitle;
             RawPassword = rawPassword;
             this.syncRnGCasino = syncRnGCasino;
-            this.custIdFrom = custIdFrom;
         }
 
         public string RawPassword { get; }
@@ -71,8 +68,5 @@
             => $"{MicroSites.AccountInfoUrl()}SearchAccount/GivenCredit" +
             $"?SearchAccountId={SearchAccountId}&SearchAccountName={SearchAccountName}&SearchAccountRoleId=1" +
             $"&GivenCreditMin={CreditMin}&GivenCreditMax={CreditMax}";
-
-        public string CorrectDataUrl
-            => $"{MicroSites.OldMainUrl()}/QRCodeMemberSignIn/CorrectData?custId={SearchAccountId}&custIdFrom={custIdFrom}&username={SearchAccountName}";
     }
 }

@@ -9,14 +9,14 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
-    using Alpha.Products.Core.Services;
     using MediatR;
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public class QRCodeMemberSignInHandler :
         IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
-        IRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
+        IAsyncRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
         IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
         IRequestHandler<GetMemberCreditAndStatusRequest, CreditAndStatusModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>,
@@ -29,14 +29,6 @@
         private readonly PasswordService passwordService;
 
         public QRCodeMemberSignInHandler(
-           QrCodeAdapter qrCodeAdapter,
-           QRCodeMemberSignInService qrCodeMemberSignInService,
-           PasswordService passwordService)
-            : this(qrCodeAdapter, qrCodeMemberSignInService, passwordService, null)
-        {
-        }
-
-        internal QRCodeMemberSignInHandler(
             QrCodeAdapter qrCodeAdapter,
             QRCodeMemberSignInService qrCodeMemberSignInService,
             PasswordService passwordService,
@@ -45,8 +37,7 @@
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
             this.passwordService = passwordService;
-            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper ??
-                    SimpleServiceLocator.GetService<QRCodeLoginConfigsHelper>();
+            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper;
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
@@ -58,7 +49,7 @@
                message.ShowPageTitle,
                message.ErrorMessage);
 
-        public ResultCreateMemberQRCode Handle(CreateAccountByQRCodeRequest message)
+        public async Task<ResultCreateMemberQRCode> Handle(CreateAccountByQRCodeRequest message)
         {
             var creditAndStatusModel = qrCodeMemberSignInService.GetCreditAndStatus(message.UsernameCopyFrom);
 
@@ -80,13 +71,10 @@
                 Enumeration.FromValue<UserLevel>((byte)model.RoleId).IsMemberLevel() &&
                 qrCodeMemberSignInService.IsEnableCustomer(custIdCopyFrom))
             {
-                var setting = qrCodeMemberSignInService.GetExistedMemberSetting(custIdCopyFrom);
-
                 var passwordModel = passwordService.CreateMemberPasswordRandom();
 
-                var result = qrCodeMemberSignInService.CreateMemberByQRCode(
+                var result = await qrCodeMemberSignInService.CreateMemberByQRCode(
                     new InsertMemberCommand(
-                        setting,
                         message.Username,
                         message.FirstName ?? string.Empty,
                         message.CustId,
@@ -95,7 +83,10 @@
                         message.Language,
                         message.SubAccId,
                         message.Credit,
-                        passwordModel.EncodePassword));
+                        passwordModel.EncodePassword,
+                        message.UsernameCopyFrom,
+                        message.CreditMax,
+                        message.SubUsername)).ConfigureAwait(false);
 
                 result.CustIdCopyFrom = custIdCopyFrom;
 
@@ -175,7 +166,6 @@
                     message.CreateMode,
                     message.ShowPageTitle,
                     rngCasinoStatusModel.SyncCS,
-                    message.CustIdCopyFrom,
                     rawPassword);
             }
 

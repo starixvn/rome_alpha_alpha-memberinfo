@@ -35,6 +35,9 @@
     <CodeAnalysisRuleSet>Alpha.MemberInfo.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Alpha.CopyAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.CopyAccount.1.0.0\lib\net461\Alpha.CopyAccount.dll</HintPath>
+    </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
       <Private>True</Private>
@@ -152,6 +155,9 @@
       <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.Interception.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="NetUtility, Version=4.5.6325.30210, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NetUtility.4.5.6325.30210\lib\net40\NetUtility.dll</HintPath>
       <Private>True</Private>
@@ -160,8 +166,20 @@
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="RSACryptoPad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RSACryptoPad.1.0.0.0\lib\net40\RSACryptoPad.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.3.3.2\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.3.3.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.3.3.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
@@ -232,6 +250,24 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.3.0.20105.1\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.1.0.20105.408\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -252,10 +288,14 @@
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Constants\CasinoGameKind.cs" />
-    <Compile Include="Constants\CloseReasonConstants.cs" />
+    <Compile Include="Constants\CloseReasonConstants.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Constants\ProblemAccountStatusConstants.cs" />
     <Compile Include="Constants\ProductId.cs" />
-    <Compile Include="Constants\ReviewStatusConstant.cs" />
+    <Compile Include="Constants\ReviewStatusConstant.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Constants\SportTypeConstants.cs" />
     <Compile Include="Criteria\GetAgentListCriteria.cs" />
     <Compile Include="Criteria\GetMasterListCriteria.cs" />
@@ -263,7 +303,9 @@
     <Compile Include="Criteria\IndirectLoginAccount\GetIndirectLoginAccountsCriteria.cs" />
     <Compile Include="Criteria\IndirectLoginAccount\UpdatePasswordCriteria.cs" />
     <Compile Include="Criteria\IndirectLoginAccount\NewAccountCriteria.cs" />
-    <Compile Include="Criteria\NonQueryCommandBase.cs" />
+    <Compile Include="Criteria\NonQueryCommandBase.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Criteria\ProblemAccount\GetProblemAccountCriteria.cs" />
     <Compile Include="Criteria\Transfer\GetTransferOptionCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\MapPlayerId3rdToCustIdCriteria.cs" />
@@ -301,7 +343,6 @@
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectFirstLoginByQRCodeCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectRnGStatusCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteria.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectExistedMemberSettingCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectCreditAndStatusCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectAutoSuggestionCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\CheckBelongingByUsernameModel.cs" />
@@ -309,7 +350,6 @@
     <Compile Include="Features\QRCodeMemberSignIn\Models\SelectRnGStatusModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\CreditAndStatusModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\ResultCreateMemberQRCode.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Models\SportBookSettingModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\UsernameSuggestion.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\PasswordService.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
@@ -330,17 +370,23 @@
     <Compile Include="Models\MemberRequests\MemberRequestModel.cs" />
     <Compile Include="Models\ProblemAccount\ProblemAccountModel.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProgressiveJackpot\JackpotGameSetting.cs" />
+    <Compile Include="Models\ProgressiveJackpot\JackpotGameSetting.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\UserLevel.cs" />
-    <Compile Include="Models\WinLossLimit\WinLossLimitGroupProductModel.cs" />
+    <Compile Include="Models\WinLossLimit\WinLossLimitGroupProductModel.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Params\CreditBalanceParam.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitDetail.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitPage.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitProductModel.cs" />
     <Compile Include="Params\IndirectLoginAccount\DisconnectAccountParam.cs" />
     <Compile Include="Params\IndirectLoginAccount\NewAccountParam.cs" />
-    <Compile Include="Params\IndirectLoginAccount\RedirectParam.cs" />
+    <Compile Include="Params\IndirectLoginAccount\RedirectParam.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Params\IndirectLoginAccount\UpdatePasswordParam.cs" />
     <Compile Include="Params\MemberRequestParam.cs" />
     <Compile Include="Params\ProblemAccount\UpdateProblemAccountParam.cs" />

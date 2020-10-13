@@ -7,7 +7,7 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
 
     public class CreateAccountByQRCodeRequest :
         QRCodeBaseQuery,
-        IRequest<ResultCreateMemberQRCode>
+        IAsyncRequest<ResultCreateMemberQRCode>
     {
         public CreateAccountByQRCodeRequest(IUser viewer) : base(viewer)
         {

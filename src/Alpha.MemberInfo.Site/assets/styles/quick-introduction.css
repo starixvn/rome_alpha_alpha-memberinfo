@@ -129,7 +129,6 @@
 .carousel-fade .carousel-inner {
   font-size: 14px; }
   .carousel-fade .carousel-inner .item {
-    min-height: 560px;
     transition-property: opacity; }
     .carousel-fade .carousel-inner .item h4 {
       padding: 20px;

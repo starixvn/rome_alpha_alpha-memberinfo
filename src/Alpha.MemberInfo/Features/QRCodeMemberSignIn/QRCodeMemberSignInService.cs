@@ -1,11 +1,14 @@
 ﻿namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn
 {
+    using Alpha.CopyAccount.Params;
+    using Alpha.CopyAccount.Services;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Alpha.MemberInfo.Models;
     using Fanex.Data.Repository;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     public interface QRCodeMemberSignInService
     {
@@ -13,9 +16,7 @@
 
         CreditAndStatusModel GetCreditAndStatus(string SearchAccountName);
 
-        SportBookSettingModel GetExistedMemberSetting(int existedCustId);
-
-        ResultCreateMemberQRCode CreateMemberByQRCode(InsertMemberCommand command);
+        Task<ResultCreateMemberQRCode> CreateMemberByQRCode(InsertMemberCommand command);
 
         CheckBelongingByUsernameModel CheckBelongingByUsername(int actorId, string username, int subAccountId);
 
@@ -35,10 +36,13 @@
     public class QRCodeMemberSignInServiceImpl : QRCodeMemberSignInService
     {
         private readonly IDynamicRepository dynamicRepository;
+        private readonly ICopyAccountService copyAccountService;
+        private const byte AlphaSite = 2;
 
-        public QRCodeMemberSignInServiceImpl(IDynamicRepository dynamicRepository)
+        public QRCodeMemberSignInServiceImpl(IDynamicRepository dynamicRepository, ICopyAccountService copyAccountService)
         {
             this.dynamicRepository = dynamicRepository;
+            this.copyAccountService = copyAccountService;
         }
 
         public IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(int actorId, string suggestionQuery, bool isInternal)
@@ -48,20 +52,41 @@
         public CreditAndStatusModel GetCreditAndStatus(string SearchAccountName)
             => dynamicRepository.Get<CreditAndStatusModel>(new SelectCreditAndStatusCriteria(SearchAccountName));
 
-        public SportBookSettingModel GetExistedMemberSetting(int existedCustId)
-            => dynamicRepository.Get<SportBookSettingModel>(new SelectExistedMemberSettingCriteria(existedCustId));
-
-        public ResultCreateMemberQRCode CreateMemberByQRCode(InsertMemberCommand command)
+        public async Task<ResultCreateMemberQRCode> CreateMemberByQRCode(InsertMemberCommand command)
         {
-            dynamicRepository.Execute(command);
+            var result = await copyAccountService.CopyAsync(new CopyAccountParams(
+                command.ActorId,
+                UserLevel.Agent.Value,
+                command.SubAccId,
+                command.SubUsername,
+                command.Username,
+                command.Password,
+                command.Phone,
+                command.MobilePhone,
+                command.Fax,
+                command.Credit,
+                command.CreditMax,
+                command.CopyFromCustId,
+                command.CopyFromUsername,
+                command.Language,
+                command.IP,
+                AlphaSite,
+                isQrCode: true)).ConfigureAwait(false);
 
-            return new ResultCreateMemberQRCode
+            if (result != null)
             {
-                Success = command.Success,
-                CustId = command.CustId,
-                ErrCode = command.ErrCode,
-                ErrMsg = command.ErrMsg
-            };
+                return new ResultCreateMemberQRCode
+                {
+                    CustId = result.CustId,
+                    ErrCode = result.Code,
+                    ErrMsg = result.Message,
+                    RawPassword = result.Password,
+                    Success = result.IsSuccess,
+                    CustIdCopyFrom = command.CopyFromCustId
+                };
+            }
+
+            return new ResultCreateMemberQRCode();
         }
 
         public CheckBelongingByUsernameModel CheckBelongingByUsername(int actorId, string username, int subAccountId)

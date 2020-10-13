@@ -16,7 +16,10 @@
             CustName = viewer.Name;
             CustLevelId = viewer.LevelId;
             SubAccId = viewer.SubAccId;
+            SubUsername = viewer.SubAccName;
         }
+
+        public string SubUsername { get; set; }
 
         public int CustId { get; set; }
 

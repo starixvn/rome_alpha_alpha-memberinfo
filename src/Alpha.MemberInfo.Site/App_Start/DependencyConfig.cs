@@ -1,16 +1,11 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
-    using System.Web;
-    using System.Web.Mvc;
+    using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Handlers;
-    using Alpha.Products.Core.Services;
     using Alpha.Web.Helpers;
     using Alpha.Web.Helpers.Impl;
     using Controllers;
@@ -36,6 +31,11 @@
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Model.Entities.Permission;
     using Sunplus.Agent.Utilities;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Reflection;
+    using System.Web;
+    using System.Web.Mvc;
     using Utilities.IP;
 
     public static class DependencyConfig
@@ -43,8 +43,6 @@
         [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Reviewed")]
         public static void Init()
         {
-            RegisterQRCodeConfiguration();
-
             var container = new Container();
 
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
@@ -129,16 +127,13 @@
             container.RegisterPerWebRequest<IndirectLoginAccountService, IndirectLoginAccountServiceImpl>();
             container.RegisterPerWebRequest<SessionManager, SessionManagerImpl>();
             container.RegisterPerWebRequest<AesService, AesServiceImpl>();
-        }
 
-        private static void RegisterQRCodeConfiguration()
-        {
+            container.RegisterCopyAccountServices("CloneAccount:BaseUri", "CloneAccount:ApiKey");
+
             var qrCodeconfigFilePath = HttpContext.Current.Server.MapPath(
-                    AppSettingsHelper.GetQRCodeMemberSiteLoginConfigsPath());
-
-            SimpleServiceLocator
-              .Instance
-              .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
+                       AppSettingsHelper.GetQRCodeMemberSiteLoginConfigsPath());
+            container.RegisterSingleton<QRCodeLoginConfigsHelper>
+                (() => new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
         }
     }
 }

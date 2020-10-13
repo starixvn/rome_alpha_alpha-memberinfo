@@ -202,11 +202,13 @@ class QRCodeMemberSignIn {
 			data: data,
 			dataType: 'json',
 			url: "QRCodeMemberSignIn/CreateAccount",
-			success: (result) => {
-				if (result.ErrCode === 0) {
-					localStorage.setItem("memberNameCopyFrom", data.UsernameCopyFrom);
-					this.reloadFrame(result);
-				}
+			success: (result, status, xqr) => {
+                if (result.ErrCode === 0 || status === "302" || xqr.status === 302) {
+                    localStorage.setItem("memberNameCopyFrom", data.UsernameCopyFrom);
+                    setTimeout(() => {
+                        this.reloadFrame(result);
+                    }, 1000);
+                }
 				else {
 					this.showErrorMessage(result.ErrMsg);
 					this.$.unblockUI();

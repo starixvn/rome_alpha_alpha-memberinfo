@@ -141,14 +141,11 @@
 
             service.CreateMemberByQRCode(Arg.Any<InsertMemberCommand>()).Returns(result);
 
-            var sportBookSettingModel = fixture.Create<SportBookSettingModel>();
-            service.GetExistedMemberSetting(Arg.Any<int>()).Returns(sportBookSettingModel);
-
             // Act
             var actualViewModel = handler.Handle(message);
 
             // Assert
-            AssertExtension.Equal(result, actualViewModel);
+            AssertExtension.Equal(result, actualViewModel.Result);
         }
 
         [Fact]
@@ -187,7 +184,7 @@
             var actualViewModel = handler.Handle(message);
 
             // Assert
-            AssertExtension.Equal(result, actualViewModel);
+            AssertExtension.Equal(result, actualViewModel.Result);
         }
 
         [Fact]
@@ -219,7 +216,7 @@
             var actualViewModel = handler.Handle(message);
 
             // Assert
-            AssertExtension.Equal(result, actualViewModel);
+            AssertExtension.Equal(result, actualViewModel.Result);
         }
 
         [Fact]
@@ -260,7 +257,7 @@
             var actualViewModel = handler.Handle(message);
 
             // Assert
-            AssertExtension.Equal(result, actualViewModel);
+            AssertExtension.Equal(result, actualViewModel.Result);
         }
 
         [Fact]
@@ -325,7 +322,6 @@
                 message.CreateMode,
                 message.ShowPageTitle,
                 true,
-                message.CustIdCopyFrom,
                 "ABC");
 
             qrCodeAdapter.CreateMobileLoginUrl(
