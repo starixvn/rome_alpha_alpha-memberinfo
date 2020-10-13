@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Alpha.CopyAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Alpha.CopyAccount.1.0.0-beta07\lib\net461\Alpha.CopyAccount.dll</HintPath>
+      <HintPath>..\..\..\packages\Alpha.CopyAccount.1.0.0\lib\net461\Alpha.CopyAccount.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
