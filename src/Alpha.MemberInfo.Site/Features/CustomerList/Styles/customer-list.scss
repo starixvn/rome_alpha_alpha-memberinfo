@@ -42,10 +42,12 @@ a {
 
 .easy-autocomplete {
 	display: inline-block;
+    width: 200px !important;
 
 	input {
 		box-shadow: none;
 		border-color: #c4c4c4;
+        width: 100%;
 	}
 }
 
@@ -79,45 +81,50 @@ a {
 	}
 }
 
-.dataTables_length {
-	float: right;
-	display: flex;
-	position: relative;
-	justify-content: center;
-	vertical-align: middle;
-	height: 30px;
-	align-items: center;
+.dataTables_wrapper {
+    .dataTables_length {
+        float: right;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        vertical-align: middle;
+        height: 30px;
+        align-items: center;
 
-	label {
-		font-size: 13px !important;
-		color: #333 !important;
-		float: right;
-		margin-right: 5px;
-	}
+        label {
+            font-size: 13px !important;
+            color: #333 !important;
+            float: right;
+            margin-right: 5px;
+        }
+    }
+
+    .dataTables_paginate {
+        float: left;
+        left: 40%;
+        text-align: center;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        vertical-align: middle;
+        height: 30px;
+        align-items: center;
+
+        .paginate_input {
+            width: 50px;
+            text-align: center;
+            height: 20px;
+            margin: 0 5px 0 5px;
+        }
+
+        span {
+            padding-left: 5px;
+        }
+    }
 }
 
-.dataTables_paginate {
-	float: left;
-	left: 40%;
-	text-align: center;
-	display: flex;
-	position: relative;
-	justify-content: center;
-	vertical-align: middle;
-	height: 30px;
-	align-items: center;
 
-	.paginate_input {
-		width: 50px;
-		text-align: center;
-		height: 20px;
-		margin: 0 5px 0 5px;
-	}
 
-	span {
-		padding-left: 5px;
-	}
-}
 
 .form-group {
 	margin-right: 25px;
@@ -305,3 +312,5 @@ a {
 		}
 	}
 }
+
+
