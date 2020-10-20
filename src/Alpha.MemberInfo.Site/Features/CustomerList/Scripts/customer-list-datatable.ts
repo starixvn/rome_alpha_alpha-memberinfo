@@ -53,10 +53,10 @@ class CustomerListDataTable {
 				'<option value="500">500</option>' +
 				'</select>',
 			oPaginate = {
-				sFirst: '<<',
-				sPrevious: '<',
-				sNext: '>',
-				sLast: '>>',
+				sFirst: '',
+				sPrevious: '',
+				sNext: '',
+				sLast: '',
 				info: `${this.viewModel.CustomerListResources.Page} _INPUT_ ${this.viewModel.CustomerListResources.Of} _TOTAL_`
 			};
 

@@ -187,3 +187,15 @@ body {
         width: 47%;
     }
 }
+
+.dataTables_wrapper {
+    .dataTables_length {
+        label {
+            font-size: calculateScale(13px);
+        }
+
+        select {
+            font-size: calculateScale(16px);
+        }
+    }
+}
