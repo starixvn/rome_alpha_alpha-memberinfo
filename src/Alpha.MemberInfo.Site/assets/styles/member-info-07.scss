@@ -1,5 +1,20 @@
-﻿/*@import "../../../assets/styles/abstracts/_mixins.scss";
+﻿@import "../../../assets/styles/abstracts/_mixins.scss";
 
-[class*="btn-"] {
-    height: calculateScale(28px);
-}*/
+.dataTables_wrapper {
+    .dataTables_length {
+        select {
+            height: calculateScale(32px);
+        }
+    }
+
+    .dataTables_paginate {
+        .paginate_input {
+            font-size: calculateScale(16px);
+            height: calculateScale(32px);
+        }
+
+        .paginate_button {
+            font-size: calculateScale(20px);
+        }
+    }
+}

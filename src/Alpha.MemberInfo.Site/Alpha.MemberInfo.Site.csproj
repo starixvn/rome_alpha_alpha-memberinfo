@@ -580,6 +580,12 @@
     <Content Include="assets\styles\indirect-login-account.min.css">
       <DependentUpon>indirect-login-account.css</DependentUpon>
     </Content>
+    <Content Include="assets\styles\member-info.css">
+      <DependentUpon>member-info.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\member-info.min.css">
+      <DependentUpon>member-info.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\problem-account\index.css">
       <DependentUpon>index.scss</DependentUpon>
     </Content>

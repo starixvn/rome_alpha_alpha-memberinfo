@@ -1,9 +1,10 @@
 ﻿[
 	{
 		"outputFileName": "assets/bundles/default.css",
-		"inputFiles": [
-			"assets/styles/member-info.css"
-		]
+    "inputFiles": [
+      "assets/styles/member-info.css",
+      "assets/styles/member-info-07.css"
+    ]
 	},
 	{
 		"outputFileName": "assets/bundles/credit-balance.css",
