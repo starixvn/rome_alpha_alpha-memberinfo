@@ -568,6 +568,21 @@
     <Content Include="assets\styles\images\Slide3.vi-VN.png" />
     <Content Include="assets\styles\images\Slide3.zh-CN.png" />
     <Content Include="assets\styles\images\Slide3.zh-TW.png" />
+    <Content Include="assets\styles\common-07.css">
+      <DependentUpon>common-07.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\common-07.min.css">
+      <DependentUpon>common-07.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\common.css">
+      <DependentUpon>common.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\common.min.css">
+      <DependentUpon>common.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\credit-balance.css">
+      <DependentUpon>credit-balance.scss</DependentUpon>
+    </Content>
     <Content Include="assets\styles\images\star.gif" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.draggable.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.linkbutton.js" />
@@ -597,6 +612,13 @@
     </Content>
     <Content Include="assets\styles\problem-account\update.min.css">
       <DependentUpon>update.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\win-loss-limit.css">
+      <DependentUpon>win-loss-limit.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\CustomerList\Bundles\customer-list-07.css" />
+    <Content Include="Features\CustomerList\Bundles\customer-list-07.min.css">
+      <DependentUpon>customer-list-07.css</DependentUpon>
     </Content>
     <Content Include="Features\CustomerList\Bundles\customer-list.css" />
     <Content Include="Features\CustomerList\Bundles\customer-list.js" />
@@ -896,6 +918,9 @@
     <Content Include="assets\styles\indirect-login-account.scss" />
     <Content Include="App_Code\Components\Alert.cshtml" />
     <Content Include="App_Code\Components\Breadcrumb.cshtml" />
+    <Content Include="assets\styles\common-07.scss" />
+    <Content Include="assets\styles\abstracts\_mixins.scss" />
+    <Content Include="assets\styles\common.scss" />
     <Content Include="assets\styles\quick-introduction.scss">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>

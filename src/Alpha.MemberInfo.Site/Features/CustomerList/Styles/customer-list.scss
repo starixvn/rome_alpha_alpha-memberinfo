@@ -5,49 +5,6 @@ body:not(.modal-open) {
 	padding-right: 0px !important;
 }
 
-$link-color: #045ace;
-$link-hover-color: #F60;
-
-
-input[type="checkbox"] {
-	display: inline-block;
-}
-
-a {
-	color: $link-color;
-
-	&:hover, &:focus {
-		color: $link-hover-color;
-		text-decoration: none;
-	}
-}
-
-.breadcrumb {
-	border-bottom: none;
-	float: left;
-	padding: 0 12px;
-	color: #333;
-
-	&:before {
-		content: '(';
-	}
-
-	&:after {
-		content: ')';
-	}
-}
-
-.easy-autocomplete {
-	display: inline-block;
-    width: 200px !important;
-
-	input {
-		box-shadow: none;
-		border-color: #c4c4c4;
-        width: 100%;
-	}
-}
-
 .modal-header {
 	border-bottom: 1px solid #e5e5e5 !important;
 
@@ -61,23 +18,6 @@ a {
 		margin-top: 8px !important;
 	}
 }
-
-.select-all {
-	display: flex;
-	float: left;
-	position: relative;
-	justify-content: center;
-	vertical-align: middle;
-	height: 30px;
-	align-items: center;
-
-	a {
-		font-weight: bold;
-		color: #333;
-		margin-left: 5px;
-	}
-}
-
 
 
 .form-group {
@@ -117,18 +57,6 @@ a {
 	}
 }
 
-.txt-search {
-	font-style: italic;
-}
-
-.left {
-	text-align: left;
-}
-
-.right {
-	text-align: right;
-}
-
 .dataTable {
 	width: 100% !important;
 	overflow:hidden;
@@ -141,9 +69,11 @@ a {
 
 	.icon-table-edit {
 		cursor: pointer;
+        position: relative;
+        top: 1px;
 
 		&:hover {
-			color: $link-hover-color;
+			color: #F60;
 		}
 	}
 
@@ -213,14 +143,17 @@ a {
 #bootstrap-modal {
 	.modal-dialog {
 		position: relative;
-		display: table; /* This is important */
-		overflow-y: auto;
-		overflow-x: auto;
+		display: table;
+        overflow: auto;
 		width: auto;
 		min-width: 150px;
 		max-width: 700px;
 		margin: 0px;
 	}
+
+    .modal-content .modal-body {
+        padding: 0;
+    }
 
 	ul,
 	ol {
@@ -229,6 +162,14 @@ a {
 
 		li {
 			display: block !important;
+            padding: 4px 8px;
+            cursor: pointer;
+            &:hover {
+                background-color: #dadada;
+            }
+            input[type="checkbox"] {
+                display: inline-block;
+            }
 
 			&.Disable_edit:before {
 				color: #bbb !important;
@@ -244,6 +185,9 @@ a {
 					font-family: 'Iconalpha';
 				}
 			}
+            &.icon-edit:after {
+                content: none;
+            }
 		}
 	}
 }
@@ -283,13 +227,18 @@ a {
     }
 }
 
-.commission-table {
+.commission-wrapper .commission-table {
     .commission-header {
-        text-align: center !important;
+        text-align: left !important;
+        font-weight: normal;
     }
 
     tr:not(:first-child) {
         background-color: #fff;
+    }
+
+    .dtr-title {
+        padding-left: 20px;
     }
 }
 
