@@ -202,3 +202,7 @@ body {
         }
     }
 }
+
+table.dataTable tbody tr:last-of-type:hover, .tblRpt.tblRpt-hover > tbody > tr:hover > td {
+    background-color: unset !important;
+}
