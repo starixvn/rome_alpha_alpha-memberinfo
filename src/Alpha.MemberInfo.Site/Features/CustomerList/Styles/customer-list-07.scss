@@ -51,9 +51,11 @@ body {
 
 #bootstrap-modal, #bootstrap-modal-product {
     padding-right: 0px !important;
+    padding-left: 0 !important;
     width: calc(100% + 24px) !important;
     height: calc(100% + 8px) !important;
     left: -12px !important;
+    top: 0 !important;
 
     .modal-dialog {
         display: block;
