@@ -21,175 +21,191 @@ body:not(.modal-open) {
 
 
 .form-group {
-	margin-right: 25px;
+    margin-right: 25px;
 
-	label {
-		font-size: 13px;
-		color: #333;
-	}
+    label {
+        font-size: 13px;
+        color: #333;
+    }
 
-        .btn-group, select {
-		appearance: auto;
-		box-shadow: none;
-		border-radius: 4px;
-		border: 1px solid #c4c4c4;
-		margin: 0;
+    .btn-group, select {
+        appearance: auto;
+        box-shadow: none;
+        border-radius: 4px;
+        border: 1px solid #c4c4c4;
+        margin: 0;
 
-		.dropdown-menu {
-			width: 100%;
-		}
-	}
+        .dropdown-menu {
+            width: 100%;
+        }
+    }
 
-	[class*="btn-"] {
-		box-shadow: none;
-		border-radius: 4px;
-	}
+    [class*="btn-"] {
+        box-shadow: none;
+        border-radius: 4px;
+    }
 
-	.btn {
-		text-transform: none !important;
-	}
+    .btn {
+        text-transform: none !important;
+    }
 
-	.btn-group {
-		float: none !important;
+    .btn-group {
+        float: none !important;
+
         button.multiselect {
             box-shadow: none;
         }
-	}
+    }
 }
 
 .dataTable {
-	width: 100% !important;
-	overflow:hidden;
+    width: 100% !important;
+    overflow: hidden;
 
-	.status-popup {
-		span:first-child {
-			cursor: pointer;
-		}
-	}
+    .status-popup {
+        span:first-child {
+            cursor: pointer;
+        }
+    }
 
-	.icon-table-edit {
-		cursor: pointer;
+    .icon-table-edit {
+        cursor: pointer;
         position: relative;
         top: 1px;
 
-		&:hover {
-			color: #F60;
-		}
-	}
+        &:hover {
+            color: #F60;
+        }
+    }
 
-	input[type=checkbox] {
-		display: inline-block;
-	}
+    input[type=checkbox] {
+        display: inline-block;
+    }
 
-	.detail-table, .commission-table {
-		width: 100%;
+    .detail-table, .commission-table {
+        width: 100%;
 
-		tr {
-			td {
-				border-top: 1px solid #d1d1d1;
+        tr {
+            td {
+                border-top: 1px solid #d1d1d1;
 
-				&:first-of-type {
-					text-align: left;
-				}
+                &:first-of-type {
+                    text-align: left;
+                }
 
-				&:last-of-type {
-					text-align: right;
-				}
-			}
-		}
-	}
+                &:last-of-type {
+                    text-align: right;
+                }
+            }
+        }
+    }
 
-	.commission-wrapper {
-		padding: 0px !important;
+    .commission-wrapper {
+        padding: 0px !important;
 
-		.commission-header {
-			font-weight: bold;
-		}
-	}
+        .commission-header {
+            font-weight: bold;
+        }
+    }
 
-	.dataTables_empty {
-		text-align: center;
-	}
+    .dataTables_empty {
+        text-align: center;
+    }
 
-	.icon-table-edit {
-		font-size: 18px;
-	}
+    .icon-table-edit {
+        font-size: 18px;
+    }
 
-	.closed-wrongPwdOthers {
-		background-color: #ccc7ba !important;
-	}
+    .closed-wrongPwdOthers {
+        background-color: #ccc7ba !important;
+    }
 
-	.closed-byAdmin {
-		background-color: #b3a2c7 !important;
-	}
+    .closed-byAdmin {
+        background-color: #b3a2c7 !important;
+    }
 
-	.closed-byUpline {
-		background-color: #f79646 !important;
-	}
+    .closed-byUpline {
+        background-color: #f79646 !important;
+    }
 
-	.closed-wrongOTPSC {
-		background-color: #86c5e4 !important;
-	}
+    .closed-wrongOTPSC {
+        background-color: #86c5e4 !important;
+    }
 
-	.RowBgSuspended {
-		background-color: #f8ded7 !important;
-	}
+    .RowBgSuspended {
+        background-color: #f8ded7 !important;
+    }
 
-	.RowBgDisabled {
-		background-color: #a0a97a !important;
-	}
+    .RowBgDisabled {
+        background-color: #a0a97a !important;
+    }
+
+    .login-ip {
+        cursor: pointer;
+    }
 }
 
 #bootstrap-modal {
-	.modal-dialog {
-		position: relative;
-		display: table;
+    box-shadow: none;
+
+    .modal-dialog {
+        position: relative;
+        display: table;
         overflow: auto;
-		width: auto;
-		min-width: 150px;
-		max-width: 700px;
-		margin: 0px;
-	}
+        width: auto;
+        min-width: 150px;
+        max-width: 700px;
+        margin: 0px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+    }
 
     .modal-content .modal-body {
         padding: 0;
     }
 
-	ul,
-	ol {
-		margin-top: 0;
-		margin-bottom: 0;
+    ul,
+    ol {
+        margin-top: 0;
+        margin-bottom: 0;
 
-		li {
-			display: block !important;
-            padding: 4px 8px;
+        li {
+            display: block !important;
+            padding: 2px 8px;
             cursor: pointer;
+
+            &.edit-status-popup {
+                padding: 4px 8px;
+            }
+
             &:hover {
                 background-color: #dadada;
             }
+
             input[type="checkbox"] {
                 display: inline-block;
             }
 
-			&.Disable_edit:before {
-				color: #bbb !important;
-			}
+            &.Disable_edit:before {
+                color: #bbb !important;
+            }
 
-			&.icon-edit, &.icon-refresh {
-				font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
-				font-size: 13px;
-				line-height: 24px;
+            &.icon-edit, &.icon-refresh {
+                font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
+                font-size: 13px;
+                line-height: 24px;
+                margin-right: 0;
 
-				&:before {
-					margin-right: 5px;
-					font-family: 'Iconalpha';
-				}
-			}
+                &:before {
+                    margin-right: 5px;
+                    font-family: 'Iconalpha';
+                }
+            }
+
             &.icon-edit:after {
                 content: none;
             }
-		}
-	}
+        }
+    }
 }
 
 #bootstrap-modal-product {
