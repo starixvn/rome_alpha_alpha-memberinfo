@@ -53,7 +53,7 @@ class CustomerListDataTable {
                 '<option value="10">10</option>' +
                 '<option value="50">50</option>' +
                 '<option value="100">100</option>' +
-                '<option value="500">500</option>' +
+                `<option value="500">${this.viewModel.IsMobileView ? 200 : 500}</option>` +
                 '</select>',
             oPaginate = {
                 sFirst: '',
@@ -80,7 +80,7 @@ class CustomerListDataTable {
                 ordering: false,
                 paging: true,
                 pagingType: "input",
-                pageLength: this.viewModel.IsMobileView ? 100 : 500,
+                pageLength: this.viewModel.IsMobileView ? 50 : 500,
                 searching: false,
                 bInfo: false,
                 fixedHeader: true,
