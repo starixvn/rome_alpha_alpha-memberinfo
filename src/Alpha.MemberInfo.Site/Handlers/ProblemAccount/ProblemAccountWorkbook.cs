@@ -41,6 +41,8 @@
 
         internal Row CloseRowTemplateWrongOTPSC { get; set; }
 
+        internal Row CloseRowTemplateByArchive { get; set; }
+
         internal Row SuspendedRowTemplate { get; set; }
 
         internal Row DisabledRowTemplate { get; set; }
@@ -89,6 +91,10 @@
                     {
                         templateRow = CloseRowTemplateByUpline;
                     }
+                    else if (account.ClosedReason == CloseReasonConstants.ByArchive)
+                    {
+                        templateRow = CloseRowTemplateByArchive;
+                    }
                     else
                     {
                         templateRow = CloseRowTemplateWrongOTPSC;
@@ -116,6 +122,7 @@
             CloseRowTemplateByAdmin = sheet.GetRow(currentRowIndex++);
             CloseRowTemplateByUpline = sheet.GetRow(currentRowIndex++);
             CloseRowTemplateWrongOTPSC = sheet.GetRow(currentRowIndex++);
+            CloseRowTemplateByArchive = sheet.GetRow(currentRowIndex++);
             DisabledRowTemplate = sheet.GetRow(currentRowIndex);
 
             return GetSheetAt(ReportSheetIndex);
