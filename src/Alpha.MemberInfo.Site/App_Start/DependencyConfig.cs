@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
     using System.Web;
@@ -24,6 +23,7 @@
     using Alpha.Products.AccountInfo.Status;
     using Alpha.Products.AccountInfo.Status.ViewModels.Base;
     using Alpha.Products.Core.Configuration;
+    using Alpha.Products.Core.Services;
     using Alpha.Products.Core.ViewModels;
     using Alpha.SecurityCode.Services;
     using Alpha.Web.Helpers;
@@ -60,6 +60,8 @@
         [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Reviewed")]
         public static void Init()
         {
+            RegisterQRCodeConfiguration();
+
             var container = new Container();
 
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
@@ -106,6 +108,7 @@
         {
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
             container.Register<WinLossLimitDataAccess, WinLossLimitDataAccessImpl>(Lifestyle.Singleton);
+            container.Register<CustomerListDataAccess, CustomerListDataAccessImpl>(Lifestyle.Singleton);
         }
 
         private static void RegisterServices(Container container)
@@ -144,17 +147,17 @@
             container.RegisterPerWebRequest<Encryptor, EncryptorImpl>();
             container.RegisterPerWebRequest<PasswordService, PasswordServiceImpl>();
 
-            container.RegisterPerWebRequest<CustomerListDataAccess, CustomerListDataAccessImpl>();
-            container.RegisterPerWebRequest<CustomerListService, CustomerListServiceImpl>();
-            
             container.RegisterPerWebRequest<IndirectLoginAccountService, IndirectLoginAccountServiceImpl>();
             container.RegisterPerWebRequest<SessionManager, SessionManagerImpl>();
             container.RegisterPerWebRequest<AesService, AesServiceImpl>();
+
+            container.RegisterPerWebRequest<CustomerListService, CustomerListServiceImpl>();
             container.RegisterPerWebRequest<UsernameSuggestionService, UsernameSuggestionServiceImpl>();
 
             container.RegisterCopyAccountServices("CloneAccount:BaseUri", "CloneAccount:ApiKey");
-            }
-       private static void StartConfiguration(Container container)
+        }
+
+        private static void StartConfiguration(Container container)
         {
             SimpleServiceLocator
                .Instance
@@ -179,7 +182,6 @@
                 .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
                 .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>(new SettingMultipleViewModelFactory())
                 .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
-
 
             container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();
             container.RegisterPerWebRequest<DormantAccountWorkbook, DormantAccountWorkbookImpl>();
