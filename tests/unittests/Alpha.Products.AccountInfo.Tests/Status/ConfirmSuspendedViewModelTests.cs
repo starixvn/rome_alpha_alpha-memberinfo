@@ -93,10 +93,10 @@
         [Theory]
         [InlineData(true, 3, true, "MicroSiteName/UnsuspendDownlines/EditSingle?SearchAccountId=2&SearchAccountName=username1")]
         [InlineData(true, 2, true, "MicroSiteName/UnsuspendDownlines/EditSingle?SearchAccountId=2&SearchAccountName=username1")]
-        [InlineData(true, 1, false, "MicroSiteName/SearchAccount/UpdateCustomerStatus")]
-        [InlineData(false, 3, false, "MicroSiteName/SearchAccount/UpdateCustomerStatus")]
-        [InlineData(false, 2, false, "MicroSiteName/SearchAccount/UpdateCustomerStatus")]
-        [InlineData(false, 1, false, "MicroSiteName/SearchAccount/UpdateCustomerStatus")]
+        [InlineData(true, 1, false, "UpdateCustomerStatus")]
+        [InlineData(false, 3, false, "UpdateCustomerStatus")]
+        [InlineData(false, 2, false, "UpdateCustomerStatus")]
+        [InlineData(false, 1, false, "UpdateCustomerStatus")]
         public void Return_CorrectIsPopupProperty(
             bool IsSuspendedSearchAccount, 
             byte downlineLevel, 
