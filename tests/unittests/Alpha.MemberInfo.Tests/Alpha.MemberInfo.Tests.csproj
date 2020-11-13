@@ -326,9 +326,18 @@
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Extensions\DateTimeExtensionsTests.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />
+    <Compile Include="Features\CustomerList\CustomerListServiceTests.cs" />
+    <Compile Include="Features\CustomerList\CustomerListDataAccessTest.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerAllStatusModelCriteriaTest.cs" />
     <Compile Include="Feature\DormantAccountList\Criteria\GetDormantAccountsCriteriaTests.cs" />
     <Compile Include="Feature\DormantAccountList\DormantAccountServiceTests.cs" />
     <Compile Include="Feature\DormantAccountList\Models\DormantAccountTests.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\UpdateCustomerStatusCommandTest.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectUnsyncProductsCriteriaTest.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectSyncedCasinoListTest.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectMemberListCriteriaTest.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectMasterListCriteriaTest.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectAgentListCriteriaTest.cs" />
     <Compile Include="Feature\QRCodeMemberSignIn\Criteria\ResetMainAccountPasswordCommandTests.cs" />
     <Compile Include="Feature\QRCodeMemberSignIn\Criteria\SelectFirstLoginByQRCodeCriteriaTests.cs" />
     <Compile Include="Feature\QRCodeMemberSignIn\Criteria\CheckExistedCustomerCritieriaTests.cs" />
@@ -397,6 +406,7 @@
   <ItemGroup>
     <Analyzer Include="..\..\..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

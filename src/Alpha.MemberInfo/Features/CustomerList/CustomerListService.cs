@@ -26,7 +26,7 @@
     {
         private readonly IDynamicRepository dynamicRepository;
         private readonly CustomerListDataAccess customerListDataAccess;
-        private readonly IDictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>> buildCriteria;
+        private readonly IDictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>> fetchData;
 
         public CustomerListServiceImpl(
             IDynamicRepository dynamicRepository,
@@ -38,16 +38,16 @@
         internal CustomerListServiceImpl(
             IDynamicRepository dynamicRepository,
             CustomerListDataAccess customerListDataAccess,
-            IDictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>> buildCriteria)
+            IDictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>> fetchData)
         {
             this.dynamicRepository = dynamicRepository;
             this.customerListDataAccess = customerListDataAccess;
-            this.buildCriteria = buildCriteria ??
+            this.fetchData = fetchData ??
                   new Dictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>>
                 {
-                    {UserLevel.Super, BuildMasterListCriteria},
-                    {UserLevel.Master, BuildAgentListCriteria},
-                    {UserLevel.Agent, BuildMemberListCriteria}
+                    {UserLevel.Super, FectchMasterList},
+                    {UserLevel.Master, FetchAgentList},
+                    {UserLevel.Agent, FetchMemberList}
                 };
         }
 
@@ -55,7 +55,7 @@
             => dynamicRepository.Fetch<int>(new SelectUnsyncProductsCriteria(custId));
 
         public CustomerListDTO GetCustomerList(CustomerListParam param)
-            => buildCriteria[param.DirectUplineCustLevel](param);
+            => fetchData[param.DirectUplineCustLevel](param);
 
         public CustomerStatusModel GetCustomerStatus(int custId)
             => customerListDataAccess.GetCustomerStatus(new SelectCustomerAllStatusModelCriteria(custId));
@@ -73,7 +73,7 @@
         public IEnumerable<SyncedCasinoModel> GetSyncedCasinoModel(string custIds)
             => dynamicRepository.Fetch<SyncedCasinoModel>(new SelectSyncedCasinoList(custIds));
 
-        internal CustomerListDTO BuildMasterListCriteria(CustomerListParam param)
+        internal CustomerListDTO FectchMasterList(CustomerListParam param)
         {
             var criteria = new SelectMasterListCriteria(
               param.DirectUplineId,
@@ -91,7 +91,7 @@
             return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
         }
 
-        internal CustomerListDTO BuildAgentListCriteria(CustomerListParam param)
+        internal CustomerListDTO FetchAgentList(CustomerListParam param)
         {
             var criteria = new SelectAgentListCriteria(
                 param.UserId,
@@ -110,7 +110,7 @@
             return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo);
         }
 
-        internal CustomerListDTO BuildMemberListCriteria(CustomerListParam param)
+        internal CustomerListDTO FetchMemberList(CustomerListParam param)
         {
             var criteria = new SelectMemberListCriteria(
                 param.UserId,
