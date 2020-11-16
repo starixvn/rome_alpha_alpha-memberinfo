@@ -60,6 +60,15 @@
         public static bool IsAllowedIndirectLogin(int srecommend)
             => IndirectLoginSuperIds.Contains(srecommend) || IndirectLoginSuperIds.Any(id => id == int.MaxValue);
 
+        public static byte SettingStatus
+        {
+            get
+            {
+                byte.TryParse(ConfigurationManager.AppSettings["SettingStatus"], out byte settingStatus);
+                return settingStatus;
+            }
+        }
+
         private static int ValueOfNotNullOrWhiteSpace(string value)
             => value.Equals("*", StringComparison.OrdinalIgnoreCase) ? int.MaxValue : Convert.ToInt32(value);
     }
