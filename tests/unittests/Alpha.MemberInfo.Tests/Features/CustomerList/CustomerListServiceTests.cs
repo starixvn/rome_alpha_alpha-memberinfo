@@ -116,15 +116,15 @@
         [Fact]
         public void UpdateCustomerStatus_Always_ReturnsCorrectModel()
         {
-            var data = anyValueCreatorFixture.Create<CustomerStatusModel>();
+            var result = new Result() { Code = 0, Message = string.Empty };
 
             dataAccess
-                .GetCustomerStatus(Arg.Any<SelectCustomerAllStatusModelCriteria>())
-                .Returns(data);
+                .UpdateCustomerStatus(Arg.Any<UpdateCustomerStatusCommand>())
+                .Returns(result);
 
-            var actualModel = service.GetCustomerStatus(2);
+            var actualModel = service.UpdateCustomerStatus(anyValueCreatorFixture.Create<UpdateCustomerStatusParam>());
 
-            Assert.True(compareLogic.Compare(actualModel, data).AreEqual);
+            Assert.True(compareLogic.Compare(actualModel, result).AreEqual);
         }
 
         [Fact]

@@ -40,6 +40,7 @@ _CodeCoverageReport
 .vs/
 /OpenCover/*
 
+*.css
 *.min.js
 *.js
 bundles
