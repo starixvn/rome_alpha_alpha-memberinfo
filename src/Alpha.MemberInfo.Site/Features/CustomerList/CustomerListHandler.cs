@@ -22,7 +22,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class MasterListHandler :
+    public class CustomerListHandler :
         IRequestHandler<CustomerListRequest, CustomerListViewModel>,
         IRequestHandler<FetchDownlinesListRequest, CustomerListDTO>,
         IRequestHandler<CustomerStatusQuery, CustomerStatusViewModel>,
@@ -37,7 +37,7 @@
         private readonly BrowserHelper browserHelper;
         private readonly CacheRefService cacheRefService;
 
-        public MasterListHandler(
+        public CustomerListHandler(
             CustomerListService customerListService,
             SecurityCodeChecker securityCodeChecker,
             BrowserHelper browserHelper,
@@ -46,7 +46,7 @@
         {
         }
 
-        internal MasterListHandler(
+        internal CustomerListHandler(
             CustomerListService customerListService,
             GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel> settingMultipleViewModelFactory,
             GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel> settingViewModelFactory,

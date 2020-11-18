@@ -89,8 +89,10 @@
     <Compile Include="Setting\ViewModels\BetSettingViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\CommissionViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\EditInfoViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\Products\DynamicProductViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\Products\GoldDeluxeViewModelTests.cs" />
+    <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductMultipleViewModelTests.cs" />
+    <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductViewModelTests.cs" />
+    <Compile Include="Setting\ViewModels\Products\GoldDeluxe\GoldDeluxeMultipleViewModelTests.cs" />
+    <Compile Include="Setting\ViewModels\Products\GoldDeluxe\GoldDeluxeViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\KenoViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\RNGCasinoViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\SportsbookViewModelTests.cs" />

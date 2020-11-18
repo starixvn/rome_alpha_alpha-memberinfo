@@ -38,12 +38,18 @@
     <Reference Include="Alpha.CopyAccount, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.CopyAccount.1.0.0.1\lib\net461\Alpha.CopyAccount.dll</HintPath>
     </Reference>
+    <Reference Include="Alpha.Products.Core, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Alpha.Products.Core.1.0.0.1\lib\net461\Alpha.Products.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Alpha.SecurityCode, Version=3.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Alpha.SecurityCode.3.0.0.7\lib\net461\Alpha.SecurityCode.dll</HintPath>
+    </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Alpha.Web, Version=1.0.7.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Alpha.Web.1.0.7.2\lib\net461\Alpha.Web.dll</HintPath>
+    <Reference Include="Alpha.Web, Version=1.0.7.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Alpha.Web.1.0.7.5\lib\net461\Alpha.Web.dll</HintPath>
     </Reference>
     <Reference Include="Couchbase, Version=1.2.6.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\CouchbaseNetClient.1.2.6.3\lib\net40\Couchbase.dll</HintPath>
@@ -60,6 +66,12 @@
     <Reference Include="Fanex.Logging, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Logging.2.0.1\lib\net461\Fanex.Logging.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Logging.Extensions, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Logging.Extensions.1.0.6\lib\net461\Fanex.Logging.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Logging.Extensions.Web, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Logging.Extensions.Web.1.0.8\lib\net461\Fanex.Logging.Extensions.Web.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Products, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Products.1.0.0.5\lib\net461\Fanex.Products.dll</HintPath>
@@ -169,6 +181,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -232,6 +245,8 @@
     <Compile Include="Controllers\MemberRequestsControllerTests.cs" />
     <Compile Include="Controllers\WinLossLimitControllerTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
+    <Compile Include="Features\CustomerList\CustomerListControllerTests.cs" />
+    <Compile Include="Features\CustomerList\CustomerListHandlerTests.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountControllerTests.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountHandlerTests.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountWorkbookImplForTesting.cs" />
@@ -254,6 +269,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="App_Data\securitycode.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +280,14 @@
     <ProjectReference Include="..\..\..\src\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
       <Project>{50b673a0-c10b-4551-b0a0-76edcbf5ce12}</Project>
       <Name>Alpha.MemberInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Alpha.Products.AccountInfo\Alpha.Products.AccountInfo.csproj">
+      <Project>{d00a2d4e-7115-48a5-a8a5-5da2354cf1e9}</Project>
+      <Name>Alpha.Products.AccountInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alpha.Products.AccountInfo.Tests\Alpha.Products.AccountInfo.Tests.csproj">
+      <Project>{B8E0E958-763B-423B-8E63-E9B99EB99B59}</Project>
+      <Name>Alpha.Products.AccountInfo.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

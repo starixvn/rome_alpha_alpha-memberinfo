@@ -1,11 +1,11 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.Utility
 {
-    using System.Collections.Generic;
     using Alpha.Products.Core.Configuration;
+    using System.Collections.Generic;
 
     public static class AppProductConfigurationHelper
     {
-        internal static IList<IConfigurationItem> LoadApplicationProductConfiguration()
+        public static IList<IConfigurationItem> LoadApplicationProductConfiguration()
         => new List<IConfigurationItem>()
         {
                 new ConfigurationItem(1, "Sportsbook", extendProductProperty: new SearchAccountProperties(true, true, true)),
@@ -22,7 +22,7 @@
                 new ConfigurationItem(44, "RNG Lottery", extendProductProperty: new SearchAccountProperties(true, true, true))
         };
 
-        internal static IList<IConfigurationItem> LoadApplicationProductConfiguration(params int[] productIds)
+        public static IList<IConfigurationItem> LoadApplicationProductConfiguration(params int[] productIds)
         {
             var configurationItems = new List<IConfigurationItem>();
 
