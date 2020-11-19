@@ -2,6 +2,7 @@
 {
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.Models;
+    using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Services;
     using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
@@ -77,6 +78,29 @@
             cacheRefService = Substitute.For<CacheRefService>();
 
             handler = new CustomerListHandler(service, null, null, null, securityCodeChecker, browserHelper, cacheRefService);
+        }
+
+        [Fact]
+        public void HandleCustomerListRequest_Always_ReturnsCorrectViewModel()
+        {
+            var breadcrumbLevel = new List<CustInfo>() { new CustInfo(10, "Name", 2) };
+            var message = new CustomerListRequest(user)
+            {
+                BreadcrumbLevel = breadcrumbLevel
+            };
+
+            var unsyncedProductIds = new List<int> { 1, 2, 3 };
+            var unsyncedProducts = unsyncedProductIds.Select(productId => new UnsyncedProductModel(productId, cacheRefService.GetProductName(productId)));
+
+            cacheRefService.GetProductName(Arg.Any<int>()).Returns("Product");
+            browserHelper.IsMobile(isOnlyTablet: false).Returns(true);
+            service.GetUnsyncedProductIds(Arg.Any<int>()).Returns(unsyncedProductIds);
+
+            var expectedViewModel = new CustomerListViewModel(message, breadcrumbLevel, unsyncedProducts, true, true);
+
+            var actualViewModel = handler.Handle(message);
+
+            AssertExtension.Equal(actualViewModel, expectedViewModel);
         }
 
         [Fact]

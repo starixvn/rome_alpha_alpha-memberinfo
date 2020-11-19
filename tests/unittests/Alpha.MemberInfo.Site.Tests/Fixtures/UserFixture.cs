@@ -2,6 +2,7 @@
 {
     using MemberInfo.Models;
     using NSubstitute;
+    using System;
 
     public class UserFixture
     {
@@ -30,6 +31,7 @@
             User.IsHideGoldDeluxe.Returns(true);
             User.IsDisabledESports.Returns(true);
             User.IsNumberGameDisabled.Returns(true);
+            User.LimitedDateToShowInfo.Returns(new DateTime(2020, 11, 19));
         }
 
         public IUser User { get; private set; }
