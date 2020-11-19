@@ -24,11 +24,11 @@
     using Alpha.Products.Core.ViewModels;
     using Alpha.SecurityCode.Services;
     using Alpha.Web.Helpers;
+    using AutoFixture;
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
     using MemberInfo.Models;
     using NSubstitute;
-    using Ploeh.AutoFixture;
     using System;
     using System.Collections.Generic;
     using System.Linq;

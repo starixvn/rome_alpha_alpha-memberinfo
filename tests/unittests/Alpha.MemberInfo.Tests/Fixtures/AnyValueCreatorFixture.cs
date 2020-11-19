@@ -1,6 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Tests.Fixtures
 {
-    using Ploeh.AutoFixture;
+    using AutoFixture;
 
     public class AnyValueCreatorFixture
     {
