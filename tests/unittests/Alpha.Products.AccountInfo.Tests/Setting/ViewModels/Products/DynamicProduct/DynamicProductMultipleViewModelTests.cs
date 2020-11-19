@@ -52,7 +52,7 @@
         [Fact]
         public void QueryStringParamaters_With_Correctvalues()
         {
-            var request = RequestHelper.CreateRequest(4, 3);
+            var request = RequestHelper.CreateRequest(4, 1);
             request.AddData("customerIds", "1, 3");
             request.AddData("usernames", "test1, test2");
             request.AddData("language", "EN");
@@ -68,10 +68,11 @@
             Assert.Equal("test1, test2", viewModel.QueryStringParamaters["usernames"]);
             Assert.Equal("test1, test2", viewModel.QueryStringParamaters["customerNames"]);
             Assert.Equal("0", viewModel.QueryStringParamaters["subAccId"]);
-            Assert.Equal("3", viewModel.QueryStringParamaters["customerLevel"]);
+            Assert.Equal("1", viewModel.QueryStringParamaters["customerLevel"]);
             Assert.Equal("1", viewModel.QueryStringParamaters["actorId"]);
             Assert.Equal("1", viewModel.QueryStringParamaters["uplineId"]);
             Assert.Equal("21", viewModel.QueryStringParamaters["productId"]);
+            Assert.Equal("4", viewModel.QueryStringParamaters["uplinelevel"]);
         }
     }
 }

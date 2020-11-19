@@ -6,7 +6,7 @@
 
     public class RnGCasinoMultipleViewModel : RnGCasinoViewModel, ISettingItemMultipleViewModel
     {
-        public RnGCasinoMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+        public RnGCasinoMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
         {
         }
@@ -16,7 +16,5 @@
         public override string Icon => "icon-edit Enable";
 
         public override string Url => base.BaseAddress;
-
-        //public string SyncedCasinoList => request.GetData<string>("syncedCasinoList");
     }
 }
