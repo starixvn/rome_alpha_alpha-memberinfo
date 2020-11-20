@@ -1,9 +1,9 @@
 ﻿namespace Alpha.Products.AccountInfo.Status.ViewModels.Base
 {
-    using System;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Shared;
+    using System;
 
     public abstract class StatusItemViewModel : IStatusItemViewModel
     {
@@ -11,7 +11,7 @@
 
         protected StatusItemViewModel(ISearchAccountInfoRequest request, int displayOrder = 0)
         {
-            if(request == null)
+            if (request == null)
             {
                 throw new ArgumentNullException(nameof(request));
             }
@@ -34,8 +34,6 @@
 
         public virtual bool Visible => true;
 
-        public virtual bool ShowInCustomerList => false;
-
         public virtual bool Disabled => !Request.GetData<bool>("Actor.HasUpdateAccountPermission");
 
         public abstract bool Checked { get; }
@@ -44,4 +42,4 @@
 
         protected virtual string MemberInfoUrl => Request.GetMicroSiteUrl(MicroSiteConstants.MemberInfo, "~/");
     }
-} 
+}

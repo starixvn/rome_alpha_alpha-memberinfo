@@ -16,13 +16,11 @@
 
         public override bool Checked => Request.GetData<bool>(DataKey.SearchAccount.IsAllowedDoubleComm);
 
-        public override bool ShowInCustomerList => true;
-
         internal override string SuffixMessage
         {
             get
             {
-                if(Request.SearchAccount.IsMember)
+                if (Request.SearchAccount.IsMember)
                 {
                     return Checked ? "InCaseDisabledMemberMessage" : "InCaseEnabledMemberMessage";
                 }

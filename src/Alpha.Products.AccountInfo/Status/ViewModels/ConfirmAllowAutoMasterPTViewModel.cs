@@ -13,8 +13,6 @@
 
         public override bool Checked => Request.GetData<bool>(DataKey.SearchAccount.IsAllowedMasterAutoPT);
 
-        public override bool ShowInCustomerList => true;
-
         internal override string SuffixMessage => Checked ? "InCaseDisabledMessage" : "InCaseEnabledMessage";
 
         internal override string StatusName => DataKey.StatusMapping.DisableAutoMasterPT;

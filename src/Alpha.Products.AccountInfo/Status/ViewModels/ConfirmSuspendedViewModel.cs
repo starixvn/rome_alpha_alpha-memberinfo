@@ -20,8 +20,6 @@
 
         public override bool ReloadCustomerInfo => true;
 
-        public override bool ShowInCustomerList => true;
-
         internal override string SuffixMessage
         {
             get
