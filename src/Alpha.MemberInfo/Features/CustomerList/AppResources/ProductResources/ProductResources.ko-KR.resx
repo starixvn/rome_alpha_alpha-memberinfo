@@ -459,4 +459,7 @@
   <data name="EditMultipleVirtualSportsText" xml:space="preserve">
     <value>가상 스포츠 멀티수정</value>
   </data>
+  <data name="Sportsbook2MultipeViewModelText" xml:space="preserve">
+    <value>Sportsbook 2</value>
+  </data>
 </root>

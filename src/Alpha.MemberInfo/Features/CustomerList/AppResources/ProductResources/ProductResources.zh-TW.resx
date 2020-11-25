@@ -366,7 +366,7 @@
   <data name="Sportsbook2ViewModelText" xml:space="preserve">
     <value>體育博彩 2</value>
   </data>
-  <data name="SportsbookMinPTViewModelText" xml:space="preserve">
+  <data name="Sportsbook2MultipeViewModelText" xml:space="preserve">
     <value>體育博彩最低佔成</value>
   </data>
   <data name="Statement" xml:space="preserve">

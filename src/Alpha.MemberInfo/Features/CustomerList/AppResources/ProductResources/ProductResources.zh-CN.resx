@@ -468,4 +468,7 @@
   <data name="EditMultipleVirtualSportsText" xml:space="preserve">
     <value>编辑多重虚拟运动</value>
   </data>
+  <data name="Sportsbook2MultipeViewModelText" xml:space="preserve">
+    <value>体育博彩 2</value>
+  </data>
 </root>

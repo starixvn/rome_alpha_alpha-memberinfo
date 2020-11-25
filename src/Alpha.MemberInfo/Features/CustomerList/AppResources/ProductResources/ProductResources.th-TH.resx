@@ -468,4 +468,7 @@
   <data name="EditMultipleVirtualSportsText" xml:space="preserve">
     <value>แก้ไขกีฬาอนิเมชั่นหลายสาย</value>
   </data>
+  <data name="Sportsbook2MultipeViewModelText" xml:space="preserve">
+    <value>กีฬ่า 2</value>
+  </data>
 </root>

@@ -892,6 +892,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         /// <summary>
         ///   Looks up a localized string similar to Sportsbook 2.
         /// </summary>
+        public static string Sportsbook2MultipeViewModelText {
+            get {
+                return ResourceManager.GetString("Sportsbook2MultipeViewModelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sportsbook 2.
+        /// </summary>
         public static string Sportsbook2ViewModelText {
             get {
                 return ResourceManager.GetString("Sportsbook2ViewModelText", resourceCulture);
