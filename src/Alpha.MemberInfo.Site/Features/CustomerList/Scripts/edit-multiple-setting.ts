@@ -62,8 +62,7 @@ class EditMultipleSetting {
                         this.buildPopupHtml,
                         this.bindingPopupEvent),
                     'POST',
-                    params,
-                    false);
+                    params);
         }
     }
 

@@ -20,23 +20,19 @@ class EditSingleSetting {
     public bindingEvent = () => this.$('.edit').unbind().bind('click', event => this.openPopup(this.$(event.currentTarget)));
 
     public openPopup = element => {
-        const custId = this.$(element).data("custid");
-        const settings = this.customerListServices.statusSettingArray.filter(x => x.custId === custId);
+        this.$('.edit-multiple').data("custid", '');
+        this.$('.edit-multiple').data("url", '');
+        this.$('#arrayCustID').val('');
+        this.$('#arrayUserName').val('');
 
-        settings.length > 0 ?
-            this.customerListPopup.openBootstrapModal(
+        this.customerListServices.getSettings(
+            this.$(element).data("custid"),
+            this.$(element).data("url"),
+            data => this.customerListPopup.openBootstrapModal(
                 element,
-                settings[0].data.Settings,
+                data.Settings,
                 this.buildPopupHtml,
-                this.bindingPopupEvent) :
-            this.customerListServices.getSettings(
-                custId,
-                this.$(element).data("url"),
-                data => this.customerListPopup.openBootstrapModal(
-                    element,
-                    data.Settings,
-                    this.buildPopupHtml,
-                    this.bindingPopupEvent));
+                this.bindingPopupEvent));
     }
 
     private buildPopupHtml = settings => {

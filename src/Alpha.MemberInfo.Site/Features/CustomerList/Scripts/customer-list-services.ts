@@ -8,7 +8,6 @@ class CustomerListServices {
     constructor($: JQueryStatic, viewModel: CustomerListViewModel) {
         this.$ = $;
         this.viewModel = viewModel;
-        this.statusSettingArray = []
     }
 
     public callAjax = (url, type, params, onSuccess) => {
@@ -69,16 +68,12 @@ class CustomerListServices {
             data => updateCustomerStatusSuccess(currentTarget, parentTarget, data, displayOrder))
     }
 
-    public getSettings = (custId, url, callback, type = "GET", params = {}, isStoreData = true) => this.callAjax(
+    public getSettings = (custId, url, callback, type = "GET", params = {}) => this.callAjax(
         url,
         type,
         params,
         data => {
             this.$.unblockUI();
-
-            if (isStoreData) { // not store for update multiple
-                this.statusSettingArray.push({ custId, data });
-            }
 
             if (typeof callback === 'function') {
                 callback.apply(this, [data]);
