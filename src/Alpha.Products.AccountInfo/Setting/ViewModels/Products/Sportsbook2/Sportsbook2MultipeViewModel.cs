@@ -5,17 +5,13 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
     using Alpha.Products.Core.Configuration;
 
-    public class Sportsbook2MultipeViewModel : Sportsbook2ViewModel, ISettingItemMultipleViewModel
+    public class Sportsbook2MultipeViewModel : DynamicProductMultipleViewModel, ISettingItemMultipleViewModel
     {
-        public Sportsbook2MultipeViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+        public Sportsbook2MultipeViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
         {
         }
 
-        public override string Url => base.BaseAddress;
-
-        public override string Text => $"{request.GetResource("EditMultiple")} {request.GetProductName(productItem.ProductId)}";
-
-        public override string Icon => "icon-edit Enable";
+        public override string Text => $"{request.GetResource("EditMultiple")} {request.GetResource($"{GetType().Name}Text")}";
     }
 }
