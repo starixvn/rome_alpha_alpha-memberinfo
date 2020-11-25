@@ -54,7 +54,6 @@ class EditMultipleSetting {
             custids.length === 1 ?
                 this.editSingleSetting.openPopup(this.$(`#setting-${custids[0]}`)) :
                 this.customerListServices.getSettings(
-                    custids[0],
                     `${this.viewModel.MemberInfoUrl}CustomerList/MultipleEditPopup`,
                     data => this.customerListPopup.openBootstrapModal(
                         element,

@@ -56,7 +56,8 @@ const ClosedReason = {
     ByOtherReason: 0,
     ByAdmin: 1,
     ByUpline: 2,
-    ByWrongOTPSC: 3
+    ByWrongOTPSC: 3,
+    ByArchive: 4
 };
 
 const statusClasses = {
@@ -76,6 +77,10 @@ const statusClasses = {
         {
             Id: ClosedReason.ByWrongOTPSC,
             Css: 'closed-wrongOTPSC'
+        },
+        {
+            Id: ClosedReason.ByArchive,
+            Css: 'closed-byArchive'
         }
     ],
     Suspended: {

@@ -34,6 +34,8 @@
 
         public virtual bool Visible => true;
 
+        public virtual bool ShowInCustomerList => false;
+
         public virtual bool Disabled => !Request.GetData<bool>("Actor.HasUpdateAccountPermission");
 
         public abstract bool Checked { get; }

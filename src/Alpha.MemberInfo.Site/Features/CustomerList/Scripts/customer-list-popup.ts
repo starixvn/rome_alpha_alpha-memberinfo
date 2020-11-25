@@ -98,7 +98,7 @@ class CustomerListPopup {
 
     private fixBootstrapDimension = element => {
         if (this.isMobile) {
-            this.$bootstrapContainer.css({ top : 0, left: 0, height: '100%', width: '100%' });
+            this.$bootstrapContainer.css({ top: 0, left: 0, height: '100%', width: '100%' });
         }
         else {
             this.$bootstrapModalDialog.css({ width: 'inherit' });

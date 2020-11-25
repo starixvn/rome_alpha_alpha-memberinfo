@@ -22,7 +22,6 @@ class EditStatus {
     public bindingEvent = () => this.$('.status-popup').unbind().bind('click', event => this.openPopup(this.$(event.currentTarget)));
 
     private openPopup = element => this.customerListServices.getSettings(
-        this.$(element).data("custid"),
         this.$(element).data("url"),
         data => this.customerListPopup.openBootstrapModal(element, data.Status, this.buildPopupHtml, this.bindingPopupEvent)
     );

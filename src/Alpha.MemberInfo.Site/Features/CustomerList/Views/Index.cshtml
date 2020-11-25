@@ -8,7 +8,6 @@
 @section Styles {
     @StaticResources.AssetStyles.RenderCommon("/bundles/site-asset/data-table")
     @StaticResources.RenderStyles("~/Features/CustomerList/Bundles/customer-list")
-
     @StaticResources.RenderStylesWithMedia(767, "~/Features/CustomerList/Bundles/customer-list-07")
 }
 
@@ -81,6 +80,10 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                @if (Model.SearchAccountRoleId == 2)
+                {
+                    <th></th>
+                }
                 <th></th>
                 <th></th>
                 <th></th>
@@ -132,7 +135,13 @@
                 <th rowspan="2" class="header">
                     @CustomerListResources.LastName
                 </th>
-                <th colspan="6" class="header desktop">
+                @if (Model.SearchAccountRoleId == 2)
+                {
+                    <th rowspan="2" class="header">
+                        Group
+                    </th>
+                }
+                <th colspan="6" class="header">
                     @CustomerListResources.Commission
                 </th>
                 @if (!Model.LimitedDateToShowInfo)

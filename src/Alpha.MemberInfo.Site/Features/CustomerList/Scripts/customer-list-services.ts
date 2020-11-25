@@ -68,7 +68,7 @@ class CustomerListServices {
             data => updateCustomerStatusSuccess(currentTarget, parentTarget, data, displayOrder))
     }
 
-    public getSettings = (custId, url, callback, type = "GET", params = {}) => this.callAjax(
+    public getSettings = (url, callback, type = "GET", params = {}) => this.callAjax(
         url,
         type,
         params,

@@ -26,7 +26,6 @@ class EditSingleSetting {
         this.$('#arrayUserName').val('');
 
         this.customerListServices.getSettings(
-            this.$(element).data("custid"),
             this.$(element).data("url"),
             data => this.customerListPopup.openBootstrapModal(
                 element,

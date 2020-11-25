@@ -42,6 +42,7 @@ class CustomerListDataTable {
     }
 
     public initDataTable = () => {
+        const maxPageSize = this.viewModel.IsMobileView ? 200 : 500;
         const details = {
             type: 'column',
             target: -1,
@@ -53,7 +54,7 @@ class CustomerListDataTable {
                 '<option value="10">10</option>' +
                 '<option value="50">50</option>' +
                 '<option value="100">100</option>' +
-                `<option value="500">${this.viewModel.IsMobileView ? 200 : 500}</option>` +
+                `<option value="${maxPageSize}">${maxPageSize}</option>` +
                 '</select>',
             oPaginate = {
                 sFirst: '',
@@ -80,7 +81,7 @@ class CustomerListDataTable {
                 ordering: false,
                 paging: true,
                 pagingType: "input",
-                pageLength: this.viewModel.IsMobileView ? 50 : 500,
+                pageLength: this.viewModel.IsMobileView ? 50 : 100,
                 searching: false,
                 bInfo: false,
                 fixedHeader: true,
@@ -110,7 +111,24 @@ class CustomerListDataTable {
     };
 
     private buildDataTableColumns = () => {
-        let columns = [
+        let columns = [];
+
+        if (!this.viewModel.IsMobileView) {
+            columns.push({
+                "className": 'center',
+                "data": "RowNumber"
+            });
+        }
+
+        if (this.viewModel.ShowEditMultiple) {
+            columns.push({
+                "className": 'center',
+                "data": null,
+                "render": item => `<input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/>`
+            });
+        }
+
+        columns = columns.concat([
             {
                 "className": 'center',
                 "data": null,
@@ -137,7 +155,16 @@ class CustomerListDataTable {
             {
                 "className": 'left',
                 "data": "LastName"
-            },
+            }]);
+
+        if (this.viewModel.SearchAccountRoleId === 2) {
+            columns.push({
+                "className": 'left',
+                "data": "UGroup"
+            });
+        }
+
+        columns = columns.concat([
             {
                 "className": 'center',
                 "data": null,
@@ -167,7 +194,17 @@ class CustomerListDataTable {
                 "className": 'center',
                 "data": null,
                 "render": item => item.RoleId == CustomerLevel.Member ? item.PlayerDiscountCS : item.DiscountCS
-            },
+            }
+        ]);
+
+        if (!this.viewModel.LimitedDateToShowInfo) {
+            columns.push({
+                "className": 'center',
+                "data": "CreateDate"
+            });
+        }
+
+        columns = columns.concat([
             {
                 "className": 'center',
                 "data": null,
@@ -177,35 +214,7 @@ class CustomerListDataTable {
                 "data": null,
                 "render": () => ''
             }
-        ];
-
-        if (!this.viewModel.IsMobileView) {
-            const rowNumberColumn = {
-                "className": 'center',
-                "data": "RowNumber"
-            };
-
-            columns.splice(0, 0, rowNumberColumn);
-        }
-
-        if (this.viewModel.ShowEditMultiple) {
-            const editMultipleColumn = {
-                "className": 'center',
-                "data": null,
-                "render": item => `<input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/>`
-            };
-
-            columns.splice(this.viewModel.IsMobileView ? 0 : 1, 0, editMultipleColumn);
-        }
-
-        if (!this.viewModel.LimitedDateToShowInfo) {
-            const createDateColumn = {
-                "className": 'center',
-                "data": "CreateDate"
-            };
-
-            columns.splice(columns.length - 2, 0, createDateColumn);
-        }
+        ]);
 
         return columns;
     }
@@ -296,6 +305,11 @@ class CustomerListDataTable {
 
             let commisionIndexStart = 6, commisionIndexEnd = 11;
             if (self.viewModel.ShowEditMultiple) {
+                commisionIndexStart += 1;
+                commisionIndexEnd += 1
+            }
+
+            if (self.viewModel.SearchAccountRoleId === 2) {
                 commisionIndexStart += 1;
                 commisionIndexEnd += 1
             }
