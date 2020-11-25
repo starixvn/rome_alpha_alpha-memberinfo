@@ -2,21 +2,21 @@
 
 
 body:not(.modal-open) {
-	padding-right: 0px !important;
+    padding-right: 0px !important;
 }
 
 .modal-header {
-	border-bottom: 1px solid #e5e5e5 !important;
+    border-bottom: 1px solid #e5e5e5 !important;
 
-	h5 {
-		display: inline-block !important;
-		border-bottom: none !important;
-	}
+    h5 {
+        display: inline-block !important;
+        border-bottom: none !important;
+    }
 
-	button {
-		display: inline-block !important;
-		margin-top: 8px !important;
-	}
+    button {
+        display: inline-block !important;
+        margin-top: 8px !important;
+    }
 }
 
 
@@ -132,6 +132,10 @@ body:not(.modal-open) {
         background-color: #86c5e4 !important;
     }
 
+    .closed-byArchive {
+        background-color: #969696 !important;
+    }
+
     .RowBgSuspended {
         background-color: #f8ded7 !important;
     }
@@ -220,6 +224,7 @@ body:not(.modal-open) {
             width: 100%;
             height: calc(100% - 40px);
             padding: 0 10px 0 10px;
+
             iframe {
                 height: 100% !important;
             }
@@ -237,7 +242,7 @@ body:not(.modal-open) {
             background-color: #EAF5FF;
         }
 
-        > tbody > tr{
+        > tbody > tr {
             background-color: #D8EAFF;
         }
     }
@@ -261,4 +266,3 @@ body:not(.modal-open) {
 table.dataTable tbody tr {
     background: transparent;
 }
-
