@@ -188,7 +188,6 @@
                upline);
 
             return BuildCustomerProductMultipleSettings(actor, searchAccount, message, customerStatusModel);
-
         }
 
         internal IEnumerable<CustomerProductStatus> BuildSearchAccountProductStatus(
