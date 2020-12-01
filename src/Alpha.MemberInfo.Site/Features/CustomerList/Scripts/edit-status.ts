@@ -33,7 +33,7 @@ class EditStatus {
                 html.push(
                     `<li class="edit-status-popup" data-custid='${custId}' data-displayorder='${item.DisplayOrder}'` +
                     `data-url="${item.Url}" data-param='${item.JsonParams}' data-message='${item.ConfirmMessage}'>` +
-                    `<input type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
+                    `<input ${item.Disabled ? 'disabled' : ''} type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
             }
         });
 

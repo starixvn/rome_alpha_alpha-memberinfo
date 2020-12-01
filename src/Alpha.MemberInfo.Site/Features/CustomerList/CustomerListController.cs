@@ -1,17 +1,22 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList
 {
+    using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
-    using Alpha.MemberInfo.Site.Features.Shared;
+    using Alpha.Web;
     using Alpha.Web.Filters;
     using MediatR;
     using System.Web.Mvc;
 
-    public class CustomerListController : MemberInfoBaseController
+    public class CustomerListController : BaseController
     {
         private const string IndexPath = "~/Features/CustomerList/Views/Index.cshtml";
+        private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
+        private readonly Result ErrorDefault = Result.CreateErrorResult("Invalid Request.");
+        private readonly IMediator mediator;
 
-        public CustomerListController(IMediator mediator) : base(mediator)
+        public CustomerListController(IMediator mediator)
         {
+            this.mediator = mediator;
         }
 
         [Route("CustomerList/master")]
@@ -19,21 +24,56 @@
         [Route("CustomerList/member")]
         [HttpGet]
         public ActionResult Index(CustomerListRequest message)
-          => View(message, IndexPath);
+        {
+            if (message != null && !message.IsValid())
+            {
+                return View(InvalidPageViewPath);
+            }
+
+            return View(IndexPath, mediator.Send(message));
+        }
 
         [HttpPost]
         public ActionResult GetCustomerListData(FetchDownlinesListRequest message)
-          => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+        {
+            if (!message.IsValid())
+            {
+                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult GetCustomerAllStatus(CustomerStatusQuery message)
-           => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+        {
+            if (!message.IsValid())
+            {
+                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+        }
 
         [HttpPost]
         public ActionResult MultipleEditPopup(CustomerStatusMultipleQuery message)
-          => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+        {
+            if (!message.IsValid())
+            {
+                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+        }
 
         [HttpPost, AntiXsrfFilter]
         public ActionResult UpdateCustomerStatus(CustomerNonProductStatusCommand command)
-          => Json(mediator.Send(command), JsonRequestBehavior.DenyGet);
+        {
+            if (!command.IsValid())
+            {
+                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(mediator.Send(command), JsonRequestBehavior.DenyGet);
+        }
     }
 }

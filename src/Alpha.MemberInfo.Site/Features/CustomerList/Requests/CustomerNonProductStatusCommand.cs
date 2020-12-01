@@ -21,10 +21,13 @@
 
         public override bool IsValid()
         {
-            var isValid = base.IsValid() && IsValidName(StatusName) && CanUpdateAccount && !IsInternal;
+            var isValidSearchAccount = SearchAccountId > 0 && !SearchAccountId.Equals(viewer.Id);
+            var allowUpdate = CanUpdateAccount && !IsInternal;
+
+            var isValid = isValidSearchAccount && IsValidName(StatusName) && allowUpdate;
             return !StatusName.Equals(StatusNames.DoubleComm) ? isValid : isValid && IsValidDoubleComm;
         }
 
-        internal bool IsValidDoubleComm => viewer.LevelId == SearchAccountRoleId + 1;
+        private bool IsValidDoubleComm => viewer.LevelId == SearchAccountRoleId + 1;
     }
 }

@@ -5,7 +5,7 @@
 
     public class BaseRequest : MemberInfoBaseQuery
     {
-        protected BaseRequest(IUser viewer) : base (viewer)
+        public BaseRequest(IUser viewer) : base(viewer)
         {
         }
     }

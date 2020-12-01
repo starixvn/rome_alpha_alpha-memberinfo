@@ -61,7 +61,7 @@ class CustomerListPopup {
     }
 
     public bindingBootstrapModalEvent = () => {
-        this.$bootstrapContainer.unbind().bind('mouseleave ', () => this.$bootstrapContainer.modal('hide'));
+        //this.$bootstrapContainer.unbind().bind('mouseleave ', () => this.$bootstrapContainer.modal('hide'));
 
         this.$('#bootstrap-modal-product').on('hidden.bs.modal', () => {
             this.$('#myIframe').attr('src', 'about:blank');

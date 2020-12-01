@@ -817,7 +817,6 @@
     <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditAndStatusRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CheckExistedCustomerRequest.cs" />
     <Compile Include="Features\Shared\Helpers\ProductJsonConverter.cs" />
-    <Compile Include="Features\Shared\MemberInfoBaseController.cs" />
     <Compile Include="Features\Shared\Requests\BaseRequest.cs" />
     <Compile Include="Features\Shared\Requests\UserNameSuggestionQuery.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLoginConfigs.cs" />
