@@ -58,7 +58,7 @@ class CustomerListServices {
     public updateCustomerStatus = (currentTarget, parentTarget, updateCustomerStatusSuccess) => {
         const $target = this.$(currentTarget),
             action = $target.data("url"),
-            params = $target.data("param"),
+            params = $target.data("params"),
             displayOrder = $target.data("displayorder");
 
         this.callAjax(

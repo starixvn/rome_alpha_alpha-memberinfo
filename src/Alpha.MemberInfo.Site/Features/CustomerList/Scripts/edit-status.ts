@@ -32,7 +32,7 @@ class EditStatus {
             if (item.ShowInCustomerList) {
                 html.push(
                     `<li class="edit-status-popup" data-custid='${custId}' data-displayorder='${item.DisplayOrder}'` +
-                    `data-url="${item.Url}" data-param='${item.JsonParams}' data-message='${item.ConfirmMessage}'>` +
+                    `data-url="${item.Url}" data-url="${item.Url}" data-ispopup='${item.IsPopup}' data-params='${item.JsonParams}' data-message='${item.ConfirmMessage}'>` +
                     `<input ${item.Disabled ? 'disabled' : ''} type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
             }
         });
@@ -44,11 +44,20 @@ class EditStatus {
         }
     }
 
-    private bindingPopupEvent = parentElement => this.$('.edit-status-popup').click(event =>
-        this.topWindow.bootboxConfirm(
-            this.$(event.currentTarget).data("message"),
-            this.isMobile ? event.target : this.$(parentElement).context,
-            () => this.customerListServices.updateCustomerStatus(event.currentTarget, this.$(parentElement).context, this.updateCustomerStatusSuccess)));
+    private bindingPopupEvent = parentElement => {
+        this.$('.edit-status-popup').click(event => {
+            const isOpenPopup = JSON.parse(this.$(event.currentTarget).data("ispopup"));
+            isOpenPopup ?
+                this.customerListPopup.openProductPopup(event.currentTarget) :
+                this.topWindow.bootboxConfirm(
+                    this.$(event.currentTarget).data("message"),
+                    this.isMobile ? event.target : this.$(parentElement).context,
+                    () => this.customerListServices.updateCustomerStatus(
+                        event.currentTarget,
+                        this.$(parentElement).context,
+                        this.updateCustomerStatusSuccess));
+        })
+    }
 
     private updateCustomerStatusSuccess = (currentTarget, parentTarget, data, displayOrder) => {
         if (data.IsSuccessful) {
