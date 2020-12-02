@@ -1,0 +1,27 @@
+﻿@model MultipleDoubleCommViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Multiple Double Comm";
+}
+
+@section Styles {
+}
+
+<div>
+    <div id="message" class="hidden">
+        <span id="message-content" className="col-xs-12"></span>
+    </div>
+    <div><input type="radio" checked="checked" name="mulitpleDoubleComm" value="true"><label for="dcomAllow">Allow Double Commission</label></div>
+    <div><input type="radio" name="mulitpleDoubleComm" value="false"><label for="dcomDisallow">Disallow Double Commission</label></div>
+    <div class="form-group btn-box">
+        <input type="submit" value="@Resources.Submit" class="btn-submit" />
+    </div>
+    <input type="hidden" id="searchAccountIds" value="@Model.SearchAccountIds">
+    <input type="hidden" id="searchAccountRoleId" value="@Model.SearchAccountRoleId">
+    @Html.AntiForgeryToken()
+</div>
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/CustomerList/Bundles/muliple-double-comm")
+}

@@ -14,15 +14,14 @@
 
         public override string Text => Request.GetResource("EditMultipleDoubleCommText");
 
-        protected override string BaseAddress 
-            => $"{OldMainUrl}_AccountInfo/ComfirmMultiEditDoubleComm.aspx";
+        protected override string BaseAddress
+            => $"{MemberInfoUrl}CustomerList/MultipleDoubleComm";
 
-        public override Dictionary<string, string> QueryStringParamaters => new Dictionary<string, string>();
-
-        public Dictionary<string, string> QueryStringParamatersMultiple
-            => new Dictionary<string, string>
-            {
-                ["arCID"] = Request.GetData<string>("customerIds")
-            };
+        public override Dictionary<string, string> QueryStringParamaters
+              => new Dictionary<string, string>
+              {
+                  ["SearchAccountIds"] = Request.GetData<string>("customerIds"),
+                  ["SearchAccountRoleId"] = SearchAccount.CusomerLevelValue.ToString()
+              };
     }
 }

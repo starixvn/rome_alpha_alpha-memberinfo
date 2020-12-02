@@ -568,6 +568,21 @@
     <Content Include="assets\styles\images\Slide3.vi-VN.png" />
     <Content Include="assets\styles\images\Slide3.zh-CN.png" />
     <Content Include="assets\styles\images\Slide3.zh-TW.png" />
+    <Content Include="assets\styles\common-07.css">
+      <DependentUpon>common-07.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\common-07.min.css">
+      <DependentUpon>common-07.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\common.css">
+      <DependentUpon>common.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\common.min.css">
+      <DependentUpon>common.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\credit-balance.css">
+      <DependentUpon>credit-balance.scss</DependentUpon>
+    </Content>
     <Content Include="assets\styles\images\star.gif" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.draggable.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.linkbutton.js" />
@@ -579,6 +594,12 @@
     </Content>
     <Content Include="assets\styles\indirect-login-account.min.css">
       <DependentUpon>indirect-login-account.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\member-info.css">
+      <DependentUpon>member-info.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\member-info.min.css">
+      <DependentUpon>member-info.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\problem-account\index.css">
       <DependentUpon>index.scss</DependentUpon>
@@ -592,6 +613,13 @@
     <Content Include="assets\styles\problem-account\update.min.css">
       <DependentUpon>update.css</DependentUpon>
     </Content>
+    <Content Include="assets\styles\win-loss-limit.css">
+      <DependentUpon>win-loss-limit.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\CustomerList\Bundles\customer-list-07.css" />
+    <Content Include="Features\CustomerList\Bundles\customer-list-07.min.css">
+      <DependentUpon>customer-list-07.css</DependentUpon>
+    </Content>
     <Content Include="Features\CustomerList\Bundles\customer-list.css" />
     <Content Include="Features\CustomerList\Bundles\customer-list.js" />
     <Content Include="Features\CustomerList\Bundles\customer-list.min.css">
@@ -602,11 +630,12 @@
     </Content>
 <<<<<<< HEAD
      <Content Include="Features\CustomerList\Bundles\master-list.js" />
-    <Content Include="Features\CustomerList\Bundles\master-list.min.js">
-      <DependentUpon>master-list.js</DependentUpon>
-    </Content>
 =======
->>>>>>> 000 - edit bundle
+    <Content Include="Features\CustomerList\Bundles\muliple-double-comm.js" />
+    <Content Include="Features\CustomerList\Bundles\muliple-double-comm.min.js">
+      <DependentUpon>muliple-double-comm.js</DependentUpon>
+    </Content>
+>>>>>>> 000 - multiple double comm
     <Content Include="Features\CustomerList\Styles\customer-list-07.css">
       <DependentUpon>customer-list-07.scss</DependentUpon>
     </Content>
@@ -767,6 +796,8 @@
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
      <Compile Include="Features\CustomerList\MasterListHandler.cs" />
     <Compile Include="Features\CustomerList\CustomerListController.cs" />
+    <Compile Include="Features\CustomerList\Requests\MultipleDoubleCommRequest.cs" />
+    <Compile Include="Features\CustomerList\Requests\UpdateMultipleDoubleCommCommand.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerNonProductStatusCommand.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusMultipleQuery.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusQuery.cs" />
@@ -776,6 +807,7 @@
     <Compile Include="Features\CustomerList\Requests\CustomerListRequest.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerListViewModel.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerStatusMultipleViewModel.cs" />
+    <Compile Include="Features\CustomerList\ViewModels\MultipleDoubleCommViewModel.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerStatusViewModel.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountController.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountHandler.cs" />
@@ -795,7 +827,6 @@
     <Compile Include="Features\QRCodeMemberSignIn\Requests\GetMemberCreditAndStatusRequest.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Requests\CheckExistedCustomerRequest.cs" />
     <Compile Include="Features\Shared\Helpers\ProductJsonConverter.cs" />
-    <Compile Include="Features\Shared\MemberInfoBaseController.cs" />
     <Compile Include="Features\Shared\Requests\BaseRequest.cs" />
     <Compile Include="Features\Shared\Requests\UserNameSuggestionQuery.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\ViewModels\QRCodeLoginConfigs.cs" />
@@ -896,6 +927,9 @@
     <Content Include="assets\styles\indirect-login-account.scss" />
     <Content Include="App_Code\Components\Alert.cshtml" />
     <Content Include="App_Code\Components\Breadcrumb.cshtml" />
+    <Content Include="assets\styles\common-07.scss" />
+    <Content Include="assets\styles\abstracts\_mixins.scss" />
+    <Content Include="assets\styles\common.scss" />
     <Content Include="assets\styles\quick-introduction.scss">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
@@ -1007,6 +1041,7 @@
      <Content Include="Features\CustomerList\Styles\customer-list.scss" />
     <Content Include="Features\Shared\Views\NoInformation.cshtml" />
     <Content Include="Features\CustomerList\Styles\customer-list-07.scss" />
+<<<<<<< HEAD
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1017,6 +1052,9 @@
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_zh-TW.cshtml" />
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_zh-CN.cshtml" />
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.scss" />
+=======
+    <Content Include="Features\CustomerList\Views\MultipeDoubleComm.cshtml" />
+>>>>>>> 000 - multiple double comm
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
@@ -1069,7 +1107,11 @@
     <TypeScriptCompile Include="Features\CustomerList\Scripts\edit-status.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-datatable.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list.ts" />
+<<<<<<< HEAD
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
+=======
+    <TypeScriptCompile Include="Features\CustomerList\Scripts\muliple-double-comm.ts" />
+>>>>>>> 000 - multiple double comm
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\show-qr-code.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\qr-code-member-sign-in.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />

@@ -628,7 +628,11 @@
     <Content Include="Features\CustomerList\Bundles\customer-list.min.js">
       <DependentUpon>customer-list.js</DependentUpon>
     </Content>
+    <Content Include="Features\CustomerList\Bundles\muliple-double-comm.js" />
      <Content Include="Features\CustomerList\Bundles\master-list.js" />
+    <Content Include="Features\CustomerList\Bundles\muliple-double-comm.min.js">
+      <DependentUpon>muliple-double-comm.js</DependentUpon>
+    </Content>
     <Content Include="Features\CustomerList\Styles\customer-list-07.css">
       <DependentUpon>customer-list-07.scss</DependentUpon>
     </Content>
@@ -789,6 +793,8 @@
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
      <Compile Include="Features\CustomerList\MasterListHandler.cs" />
     <Compile Include="Features\CustomerList\CustomerListController.cs" />
+    <Compile Include="Features\CustomerList\Requests\MultipleDoubleCommRequest.cs" />
+    <Compile Include="Features\CustomerList\Requests\UpdateMultipleDoubleCommCommand.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerNonProductStatusCommand.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusMultipleQuery.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerStatusQuery.cs" />
@@ -798,6 +804,7 @@
     <Compile Include="Features\CustomerList\Requests\CustomerListRequest.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerListViewModel.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerStatusMultipleViewModel.cs" />
+    <Compile Include="Features\CustomerList\ViewModels\MultipleDoubleCommViewModel.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerStatusViewModel.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountController.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountHandler.cs" />
@@ -1031,6 +1038,7 @@
      <Content Include="Features\CustomerList\Styles\customer-list.scss" />
     <Content Include="Features\Shared\Views\NoInformation.cshtml" />
     <Content Include="Features\CustomerList\Styles\customer-list-07.scss" />
+    <Content Include="Features\CustomerList\Views\MultipeDoubleComm.cshtml" />
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1093,6 +1101,7 @@
     <TypeScriptCompile Include="Features\CustomerList\Scripts\edit-status.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-datatable.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list.ts" />
+    <TypeScriptCompile Include="Features\CustomerList\Scripts\muliple-double-comm.ts" />
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\show-qr-code.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\qr-code-member-sign-in.ts" />

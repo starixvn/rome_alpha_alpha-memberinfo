@@ -18,6 +18,7 @@
     using Alpha.Products.Core.ViewModels;
     using Alpha.SecurityCode.Services;
     using Alpha.Web.Helpers;
+    using Fanex.Common;
     using MediatR;
     using System.Collections.Generic;
     using System.Linq;
@@ -27,7 +28,9 @@
         IRequestHandler<FetchDownlinesListRequest, CustomerListDTO>,
         IRequestHandler<CustomerStatusQuery, CustomerStatusViewModel>,
         IRequestHandler<CustomerStatusMultipleQuery, IEnumerable<ISettingItemMultipleViewModel>>,
-        IRequestHandler<CustomerNonProductStatusCommand, Result>
+        IRequestHandler<CustomerNonProductStatusCommand, Result>,
+        IRequestHandler<MultipleDoubleCommRequest, MultipleDoubleCommViewModel>,
+        IRequestHandler<UpdateMultipleDoubleCommCommand, IEnumerable<Result>>
     {
         private readonly CustomerListService customerListService;
         private readonly GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel> settingMultipleViewModelFactory;
@@ -129,6 +132,30 @@
                   message.StatusValue,
                   message.StatusName,
                   message.ActorName));
+
+        public MultipleDoubleCommViewModel Handle(MultipleDoubleCommRequest message)
+           => new MultipleDoubleCommViewModel(message);
+
+        public IEnumerable<Result> Handle(UpdateMultipleDoubleCommCommand message)
+        {
+            var results = new List<Result>();
+
+            foreach (var searchAccountId in message.SearchAccountIds.Split(','))
+            {
+                results.Add(customerListService.UpdateCustomerStatus(
+                    new UpdateCustomerStatusParam(
+                      Converter.ToInt(searchAccountId),
+                      message.ActorId,
+                      message.SubAccountId,
+                      message.Language,
+                      message.IP,
+                      message.EnabledDoubleComm,
+                      StatusNames.DoubleComm,
+                      message.ActorName)));
+            }
+
+            return results;
+        }
 
         internal CustomerStatusViewModel BuildCustomerStatus(CustomerStatusQuery message)
         {

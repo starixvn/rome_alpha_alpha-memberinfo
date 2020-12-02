@@ -10,6 +10,7 @@
     public class CustomerListController : BaseController
     {
         private const string IndexPath = "~/Features/CustomerList/Views/Index.cshtml";
+        private const string MultipleDoubleCommPath = "~/Features/CustomerList/Views/MultipeDoubleComm.cshtml";
         private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         private readonly Result ErrorDefault = Result.CreateErrorResult("Invalid Request.");
         private readonly IMediator mediator;
@@ -67,6 +68,28 @@
 
         [HttpPost, AntiXsrfFilter]
         public ActionResult UpdateCustomerStatus(CustomerNonProductStatusCommand command)
+        {
+            if (!command.IsValid())
+            {
+                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(mediator.Send(command), JsonRequestBehavior.DenyGet);
+        }
+
+        public ActionResult MultipleDoubleComm(MultipleDoubleCommRequest message)
+        {
+            if (message != null && !message.IsValid())
+            {
+                return View(InvalidPageViewPath);
+            }
+
+            return View(MultipleDoubleCommPath, null, mediator.Send(message));
+        }
+
+
+        [HttpPost, AntiXsrfFilter]
+        public ActionResult UpdateMultipleDoubleComm(UpdateMultipleDoubleCommCommand command)
         {
             if (!command.IsValid())
             {

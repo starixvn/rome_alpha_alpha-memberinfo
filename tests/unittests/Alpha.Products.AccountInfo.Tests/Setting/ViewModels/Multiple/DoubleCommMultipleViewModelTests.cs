@@ -11,7 +11,7 @@
         [Fact]
         public void Url_Start_With_BaseAddress()
         {
-            string expectedBaseAddress = "MicroSiteName/_AccountInfo/ComfirmMultiEditDoubleComm.aspx";
+            string expectedBaseAddress = "MicroSiteName/CustomerList/UpdateMultipleDoubleComm";
             var request = RequestHelper.CreateRequest(4, 3);
             var viewModel = new DoubleCommMultipleViewModel(request);
 
@@ -37,7 +37,7 @@
 
             var viewModel = new DoubleCommMultipleViewModel(request);
 
-            Assert.Equal("1, 3", viewModel.QueryStringParamatersMultiple["arCID"]);
+            Assert.Equal("1, 3", viewModel.QueryStringParamaters["SearchAccountIds"]);
         }
     }
 }

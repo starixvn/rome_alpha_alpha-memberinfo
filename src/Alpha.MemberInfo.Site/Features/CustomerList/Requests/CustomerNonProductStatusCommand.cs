@@ -28,6 +28,6 @@
             return !StatusName.Equals(StatusNames.DoubleComm) ? isValid : isValid && IsValidDoubleComm;
         }
 
-        private bool IsValidDoubleComm => viewer.LevelId == SearchAccountRoleId + 1;
+        protected bool IsValidDoubleComm => viewer.LevelId == SearchAccountRoleId + 1;
     }
 }

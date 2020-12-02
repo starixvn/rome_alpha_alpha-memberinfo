@@ -1,11 +1,11 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting.ViewModels.Base
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Shared;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public abstract class SettingItemViewModel : ISettingItemViewModel
     {
@@ -49,11 +49,13 @@
 
         protected abstract string BaseAddress { get; }
 
-        protected virtual string OldMainUrl => Request.GetMicroSiteUrl(MicroSiteConstants.OldMain,"~/");
+        protected virtual string OldMainUrl => Request.GetMicroSiteUrl(MicroSiteConstants.OldMain, "~/");
 
         protected virtual string MainUrl => Request.GetMicroSiteUrl(MicroSiteConstants.Main, "~/");
 
         protected virtual string AccountInfoUrl => Request.GetMicroSiteUrl(MicroSiteConstants.AccountInfo, "~/");
+
+        protected virtual string MemberInfoUrl => Request.GetMicroSiteUrl(MicroSiteConstants.MemberInfo, "~/");
 
         public virtual bool Visible => Request.ActorIsEdittingDirectDownline;
     }

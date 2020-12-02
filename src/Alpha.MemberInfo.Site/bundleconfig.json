@@ -2,7 +2,7 @@
   {
     "outputFileName": "assets/bundles/default.css",
     "inputFiles": [
-      "assets/styles/member-info.css"     
+      "assets/styles/member-info.css"
     ]
   },
   {
@@ -186,6 +186,12 @@
     "inputFiles": [
       "assets/styles/common-07.css",
       "Features/CustomerList/Styles/customer-list-07.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/CustomerList/Bundles/muliple-double-comm.js",
+    "inputFiles": [
+      "Features/CustomerList/Scripts/muliple-double-comm.js"
     ]
   }
 ]
