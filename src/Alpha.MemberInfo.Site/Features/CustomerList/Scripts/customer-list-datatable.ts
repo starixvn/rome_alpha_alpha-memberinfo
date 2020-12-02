@@ -348,6 +348,12 @@ class CustomerListDataTable {
 
         this.$('.btn-submit').unbind().bind('click', () => this.$table.ajax.reload());
 
+        this.$('#txt-username').unbind().bind('keypress', (event) => {
+            if (event.which == 13) {
+                this.$table.ajax.reload();
+            }
+        });
+
         this.$('.login-ip').unbind().bind('click', event => this.customerListPopup.openProductPopup(event.currentTarget));
 
         this.$('.view-statement').unbind().bind('click', event => this.viewStatement(event));
