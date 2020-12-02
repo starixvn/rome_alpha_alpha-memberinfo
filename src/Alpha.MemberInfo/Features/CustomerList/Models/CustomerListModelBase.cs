@@ -13,13 +13,13 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          byte roleId,
          string uGroup,
          string firstName,
-         string lastName ,
+         string lastName,
          string userName2,
          string phone,
          string mobilePhone,
          string lastLoginIP,
          int currency,
-         int matchLimit ,
+         int matchLimit,
          int virtualMultiplier,
          string createDate,
          bool isInternal,
@@ -70,7 +70,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
 
         public string LastName { get; private set; }
 
-        public string UserName2 { get; private set; }
+        public string UserName2 { get; set; }
 
         public string Phone { get; private set; }
 
@@ -110,7 +110,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
         {
             get
             {
-                if(Enabled)
+                if (Enabled)
                 {
                     if (Closed)
                     {

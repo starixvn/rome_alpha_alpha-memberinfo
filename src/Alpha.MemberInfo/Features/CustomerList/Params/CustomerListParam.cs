@@ -16,7 +16,8 @@
             byte productUnSync,
             int pageSize,
             int pageIndex,
-            bool limitedDateToShowInfo)
+            bool limitedDateToShowInfo,
+            bool showNickname)
         {
             UserId = userId;
             DirectUplineId = directUplineId;
@@ -30,6 +31,7 @@
             PageSize = pageSize;
             PageIndex = pageIndex;
             LimitedDateToShowInfo = limitedDateToShowInfo;
+            ShowNickname = showNickname;
         }
 
         public int UserId { get; }
@@ -55,5 +57,7 @@
         public int PageIndex { get; }
 
         public bool LimitedDateToShowInfo { get; }
+
+        public bool ShowNickname { get; }
     }
 }

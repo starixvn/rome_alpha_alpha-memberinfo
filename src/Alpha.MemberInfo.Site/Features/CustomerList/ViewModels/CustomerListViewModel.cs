@@ -113,8 +113,8 @@
              => new List<CustomerListOption>
                 {
                     new CustomerListOption(2 , CustomerListResources.All),
-                    new CustomerListOption(0 , CustomerListResources.Allowed),
-                    new CustomerListOption(1 , CustomerListResources.Disallowed)
+                    new CustomerListOption(1 , CustomerListResources.Allowed),
+                    new CustomerListOption(0 , CustomerListResources.Disallowed)
                 };
 
         public IEnumerable<CustomerListOption> UnconfirmedSettingOptions

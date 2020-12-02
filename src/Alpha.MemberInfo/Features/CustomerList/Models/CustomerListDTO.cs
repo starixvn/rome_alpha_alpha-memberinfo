@@ -10,13 +10,24 @@
             IEnumerable<CustomerListModelBase> downlinesList,
             int totalDownlines,
             int totalPages,
-            bool limitedDateToShowInfo)
+            bool limitedDateToShowInfo,
+            bool showNickname)
         {
-            DownlinesList = limitedDateToShowInfo ? downlinesList.Select(
-                downline => {
-                    downline.CreateDate = "--";
+            DownlinesList = downlinesList.Select(
+                downline =>
+                {
+                    if (!limitedDateToShowInfo)
+                    {
+                        downline.CreateDate = "--";
+                    }
+
+                    if (!showNickname)
+                    {
+                        downline.UserName2 = "--";
+                    }
+
                     return downline;
-                }) : downlinesList;
+                });
 
             TotalDownlines = totalDownlines;
             TotalPages = totalPages;

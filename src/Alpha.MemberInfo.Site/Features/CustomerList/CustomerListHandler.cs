@@ -113,7 +113,8 @@
                     message.UnconfirmSetting,
                     message.PageSize,
                     message.PageIndex,
-                    message.LimitedDateToShowInfo));
+                    message.LimitedDateToShowInfo,
+                    message.ShowNickname));
 
         public CustomerStatusViewModel Handle(CustomerStatusQuery message)
             => BuildCustomerStatus(message);

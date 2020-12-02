@@ -31,10 +31,12 @@
              => Status.Equals(4) ? (bool?)false : null;
 
         public bool? Closed
-            => Status.Equals(1) || Status.Equals(3)? (bool?)Status.Equals(3) : null;
+            => Status.Equals(1) || Status.Equals(3) ? (bool?)Status.Equals(3) : null;
 
         public bool IsMobile { get; set; }
 
         public bool LimitedDateToShowInfo { get; }
+
+        public bool ShowNickname => ViewerLevelId == CustLevelId;
     }
 }
