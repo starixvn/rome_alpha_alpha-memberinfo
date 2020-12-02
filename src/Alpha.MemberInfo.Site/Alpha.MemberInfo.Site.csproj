@@ -1009,7 +1009,6 @@
     <Content Include="Views\CreditBalance\_ColumnsControl.cshtml" />
     <Content Include="Views\ProblemAccount\Index.cshtml" />
     <Content Include="Views\ProblemAccount\Update.cshtml" />
-    <Content Include="Master.xls" />
     <Content Include="Views\IndirectLoginAccount\Index.cshtml" />
     <Content Include="Views\IndirectLoginAccount\NewAccount.cshtml" />
     <Content Include="Views\IndirectLoginAccount\UpdatePassword.cshtml" />
