@@ -258,4 +258,13 @@
   <data name="NotFilter" xml:space="preserve">
     <value>Not Filter</value>
   </data>
+  <data name="AllowDoubleCommission" xml:space="preserve">
+    <value>Allow Double Commission</value>
+  </data>
+  <data name="DisallowDoubleCommission" xml:space="preserve">
+    <value>Disallow Double Commission</value>
+  </data>
+  <data name="UpdateDoubleCommSuccessfully" xml:space="preserve">
+    <value>Update Double Comm successfully.</value>
+  </data>
 </root>

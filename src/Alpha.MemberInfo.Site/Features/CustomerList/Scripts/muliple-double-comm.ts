@@ -72,7 +72,7 @@ class MulitpleDoubleComm {
                 })
 
                 if (isSuccessful) {
-                    this.$messageContent.html(`<div class='msg msg-success'>Update successfully</div>`);
+                    this.$messageContent.html(`<div class='msg msg-success'>${this.$('#successullyMessage').val()}</div>`);
                     this.$messageContainer.removeClass('hidden');
 
                     //setTimeout(() => {

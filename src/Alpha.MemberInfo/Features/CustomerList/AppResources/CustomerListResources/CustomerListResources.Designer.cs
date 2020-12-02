@@ -107,6 +107,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow Double Commission.
+        /// </summary>
+        public static string AllowDoubleCommission {
+            get {
+                return ResourceManager.GetString("AllowDoubleCommission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Allowed.
         /// </summary>
         public static string Allowed {
@@ -148,6 +157,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string Disabled {
             get {
                 return ResourceManager.GetString("Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disallow Double Commission.
+        /// </summary>
+        public static string DisallowDoubleCommission {
+            get {
+                return ResourceManager.GetString("DisallowDoubleCommission", resourceCulture);
             }
         }
         
@@ -454,6 +472,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string UnconfirmedSetting {
             get {
                 return ResourceManager.GetString("UnconfirmedSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Double Comm successfully..
+        /// </summary>
+        public static string UpdateDoubleCommSuccessfully {
+            get {
+                return ResourceManager.GetString("UpdateDoubleCommSuccessfully", resourceCulture);
             }
         }
         

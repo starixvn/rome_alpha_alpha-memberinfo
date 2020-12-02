@@ -258,4 +258,13 @@
   <data name="View" xml:space="preserve">
     <value>보기</value>
   </data>
+  <data name="AllowDoubleCommission" xml:space="preserve">
+    <value>더블 커미션 허용하기</value>
+  </data>
+  <data name="DisallowDoubleCommission" xml:space="preserve">
+    <value>더블 커미션 허용하지않기</value>
+  </data>
+  <data name="UpdateDoubleCommSuccessfully" xml:space="preserve">
+    <value>Update Double Comm successfully.</value>
+  </data>
 </root>

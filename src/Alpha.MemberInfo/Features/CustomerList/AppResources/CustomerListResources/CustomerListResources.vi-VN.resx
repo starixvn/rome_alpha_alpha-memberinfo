@@ -258,4 +258,13 @@
   <data name="View" xml:space="preserve">
     <value>Xem</value>
   </data>
+  <data name="AllowDoubleCommission" xml:space="preserve">
+    <value>Cho phép Nhân đôi hoa hồng</value>
+  </data>
+  <data name="DisallowDoubleCommission" xml:space="preserve">
+    <value>Không cho phép nhân đôi hoa hồng</value>
+  </data>
+  <data name="UpdateDoubleCommSuccessfully" xml:space="preserve">
+    <value>Update Double Comm successfully.</value>
+  </data>
 </root>

@@ -258,4 +258,13 @@
   <data name="View" xml:space="preserve">
     <value>瀏覽</value>
   </data>
+  <data name="AllowDoubleCommission" xml:space="preserve">
+    <value>允許雙倍佣金</value>
+  </data>
+  <data name="DisallowDoubleCommission" xml:space="preserve">
+    <value>禁止雙倍佣金</value>
+  </data>
+  <data name="UpdateDoubleCommSuccessfully" xml:space="preserve">
+    <value>Update Double Comm successfully.</value>
+  </data>
 </root>
