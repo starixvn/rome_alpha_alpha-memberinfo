@@ -41,9 +41,10 @@ _CodeCoverageReport
 /OpenCover/*
 
 *.css
+*.min.css
 *.min.js
 *.js
-bundles
+bundles/
 *.js.map
 */**/assets/scripts/**/*.js
 */**/bundles/**/*.js
