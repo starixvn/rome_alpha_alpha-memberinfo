@@ -72,5 +72,8 @@ src/Alpha.Reports.Site/jsUnitTest.xml
 =======
 /.vs/Alpha.MemberInfo/v15/.suo
 /build/assets.build.log
-.*suo
->>>>>>> 000 - remove bin, packages and obj folders
+*.suo
+*.ide
+*.lock
+*.dtbcache
+>>>>>>> 000 - remove .orig, .vs, update .gitignore
