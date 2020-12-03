@@ -80,6 +80,11 @@ class CustomerListPopup {
         this.$('#myIframeForm').submit();
     }
 
+    public successfulUpdatingCallbackSportbook = () => {
+        this.$('#myIframeForm').submit();
+        this.$('.btn-submit').click();
+    }
+
     public openBootstrapModal = (element, data, buildPopupHtml, bindingPopupEvent) => {
         buildPopupHtml(data, this.$(element).data("custid"));
         bindingPopupEvent(element);
