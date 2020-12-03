@@ -1,6 +1,14 @@
 ﻿/// <reference path="../../../assets/scripts/components/single-selection-dropdown.ts" />
 "use strict";
 
+interface Window {
+    successfulUpdatingCallback: Function,
+    reloadPopUpSetting: Function,
+    actionAfterUpdatedLiveCasinoSettingMultiple: Function,
+    actionAfterUpdatedLiveCasinoSettingSingle: Function,
+    customerListPopup: any;
+}
+
 class CustomerList {
     private $: JQueryStatic;
     private customerListPopup: CustomerListPopup;
@@ -47,7 +55,7 @@ class CustomerList {
         this.editMultipleSetting.bindingEvent();
         this.customerListPopup.bindingBootstrapModalEvent();
     };
-    
+
     private bidingEasyAutoComplete = () => this.$('#txt-username').easyAutocomplete({
         url: phrase => `${this.viewModel.MemberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&DirectDownlines=true`,
         getValue: 'UserName',
@@ -98,6 +106,13 @@ $(function () {
             new SingleSelectionDropdownComponent($),
             new SingleSelectionDropdownComponent($),
             new SingleSelectionDropdownComponent($));
+
+    window.top.customerListPopup = customerListPopup;
+
+    window.successfulUpdatingCallback = (isPartialUpdate, isMultipleUpdate) => customerListPopup.successfulUpdatingCallback();
+
+    window.actionAfterUpdatedLiveCasinoSettingMultiple = isUpdatePartial => customerListPopup.successfulUpdatingCallback();
+    window.actionAfterUpdatedLiveCasinoSettingSingle = isUpdatePartial => customerListPopup.successfulUpdatingCallback();
 
     customerList.init();
 });

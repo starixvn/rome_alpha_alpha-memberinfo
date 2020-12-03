@@ -74,6 +74,12 @@ class CustomerListPopup {
 
     public closeStatusPopup = () => this.$bootstrapContainer.modal('hide');
 
+    public closeProductPopup = () => this.$('#bootstrap-modal-product').modal('hide');
+
+    public successfulUpdatingCallback = () => {
+        this.$('#myIframeForm').submit();
+    }
+
     public openBootstrapModal = (element, data, buildPopupHtml, bindingPopupEvent) => {
         buildPopupHtml(data, this.$(element).data("custid"));
         bindingPopupEvent(element);
