@@ -9,6 +9,10 @@ class CustomerListDataTable {
     private editStatus: EditStatus;
     private viewModel: CustomerListViewModel;
     private topWindow: any;
+    private username: string;
+    private status: string;
+    private doubleComm: string;
+    private unconfirmSetting: string;
 
     constructor(
         $: JQueryStatic,
@@ -68,7 +72,21 @@ class CustomerListDataTable {
             .on('processing.dt', (e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
             .DataTable({
                 serverSide: true,
-                ajax: (data, callback) => this.customerListServices.getCutomerList(data, callback),
+                ajax: (data, callback) => {
+                    const params = {
+                        CustName: this.viewModel.SearchAccountName,
+                        CustId: this.viewModel.SearchAccountId,
+                        CustLevelId: this.viewModel.SearchAccountRoleId,
+                        PageIndex: (data.start / data.length) + 1,
+                        PageSize: data.length,
+                        Username: this.username,
+                        Status: this.status,
+                        DoubleComm: this.doubleComm,
+                        UnconfirmSetting: this.unconfirmSetting
+                    };
+
+                    this.customerListServices.getCutomerList(params, callback);
+                },
                 columns: this.buildDataTableColumns(),
                 createdRow: (row, data) => this.$(row).addClass(this.getRowClass(data)),
                 responsive: { details },
@@ -93,7 +111,8 @@ class CustomerListDataTable {
                     oPaginate,
                     emptyTable: this.viewModel.CustomerListResources.ThereIsNoData
                 },
-                drawCallback: this.drawCallback
+                drawCallback: this.drawCallback,
+                isSubmit: false
             });
 
         this.$("#tbl-customer-list").find('tbody').on('click', 'td.control', event => this.doAdjustHeader(event));
@@ -346,11 +365,17 @@ class CustomerListDataTable {
 
         this.$('#tbl-customer-list').removeClass('hidden');
 
-        this.$('.btn-submit').unbind().bind('click', () => this.$table.ajax.reload());
+        this.$('.btn-submit').unbind().bind('click', () => {
+            this.username = this.$('#txt-username').val();
+            this.status = this.$('#statusFilter').val();
+            this.doubleComm = this.$('#dcommFilter').val();
+            this.unconfirmSetting = this.$('#unconfirmSettingFilter').val();
+            this.$table.ajax.reload();
+        });
 
-        this.$('#txt-username').unbind().bind('keypress', (event) => {
+        this.$('#txt-username').unbind().bind('keypress', event => {
             if (event.which == 13) {
-                this.$table.ajax.reload();
+                this.$('.btn-submit').click();
             }
         });
 

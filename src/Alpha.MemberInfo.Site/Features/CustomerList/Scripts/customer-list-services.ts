@@ -4,6 +4,10 @@ class CustomerListServices {
     private $: JQueryStatic;
     public statusSettingArray: any;
     private viewModel: CustomerListViewModel;
+    private username: string;
+    private status: string;
+    private doubleComm: string;
+    private unconfirmSetting: string;
 
     constructor($: JQueryStatic, viewModel: CustomerListViewModel) {
         this.$ = $;
@@ -27,33 +31,19 @@ class CustomerListServices {
         });
     }
 
-    public getCutomerList = (data, callback) => {
-        const params = {
-            CustName: this.viewModel.SearchAccountName,
-            CustId: this.viewModel.SearchAccountId,
-            CustLevelId: this.viewModel.SearchAccountRoleId,
-            PageIndex: (data.start / data.length) + 1,
-            PageSize: data.length,
-            Username: this.$('#txt-username').val(),
-            Status: this.$('#statusFilter').val(),
-            DoubleComm: this.$('#dcommFilter').val(),
-            UnconfirmSetting: this.$('#unconfirmSettingFilter').val()
-        };
-
-        this.callAjax(
-            `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerListData`,
-            'POST',
-            params,
-            data => {
-                this.$.unblockUI();
-                callback({
-                    data: data.DownlinesList,
-                    recordsTotal: data.TotalDownlines,
-                    recordsFiltered: data.TotalDownlines
-                });
-            }
-        );
-    }
+    public getCutomerList = (params, callback) => this.callAjax(
+        `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerListData`,
+        'POST',
+        params,
+        data => {
+            this.$.unblockUI();
+            callback({
+                data: data.DownlinesList,
+                recordsTotal: data.TotalDownlines,
+                recordsFiltered: data.TotalDownlines
+            });
+        }
+    );
 
     public updateCustomerStatus = (currentTarget, parentTarget, updateCustomerStatusSuccess) => {
         const $target = this.$(currentTarget),
