@@ -34,10 +34,11 @@ class EditSingleSetting {
                 this.bindingPopupEvent));
     }
 
-    private buildPopupHtml = settings => {
+    private buildPopupHtml = (settings, username) => {
         let html = ['<ul>'];
         this.$.each(settings, (key, item) => {
-            html.push(`<li data-title='${item.Text}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+            const title = `${this.$('#editText').val()} ${item.Text} - ${username}`;
+            html.push(`<li data-title="${title}" data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
         });
 
         this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));

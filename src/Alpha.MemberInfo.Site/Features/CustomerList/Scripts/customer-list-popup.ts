@@ -86,7 +86,7 @@ class CustomerListPopup {
     }
 
     public openBootstrapModal = (element, data, buildPopupHtml, bindingPopupEvent) => {
-        buildPopupHtml(data, this.$(element).data("custid"), this.$(element).data("username"));
+        buildPopupHtml(data, this.$(element).data("username"), this.$(element).data("custid"));
         bindingPopupEvent(element);
 
         if (this.isMobile) {

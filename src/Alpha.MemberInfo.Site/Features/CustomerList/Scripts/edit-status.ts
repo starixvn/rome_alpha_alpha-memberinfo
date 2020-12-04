@@ -26,7 +26,7 @@ class EditStatus {
         data => this.customerListPopup.openBootstrapModal(element, data.Status, this.buildPopupHtml, this.bindingPopupEvent)
     );
 
-    private buildPopupHtml = (statusArray, custId, username) => {
+    private buildPopupHtml = (statusArray, username, custId) => {
         let html = ['<ul>'];
         this.$.each(statusArray, (key, item) => {
             if (item.ShowInCustomerList) {

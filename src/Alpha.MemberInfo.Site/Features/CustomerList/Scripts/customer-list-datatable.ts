@@ -169,11 +169,10 @@ class CustomerListDataTable {
             },
             {
                 "className": 'left',
-                "data": "FirstName"
-            },
-            {
-                "className": 'left',
-                "data": "LastName"
+                "data": null,
+                "render": item => {
+                    return `${item.FirstName} ${item.LastName}`;
+                }
             }]);
 
         if (this.viewModel.SearchAccountRoleId === 2) {
@@ -258,6 +257,7 @@ class CustomerListDataTable {
             'class': 'edit icon-table-edit',
             'id': `setting-${item.CustId}`,
             'data-custid': item.CustId,
+            'data-username': item.Username,
             'data-url': this.buildGetAllStatusLink(item)
         };
 

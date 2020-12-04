@@ -79,7 +79,6 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
                 @if (Model.SearchAccountRoleId == 2)
                 {
                     <th></th>
@@ -130,10 +129,7 @@
                     @CustomerListResources.Statement
                 </th>
                 <th rowspan="2" class="header">
-                    @CustomerListResources.FirstName
-                </th>
-                <th rowspan="2" class="header">
-                    @CustomerListResources.LastName
+                    @CustomerListResources.FirstName & @CustomerListResources.LastName
                 </th>
                 @if (Model.SearchAccountRoleId == 2)
                 {
@@ -229,6 +225,7 @@
     <input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
     <input type="hidden" id="commissionText" value='@CustomerListResources.Commission'>
     <input type="hidden" id="unuspendStatusPopupHeader" value='@CustomerListResources.UnuspendStatusPopupHeader'>
+    <input type="hidden" id="editText" value='@CustomerListResources.Edit'>
 </div>
 
 @section Scripts {
