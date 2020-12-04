@@ -269,6 +269,7 @@ class CustomerListDataTable {
             'class': 'status-popup',
             'id': `status-${item.CustId}`,
             'data-custid': item.CustId,
+            'data-username': item.Username,
             'data-url': this.buildGetAllStatusLink(item)
         };
 

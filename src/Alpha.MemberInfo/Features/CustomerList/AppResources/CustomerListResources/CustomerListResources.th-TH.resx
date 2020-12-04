@@ -267,4 +267,7 @@
   <data name="UpdateDoubleCommSuccessfully" xml:space="preserve">
     <value>Update Double Comm successfully.</value>
   </data>
+  <data name="UnuspendStatusPopupHeader" xml:space="preserve">
+    <value>ยกเลิกการระงับ &lt;username&gt;</value>
+  </data>
 </root>

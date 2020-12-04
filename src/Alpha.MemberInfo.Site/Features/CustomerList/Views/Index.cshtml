@@ -228,6 +228,7 @@
     <input type="hidden" id="arrayUserName" name="arrayUserName" value=''>
     <input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
     <input type="hidden" id="commissionText" value='@CustomerListResources.Commission'>
+    <input type="hidden" id="unuspendStatusPopupHeader" value='@CustomerListResources.UnuspendStatusPopupHeader'>
 </div>
 
 @section Scripts {
@@ -235,7 +236,6 @@
     @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
     @StaticResources.RenderScripts("~/Features/CustomerList/Bundles/customer-list")
 }
-
 
 @helper RenderMasterAgentHeader()
 {

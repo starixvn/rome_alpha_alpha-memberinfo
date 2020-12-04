@@ -476,6 +476,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unsuspend &lt;username&gt;.
+        /// </summary>
+        public static string UnuspendStatusPopupHeader {
+            get {
+                return ResourceManager.GetString("UnuspendStatusPopupHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Double Comm successfully..
         /// </summary>
         public static string UpdateDoubleCommSuccessfully {

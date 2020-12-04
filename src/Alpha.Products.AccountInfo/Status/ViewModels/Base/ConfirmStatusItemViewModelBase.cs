@@ -1,9 +1,9 @@
 ﻿namespace Alpha.Products.AccountInfo.Status.ViewModels
 {
-    using System.Collections.Generic;
-    using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
     using Base;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public abstract class ConfirmStatusItemViewModelBase : StatusItemViewModel
     {
@@ -33,6 +33,7 @@
             new Dictionary<string, object>
                     {
                         {"SearchAccountId", SearchAccount.Id.ToString()},
+                        {"SearchAccountName", SearchAccount.Username},
                         {"SearchAccountRoleId", SearchAccount.CusomerLevelValue.ToString()},
                         {"StatusName", StatusName},
                         {"StatusValue", StatusValue}

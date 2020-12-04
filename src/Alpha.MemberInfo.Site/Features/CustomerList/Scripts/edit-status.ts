@@ -26,13 +26,13 @@ class EditStatus {
         data => this.customerListPopup.openBootstrapModal(element, data.Status, this.buildPopupHtml, this.bindingPopupEvent)
     );
 
-    private buildPopupHtml = (statusArray, custId) => {
+    private buildPopupHtml = (statusArray, custId, username) => {
         let html = ['<ul>'];
         this.$.each(statusArray, (key, item) => {
             if (item.ShowInCustomerList) {
                 html.push(
-                    `<li class="edit-status-popup" data-custid='${custId}' data-displayorder='${item.DisplayOrder}'` +
-                    `data-url="${item.Url}" data-url="${item.Url}" data-ispopup='${item.IsPopup}' data-params='${item.JsonParams}' data-message='${item.ConfirmMessage}'>` +
+                    `<li class="edit-status-popup" data-custid='${custId}' data-username='${username}' data-displayorder='${item.DisplayOrder}'` +
+                    `data-url="${item.Url}" data-url="${item.Url}" data-ispopup='${item.IsPopup}' data-params='${item.JsonParams}' data-message="${item.ConfirmMessage}">` +
                     `<input ${item.Disabled ? 'disabled' : ''} type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
             }
         });
@@ -47,8 +47,12 @@ class EditStatus {
     private bindingPopupEvent = parentElement => {
         this.$('.edit-status-popup').click(event => {
             const isOpenPopup = JSON.parse(this.$(event.currentTarget).data("ispopup"));
-            isOpenPopup ?
-                this.customerListPopup.openProductPopup(event.currentTarget) :
+            if (isOpenPopup) {
+                const username = this.$(event.currentTarget).data("username");
+                this.$(event.currentTarget).data('title', this.$('#unuspendStatusPopupHeader').val().replace('<username>', username));
+                this.customerListPopup.openProductPopup(event.currentTarget)
+            }
+            else {
                 this.topWindow.bootboxConfirm(
                     this.$(event.currentTarget).data("message"),
                     this.isMobile ? event.target : this.$(parentElement).context,
@@ -56,6 +60,7 @@ class EditStatus {
                         event.currentTarget,
                         this.$(parentElement).context,
                         this.updateCustomerStatusSuccess));
+            }
         })
     }
 
