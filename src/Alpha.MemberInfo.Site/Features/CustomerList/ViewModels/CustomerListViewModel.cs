@@ -56,7 +56,8 @@
             DownlineLevelName = DownlineLevel.DisplayName;
             UnsyncedProducts = unsyncedProducts;
 
-            CommisionColSpan = DownlineLevel.IsAgentLevel() ?
+            SearchAccountLevel = request.CustLevel;
+            CommisionColSpan = SearchAccountLevel.IsAgentLevel() ?
                       (IsShowMyanmarOdds ? 8 : 6) :
                      (IsShowMyanmarOdds ? 4 : 6);
 
@@ -91,6 +92,8 @@
         public string DownlineLevelName { get; }
 
         public UserLevel DownlineLevel { get; }
+
+        public UserLevel SearchAccountLevel { get; }
 
         public string PageTitle { get; }
 

@@ -79,12 +79,24 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                @if (Model.DownlineLevel.IsAgentLevel())
+                @if (Model.SearchAccountLevel.IsAgentLevel())
                 {
                     <th></th>
+
+                    if (Model.IsShowMyanmarOdds)
+                    {
+                        <th></th>
+                        <th></th>
+                    }
                 }
-                <th></th>
-                <th></th>
+                else
+                {
+                    if (!Model.IsShowMyanmarOdds)
+                    {
+                        <th></th>
+                        <th></th>
+                    }
+                }
                 <th></th>
                 <th></th>
                 <th></th>
@@ -134,7 +146,7 @@
                 @if (Model.SearchAccountRoleId == 2)
                 {
                     <th rowspan="2" class="header">
-                        Group
+                        @CustomerListResources.Group
                     </th>
                 }
                 <th colspan="@Model.CommisionColSpan.ToString()" class="header">
