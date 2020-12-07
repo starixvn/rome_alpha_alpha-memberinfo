@@ -75,9 +75,11 @@ class MulitpleDoubleComm {
                     this.$messageContent.html(`<div class='msg msg-success'>${this.$('#successullyMessage').val()}</div>`);
                     this.$messageContainer.removeClass('hidden');
 
-                    //setTimeout(() => {
-                    //    this.reloadFrame();
-                    //}, 1000);
+                    setTimeout(() => {
+                        if (this.topWindow.customerListPopup) {
+                            this.topWindow.customerListPopup.successfulUpdatingCallback();
+                        }
+                    }, 1000);
                 }
                 else {
                     this.$messageContent.html(html.join(''));
