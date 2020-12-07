@@ -1,51 +1,65 @@
 ﻿[
-	{
-		"outputFile": "assets/bundles/member-info.css",
-		"inputFile": "assets/styles/member-info.scss"
-	},
-	{
-		"outputFile": "assets/bundles/credit-balance.css",
-		"inputFile": "assets/styles/credit-balance.scss"
-	},
-	{
-		"outputFile": "assets/bundles/win-loss-limit.css",
-		"inputFile": "assets/styles/win-loss-limit.scss"
-	},
-	{
-		"outputFile": "assets/styles/problem-account/index.css",
-		"inputFile": "assets/styles/problem-account/index.scss"
-	},
-	{
-		"outputFile": "assets/styles/problem-account/update.css",
-		"inputFile": "assets/styles/problem-account/update.scss"
-	},
-	{
-		"outputFile": "assets/styles/indirect-login-account.css",
-		"inputFile": "assets/styles/indirect-login-account.scss"
-	},
-	{
-		"outputFile": "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.css",
-		"inputFile": "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.scss"
-	},
-	{
-		"outputFile": "Features/QRCodeMemberSignIn/Styles/show-qr-code.css",
-		"inputFile": "Features/QRCodeMemberSignIn/Styles/show-qr-code.scss"
+  {
+    "outputFile": "assets/styles/member-info.css",
+    "inputFile": "assets/styles/member-info.scss"
+  },
+  {
+    "outputFile": "assets/styles/credit-balance.css",
+    "inputFile": "assets/styles/credit-balance.scss"
+  },
+  {
+    "outputFile": "assets/styles/win-loss-limit.css",
+    "inputFile": "assets/styles/win-loss-limit.scss"
+  },
+  {
+    "outputFile": "assets/styles/problem-account/index.css",
+    "inputFile": "assets/styles/problem-account/index.scss"
+  },
+  {
+    "outputFile": "assets/styles/problem-account/update.css",
+    "inputFile": "assets/styles/problem-account/update.scss"
+  },
+  {
+    "outputFile": "assets/styles/indirect-login-account.css",
+    "inputFile": "assets/styles/indirect-login-account.scss"
+  },
+  {
+    "outputFile": "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.css",
+    "inputFile": "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in.scss"
+  },
+  {
+    "outputFile": "Features/QRCodeMemberSignIn/Styles/show-qr-code.css",
+    "inputFile": "Features/QRCodeMemberSignIn/Styles/show-qr-code.scss"
   },
   {
     "outputFile": "assets/styles/quick-introduction.css",
     "inputFile": "assets/styles/quick-introduction.scss"
-<<<<<<< HEAD
   },
   {
+<<<<<<< HEAD
     "outputFile": "Features/DormantAccountList/Styles/dormant-account-list.css",
     "inputFile": "Features/DormantAccountList/Styles/dormant-account-list.scss"
-  }
-=======
 	},
 	{
-		"outputFile": "Features/CustomerList/Styles/customer-list.css",
-		"inputFile": "Features/CustomerList/Styles/customer-list.scss"
-	}
-
->>>>>>> 111111- hard code edit multiple
+=======
+>>>>>>> 000 - modify filter on table and fix UI for double comm, popup
+    "outputFile": "Features/CustomerList/Styles/customer-list.css",
+    "inputFile": "Features/CustomerList/Styles/customer-list.scss"
+  },
+  {
+    "outputFile": "Features/CustomerList/Styles/customer-list-07.css",
+    "inputFile": "Features/CustomerList/Styles/customer-list-07.scss"
+  },
+  {
+    "outputFile": "assets/styles/common.css",
+    "inputFile": "assets/styles/common.scss"
+  },
+  {
+    "outputFile": "assets/styles/common-07.css",
+    "inputFile": "assets/styles/common-07.scss"
+  },
+  {
+    "outputFile": "assets/styles/member-info-07.css",
+    "inputFile": "assets/styles/member-info-07.scss"
+  }
 ]

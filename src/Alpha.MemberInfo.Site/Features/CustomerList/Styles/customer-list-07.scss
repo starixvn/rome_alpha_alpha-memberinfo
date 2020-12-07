@@ -5,19 +5,10 @@ body {
     background-color: #fff;
 }
 
-.modal-header {
-    .modal-title {
-        font-size: calculateScale(13px) !important;
-    }
 
-    button {
-        font-size: 32px !important;
-    }
+.page-title {
+    font-size: calculateScale(13px);
 }
-
-    .page-title {
-        font-size: calculateScale(13px);
-    }
 
 .dataTables_length {
     label {
@@ -105,25 +96,16 @@ body {
     }
 
     .modal-header {
-        display: block;
-        align-items: center;
-        border-bottom: 1px solid #ccc;
-        position: relative;
-
         .modal-title {
-            color: #333;
-            padding: 14px 0;
+            font-size: calculateScale(13px) !important;
         }
 
-        .icon-close {
-            top: 12px;
-            left: unset;
-            right: -12px;
-            font-size: calculateScale(18px);
-            position: absolute;
+        button {
+            font-size: 32px !important;
         }
     }
 }
+
 
 .icon-table-edit {
     font-size: calculateScale(18px);

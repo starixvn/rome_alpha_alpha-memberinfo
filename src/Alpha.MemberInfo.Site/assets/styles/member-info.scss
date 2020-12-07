@@ -8,9 +8,9 @@
     position: relative;
 }
 
-.msg {
+/*.msg {
     margin-bottom: 0;
-}
+}*/
 
 .icon-refresh, .icon-edit {
     margin-right: 5px;
@@ -184,5 +184,25 @@ input[type="button"][disabled] {
 
 #txt-username, #txt-player-id {
     width: 210px;
+}
+
+
+
+html {
+    height: unset !important;
+}
+
+.multi-double-comm {
+    .msg {
+        margin-top: 0;
+    }
+
+    label {
+        font-size: inherit;
+        color: inherit;
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
 }
 

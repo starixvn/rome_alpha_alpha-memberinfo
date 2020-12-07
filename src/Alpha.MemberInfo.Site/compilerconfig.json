@@ -39,7 +39,7 @@
     "outputFile": "Features/DormantAccountList/Styles/dormant-account-list.css",
     "inputFile": "Features/DormantAccountList/Styles/dormant-account-list.scss"
 	},
-	{
+  {
     "outputFile": "Features/CustomerList/Styles/customer-list.css",
     "inputFile": "Features/CustomerList/Styles/customer-list.scss"
   },
@@ -54,6 +54,9 @@
   {
     "outputFile": "assets/styles/common-07.css",
     "inputFile": "assets/styles/common-07.scss"
+  },
+  {
+    "outputFile": "assets/styles/member-info-07.css",
+    "inputFile": "assets/styles/member-info-07.scss"
   }
-
 ]

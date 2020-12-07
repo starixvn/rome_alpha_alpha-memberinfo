@@ -8,16 +8,16 @@
 @section Styles {
 }
 
-<div>
-    <div id="message" class="hidden">
+<div class="multi-double-comm">
+    <div id="message" class="hidden" >
         <span id="message-content" className="col-xs-12"></span>
     </div>
     <div>
-        <input type="radio" checked="checked" name="mulitpleDoubleComm" value="true">
+        <input type="radio" checked="checked" name="mulitpleDoubleComm" value="true" id="dcomAllow">
         <label for="dcomAllow">@CustomerListResources.AllowDoubleCommission</label>
     </div>
     <div>
-        <input type="radio" name="mulitpleDoubleComm" value="false">
+        <input type="radio" name="mulitpleDoubleComm" value="false" id="dcomDisallow">
         <label for="dcomDisallow">@CustomerListResources.DisallowDoubleCommission</label>
     </div>
     <div class="form-group btn-box">
