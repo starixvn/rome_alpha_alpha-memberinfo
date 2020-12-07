@@ -1,8 +1,8 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting.ViewModels
 {
-    using System.Collections.Generic;
     using Alpha.Products.AccountInfo.Requests;
     using Base;
+    using System.Collections.Generic;
 
     public class RemoveOtpViewModel : SettingItemViewModel
     {
@@ -25,5 +25,7 @@
             base.Visible &&
             SearchAccount.IsNotMember &&
             Request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission);
+
+        public override bool AddEditTextToPopupTitle => false;
     }
 }

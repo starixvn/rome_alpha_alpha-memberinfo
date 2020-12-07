@@ -24,5 +24,7 @@
           };
 
         public override bool Visible => Actor.IsMainAccount || Request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission);
+
+        public override bool AddEditTextToPopupTitle => false;
     }
 }

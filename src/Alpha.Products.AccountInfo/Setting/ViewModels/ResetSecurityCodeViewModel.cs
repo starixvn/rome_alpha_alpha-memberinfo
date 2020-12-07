@@ -1,8 +1,8 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting.ViewModels
 {
-    using System.Collections.Generic;
     using Alpha.Products.AccountInfo.Requests;
     using Base;
+    using System.Collections.Generic;
 
     public class ResetSecurityCodeViewModel : SettingItemViewModel
     {
@@ -21,10 +21,12 @@
               ["popup"] = "0",
           };
 
-        public override bool Visible => 
-            base.Visible && 
+        public override bool Visible =>
+            base.Visible &&
             SearchAccount.IsNotMember &&
             Request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission) &&
             Request.GetData<bool>(DataKey.SearchAccount.IsEnableSecurityCode);
+
+        public override bool AddEditTextToPopupTitle => false;
     }
 }

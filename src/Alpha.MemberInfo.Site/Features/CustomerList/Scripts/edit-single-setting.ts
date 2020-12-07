@@ -37,7 +37,7 @@ class EditSingleSetting {
     private buildPopupHtml = (settings, username) => {
         let html = ['<ul>'];
         this.$.each(settings, (key, item) => {
-            const title = `${this.$('#editText').val()} ${item.Text} - ${username}`;
+            const title = `${item.AddEditTextToPopupTitle ? this.$('#editText').val() : ''} ${item.Text} - ${username}`;
             html.push(`<li data-title="${title}" data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
         });
 
