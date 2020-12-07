@@ -35,7 +35,8 @@
          decimal groupB,
          decimal groupC,
          decimal groupD,
-         bool disableAutoMPT)
+         bool disableAutoMPT,
+        decimal discountMyanmarOdds)
             : base(custId,
             username,
             roleId,
@@ -63,7 +64,8 @@
             groupA,
             groupB,
             groupC,
-            groupD)
+            groupD,
+            discountMyanmarOdds)
         {
             DisableAutoMPT = disableAutoMPT;
         }

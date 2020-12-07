@@ -1,12 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Site.Models
 {
+    using Alpha.MemberInfo.Configurations;
+    using MemberInfo.Models;
+    using Sunplus.Agent.Model.Entities;
+    using Sunplus.Agent.Model.Entities.Permission;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
-    using Alpha.MemberInfo.Configurations;
-    using MemberInfo.Models;
-    using Sunplus.Agent.Model.Entities;
 
     public class User : IUser
     {
@@ -91,5 +92,7 @@
         public bool AllowedAllDayBalTransfer => userSession.IsAllDayBalTransfer;
 
         public bool AllowedTotalBalanceTransfer => userSession.IsAllowedTotalBalanceTransfer;
+
+        public bool IsShowMyanmarOdds => UserPermission.IsShowMyanmarOdds;
     }
 }

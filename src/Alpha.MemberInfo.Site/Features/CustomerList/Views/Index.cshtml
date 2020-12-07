@@ -79,7 +79,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                @if (Model.SearchAccountRoleId == 2)
+                @if (Model.DownlineLevel.IsAgentLevel())
                 {
                     <th></th>
                 }
@@ -137,7 +137,7 @@
                         Group
                     </th>
                 }
-                <th colspan="6" class="header">
+                <th colspan="@Model.CommisionColSpan.ToString()" class="header">
                     @CustomerListResources.Commission
                 </th>
                 @if (!Model.LimitedDateToShowInfo)
@@ -218,6 +218,7 @@
     <input type="hidden" id="reportsUrl" value='@MicroSites.ReportsUrl()'>
     <input type="hidden" id="memberInfoUrl" value='@MicroSites.MemberInfoUrl()'>
     <input type="hidden" id="limitedDateToShowInfo" value='@(Model.LimitedDateToShowInfo ? "true" : "false")'>
+    <input type="hidden" id="isShowMyanmarOdds" value='@(Model.IsShowMyanmarOdds ? "true" : "false")'>
     <input type="hidden" id="customerListResources" value='@Model.Resources'>
     <input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
     <input type="hidden" id="arrayCustID" name="arrayCustID" value=''>
@@ -236,24 +237,33 @@
 
 @helper RenderMasterAgentHeader()
 {
-    <th class="header desktop">
+    <th class="header">
         @CustomerListResources.GroupA
     </th>
-    <th class="header desktop">
-        @CustomerListResources.GroupB
-    </th>
-    <th class="header desktop">
-        @CustomerListResources.GroupC
-    </th>
-    <th class="header desktop">
-        @CustomerListResources.GroupD
-    </th>
-    <th class="header desktop">
+    if (!Model.IsShowMyanmarOdds)
+    {
+        <th class="header">
+            @CustomerListResources.GroupB
+        </th>
+        <th class="header">
+            @CustomerListResources.GroupC
+        </th>
+        <th class="header">
+            @CustomerListResources.GroupD
+        </th>
+    }
+    <th class="header">
         @CustomerListResources.Group1X2
     </th>
-    <th class="header desktop">
+    <th class="header">
         @CustomerListResources.Other
     </th>
+    if (Model.IsShowMyanmarOdds)
+    {
+        <th class="header">
+            @CustomerListResources.MyanmarOdds
+        </th>
+    }
 }
 
 @helper RenderMemberHeader()
@@ -267,6 +277,12 @@
     <th class="header">
         @CustomerListResources.AComm3
     </th>
+    if (Model.IsShowMyanmarOdds)
+    {
+        <th class="header">
+            @CustomerListResources.AccountMyanmarOdds
+        </th>
+    }
     <th class="header">
         @CustomerListResources.PComm1
     </th>
@@ -276,4 +292,10 @@
     <th class="header">
         @CustomerListResources.PComm3
     </th>
+    if (Model.IsShowMyanmarOdds)
+    {
+        <th class="header">
+            @CustomerListResources.PlayerMyanmarOdds
+        </th>
+    }
 }

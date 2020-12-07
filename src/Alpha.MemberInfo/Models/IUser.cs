@@ -72,5 +72,7 @@
         bool AllowedAllDayBalTransfer { get; }
 
         bool AllowedTotalBalanceTransfer { get; }
+
+        bool IsShowMyanmarOdds { get; }
     }
 }

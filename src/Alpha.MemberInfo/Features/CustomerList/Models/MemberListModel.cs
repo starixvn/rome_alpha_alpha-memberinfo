@@ -34,7 +34,9 @@
          decimal playerDiscount,
          decimal playerDiscountCS,
          decimal playerDiscount1x2,
-         decimal discount)
+         decimal discount,
+         decimal playerDiscountMyanmarOdds,
+         decimal adiscountMyanmarOdds)
             : base(custId,
             username,
             roleId,
@@ -64,6 +66,8 @@
             PlayerDiscountCS = playerDiscountCS;
             PlayerDiscount1x2 = playerDiscount1x2;
             Discount = discount;
+            PlayerDiscountMyanmarOdds = playerDiscountMyanmarOdds;
+            AdiscountMyanmarOdds = adiscountMyanmarOdds;
         }
 
         public decimal PlayerDiscount { get; private set; }
@@ -73,5 +77,9 @@
         public decimal PlayerDiscount1x2 { get; private set; }
 
         public decimal Discount { get; private set; }
+
+        public decimal AdiscountMyanmarOdds { get; set; }
+
+        public decimal PlayerDiscountMyanmarOdds { get; set; }
     }
 }

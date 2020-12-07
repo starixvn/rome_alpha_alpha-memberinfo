@@ -10,6 +10,7 @@
         {
             DoubleComm = 2;
             LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
+            IsShowMyanmarOdds = viewer.IsShowMyanmarOdds;
         }
 
         public string Username { get; set; }
@@ -36,6 +37,8 @@
         public bool IsMobile { get; set; }
 
         public bool LimitedDateToShowInfo { get; }
+
+        public bool IsShowMyanmarOdds { get; }
 
         public bool ShowNickname => ViewerLevelId == CustLevelId;
     }

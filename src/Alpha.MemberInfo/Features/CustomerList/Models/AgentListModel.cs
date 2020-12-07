@@ -34,7 +34,8 @@
          decimal groupA,
          decimal groupB,
          decimal groupC,
-         decimal groupD)
+         decimal groupD,
+         decimal discountMyanmarOdds)
             : base(custId,
             username,
             roleId,
@@ -64,6 +65,7 @@
             GroupB = groupB;
             GroupC = groupC;
             GroupD = groupD;
+            DiscountMyanmarOdds = discountMyanmarOdds;
         }
 
         public decimal GroupA { get; private set; }
@@ -73,5 +75,7 @@
         public decimal GroupC { get; private set; }
 
         public decimal GroupD { get; private set; }
+
+        public decimal DiscountMyanmarOdds { get; set; }
     }
 }

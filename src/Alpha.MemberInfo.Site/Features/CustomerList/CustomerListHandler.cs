@@ -114,7 +114,8 @@
                     message.PageSize,
                     message.PageIndex,
                     message.LimitedDateToShowInfo,
-                    message.ShowNickname));
+                    message.ShowNickname,
+                    message.IsShowMyanmarOdds));
 
         public CustomerStatusViewModel Handle(CustomerStatusQuery message)
             => BuildCustomerStatus(message);

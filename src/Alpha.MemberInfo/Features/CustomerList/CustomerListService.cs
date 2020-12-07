@@ -88,7 +88,7 @@
 
             var model = dynamicRepository.Fetch<MasterListModel>(criteria);
 
-            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo, param.ShowNickname);
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param);
         }
 
         internal CustomerListDTO FetchAgentList(CustomerListParam param)
@@ -107,7 +107,7 @@
 
             var model = dynamicRepository.Fetch<AgentListModel>(criteria);
 
-            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo, param.ShowNickname);
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param);
         }
 
         internal CustomerListDTO FetchMemberList(CustomerListParam param)
@@ -126,7 +126,7 @@
 
             var model = dynamicRepository.Fetch<MemberListModel>(criteria);
 
-            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param.LimitedDateToShowInfo, param.ShowNickname);
+            return new CustomerListDTO(model, criteria.TotalItems, criteria.TotalPages, param);
         }
     }
 }

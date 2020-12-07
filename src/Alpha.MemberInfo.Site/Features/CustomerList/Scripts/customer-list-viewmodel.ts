@@ -14,6 +14,7 @@ class CustomerListViewModel {
     AccountInfoUrl: string;
     LimitedDateToShowInfo: boolean;
     CustomerListResources: any;
+    IsShowMyanmarOdds: any;
 
     constructor(
         searchAccountId: number,
@@ -28,6 +29,7 @@ class CustomerListViewModel {
         memberInfoUrl: string,
         accountInfoUrl: string,
         limitedDateToShowInfo: boolean,
+        isShowMyanmarOdds: boolean,
         customerListResources: any) {
         this.SearchAccountId = searchAccountId;
         this.SearchAccountRoleId = searchAccountRoleId;
@@ -41,6 +43,7 @@ class CustomerListViewModel {
         this.MemberInfoUrl = memberInfoUrl;
         this.AccountInfoUrl = accountInfoUrl;
         this.LimitedDateToShowInfo = limitedDateToShowInfo;
+        this.IsShowMyanmarOdds = isShowMyanmarOdds;
         this.CustomerListResources = customerListResources;
     }
 }

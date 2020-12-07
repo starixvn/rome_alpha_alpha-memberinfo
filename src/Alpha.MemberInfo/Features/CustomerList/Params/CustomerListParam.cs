@@ -17,7 +17,8 @@
             int pageSize,
             int pageIndex,
             bool limitedDateToShowInfo,
-            bool showNickname)
+            bool showNickname,
+            bool isShowMyanmarOdds)
         {
             UserId = userId;
             DirectUplineId = directUplineId;
@@ -32,6 +33,7 @@
             PageIndex = pageIndex;
             LimitedDateToShowInfo = limitedDateToShowInfo;
             ShowNickname = showNickname;
+            IsShowMyanmarOdds = isShowMyanmarOdds;
         }
 
         public int UserId { get; }
@@ -59,5 +61,7 @@
         public bool LimitedDateToShowInfo { get; }
 
         public bool ShowNickname { get; }
+
+        public bool IsShowMyanmarOdds { get; }
     }
 }

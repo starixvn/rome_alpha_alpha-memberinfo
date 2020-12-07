@@ -50,10 +50,15 @@
             UnconfirmSetting = request.UnconfirmSetting;
             IsMobileView = isMobile;
             LimitedDateToShowInfo = limitedDateToShowInfo;
+            IsShowMyanmarOdds = request.IsShowMyanmarOdds;
 
             DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
             DownlineLevelName = DownlineLevel.DisplayName;
             UnsyncedProducts = unsyncedProducts;
+
+            CommisionColSpan = DownlineLevel.IsAgentLevel() ?
+                      (IsShowMyanmarOdds ? 8 : 6) :
+                     (IsShowMyanmarOdds ? 4 : 6);
 
             var ConvertResourcesJson = convertResourcesJson ?? SimpleServiceLocator.GetService<Func<string, ResourceManager, string>>();
             Resources = ConvertResourcesJson(request.Language, CustomerListResources.ResourceManager);
@@ -92,6 +97,10 @@
         public bool IsMobileView { get; }
 
         public bool LimitedDateToShowInfo { get; }
+
+        public bool IsShowMyanmarOdds { get; }
+
+        public int CommisionColSpan { get; }
 
         public IEnumerable<CustInfo> BreadcrumbLevel { get; }
 

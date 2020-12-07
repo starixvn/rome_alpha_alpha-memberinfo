@@ -270,4 +270,13 @@
   <data name="UnuspendStatusPopupHeader" xml:space="preserve">
     <value>Huỷ đình chỉ &lt;username&gt;</value>
   </data>
+  <data name="AccountMyanmarOdds" xml:space="preserve">
+    <value>A Myanmar Odds</value>
+  </data>
+  <data name="MyanmarOdds" xml:space="preserve">
+    <value>Myanmar Odds</value>
+  </data>
+  <data name="PlayerMyanmarOdds" xml:space="preserve">
+    <value>P Myanmar Odds</value>
+  </data>
 </root>

@@ -147,7 +147,7 @@ class CustomerListDataTable {
             });
         }
 
-        columns = columns.concat([
+        columns.push(
             {
                 "className": 'center',
                 "data": null,
@@ -173,47 +173,93 @@ class CustomerListDataTable {
                 "render": item => {
                     return `${item.FirstName} ${item.LastName}`;
                 }
-            }]);
+            });
 
-        if (this.viewModel.SearchAccountRoleId === 2) {
+        if (this.viewModel.SearchAccountRoleId === CustomerLevel.Agent) {
             columns.push({
                 "className": 'left',
                 "data": "UGroup"
             });
         }
 
-        columns = columns.concat([
-            {
-                "className": 'center',
-                "data": null,
-                "render": item => item.RoleId == CustomerLevel.Member ? item.Discount : item.GroupA
+        if (this.viewModel.SearchAccountRoleId === CustomerLevel.Agent) {
+            columns.push({
+                "className": 'left',
+                "data": "Discount"
             },
-            {
-                "className": 'center',
-                "data": null,
-                "render": item => item.RoleId == CustomerLevel.Member ? item.Discount1x2 : item.GroupB
-            },
-            {
-                "className": 'center',
-                "data": null,
-                "render": item => item.RoleId == CustomerLevel.Member ? item.DiscountCS : item.GroupC
-            },
-            {
-                "className": 'center',
-                "data": null,
-                "render": item => item.RoleId == CustomerLevel.Member ? item.PlayerDiscount : item.GroupD
-            },
-            {
-                "className": 'center',
-                "data": null,
-                "render": item => item.RoleId == CustomerLevel.Member ? item.PlayerDiscount1x2 : item.Discount1x2
-            },
-            {
-                "className": 'center',
-                "data": null,
-                "render": item => item.RoleId == CustomerLevel.Member ? item.PlayerDiscountCS : item.DiscountCS
+                {
+                    "className": 'left',
+                    "data": "Discount1x2"
+                },
+                {
+                    "className": 'left',
+                    "data": "DiscountCS"
+                });
+
+            if (this.viewModel.IsShowMyanmarOdds) {
+                columns.push({
+                    "className": 'center',
+                    "data": 'AdiscountMyanmarOdds'
+                });
             }
-        ]);
+
+            columns.push({
+                "className": 'left',
+                "data": "PlayerDiscount"
+            },
+                {
+                    "className": 'left',
+                    "data": "PlayerDiscount1x2"
+                },
+                {
+                    "className": 'left',
+                    "data": "PlayerDiscountCS"
+                });
+
+            if (this.viewModel.IsShowMyanmarOdds) {
+                columns.push({
+                    "className": 'center',
+                    "data": 'PlayerDiscountMyanmarOdds'
+                });
+            }
+        }
+        else {
+            columns.push({
+                "className": 'center',
+                "data": 'GroupA'
+            });
+
+            if (!this.viewModel.IsShowMyanmarOdds) {
+                columns.push({
+                    "className": 'center',
+                    "data": 'GroupB'
+                },
+                    {
+                        "className": 'center',
+                        "data": 'GroupC'
+                    },
+                    {
+                        "className": 'center',
+                        "data": 'GroupD'
+                    });
+            }
+
+            columns.push({
+                "className": 'center',
+                "data": 'Discount1x2'
+            },
+                {
+                    "className": 'center',
+                    "data": 'DiscountCS'
+                });
+
+            if (this.viewModel.IsShowMyanmarOdds) {
+                columns.push({
+                    "className": 'center',
+                    "data": 'DiscountMyanmarOdds'
+                });
+            }
+        }
 
         if (!this.viewModel.LimitedDateToShowInfo) {
             columns.push({
@@ -222,7 +268,7 @@ class CustomerListDataTable {
             });
         }
 
-        columns = columns.concat([
+        columns.push(
             {
                 "className": 'center',
                 "data": null,
@@ -231,8 +277,7 @@ class CustomerListDataTable {
             {
                 "data": null,
                 "render": () => ''
-            }
-        ]);
+            });
 
         return columns;
     }
