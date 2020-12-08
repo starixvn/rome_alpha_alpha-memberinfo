@@ -357,22 +357,48 @@ class CustomerListDataTable {
 
         const statusCss = self.getRowClass(api.data()[rowIdx]);
 
-        let commisionIndexStart = 5, commisionIndexEnd = 10, ugroupIndex = 5, otherStartIndex = 5, otherEndIndex;
+        let columnIndex = null;
 
-        if (self.viewModel.ShowEditMultiple) {
-            commisionIndexStart += 1;
-            commisionIndexEnd += 1;
-            otherStartIndex = commisionIndexStart;
+        switch (self.viewModel.UplineRoleId) {
+            case 4:
+                switch (self.viewModel.SearchAccountRoleId) {
+                    case 4:
+                        columnIndex = self.viewModel.IsShowMyanmarOdds ?
+                            ColumnIndexs.Super.ViewMaster.ByShowMyanmarOdd :
+                            ColumnIndexs.Super.ViewMaster.ByDefault;
+                        break;
+                    case 3:
+                        columnIndex = self.viewModel.IsShowMyanmarOdds ?
+                            ColumnIndexs.Super.ViewAgent.ByShowMyanmarOdd :
+                            ColumnIndexs.Super.ViewAgent.ByDefault;
+                        break;
+                    default:
+                        columnIndex = self.viewModel.IsShowMyanmarOdds ?
+                            ColumnIndexs.Super.ViewMember.ByShowMyanmarOdd :
+                            ColumnIndexs.Super.ViewMember.ByDefault;
+                        break;
+                }
+                break;
+            case 3:
+                switch (self.viewModel.SearchAccountRoleId) {
+                    case 3:
+                        columnIndex = self.viewModel.IsShowMyanmarOdds ?
+                            ColumnIndexs.Master.ViewAgent.ByShowMyanmarOdd :
+                            ColumnIndexs.Master.ViewAgent.ByDefault;
+                        break;
+                    default:
+                        columnIndex = self.viewModel.IsShowMyanmarOdds ?
+                            ColumnIndexs.Master.ViewMember.ByShowMyanmarOdd :
+                            ColumnIndexs.Master.ViewMember.ByDefault;
+                        break;
+                }
+                break;
+            default:
+                columnIndex = self.viewModel.IsShowMyanmarOdds ?
+                    ColumnIndexs.Agent.ViewMember.ByShowMyanmarOdd :
+                    ColumnIndexs.Agent.ViewMember.ByDefault;
+                break;
         }
-
-        if (self.viewModel.SearchAccountRoleId === CustomerLevel.Agent) {
-            ugroupIndex = commisionIndexStart;
-            commisionIndexStart += 1;
-            commisionIndexEnd += 1;
-            otherStartIndex = commisionIndexStart;
-        }
-
-        otherEndIndex = commisionIndexEnd;
 
         api.cells(rowIdx, ':hidden').eq(0).each(function (cell) {
             const header = self.$(api.column(cell.column).header());
@@ -387,13 +413,13 @@ class CustomerListDataTable {
                 dtPrivate, idx.row, idx.column, 'display'
             );
 
-            if (self.viewModel.SearchAccountRoleId === CustomerLevel.Agent && idx.column === ugroupIndex) {
+            if (self.viewModel.SearchAccountRoleId === CustomerLevel.Agent && idx.column === columnIndex.ugroupIndex) {
                 ugroupColumnsOnAgentLevel.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
                     `<td class="dtr-title">${header.text()}</td> ` +
                     `<td class="dtr-data">${cellData}</td></tr>`);
             }
 
-            if (idx.column >= commisionIndexStart && idx.column <= commisionIndexEnd) {
+            if (idx.column >= columnIndex.commisionIndexStart && idx.column <= columnIndex.commisionIndexEnd) {
                 if (addTableCommissionTag) {
                     addTableCommissionTag = false;
                     commissionColumns.push(`<tr class="${statusCss}"><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr class="${statusCss}"><td class='commission-header' colspan="2">${self.$('#commissionText').val()}</td></tr>`);
@@ -403,15 +429,15 @@ class CustomerListDataTable {
                     `<td class="dtr-title">${header.text()}</td> ` +
                     `<td class="dtr-data">${cellData}</td></tr>`);
 
-                if (idx.column === commisionIndexEnd && !addTableCommissionTag) {
+                if (idx.column === columnIndex.commisionIndexEnd && !addTableCommissionTag) {
                     commissionColumns.push('</table></td></tr>');
                 }
             }
 
-            if ((idx.column < otherStartIndex
-                || idx.column > otherEndIndex)
+            if ((idx.column < columnIndex.otherStartIndex
+                || idx.column > columnIndex.otherEndIndex)
                 && (self.viewModel.SearchAccountRoleId !== CustomerLevel.Agent
-                    || idx.column !== ugroupIndex)) {
+                    || idx.column !== columnIndex.ugroupIndex)) {
                 otherColumns.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
                     `<td class="dtr-title">${header.text()}</td> ` +
                     `<td class="dtr-data">${cellData}</td></tr>`);

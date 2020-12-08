@@ -30,6 +30,8 @@
             bool limitedDateToShowInfo,
             Func<string, ResourceManager, string> convertResourcesJson = null)
         {
+            UplineRoleId = request.ViewerLevelId;
+
             SearchAccountId = request.CustId;
             SearchAccountRoleId = request.CustLevelId;
             SearchAccountName = request.CustName;
@@ -66,10 +68,6 @@
         }
 
         public bool HideEditMultiple { get; }
-
-        public int UplineId { get; }
-
-        public string UplineName { get; }
 
         public byte UplineRoleId { get; }
 

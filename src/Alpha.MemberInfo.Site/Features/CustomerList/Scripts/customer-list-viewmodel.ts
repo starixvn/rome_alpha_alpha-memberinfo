@@ -1,6 +1,7 @@
 ﻿"use strict";
 
 class CustomerListViewModel {
+    UplineRoleId: number;
     SearchAccountId: number;
     SearchAccountName: string;
     SearchAccountRoleId: number;
@@ -17,6 +18,7 @@ class CustomerListViewModel {
     IsShowMyanmarOdds: any;
 
     constructor(
+        uplineRoleId: number,
         searchAccountId: number,
         searchAccountName: string,
         searchAccountRoleId: number,
@@ -31,6 +33,7 @@ class CustomerListViewModel {
         limitedDateToShowInfo: boolean,
         isShowMyanmarOdds: boolean,
         customerListResources: any) {
+        this.UplineRoleId = uplineRoleId;
         this.SearchAccountId = searchAccountId;
         this.SearchAccountRoleId = searchAccountRoleId;
         this.SearchAccountName = searchAccountName;
@@ -96,3 +99,109 @@ const statusClasses = {
         Css: 'enabled'
     }
 };
+
+const ColumnIndexs = {
+    Super: {
+        ViewMaster:
+        {
+            ByDefault: {
+                commisionIndexStart: 6,
+                commisionIndexEnd: 11,
+                ugroupIndex: 0,
+                otherStartIndex: 6,
+                otherEndIndex: 11
+            },
+            ByShowMyanmarOdd: {
+                commisionIndexStart: 6,
+                commisionIndexEnd: 9,
+                ugroupIndex: 0,
+                otherStartIndex: 6,
+                otherEndIndex: 9
+            }
+        },
+        ViewAgent: {
+            ByDefault: {
+                commisionIndexStart: 5,
+                commisionIndexEnd: 10,
+                ugroupIndex: 0,
+                otherStartIndex: 5,
+                otherEndIndex: 10
+            },
+            ByShowMyanmarOdd: {
+                commisionIndexStart: 5,
+                commisionIndexEnd: 8,
+                ugroupIndex: false,
+                otherStartIndex: 5,
+                otherEndIndex: 8
+            }
+        },
+        ViewMember: {
+            ByDefault: {
+                commisionIndexStart: 7,
+                commisionIndexEnd: 12,
+                ugroupIndex: 6,
+                otherStartIndex: 6,
+                otherEndIndex: 12
+            },
+            ByShowMyanmarOdd: {
+                commisionIndexStart: 7,
+                commisionIndexEnd: 14,
+                ugroupIndex: 6,
+                otherStartIndex: 6,
+                otherEndIndex: 14
+            }
+        }
+    },
+    Master: {
+        ViewAgent: {
+            ByDefault: {
+                commisionIndexStart: 6,
+                commisionIndexEnd: 11,
+                ugroupIndex: 0,
+                otherStartIndex: 6,
+                otherEndIndex: 11
+            },
+            ByShowMyanmarOdd: {
+                commisionIndexStart: 6,
+                commisionIndexEnd: 9,
+                ugroupIndex: 0,
+                otherStartIndex: 6,
+                otherEndIndex: 9
+            }
+        },
+        ViewMember: {
+            ByDefault: {
+                commisionIndexStart: 7,
+                commisionIndexEnd: 12,
+                ugroupIndex: 6,
+                otherStartIndex: 6,
+                otherEndIndex: 12
+            },
+            ByShowMyanmarOdd: {
+                commisionIndexStart: 7,
+                commisionIndexEnd: 14,
+                ugroupIndex: 6,
+                otherStartIndex: 6,
+                otherEndIndex: 14
+            }
+        }
+    },
+    Agent: {
+        ViewMember: {
+            ByDefault: {
+                commisionIndexStart: 7,
+                commisionIndexEnd: 12,
+                ugroupIndex: 6,
+                otherStartIndex: 6,
+                otherEndIndex: 12
+            },
+            ByShowMyanmarOdd: {
+                commisionIndexStart: 7,
+                commisionIndexEnd: 14,
+                ugroupIndex: 6,
+                otherStartIndex: 6,
+                otherEndIndex: 14
+            }
+        }
+    }
+}

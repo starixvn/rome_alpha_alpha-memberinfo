@@ -77,6 +77,7 @@ class CustomerList {
 
 $(function () {
     const viewModel = new CustomerListViewModel(
+        parseInt($('#uplineRoleId').val()),
         parseInt($('#searchAccountId').val()),
         $('#searchAccountName').val(),
         parseInt($('#searchAccountRoleId').val()),
