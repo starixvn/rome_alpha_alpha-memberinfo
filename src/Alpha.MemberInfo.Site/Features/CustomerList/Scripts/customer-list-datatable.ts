@@ -348,6 +348,48 @@ class CustomerListDataTable {
         return `<a ${this.buildAttributes(attrs)}>${item.LastLoginIP}</a>`
     }
 
+    private getColumnIndexsBySuper = () => {
+        switch (this.viewModel.SearchAccountRoleId) {
+            case 4:
+                return this.viewModel.IsShowMyanmarOdds ?
+                    ColumnIndexs.Super.ViewMaster.ByShowMyanmarOdd :
+                    ColumnIndexs.Super.ViewMaster.ByDefault;
+            case 3:
+                return this.viewModel.IsShowMyanmarOdds ?
+                    ColumnIndexs.Super.ViewAgent.ByShowMyanmarOdd :
+                    ColumnIndexs.Super.ViewAgent.ByDefault;
+            default:
+                return this.viewModel.IsShowMyanmarOdds ?
+                    ColumnIndexs.Super.ViewMember.ByShowMyanmarOdd :
+                    ColumnIndexs.Super.ViewMember.ByDefault;
+        }
+    }
+
+    private getColumnIndexsByMaster = () => {
+        switch (this.viewModel.SearchAccountRoleId) {
+            case 3:
+                return this.viewModel.IsShowMyanmarOdds ?
+                    ColumnIndexs.Master.ViewAgent.ByShowMyanmarOdd :
+                    ColumnIndexs.Master.ViewAgent.ByDefault;
+            default:
+                return this.viewModel.IsShowMyanmarOdds ?
+                    ColumnIndexs.Master.ViewMember.ByShowMyanmarOdd :
+                    ColumnIndexs.Master.ViewMember.ByDefault;
+        }
+    }
+
+    private getColumnIndexsByAgent = () =>
+        this.viewModel.IsShowMyanmarOdds ?
+            ColumnIndexs.Agent.ViewMember.ByShowMyanmarOdd :
+            ColumnIndexs.Agent.ViewMember.ByDefault;
+
+    private getColumnIndexs = () => {
+        switch (this.viewModel.UplineRoleId) {
+            case 4: return this.getColumnIndexsBySuper();
+            case 3: return this.getColumnIndexsByMaster();
+            default: return this.getColumnIndexsByAgent();
+        }
+    }
     private renderDetailColumn = (api, rowIdx) => {
         const self = this;
         let addTableCommissionTag = true;
@@ -357,48 +399,7 @@ class CustomerListDataTable {
 
         const statusCss = self.getRowClass(api.data()[rowIdx]);
 
-        let columnIndex = null;
-
-        switch (self.viewModel.UplineRoleId) {
-            case 4:
-                switch (self.viewModel.SearchAccountRoleId) {
-                    case 4:
-                        columnIndex = self.viewModel.IsShowMyanmarOdds ?
-                            ColumnIndexs.Super.ViewMaster.ByShowMyanmarOdd :
-                            ColumnIndexs.Super.ViewMaster.ByDefault;
-                        break;
-                    case 3:
-                        columnIndex = self.viewModel.IsShowMyanmarOdds ?
-                            ColumnIndexs.Super.ViewAgent.ByShowMyanmarOdd :
-                            ColumnIndexs.Super.ViewAgent.ByDefault;
-                        break;
-                    default:
-                        columnIndex = self.viewModel.IsShowMyanmarOdds ?
-                            ColumnIndexs.Super.ViewMember.ByShowMyanmarOdd :
-                            ColumnIndexs.Super.ViewMember.ByDefault;
-                        break;
-                }
-                break;
-            case 3:
-                switch (self.viewModel.SearchAccountRoleId) {
-                    case 3:
-                        columnIndex = self.viewModel.IsShowMyanmarOdds ?
-                            ColumnIndexs.Master.ViewAgent.ByShowMyanmarOdd :
-                            ColumnIndexs.Master.ViewAgent.ByDefault;
-                        break;
-                    default:
-                        columnIndex = self.viewModel.IsShowMyanmarOdds ?
-                            ColumnIndexs.Master.ViewMember.ByShowMyanmarOdd :
-                            ColumnIndexs.Master.ViewMember.ByDefault;
-                        break;
-                }
-                break;
-            default:
-                columnIndex = self.viewModel.IsShowMyanmarOdds ?
-                    ColumnIndexs.Agent.ViewMember.ByShowMyanmarOdd :
-                    ColumnIndexs.Agent.ViewMember.ByDefault;
-                break;
-        }
+        let columnIndex = this.getColumnIndexs();
 
         api.cells(rowIdx, ':hidden').eq(0).each(function (cell) {
             const header = self.$(api.column(cell.column).header());

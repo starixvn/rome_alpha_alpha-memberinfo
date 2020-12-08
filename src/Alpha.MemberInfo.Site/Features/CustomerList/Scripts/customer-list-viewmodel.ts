@@ -100,25 +100,43 @@ const statusClasses = {
     }
 };
 
+const ColumnIndexsViewOnMember = {
+    ByDefault: {
+        commisionIndexStart: 7,
+        commisionIndexEnd: 12,
+        ugroupIndex: 6,
+        otherStartIndex: 6,
+        otherEndIndex: 12
+    },
+    ByShowMyanmarOdd: {
+        commisionIndexStart: 7,
+        commisionIndexEnd: 14,
+        ugroupIndex: 6,
+        otherStartIndex: 6,
+        otherEndIndex: 14
+    }
+};
+
+const ColumnIndexsSuperMasterViewDirectDownline = {
+    ByDefault: {
+        commisionIndexStart: 6,
+        commisionIndexEnd: 11,
+        ugroupIndex: 0,
+        otherStartIndex: 6,
+        otherEndIndex: 11
+    },
+    ByShowMyanmarOdd: {
+        commisionIndexStart: 6,
+        commisionIndexEnd: 9,
+        ugroupIndex: 0,
+        otherStartIndex: 6,
+        otherEndIndex: 9
+    }
+};
+
 const ColumnIndexs = {
     Super: {
-        ViewMaster:
-        {
-            ByDefault: {
-                commisionIndexStart: 6,
-                commisionIndexEnd: 11,
-                ugroupIndex: 0,
-                otherStartIndex: 6,
-                otherEndIndex: 11
-            },
-            ByShowMyanmarOdd: {
-                commisionIndexStart: 6,
-                commisionIndexEnd: 9,
-                ugroupIndex: 0,
-                otherStartIndex: 6,
-                otherEndIndex: 9
-            }
-        },
+        ViewMaster: ColumnIndexsSuperMasterViewDirectDownline,
         ViewAgent: {
             ByDefault: {
                 commisionIndexStart: 5,
@@ -135,73 +153,13 @@ const ColumnIndexs = {
                 otherEndIndex: 8
             }
         },
-        ViewMember: {
-            ByDefault: {
-                commisionIndexStart: 7,
-                commisionIndexEnd: 12,
-                ugroupIndex: 6,
-                otherStartIndex: 6,
-                otherEndIndex: 12
-            },
-            ByShowMyanmarOdd: {
-                commisionIndexStart: 7,
-                commisionIndexEnd: 14,
-                ugroupIndex: 6,
-                otherStartIndex: 6,
-                otherEndIndex: 14
-            }
-        }
+        ViewMember: ColumnIndexsViewOnMember
     },
     Master: {
-        ViewAgent: {
-            ByDefault: {
-                commisionIndexStart: 6,
-                commisionIndexEnd: 11,
-                ugroupIndex: 0,
-                otherStartIndex: 6,
-                otherEndIndex: 11
-            },
-            ByShowMyanmarOdd: {
-                commisionIndexStart: 6,
-                commisionIndexEnd: 9,
-                ugroupIndex: 0,
-                otherStartIndex: 6,
-                otherEndIndex: 9
-            }
-        },
-        ViewMember: {
-            ByDefault: {
-                commisionIndexStart: 7,
-                commisionIndexEnd: 12,
-                ugroupIndex: 6,
-                otherStartIndex: 6,
-                otherEndIndex: 12
-            },
-            ByShowMyanmarOdd: {
-                commisionIndexStart: 7,
-                commisionIndexEnd: 14,
-                ugroupIndex: 6,
-                otherStartIndex: 6,
-                otherEndIndex: 14
-            }
-        }
+        ViewAgent: ColumnIndexsSuperMasterViewDirectDownline,
+        ViewMember: ColumnIndexsViewOnMember
     },
     Agent: {
-        ViewMember: {
-            ByDefault: {
-                commisionIndexStart: 7,
-                commisionIndexEnd: 12,
-                ugroupIndex: 6,
-                otherStartIndex: 6,
-                otherEndIndex: 12
-            },
-            ByShowMyanmarOdd: {
-                commisionIndexStart: 7,
-                commisionIndexEnd: 14,
-                ugroupIndex: 6,
-                otherStartIndex: 6,
-                otherEndIndex: 14
-            }
-        }
+        ViewMember: ColumnIndexsViewOnMember
     }
-}
+};
