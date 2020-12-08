@@ -353,7 +353,26 @@ class CustomerListDataTable {
         let addTableCommissionTag = true;
         let commissionColumns = [];
         let otherColumns = [];
+        let ugroupColumnsOnAgentLevel = [];
+
         const statusCss = self.getRowClass(api.data()[rowIdx]);
+
+        let commisionIndexStart = 5, commisionIndexEnd = 10, ugroupIndex = 5, otherStartIndex = 5, otherEndIndex;
+
+        if (self.viewModel.ShowEditMultiple) {
+            commisionIndexStart += 1;
+            commisionIndexEnd += 1;
+            otherStartIndex = commisionIndexStart;
+        }
+
+        if (self.viewModel.SearchAccountRoleId === CustomerLevel.Agent) {
+            ugroupIndex = commisionIndexStart;
+            commisionIndexStart += 1;
+            commisionIndexEnd += 1;
+            otherStartIndex = commisionIndexStart;
+        }
+
+        otherEndIndex = commisionIndexEnd;
 
         api.cells(rowIdx, ':hidden').eq(0).each(function (cell) {
             const header = self.$(api.column(cell.column).header());
@@ -368,15 +387,10 @@ class CustomerListDataTable {
                 dtPrivate, idx.row, idx.column, 'display'
             );
 
-            let commisionIndexStart = 6, commisionIndexEnd = 11;
-            if (self.viewModel.ShowEditMultiple) {
-                commisionIndexStart += 1;
-                commisionIndexEnd += 1
-            }
-
-            if (self.viewModel.SearchAccountRoleId === 2) {
-                commisionIndexStart += 1;
-                commisionIndexEnd += 1
+            if (self.viewModel.SearchAccountRoleId === CustomerLevel.Agent && idx.column === ugroupIndex) {
+                ugroupColumnsOnAgentLevel.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
+                    `<td class="dtr-title">${header.text()}</td> ` +
+                    `<td class="dtr-data">${cellData}</td></tr>`);
             }
 
             if (idx.column >= commisionIndexStart && idx.column <= commisionIndexEnd) {
@@ -394,21 +408,23 @@ class CustomerListDataTable {
                 }
             }
 
-            if (idx.column < commisionIndexStart || idx.column > commisionIndexEnd) {
+            if ((idx.column < otherStartIndex
+                || idx.column > otherEndIndex)
+                && (self.viewModel.SearchAccountRoleId !== CustomerLevel.Agent
+                    || idx.column !== ugroupIndex)) {
                 otherColumns.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
                     `<td class="dtr-title">${header.text()}</td> ` +
-                    `<td class="dtr-data">${cellData}</td></tr>`)
+                    `<td class="dtr-data">${cellData}</td></tr>`);
             }
         });
 
-        const detailsColumn = otherColumns.concat(commissionColumns);
+        const detailsColumn = otherColumns.concat(ugroupColumnsOnAgentLevel).concat(commissionColumns);
         return detailsColumn ?
             self.$(`<table class="detail-table" data-dtr-index="${rowIdx}"/>`).append(detailsColumn.join('')) :
             false;
     }
 
     private drawCallback = () => {
-
         this.$('#tbl-customer-list').removeClass('hidden');
 
         this.$('.btn-submit').unbind().bind('click', () => {
