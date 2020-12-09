@@ -93,10 +93,10 @@ class CustomerListPopup {
         this.$('.btn-submit').click();
     }
 
-    public openStatusSettingPopup = (element, content, title, bindingPopupEvent) => {
+    public openStatusSettingPopup = (element, content, title, bindingStatusSettingEvent) => {
         this.buildStatusSettingPopupHtml(content, title);
 
-        bindingPopupEvent(element);
+        bindingStatusSettingEvent(element);
 
         const $bootstrapModalDialog = this.$statusPopupContainer.find('.modal-dialog');
 

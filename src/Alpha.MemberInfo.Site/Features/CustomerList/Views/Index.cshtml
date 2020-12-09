@@ -1,10 +1,6 @@
 ﻿@model CustomerListViewModel
 
 @{
-    /**/
-
-    /**/
-
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Customer List";
 }
@@ -149,7 +145,7 @@
                 </th>
                 @if (Model.SearchAccountRoleId == 2)
                 {
-                    <th rowspan="2" class="header">
+                    <th rowspan="2" class="header desktop">
                         @CustomerListResources.Group
                     </th>
                 }
@@ -257,33 +253,30 @@
 
 @helper RenderMasterAgentHeader()
 {
-    /**/
-
-    /**/
-    <th class="header">
+    <th class="header desktop">
         @CustomerListResources.GroupA
     </th>
     if (!Model.IsShowMyanmarOdds)
     {
-        <th class="header">
+        <th class="header desktop">
             @CustomerListResources.GroupB
         </th>
-        <th class="header">
+        <th class="header desktop">
             @CustomerListResources.GroupC
         </th>
-        <th class="header">
+        <th class="header desktop">
             @CustomerListResources.GroupD
         </th>
     }
-    <th class="header">
+    <th class="header desktop">
         @CustomerListResources.Group1X2
     </th>
-    <th class="header">
+    <th class="header desktop">
         @CustomerListResources.Other
     </th>
     if (Model.IsShowMyanmarOdds)
     {
-        <th class="header">
+        <th class="header desktop">
             @CustomerListResources.MyanmarOdds
         </th>
     }
@@ -291,36 +284,33 @@
 
 @helper RenderMemberHeader()
 {
-    /**/
-
-    /**/
-    <th class="header">
+    <th class="header desktop">
         @CustomerListResources.AComm1
     </th>
-    <th class="header">
+    <th class="header desktop">
         @CustomerListResources.AComm2
     </th>
-    <th class="header">
+    <th class="header desktop">
         @CustomerListResources.AComm3
     </th>
     if (Model.IsShowMyanmarOdds)
     {
-        <th class="header">
+        <th class="header desktop">
             @CustomerListResources.AccountMyanmarOdds
         </th>
     }
-    <th class="header">
+    <th class="header desktop">
         @CustomerListResources.PComm1
     </th>
-    <th class="header">
+    <th class="header desktop">
         @CustomerListResources.PComm2
     </th>
-    <th class="header">
+    <th class="header desktop">
         @CustomerListResources.PComm3
     </th>
     if (Model.IsShowMyanmarOdds)
     {
-        <th class="header">
+        <th class="header desktop">
             @CustomerListResources.PlayerMyanmarOdds
         </th>
     }
