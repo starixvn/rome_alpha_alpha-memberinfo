@@ -19,7 +19,7 @@ class CustomerListPopup {
         this.$bootstrapModalDialog = this.$('.modal-dialog');
     }
 
-    public openProductPopup = (currentTarget, method = 'get') => {
+    public openProductPopup = (currentTarget, method = 'GET') => {
         this.$.blockUI();
 
         this.$('#myIframe').attr('src', '');

@@ -7,7 +7,7 @@
 
     public class SportsbookMultipleViewModel : SportsbookViewModel, ISettingItemMultipleViewModel
     {
-        public SportsbookMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+        public SportsbookMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
         {
         }

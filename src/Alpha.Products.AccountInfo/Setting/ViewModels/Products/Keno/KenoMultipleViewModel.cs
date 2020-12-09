@@ -7,7 +7,7 @@
 
     public class KenoMultipleViewModel : KenoViewModel, ISettingItemMultipleViewModel
     {
-        public KenoMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+        public KenoMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
         {
         }
@@ -17,7 +17,7 @@
         public override string Icon => "icon-edit Enable";
 
         protected override string BaseAddress
-            => OldMainUrl + "customersetting/kenosetting/kenosetting/" + 
+            => OldMainUrl + "customersetting/kenosetting/kenosetting/" +
             (SearchAccount.IsMember
             ? $"{Actor.CustomerLevel.DisplayName}EditMember"
             : $"Edit{SearchAccount.CustomerLevel.DisplayName}");

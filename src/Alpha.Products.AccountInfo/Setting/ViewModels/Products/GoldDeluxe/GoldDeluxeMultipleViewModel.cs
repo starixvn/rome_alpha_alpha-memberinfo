@@ -7,7 +7,7 @@
 
     public class GoldDeluxeMultipleViewModel : GoldDeluxeViewModel, ISettingItemMultipleViewModel
     {
-        public GoldDeluxeMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+        public GoldDeluxeMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
         {
         }
@@ -16,25 +16,27 @@
 
         public override string Icon => "icon-edit Enable";
 
-        protected override string BaseAddress 
+        protected override string BaseAddress
             => $"{OldMainUrl}GoldDeluxeSetting/GoldDeluxe/EditSettingMultiple";
 
         public override string Url => BaseAddress;
 
+        public override string Method => DataKey.Method.POST;
+
         public override Dictionary<string, string> QueryStringParamaters
              => new Dictionary<string, string>
-            {
-                ["uplineId"] = Actor.Id.ToString(),
-                ["uplineLevel"] = Actor.CusomerLevelValue.ToString(),
-                ["customerLevel"] = SearchAccount.CusomerLevelValue.ToString(),
-                ["actorId"] = Actor.Id.ToString(),
-                ["customerIds"] = request.GetData<string>("customerIds"),
-                ["usernames"] = request.GetData<string>("usernames"),
-                ["level"] = SearchAccount.CusomerLevelValue.ToString(),
-                ["subAccId"] = Actor.SubAccountId.ToString(),
-                ["formType"] = "1",
-                ["isGetMultipleDCS"] = "1",
-                ["isForcingMode"] = "0"
-            };
+             {
+                 ["uplineId"] = Actor.Id.ToString(),
+                 ["uplineLevel"] = Actor.CusomerLevelValue.ToString(),
+                 ["customerLevel"] = SearchAccount.CusomerLevelValue.ToString(),
+                 ["actorId"] = Actor.Id.ToString(),
+                 ["customerIds"] = request.GetData<string>("customerIds"),
+                 ["usernames"] = request.GetData<string>("usernames"),
+                 ["level"] = SearchAccount.CusomerLevelValue.ToString(),
+                 ["subAccId"] = Actor.SubAccountId.ToString(),
+                 ["formType"] = "1",
+                 ["isGetMultipleDCS"] = "1",
+                 ["isForcingMode"] = "0"
+             };
     }
 }

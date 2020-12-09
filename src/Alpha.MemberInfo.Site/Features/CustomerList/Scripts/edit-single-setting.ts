@@ -38,15 +38,15 @@ class EditSingleSetting {
         let html = ['<ul>'];
         this.$.each(settings, (key, item) => {
             const title = `${item.AddEditTextToPopupTitle ? this.$('#editText').val() : ''} ${item.Text} - ${username}`;
-            html.push(`<li data-title="${title}" data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+            html.push(`<li data-title="${title}" data-method='${item.Method}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
         });
 
         this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
 
         if (this.isMobile) {
-            this.$('#bootstrap-modal').find('.modal-title').empty().append('Edit Setting');
+            this.$('#bootstrap-modal').find('.modal-title').empty().append(`${this.$('#editSettingText').val()} - ${username}`);
         }
     }
 
-    private bindingPopupEvent = () => this.$('.edit-popup').click(event => this.customerListPopup.openProductPopup(event.currentTarget))
+    private bindingPopupEvent = () => this.$('.edit-popup').click(event => this.customerListPopup.openProductPopup(event.currentTarget, this.$(event.currentTarget).data("method")))
 }

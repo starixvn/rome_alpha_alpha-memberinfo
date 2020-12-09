@@ -60,5 +60,7 @@
         public virtual bool Visible => Request.ActorIsEdittingDirectDownline;
 
         public virtual bool AddEditTextToPopupTitle => true;
+
+        public virtual string Method => DataKey.Method.GET;
     }
 }

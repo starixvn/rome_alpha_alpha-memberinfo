@@ -42,5 +42,11 @@
             public const string Suspended = "Suspended";
             public const string IsAllDayBalTransfer = "IsAllDayBalTransfer";
         }
+
+        public static class Method
+        {
+            public const string GET = "GET";
+            public const string POST = "POST";
+        }
     }
 }

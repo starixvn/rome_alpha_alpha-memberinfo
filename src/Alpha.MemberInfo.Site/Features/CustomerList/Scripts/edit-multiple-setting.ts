@@ -67,16 +67,12 @@ class EditMultipleSetting {
 
     private buildPopupHtml = settings => {
         let html = ['<ul>'];
-        this.$.each(settings, (key, item) => {
-            const methodByProductArray = [1, 6, 8];
-            const method = this.$.inArray(item.ProductId, methodByProductArray) !== -1 ? 'GET' : 'POST';
-            html.push(`<li data-title='${item.Text}' data-method='${method}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
-        });
+        this.$.each(settings, (key, item) => html.push(`<li data-title='${item.Text}' data-method='${item.Method}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`));
 
         this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
 
         if (this.viewModel.IsMobileView) {
-            this.$('#bootstrap-modal').find('.modal-title').empty().append('Edit Multiple Setting');
+            this.$('#bootstrap-modal').find('.modal-title').empty().append(this.$('#editMultipleSettingText').val());
         }
     }
 
