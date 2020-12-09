@@ -283,7 +283,7 @@ class CustomerListDataTable {
     }
 
     private renderUsernameColumn = item => {
-        const content = `${item.Username} <br /> ${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}`;
+        const content = `<span>${item.Username}</span> <br /> <span class='nickname'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span>`;
         const queryString = {
             CustLevelId: item.RoleId,
             CustId: item.CustId,
@@ -390,6 +390,7 @@ class CustomerListDataTable {
             default: return this.getColumnIndexsByAgent();
         }
     }
+
     private renderDetailColumn = (api, rowIdx) => {
         const self = this;
         let addTableCommissionTag = true;

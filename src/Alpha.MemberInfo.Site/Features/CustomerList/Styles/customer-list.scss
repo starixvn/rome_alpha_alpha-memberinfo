@@ -101,6 +101,10 @@ body:not(.modal-open) {
         font-size: 18px;
     }
 
+    .nickname {
+        color: #838383 !important;
+    }
+
     .closed-wrongPwdOthers {
         background-color: #ccc7ba !important;
     }
@@ -281,6 +285,7 @@ table.dataTable tbody tr {
 
         .form-group {
             margin-right: 0;
+
             label {
                 text-align: right;
             }
@@ -311,4 +316,3 @@ table.dataTable tbody tr {
         }
     }
 }
-
