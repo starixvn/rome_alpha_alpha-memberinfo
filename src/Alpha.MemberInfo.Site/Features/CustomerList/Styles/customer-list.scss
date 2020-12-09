@@ -281,7 +281,7 @@ table.dataTable tbody tr {
     background: transparent;
 }
 
-@media (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1440px) {
     .filter {
         display: grid;
         grid-template-columns: 310px 300px 1fr;
@@ -290,7 +290,7 @@ table.dataTable tbody tr {
         .form-group {
             margin-right: 0;
 
-            label {
+            > label {
                 text-align: right;
             }
         }
@@ -316,6 +316,9 @@ table.dataTable tbody tr {
 
             .multiselect {
                 width: 100%;
+                .multiselect-selected-text {
+                    width: 100%;
+                }
             }
         }
     }
