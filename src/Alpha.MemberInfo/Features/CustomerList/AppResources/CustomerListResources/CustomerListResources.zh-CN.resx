@@ -282,4 +282,7 @@
   <data name="Group" xml:space="preserve">
     <value>Group</value>
   </data>
+  <data name="FirstLastName" xml:space="preserve">
+    <value>First &amp; Last Name</value>
+  </data>
 </root>

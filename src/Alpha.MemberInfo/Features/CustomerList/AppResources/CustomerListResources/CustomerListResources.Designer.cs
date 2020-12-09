@@ -233,6 +233,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First &amp; Last Name.
+        /// </summary>
+        public static string FirstLastName {
+            get {
+                return ResourceManager.GetString("FirstLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string FirstName {
