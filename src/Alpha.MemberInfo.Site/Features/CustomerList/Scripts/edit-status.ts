@@ -23,7 +23,14 @@ class EditStatus {
 
     private openPopup = element => this.customerListServices.getSettings(
         this.$(element).data("url"),
-        data => this.customerListPopup.openBootstrapModal(element, data.Status, this.buildPopupHtml, this.bindingPopupEvent)
+        data => {
+            const username = this.$(element).data("username"),
+                custId = this.$(element).data("custid"),
+                content = this.buildPopupHtml(data.Status, username, custId),
+                title = `${this.$('#editStatusText').val()} - ${username}`;
+
+            this.customerListPopup.openStatusSettingPopup(element, content, title, this.bindingPopupEvent)
+        }
     );
 
     private buildPopupHtml = (statusArray, username, custId) => {
@@ -37,11 +44,7 @@ class EditStatus {
             }
         });
 
-        this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
-
-        if (this.isMobile) {
-            this.$('#bootstrap-modal').find('.modal-title').empty().append(`${this.$('#editStatusText').val()} - ${username}`);
-        }
+        return html.join('');
     }
 
     private bindingPopupEvent = parentElement => {

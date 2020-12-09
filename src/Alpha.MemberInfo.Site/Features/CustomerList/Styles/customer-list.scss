@@ -157,7 +157,7 @@ body:not(.modal-open) {
     }
 }
 
-#bootstrap-modal {
+#status-popup {
     box-shadow: 0px 0px 6px rgba(0,0,0,0.19);
 
     .modal-dialog {
@@ -219,7 +219,7 @@ body:not(.modal-open) {
     }
 }
 
-#bootstrap-modal-product {
+#product-popup {
     top: 8px !important;
     height: calc(100% - 8px) !important;
     padding-right: 0 !important;
@@ -240,15 +240,14 @@ body:not(.modal-open) {
     }
 }
 
-
-
 .dtr-column {
     .child .detail-table {
         tr {
             height: calculateScale(32px);
+
             .dtr-data {
-               word-break: break-word;
-               white-space: normal;
+                word-break: break-word;
+                white-space: normal;
             }
         }
 
@@ -316,6 +315,7 @@ table.dataTable tbody tr {
 
             .multiselect {
                 width: 100%;
+
                 .multiselect-selected-text {
                     width: 100%;
                 }

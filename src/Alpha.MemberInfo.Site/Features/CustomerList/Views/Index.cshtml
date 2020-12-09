@@ -1,6 +1,10 @@
 ﻿@model CustomerListViewModel
 
 @{
+    /**/
+
+    /**/
+
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Customer List";
 }
@@ -176,7 +180,7 @@
         </thead>
     </table>
 
-    <div class="modal modal-sm fade" id="bootstrap-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal modal-sm fade" id="status-popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 @if (Model.IsMobileView)
@@ -199,7 +203,7 @@
         <input type="submit" class="hidden">
     </form>
 
-    <div class="modal modal-product modal-sm fade" id="bootstrap-modal-product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel01" aria-hidden="true">
+    <div class="modal modal-product modal-sm fade" id="product-popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel01" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -253,6 +257,9 @@
 
 @helper RenderMasterAgentHeader()
 {
+    /**/
+
+    /**/
     <th class="header">
         @CustomerListResources.GroupA
     </th>
@@ -284,6 +291,9 @@
 
 @helper RenderMemberHeader()
 {
+    /**/
+
+    /**/
     <th class="header">
         @CustomerListResources.AComm1
     </th>

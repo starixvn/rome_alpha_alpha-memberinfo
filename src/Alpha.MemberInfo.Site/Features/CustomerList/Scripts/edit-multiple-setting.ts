@@ -55,10 +55,10 @@ class EditMultipleSetting {
                 this.editSingleSetting.openPopup(this.$(`#setting-${custids[0]}`)) :
                 this.customerListServices.getSettings(
                     `${this.viewModel.MemberInfoUrl}CustomerList/MultipleEditPopup`,
-                    data => this.customerListPopup.openBootstrapModal(
+                    data => this.customerListPopup.openStatusSettingPopup(
                         element,
-                        data,
-                        this.buildPopupHtml,
+                        this.buildPopupHtml(data),
+                        this.$('#editMultipleSettingText').val(),
                         this.bindingPopupEvent),
                     'POST',
                     params);
@@ -69,11 +69,7 @@ class EditMultipleSetting {
         let html = ['<ul>'];
         this.$.each(settings, (key, item) => html.push(`<li data-title='${item.Text}' data-method='${item.Method}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`));
 
-        this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
-
-        if (this.viewModel.IsMobileView) {
-            this.$('#bootstrap-modal').find('.modal-title').empty().append(this.$('#editMultipleSettingText').val());
-        }
+        return html.join('');
     }
 
     private bindingPopupEvent = () => this.$('.edit-multiple-settings').click(event => this.customerListPopup.openProductPopup(event.currentTarget, this.$(event.currentTarget).data("method")))

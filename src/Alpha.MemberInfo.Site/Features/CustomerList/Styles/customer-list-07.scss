@@ -40,7 +40,7 @@ body {
     }
 }
 
-#bootstrap-modal, #bootstrap-modal-product {
+#status-popup, #product-popup {
     padding-right: 0px !important;
     padding-left: 0 !important;
     width: calc(100% + 24px) !important;
@@ -52,9 +52,6 @@ body {
         display: block;
         overflow: hidden;
     }
-}
-
-#bootstrap-modal, #bootstrap-modal-product {
 
     ul,
     ol {
@@ -143,9 +140,11 @@ body {
         .btn-group button.multiselect {
             background: transparent;
             font-size: calculateScale(13px);
-                .multiselect-selected-text {
-                    width: 100%;
-                }
+
+            .multiselect-selected-text {
+                width: 100%;
+            }
+
             .caret {
                 top: 22px;
                 border-width: calculateScale(4px);
