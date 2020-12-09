@@ -40,7 +40,7 @@ class EditStatus {
         this.$('#bootstrap-modal').find('.modal-body').empty().append(html.join(''));
 
         if (this.isMobile) {
-            this.$('#bootstrap-modal').find('.modal-title').empty().append('Edit Status');
+            this.$('#bootstrap-modal').find('.modal-title').empty().append(`${this.$('#editStatusText').val()} - ${username}`);
         }
     }
 

@@ -16,27 +16,27 @@ class CustomerListPopup {
 
     private cacheDom = () => {
         this.$bootstrapContainer = this.$('#bootstrap-modal');
-        this.$bootstrapModalDialog = this.$('.modal-dialog');
+        this.$bootstrapModalDialog = this.$('#bootstrap-modal .modal-dialog');
     }
 
     public openProductPopup = (currentTarget, method = 'GET') => {
         this.$.blockUI();
 
-        this.$('#myIframe').attr('src', '');
-        this.$('#myIframeForm').attr('action', this.$(currentTarget).data("url"));
-        this.$('#myIframeForm').attr('method', method);
+        this.$('#productIframe').attr('src', '');
+        this.$('#productIframeForm').attr('action', this.$(currentTarget).data("url"));
+        this.$('#productIframeForm').attr('method', method);
 
         const params = this.$(currentTarget).data("params");
 
-        this.$('#myIframeForm').empty();
+        this.$('#productIframeForm').empty();
 
         if (params !== undefined && params !== null) {
             const attrs = this.$.map(params, (value, key) => `<input type="hidden"  name='${key}' id='${key}' value='${value}'/>`).join(' ');
 
-            this.$('#myIframeForm').append(attrs);
+            this.$('#productIframeForm').append(attrs);
         }
 
-        this.$('#myIframeForm').submit();
+        this.$('#productIframeForm').submit();
 
         const bodyWidth = this.$(window).width() - this.topWindow.$('#side-bar').width();
 
@@ -56,23 +56,23 @@ class CustomerListPopup {
     private initFrame = () => {
         setTimeout(() => {
             const headerClassesOrId = '.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr';
-            this.$('#myIframe').contents().find(headerClassesOrId).css('display', 'none');
+            this.$('#productIframe').contents().find(headerClassesOrId).css('display', 'none');
 
-            if (this.$('#myIframe').contents().find('#txtSecCode')) {
-                this.$('#myIframe').contents().find('#txtSecCode').focus();
+            if (this.$('#productIframe').contents().find('#txtSecCode')) {
+                this.$('#productIframe').contents().find('#txtSecCode').focus();
             }
         }, 100);
     }
 
     public bindingBootstrapModalEvent = () => {
-        this.$bootstrapContainer.unbind().bind('mouseleave ', () => this.$bootstrapContainer.modal('hide'));
+        //this.$bootstrapContainer.unbind().bind('mouseleave ', () => this.$bootstrapContainer.modal('hide'));
 
         this.$('#bootstrap-modal-product').on('hidden.bs.modal', () => {
-            this.$('#myIframe').attr('src', 'about:blank');
+            this.$('#productIframe').attr('src', 'about:blank');
         });
 
         this.$('#bootstrap-modal-product').on('shown.bs.modal', () => {
-            this.initFrame.apply(this.$('#myIframe').contents());
+            this.initFrame.apply(this.$('#productIframe').contents());
         });
     }
 
@@ -81,11 +81,11 @@ class CustomerListPopup {
     public closeProductPopup = () => this.$('#bootstrap-modal-product').modal('hide');
 
     public successfulUpdatingCallback = () => {
-        this.$('#myIframeForm').submit();
+        this.$('#productIframeForm').submit();
     }
 
     public successfulUpdatingCallbackSportbook = () => {
-        this.$('#myIframeForm').submit();
+        this.$('#productIframeForm').submit();
         this.$('.btn-submit').click();
     }
 
@@ -94,9 +94,7 @@ class CustomerListPopup {
         bindingPopupEvent(element);
 
         if (this.isMobile) {
-            this.$bootstrapContainer
-                .find('.modal-dialog')
-                .css({ height: '100%', width: '100%' });
+            this.$bootstrapModalDialog.css({ height: '100%', width: '100%' });
 
             this.$bootstrapContainer
                 .css({ top: 0, left: 0, height: '100%', width: '100%', paddingRight: '0px' })
@@ -107,19 +105,10 @@ class CustomerListPopup {
                 .css({ height: 'auto', width: 'auto', top: 0 })
                 .modal({ show: true, backdrop: false });
 
-            this.fixBootstrapDimension(element);
-        }
-    }
-
-    private fixBootstrapDimension = element => {
-        if (this.isMobile) {
-            this.$bootstrapContainer.css({ top: 0, left: 0, height: '100%', width: '100%' });
-        }
-        else {
             this.$bootstrapModalDialog.css({ width: 'inherit' });
             const height = this.$bootstrapModalDialog.outerHeight(),
                 width = this.$bootstrapModalDialog.outerWidth(),
-                bodyHeight = this.$('body').height();
+                bodyHeight = this.$(this.topWindow.parent.frames["main"]).height();
 
             let top = this.$(element).offset().top - this.$(document).scrollTop(),
                 left = this.$(element).offset().left + this.$(element).width();
