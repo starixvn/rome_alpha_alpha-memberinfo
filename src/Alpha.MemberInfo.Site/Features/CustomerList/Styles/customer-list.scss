@@ -246,6 +246,10 @@ body:not(.modal-open) {
     .child .detail-table {
         tr {
             height: calculateScale(32px);
+            .dtr-data {
+               word-break: break-word;
+               white-space: normal;
+            }
         }
 
         > tbody > tr:nth-child(2n) {
