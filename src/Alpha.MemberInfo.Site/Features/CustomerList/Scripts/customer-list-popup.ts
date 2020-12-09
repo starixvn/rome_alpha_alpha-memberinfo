@@ -57,6 +57,10 @@ class CustomerListPopup {
         setTimeout(() => {
             const headerClassesOrId = '.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr';
             this.$('#myIframe').contents().find(headerClassesOrId).css('display', 'none');
+
+            if (this.$('#myIframe').contents().find('#txtSecCode')) {
+                this.$('#myIframe').contents().find('#txtSecCode').focus();
+            }
         }, 100);
     }
 
