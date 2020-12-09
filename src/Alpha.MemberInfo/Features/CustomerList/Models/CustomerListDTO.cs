@@ -16,7 +16,7 @@
             DownlinesList = downlinesList.Select(
                 downline =>
                 {
-                    if (!param.LimitedDateToShowInfo)
+                    if (param.LimitedDateToShowInfo)
                     {
                         downline.CreateDate = "--";
                     }
