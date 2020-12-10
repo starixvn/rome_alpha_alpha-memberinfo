@@ -3,6 +3,8 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Customer List";
+
+    var commissionLogic = Model.SearchAccountLevel.IsAgentLevel() && Model.Language.Equals("th-TH") ? "none" : "desktop";
 }
 
 @section Styles {
@@ -110,17 +112,17 @@
             <tr>
                 @if (!Model.IsMobileView)
                 {
-                    <th rowspan="2" class="header">
+                    <th rowspan="2" class="header all">
                         @CustomerListResources.No
                     </th>
                 }
                 @if (!Model.HideEditMultiple)
                 {
-                    <th rowspan="2" class="header">
+                    <th rowspan="2" class="header all">
                         <input type="checkbox" id="select-all" />
                     </th>
                 }
-                <th rowspan="2" class="header">
+                <th rowspan="2" class="header all">
                     @if (!Model.HideEditMultiple)
                     {
                         <div class="edit-multiple icon-table-edit" data-url="" />
@@ -130,11 +132,11 @@
                         <span>@CustomerListResources.Edit</span>
                     }
                 </th>
-                <th rowspan="2" class="header">
+                <th rowspan="2" class="header all">
                     @CustomerListResources.Username <br />
                     @CustomerListResources.NickName
                 </th>
-                <th rowspan="2" class="header">
+                <th rowspan="2" class="header all">
                     @CustomerListResources.Status
                 </th>
                 <th rowspan="2" class="header">
@@ -145,7 +147,7 @@
                 </th>
                 @if (Model.SearchAccountRoleId == 2)
                 {
-                    <th rowspan="2" class="header desktop">
+                    <th rowspan="2" class="header @commissionLogic">
                         @CustomerListResources.Group
                     </th>
                 }
@@ -164,9 +166,9 @@
                 <th rowspan="2" class="header"></th>
             </tr>
             <tr class="thead-row2">
-                @if (Model.DownlineLevel.IsMemberLevel())
+                @if (Model.SearchAccountLevel.IsAgentLevel())
                 {
-                    @RenderMemberHeader()
+                    @RenderMemberHeader(commissionLogic)
                 }
                 else
                 {
@@ -282,35 +284,35 @@
     }
 }
 
-@helper RenderMemberHeader()
+@helper RenderMemberHeader(string commissionLogic)
 {
-    <th class="header desktop">
+    <th class="header @commissionLogic">
         @CustomerListResources.AComm1
     </th>
-    <th class="header desktop">
+    <th class="header @commissionLogic">
         @CustomerListResources.AComm2
     </th>
-    <th class="header desktop">
+    <th class="header @commissionLogic">
         @CustomerListResources.AComm3
     </th>
     if (Model.IsShowMyanmarOdds)
     {
-        <th class="header desktop">
+        <th class="header @commissionLogic">
             @CustomerListResources.AccountMyanmarOdds
         </th>
     }
-    <th class="header desktop">
+    <th class="header @commissionLogic">
         @CustomerListResources.PComm1
     </th>
-    <th class="header desktop">
+    <th class="header @commissionLogic">
         @CustomerListResources.PComm2
     </th>
-    <th class="header desktop">
+    <th class="header @commissionLogic">
         @CustomerListResources.PComm3
     </th>
     if (Model.IsShowMyanmarOdds)
     {
-        <th class="header desktop">
+        <th class="header @commissionLogic">
             @CustomerListResources.PlayerMyanmarOdds
         </th>
     }
