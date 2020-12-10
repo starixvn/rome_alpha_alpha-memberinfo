@@ -283,7 +283,7 @@ class CustomerListDataTable {
     }
 
     private renderUsernameColumn = item => {
-        const content = `<span>${item.Username}</span> <br /> <span class='nickname'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span>`;
+        const content = `<span>${item.Username}</span> <br /> <span class='grey-color'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span>`;
         const queryString = {
             CustLevelId: item.RoleId,
             CustId: item.CustId,

@@ -5,6 +5,10 @@ body:not(.modal-open) {
     padding-right: 0px !important;
 }
 
+.grey-color {
+    color: #838383 !important;
+}
+
 .form-group {
     margin-right: 25px;
 
@@ -99,10 +103,6 @@ body:not(.modal-open) {
 
     .icon-table-edit {
         font-size: 18px;
-    }
-
-    .nickname {
-        color: #838383 !important;
     }
 
     .closed-wrongPwdOthers {

@@ -2,21 +2,26 @@
 {
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Configuration;
+    using Alpha.Products.Core.Models;
 
     public abstract class ProductSettingItemViewModel : SettingItemViewModel
     {
         private const int MaxSettingTypesOfAProduct = 5;
         protected readonly ISearchAccountInfoRequest request;
         protected readonly IConfigurationItem productItem;
+        protected readonly CustomerProductStatus customerStatus;
 
         protected ProductSettingItemViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem.ProductId * MaxSettingTypesOfAProduct)
         {
             this.productItem = productItem;
             this.request = request;
+            this.customerStatus = request.SearchAccount.ProductStatusOf(ProductId);
         }
 
         public int ProductId => productItem.ProductId;
+
+        public override bool Enabled => customerStatus.Enabled;
 
         public override bool Visible => Actor.IsNotSuper || SearchAccount.IsNotAgent;
 
@@ -24,8 +29,6 @@
         {
             get
             {
-                var customerStatus = request.SearchAccount.ProductStatusOf(ProductId);
-
                 if (!customerStatus.Synced)
                 {
                     return "icon-refresh Synchronize";

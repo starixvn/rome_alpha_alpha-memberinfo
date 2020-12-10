@@ -62,5 +62,7 @@
         public virtual bool AddEditTextToPopupTitle => true;
 
         public virtual string Method => DataKey.Method.GET;
+
+        public virtual bool Enabled => true;
     }
 }

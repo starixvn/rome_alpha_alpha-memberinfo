@@ -37,7 +37,7 @@ class EditSingleSetting {
         let html = ['<ul>'];
         this.$.each(settings, (key, item) => {
             const title = `${item.AddEditTextToPopupTitle ? this.$('#editText').val() : ''} ${item.Text} - ${username}`;
-            html.push(`<li data-title="${title}" data-method='${item.Method}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+            html.push(`<li data-title="${title}" data-method='${item.Method}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-popup ${item.Icon} ${item.Enabled ? '' : 'grey-color'}" data-url="${item.Url}">${item.Text}</li>`);
         });
 
         return html.join('');

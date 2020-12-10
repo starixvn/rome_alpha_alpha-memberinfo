@@ -7,7 +7,7 @@
 
     public class SportsbookViewModel : ProductSettingItemViewModel
     {
-        public SportsbookViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+        public SportsbookViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
         {
         }
@@ -15,6 +15,8 @@
         public override string Text => request.GetProductName(ProductId);
 
         public override string Icon => "icon-edit Enable";
+
+        public override bool Enabled => true;
 
         public override Dictionary<string, string> QueryStringParamaters
          => new Dictionary<string, string>
