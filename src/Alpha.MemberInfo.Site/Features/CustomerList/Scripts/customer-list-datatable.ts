@@ -177,7 +177,7 @@ class CustomerListDataTable {
 
         if (this.viewModel.SearchAccountRoleId === CustomerLevel.Agent) {
             columns.push({
-                "className": 'left',
+                "className": 'center',
                 "data": "UGroup"
             });
         }

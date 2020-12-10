@@ -48,9 +48,6 @@ class EditMultipleSetting {
             this.$('#arrayCustID').val(custids.join('^'));
             this.$('#arrayUserName').val(usernames.join('^'));
 
-            //Synced Casino Array
-            //this.$('#arrayStatusRnCasino').val(custids.join('^'));
-
             custids.length === 1 ?
                 this.editSingleSetting.openPopup(this.$(`#setting-${custids[0]}`)) :
                 this.customerListServices.getSettings(
@@ -67,7 +64,14 @@ class EditMultipleSetting {
 
     private buildPopupHtml = settings => {
         let html = ['<ul>'];
-        this.$.each(settings, (key, item) => html.push(`<li data-title='${item.Text}' data-method='${item.Method}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`));
+        this.$.each(settings, (key, item) => {
+            //Synced Casino Array
+            if (item.ProductId === 6) {
+                this.$('#arrayStatusRnCasino').val(item.QueryStringParamaters.syncedCasinoList);
+            }
+
+            html.push(`<li data-title='${item.Text}' data-method='${item.Method}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+        });
 
         return html.join('');
     }

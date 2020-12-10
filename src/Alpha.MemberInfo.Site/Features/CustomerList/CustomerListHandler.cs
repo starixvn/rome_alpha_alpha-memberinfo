@@ -357,7 +357,7 @@
                  .AddData("customerIds", message.CustIds)
                  .AddData("usernames", message.Usernames)
                  .AddData("customerNames", message.Usernames)
-                 .AddData("syncedCasinoList", string.Join(",", syncedCasinoModel.Select(item => item.SyncedCasino ? "1" : "0")))
+                 .AddData("syncedCasinoList", string.Join("^", syncedCasinoModel.Select(item => item.SyncCasino ? "1" : "0")))
                  .AddData("language", message.Language);
 
             return settingMultipleViewModelFactory.GetViewModels(request).Where(setting => setting.Visible).OrderBy(setting => setting.DisplayOrder);

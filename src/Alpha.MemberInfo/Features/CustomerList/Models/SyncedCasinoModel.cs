@@ -8,14 +8,14 @@
 
         public SyncedCasinoModel(
             int custId,
-            bool syncedCasino)
+            bool syncCasino)
         {
             CustId = custId;
-            SyncedCasino = syncedCasino;
+            SyncCasino = syncCasino;
         }
 
         public int CustId { get; }
 
-        public bool SyncedCasino { get; }
+        public bool SyncCasino { get; }
     }
 }
