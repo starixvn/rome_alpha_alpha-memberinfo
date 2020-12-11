@@ -348,59 +348,13 @@ class CustomerListDataTable {
         return `<a ${this.buildAttributes(attrs)}>${item.LastLoginIP}</a>`
     }
 
-    private getColumnIndexsBySuper = () => {
-        switch (this.viewModel.SearchAccountRoleId) {
-            case 4:
-                return this.viewModel.IsShowMyanmarOdds ?
-                    ColumnIndexs.Super.ViewMaster.ByShowMyanmarOdd :
-                    ColumnIndexs.Super.ViewMaster.ByDefault;
-            case 3:
-                return this.viewModel.IsShowMyanmarOdds ?
-                    ColumnIndexs.Super.ViewAgent.ByShowMyanmarOdd :
-                    ColumnIndexs.Super.ViewAgent.ByDefault;
-            default:
-                return this.viewModel.IsShowMyanmarOdds ?
-                    ColumnIndexs.Super.ViewMember.ByShowMyanmarOdd :
-                    ColumnIndexs.Super.ViewMember.ByDefault;
-        }
-    }
-
-    private getColumnIndexsByMaster = () => {
-        switch (this.viewModel.SearchAccountRoleId) {
-            case 3:
-                return this.viewModel.IsShowMyanmarOdds ?
-                    ColumnIndexs.Master.ViewAgent.ByShowMyanmarOdd :
-                    ColumnIndexs.Master.ViewAgent.ByDefault;
-            default:
-                return this.viewModel.IsShowMyanmarOdds ?
-                    ColumnIndexs.Master.ViewMember.ByShowMyanmarOdd :
-                    ColumnIndexs.Master.ViewMember.ByDefault;
-        }
-    }
-
-    private getColumnIndexsByAgent = () =>
-        this.viewModel.IsShowMyanmarOdds ?
-            ColumnIndexs.Agent.ViewMember.ByShowMyanmarOdd :
-            ColumnIndexs.Agent.ViewMember.ByDefault;
-
-    private getColumnIndexs = () => {
-        switch (this.viewModel.UplineRoleId) {
-            case 4: return this.getColumnIndexsBySuper();
-            case 3: return this.getColumnIndexsByMaster();
-            default: return this.getColumnIndexsByAgent();
-        }
-    }
-
     private renderDetailColumn = (api, rowIdx) => {
         const self = this;
-        let addTableCommissionTag = true;
         let commissionColumns = [];
         let otherColumns = [];
         let ugroupColumnsOnAgentLevel = [];
 
         const statusCss = self.getRowClass(api.data()[rowIdx]);
-
-        let columnIndex = this.getColumnIndexs();
 
         api.cells(rowIdx, ':hidden').eq(0).each(function (cell) {
             const header = self.$(api.column(cell.column).header());
@@ -415,15 +369,13 @@ class CustomerListDataTable {
                 dtPrivate, idx.row, idx.column, 'display'
             );
 
-            if (self.viewModel.SearchAccountRoleId === CustomerLevel.Agent && idx.column === columnIndex.ugroupIndex) {
+            if (header.hasClass('ugroup')) {
                 ugroupColumnsOnAgentLevel.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
                     `<td class="dtr-title">${header.text()}</td> ` +
                     `<td class="dtr-data">${cellData}</td></tr>`);
             }
-
-            if (idx.column >= columnIndex.commisionIndexStart && idx.column <= columnIndex.commisionIndexEnd) {
-                if (addTableCommissionTag) {
-                    addTableCommissionTag = false;
+            else if (header.hasClass('commission')) {
+                if (header.hasClass('startGroup')) {
                     commissionColumns.push(`<tr class="${statusCss}"><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr class="${statusCss}"><td class='commission-header' colspan="2">${self.$('#commissionText').val()}</td></tr>`);
                 }
 
@@ -431,15 +383,10 @@ class CustomerListDataTable {
                     `<td class="dtr-title">${header.text()}</td> ` +
                     `<td class="dtr-data">${cellData}</td></tr>`);
 
-                if (idx.column === columnIndex.commisionIndexEnd && !addTableCommissionTag) {
+                if (header.hasClass('endGroup')) {
                     commissionColumns.push('</table></td></tr>');
                 }
-            }
-
-            if ((idx.column < columnIndex.otherStartIndex
-                || idx.column > columnIndex.otherEndIndex)
-                && (self.viewModel.SearchAccountRoleId !== CustomerLevel.Agent
-                    || idx.column !== columnIndex.ugroupIndex)) {
+            } else {
                 otherColumns.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
                     `<td class="dtr-title">${header.text()}</td> ` +
                     `<td class="dtr-data">${cellData}</td></tr>`);

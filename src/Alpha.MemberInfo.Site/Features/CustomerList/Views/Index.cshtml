@@ -147,11 +147,11 @@
                 </th>
                 @if (Model.SearchAccountRoleId == 2)
                 {
-                    <th rowspan="2" class="header @commissionLogic">
+                    <th rowspan="2" class="header ugroup @commissionLogic">
                         @CustomerListResources.Group
                     </th>
                 }
-                <th colspan="@Model.CommisionColSpan.ToString()" class="header">
+                <th colspan="@Model.CommisionColSpan.ToString()" class="header @commissionLogic">
                     @CustomerListResources.Commission
                 </th>
                 @if (!Model.LimitedDateToShowInfo)
@@ -160,7 +160,7 @@
                         @CustomerListResources.CreatedDate
                     </th>
                 }
-                <th rowspan="2" class="header">
+                <th rowspan="2" class="header ">
                     @CustomerListResources.LoginIP
                 </th>
                 <th rowspan="2" class="header"></th>
@@ -255,30 +255,30 @@
 
 @helper RenderMasterAgentHeader()
 {
-    <th class="header desktop">
+    <th class="header desktop commission startGroup">
         @CustomerListResources.GroupA
     </th>
     if (!Model.IsShowMyanmarOdds)
     {
-        <th class="header desktop">
+        <th class="header desktop commission">
             @CustomerListResources.GroupB
         </th>
-        <th class="header desktop">
+        <th class="header desktop commission">
             @CustomerListResources.GroupC
         </th>
-        <th class="header desktop">
+        <th class="header desktop commission">
             @CustomerListResources.GroupD
         </th>
     }
-    <th class="header desktop">
+    <th class="header desktop commission">
         @CustomerListResources.Group1X2
     </th>
-    <th class="header desktop">
+    <th class="header desktop commission @(Model.IsShowMyanmarOdds ? string.Empty : "endGroup") ">
         @CustomerListResources.Other
     </th>
     if (Model.IsShowMyanmarOdds)
     {
-        <th class="header desktop">
+        <th class="header desktop commission @(Model.IsShowMyanmarOdds ? "endGroup" : string.Empty) ">
             @CustomerListResources.MyanmarOdds
         </th>
     }
@@ -286,33 +286,33 @@
 
 @helper RenderMemberHeader(string commissionLogic)
 {
-    <th class="header @commissionLogic">
+    <th class="header commission startGroup @commissionLogic">
         @CustomerListResources.AComm1
     </th>
-    <th class="header @commissionLogic">
+    <th class="header commission @commissionLogic">
         @CustomerListResources.AComm2
     </th>
-    <th class="header @commissionLogic">
+    <th class="header commission @commissionLogic">
         @CustomerListResources.AComm3
     </th>
     if (Model.IsShowMyanmarOdds)
     {
-        <th class="header @commissionLogic">
+        <th class="header commission @commissionLogic">
             @CustomerListResources.AccountMyanmarOdds
         </th>
     }
-    <th class="header @commissionLogic">
+    <th class="header commission @commissionLogic">
         @CustomerListResources.PComm1
     </th>
-    <th class="header @commissionLogic">
+    <th class="header commission @commissionLogic">
         @CustomerListResources.PComm2
     </th>
-    <th class="header @commissionLogic">
+    <th class="header commission @commissionLogic @(Model.IsShowMyanmarOdds ? string.Empty : "endGroup") ">
         @CustomerListResources.PComm3
     </th>
     if (Model.IsShowMyanmarOdds)
     {
-        <th class="header @commissionLogic">
+        <th class="header commission @commissionLogic" @(Model.IsShowMyanmarOdds ? "endGroup" : string.Empty)>
             @CustomerListResources.PlayerMyanmarOdds
         </th>
     }
