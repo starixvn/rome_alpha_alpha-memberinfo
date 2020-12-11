@@ -1,8 +1,4 @@
-﻿declare var clipboard: any;
-declare var Cleave: any;
-declare var numeral: any;
-
-class MulitpleDoubleComm {
+﻿class MulitpleDoubleComm {
     $: JQueryStatic;
     topWindow: any;
     $messageContainer: JQuery;
@@ -18,12 +14,8 @@ class MulitpleDoubleComm {
     init = () => {
         this.$messageContainer = this.$('#message');
         this.$messageContent = this.$('#message-content');
-        this.bindingEvent();
-    };
-
-    bindingEvent = () => {
         this.$('.btn-submit').click(event => this.submitEvent(event));
-    }
+    };
 
     showErrorMessage = (message) => {
         this.$messageContainer.removeClass('hidden').addClass('msg msg-error');

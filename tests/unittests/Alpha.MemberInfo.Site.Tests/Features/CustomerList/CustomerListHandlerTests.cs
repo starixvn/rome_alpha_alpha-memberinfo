@@ -298,6 +298,7 @@
                        disableEsports: true,
                        uplineDisableEsports: true,
                        hideKeno: true,
+                       disableKeno: false,
                        uplineHideGoldDeluxe: true,
                        uplineDisableGoldDeluxe: true,
                        disableGoldDeluxe: true,

@@ -229,7 +229,7 @@
                 new CustomerProductStatus(ProductConstants.NumberGame, nonDCSProduct.DisableNumber),
                 new CustomerProductStatus(ProductConstants.RNGCasino, nonDCSProduct.DisableCasino, synced: nonDCSProduct.SyncCasino),
                 new CustomerProductStatus(ProductConstants.ESport, nonDCSProduct.DisableEsports),
-                new CustomerProductStatus(ProductConstants.Keno, hidden: nonDCSProduct.HideKeno),
+                new CustomerProductStatus(ProductConstants.Keno, disabled: nonDCSProduct.DisableKeno, hidden: nonDCSProduct.HideKeno),
                 new CustomerProductStatus(ProductConstants.GoldDeluxe, nonDCSProduct.DisableGoldDeluxe, hidden: nonDCSProduct.HideGoldDeluxe)
             };
 

@@ -112,17 +112,17 @@
             <tr>
                 @if (!Model.IsMobileView)
                 {
-                    <th rowspan="2" class="header all">
+                    <th rowspan="2" class="header all" style="padding-left:20px; padding-right:20px;">
                         @CustomerListResources.No
                     </th>
                 }
                 @if (!Model.HideEditMultiple)
                 {
-                    <th rowspan="2" class="header all">
+                    <th rowspan="2" class="header all" style="padding-left:20px; padding-right:20px;">
                         <input type="checkbox" id="select-all" />
                     </th>
                 }
-                <th rowspan="2" class="header all">
+                <th rowspan="2" class="header all" style="padding-left:20px; padding-right:20px;">
                     @if (!Model.HideEditMultiple)
                     {
                         <div class="edit-multiple icon-table-edit" data-url="" />
@@ -163,7 +163,7 @@
                 <th rowspan="2" class="header ">
                     @CustomerListResources.LoginIP
                 </th>
-                <th rowspan="2" class="header"></th>
+                <th rowspan="2" class="header" style="padding-left:20px; padding-right:20px;"></th>
             </tr>
             <tr class="thead-row2">
                 @if (Model.SearchAccountLevel.IsAgentLevel())

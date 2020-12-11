@@ -13,6 +13,7 @@
             bool disableEsports,
             bool uplineDisableEsports,
             bool hideKeno,
+            bool disableKeno,
             bool uplineHideGoldDeluxe,
             bool uplineDisableGoldDeluxe,
             bool disableGoldDeluxe,
@@ -29,6 +30,7 @@
             UplineDisableEsports = uplineDisableEsports;
 
             HideKeno = hideKeno;
+            DisableKeno = disableKeno;
 
             HideGoldDeluxe = hideGoldDeluxe;
             DisableGoldDeluxe = disableGoldDeluxe;
@@ -51,6 +53,8 @@
         public bool UplineDisableEsports { get; private set; }
 
         public bool HideKeno { get; private set; }
+
+        public bool DisableKeno { get; private set; }
 
         public bool UplineHideGoldDeluxe { get; private set; }
 

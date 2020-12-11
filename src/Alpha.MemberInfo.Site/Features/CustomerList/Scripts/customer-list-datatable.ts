@@ -376,7 +376,9 @@ class CustomerListDataTable {
             }
             else if (header.hasClass('commission')) {
                 if (header.hasClass('startGroup')) {
-                    commissionColumns.push(`<tr class="${statusCss}"><td class='commission-wrapper' colspan='2'><table class='commission-table'><tr class="${statusCss}"><td class='commission-header' colspan="2">${self.$('#commissionText').val()}</td></tr>`);
+                    commissionColumns.push(`<tr class="${statusCss}"><td class='commission-wrapper' colspan='2'>` +
+                        `<table class='commission-table'><tr class="${statusCss}">` +
+                        `<td class='commission-header' colspan="2">${self.$('#commissionText').val()}</td></tr>`);
                 }
 
                 commissionColumns.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
