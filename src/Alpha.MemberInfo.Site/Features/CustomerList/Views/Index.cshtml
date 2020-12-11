@@ -67,6 +67,7 @@
 
     <table id="tbl-customer-list" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap">
         <thead>
+            @*Dummy Header Row contains single column for datatable lib to calculate sticky header*@
             <tr>
                 @if (!Model.IsMobileView)
                 {
@@ -112,17 +113,17 @@
             <tr>
                 @if (!Model.IsMobileView)
                 {
-                    <th rowspan="2" class="header all" style="padding-left:20px; padding-right:20px;">
+                    <th rowspan="2" class="header all padding-icon">
                         @CustomerListResources.No
                     </th>
                 }
                 @if (!Model.HideEditMultiple)
                 {
-                    <th rowspan="2" class="header all" style="padding-left:20px; padding-right:20px;">
+                    <th rowspan="2" class="header all padding-icon">
                         <input type="checkbox" id="select-all" />
                     </th>
                 }
-                <th rowspan="2" class="header all" style="padding-left:20px; padding-right:20px;">
+                <th rowspan="2" class="header all padding-icon">
                     @if (!Model.HideEditMultiple)
                     {
                         <div class="edit-multiple icon-table-edit" data-url="" />
@@ -136,7 +137,7 @@
                     @CustomerListResources.Username <br />
                     @CustomerListResources.NickName
                 </th>
-                <th rowspan="2" class="header">
+                <th rowspan="2" class="header @(Model.IsMobileView ? string.Empty : "all")">
                     @CustomerListResources.Status
                 </th>
                 <th rowspan="2" class="header">
@@ -163,7 +164,7 @@
                 <th rowspan="2" class="header ">
                     @CustomerListResources.LoginIP
                 </th>
-                <th rowspan="2" class="header" style="padding-left:20px; padding-right:20px;"></th>
+                <th rowspan="2" class="header padding-detail-icon"></th>
             </tr>
             <tr class="thead-row2">
                 @if (Model.SearchAccountLevel.IsAgentLevel())

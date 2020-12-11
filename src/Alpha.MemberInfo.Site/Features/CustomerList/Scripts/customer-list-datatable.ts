@@ -171,7 +171,7 @@ class CustomerListDataTable {
                 "className": 'left',
                 "data": null,
                 "render": item => {
-                    return `${item.FirstName} ${item.LastName}`;
+                    return `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${item.FirstName} ${item.LastName}</div>`;
                 }
             });
 
@@ -294,7 +294,7 @@ class CustomerListDataTable {
         };
 
         const viewDownlineLink = `${this.viewModel.MemberInfoUrl}CustomerList/${this.viewModel.DownlineLevelName}?${this.$.param(queryString)}&BreadcrumbLevelJson=${this.viewModel.BreadcrumbLevelJson}`;
-        return item.RoleId === CustomerLevel.Member ? content : `<a href="${viewDownlineLink}">${content}</a>`;
+        return item.RoleId === CustomerLevel.Member ? content : `<div ><a href="${viewDownlineLink}" >${content}</a></div>`;
     }
 
     private renderEditColumn = item => {

@@ -9,6 +9,20 @@ body:not(.modal-open) {
     color: #838383 !important;
 }
 
+.break-long-word {
+    max-width: 200px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.padding-icon {
+    padding: 0 10px !important;
+}
+
+.padding-detail-icon {
+    padding: 0 30px !important;
+}
+
 .form-group {
     margin-right: 25px;
 
