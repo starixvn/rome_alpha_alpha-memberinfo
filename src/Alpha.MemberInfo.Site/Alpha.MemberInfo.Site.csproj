@@ -928,6 +928,7 @@
     <Content Include="assets\styles\quick-introduction.scss">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
+    <Content Include="assets\styles\abstracts\_variables.scss" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountList.xls" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountListHideDateTime.xls" />
     <None Include="compilerconfig.json.defaults">

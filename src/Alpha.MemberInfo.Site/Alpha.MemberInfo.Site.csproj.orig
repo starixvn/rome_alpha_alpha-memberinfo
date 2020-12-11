@@ -314,8 +314,8 @@
       <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.5.1\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.5.3\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Model.Casino.3.0.0.5\lib\net461\Sunplus.Agent.Model.Casino.dll</HintPath>
@@ -325,13 +325,11 @@
       <HintPath>..\..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.2\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.2.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.2.8\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.3\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
     </Reference>
-    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Utilities.3.0.0.7\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Utilities.3.0.1\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Core.Common, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Core.Common.1.2.0.1\lib\net40\Sunplus.Core.Common.dll</HintPath>
@@ -628,14 +626,11 @@
     <Content Include="Features\CustomerList\Bundles\customer-list.min.js">
       <DependentUpon>customer-list.js</DependentUpon>
     </Content>
-<<<<<<< HEAD
-     <Content Include="Features\CustomerList\Bundles\master-list.js" />
-=======
     <Content Include="Features\CustomerList\Bundles\muliple-double-comm.js" />
+     <Content Include="Features\CustomerList\Bundles\master-list.js" />
     <Content Include="Features\CustomerList\Bundles\muliple-double-comm.min.js">
       <DependentUpon>muliple-double-comm.js</DependentUpon>
     </Content>
->>>>>>> 000 - multiple double comm
     <Content Include="Features\CustomerList\Styles\customer-list-07.css">
       <DependentUpon>customer-list-07.scss</DependentUpon>
     </Content>
@@ -933,8 +928,12 @@
     <Content Include="assets\styles\quick-introduction.scss">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
+<<<<<<< HEAD
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountList.xls" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountListHideDateTime.xls" />
+=======
+    <Content Include="assets\styles\abstracts\_variables.scss" />
+>>>>>>> 000 - fix UI for High resolution device
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -1012,7 +1011,6 @@
     <Content Include="Views\CreditBalance\_ColumnsControl.cshtml" />
     <Content Include="Views\ProblemAccount\Index.cshtml" />
     <Content Include="Views\ProblemAccount\Update.cshtml" />
-    <Content Include="Master.xls" />
     <Content Include="Views\IndirectLoginAccount\Index.cshtml" />
     <Content Include="Views\IndirectLoginAccount\NewAccount.cshtml" />
     <Content Include="Views\IndirectLoginAccount\UpdatePassword.cshtml" />
@@ -1041,7 +1039,7 @@
      <Content Include="Features\CustomerList\Styles\customer-list.scss" />
     <Content Include="Features\Shared\Views\NoInformation.cshtml" />
     <Content Include="Features\CustomerList\Styles\customer-list-07.scss" />
-<<<<<<< HEAD
+    <Content Include="Features\CustomerList\Views\MultipeDoubleComm.cshtml" />
     <Content Include="Features\DormantAccountList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1052,9 +1050,6 @@
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_zh-TW.cshtml" />
     <Content Include="Features\DormantAccountList\Views\ArchiveProcess_zh-CN.cshtml" />
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.scss" />
-=======
-    <Content Include="Features\CustomerList\Views\MultipeDoubleComm.cshtml" />
->>>>>>> 000 - multiple double comm
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
@@ -1107,11 +1102,8 @@
     <TypeScriptCompile Include="Features\CustomerList\Scripts\edit-status.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-datatable.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list.ts" />
-<<<<<<< HEAD
-    <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
-=======
     <TypeScriptCompile Include="Features\CustomerList\Scripts\muliple-double-comm.ts" />
->>>>>>> 000 - multiple double comm
+    <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\show-qr-code.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\qr-code-member-sign-in.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />

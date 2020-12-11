@@ -1,4 +1,5 @@
 ﻿@import "../../../assets/styles/abstracts/_mixins.scss";
+@import "../../../assets/styles/abstracts/_variables.scss";
 
 body {
     font-size: calculateScale(13px) !important;
@@ -16,7 +17,7 @@ body {
     }
 }
 
-.dataTable {
+.dtr-column {
     input[type=checkbox] {
         width: 20px !important;
         height: 20px !important;
@@ -26,7 +27,11 @@ body {
         font-size: calculateScale(18px) !important;
     }
 
-    .detail-table {
+    .child .detail-table {
+        tr {
+            height: calculateScale(32px);
+        }
+
         tr:first-of-type td {
             border-top: none !important;
         }
@@ -113,10 +118,10 @@ body {
 }
 
 .filter {
+    display: block;
     .form-group {
         margin-right: 0;
         margin-bottom: 15px;
-        padding-bottom: 10px !important;
 
         .txt-search, label {
             font-size: calculateScale(13px);
@@ -124,6 +129,8 @@ body {
 
         label {
             display: block;
+            width: unset;
+            text-align: left;
         }
 
         .txt-search, select, [class*="btn-"] {
@@ -187,3 +194,26 @@ body {
 table.dataTable tbody tr:last-of-type:hover, .tblRpt.tblRpt-hover > tbody > tr:hover > td {
     background-color: unset !important;
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2.625), only screen and ( min--moz-device-pixel-ratio: 2.625), only screen and ( -o-min-device-pixel-ratio: 2.625/1), only screen and ( min-device-pixel-ratio: 2.625), only screen and ( min-resolution: 393dpi), only screen and ( min-resolution: 2.625dppx) {
+    body {
+        font-size: calculateScaleRatio(13px, $ratio) !important;
+    }
+    .filter {
+        .form-group {
+            .txt-search, label, .btn-group button.multiselect {
+                font-size: calculateScaleRatio(13px, $ratio);
+            }
+        }
+    }
+
+    .dtr-column {
+        .child .detail-table tr {
+            height: calculateScaleRatio(32px, $ratio);
+        }
+    }
+}
+
+
+
+    
