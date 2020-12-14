@@ -54,6 +54,10 @@ class CustomerListPopup {
             .css({ height: '100%', width })
             .modal({ show: true, backdrop: false });
 
+        this.$productPopupContainer.draggable({
+            handle: ".modal-header"
+        });
+
         this.$.unblockUI();
     }
 
