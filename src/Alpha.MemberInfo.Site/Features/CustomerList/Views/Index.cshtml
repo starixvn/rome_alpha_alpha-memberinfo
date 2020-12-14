@@ -3,6 +3,8 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Customer List";
+
+    var commissionGroupClass = Model.IsMobileView ? "none" : "desktop";
 }
 
 @section Styles {
@@ -146,11 +148,11 @@
                 </th>
                 @if (Model.SearchAccountRoleId == 2)
                 {
-                    <th rowspan="2" class="header ugroup @Model.CommissionGroupClass">
+                    <th rowspan="2" class="header ugroup @commissionGroupClass">
                         @CustomerListResources.Group
                     </th>
                 }
-                <th colspan="@Model.CommisionColSpan.ToString()" class="header @Model.CommissionGroupClass">
+                <th colspan="@Model.CommisionColSpan.ToString()" class="header @commissionGroupClass">
                     @CustomerListResources.Commission
                 </th>
                 @if (!Model.LimitedDateToShowInfo)
@@ -167,11 +169,11 @@
             <tr class="thead-row2">
                 @if (Model.SearchAccountLevel.IsAgentLevel())
                 {
-                    @RenderMemberHeader(Model.CommissionGroupClass)
+                    @RenderMemberHeader(commissionGroupClass)
                 }
                 else
                 {
-                    @RenderMasterAgentHeader()
+                    @RenderMasterAgentHeader(commissionGroupClass)
                 }
             </tr>
         </thead>
@@ -252,32 +254,32 @@
     @StaticResources.RenderScripts("~/Features/CustomerList/Bundles/customer-list")
 }
 
-@helper RenderMasterAgentHeader()
+@helper RenderMasterAgentHeader(string commissionGroupClass)
 {
-    <th class="header desktop commission startGroup">
+    <th class="header @commissionGroupClass commission startGroup">
         @CustomerListResources.GroupA
     </th>
     if (!Model.IsShowMyanmarOdds)
     {
-        <th class="header desktop commission">
+        <th class="header @commissionGroupClass commission">
             @CustomerListResources.GroupB
         </th>
-        <th class="header desktop commission">
+        <th class="header @commissionGroupClass commission">
             @CustomerListResources.GroupC
         </th>
-        <th class="header desktop commission">
+        <th class="header @commissionGroupClass commission">
             @CustomerListResources.GroupD
         </th>
     }
-    <th class="header desktop commission">
+    <th class="header @commissionGroupClass commission">
         @CustomerListResources.Group1X2
     </th>
-    <th class="header desktop commission @(Model.IsShowMyanmarOdds ? string.Empty : "endGroup") ">
+    <th class="header @commissionGroupClass commission @(Model.IsShowMyanmarOdds ? string.Empty : "endGroup") ">
         @CustomerListResources.Other
     </th>
     if (Model.IsShowMyanmarOdds)
     {
-        <th class="header desktop commission @(Model.IsShowMyanmarOdds ? "endGroup" : string.Empty) ">
+        <th class="header @commissionGroupClass commission @(Model.IsShowMyanmarOdds ? "endGroup" : string.Empty) ">
             @CustomerListResources.MyanmarOdds
         </th>
     }

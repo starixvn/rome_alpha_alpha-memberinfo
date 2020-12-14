@@ -12,6 +12,8 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
         {
         }
 
+        public override string Method => DataKey.Method.POST;
+
         public override string Text => $"{request.GetResource("EditMultiple")} {request.GetResource($"{GetType().Name}Text")}";
     }
 }

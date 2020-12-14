@@ -18,6 +18,8 @@
 
         public override string Url => base.BaseAddress;
 
+        public override string Method => DataKey.Method.POST;
+
         public override Dictionary<string, string> QueryStringParamaters
         {
             get

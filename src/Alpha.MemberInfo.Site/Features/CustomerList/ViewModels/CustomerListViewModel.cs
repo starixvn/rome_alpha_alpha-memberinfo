@@ -64,8 +64,6 @@
                       (IsShowMyanmarOdds ? 8 : 6) :
                      (IsShowMyanmarOdds ? 4 : 6);
 
-            CommissionGroupClass = SearchAccountLevel.IsAgentLevel() && request.Language.Equals("th-TH") ? "none" : "desktop";
-
             var ConvertResourcesJson = convertResourcesJson ?? SimpleServiceLocator.GetService<Func<string, ResourceManager, string>>();
             Resources = ConvertResourcesJson(request.Language, CustomerListResources.ResourceManager);
         }
@@ -111,8 +109,6 @@
         public string BreadcrumbLevelJson { get; }
 
         public string Resources { get; }
-
-        public string CommissionGroupClass { get; }
 
         public IEnumerable<CustomerListOption> StatusOptions
              => new List<CustomerListOption>
