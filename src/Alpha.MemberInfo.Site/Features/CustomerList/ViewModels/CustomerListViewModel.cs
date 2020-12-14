@@ -9,6 +9,7 @@
     using Alpha.Products.Core.Services;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Resources;
 
     public class CustomerListViewModel
@@ -57,12 +58,13 @@
             DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
             DownlineLevelName = DownlineLevel.DisplayName;
             UnsyncedProducts = unsyncedProducts;
-            Language = request.Language;
 
             SearchAccountLevel = request.CustLevel;
             CommisionColSpan = SearchAccountLevel.IsAgentLevel() ?
                       (IsShowMyanmarOdds ? 8 : 6) :
                      (IsShowMyanmarOdds ? 4 : 6);
+
+            CommissionGroupClass = SearchAccountLevel.IsAgentLevel() && request.Language.Equals("th-TH") ? "none" : "desktop";
 
             var ConvertResourcesJson = convertResourcesJson ?? SimpleServiceLocator.GetService<Func<string, ResourceManager, string>>();
             Resources = ConvertResourcesJson(request.Language, CustomerListResources.ResourceManager);
@@ -110,7 +112,7 @@
 
         public string Resources { get; }
 
-        public string Language { get; }
+        public string CommissionGroupClass { get; }
 
         public IEnumerable<CustomerListOption> StatusOptions
              => new List<CustomerListOption>
@@ -129,6 +131,11 @@
                     new CustomerListOption(1 , CustomerListResources.Allowed),
                     new CustomerListOption(0 , CustomerListResources.Disallowed)
                 };
+
+        public bool ShowUnconfirmedSettingFilter
+        {
+            get { return UnconfirmedSettingOptions.Count() > 1; }
+        }
 
         public IEnumerable<CustomerListOption> UnconfirmedSettingOptions
         {
