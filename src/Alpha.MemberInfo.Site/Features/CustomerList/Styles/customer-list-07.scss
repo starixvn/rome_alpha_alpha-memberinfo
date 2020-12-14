@@ -212,6 +212,47 @@ table.dataTable tbody tr:last-of-type:hover, .tblRpt.tblRpt-hover > tbody > tr:h
             height: calculateScaleRatio(32px, $ratio);
         }
     }
+
+    #status-popup, #product-popup {
+        .modal-header {
+            .modal-title {
+                font-size: calculateScaleRatio(13px, $ratio) !important;
+                padding: calculateScaleRatio(10px, $ratio) 0;
+            }
+
+            button {
+                font-size: 48px !important;
+                margin-top: -6px;
+            }
+        }
+
+        ul,
+        ol {
+            li {
+                padding: 4px 0;
+
+                &.icon-edit, &.icon-refresh, &.edit-status-popup {
+                    font-size: calculateScaleRatio(13px, $ratio) !important;
+                    line-height: calculateScaleRatio(24px, $ratio) !important;
+                }
+            }
+        }
+
+        .modal-content {
+            .modal-body {
+                input[type="checkbox"] {
+                    width: calculateScaleRatio(16px, $ratio);
+                    height: calculateScaleRatio(16px, $ratio);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3), only screen and ( min--moz-device-pixel-ratio: 3), only screen and ( -o-min-device-pixel-ratio: 3/1), only screen and ( min-device-pixel-ratio: 3), only screen and ( min-resolution: 384dpi), only screen and ( min-resolution: 3dppx) {
+    body {
+        font-size: calculateScaleRatio(13px, 1) !important;
+    }
 }
 
 
