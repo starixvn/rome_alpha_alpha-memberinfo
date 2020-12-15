@@ -26,9 +26,15 @@ class CustomerListPopup {
     public openProductPopup = (currentTarget, method = 'GET') => {
         this.$.blockUI();
 
+        const url = this.$(currentTarget).data("url");
         this.$productIframe.attr('src', '');
-        this.$productIframeForm.attr('action', this.$(currentTarget).data("url"));
+        this.$productIframeForm.attr('action', url);
         this.$productIframeForm.attr('method', method);
+
+        this.topWindow.productPopupUrl = url;
+        this.topWindow[url] = () => {
+            this.$productIframeForm.submit();
+        };
 
         const params = this.$(currentTarget).data("params");
 
