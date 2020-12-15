@@ -42,7 +42,6 @@ class CustomerListPopup {
 
         if (params !== undefined && params !== null) {
             const attrs = this.$.map(params, (value, key) => `<input type="hidden"  name='${key}' id='${key}' value='${value}'/>`).join(' ');
-
             this.$productIframeForm.append(attrs);
         }
 
@@ -83,8 +82,6 @@ class CustomerListPopup {
     private modifyContentPopup = i => {
         const headerClassesOrId = '.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr';
         this.$productIframe.contents().find(headerClassesOrId).css('display', 'none');
-
-        console.log(i);
     }
 
     public bindingBootstrapModalEvent = () => {

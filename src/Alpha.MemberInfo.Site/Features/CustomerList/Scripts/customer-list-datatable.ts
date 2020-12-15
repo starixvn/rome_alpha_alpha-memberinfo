@@ -424,6 +424,10 @@ class CustomerListDataTable {
 
         this.$('.view-statement').unbind().bind('click', event => this.viewStatement(event));
 
+        this.$('tbody .checkbox').unbind().bind("click", () => {
+            this.$('#select-all').prop("checked", this.$('tbody .checkbox').length === this.$('tbody .checkbox:checked').length);
+        });
+
         this.editSingleSetting.bindingEvent();
 
         this.editStatus.bindingEvent();
