@@ -67,15 +67,24 @@ class CustomerListPopup {
         this.$.unblockUI();
     }
 
-    private initFrame = () => {
-        setTimeout(() => {
-            const headerClassesOrId = '.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr';
-            this.$productIframe.contents().find(headerClassesOrId).css('display', 'none');
+    private clearDuplicateHeader = () => {
+        for (let i = 1; i <= 6; i++) {
+            setTimeout(() => this.modifyContentPopup(i), 50 * i);
+        }
+    }
 
-            if (this.$productIframe.contents().find('#txtSecCode')) {
-                this.$productIframe.contents().find('#txtSecCode').focus();
-            }
-        }, 100);
+    private forcusInputElement = () => {
+        var firstInput = this.$productIframe.contents().find('input[type=text],input[type=password],input[type=radio],input[type=checkbox],textarea,select').filter(':visible:first');
+        if (firstInput != null) {
+            firstInput.focus();
+        }
+    }
+
+    private modifyContentPopup = i => {
+        const headerClassesOrId = '.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr';
+        this.$productIframe.contents().find(headerClassesOrId).css('display', 'none');
+
+        console.log(i);
     }
 
     public bindingBootstrapModalEvent = () => {
@@ -85,8 +94,12 @@ class CustomerListPopup {
             this.$productIframe.attr('src', 'about:blank');
         });
 
+        this.$productPopupContainer.on('show.bs.modal', () => {
+            this.clearDuplicateHeader.apply(this.$productIframe.contents());
+        });
+
         this.$productPopupContainer.on('shown.bs.modal', () => {
-            this.initFrame.apply(this.$productIframe.contents());
+            this.forcusInputElement.apply(this.$productIframe.contents());
         });
     }
 
