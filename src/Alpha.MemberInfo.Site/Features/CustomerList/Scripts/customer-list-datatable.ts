@@ -13,7 +13,6 @@ class CustomerListDataTable {
     private status: string;
     private doubleComm: string;
     private unconfirmSetting: string;
-    private tableHeader: string;
 
     constructor(
         $: JQueryStatic,
@@ -30,19 +29,8 @@ class CustomerListDataTable {
         this.customerListServices = customerListServices;
         this.editSingleSetting = editSingleSetting;
         this.editStatus = editStatus;
-        ////this.tableHeader = this.$('#tbl-customer-list').find('thead').clone().html();
 
-        //this.$(window).on({
-        //    orientationchange: () => {
-        //        //this.$('#tbl-customer-list').DataTable().clear().destroy();
-        //        //this.$('#tbl-customer-list').empty();
-        //        //this.$('#tbl-customer-list').html(`<thead>${this.tableHeader}</thead>`);
-        //        //this.initDataTable();
-
-        //        const mainFrame = this.topWindow.$('#main');
-        //        mainFrame.attr('src', this.$(mainFrame).attr('src'));
-        //    }
-        //});
+        this.topWindow.customerListNew = true;
     }
 
     private getRowClass = (data) => {
