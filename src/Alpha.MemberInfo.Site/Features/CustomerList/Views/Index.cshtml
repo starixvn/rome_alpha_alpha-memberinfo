@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Customer List";
 
-    var commissionGroupClass = Model.IsMobileView ? "none" : "desktop";
+    var commissionGroupClass = Model.IsMobileView || (Model.SearchAccountLevel.IsAgentLevel() && Model.Language.Equals("th-TH")) ? "none" : "desktop";
 }
 
 @section Styles {

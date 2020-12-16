@@ -58,6 +58,7 @@
             DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
             DownlineLevelName = DownlineLevel.DisplayName;
             UnsyncedProducts = unsyncedProducts;
+            Language = request.Language;
 
             SearchAccountLevel = request.CustLevel;
             CommisionColSpan = SearchAccountLevel.IsAgentLevel() ?
@@ -109,6 +110,8 @@
         public string BreadcrumbLevelJson { get; }
 
         public string Resources { get; }
+
+        public string Language { get; }
 
         public IEnumerable<CustomerListOption> StatusOptions
              => new List<CustomerListOption>
