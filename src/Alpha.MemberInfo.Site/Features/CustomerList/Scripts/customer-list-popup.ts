@@ -59,15 +59,13 @@ class CustomerListPopup {
             .css({ height: '100%', width })
             .modal({ show: true, backdrop: false });
 
-        this.$productPopupContainer.draggable({
-            handle: ".modal-header"
-        });
+        this.$productPopupContainer.draggable({ containment: ".customer-list" });
 
         this.$.unblockUI();
     }
 
     private clearDuplicateHeader = () => {
-        for (let i = 1; i <= 6; i++) {
+        for (let i = 1; i <= 10; i++) {
             setTimeout(() => this.modifyContentPopup(i), 50 * i);
         }
     }
