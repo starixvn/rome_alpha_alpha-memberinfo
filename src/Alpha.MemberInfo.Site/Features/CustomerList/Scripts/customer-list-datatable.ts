@@ -433,7 +433,7 @@ class CustomerListDataTable {
         this.editStatus.bindingEvent();
     }
 
-    private viewStatement = (event) => {
+    private viewStatement = event => {
         event.preventDefault();
 
         const mainFrame = this.topWindow.$('#main');

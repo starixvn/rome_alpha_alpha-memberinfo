@@ -147,7 +147,7 @@ body:not(.modal-open) {
         background-color: #a0a97a !important;
     }
 
-    .login-ip {
+    .login-ip, .view-statement {
         cursor: pointer;
     }
 }
@@ -297,7 +297,7 @@ table.dataTable tbody tr {
 
 
 
-@media (min-device-width: 768px) and (max-device-width: 1024px){
+@media (min-device-width: 768px) and (max-device-width: 1024px) {
     .filter {
         display: grid;
         grid-template-columns: 310px 300px 1fr;
@@ -384,6 +384,3 @@ table.dataTable tbody tr {
         }
     }
 }
-
-
-
