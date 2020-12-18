@@ -296,7 +296,7 @@ class CustomerListDataTable {
         };
 
         const viewDownlineLink = `${this.viewModel.MemberInfoUrl}CustomerList/${this.viewModel.DownlineLevelName}?${this.$.param(queryString)}&BreadcrumbLevelJson=${this.viewModel.BreadcrumbLevelJson}`;
-        return item.RoleId === CustomerLevel.Member ? content : `<div ><a href="${viewDownlineLink}" >${content}</a></div>`;
+        return item.RoleId === CustomerLevel.Member ? content : `<div title='${this.$('#usernameTooltipText').val()}'><a href="${viewDownlineLink}" >${content}</a></div>`;
     }
 
     private renderEditColumn = item => {
@@ -305,7 +305,8 @@ class CustomerListDataTable {
             'id': `setting-${item.CustId}`,
             'data-custid': item.CustId,
             'data-username': item.Username,
-            'data-url': this.buildGetAllStatusLink(item)
+            'data-url': this.buildGetAllStatusLink(item),
+            'title': this.$('#editSettingText').val()
         };
 
         return `<div ${this.buildAttributes(attrs)}/>`;
@@ -317,7 +318,8 @@ class CustomerListDataTable {
             'id': `status-${item.CustId}`,
             'data-custid': item.CustId,
             'data-username': item.Username,
-            'data-url': this.buildGetAllStatusLink(item)
+            'data-url': this.buildGetAllStatusLink(item),
+            'title': this.$('#editStatusText').val()
         };
 
         return `<a ${this.buildAttributes(attrs)}><span>${item.Status}</span><span class='icon-menu-down'/></a>`;
@@ -331,7 +333,7 @@ class CustomerListDataTable {
         }, actionName = item.RoleId === CustomerLevel.Member ? 'MemberStatement' : 'SMAStatement';
 
         const viewStatementLink = `${this.viewModel.ReportsUrl}Statement/${actionName}?${this.$.param(queryString)}`;
-        return `<a data-url='${viewStatementLink}' class='view-statement'>${this.viewModel.CustomerListResources.View}</a>`;
+        return `<a data-url='${viewStatementLink}' title='${this.$('#statementTooltipText').val()}' class='view-statement'>${this.viewModel.CustomerListResources.View}</a>`;
     }
 
     private renderLoginIP = item => {
@@ -341,10 +343,11 @@ class CustomerListDataTable {
 
         const attrs = {
             'class': 'login-ip',
+            'data-title': this.$('#loginIPText').val(),
             'data-url': `${this.viewModel.OldMainUrl}_IPInfo/IPInfo.aspx?ip=${item.LastLoginIP}`,
-            'data-title': 'Login IP',
             'data-width': '500px',
-            'data-height': '400px'
+            'data-height': '400px',
+            'title': this.$('#viewIPTooltipText').val()
         };
 
         return `<a ${this.buildAttributes(attrs)}>${item.LastLoginIP}</a>`

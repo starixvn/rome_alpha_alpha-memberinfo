@@ -126,7 +126,7 @@
                 <th rowspan="2" class="header all padding-icon">
                     @if (!Model.HideEditMultiple)
                     {
-                        <div class="edit-multiple icon-table-edit" data-url="" />
+                        <div class="edit-multiple icon-table-edit" data-url="" title="@CustomerListResources.EditMultipleSetting" />
                     }
                     else
                     {
@@ -246,6 +246,11 @@
     <input type="hidden" id="editSettingText" value='@CustomerListResources.EditSetting'>
     <input type="hidden" id="editMultipleSettingText" value='@CustomerListResources.EditMultipleSetting'>
     <input type="hidden" id="editStatusText" value='@CustomerListResources.EditStatus'>
+    <input type="hidden" id="viewIPTooltipText" value='@CustomerListResources.ViewIPTooltip'>
+    <input type="hidden" id="usernameTooltipText" value='@CustomerListResources.UsernameTooltip'>
+    <input type="hidden" id="statementTooltipText" value='@CustomerListResources.StatementTooltip'>
+    <input type="hidden" id="editMultipleTooltipText" value='@CustomerListResources.EditMultipleTooltip'>
+    <input type="hidden" id="loginIPText" value='@CustomerListResources.LoginIP'>
 </div>
 
 @section Scripts {

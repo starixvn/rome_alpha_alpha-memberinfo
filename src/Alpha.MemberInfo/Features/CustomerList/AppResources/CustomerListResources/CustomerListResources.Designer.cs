@@ -215,6 +215,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Setting.
+        /// </summary>
+        public static string EditMultipleTooltip {
+            get {
+                return ResourceManager.GetString("EditMultipleTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Setting.
         /// </summary>
         public static string EditSetting {
@@ -485,6 +494,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View Statement.
+        /// </summary>
+        public static string StatementTooltip {
+            get {
+                return ResourceManager.GetString("StatementTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
         public static string Status {
@@ -557,11 +575,29 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click Username to drilldown to downlines.
+        /// </summary>
+        public static string UsernameTooltip {
+            get {
+                return ResourceManager.GetString("UsernameTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to View.
         /// </summary>
         public static string View {
             get {
                 return ResourceManager.GetString("View", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click IP to view IP info.
+        /// </summary>
+        public static string ViewIPTooltip {
+            get {
+                return ResourceManager.GetString("ViewIPTooltip", resourceCulture);
             }
         }
     }
