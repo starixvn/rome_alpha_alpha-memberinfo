@@ -19,4 +19,8 @@
     <Setting Key="Age_CustomerSelUserSearch" SpName="Age_CustomerSelUserSearch" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CustomerSelCheckBelonging_ByUsername" SpName="Age_CustomerSelCheckBelonging_ByUsername" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
   </Function>
+  <Function Name="Customer List">
+    <Setting Key="Age_CustomerSelAllStatus" SpName="Age_CustomerSelAllStatus_xtest" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_CustomerSelSyncCasino" SpName="Age_CustomerSelSyncCasino" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
+  </Function>
 </Functions>

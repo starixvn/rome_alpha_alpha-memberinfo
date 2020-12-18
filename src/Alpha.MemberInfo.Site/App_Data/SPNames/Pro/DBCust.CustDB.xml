@@ -13,7 +13,7 @@
     <Setting Key="Age_CustomerSelCustWinlimit" SpName="Age_CustomerSelCustWinlimit" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_CustomerSelByPlayerId" SpName="Age_CustomerSelByPlayerId" DbName="DBCust.CustDB.BODBDownlineNet" />
   </Function>
-   <Function Name="Problem Account">
+  <Function Name="Problem Account">
     <Setting Key="Age_ProblemAccount_CustomerList" SpName="Age_ProblemAccount_CustomerList" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0">
       <Mapping DataField="numberOfDownline" ObjectProperty="Count" />
     </Setting>
@@ -43,6 +43,20 @@
     <Setting Key="Age_CustomerIndirectLoginAccountIns" SpName="Age_CustomerIndirectLoginAccountIns" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_CustomerIndirectLoginAccountDel" SpName="Age_CustomerIndirectLoginAccountDel" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_CustomerIndirectLoginAccountPwdCheck" SpName="Age_CustomerIndirectLoginAccountPwdCheck" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+  </Function>
+  <Function Name="Indirect Login Account">
+    <Setting Key="Age_CustomerSelBySAg" SpName="Age_CustomerSelBySAg" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelByMAg" SpName="Age_CustomerSelByMAg" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelByAg" SpName="Age_CustomerSelByAg" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+  </Function>
+
+  <Function Name="Customer List">
+    <Setting Key="Acc_CustomerUpdClosed" SpName="Acc_CustomerUpdClosed" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerUpdSuspended" SpName="Acc_CustomerUpdSuspended" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerUpdMaster_DisableAutoMPT" SpName="Acc_CustomerUpdMaster_DisableAutoMPT" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerUpdDisableOutright" SpName="Acc_CustomerUpdDisableOutright" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerUpdDoubleCommLosing" SpName="Acc_CustomerUpdDoubleCommLosing" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustomerSelUnSyncProducts" SpName="Acc_CustomerSelUnSyncProducts" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0"/>
   </Function>
   <Function Name="Dormant Account List">
     <Setting Key="Acc_DormantAccountList_Sel" SpName="Acc_DormantAccountList_Sel" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
