@@ -60,43 +60,83 @@
         [Fact]
         public void FectchMasterList_Always_ReturnsCorrectModel()
         {
-            var data = anyValueCreatorFixture.Create<IEnumerable<MasterListModel>>();
+            var param = BuildCustomerParam(4);
+            var downlinesList = anyValueCreatorFixture.Create<IEnumerable<MasterListModel>>();
+            var totalDownlines = 100;
+            var totalPages = 10;
+            var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages, param);
 
             repository
                 .Fetch<MasterListModel>(Arg.Any<SelectMasterListCriteria>())
-                .Returns(data);
+                .Returns(downlinesList);
 
-            var actualModel = service.FectchMasterList(BuildCustomerParam(4));
+            repository
+               .When(repo => repo.Fetch<MasterListModel>(Arg.Any<SelectMasterListCriteria>()))
+               .Do((callInfo) =>
+               {
+                   var query = callInfo[0] as SelectMasterListCriteria;
+                   query.TotalItems = totalDownlines;
+                   query.TotalPages = totalPages;
+               });
 
-            Assert.True(compareLogic.Compare(actualModel.DownlinesList, data).AreEqual);
+
+            var actualModel = service.FectchMasterList(param);
+
+            Assert.True(compareLogic.Compare(actualModel, expectedModel).AreEqual);
         }
 
         [Fact]
         public void FetchAgentList_Always_ReturnsCorrectModel()
         {
-            var data = anyValueCreatorFixture.Create<IEnumerable<AgentListModel>>();
+            var param = BuildCustomerParam(3);
+            var downlinesList = anyValueCreatorFixture.Create<IEnumerable<AgentListModel>>();
+            var totalDownlines = 100;
+            var totalPages = 10;
+            var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages, param);
 
             repository
                 .Fetch<AgentListModel>(Arg.Any<SelectAgentListCriteria>())
-                .Returns(data);
+                .Returns(downlinesList);
 
-            var actualModel = service.FetchAgentList(BuildCustomerParam(3));
+            repository
+             .When(repo => repo.Fetch<AgentListModel>(Arg.Any<SelectAgentListCriteria>()))
+             .Do((callInfo) =>
+             {
+                 var query = callInfo[0] as SelectAgentListCriteria;
+                 query.TotalItems = totalDownlines;
+                 query.TotalPages = totalPages;
+             });
 
-            Assert.True(compareLogic.Compare(actualModel.DownlinesList, data).AreEqual);
+            var actualModel = service.FetchAgentList(param);
+
+            Assert.True(compareLogic.Compare(actualModel, expectedModel).AreEqual);
         }
 
         [Fact]
         public void FetchMemberList_Always_ReturnsCorrectModel()
         {
-            var data = anyValueCreatorFixture.Create<IEnumerable<MemberListModel>>();
+            var param = BuildCustomerParam(2);
+            var downlinesList = anyValueCreatorFixture.Create<IEnumerable<MemberListModel>>();
+            var totalDownlines = 100;
+            var totalPages = 10;
+            var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages, param);
 
             repository
                 .Fetch<MemberListModel>(Arg.Any<SelectMemberListCriteria>())
-                .Returns(data);
+                .Returns(downlinesList);
+
+            repository
+            .When(repo => repo.Fetch<MemberListModel>(Arg.Any<SelectMemberListCriteria>()))
+            .Do((callInfo) =>
+            {
+                var query = callInfo[0] as SelectMemberListCriteria;
+                query.TotalItems = totalDownlines;
+                query.TotalPages = totalPages;
+            });
 
             var actualModel = service.FetchMemberList(BuildCustomerParam(2));
 
-            Assert.True(compareLogic.Compare(actualModel.DownlinesList, data).AreEqual);
+            Assert.True(compareLogic.Compare(actualModel, expectedModel).AreEqual);
         }
 
         [Fact]

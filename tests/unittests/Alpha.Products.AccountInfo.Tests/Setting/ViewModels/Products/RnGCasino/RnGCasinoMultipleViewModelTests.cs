@@ -27,6 +27,7 @@
         public void Url_Start_With_BaseAddress(byte actorLevel, byte searchAccountLevel, string baseAddress)
         {
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
+            request.AddData("syncedCasinoList", "1,0,1");
             var viewModel = new RnGCasinoMultipleViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.StartsWith(baseAddress, StringComparison.OrdinalIgnoreCase) == true);
@@ -37,6 +38,7 @@
         {
             var expectedIcon = "icon-edit Enable";
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData("syncedCasinoList", "1,0,1");
             var viewModel = new RnGCasinoMultipleViewModel(request, ProductItem);
 
             Assert.StartsWith(expectedIcon, viewModel.Icon, StringComparison.OrdinalIgnoreCase);
@@ -47,7 +49,7 @@
         {
             var expectedText = "EditMultipleCasinoText";
             var request = RequestHelper.CreateRequest(4, 3);
-
+            request.AddData("syncedCasinoList", "1,0,1");
             var viewModel = new RnGCasinoMultipleViewModel(request, ProductItem);
 
             Assert.StartsWith(expectedText, viewModel.Text, StringComparison.OrdinalIgnoreCase);

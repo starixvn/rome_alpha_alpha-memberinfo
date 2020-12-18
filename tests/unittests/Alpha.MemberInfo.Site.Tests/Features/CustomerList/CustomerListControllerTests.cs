@@ -26,6 +26,7 @@
             user.Name.Returns("UserTest");
             user.Language.Returns("En");
             user.IsInternal.Returns(false);
+            user.CanUpdateAccount.Returns(true);
 
             controller = new CustomerListController(mediator);
         }
@@ -60,7 +61,14 @@
         public void MultipleEditPopup_Always_CallsMediatorCustomerStatusMultipleQuery()
         {
             // Arrange
-            var message = new CustomerStatusMultipleQuery(user);
+            var message = new CustomerStatusMultipleQuery(user)
+            {
+                CustIds = "1,2",
+                Usernames = "username1, username 2",
+                UplineRoleId = 2,
+                UplineName = "Upline Name",
+                SearchAccountRoleId = 1
+            };
 
             // Act
             controller.MultipleEditPopup(message);

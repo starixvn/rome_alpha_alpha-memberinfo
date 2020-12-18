@@ -7,7 +7,7 @@
     {
         private readonly IUser viewer;
 
-        public CustomerStatusQueryBase(IUser viewer) 
+        public CustomerStatusQueryBase(IUser viewer)
             : base(viewer)
         {
             this.viewer = viewer;
@@ -56,7 +56,7 @@
         public override bool IsValid() => IsValidSearchAccount && IsValidUpline;
 
         internal bool IsValidSearchAccount =>
-            SearchAccountId > 0 && 
+            SearchAccountId > 0 &&
             !SearchAccountId.Equals(viewer.Id) &&
             IsValidName(SearchAccountName) &&
             IsValidSearchAccountRoleId(SearchAccountRoleId);
@@ -74,7 +74,7 @@
 
         internal bool IsInternal => viewer.IsInternal;
 
-        public bool AllowedAllDayBalTransfer 
+        public bool AllowedAllDayBalTransfer
             => viewer.AllowedAllDayBalTransfer;
     }
 }

@@ -11,8 +11,9 @@
         [Fact]
         public void Url_Start_With_BaseAddress()
         {
-            string expectedBaseAddress = "MicroSiteName/CustomerList/UpdateMultipleDoubleComm";
+            string expectedBaseAddress = "MicroSiteName/CustomerList/MultipleDoubleComm?SearchAccountIds=usename1,username2&SearchAccountRoleId=3";
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData("customerIds", "usename1,username2");
             var viewModel = new DoubleCommMultipleViewModel(request);
 
             Assert.StartsWith(expectedBaseAddress, viewModel.Url, StringComparison.OrdinalIgnoreCase);
