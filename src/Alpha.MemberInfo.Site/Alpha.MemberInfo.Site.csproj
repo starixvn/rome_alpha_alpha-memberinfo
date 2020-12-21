@@ -86,9 +86,8 @@
       <HintPath>..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Alpha.Utilities.IP, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Utilities.IP.1.0.0.1\lib\net40\Alpha.Utilities.IP.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Alpha.Utilities.IP, Version=1.0.3.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Utilities.IP.1.0.3.1-CustomerList03\lib\net461\Alpha.Utilities.IP.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.Web, Version=1.0.7.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.Web.1.0.7.1-SmartPhoneFriendly2\lib\net461\Alpha.Web.dll</HintPath>
@@ -120,9 +119,8 @@
       <HintPath>..\..\packages\CouchbaseNetClient.1.2.6.3\lib\net40\Enyim.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Caching, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fanex.Caching, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.2.2.1\lib\net461\Fanex.Caching.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
@@ -382,9 +380,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Transactions" />
-    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -800,6 +797,7 @@
     <Compile Include="Features\CustomerList\Requests\FetchDownlinesListRequesBase.cs" />
     <Compile Include="Features\CustomerList\Requests\FetchDownlinesListRequest.cs" />
     <Compile Include="Features\CustomerList\Requests\CustomerListRequest.cs" />
+    <Compile Include="Features\CustomerList\ViewModels\CustomerListPagingViewModel.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerListViewModel.cs" />
     <Compile Include="Features\CustomerList\ViewModels\CustomerStatusMultipleViewModel.cs" />
     <Compile Include="Features\CustomerList\ViewModels\MultipleDoubleCommViewModel.cs" />

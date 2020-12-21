@@ -24,6 +24,7 @@
     using Alpha.Products.Core.Shared;
     using Alpha.Products.Core.ViewModels;
     using Alpha.SecurityCode.Services;
+    using Alpha.Utilities.IP;
     using Alpha.Web.Helpers;
     using AutoFixture;
     using Fixtures;
@@ -44,6 +45,7 @@
         private readonly SecurityCodeChecker securityCodeChecker;
         private readonly BrowserHelper browserHelper;
         private readonly CacheRefService cacheRefService;
+        private readonly IPService ipService;
         private readonly CustomerListHandler handler;
         private readonly IUser user;
         private readonly Fixture fixture;
@@ -76,8 +78,9 @@
             securityCodeChecker = Substitute.For<SecurityCodeChecker>();
             browserHelper = Substitute.For<BrowserHelper>();
             cacheRefService = Substitute.For<CacheRefService>();
+            ipService = Substitute.For<IPService>();
 
-            handler = new CustomerListHandler(service, null, null, null, securityCodeChecker, browserHelper, cacheRefService);
+            handler = new CustomerListHandler(service, null, null, null, ipService, securityCodeChecker, browserHelper, cacheRefService);
         }
 
         [Fact]

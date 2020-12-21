@@ -17,6 +17,7 @@
     using Alpha.Products.Core.Shared;
     using Alpha.Products.Core.ViewModels;
     using Alpha.SecurityCode.Services;
+    using Alpha.Utilities.IP;
     using Alpha.Web.Helpers;
     using Fanex.Common;
     using MediatR;
@@ -25,7 +26,7 @@
 
     public class CustomerListHandler :
         IRequestHandler<CustomerListRequest, CustomerListViewModel>,
-        IRequestHandler<FetchDownlinesListRequest, CustomerListDTO>,
+        IRequestHandler<FetchDownlinesListRequest, CustomerListPagingViewModel>,
         IRequestHandler<CustomerStatusQuery, CustomerStatusViewModel>,
         IRequestHandler<CustomerStatusMultipleQuery, IEnumerable<ISettingItemMultipleViewModel>>,
         IRequestHandler<CustomerNonProductStatusCommand, Result>,
@@ -39,13 +40,15 @@
         private readonly SecurityCodeChecker securityCodeChecker;
         private readonly BrowserHelper browserHelper;
         private readonly CacheRefService cacheRefService;
+        private readonly IPService ipService;
 
         public CustomerListHandler(
             CustomerListService customerListService,
             SecurityCodeChecker securityCodeChecker,
+            IPService ipService,
             BrowserHelper browserHelper,
             CacheRefService cacheRefService)
-            : this(customerListService, null, null, null, securityCodeChecker, browserHelper, cacheRefService)
+            : this(customerListService, null, null, null, ipService, securityCodeChecker, browserHelper, cacheRefService)
         {
         }
 
@@ -54,6 +57,7 @@
             GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel> settingMultipleViewModelFactory,
             GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel> settingViewModelFactory,
             GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel> statusViewModelFactory,
+            IPService ipService,
             SecurityCodeChecker securityCodeChecker,
             BrowserHelper browserHelper,
             CacheRefService cacheRefService)
@@ -69,6 +73,7 @@
             this.statusViewModelFactory = statusViewModelFactory ??
                  SimpleServiceLocator.GetService<GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>>();
 
+            this.ipService = ipService;
             this.securityCodeChecker = securityCodeChecker;
             this.browserHelper = browserHelper;
             this.cacheRefService = cacheRefService;
@@ -99,9 +104,9 @@
             return new CustomerListViewModel(message, breadcrumbLevel, unsyncedProducts, browserHelper.IsMobile(isOnlyTablet: false), message.LimitedDateToShowInfo);
         }
 
-        public CustomerListDTO Handle(FetchDownlinesListRequest message)
-            => customerListService.GetCustomerList(
-                    new CustomerListParam(
+        public CustomerListPagingViewModel Handle(FetchDownlinesListRequest message)
+        {
+            var param = new CustomerListParam(
                     message.ViewerId,
                     message.CustLevel,
                     message.CustId,
@@ -115,7 +120,10 @@
                     message.PageIndex,
                     message.LimitedDateToShowInfo,
                     message.ShowNickname,
-                    message.IsShowMyanmarOdds));
+                    message.IsShowMyanmarOdds);
+
+            return new CustomerListPagingViewModel(customerListService.GetCustomerList(param), message, ipService);
+        }
 
         public CustomerStatusViewModel Handle(CustomerStatusQuery message)
             => BuildCustomerStatus(message);

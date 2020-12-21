@@ -341,6 +341,10 @@ class CustomerListDataTable {
             return '---';
         }
 
+        if (!item.AllowOpenInfoPopup) {
+            return item.LastLoginIP;
+        }
+
         const attrs = {
             'class': 'login-ip',
             'data-title': this.$('#loginIPText').val(),

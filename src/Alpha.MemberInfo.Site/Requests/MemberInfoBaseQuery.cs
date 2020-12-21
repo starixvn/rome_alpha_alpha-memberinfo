@@ -9,7 +9,7 @@
     public class MemberInfoBaseQuery
     {
         private readonly IUser viewer;
-       
+
         protected MemberInfoBaseQuery(IUser viewer)
         {
             this.viewer = viewer;
@@ -56,6 +56,8 @@
         public bool IsInternal => viewer.IsInternal;
 
         public bool IsAllowedIndirectLogin => viewer.IsAllowedIndirectLogin;
+
+        public bool IsAdminCanViewVNIP => viewer.IsAdminCanViewVNIP;
 
         public IEnumerable<CustInfo> BreadcrumbLevel { get; set; }
 

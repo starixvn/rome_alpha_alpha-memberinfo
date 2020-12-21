@@ -64,7 +64,7 @@
             var downlinesList = anyValueCreatorFixture.Create<IEnumerable<MasterListModel>>();
             var totalDownlines = 100;
             var totalPages = 10;
-            var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages, param);
+            var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages);
 
             repository
                 .Fetch<MasterListModel>(Arg.Any<SelectMasterListCriteria>())
@@ -92,7 +92,7 @@
             var downlinesList = anyValueCreatorFixture.Create<IEnumerable<AgentListModel>>();
             var totalDownlines = 100;
             var totalPages = 10;
-            var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages, param);
+            var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages);
 
             repository
                 .Fetch<AgentListModel>(Arg.Any<SelectAgentListCriteria>())
@@ -119,7 +119,7 @@
             var downlinesList = anyValueCreatorFixture.Create<IEnumerable<MemberListModel>>();
             var totalDownlines = 100;
             var totalPages = 10;
-            var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages, param);
+            var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages);
 
             repository
                 .Fetch<MemberListModel>(Arg.Any<SelectMemberListCriteria>())

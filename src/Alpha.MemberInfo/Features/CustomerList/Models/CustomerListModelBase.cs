@@ -76,7 +76,9 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
 
         public string MobilePhone { get; private set; }
 
-        public string LastLoginIP { get; private set; }
+        public bool AllowOpenInfoPopup { get; set; }
+
+        public string LastLoginIP { get; set; }
 
         public int Currency { get; private set; }
 
