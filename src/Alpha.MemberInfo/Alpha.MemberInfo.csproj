@@ -347,7 +347,6 @@
     <Compile Include="Features\CustomerList\Params\UpdateCustomerStatusParam.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerAllStatusModelCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectSyncedCasinoList.cs" />
-    <Compile Include="Features\CustomerList\SPs\Criteria\SelectUnsyncProductsCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMemberListCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectAgentListCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerListCriteriaBase.cs" />

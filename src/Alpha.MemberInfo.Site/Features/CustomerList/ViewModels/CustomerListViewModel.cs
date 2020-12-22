@@ -9,7 +9,6 @@
     using Alpha.Products.Core.Services;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Resources;
 
     public class CustomerListViewModel
@@ -21,12 +20,9 @@
             { UserLevel.Agent, CustomerListResources.MemberList }
         };
 
-        private readonly IEnumerable<UnsyncedProductModel> UnsyncedProducts;
-
         public CustomerListViewModel(
             CustomerListRequest request,
             IEnumerable<CustInfo> breadcrumbLevel,
-            IEnumerable<UnsyncedProductModel> unsyncedProducts,
             bool isMobile,
             bool limitedDateToShowInfo,
             Func<string, ResourceManager, string> convertResourcesJson = null)
@@ -57,7 +53,6 @@
 
             DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
             DownlineLevelName = DownlineLevel.DisplayName;
-            UnsyncedProducts = unsyncedProducts;
             Language = request.Language;
 
             SearchAccountLevel = request.CustLevel;
@@ -130,29 +125,6 @@
                     new CustomerListOption(1 , CustomerListResources.Allowed),
                     new CustomerListOption(0 , CustomerListResources.Disallowed)
                 };
-
-        public bool ShowUnconfirmedSettingFilter
-        {
-            get { return UnconfirmedSettingOptions.Count() > 1; }
-        }
-
-        public IEnumerable<CustomerListOption> UnconfirmedSettingOptions
-        {
-            get
-            {
-                var options = new List<CustomerListOption>
-                {
-                    new CustomerListOption(0 , CustomerListResources.NotFilter)
-                };
-
-                foreach (var product in UnsyncedProducts)
-                {
-                    options.Add(new CustomerListOption(product.Id, product.Name));
-                }
-
-                return options;
-            }
-        }
     }
 
     public class CustomerListOption

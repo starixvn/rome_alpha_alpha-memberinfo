@@ -11,8 +11,6 @@
 
     public interface CustomerListService
     {
-        IEnumerable<int> GetUnsyncedProductIds(int custId);
-
         CustomerListDTO GetCustomerList(CustomerListParam param);
 
         CustomerStatusModel GetCustomerStatus(int custId);
@@ -50,9 +48,6 @@
                     {UserLevel.Agent, FetchMemberList}
                 };
         }
-
-        public IEnumerable<int> GetUnsyncedProductIds(int custId)
-            => dynamicRepository.Fetch<int>(new SelectUnsyncProductsCriteria(custId));
 
         public CustomerListDTO GetCustomerList(CustomerListParam param)
             => fetchData[param.DirectUplineCustLevel](param);

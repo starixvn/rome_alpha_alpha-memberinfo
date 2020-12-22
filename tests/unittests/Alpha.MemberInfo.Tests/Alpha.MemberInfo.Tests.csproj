@@ -334,7 +334,6 @@
     <Compile Include="Feature\DormantAccountList\DormantAccountServiceTests.cs" />
     <Compile Include="Feature\DormantAccountList\Models\DormantAccountTests.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\UpdateCustomerStatusCommandTest.cs" />
-    <Compile Include="Features\CustomerList\SPs\Criteria\SelectUnsyncProductsCriteriaTest.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectSyncedCasinoListTest.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMemberListCriteriaTest.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMasterListCriteriaTest.cs" />

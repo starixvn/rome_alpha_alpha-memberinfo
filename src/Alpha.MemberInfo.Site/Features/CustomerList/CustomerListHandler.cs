@@ -81,9 +81,6 @@
 
         public CustomerListViewModel Handle(CustomerListRequest message)
         {
-            var unsyncedProducts = customerListService.GetUnsyncedProductIds(message.ViewerId)
-                .Select(productId => new UnsyncedProductModel(productId, cacheRefService.GetProductName(productId)));
-
             var breadcrumbLevel = new List<CustInfo>();
 
             if (message.BreadcrumbLevel != null && message.BreadcrumbLevel.Any())
@@ -101,7 +98,7 @@
 
             breadcrumbLevel.Add(new CustInfo(message.CustId, message.CustName, message.CustLevelId));
 
-            return new CustomerListViewModel(message, breadcrumbLevel, unsyncedProducts, browserHelper.IsMobile(isOnlyTablet: false), message.LimitedDateToShowInfo);
+            return new CustomerListViewModel(message, breadcrumbLevel, browserHelper.IsMobile(isOnlyTablet: false), message.LimitedDateToShowInfo);
         }
 
         public CustomerListPagingViewModel Handle(FetchDownlinesListRequest message)

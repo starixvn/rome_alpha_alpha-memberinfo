@@ -97,9 +97,8 @@
 
             cacheRefService.GetProductName(Arg.Any<int>()).Returns("Product");
             browserHelper.IsMobile(isOnlyTablet: false).Returns(true);
-            service.GetUnsyncedProductIds(Arg.Any<int>()).Returns(unsyncedProductIds);
 
-            var expectedViewModel = new CustomerListViewModel(message, breadcrumbLevel, unsyncedProducts, true, true);
+            var expectedViewModel = new CustomerListViewModel(message, breadcrumbLevel, true, true);
 
             var actualViewModel = handler.Handle(message);
 

@@ -28,7 +28,7 @@
         }
     </div>
 
-    <div class="form-inline filter form-report @(Model.ShowUnconfirmedSettingFilter ? "show-unconfirmed-setting-filter" : string.Empty)">
+    <div class="form-inline filter form-report">
         <div class="form-group username-box">
             <label>@CustomerListResources.Username</label>
             <input type="text" class="txt-search" id="txt-username" placeholder="@CustomerListResources.UsernamePlaceHolder" />
@@ -48,15 +48,6 @@
                 @foreach (var option in Model.DoubleCommOptions)
                 {
                     <option value="@option.Value" selected="@option.Value.Equals(Model.DoubleComm)">@option.Text</option>
-                }
-            </select>
-        </div>
-        <div class="form-group unconfirm-box @(Model.UnconfirmedSettingOptions.Count().Equals(1) ? "hidden" : string.Empty)">
-            <label>@CustomerListResources.UnconfirmedSetting</label>
-            <select id="unconfirmSettingFilter" name="unconfirmSettingFilter">
-                @foreach (var option in Model.UnconfirmedSettingOptions)
-                {
-                    <option value="@option.Value" selected="@option.Value.Equals(Model.UnconfirmSetting)">@option.Text</option>
                 }
             </select>
         </div>

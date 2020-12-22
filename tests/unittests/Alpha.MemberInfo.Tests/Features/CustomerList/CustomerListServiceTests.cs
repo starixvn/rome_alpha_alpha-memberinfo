@@ -13,7 +13,6 @@
     using NSubstitute;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using Xunit;
 
     [Trait("Category", "CustomerList")]
@@ -40,21 +39,6 @@
             repository = Substitute.For<IDynamicRepository>();
             dataAccess = Substitute.For<CustomerListDataAccess>();
             service = new CustomerListServiceImpl(repository, dataAccess);
-        }
-
-        [Fact]
-        public void GetUnsyncedProductIds_Always_OrderReturn()
-        {
-            // Arrange
-            var expectResult = new List<int> { 1, 2, 3 };
-
-            repository.Fetch<int>(Arg.Any<SelectUnsyncProductsCriteria>()).Returns(expectResult);
-
-            // Act
-            var actualResulf = service.GetUnsyncedProductIds(1).ToList();
-
-            // Assert
-            Assert.True(compareLogic.Compare(actualResulf, expectResult).AreEqual);
         }
 
         [Fact]
