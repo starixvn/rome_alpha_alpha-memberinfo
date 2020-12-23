@@ -9,7 +9,7 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             var expectedSettingKey = "Age_CustomerSelByMAg";
-            var criteria = new SelectAgentListCriteria(8, 1, "Test", true, true, true, 2, 2, 100, 1);
+            var criteria = new SelectAgentListCriteria(8, 1, "Test", true, true, true, 2, 100, 1);
 
             var actualSettingKey = criteria.GetSettingKey();
 
@@ -21,7 +21,7 @@
         [InlineData(1, true)]
         public void IsValid_MRecommend_Should_ReturnsValidSettingKey(int mrecommend, bool expectedIsValid)
         {
-            var criteria = new SelectAgentListCriteria(8, mrecommend, "Test", true, true, true, 2, 2, 100, 1);
+            var criteria = new SelectAgentListCriteria(8, mrecommend, "Test", true, true, true, 2, 100, 1);
 
             Assert.Equal(expectedIsValid, criteria.IsValid());
         }

@@ -80,7 +80,7 @@
             cacheRefService = Substitute.For<CacheRefService>();
             ipService = Substitute.For<IPService>();
 
-            handler = new CustomerListHandler(service, null, null, null, ipService, securityCodeChecker, browserHelper, cacheRefService);
+            handler = new CustomerListHandler(service, null, null, null, ipService, securityCodeChecker, browserHelper);
         }
 
         [Fact]

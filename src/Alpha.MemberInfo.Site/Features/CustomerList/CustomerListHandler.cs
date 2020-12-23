@@ -39,7 +39,6 @@
         private readonly GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel> statusViewModelFactory;
         private readonly SecurityCodeChecker securityCodeChecker;
         private readonly BrowserHelper browserHelper;
-        private readonly CacheRefService cacheRefService;
         private readonly IPService ipService;
 
         public CustomerListHandler(
@@ -48,7 +47,7 @@
             IPService ipService,
             BrowserHelper browserHelper,
             CacheRefService cacheRefService)
-            : this(customerListService, null, null, null, ipService, securityCodeChecker, browserHelper, cacheRefService)
+            : this(customerListService, null, null, null, ipService, securityCodeChecker, browserHelper)
         {
         }
 
@@ -59,8 +58,7 @@
             GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel> statusViewModelFactory,
             IPService ipService,
             SecurityCodeChecker securityCodeChecker,
-            BrowserHelper browserHelper,
-            CacheRefService cacheRefService)
+            BrowserHelper browserHelper)
         {
             this.customerListService = customerListService;
 
@@ -76,7 +74,6 @@
             this.ipService = ipService;
             this.securityCodeChecker = securityCodeChecker;
             this.browserHelper = browserHelper;
-            this.cacheRefService = cacheRefService;
         }
 
         public CustomerListViewModel Handle(CustomerListRequest message)
@@ -112,7 +109,6 @@
                     message.Closed,
                     message.Suspended,
                     message.DoubleComm,
-                    message.UnconfirmSetting,
                     message.PageSize,
                     message.PageIndex,
                     message.LimitedDateToShowInfo,

@@ -12,7 +12,6 @@ class CustomerListDataTable {
     private username: string;
     private status: string;
     private doubleComm: string;
-    private unconfirmSetting: string;
 
     constructor(
         $: JQueryStatic,
@@ -83,8 +82,7 @@ class CustomerListDataTable {
                         PageSize: data.length,
                         Username: this.username,
                         Status: this.status,
-                        DoubleComm: this.doubleComm,
-                        UnconfirmSetting: this.unconfirmSetting
+                        DoubleComm: this.doubleComm
                     };
 
                     this.customerListServices.getCutomerList(params, callback);
@@ -417,7 +415,6 @@ class CustomerListDataTable {
             this.username = this.$('#txt-username').val();
             this.status = this.$('#statusFilter').val();
             this.doubleComm = this.$('#dcommFilter').val();
-            this.unconfirmSetting = this.$('#unconfirmSettingFilter').val();
             this.$table.ajax.reload();
         });
 

@@ -9,14 +9,12 @@
             bool? closed,
             bool? suspended,
             byte doubleCommLosing,
-            byte productUnSync,
             int pageSize,
             int pageIndex) : base(username,
             enabled,
             closed,
             suspended,
             doubleCommLosing,
-            productUnSync,
             pageSize,
             pageIndex)
         {

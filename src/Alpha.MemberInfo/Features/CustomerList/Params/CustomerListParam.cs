@@ -13,7 +13,6 @@
             bool? closed,
             bool? suspended,
             byte doubleCommLosing,
-            byte productUnSync,
             int pageSize,
             int pageIndex,
             bool limitedDateToShowInfo,
@@ -28,7 +27,6 @@
             Closed = closed;
             Suspended = suspended;
             DoubleCommLosing = doubleCommLosing;
-            ProductUnSync = productUnSync;
             PageSize = pageSize;
             PageIndex = pageIndex;
             LimitedDateToShowInfo = limitedDateToShowInfo;
@@ -51,8 +49,6 @@
         public bool? Suspended { get; }
 
         public byte DoubleCommLosing { get; }
-
-        public byte ProductUnSync { get; }
 
         public int PageSize { get; }
 
