@@ -103,12 +103,16 @@ class CustomerListPopup {
     public closeProductPopup = () => this.$productPopupContainer.modal('hide');
 
     public successfulUpdatingCallback = () => {
-        this.$productIframeForm.submit();
+        setTimeout(() => {
+            this.$productIframeForm.submit();
+        }, 1500);
     }
 
-    public successfulUpdatingCallbackSportbook = () => {
-        this.successfulUpdatingCallback();
-        this.$('.btn-submit').click();
+    public successfulUpdatingCallbackAndReloadMainFrame = () => {
+        setTimeout(() => {
+            this.successfulUpdatingCallback();
+            this.$('.btn-submit').click();
+        }, 1500);
     }
 
     public openStatusSettingPopup = (element, content, title, bindingStatusSettingEvent) => {

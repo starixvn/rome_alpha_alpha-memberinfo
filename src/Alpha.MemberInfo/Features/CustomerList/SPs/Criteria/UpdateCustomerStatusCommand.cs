@@ -70,7 +70,7 @@
 
             spParams.Add(StatusName, StatusValue);
 
-            if(StatusName.Equals(StatusNames.Closed))
+            if (StatusName.Equals(StatusNames.Closed))
             {
                 spParams.Add("SystemID", AlphaSystemId);
             }

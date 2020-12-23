@@ -6,7 +6,7 @@ interface Window {
     reloadPopUpSetting: Function,
     actionAfterUpdatedLiveCasinoSettingMultiple: Function,
     actionAfterUpdatedLiveCasinoSettingSingle: Function,
-    successfulUpdatingCallbackSportbook: Function,
+    successfulUpdatingCallbackAndReloadMainFrame: Function,
     customerListPopup: any;
 }
 
@@ -117,6 +117,6 @@ $(function () {
     window.actionAfterUpdatedLiveCasinoSettingMultiple = isUpdatePartial => customerListPopup.successfulUpdatingCallback();
     window.actionAfterUpdatedLiveCasinoSettingSingle = isUpdatePartial => customerListPopup.successfulUpdatingCallback();
 
-    window.successfulUpdatingCallbackSportbook = () => customerListPopup.successfulUpdatingCallbackSportbook();
+    window.successfulUpdatingCallbackAndReloadMainFrame = () => customerListPopup.successfulUpdatingCallbackAndReloadMainFrame();
     customerList.init();
 });

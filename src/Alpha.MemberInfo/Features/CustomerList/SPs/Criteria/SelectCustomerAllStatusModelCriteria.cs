@@ -5,7 +5,7 @@
 
     public class SelectCustomerAllStatusModelCriteria : CriteriaBase
     {
-        public SelectCustomerAllStatusModelCriteria(int searchAccountId) 
+        public SelectCustomerAllStatusModelCriteria(int searchAccountId)
         {
             SearchAccountId = searchAccountId;
         }

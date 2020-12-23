@@ -11,7 +11,7 @@
             byte doubleCommLosing,
             byte productUnSync,
             int pageSize,
-            int pageIndex): base(username,
+            int pageIndex) : base(username,
             enabled,
             closed,
             suspended,
