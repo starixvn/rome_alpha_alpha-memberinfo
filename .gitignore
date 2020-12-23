@@ -66,3 +66,4 @@ src/Alpha.Reports.Site/jsUnitTest.xml
 /src/Alpha.MemberInfo.Site/assets/styles/problem-account/index.min.css
 /src/Alpha.MemberInfo.Site/assets/styles/problem-account/update.css
 /src/Alpha.MemberInfo.Site/assets/styles/problem-account/update.min.css
+/src/Alpha.MemberInfo.Site/Features/*/Styles/*.css

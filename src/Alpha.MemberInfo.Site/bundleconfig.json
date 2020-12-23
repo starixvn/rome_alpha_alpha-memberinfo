@@ -138,5 +138,19 @@
       "assets/scripts/components/alert.js",
       "assets/scripts/indirect-login-account/disconnect.js"
     ]
+  },
+  {
+    "outputFileName": "Features/DormantAccountList/Bundles/dormant-account-list.css",
+    "inputFiles": [
+      "Features/DormantAccountList/Styles/dormant-account-list.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/DormantAccountList/Bundles/dormant-account-list.js",
+    "inputFiles": [
+      "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/components/pager.js",
+      "Features/DormantAccountList/Scripts/dormant-account-list.js"
+    ]
   }
 ]

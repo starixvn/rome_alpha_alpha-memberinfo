@@ -363,8 +363,10 @@
   <data name="Login" xml:space="preserve">
     <value>로그인</value>
   </data>
-   <data name="GivenCreditPopupTitle" xml:space="preserve">
+  <data name="GivenCreditPopupTitle" xml:space="preserve">
     <value>Update Given Credit</value>
   </data>
-
+  <data name="Total" xml:space="preserve">
+    <value>총</value>
+  </data>
 </root>

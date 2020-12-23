@@ -2,6 +2,7 @@
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using Alpha.MemberInfo.AppResources;
     using Enumerations;
 
     [Serializable]
@@ -73,5 +74,8 @@
 
         private static int GapBetweenTwoLevels(byte uplineLevelValue, byte downlineLevelValue)
             => uplineLevelValue - downlineLevelValue;
+
+        public string DisplayNameViaResource
+            => Resources.ResourceManager.GetString(DisplayName);
     }
 }

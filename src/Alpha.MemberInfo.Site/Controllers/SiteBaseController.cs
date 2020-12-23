@@ -47,11 +47,21 @@
                 ? View(await mediator.SendAsync(message))
                 : View(InvalidPageViewPath);
 
+        protected async Task<ActionResult> ViewAsync<TResponse>(IAsyncRequest<TResponse> message, string viewName)
+            => (message as MemberInfoBaseQuery).IsValid()
+                ? View(viewName, await mediator.SendAsync(message))
+                : View(InvalidPageViewPath);
+
         protected async Task<ActionResult> JsonAsync<TResponse>(
             IAsyncRequest<TResponse> message,
             JsonRequestBehavior jsonRequestBehavior = JsonRequestBehavior.AllowGet)
             => (message as MemberInfoBaseQuery).IsValid() ?
                 Json(await mediator.SendAsync(message), jsonRequestBehavior) :
                 Json(Result.CreateErrorResult(Lang.NotAuthorized, BadRequestErrorCode), jsonRequestBehavior);
+
+        protected async Task<FileContentResult> ExcelViewAsync(IAsyncRequest<ExcelFileViewModel> message)
+            => (message as MemberInfoBaseQuery).IsValid()
+                ? GetExcelContent(await mediator.SendAsync(message))
+                : GetExcelContent(new ExcelFileViewModel(InvalidExcelFileName, new byte[] { }));
     }
 }

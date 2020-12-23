@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Alpha.MemberInfo.Params;
     using Extensions;
     using MemberInfo.Models;
     using MemberInfo.Services;
@@ -22,6 +23,19 @@
             cacheRefService.GetProductName(6).Returns("Casino");
             Func<int, bool> canViewProduct = (productId) => true;
             progressiveJackpotService = new ProgressiveJackpotServiceImpl(cacheRefService, canViewProduct);
+        }
+
+        [Fact]
+        public void FilterProductIds_Always_ReturnsCorrectList()
+        {
+            // Arrange
+            var expected = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            // Act
+            var actual = progressiveJackpotService.FilterProductIds(expected);
+
+            // Assert
+            AssertExtension.Equal(expected, actual);
         }
 
         [Fact]
@@ -50,6 +64,19 @@
 
             // Assert
             AssertExtension.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetJackpotGameSettings_DoNotContainCasino_ReturnsEmptyList()
+        {
+            // Arrange
+            var param = new ProgressiveJackpotParam(123, "en-US", new List<int> { 1, 2, 3, 4, 5 });
+
+            // Act
+            var actual = progressiveJackpotService.GetJackpotGameSettings(param);
+
+            // Assert
+            Assert.Empty(actual);
         }
     }
 }

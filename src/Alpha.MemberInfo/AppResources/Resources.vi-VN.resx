@@ -519,8 +519,49 @@
   <data name="UpdatePasswordHint" xml:space="preserve">
     <value>Mật khẩu của tài khoản này đã được thay đổi, vui lòng nhập mật khẩu mới</value>
   </data>
-   <data name="GivenCreditPopupTitle" xml:space="preserve">
+  <data name="GivenCreditPopupTitle" xml:space="preserve">
     <value>Cập nhật hạn mức tín dụng</value>
   </data>
-
+  <data name="ArchiveDate" xml:space="preserve">
+    <value>Ngày Lưu Trữ</value>
+  </data>
+  <data name="ArchiveStage" xml:space="preserve">
+    <value>Giai Đoạn Lưu Trữ</value>
+  </data>
+  <data name="ClearedGivenCredit" xml:space="preserve">
+    <value>Hạn mức tín dụng đã thu hồi</value>
+  </data>
+  <data name="DormantAccountArchiveProcess" xml:space="preserve">
+    <value>Quy Trình Lưu Trữ Tài Khoản Không Hoạt Động</value>
+  </data>
+  <data name="DormantAccountList" xml:space="preserve">
+    <value>Danh Sách Tài Khoản Không Hoạt Động</value>
+  </data>
+  <data name="LastActionDate" xml:space="preserve">
+    <value>Last Action Date</value>
+  </data>
+  <data name="DeletedSettings" xml:space="preserve">
+    <value>Đã Xoá Thiết Lập</value>
+  </data>
+  <data name="ToBeClearedGivenCredit" xml:space="preserve">
+    <value>Hạn mức tín dụng có thể thu hồi</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Tổng cộng</value>
+  </data>
+  <data name="CloseAccount" xml:space="preserve">
+    <value>Xoá Tài Khoản</value>
+  </data>
+  <data name="DeleteSettings" xml:space="preserve">
+    <value>Xoá Thiết Lập</value>
+  </data>
+  <data name="DisableAccount" xml:space="preserve">
+    <value>Vô Hiệu Hoá Tài Khoản</value>
+  </data>
+  <data name="DormantAccountClosedTooltip" xml:space="preserve">
+    <value>Member trong tuyến này đã đăng nhập sau Ngày Kết Thúc Lưu Trữ. Nếu Member này có đặt cược, toàn bộ tuyến liên quan sẽ không bị vô hiệu hoá.</value>
+  </data>
+  <data name="Pager_DisplayItems" xml:space="preserve">
+    <value>Hiển thị {from} đến {to} trong số {total} mục</value>
+  </data>
 </root>

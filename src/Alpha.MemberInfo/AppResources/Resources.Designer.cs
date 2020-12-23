@@ -115,6 +115,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Archive Date.
+        /// </summary>
+        public static string ArchiveDate {
+            get {
+                return ResourceManager.GetString("ArchiveDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archive Stage.
+        /// </summary>
+        public static string ArchiveStage {
+            get {
+                return ResourceManager.GetString("ArchiveStage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Auto Daily Reset Limit.
         /// </summary>
         public static string AutoDailyResetLimit {
@@ -192,6 +210,24 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Cash {
             get {
                 return ResourceManager.GetString("Cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleared Given Credit.
+        /// </summary>
+        public static string ClearedGivenCredit {
+            get {
+                return ResourceManager.GetString("ClearedGivenCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close Account.
+        /// </summary>
+        public static string CloseAccount {
+            get {
+                return ResourceManager.GetString("CloseAccount", resourceCulture);
             }
         }
         
@@ -322,6 +358,33 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deleted Settings.
+        /// </summary>
+        public static string DeletedSettings {
+            get {
+                return ResourceManager.GetString("DeletedSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Settings.
+        /// </summary>
+        public static string DeleteSettings {
+            get {
+                return ResourceManager.GetString("DeleteSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Account.
+        /// </summary>
+        public static string DisableAccount {
+            get {
+                return ResourceManager.GetString("DisableAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disabled.
         /// </summary>
         public static string Disabled {
@@ -372,6 +435,33 @@ namespace Alpha.MemberInfo.AppResources {
         public static string DontShowAgain {
             get {
                 return ResourceManager.GetString("DontShowAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dormant Account Archive Process.
+        /// </summary>
+        public static string DormantAccountArchiveProcess {
+            get {
+                return ResourceManager.GetString("DormantAccountArchiveProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This line has a member logged in after Archive Closed Date. If that member places bet, this line will not be disabled..
+        /// </summary>
+        public static string DormantAccountClosedTooltip {
+            get {
+                return ResourceManager.GetString("DormantAccountClosedTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dormant Account List.
+        /// </summary>
+        public static string DormantAccountList {
+            get {
+                return ResourceManager.GetString("DormantAccountList", resourceCulture);
             }
         }
         
@@ -456,7 +546,6 @@ namespace Alpha.MemberInfo.AppResources {
             }
         }
         
-         
         /// <summary>
         ///   Looks up a localized string similar to Update Given Credit.
         /// </summary>
@@ -466,8 +555,6 @@ namespace Alpha.MemberInfo.AppResources {
             }
         }
         
-        /// <summary>
-
         /// <summary>
         ///   Looks up a localized string similar to Indirect Log In.
         /// </summary>
@@ -1212,6 +1299,24 @@ namespace Alpha.MemberInfo.AppResources {
         public static string To {
             get {
                 return ResourceManager.GetString("To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To Be Cleared Given Credit.
+        /// </summary>
+        public static string ToBeClearedGivenCredit {
+            get {
+                return ResourceManager.GetString("ToBeClearedGivenCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        public static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
             }
         }
         

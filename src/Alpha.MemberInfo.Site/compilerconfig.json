@@ -34,5 +34,9 @@
   {
     "outputFile": "assets/styles/quick-introduction.css",
     "inputFile": "assets/styles/quick-introduction.scss"
+  },
+  {
+    "outputFile": "Features/DormantAccountList/Styles/dormant-account-list.css",
+    "inputFile": "Features/DormantAccountList/Styles/dormant-account-list.scss"
   }
 ]

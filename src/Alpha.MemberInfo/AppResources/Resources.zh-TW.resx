@@ -528,7 +528,49 @@
   <data name="UpdatePasswordHint" xml:space="preserve">
     <value>所選帳戶密碼已更新，請輸入新密碼。</value>
   </data>
-   <data name="GivenCreditPopupTitle" xml:space="preserve">
+  <data name="GivenCreditPopupTitle" xml:space="preserve">
     <value>更新信用額度</value>
+  </data>
+  <data name="ArchiveDate" xml:space="preserve">
+    <value>存檔日期</value>
+  </data>
+  <data name="ArchiveStage" xml:space="preserve">
+    <value>存檔階段</value>
+  </data>
+  <data name="ClearedGivenCredit" xml:space="preserve">
+    <value>已被清除的信用額度</value>
+  </data>
+  <data name="DormantAccountArchiveProcess" xml:space="preserve">
+    <value>不活躍賬號存檔進行中</value>
+  </data>
+  <data name="DormantAccountList" xml:space="preserve">
+    <value>不活躍賬號名單</value>
+  </data>
+  <data name="LastActionDate" xml:space="preserve">
+    <value>Last Action Date</value>
+  </data>
+  <data name="DeletedSettings" xml:space="preserve">
+    <value>刪除設定</value>
+  </data>
+  <data name="ToBeClearedGivenCredit" xml:space="preserve">
+    <value>即將被清除的信用額度</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>總和</value>
+  </data>
+  <data name="CloseAccount" xml:space="preserve">
+    <value>賬號已關閉</value>
+  </data>
+  <data name="DeleteSettings" xml:space="preserve">
+    <value>賬號設定已刪除</value>
+  </data>
+  <data name="DisableAccount" xml:space="preserve">
+    <value>賬號已禁用</value>
+  </data>
+  <data name="DormantAccountClosedTooltip" xml:space="preserve">
+    <value>此線的會員在存檔截止日期前登入，如果會員有進行投註，那麽此線就不會被禁用。</value>
+  </data>
+  <data name="Pager_DisplayItems" xml:space="preserve">
+    <value>{total}項目中{from}到{to}的顯示</value>
   </data>
 </root>
