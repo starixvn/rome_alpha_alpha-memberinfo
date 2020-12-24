@@ -4,12 +4,27 @@
     using Alpha.Products.Core.Configuration;
     using Base;
     using System.Collections.Generic;
+    using static Alpha.Products.Core.Shared.ProductConstants;
 
     public class DynamicProductMultipleViewModel : DynamicProductViewModel, ISettingItemMultipleViewModel
     {
         public DynamicProductMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
         {
+            switch (ProductId)
+            {
+                case LiveCasino:
+                case Lottery:
+                    ShowGuideLine = true;
+                    GuideLineUrl = $"{MessageUrl}StaticMessage/Guide?id=135363";
+                    break;
+
+                default:
+                    ShowGuideLine = false;
+                    GuideLineUrl = string.Empty;
+                    break;
+            }
+
         }
 
         public override string Text => $"{request.GetResource("EditMultiple")} {request.GetProductName(productItem.ProductId)}";
@@ -49,5 +64,9 @@
                 return query;
             }
         }
+
+        public override bool ShowGuideLine { get; }
+
+        public string GuideLineUrl { get; }
     }
 }

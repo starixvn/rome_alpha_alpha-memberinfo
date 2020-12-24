@@ -57,6 +57,8 @@
 
         protected virtual string MemberInfoUrl => Request.GetMicroSiteUrl(MicroSiteConstants.MemberInfo, "~/");
 
+        protected virtual string MessageUrl => Request.GetMicroSiteUrl(MicroSiteConstants.Message, "~/");
+
         public virtual bool Visible => Request.ActorIsEdittingDirectDownline;
 
         public virtual bool AddEditTextToPopupTitle => true;
