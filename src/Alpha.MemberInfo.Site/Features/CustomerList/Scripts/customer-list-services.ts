@@ -4,10 +4,6 @@ class CustomerListServices {
     private $: JQueryStatic;
     public statusSettingArray: any;
     private viewModel: CustomerListViewModel;
-    private username: string;
-    private status: string;
-    private doubleComm: string;
-    private unconfirmSetting: string;
 
     constructor($: JQueryStatic, viewModel: CustomerListViewModel) {
         this.$ = $;
@@ -26,7 +22,7 @@ class CustomerListServices {
             },
             data: params,
             success: onSuccess,
-            //complete: this.$.unblockUI,
+            complete: this.$.unblockUI,
             error: this.$.unblockUI
         });
     }

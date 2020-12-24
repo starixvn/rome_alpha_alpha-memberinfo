@@ -6,6 +6,9 @@ body {
     background-color: #fff;
 }
 
+.modal-content .modal-header .modal-title .icon-info {
+    font-size: 28px !important;
+}
 
 .page-title {
     font-size: calculateScale(13px);
@@ -119,6 +122,7 @@ body {
 
 .filter {
     display: block;
+
     .form-group {
         margin-right: 0;
         margin-bottom: 15px;
@@ -199,6 +203,7 @@ table.dataTable tbody tr:last-of-type:hover, .tblRpt.tblRpt-hover > tbody > tr:h
     body {
         font-size: calculateScaleRatio(13px, $ratio) !important;
     }
+
     .filter {
         .form-group {
             .txt-search, label, .btn-group button.multiselect {
@@ -255,7 +260,3 @@ table.dataTable tbody tr:last-of-type:hover, .tblRpt.tblRpt-hover > tbody > tr:h
         font-size: calculateScaleRatio(13px, 1) !important;
     }
 }
-
-
-
-    

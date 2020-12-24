@@ -64,5 +64,7 @@
         public virtual string Method => DataKey.Method.GET;
 
         public virtual bool Enabled => true;
+
+        public virtual bool ShowGuideLine => false;
     }
 }

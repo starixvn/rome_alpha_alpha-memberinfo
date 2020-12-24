@@ -36,5 +36,9 @@
         public override string Url => BaseAddress;
 
         public override string Icon => "icon-edit Enable";
+
+        public override bool ShowGuideLine => true;
+
+        public string GuideLineUrl => $"{OldMainUrl}MemberInformation/MultipleEditSportsBook/GuideLine";
     }
 }

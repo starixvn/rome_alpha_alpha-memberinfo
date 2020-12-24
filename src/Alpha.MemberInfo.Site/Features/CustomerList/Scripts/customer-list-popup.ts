@@ -54,12 +54,18 @@ class CustomerListPopup {
             width = bodyWidth < 1160 ? `${bodyWidth - 50}px` : '1160px';
         }
 
-        this.$productPopupContainer.find('.modal-title').text(this.$(currentTarget).data("title"));
+        const showGuideLine = JSON.parse(this.$(currentTarget).data("showGuideLine"));
+        const formartGuideLineUrl = showGuideLine ? `<a class='icon-information-outline icon-info' href='${this.$(currentTarget).data("guideLineUrl")}' target='_blank'/>` : '';
+
+        this.$productPopupContainer.find('.modal-title').html(`<div>${this.$(currentTarget).data("title")}${formartGuideLineUrl}</div>`);
         this.$productPopupContainer
             .css({ height: '100%', width })
             .modal({ show: true, backdrop: false });
 
-        this.$productPopupContainer.draggable({ containment: ".customer-list" });
+
+        this.$productPopupContainer.draggable({
+            containment: "window"
+        }).css("position", "absolute");;
 
         this.$.unblockUI();
     }

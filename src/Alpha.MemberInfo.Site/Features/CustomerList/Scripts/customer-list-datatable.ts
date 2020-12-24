@@ -170,9 +170,7 @@ class CustomerListDataTable {
             {
                 "className": 'left',
                 "data": null,
-                "render": item => {
-                    return `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${item.FirstName} ${item.LastName}</div>`;
-                }
+                "render": item => `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${item.FirstName} ${item.LastName}</div>`
             });
 
         if (this.viewModel.SearchAccountRoleId === CustomerLevel.Agent) {
@@ -307,7 +305,7 @@ class CustomerListDataTable {
             'title': this.$('#editSettingText').val()
         };
 
-        return `<div ${this.buildAttributes(attrs)}/>`;
+        return `<div ${buildAttributes(attrs)}/>`;
     }
 
     private renderStatusColumn = item => {
@@ -320,7 +318,7 @@ class CustomerListDataTable {
             'title': this.$('#editStatusText').val()
         };
 
-        return `<a ${this.buildAttributes(attrs)}><span>${item.Status}</span><span class='icon-menu-down'/></a>`;
+        return `<a ${buildAttributes(attrs)}><span>${item.Status}</span><span class='icon-menu-down'/></a>`;
     }
 
     private renderStatementColumn = item => {
@@ -352,7 +350,7 @@ class CustomerListDataTable {
             'title': this.$('#viewIPTooltipText').val()
         };
 
-        return `<a ${this.buildAttributes(attrs)}>${item.LastLoginIP}</a>`
+        return `<a ${buildAttributes(attrs)}>${item.LastLoginIP}</a>`
     }
 
     private renderDetailColumn = (api, rowIdx) => {
@@ -461,6 +459,4 @@ class CustomerListDataTable {
 
         return `${this.viewModel.MemberInfoUrl}CustomerList/GetCustomerAllStatus?${this.$.param(queryString)}`;
     }
-
-    private buildAttributes = attrs => this.$.map(attrs, (value, key) => `${key}='${value}'`).join(' ');
 }

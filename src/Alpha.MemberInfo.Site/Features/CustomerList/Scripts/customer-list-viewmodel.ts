@@ -99,3 +99,5 @@ const statusClasses = {
         Css: 'enabled'
     }
 };
+
+const buildAttributes = attrs => this.$.map(attrs, (value, key) => `${key}='${value}'`).join(' ');

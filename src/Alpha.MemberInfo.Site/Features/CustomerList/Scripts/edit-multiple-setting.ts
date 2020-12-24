@@ -70,7 +70,17 @@ class EditMultipleSetting {
                 this.$('#arrayStatusRnCasino').val(item.QueryStringParamaters.syncedCasinoList);
             }
 
-            html.push(`<li data-title='${item.Text}' data-method='${item.Method}' data-params='${JSON.stringify(item.QueryStringParamaters)}' class="edit-multiple-settings ${item.Icon}" data-url="${item.Url}">${item.Text}</li>`);
+            const attrs = {
+                'class': `edit-multiple-settings ${item.Icon}`,
+                'data-title': item.Text,
+                'data-method': item.Method,
+                'data-params': JSON.stringify(item.QueryStringParamaters),
+                'data-url': item.Url,
+                'data-show-guide-line': item.ShowGuideLine,
+                'data-guide-line-url': item.GuideLineUrl
+            };
+
+            html.push(`<li ${buildAttributes(attrs)}>${item.Text}</li>`);
         });
 
         return html.join('');

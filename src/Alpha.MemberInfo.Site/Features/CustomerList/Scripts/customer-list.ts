@@ -19,7 +19,6 @@ class CustomerList {
 
     private statusDropdown: SingleSelectionDropdownComponent;
     private doubleCommDropdown: SingleSelectionDropdownComponent;
-    private unconfirmSettingDropdown: SingleSelectionDropdownComponent;
 
     constructor(
         $: JQueryStatic,
@@ -28,8 +27,7 @@ class CustomerList {
         customerListPopup: CustomerListPopup,
         customerListDataTable: CustomerListDataTable,
         statusDropdown: SingleSelectionDropdownComponent,
-        doubleCommDropdown: SingleSelectionDropdownComponent,
-        unconfirmSettingDropdown: SingleSelectionDropdownComponent) {
+        doubleCommDropdown: SingleSelectionDropdownComponent) {
         this.$ = $;
         this.viewModel = viewModel;
         this.customerListDataTable = customerListDataTable;
@@ -38,7 +36,6 @@ class CustomerList {
 
         this.statusDropdown = statusDropdown;
         this.doubleCommDropdown = doubleCommDropdown;
-        this.unconfirmSettingDropdown = unconfirmSettingDropdown;
     }
 
     public init = () => {
@@ -47,9 +44,6 @@ class CustomerList {
 
         this.doubleCommDropdown.render(
             new SingleSelectionDropdownOption("dcommFilter", "DoubleCommId", () => { }, true, true));
-
-        this.unconfirmSettingDropdown.render(
-            new SingleSelectionDropdownOption("unconfirmSettingFilter", "UnconfirmSettingId", () => { }, true, true));
 
         this.bidingEasyAutoComplete();
         this.customerListDataTable.initDataTable();
@@ -106,7 +100,6 @@ $(function () {
             editMultipleSetting,
             customerListPopup,
             customerListDataTable,
-            new SingleSelectionDropdownComponent($),
             new SingleSelectionDropdownComponent($),
             new SingleSelectionDropdownComponent($));
 
