@@ -70,10 +70,6 @@
 
         internal bool IsValidName(string name) => !string.IsNullOrEmpty(name);
 
-        internal bool CanUpdateAccount => viewer.CanUpdateAccount;
-
-        internal bool IsInternal => viewer.IsInternal;
-
         public bool AllowedAllDayBalTransfer
             => viewer.AllowedAllDayBalTransfer;
     }
