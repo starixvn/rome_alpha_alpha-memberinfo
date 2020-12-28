@@ -329,7 +329,7 @@ class CustomerListDataTable {
         }, actionName = item.RoleId === CustomerLevel.Member ? 'MemberStatement' : 'SMAStatement';
 
         const viewStatementLink = `${this.viewModel.ReportsUrl}Statement/${actionName}?${this.$.param(queryString)}`;
-        return `<a data-url='${viewStatementLink}' title='${this.$('#statementTooltipText').val()}' class='view-statement'>${this.viewModel.CustomerListResources.View}</a>`;
+        return `<a data-url='${viewStatementLink}' title='${this.$('#statementTooltipText').val()}' class='icon-statement' />`;
     }
 
     private renderLoginIP = item => {
@@ -424,7 +424,7 @@ class CustomerListDataTable {
 
         this.$('.login-ip').unbind().bind('click', event => this.customerListPopup.openProductPopup(event.currentTarget));
 
-        this.$('.view-statement').unbind().bind('click', event => this.viewStatement(event));
+        this.$('.icon-statement').unbind().bind('click', event => this.viewStatement(event));
 
         this.$('tbody .checkbox').unbind().bind("click", () => {
             this.$('#select-all').prop("checked", this.$('tbody .checkbox').length === this.$('tbody .checkbox:checked').length);
