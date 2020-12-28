@@ -160,10 +160,10 @@
     <value>Edit Multiple Setting</value>
   </data>
   <data name="EditSetting" xml:space="preserve">
-    <value>Edit Setting</value>
+    <value>修改設定</value>
   </data>
   <data name="EditStatus" xml:space="preserve">
-    <value>Edit Status</value>
+    <value>修改狀態</value>
   </data>
   <data name="FirstName" xml:space="preserve">
     <value>名</value>
@@ -187,7 +187,7 @@
     <value>姓</value>
   </data>
   <data name="LoginIP" xml:space="preserve">
-    <value>最後登入IP</value>
+    <value>登入IP</value>
   </data>
   <data name="MasterAgentList" xml:space="preserve">
     <value>總代理名單</value>
@@ -265,7 +265,7 @@
     <value>禁止雙倍佣金</value>
   </data>
   <data name="UpdateDoubleCommSuccessfully" xml:space="preserve">
-    <value>Update Double Comm successfully.</value>
+    <value>雙倍佣金更新成功</value>
   </data>
   <data name="UnuspendStatusPopupHeader" xml:space="preserve">
     <value>&lt;username&gt; 取消暫停</value>
@@ -283,7 +283,7 @@
     <value>組別</value>
   </data>
   <data name="FirstLastName" xml:space="preserve">
-    <value>First &amp; Last Name</value>
+    <value>名及姓</value>
   </data>
   <data name="EditMultipleTooltip" xml:space="preserve">
     <value>Edit Multiple Setting</value>
@@ -292,9 +292,9 @@
     <value>View Statement</value>
   </data>
   <data name="UsernameTooltip" xml:space="preserve">
-    <value>Click Username to drilldown to downlines</value>
+    <value>點擊“用戶名”向下滑動到下線</value>
   </data>
   <data name="ViewIPTooltip" xml:space="preserve">
-    <value>Click IP to view IP info</value>
+    <value>點擊IP查看IP信息</value>
   </data>
 </root>
