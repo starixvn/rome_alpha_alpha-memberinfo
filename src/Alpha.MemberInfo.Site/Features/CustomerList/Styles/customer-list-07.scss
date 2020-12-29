@@ -121,7 +121,7 @@ body {
 }
 
 .filter {
-    display: block;
+    display: block !important;
 
     .form-group {
         margin-right: 0;
@@ -133,8 +133,8 @@ body {
 
         label {
             display: block;
-            width: unset;
-            text-align: left;
+            width: unset !important;
+            text-align: left !important;
         }
 
         .txt-search, select, [class*="btn-"] {
@@ -199,64 +199,11 @@ table.dataTable tbody tr:last-of-type:hover, .tblRpt.tblRpt-hover > tbody > tr:h
     background-color: unset !important;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2.625), only screen and ( min--moz-device-pixel-ratio: 2.625), only screen and ( -o-min-device-pixel-ratio: 2.625/1), only screen and ( min-device-pixel-ratio: 2.625), only screen and ( min-resolution: 393dpi), only screen and ( min-resolution: 2.625dppx) {
-    body {
-        font-size: calculateScaleRatio(13px, $ratio) !important;
-    }
+@media only screen and (-webkit-min-device-pixel-ratio: 2.625) {
+    @include scaleHighResolutions(1.2);
 
-    .filter {
-        .form-group {
-            .txt-search, label, .btn-group button.multiselect {
-                font-size: calculateScaleRatio(13px, $ratio);
-            }
-        }
-    }
-
-    .dtr-column {
-        .child .detail-table tr {
-            height: calculateScaleRatio(32px, $ratio);
-        }
-    }
-
-    #status-popup, #product-popup {
-        .modal-header {
-            .modal-title {
-                font-size: calculateScaleRatio(13px, $ratio) !important;
-                padding: calculateScaleRatio(10px, $ratio) 0;
-            }
-
-            button {
-                font-size: 48px !important;
-                margin-top: -6px;
-                padding-right: 24px;
-            }
-        }
-
-        ul,
-        ol {
-            li {
-                padding: 4px 0;
-
-                &.icon-edit, &.icon-refresh, &.edit-status-popup {
-                    font-size: calculateScaleRatio(13px, $ratio) !important;
-                    line-height: calculateScaleRatio(24px, $ratio) !important;
-                }
-            }
-        }
-
-        .modal-content {
-            .modal-body {
-                input[type="checkbox"] {
-                    width: calculateScaleRatio(16px, $ratio);
-                    height: calculateScaleRatio(16px, $ratio);
-                }
-            }
-        }
-    }
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 3), only screen and ( min--moz-device-pixel-ratio: 3), only screen and ( -o-min-device-pixel-ratio: 3/1), only screen and ( min-device-pixel-ratio: 3), only screen and ( min-resolution: 384dpi), only screen and ( min-resolution: 3dppx) {
-    body {
-        font-size: calculateScaleRatio(13px, 1) !important;
-    }
+@media only screen and (-webkit-device-pixel-ratio: 3) {
+    @include scaleHighResolutions(1);
 }
