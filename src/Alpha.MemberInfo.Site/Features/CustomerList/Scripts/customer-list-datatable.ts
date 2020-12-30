@@ -166,8 +166,12 @@ class CustomerListDataTable {
                 "className": 'center',
                 "data": null,
                 "render": item => this.renderStatementColumn(item)
-            }
-        );
+            },
+            {
+                "className": 'left',
+                "data": null,
+                "render": item => `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${item.FirstName} ${item.LastName}</div>`
+            });
 
         if (this.viewModel.SearchAccountRoleId === CustomerLevel.Agent) {
             columns.push({
@@ -254,12 +258,6 @@ class CustomerListDataTable {
                 });
             }
         }
-
-        columns.push({
-            "className": 'left',
-            "data": null,
-            "render": item => `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${item.FirstName} ${item.LastName}</div>`
-        });
 
         if (!this.viewModel.LimitedDateToShowInfo) {
             columns.push({
@@ -360,7 +358,6 @@ class CustomerListDataTable {
         let commissionColumns = [];
         let otherColumns = [];
         let ugroupColumnsOnAgentLevel = [];
-        let initialCommissionGroupStart = false;
 
         const statusCss = self.getRowClass(api.data()[rowIdx]);
 
@@ -383,11 +380,10 @@ class CustomerListDataTable {
                     `<td class="dtr-data">${cellData}</td></tr>`);
             }
             else if (header.hasClass('commission')) {
-                if (!initialCommissionGroupStart) {
+                if (header.hasClass('startGroup')) {
                     commissionColumns.push(`<tr class="${statusCss}"><td class='commission-wrapper' colspan='2'>` +
                         `<table class='commission-table'><tr class="${statusCss}">` +
                         `<td class='commission-header' colspan="2">${self.$('#commissionText').val()}</td></tr>`);
-                    initialCommissionGroupStart = true;
                 }
 
                 commissionColumns.push(`<tr class="${statusCss}" data-dtr-index="${idx.column}">` +
@@ -404,7 +400,7 @@ class CustomerListDataTable {
             }
         });
 
-        const detailsColumn = ugroupColumnsOnAgentLevel.concat(commissionColumns).concat(otherColumns);
+        const detailsColumn = otherColumns.concat(ugroupColumnsOnAgentLevel).concat(commissionColumns);
         return detailsColumn ?
             self.$(`<table class="detail-table" data-dtr-index="${rowIdx}"/>`).append(detailsColumn.join('')) :
             false;
