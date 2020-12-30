@@ -4,7 +4,6 @@
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Models;
-    using Alpha.MemberInfo.Services;
     using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
@@ -45,8 +44,7 @@
             CustomerListService customerListService,
             SecurityCodeChecker securityCodeChecker,
             IPService ipService,
-            BrowserHelper browserHelper,
-            CacheRefService cacheRefService)
+            BrowserHelper browserHelper)
             : this(customerListService, null, null, null, ipService, securityCodeChecker, browserHelper)
         {
         }

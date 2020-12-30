@@ -27,8 +27,9 @@
                      {
                          if (message.CustLevel.IsAgentLevel())
                          {
-                             (downline as MemberListModel).PlayerDiscountMyanmarOdds = 0;
-                             (downline as MemberListModel).AdiscountMyanmarOdds = 0;
+                             var memberList = downline as MemberListModel;
+                             memberList.PlayerDiscountMyanmarOdds = 0;
+                             memberList.AdiscountMyanmarOdds = 0;
                          }
                          else if (message.CustLevel.IsMasterLevel())
                          {

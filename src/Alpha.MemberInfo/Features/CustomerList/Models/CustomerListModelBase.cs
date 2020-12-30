@@ -56,6 +56,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             DisableOutright = disableOutright;
             DiscountCS = discountCS;
             Discount1x2 = discount1x2;
+            IsInternal = isInternal;
         }
 
         public int CustId { get; private set; }
