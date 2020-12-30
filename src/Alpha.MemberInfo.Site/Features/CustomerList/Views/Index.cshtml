@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Customer List";
 
-    var commissionGroupClass = Model.IsMobileView || (Model.SearchAccountLevel.IsAgentLevel() && Model.Language.Equals("th-TH")) ? "none" : "desktop";
+    var commissionGroupClass = string.Empty; // Model.IsMobileView || (Model.SearchAccountLevel.IsAgentLevel() && Model.Language.Equals("th-TH")) ? "none" : "desktop";
 }
 
 @section Styles {
@@ -104,17 +104,17 @@
             <tr>
                 @if (!Model.IsMobileView)
                 {
-                    <th rowspan="2" class="header all padding-icon">
+                    <th rowspan="2" class="header padding-icon">
                         @CustomerListResources.No
                     </th>
                 }
                 @if (!Model.HideEditMultiple)
                 {
-                    <th rowspan="2" class="header all padding-icon">
+                    <th rowspan="2" class="header padding-icon">
                         <input type="checkbox" id="select-all" />
                     </th>
                 }
-                <th rowspan="2" class="header all padding-icon">
+                <th rowspan="2" class="header padding-icon">
                     @if (!Model.HideEditMultiple)
                     {
                         <div class="edit-multiple icon-table-edit" data-url="" title="@CustomerListResources.EditMultipleSetting" />
@@ -124,18 +124,15 @@
                         <span>@CustomerListResources.Edit</span>
                     }
                 </th>
-                <th rowspan="2" class="header all">
+                <th rowspan="2" class="header">
                     @CustomerListResources.Username <br />
                     @CustomerListResources.NickName
                 </th>
-                <th rowspan="2" class="header @(Model.IsMobileView ? string.Empty : "all")">
+                <th rowspan="2" class="header">
                     @CustomerListResources.Status
                 </th>
                 <th rowspan="2" class="header">
                     @CustomerListResources.Statement
-                </th>
-                <th rowspan="2" class="header">
-                    @CustomerListResources.FirstLastName
                 </th>
                 @if (Model.SearchAccountRoleId == 2)
                 {
@@ -145,6 +142,9 @@
                 }
                 <th colspan="@Model.CommisionColSpan.ToString()" class="header @commissionGroupClass">
                     @CustomerListResources.Commission
+                </th>
+                <th rowspan="2" class="header">
+                    @CustomerListResources.FirstLastName
                 </th>
                 @if (!Model.LimitedDateToShowInfo)
                 {
