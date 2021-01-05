@@ -157,7 +157,7 @@
     <value>修改</value>
   </data>
   <data name="EditMultipleSetting" xml:space="preserve">
-    <value>Edit Multiple Setting</value>
+    <value>修改多重设置</value>
   </data>
   <data name="EditSetting" xml:space="preserve">
     <value>修改设定</value>
@@ -271,13 +271,13 @@
     <value>&lt;username&gt; 取消暂停</value>
   </data>
   <data name="AccountMyanmarOdds" xml:space="preserve">
-    <value>A Myanmar Odds</value>
+    <value>A缅甸盘</value>
   </data>
   <data name="MyanmarOdds" xml:space="preserve">
-    <value>Myanmar Odds</value>
+    <value>缅甸盘</value>
   </data>
   <data name="PlayerMyanmarOdds" xml:space="preserve">
-    <value>P Myanmar Odds</value>
+    <value>P缅甸盘</value>
   </data>
   <data name="Group" xml:space="preserve">
     <value>组别</value>
@@ -285,11 +285,8 @@
   <data name="FirstLastName" xml:space="preserve">
     <value>名及姓</value>
   </data>
-  <data name="EditMultipleTooltip" xml:space="preserve">
-    <value>Edit Multiple Setting</value>
-  </data>
   <data name="StatementTooltip" xml:space="preserve">
-    <value>View Statement</value>
+    <value>察看账目</value>
   </data>
   <data name="UsernameTooltip" xml:space="preserve">
     <value>点击“用户名”向下滑动到下线</value>

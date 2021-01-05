@@ -215,15 +215,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Setting.
-        /// </summary>
-        public static string EditMultipleTooltip {
-            get {
-                return ResourceManager.GetString("EditMultipleTooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Setting.
         /// </summary>
         public static string EditSetting {

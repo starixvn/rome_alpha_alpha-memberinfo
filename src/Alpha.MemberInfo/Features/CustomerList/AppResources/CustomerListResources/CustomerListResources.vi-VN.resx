@@ -157,7 +157,7 @@
     <value>Tùy chỉnh</value>
   </data>
   <data name="EditMultipleSetting" xml:space="preserve">
-    <value>Edit Multiple Setting</value>
+    <value>Tuỳ Chỉnh Đồng Loạt Thiết Lập</value>
   </data>
   <data name="EditSetting" xml:space="preserve">
     <value>Sửa Thiết Lập</value>
@@ -271,13 +271,13 @@
     <value>Huỷ đình chỉ &lt;username&gt;</value>
   </data>
   <data name="AccountMyanmarOdds" xml:space="preserve">
-    <value>A Myanmar Odds</value>
+    <value>A Tỷ Lệ Cược Myanmar</value>
   </data>
   <data name="MyanmarOdds" xml:space="preserve">
-    <value>Myanmar Odds</value>
+    <value>Tỷ Lệ Cược Myanmar</value>
   </data>
   <data name="PlayerMyanmarOdds" xml:space="preserve">
-    <value>P Myanmar Odds</value>
+    <value>P Tỷ Lệ Cược Myanmar</value>
   </data>
   <data name="Group" xml:space="preserve">
     <value>Nhóm</value>
@@ -285,11 +285,8 @@
   <data name="FirstLastName" xml:space="preserve">
     <value>Họ và tên</value>
   </data>
-  <data name="EditMultipleTooltip" xml:space="preserve">
-    <value>Edit Multiple Setting</value>
-  </data>
   <data name="StatementTooltip" xml:space="preserve">
-    <value>View Statement</value>
+    <value>Xem Sao Kê</value>
   </data>
   <data name="UsernameTooltip" xml:space="preserve">
     <value>Nhấn vào Tên tài khoản để xem chi tiết các tuyến dưới</value>

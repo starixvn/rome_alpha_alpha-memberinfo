@@ -285,9 +285,6 @@
   <data name="FirstLastName" xml:space="preserve">
     <value>First &amp; Last Name</value>
   </data>
-  <data name="EditMultipleTooltip" xml:space="preserve">
-    <value>Edit Multiple Setting</value>
-  </data>
   <data name="StatementTooltip" xml:space="preserve">
     <value>View Statement</value>
   </data>

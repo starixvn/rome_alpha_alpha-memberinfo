@@ -157,7 +157,7 @@
     <value>แก้ไข</value>
   </data>
   <data name="EditMultipleSetting" xml:space="preserve">
-    <value>Edit Multiple Setting</value>
+    <value>แก้ไขการตั้งค่าหลายรายการ</value>
   </data>
   <data name="EditSetting" xml:space="preserve">
     <value>แก้ไขการตั้งค่า</value>
@@ -271,13 +271,13 @@
     <value>ยกเลิกการระงับ &lt;username&gt;</value>
   </data>
   <data name="AccountMyanmarOdds" xml:space="preserve">
-    <value>A Myanmar Odds</value>
+    <value>A ราคาเมียนมาร์</value>
   </data>
   <data name="MyanmarOdds" xml:space="preserve">
-    <value>Myanmar Odds</value>
+    <value>ราคาเมียนมาร์</value>
   </data>
   <data name="PlayerMyanmarOdds" xml:space="preserve">
-    <value>P Myanmar Odds</value>
+    <value>P緬甸盤</value>
   </data>
   <data name="Group" xml:space="preserve">
     <value>กลุ่ม</value>
@@ -285,11 +285,8 @@
   <data name="FirstLastName" xml:space="preserve">
     <value>ชื่อนามสกุล</value>
   </data>
-  <data name="EditMultipleTooltip" xml:space="preserve">
-    <value>Edit Multiple Setting</value>
-  </data>
   <data name="StatementTooltip" xml:space="preserve">
-    <value>View Statement</value>
+    <value>ดูบัญชี</value>
   </data>
   <data name="UsernameTooltip" xml:space="preserve">
     <value>คลิกชื่อผู้ใช้เพื่อเจาะลึกดาวน์ไลน์</value>

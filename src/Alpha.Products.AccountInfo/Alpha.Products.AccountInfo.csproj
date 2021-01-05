@@ -97,7 +97,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configurations\AppSettings.cs" />
+   <Compile Include="Configurations\AppSettings.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="DataKey.cs" />
     <Compile Include="Requests\SearchAccountRequest.cs" />
     <Compile Include="GlobalSuppressions.cs" />
