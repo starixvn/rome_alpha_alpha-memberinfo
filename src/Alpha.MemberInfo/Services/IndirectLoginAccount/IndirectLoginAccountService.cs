@@ -137,7 +137,10 @@
                 param.ActorUsername,
                 param.BrowserSize,
                 param.IndirectUsername);
-            parameter = new EncryptionThread().EncryptString(parameter, KeySize, param.IBCPKey);
+
+            parameter = await Task.Run(() =>
+                new EncryptionThread().EncryptString(parameter, KeySize, param.IBCPKey)
+            ).ConfigureAwait(false);
 
             return $"{AppSettings.IndirectLoginURL}?param={parameter}";
         }

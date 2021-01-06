@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Alpha.MemberInfo.Constants;
 using Alpha.MemberInfo.Criteria.ProblemAccount;
 using Alpha.MemberInfo.Models.ProblemAccount;
+using Alpha.MemberInfo.Params;
 using Alpha.MemberInfo.Params.ProblemAccount;
 using Alpha.MemberInfo.Services;
 using Fanex.Data.Repository;
@@ -63,6 +65,31 @@ namespace Alpha.MemberInfo.Tests.Services
             Assert.Equal(2, act[0].CustId);
             Assert.Equal(3, act[1].CustId);
             Assert.Equal(1, act[2].CustId);
+        }
+
+        [Fact]
+        public void ProblemAccountModel_Properties_HasDefaultValues()
+        {
+            var act = new ProblemAccountModel();
+            Assert.Null(act.UserName);
+            Assert.Null(act.FirstName);
+            Assert.Null(act.LastName);
+            Assert.True(act.Count == 0);
+            Assert.True(act.ClosedReason == 0);
+            Assert.False(act.IsReviewed);
+            Assert.True(act.CanEdit);
+            Assert.True(act.ClosedReason == CloseReasonConstants.WrongPassword);
+            Assert.True(act.ClosedReasonName == nameof(CloseReasonConstants.WrongPassword));
+            Assert.True(act.StatusNameEN == string.Empty);
+        }
+
+        [Fact]
+        public void ProgressiveJackpotParam_Properties_HasDefaultValues()
+        {
+            var act = new ProgressiveJackpotParam(0, null, Enumerable.Empty<int>());
+            Assert.True(act.CustId == 0);
+            Assert.Null(act.Language);
+            Assert.False(act.ProductIds.Any());
         }
     }
 }
