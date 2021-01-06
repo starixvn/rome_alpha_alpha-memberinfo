@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Features.CustomerList.Criteria
 {
+    using Alpha.MemberInfo.Configurations;
     using Fanex.Data;
     using Fanex.Data.Repository;
 
@@ -12,6 +13,8 @@
 
         [SpParam(SqlParamName = "CustId")]
         public int SearchAccountId { get; }
+
+        public byte SettingStatus => AppSettings.SettingStatus;
 
         public override string GetSettingKey() => "Age_CustomerSelAllStatus";
 
