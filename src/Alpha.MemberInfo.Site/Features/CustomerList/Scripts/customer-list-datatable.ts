@@ -343,7 +343,7 @@ class CustomerListDataTable {
 
         const attrs = {
             'class': 'login-ip',
-            'data-title': this.$('#loginIPText').val(),
+            'data-title': `${this.$('#loginIPText').val()} - ${item.Username}`,
             'data-url': `${this.viewModel.OldMainUrl}_IPInfo/IPInfo.aspx`,
             'data-params': JSON.stringify({ ip: item.LastLoginIP }),
             'data-width': '500px',
