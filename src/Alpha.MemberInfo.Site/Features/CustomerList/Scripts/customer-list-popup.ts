@@ -64,10 +64,7 @@ class CustomerListPopup {
             .modal({ show: true, backdrop: false });
 
 
-        this.$productPopupContainer.draggable({
-            containment: "window"
-        }).css("position", "absolute");;
-
+        this.$productPopupContainer.draggable({ containment: "window" });
         this.$.unblockUI();
     }
 
@@ -138,7 +135,7 @@ class CustomerListPopup {
         }
         else {
             this.$statusPopupContainer
-                .css({ height: 'auto', width: 'auto', top: 0 })
+                .css({ height: 'auto', width: 'auto' })
                 .modal({ show: true, backdrop: false });
 
             $bootstrapModalDialog.css({ width: 'inherit' });
