@@ -15,12 +15,12 @@
                  {
                      if (message.LimitedDateToShowInfo)
                      {
-                         downline.CreateDate = "--";
+                         downline.CreateDate = string.Empty;
                      }
 
                      if (!message.ShowNickname)
                      {
-                         downline.UserName2 = "--";
+                         downline.UserName2 = string.Empty;
                      }
 
                      if (!message.IsShowMyanmarOdds)

@@ -45,28 +45,39 @@ class CustomerList {
         this.doubleCommDropdown.render(
             new SingleSelectionDropdownOption("dcommFilter", "DoubleCommId", () => { }, true, true));
 
-        this.bidingEasyAutoComplete();
+        this.bindingTxtUsername();
         this.customerListDataTable.initDataTable();
         this.editMultipleSetting.bindingEvent();
         this.customerListPopup.bindingBootstrapModalEvent();
     };
 
-    private bidingEasyAutoComplete = () => this.$('#txt-username').easyAutocomplete({
-        url: phrase => `${this.viewModel.MemberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&DirectDownlines=true`,
-        getValue: 'UserName',
-        requestDelay: 200,
-        minCharNumber: 2,
-        template: {
-            type: "custom",
-            method: (value, item) => {
-                const nickname = item.UserName2 === null || item.UserName2 === '' ? '' : `(${item.UserName2})`;
-                return `<div class='suggestion'>${value} ${nickname}<div>${item.FirstName} ${item.LastName}</div></div>`;
+    private bindingTxtUsername = () => {
+        const options = {
+            url: phrase => `${this.viewModel.MemberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&DirectDownlines=true`,
+            getValue: 'UserName',
+            requestDelay: 200,
+            minCharNumber: 2,
+            template: {
+                type: "custom",
+                method: (value, item) => {
+                    const nickname = item.UserName2 === null || item.UserName2 === '' ? '' : `(${item.UserName2})`;
+                    return `<div class='suggestion'>${value} ${nickname}<div>${item.FirstName} ${item.LastName}</div></div>`;
+                }
+            },
+            list: {
+                maxNumberOfElements: 10
             }
-        },
-        list: {
-            maxNumberOfElements: 10
-        }
-    })
+        };
+
+        const $txtUsername = this.$('#txt-username');
+        $txtUsername.easyAutocomplete(options);
+
+        $txtUsername.bind('keypress', event => {
+            if (event.which == 13) {
+                this.$('.btn-submit').click();
+            }
+        });
+    }
 }
 
 $(function () {

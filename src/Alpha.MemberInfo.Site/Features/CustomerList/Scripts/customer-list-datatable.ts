@@ -334,7 +334,7 @@ class CustomerListDataTable {
 
     private renderLoginIP = item => {
         if (item.LastLoginIP === '' || item.LastLoginIP === null) {
-            return '---';
+            return '';
         }
 
         if (!item.AllowOpenInfoPopup) {
@@ -415,12 +415,6 @@ class CustomerListDataTable {
             this.status = this.$('#statusFilter').val();
             this.doubleComm = this.$('#dcommFilter').val();
             this.$table.ajax.reload();
-        });
-
-        this.$('#txt-username').unbind().bind('keypress', event => {
-            if (event.which == 13) {
-                this.$('.btn-submit').click();
-            }
         });
 
         this.$('.login-ip').unbind().bind('click', event => this.customerListPopup.openProductPopup(event.currentTarget));
