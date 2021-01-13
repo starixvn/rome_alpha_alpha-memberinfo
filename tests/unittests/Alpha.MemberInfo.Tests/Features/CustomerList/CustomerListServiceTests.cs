@@ -45,7 +45,7 @@
         public void FectchMasterList_Always_ReturnsCorrectModel()
         {
             var param = BuildCustomerParam(4);
-            var downlinesList = anyValueCreatorFixture.Create<IEnumerable<MasterListModel>>();
+            var downlinesList = FakeMasterList();
             var totalDownlines = 100;
             var totalPages = 10;
             var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages);
@@ -73,7 +73,7 @@
         public void FetchAgentList_Always_ReturnsCorrectModel()
         {
             var param = BuildCustomerParam(3);
-            var downlinesList = anyValueCreatorFixture.Create<IEnumerable<AgentListModel>>();
+            var downlinesList = FakeAgentList();
             var totalDownlines = 100;
             var totalPages = 10;
             var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages);
@@ -100,7 +100,7 @@
         public void FetchMemberList_Always_ReturnsCorrectModel()
         {
             var param = BuildCustomerParam(2);
-            var downlinesList = anyValueCreatorFixture.Create<IEnumerable<MemberListModel>>();
+            var downlinesList = FakeMemberList();
             var totalDownlines = 100;
             var totalPages = 10;
             var expectedModel = new CustomerListDTO(downlinesList, totalDownlines, totalPages);
@@ -118,7 +118,7 @@
                 query.TotalPages = totalPages;
             });
 
-            var actualModel = service.FetchMemberList(BuildCustomerParam(2));
+            var actualModel = service.FetchMemberList(param);
 
             Assert.True(compareLogic.Compare(actualModel, expectedModel).AreEqual);
         }
@@ -154,7 +154,11 @@
         [Fact]
         public void GetSyncedCasinoModel_Always_ReturnsCorrectModel()
         {
-            var data = anyValueCreatorFixture.Create<IEnumerable<SyncedCasinoModel>>();
+            var data = new List<SyncedCasinoModel>
+            {
+                new SyncedCasinoModel(),
+                new SyncedCasinoModel(1, true)
+            };
 
             repository
                  .Fetch<SyncedCasinoModel>(Arg.Any<SelectSyncedCasinoList>())
@@ -165,11 +169,14 @@
             Assert.True(compareLogic.Compare(actualModel, data).AreEqual);
         }
 
-        private CustomerListDTO FectchMasterList(CustomerListParam param) => anyValueCreatorFixture.Create<CustomerListDTO>();
+        private CustomerListDTO FectchMasterList(CustomerListParam param) =>
+            new CustomerListDTO(FakeMasterList(), 100, 2);
 
-        private CustomerListDTO FetchAgentList(CustomerListParam param) => anyValueCreatorFixture.Create<CustomerListDTO>();
+        private CustomerListDTO FetchAgentList(CustomerListParam param) =>
+            new CustomerListDTO(FakeAgentList(), 100, 2);
 
-        private CustomerListDTO FetchMemberList(CustomerListParam param) => anyValueCreatorFixture.Create<CustomerListDTO>();
+        private CustomerListDTO FetchMemberList(CustomerListParam param) =>
+             new CustomerListDTO(FakeMemberList(), 100, 2);
 
         private CustomerListParam BuildCustomerParam(byte roleId)
             => new CustomerListParam(
@@ -186,5 +193,115 @@
                 false,
                 false,
                 true);
+
+        private IEnumerable<MasterListModel> FakeMasterList() =>
+            new List<MasterListModel>
+            {
+                new MasterListModel(),
+                new MasterListModel(
+                    1,
+                    "master1",
+                    3,
+                    "a",
+                    string.Empty,
+                     string.Empty,
+                      string.Empty,
+                      "1234",
+                      string.Empty,
+                      string.Empty,
+                      20,
+                      1,
+                      1,
+                      "30-12-2011",
+                      false,
+                      true,
+                      2,
+                      2,
+                      true,
+                      true,
+                      true,
+                      true,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      true,
+                      (decimal)0.05)
+            };
+
+        private IEnumerable<AgentListModel> FakeAgentList() =>
+           new List<AgentListModel>
+           {
+                new AgentListModel(),
+                new AgentListModel(
+                    1,
+                    "agent1",
+                    2,
+                    "a",
+                    string.Empty,
+                     string.Empty,
+                      string.Empty,
+                      "1234",
+                      string.Empty,
+                      string.Empty,
+                      20,
+                      1,
+                      1,
+                      "30-12-2011",
+                      false,
+                      true,
+                      2,
+                      2,
+                      true,
+                      true,
+                      true,
+                      true,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05)
+           };
+
+        private IEnumerable<MemberListModel> FakeMemberList() =>
+           new List<MemberListModel>
+           {
+                new MemberListModel(),
+                new MemberListModel(
+                    1,
+                    "agent1",
+                    2,
+                    "a",
+                    string.Empty,
+                     string.Empty,
+                      string.Empty,
+                      "1234",
+                      string.Empty,
+                      string.Empty,
+                      20,
+                      1,
+                      1,
+                      "30-12-2011",
+                      false,
+                      true,
+                      2,
+                      2,
+                      true,
+                      true,
+                      true,
+                      true,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05,
+                      (decimal)0.05)
+           };
     }
 }

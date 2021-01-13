@@ -16,7 +16,7 @@
         {
             this.productItem = productItem;
             this.request = request;
-            this.customerStatus = request.SearchAccount.ProductStatusOf(ProductId);
+            this.customerStatus = request.SearchAccount.ProductStatusOf(productItem.ProductId);
         }
 
         public int ProductId => productItem.ProductId;

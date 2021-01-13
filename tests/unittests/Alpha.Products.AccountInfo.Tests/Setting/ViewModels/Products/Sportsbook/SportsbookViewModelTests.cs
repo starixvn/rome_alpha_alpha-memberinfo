@@ -1,9 +1,9 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
-    using System;
     using AccountInfo.Setting.ViewModels.Products;
     using Alpha.Products.Core.Configuration;
     using NSubstitute;
+    using System;
     using Utility;
     using Xunit;
 
@@ -71,6 +71,33 @@
             var viewModel = new SportsbookViewModel(request, ProductItem);
 
             Assert.True(viewModel.Url.IndexOf("m=0", StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        [Fact]
+        public void Icon_Return_CorrectClass()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            var viewModel = new SportsbookViewModel(request, ProductItem);
+
+            Assert.Equal("icon-edit Enable", viewModel.Icon);
+        }
+
+        [Fact]
+        public void Text_With_CorrectName()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            var viewModel = new SportsbookViewModel(request, ProductItem);
+
+            Assert.Equal("ProductName-1", viewModel.Text, ignoreCase: true);
+        }
+
+        [Fact]
+        public void Enable_Always_true()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            var viewModel = new SportsbookViewModel(request, ProductItem);
+
+            Assert.True(viewModel.Enabled);
         }
     }
 }

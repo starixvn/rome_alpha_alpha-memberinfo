@@ -34,8 +34,8 @@
     <CodeAnalysisRuleSet>Alpha.Products.AccountInfo.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.Products.Core, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Products.Core.1.0.1.2\lib\net461\Alpha.Products.Core.dll</HintPath>
+    <Reference Include="Alpha.Products.Core, Version=1.0.1.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Products.Core.1.0.1.3-CustomerList\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
@@ -144,7 +144,9 @@
     <Compile Include="Setting\ViewModels\Products\NG2\Ng2ProductMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\NG2\Ng2ProductViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\GoldDeluxe\GoldDeluxeViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Base\ProductSettingItemViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Base\ProductSettingItemViewModel.cs" >
+	  <SonarQubeExclude>true</SonarQubeExclude>
+	</Compile>
     <Compile Include="Setting\ViewModels\Products\Keno\KenoViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\RnGCasino\RnGCasinoMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\RnGCasino\RnGCasinoViewModel.cs" />
@@ -157,12 +159,16 @@
     <Compile Include="Setting\ViewModels\CommissionViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductViewModel.cs" />
     <Compile Include="Setting\ViewModels\EditInfoViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Base\SettingItemViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Base\SettingItemViewModel.cs" >
+	  <SonarQubeExclude>true</SonarQubeExclude>
+	</Compile>
     <Compile Include="Setting\ViewModels\ResetSecurityCodeViewModel.cs" />
     <Compile Include="Setting\ViewModels\SportsbookMinPTViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookViewModel.cs" />
     <Compile Include="Status\StatusViewModelFactory.cs" />
-    <Compile Include="Status\ViewModels\Base\ConfirmStatusItemViewModelBase.cs" />
+    <Compile Include="Status\ViewModels\Base\ConfirmStatusItemViewModelBase.cs" >
+	  <SonarQubeExclude>true</SonarQubeExclude>
+	</Compile>
     <Compile Include="Status\ViewModels\ConfirmAllowAutoMasterPTViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmAllowOutrightViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmClosedViewModel.cs" />
@@ -170,7 +176,9 @@
     <Compile Include="Status\ViewModels\ConfirmDoubleCommViewModel.cs" />
     <Compile Include="Status\ViewModels\Base\IStatusItemViewModel.cs" />
     <Compile Include="Status\ViewModels\Base\ProductStatusItemViewModel.cs" />
-    <Compile Include="Status\ViewModels\Base\StatusItemViewModel.cs" />
+    <Compile Include="Status\ViewModels\Base\StatusItemViewModel.cs" >
+	  <SonarQubeExclude>true</SonarQubeExclude>
+	 </Compile>
     <Compile Include="Status\ViewModels\ConfirmSuspendedViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\DoubleCommMultipleViewModel.cs" />
   </ItemGroup>

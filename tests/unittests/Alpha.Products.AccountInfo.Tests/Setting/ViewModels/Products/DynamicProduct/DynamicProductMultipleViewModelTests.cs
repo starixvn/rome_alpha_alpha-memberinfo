@@ -74,5 +74,57 @@
             Assert.Equal("21", viewModel.QueryStringParamaters["productId"]);
             Assert.Equal("4", viewModel.QueryStringParamaters["uplinelevel"]);
         }
+
+        [Fact]
+        public void Method_Is_Post()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            var viewModel = new DynamicProductMultipleViewModel(request, ProductItem);
+            Assert.Equal("POST", viewModel.Method, ignoreCase: true);
+        }
+
+        [Theory]
+        [InlineData(41, true, "MicroSiteName/StaticMessage/Guide?id=135363")]
+        [InlineData(44, true, "MicroSiteName/StaticMessage/Guide?id=135363")]
+        [InlineData(23, false, "")]
+        public void Return_Correct_ShowGuideLineAndUrl(
+            int productId,
+            bool expectedShowGuideLine,
+            string expectedGuideLineUrl)
+        {
+            //Arrange
+            IConfigurationItem productItem = Substitute.For<IConfigurationItem>();
+            productItem.ProductId.Returns(productId);
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var viewModel = new DynamicProductMultipleViewModel(request, productItem);
+
+            // Assert
+            Assert.Equal(expectedShowGuideLine, viewModel.ShowGuideLine);
+            Assert.Equal(expectedGuideLineUrl, viewModel.GuideLineUrl, ignoreCase: true);
+        }
+
+        [Theory]
+        [InlineData(4, 1, true)]
+        [InlineData(3, 1, true)]
+        [InlineData(2, 1, true)]
+        [InlineData(4, 2, false)]
+        [InlineData(3, 2, false)]
+        public void UplinelevelParam_Correct_Adding(
+            byte actorRoleId,
+            byte searchAccountRoleId,
+            bool existedUplinelevelParam)
+        {
+            //Arrange
+            var request = RequestHelper.CreateRequest(actorRoleId, searchAccountRoleId);
+            request.AddData("customerIds", "1, 3");
+            request.AddData("usernames", "test1, test2");
+            request.AddData("language", "EN");
+
+            var viewModel = new DynamicProductMultipleViewModel(request, ProductItem);
+
+            // Assert
+            Assert.Equal(existedUplinelevelParam, viewModel.QueryStringParamaters.ContainsKey("uplinelevel"));
+        }
     }
 }

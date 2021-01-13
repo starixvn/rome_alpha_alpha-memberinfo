@@ -1,8 +1,8 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.Utility
 {
+    using Alpha.Products.Core.Models;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using Alpha.Products.Core.Models;
 
     public static class CustomerHelper
     {
@@ -26,7 +26,9 @@
                         new CustomerProductStatus(28),
                         new CustomerProductStatus(30),
                         new CustomerProductStatus(31),
-                        new CustomerProductStatus(32)
+                        new CustomerProductStatus(32),
+                        new CustomerProductStatus(41),
+                        new CustomerProductStatus(44),
                   });
 
         public static IEnumerable<CustomerProductStatus> CreateCustomerProductStatus(params int[] productIds)

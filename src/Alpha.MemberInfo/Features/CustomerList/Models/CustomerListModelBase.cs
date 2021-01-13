@@ -2,7 +2,7 @@
 
 namespace Alpha.MemberInfo.Features.CustomerList.Models
 {
-    public class CustomerListModelBase
+    public abstract class CustomerListModelBase
     {
         public CustomerListModelBase()
         { }

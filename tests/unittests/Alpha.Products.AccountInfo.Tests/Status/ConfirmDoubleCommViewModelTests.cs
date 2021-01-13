@@ -107,5 +107,37 @@
 
             Assert.Equal("DoubleCommLosing", viewModel.StatusName);
         }
+
+        [Fact]
+        public void Always_Show_On_CustomerList()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var viewModel = new ConfirmDoubleCommViewModel(request);
+
+            Assert.False(viewModel.ReloadCustomerInfo);
+        }
+
+        [Theory]
+        [InlineData(4, 3, false, true, true)]
+        [InlineData(4, 3, true, false, true)]
+        [InlineData(4, 2, true, true, true)]
+        [InlineData(4, 1, true, true, true)]
+        [InlineData(4, 3, true, true, false)]
+        public void Disable_Return_CorrectValue(
+            byte actorLevel,
+            byte searchAccountLevel,
+             bool hasUpdateAccountPermission,
+             bool uplineIsAllowedDoubleComm,
+             bool expectedStatus)
+        {
+            var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
+            request.AddData("Actor.HasUpdateAccountPermission", hasUpdateAccountPermission);
+            request.AddData("SearchAccount.Upline.IsAllowedDoubleComm", uplineIsAllowedDoubleComm);
+
+            var viewModel = new ConfirmDoubleCommViewModel(request);
+
+            Assert.Equal(expectedStatus, viewModel.Disabled);
+        }
     }
 }

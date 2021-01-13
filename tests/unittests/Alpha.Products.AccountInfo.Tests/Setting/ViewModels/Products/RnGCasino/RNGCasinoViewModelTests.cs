@@ -189,5 +189,61 @@
             // Assert
             Assert.True(viewModel.Visible);
         }
+
+        [Theory]
+        [InlineData(true, true)]
+        [InlineData(false, false)]
+        public void Enabled_Return_CorrectValue(bool searchAccountDisable, bool expectedStatus)
+        {
+            //Arrange
+            var actorProductStatus = new List<CustomerProductStatus>
+            {
+                new CustomerProductStatus(6, synced: true, disabled: false)
+            };
+
+            var searchAccountProductStatus = new List<CustomerProductStatus>
+            {
+                new CustomerProductStatus(6, synced: true, disabled: searchAccountDisable)
+            };
+
+            var actorAccount = CustomerHelper.CreateCustomer(1, 4, customerProductStatus: actorProductStatus);
+            var searchAccount = CustomerHelper.CreateCustomer(2, 3, customerProductStatus: searchAccountProductStatus);
+            var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
+
+            // Act
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
+
+            // Assert
+            Assert.Equal(viewModel.Enabled, !expectedStatus);
+        }
+
+        [Theory]
+        [InlineData(false, true, "icon-refresh Synchronize")]
+        [InlineData(false, false, "icon-refresh Synchronize")]
+        [InlineData(true, true, "icon-edit Disable_edit")]
+        [InlineData(true, false, "icon-edit Enable")]
+        public void Icon_Return_CorreactClasses(bool searchAccountSynced, bool searchAccountDisable, string expectedClass)
+        {
+            //Arrange
+            var actorProductStatus = new List<CustomerProductStatus>
+            {
+                new CustomerProductStatus(6, synced: true)
+            };
+
+            var searchAccountProductStatus = new List<CustomerProductStatus>
+            {
+                new CustomerProductStatus(6, synced: searchAccountSynced, disabled: searchAccountDisable)
+            };
+
+            var actorAccount = CustomerHelper.CreateCustomer(1, 4, customerProductStatus: actorProductStatus);
+            var searchAccount = CustomerHelper.CreateCustomer(2, 3, customerProductStatus: searchAccountProductStatus);
+            var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
+
+            // Act
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
+
+            // Assert
+            Assert.Equal(viewModel.Icon, expectedClass);
+        }
     }
 }

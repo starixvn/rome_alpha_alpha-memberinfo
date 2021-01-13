@@ -85,5 +85,48 @@
 
             Assert.Equal("DisableOutright", viewModel.StatusName);
         }
+
+        [Fact]
+        public void Always_Show_CustomerList()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            var viewModel = new ConfirmAllowOutrightViewModel(request);
+            Assert.True(viewModel.ShowInCustomerList);
+        }
+
+        [Theory]
+        [InlineData(false, true, true)]
+        [InlineData(true, false, true)]
+        [InlineData(true, true, false)]
+        public void Disabled_Always_ReturnCorrectValue(
+            bool actorHasUpdateAccountPermission,
+            bool uplineIsAllowedOutright,
+            bool expectedValue)
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData("Actor.HasUpdateAccountPermission", actorHasUpdateAccountPermission);
+            request.AddData("SearchAccount.Upline.IsAllowedOutright", uplineIsAllowedOutright);
+
+            var viewModel = new ConfirmAllowOutrightViewModel(request);
+
+            Assert.Equal(expectedValue, viewModel.Disabled);
+        }
+
+        [Theory]
+        [InlineData(false, true, "OutrightDisabledUpline")]
+        [InlineData(true, true, "")]
+        public void Tooltip_Always_ReturnCorrectValue(
+           bool actorHasUpdateAccountPermission,
+           bool uplineIsAllowedOutright,
+           string expectedTooltip)
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData("Actor.HasUpdateAccountPermission", actorHasUpdateAccountPermission);
+            request.AddData("SearchAccount.Upline.IsAllowedOutright", uplineIsAllowedOutright);
+
+            var viewModel = new ConfirmAllowOutrightViewModel(request);
+
+            Assert.Equal(expectedTooltip, viewModel.Tooltip);
+        }
     }
 }

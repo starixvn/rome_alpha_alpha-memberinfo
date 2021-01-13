@@ -329,6 +329,7 @@
     <Compile Include="Extensions\StringExtensionsTests.cs" />
     <Compile Include="Features\CustomerList\CustomerListServiceTests.cs" />
     <Compile Include="Features\CustomerList\CustomerListDataAccessTest.cs" />
+    <Compile Include="Features\CustomerList\Models\CustomerListModelBaseTests.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerAllStatusModelCriteriaTest.cs" />
     <Compile Include="Feature\DormantAccountList\Criteria\GetDormantAccountsCriteriaTests.cs" />
     <Compile Include="Feature\DormantAccountList\DormantAccountServiceTests.cs" />
@@ -348,6 +349,7 @@
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckEnableCustomerCritieriaTests.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckBelongingByUsernameCritieriaTests.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInServiceTests.cs" />
+    <Compile Include="Features\Shared\Criteria\SelectAutoSuggestionCriteriaTest.cs" />
     <Compile Include="Features\Shared\UsernameSuggestionServiceTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="GlobalSuppressions.cs" />

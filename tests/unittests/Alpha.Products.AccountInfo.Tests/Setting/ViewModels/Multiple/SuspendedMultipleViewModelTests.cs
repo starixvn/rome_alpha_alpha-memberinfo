@@ -40,5 +40,24 @@
             Assert.Equal("1, 3", viewModel.QueryStringParamaters["CustIds"]);
             Assert.Equal("3", viewModel.QueryStringParamaters["RoleId"]);
         }
+
+        [Theory]
+        [InlineData(4, 2, false)]
+        [InlineData(4, 3, true)]
+        [InlineData(4, 1, true)]
+        [InlineData(3, 2, true)]
+        [InlineData(3, 1, true)]
+        [InlineData(2, 1, true)]
+        public void Visible_Return_CorrectValue(
+          byte actorLevel,
+          byte searchAccountLevel,
+          bool expectedStatus)
+        {
+            var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
+
+            var viewModel = new SuspendedMultipleViewModel(request);
+
+            Assert.Equal(expectedStatus, viewModel.Visible);
+        }
     }
 }

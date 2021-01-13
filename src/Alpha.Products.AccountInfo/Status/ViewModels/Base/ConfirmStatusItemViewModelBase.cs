@@ -29,7 +29,7 @@
 
         internal virtual bool StatusValue { get; }
 
-        private IDictionary<string, object> Params =>
+        internal IDictionary<string, object> Params =>
             new Dictionary<string, object>
                     {
                         {"SearchAccountId", SearchAccount.Id.ToString()},

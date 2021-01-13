@@ -97,9 +97,9 @@
         [InlineData(false, 3, false, "UpdateCustomerStatus")]
         [InlineData(false, 2, false, "UpdateCustomerStatus")]
         [InlineData(false, 1, false, "UpdateCustomerStatus")]
-        public void Return_CorrectIsPopupProperty(
-            bool IsSuspendedSearchAccount, 
-            byte downlineLevel, 
+        public void Return_CorrectIsPopupProperty_AndReloadCustomerList(
+            bool IsSuspendedSearchAccount,
+            byte downlineLevel,
             bool expectedResult,
             string expectedUrl)
         {
@@ -114,6 +114,32 @@
 
             Assert.Equal(expectedResult, viewModel.IsPopup);
             Assert.Equal(expectedUrl, viewModel.Url);
+            Assert.True(viewModel.ReloadCustomerInfo);
+        }
+
+        [Theory]
+        [InlineData(false, true, true, true)]
+        [InlineData(false, false, true, true)]
+        [InlineData(false, false, false, true)]
+        [InlineData(true, false, true, true)]
+        [InlineData(true, true, false, true)]
+        [InlineData(true, false, false, false)]
+        public void Disable_Return_CorrectValue(
+          bool hasUpdateAccountPermission,
+          bool isSuspendedUpline,
+          bool uplineIsClosed,
+          bool expectedStatus)
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData("Actor.HasUpdateAccountPermission", hasUpdateAccountPermission);
+            request.AddData("SearchAccount.Upline.IsClosed", uplineIsClosed);
+            request.AddData("SearchAccount.Upline.IsSuspended", isSuspendedUpline);
+            request.AddData("SearchAccount.Upline.IsDirectSuspend", false);
+            request.AddData("SearchAccount.IsSuspended", true);
+
+            var viewModel = new ConfirmSuspendedViewModel(request);
+
+            Assert.Equal(expectedStatus, viewModel.Disabled);
         }
     }
 }

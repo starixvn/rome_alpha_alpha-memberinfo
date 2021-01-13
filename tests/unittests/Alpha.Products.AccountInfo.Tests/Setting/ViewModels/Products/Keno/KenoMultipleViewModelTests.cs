@@ -2,8 +2,10 @@
 {
     using AccountInfo.Setting.ViewModels.Products;
     using Alpha.Products.Core.Configuration;
+    using Alpha.Products.Core.Models;
     using NSubstitute;
     using System;
+    using System.Collections.Generic;
     using Utility;
     using Xunit;
 
@@ -63,6 +65,26 @@
             Assert.Equal("1", viewModel.QueryStringParamaters["userId"]);
             Assert.Equal("2", viewModel.QueryStringParamaters["custId"]);
             Assert.Equal("username1", viewModel.QueryStringParamaters["username"]);
+        }
+
+        [Theory]
+        [InlineData(false, true)]
+        [InlineData(true, false)]
+        public void Visible_Return_CorrectValue_Base_On_Actor_Hidden(
+         bool actorHidden,
+         bool expectedStatus)
+        {
+            var customerProductStatus = new List<CustomerProductStatus>
+            {
+                new CustomerProductStatus(8, hidden: actorHidden)
+            };
+            var actorAccount = CustomerHelper.CreateCustomer(1, 4, customerProductStatus: customerProductStatus);
+            var searchAccount = CustomerHelper.CreateCustomer(2, 3);
+            var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
+
+            var viewModel = new KenoMultipleViewModel(request, ProductItem);
+
+            Assert.Equal(expectedStatus, viewModel.Visible);
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
     using AccountInfo.Setting.ViewModels.Products;
     using Alpha.Products.Core.Configuration;
     using Core.Models;
     using NSubstitute;
+    using System;
+    using System.Collections.Generic;
     using Utility;
     using Xunit;
 
@@ -121,6 +121,15 @@
 
             // Assert
             Assert.False(viewModel.Visible);
+        }
+
+        [Fact]
+        public void Text_With_CorrectName()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            var viewModel = new SportsbookViewModel(request, ProductItem);
+
+            Assert.Equal("ProductName-8", viewModel.Text, ignoreCase: true);
         }
     }
 }

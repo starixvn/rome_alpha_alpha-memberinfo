@@ -24,7 +24,6 @@
                     GuideLineUrl = string.Empty;
                     break;
             }
-
         }
 
         public override string Text => $"{request.GetResource("EditMultiple")} {request.GetProductName(productItem.ProductId)}";

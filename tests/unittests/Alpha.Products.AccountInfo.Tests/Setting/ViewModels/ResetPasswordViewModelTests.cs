@@ -1,8 +1,10 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
-    using System;
     using Alpha.Products.AccountInfo.Setting.ViewModels;
     using Alpha.Products.AccountInfo.Tests.Utility;
+    using Alpha.Products.Core.Models;
+    using System;
+    using System.Collections.Generic;
     using Xunit;
 
     [Trait("Setting.ViewModels", "ResetPasswordViewModel")]
@@ -96,6 +98,37 @@
             var viewModel = new ResetPasswordViewModel(request);
 
             Assert.Equal($"{typeof(ResetPasswordViewModel).Name}Text", viewModel.Text);
+        }
+
+        [Fact]
+        public void AddEditTextToPopupTitle_Always_False()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var model = new ResetPasswordViewModel(request);
+
+            Assert.False(model.AddEditTextToPopupTitle);
+        }
+
+        [Theory]
+        [InlineData(true, "1")]
+        [InlineData(false, "0")]
+        public void QueryStringParamaters_With_Correctvalues(bool searchAccountSynced, string expectedSynced)
+        {
+            var customerProductStatus = new List<CustomerProductStatus>
+            {
+                new CustomerProductStatus(6, synced: searchAccountSynced)
+            };
+
+            var actorAccount = CustomerHelper.CreateCustomer(1, 4);
+            var searchAccount = CustomerHelper.CreateCustomer(2, 3, customerProductStatus: customerProductStatus);
+            var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
+            var viewModel = new ResetPasswordViewModel(request);
+
+            Assert.Equal("2", viewModel.QueryStringParamaters["custId"]);
+            Assert.Equal("username1", viewModel.QueryStringParamaters["username"]);
+            Assert.Equal("3", viewModel.QueryStringParamaters["custRoleId"]);
+            Assert.Equal(expectedSynced, viewModel.QueryStringParamaters["isCasinoSync"]);
         }
     }
 }

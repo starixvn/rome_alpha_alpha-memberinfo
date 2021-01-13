@@ -1,7 +1,7 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
-    using System;
     using AccountInfo.Setting.ViewModels;
+    using System;
     using Utility;
     using Xunit;
 
@@ -67,9 +67,40 @@
             var request = RequestHelper.CreateActorEditDirectDownlineRequest(actorLevel, actorIsMainAccount: false);
             request.AddData("Actor.HasUpdateAccountPermission", false);
 
-            var model = new ResetPasswordViewModel(request);
+            var model = new ResetSecurityCodeViewModel(request);
 
             Assert.False(model.Visible);
+        }
+
+        [Fact]
+        public void AddEditTextToPopupTitle_Always_False()
+        {
+            var request = RequestHelper.CreateActorEditDirectDownlineRequest(4, actorIsMainAccount: false);
+
+            var model = new ResetSecurityCodeViewModel(request);
+
+            Assert.False(model.AddEditTextToPopupTitle);
+        }
+
+        [Theory]
+        [InlineData(3, false, true, false)]
+        [InlineData(3, true, false, false)]
+        [InlineData(2, false, true, false)]
+        [InlineData(1, false, true, false)]
+        [InlineData(3, true, true, true)]
+        public void Visible_Return_CorrectValue(
+            byte searchAccountLevel,
+            bool hasUpdateAccountPermission,
+            bool searchAccountIsEnableSecurityCode,
+            bool expectedStatus)
+        {
+            var request = RequestHelper.CreateRequest(4, searchAccountLevel);
+            request.AddData("Actor.HasUpdateAccountPermission", hasUpdateAccountPermission);
+            request.AddData("SearchAccount.IsEnableSecurityCode", searchAccountIsEnableSecurityCode);
+
+            var viewModel = new ResetSecurityCodeViewModel(request);
+
+            Assert.Equal(expectedStatus, viewModel.Visible);
         }
     }
 }

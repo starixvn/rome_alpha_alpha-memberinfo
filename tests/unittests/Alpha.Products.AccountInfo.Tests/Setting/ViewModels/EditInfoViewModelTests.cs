@@ -1,7 +1,9 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
-    using System;
     using AccountInfo.Setting.ViewModels;
+    using Alpha.Products.Core.Models;
+    using System;
+    using System.Collections.Generic;
     using Utility;
     using Xunit;
 
@@ -57,6 +59,26 @@
             var viewModel = new EditInfoViewModel(request);
 
             Assert.Equal($"{typeof(EditInfoViewModel).Name}Text", viewModel.Text);
+        }
+
+        [Theory]
+        [InlineData(true, "1")]
+        [InlineData(false, "0")]
+        public void QueryStringParamaters_With_Correctvalues(bool searchAccountSynced, string expectedSynced)
+        {
+            var customerProductStatus = new List<CustomerProductStatus>
+            {
+                new CustomerProductStatus(6, synced: searchAccountSynced)
+            };
+
+            var actorAccount = CustomerHelper.CreateCustomer(1, 4);
+            var searchAccount = CustomerHelper.CreateCustomer(2, 3, customerProductStatus: customerProductStatus);
+            var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
+            var viewModel = new EditInfoViewModel(request);
+
+            Assert.Equal("2", viewModel.QueryStringParamaters["custId"]);
+            Assert.Equal("username1", viewModel.QueryStringParamaters["username"]);
+            Assert.Equal(expectedSynced, viewModel.QueryStringParamaters["isSyncCasino"]);
         }
     }
 }

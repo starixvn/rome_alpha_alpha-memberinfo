@@ -65,5 +65,25 @@
             Assert.Equal("2", viewModel.QueryStringParamaters["Superid"]);
             Assert.Equal("username1", viewModel.QueryStringParamaters["user"]);
         }
+
+        [Fact]
+        public void ShowGuideLine_Always_True()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var viewModel = new SportsbookMultipleViewModel(request, ProductItem);
+
+            Assert.True(viewModel.ShowGuideLine);
+        }
+
+        [Fact]
+        public void GuideLineUrl_Return_CorrectUrl()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var viewModel = new SportsbookMultipleViewModel(request, ProductItem);
+
+            Assert.Equal("MicroSiteName/MemberInformation/MultipleEditSportsBook/GuideLine", viewModel.GuideLineUrl);
+        }
     }
 }
