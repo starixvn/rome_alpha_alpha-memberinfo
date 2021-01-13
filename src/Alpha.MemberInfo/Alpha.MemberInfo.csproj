@@ -336,7 +336,6 @@
     <Compile Include="Features\CustomerList\Models\CustomerAllStatus\NonDCSProductStatusModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerAllStatus\NonProductStatusModel.cs" />
     <Compile Include="Features\CustomerList\Models\SyncedCasinoModel.cs" />
-    <Compile Include="Features\CustomerList\Models\UnsyncedProductModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerListDTO.cs" />
     <Compile Include="Features\CustomerList\Models\MemberListModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerListModelBase.cs" />

@@ -95,6 +95,7 @@
     <Compile Include="Setting\ViewModels\Products\GoldDeluxe\GoldDeluxeViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\Keno\KenoMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\Keno\KenoViewModelTests.cs" />
+    <Compile Include="Setting\ViewModels\Products\NG2\Ng2ProductMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\NG2\Ng2ProductViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\RnGCasino\RnGCasinoMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\RnGCasino\RNGCasinoViewModelTests.cs" />

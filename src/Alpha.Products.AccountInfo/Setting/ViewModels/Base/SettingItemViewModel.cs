@@ -9,8 +9,9 @@
 
     public abstract class SettingItemViewModel : ISettingItemViewModel
     {
+        private const string Ng2AppPath = "Ng2";
         protected readonly ISearchAccountInfoRequest Request;
-
+        
         protected SettingItemViewModel(
             ISearchAccountInfoRequest request,
             int displayOrder = 0)
@@ -58,6 +59,8 @@
         protected virtual string MemberInfoUrl => Request.GetMicroSiteUrl(MicroSiteConstants.MemberInfo, "~/");
 
         protected virtual string MessageUrl => Request.GetMicroSiteUrl(MicroSiteConstants.Message, "~/");
+
+        protected virtual string Ng2Url => Request.GetMicroSiteUrl(Ng2AppPath, "~/");
 
         public virtual bool Visible => Request.ActorIsEdittingDirectDownline;
 

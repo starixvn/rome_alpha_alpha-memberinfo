@@ -92,9 +92,6 @@
                 BreadcrumbLevel = breadcrumbLevel
             };
 
-            var unsyncedProductIds = new List<int> { 1, 2, 3 };
-            var unsyncedProducts = unsyncedProductIds.Select(productId => new UnsyncedProductModel(productId, cacheRefService.GetProductName(productId)));
-
             cacheRefService.GetProductName(Arg.Any<int>()).Returns("Product");
             browserHelper.IsMobile(isOnlyTablet: false).Returns(true);
 

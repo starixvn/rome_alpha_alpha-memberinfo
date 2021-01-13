@@ -50,7 +50,7 @@
 
             var viewModel = new SportsbookMultipleViewModel(request, ProductItem);
 
-            Assert.StartsWith(expectedText, viewModel.Text, StringComparison.OrdinalIgnoreCase);
+            Assert.Equal(expectedText, viewModel.Text);
         }
 
         [Fact]
