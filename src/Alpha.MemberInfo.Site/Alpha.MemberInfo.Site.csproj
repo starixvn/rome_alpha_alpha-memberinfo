@@ -69,8 +69,8 @@
     <Reference Include="Alpha.Captcha, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.Captcha.1.0.9\lib\net461\Alpha.Captcha.dll</HintPath>
     </Reference>
-    <Reference Include="Alpha.CopyAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.CopyAccount.1.0.0\lib\net461\Alpha.CopyAccount.dll</HintPath>
+    <Reference Include="Alpha.CopyAccount, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.CopyAccount.1.0.0.1\lib\net461\Alpha.CopyAccount.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.Logging, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.Logging.1.0.1.1\lib\net461\Alpha.Logging.dll</HintPath>
