@@ -127,7 +127,7 @@
         public void Text_With_CorrectName()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new SportsbookViewModel(request, ProductItem);
+            var viewModel = new KenoViewModel(request, ProductItem);
 
             Assert.Equal("ProductName-8", viewModel.Text, ignoreCase: true);
         }

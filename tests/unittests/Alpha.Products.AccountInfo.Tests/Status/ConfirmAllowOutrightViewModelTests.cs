@@ -78,8 +78,6 @@
         public void Always_Return_Correct_SyncedCasino3rd_StatusName()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            request.AddData("Actor.HasUpdateAccountPermission", true);
-            request.AddData("SearchAccount.Upline.IsAllowedOutright", true);
 
             var viewModel = new ConfirmAllowOutrightViewModel(request);
 

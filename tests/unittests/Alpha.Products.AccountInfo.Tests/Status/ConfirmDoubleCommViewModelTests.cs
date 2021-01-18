@@ -109,13 +109,13 @@
         }
 
         [Fact]
-        public void Always_Show_On_CustomerList()
+        public void Always_ShowOn_CustomerList()
         {
             var request = RequestHelper.CreateRequest(4, 3);
 
             var viewModel = new ConfirmDoubleCommViewModel(request);
 
-            Assert.False(viewModel.ReloadCustomerInfo);
+            Assert.True(viewModel.ShowInCustomerList);
         }
 
         [Theory]

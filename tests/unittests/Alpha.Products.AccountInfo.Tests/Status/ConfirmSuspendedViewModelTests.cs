@@ -17,7 +17,6 @@
 
             var viewModel = new ConfirmSuspendedViewModel(request);
 
-            Assert.True(viewModel.ReloadCustomerInfo);
             Assert.Equal("Suspended", viewModel.StatusName);
             Assert.True(viewModel.Disabled);
         }
@@ -114,7 +113,6 @@
 
             Assert.Equal(expectedResult, viewModel.IsPopup);
             Assert.Equal(expectedUrl, viewModel.Url);
-            Assert.True(viewModel.ReloadCustomerInfo);
         }
 
         [Theory]
@@ -140,6 +138,26 @@
             var viewModel = new ConfirmSuspendedViewModel(request);
 
             Assert.Equal(expectedStatus, viewModel.Disabled);
+        }
+
+        [Fact]
+        public void Always_Reload_CustomerList()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var viewModel = new ConfirmSuspendedViewModel(request);
+
+            Assert.True(viewModel.ReloadCustomerInfo);
+        }
+
+        [Fact]
+        public void Always_ShowOn_CustomerList()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var viewModel = new ConfirmSuspendedViewModel(request);
+
+            Assert.True(viewModel.ShowInCustomerList);
         }
     }
 }

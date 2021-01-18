@@ -73,9 +73,48 @@
 
             var viewModel = new ConfirmClosedViewModel(request);
 
-            Assert.True(viewModel.ReloadCustomerInfo);
             Assert.Equal("Closed", viewModel.StatusName);
             Assert.Equal(expectedStatusValue, viewModel.StatusValue);
+        }
+
+
+        [Fact]
+        public void Always_Reload_CustomerList()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var viewModel = new ConfirmClosedViewModel(request);
+
+            Assert.True(viewModel.ReloadCustomerInfo);
+        }
+
+        [Fact]
+        public void Always_ShowOn_CustomerList()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var viewModel = new ConfirmClosedViewModel(request);
+
+            Assert.True(viewModel.ShowInCustomerList);
+        }
+
+        [Theory]
+        [InlineData(true, true, true)]
+        [InlineData(false, false, true)]
+        [InlineData(false, true, true)]
+        [InlineData(true, false, false)]
+        public void Disabled_Return_CorrectValueByLevel(
+           bool actorhasUpdateAccountPermission,
+           bool uplineIsClosed,
+           bool expectedStatus)
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData("Actor.HasUpdateAccountPermission", actorhasUpdateAccountPermission);
+            request.AddData("SearchAccount.Upline.IsClosed", uplineIsClosed);
+
+            var viewModel = new ConfirmClosedViewModel(request);
+
+            Assert.Equal(expectedStatus, viewModel.Disabled);
         }
     }
 }

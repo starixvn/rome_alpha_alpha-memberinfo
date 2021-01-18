@@ -1,7 +1,7 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
-    using System;
     using AccountInfo.Setting.ViewModels;
+    using System;
     using Utility;
     using Xunit;
 
@@ -57,6 +57,43 @@
             var viewModel = new RemoveOtpViewModel(request);
 
             Assert.False(viewModel.Visible);
+        }
+
+        [Fact]
+        public void AddEditTextToPopupTitle_Always_False()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var model = new RemoveOtpViewModel(request);
+
+            Assert.False(model.AddEditTextToPopupTitle);
+        }
+
+        [Theory]
+        [InlineData(4, 3, true, true)]
+        [InlineData(4, 3, false, false)]
+        [InlineData(4, 2, true, false)]
+        [InlineData(4, 2, false, false)]
+        [InlineData(4, 1, true, false)]
+        [InlineData(4, 1, false, false)]
+        [InlineData(3, 2, true, true)]
+        [InlineData(3, 2, false, false)]
+        [InlineData(3, 1, false, false)]
+        [InlineData(3, 1, true, false)]
+        [InlineData(2, 1, true, false)]
+        [InlineData(2, 1, false, false)]
+        public void Visible_Return_CorrectValue(
+           byte actorLevel,
+           byte searchAccountLevel,
+           bool hasUpdateAccountPermission,
+           bool expectedStatus)
+        {
+            var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
+            request.AddData("Actor.HasUpdateAccountPermission", hasUpdateAccountPermission);
+
+            var viewModel = new RemoveOtpViewModel(request);
+
+            Assert.Equal(expectedStatus, viewModel.Visible);
         }
     }
 }

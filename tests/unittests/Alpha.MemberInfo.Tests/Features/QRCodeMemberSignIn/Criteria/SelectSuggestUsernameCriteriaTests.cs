@@ -20,6 +20,16 @@
             Assert.Equal(expectedSettingKey, actualSettingKey);
         }
 
+        [Fact]
+        public void RoleId_Is_Agent()
+        {
+            // Arrange
+            var criteria = new SelectSuggestUsernameCriteria("User Test", 1);
+
+            // Assert
+            Assert.Equal(2, criteria.RoleId);
+        }
+
         [Theory]
         [InlineData("", false)]
         [InlineData(null, false)]

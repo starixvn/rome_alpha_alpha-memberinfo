@@ -70,5 +70,15 @@
             Assert.Equal("1", viewModel.QueryStringParamaters["uplineId"]);
             Assert.Equal("4", viewModel.QueryStringParamaters["uplineLevel"]);
         }
+
+        [Fact]
+        public void Method_Is_Post()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+
+            var viewModel = new GoldDeluxeMultipleViewModel(request, ProductItem);
+
+            Assert.StartsWith("POST", viewModel.Method, StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

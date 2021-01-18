@@ -1,11 +1,11 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
     using AccountInfo.Setting.ViewModels.Products;
     using Alpha.Products.Core.Configuration;
     using Core.Models;
     using NSubstitute;
+    using System;
+    using System.Collections.Generic;
     using Utility;
     using Xunit;
 
@@ -72,15 +72,29 @@
             Assert.True(viewModel.Url.IndexOf($"uplinelevel={request.Actor.CustomerLevel.Value}", StringComparison.OrdinalIgnoreCase).Equals(-1));
         }
 
+        [Fact]
+        public void Text_With_CorrectName()
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            var viewModel = new DynamicProductViewModel(request, ProductItem);
+
+            Assert.Equal("ProductName-21", viewModel.Text, ignoreCase: true);
+        }
+
         [Theory]
-        [InlineData(true, false)]
-        [InlineData(false, true)]
-        public void Return_Visibleness_By_Actor_Product_Hidden_Property(bool hidden, bool expectedValue)
+        [InlineData(true, false, true)]
+        [InlineData(true, true, false)]
+        [InlineData(false, true, false)]
+        [InlineData(false, false, false)]
+        public void Visible_Return_CorrectValueByActorStatus(
+        bool synced,
+        bool hidden,
+        bool expectedValue)
         {
             //Arrange
             var customerProductStatus = new List<CustomerProductStatus>
             {
-                new CustomerProductStatus(21, hidden: hidden)
+                new CustomerProductStatus(21, synced: synced, hidden: hidden)
             };
 
             var actorAccount = CustomerHelper.CreateCustomer(1, 4, customerProductStatus: customerProductStatus);
@@ -95,18 +109,25 @@
         }
 
         [Theory]
-        [InlineData(true, true)]
-        [InlineData(false, false)]
-        public void Return_Visibleness_By_Actor_Product_Synced_Property(bool synced, bool expectedValue)
+        [InlineData(4, 3, true)]
+        [InlineData(4, 2, false)]
+        [InlineData(4, 1, true)]
+        [InlineData(3, 2, true)]
+        [InlineData(3, 1, true)]
+        [InlineData(2, 1, true)]
+        public void Visible_Return_CorrectValueByLevel(
+           byte actorLevel,
+           byte searchAccountLevel,
+           bool expectedValue)
         {
             //Arrange
             var customerProductStatus = new List<CustomerProductStatus>
             {
-                new CustomerProductStatus(21, synced: synced)
+                new CustomerProductStatus(21, synced: true, hidden: false)
             };
 
-            var actorAccount = CustomerHelper.CreateCustomer(1, 4, customerProductStatus: customerProductStatus);
-            var searchAccount = CustomerHelper.CreateCustomer(2, 3);
+            var actorAccount = CustomerHelper.CreateCustomer(1, actorLevel, customerProductStatus: customerProductStatus);
+            var searchAccount = CustomerHelper.CreateCustomer(2, searchAccountLevel);
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
 
             // Act

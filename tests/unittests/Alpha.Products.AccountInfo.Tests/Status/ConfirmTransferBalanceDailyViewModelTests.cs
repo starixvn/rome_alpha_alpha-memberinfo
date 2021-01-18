@@ -119,5 +119,29 @@
             // Assert
             Assert.Equal("ConfirmTransferBalanceDailyViewModelTooltip", act);
         }
+
+        [Fact]
+        public void Always_Return_CorrecttatusName()
+        {
+            // Arrange
+            var request = RequestHelper.CreateRequest(4, 3);
+            var viewModel = new ConfirmTransferBalanceDailyViewModel(request);
+
+            // Assert
+            Assert.Equal("IsAllDayBalTransfer", viewModel.StatusName);
+        }
+
+        [Theory]
+        [InlineData(true, false)]
+        [InlineData(false, true)]
+        public void Return_CorrectStatusValue_By_Checked(bool isAllDayBalTransfer, bool expectedStatusValue)
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData("SearchAccount.IsAllDayBalTransfer", isAllDayBalTransfer);
+
+            var viewModel = new ConfirmTransferBalanceDailyViewModel(request);
+
+            Assert.Equal(expectedStatusValue, viewModel.StatusValue);
+        }
     }
 }
