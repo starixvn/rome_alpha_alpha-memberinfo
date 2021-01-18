@@ -407,6 +407,8 @@ class CustomerListDataTable {
             false;
     }
 
+    public reloadData = () => this.$table.ajax.reload();
+
     private drawCallback = () => {
         this.$('#tbl-customer-list').removeClass('hidden');
 

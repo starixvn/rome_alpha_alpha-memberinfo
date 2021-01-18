@@ -121,6 +121,9 @@ $(function () {
     window.actionAfterUpdatedLiveCasinoSettingMultiple = isUpdatePartial => customerListPopup.successfulUpdatingCallback();
     window.actionAfterUpdatedLiveCasinoSettingSingle = isUpdatePartial => customerListPopup.successfulUpdatingCallback();
 
-    window.successfulUpdatingCallbackAndReloadMainFrame = () => customerListPopup.successfulUpdatingCallbackAndReloadMainFrame();
+    window.top.successfulUpdatingCallbackAndReloadMainFrame = () => {
+        customerListPopup.successfulUpdatingCallbackAndReloadMainFrame(customerListDataTable.reloadData);
+    }
+
     customerList.init();
 });

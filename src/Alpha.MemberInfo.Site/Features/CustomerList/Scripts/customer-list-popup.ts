@@ -112,10 +112,10 @@ class CustomerListPopup {
         }, 1500);
     }
 
-    public successfulUpdatingCallbackAndReloadMainFrame = () => {
+    public successfulUpdatingCallbackAndReloadMainFrame = (reloadData) => {
         setTimeout(() => {
             this.successfulUpdatingCallback();
-            this.$('.btn-submit').click();
+            reloadData();
         }, 1500);
     }
 
