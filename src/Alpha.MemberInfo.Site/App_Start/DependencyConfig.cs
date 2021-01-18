@@ -1,8 +1,15 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Reflection;
+    using System.Web;
+    using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
+    using Alpha.MemberInfo.Features.DormantAccountList;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
+    using Alpha.MemberInfo.Site.Features.DormantAccountList;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Handlers;
@@ -31,11 +38,6 @@
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Model.Entities.Permission;
     using Sunplus.Agent.Utilities;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
-    using System.Web;
-    using System.Web.Mvc;
     using Utilities.IP;
 
     public static class DependencyConfig
@@ -134,6 +136,9 @@
                        AppSettingsHelper.GetQRCodeMemberSiteLoginConfigsPath());
             container.RegisterSingleton<QRCodeLoginConfigsHelper>
                 (() => new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
+
+            container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();
+            container.RegisterPerWebRequest<DormantAccountWorkbook, DormantAccountWorkbookImpl>();
         }
     }
 }

@@ -528,8 +528,49 @@
   <data name="UpdatePasswordHint" xml:space="preserve">
     <value>所选帐户密码已更新，请输入新密码。</value>
   </data>
-   <data name="GivenCreditPopupTitle" xml:space="preserve">
+  <data name="GivenCreditPopupTitle" xml:space="preserve">
     <value>更新信用额度</value>
   </data>
-
+  <data name="ArchiveDate" xml:space="preserve">
+    <value>存档日期</value>
+  </data>
+  <data name="ArchiveStage" xml:space="preserve">
+    <value>存档阶段</value>
+  </data>
+  <data name="ClearedGivenCredit" xml:space="preserve">
+    <value>已被清除的信用额度</value>
+  </data>
+  <data name="DormantAccountArchiveProcess" xml:space="preserve">
+    <value>不活跃账号存档进行中</value>
+  </data>
+  <data name="DormantAccountList" xml:space="preserve">
+    <value>不活跃账号名单</value>
+  </data>
+  <data name="LastActionDate" xml:space="preserve">
+    <value>Last Action Date</value>
+  </data>
+  <data name="DeletedSettings" xml:space="preserve">
+    <value>删除设定</value>
+  </data>
+  <data name="ToBeClearedGivenCredit" xml:space="preserve">
+    <value>即将被清除的信用额度</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>总和</value>
+  </data>
+  <data name="CloseAccount" xml:space="preserve">
+    <value>账号已关闭</value>
+  </data>
+  <data name="DeleteSettings" xml:space="preserve">
+    <value>账号设定已删除</value>
+  </data>
+  <data name="DisableAccount" xml:space="preserve">
+    <value>账号已禁用</value>
+  </data>
+  <data name="DormantAccountClosedTooltip" xml:space="preserve">
+    <value>此线的会员在存档截止日期前登入，如果会员有进行投注，那么此线就不会被禁用。</value>
+  </data>
+  <data name="Pager_DisplayItems" xml:space="preserve">
+    <value>{total}项目中{from}到{to}的显示</value>
+  </data>
 </root>

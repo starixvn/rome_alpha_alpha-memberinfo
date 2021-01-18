@@ -537,8 +537,43 @@
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
-   <data name="GivenCreditPopupTitle" xml:space="preserve">
+  <data name="GivenCreditPopupTitle" xml:space="preserve">
     <value>Update Given Credit</value>
   </data>
-
+  <data name="ArchiveDate" xml:space="preserve">
+    <value>Archive Date</value>
+  </data>
+  <data name="ArchiveStage" xml:space="preserve">
+    <value>Archive Stage</value>
+  </data>
+  <data name="ClearedGivenCredit" xml:space="preserve">
+    <value>Cleared Given Credit</value>
+  </data>
+  <data name="DormantAccountArchiveProcess" xml:space="preserve">
+    <value>Dormant Account Archive Process</value>
+  </data>
+  <data name="DormantAccountList" xml:space="preserve">
+    <value>Dormant Account List</value>
+  </data>
+  <data name="DeletedSettings" xml:space="preserve">
+    <value>Deleted Settings</value>
+  </data>
+  <data name="ToBeClearedGivenCredit" xml:space="preserve">
+    <value>To Be Cleared Given Credit</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="CloseAccount" xml:space="preserve">
+    <value>Close Account</value>
+  </data>
+  <data name="DeleteSettings" xml:space="preserve">
+    <value>Delete Settings</value>
+  </data>
+  <data name="DisableAccount" xml:space="preserve">
+    <value>Disable Account</value>
+  </data>
+  <data name="DormantAccountClosedTooltip" xml:space="preserve">
+    <value>This line has a member logged in after Archive Closed Date. If that member places bet, this line will not be disabled.</value>
+  </data>
 </root>

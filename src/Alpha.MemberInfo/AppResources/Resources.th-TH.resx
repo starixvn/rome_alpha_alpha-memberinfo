@@ -528,8 +528,49 @@
   <data name="UpdatePasswordHint" xml:space="preserve">
     <value>รหัสผ่านของบัญชีนี้มีการเปลี่ยนแปลง กรุณาบันทึกรหัสผ่านใหม่</value>
   </data>
-   <data name="GivenCreditPopupTitle" xml:space="preserve">
+  <data name="GivenCreditPopupTitle" xml:space="preserve">
     <value>อัพเดท เครดิตใหม่</value>
   </data>
-
+  <data name="ArchiveDate" xml:space="preserve">
+    <value>วันที่จัดเก็บถาวร</value>
+  </data>
+  <data name="ArchiveStage" xml:space="preserve">
+    <value>จัดเก็บถาวร</value>
+  </data>
+  <data name="ClearedGivenCredit" xml:space="preserve">
+    <value>หักล้างวงเงินเครดิตที่ได้รับ</value>
+  </data>
+  <data name="DormantAccountArchiveProcess" xml:space="preserve">
+    <value>การจัดเก็บถาวรบัญชีที่ไม่ใช้งานอยู่ระหว่างดำเนินการ</value>
+  </data>
+  <data name="DormantAccountList" xml:space="preserve">
+    <value>รายชื่อบัญชีที่ไม่ได้ใช้งาน</value>
+  </data>
+  <data name="LastActionDate" xml:space="preserve">
+    <value>Last Action Date</value>
+  </data>
+  <data name="DeletedSettings" xml:space="preserve">
+    <value>ลบการตั้งค่า</value>
+  </data>
+  <data name="ToBeClearedGivenCredit" xml:space="preserve">
+    <value>วงเงินเครดิตที่จะถูกหักล้าง</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>ยอดรวม</value>
+  </data>
+  <data name="CloseAccount" xml:space="preserve">
+    <value>บัญชีถูกปิด</value>
+  </data>
+  <data name="DeleteSettings" xml:space="preserve">
+    <value>ลบการตั้งค่าบัญชีแล้ว</value>
+  </data>
+  <data name="DisableAccount" xml:space="preserve">
+    <value>บัญชีถูกปิดใช้งาน</value>
+  </data>
+  <data name="DormantAccountClosedTooltip" xml:space="preserve">
+    <value>หากสมาชิกเข้าสู่ระบบก่อนเวลากำหนดจัดเก็บถาวรและสมาชิกได้วางเดิมพัน จะไม่ถูกปิดใช้งาน</value>
+  </data>
+  <data name="Pager_DisplayItems" xml:space="preserve">
+    <value>แสดง {from} ถึง {to} จาก {total} รายการ</value>
+  </data>
 </root>

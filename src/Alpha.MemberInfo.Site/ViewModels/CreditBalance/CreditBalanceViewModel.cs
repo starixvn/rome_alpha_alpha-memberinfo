@@ -119,6 +119,7 @@
             const byte ClosedByAdmin = 1;
             const byte ClosedByUpline = 2;
             const byte WrongOTPOrSC = 3;
+            const byte ByArchive = 4;
 
             switch (closedReason)
             {
@@ -130,6 +131,9 @@
 
                 case WrongOTPOrSC:
                     return "closed-wrongotp-sc";
+
+                case ByArchive:
+                    return "closed-byArchive";
 
                 case WrongPasswordOrOthers:
                 default:
