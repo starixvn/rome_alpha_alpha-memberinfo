@@ -71,7 +71,8 @@
                 command.Language,
                 command.IP,
                 AlphaSite,
-                isQrCode: true)).ConfigureAwait(false);
+                isQrCode: true,
+                firstName: command.FirstName)).ConfigureAwait(false);
 
             if (result != null)
             {
