@@ -125,7 +125,7 @@ $(function () {
         setTimeout(() => {
             customerListPopup.successfulUpdatingCallback();
             customerListDataTable.reloadData()
-        }, 1500);
+        }, 3000);
     }
 
     customerList.init();
