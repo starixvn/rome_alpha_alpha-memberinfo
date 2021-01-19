@@ -222,7 +222,7 @@
         [InlineData(false, false, "icon-refresh Synchronize")]
         [InlineData(true, true, "icon-edit Disable_edit")]
         [InlineData(true, false, "icon-edit Enable")]
-        public void Icon_Return_CorreactClasses(bool searchAccountSynced, bool searchAccountDisable, string expectedClass)
+        public void Icon_Return_CorrectClasses(bool searchAccountSynced, bool searchAccountDisable, string expectedClass)
         {
             //Arrange
             var actorProductStatus = new List<CustomerProductStatus>
@@ -244,6 +244,40 @@
 
             // Assert
             Assert.Equal(viewModel.Icon, expectedClass);
+        }
+
+        [Theory]
+        [InlineData(4, 3, true, "RnGCasinoViewModelText")]
+        [InlineData(4, 3, false, "SyncRnGCasinoViewModelText")]
+        [InlineData(4, 2, false, "RnGCasinoViewModelText")]
+        [InlineData(4, 1, false, "RnGCasinoViewModelText")]
+
+        public void Text_Return_CorrectName(
+            byte actorLevel,
+            byte searchAccountLevel,
+            bool searchAccountSynced,
+            string expectedName)
+        {
+            //Arrange
+            var actorProductStatus = new List<CustomerProductStatus>
+            {
+                new CustomerProductStatus(6, synced: true)
+            };
+
+            var searchAccountProductStatus = new List<CustomerProductStatus>
+            {
+                new CustomerProductStatus(6, synced: searchAccountSynced)
+            };
+
+            var actorAccount = CustomerHelper.CreateCustomer(1, actorLevel, customerProductStatus: actorProductStatus);
+            var searchAccount = CustomerHelper.CreateCustomer(2, searchAccountLevel, customerProductStatus: searchAccountProductStatus);
+            var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
+
+            // Act
+            var viewModel = new RnGCasinoViewModel(request, ProductItem);
+
+            // Assert
+            Assert.Equal(viewModel.Text, expectedName);
         }
     }
 }

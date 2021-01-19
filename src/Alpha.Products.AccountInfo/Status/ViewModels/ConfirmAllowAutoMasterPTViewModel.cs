@@ -9,7 +9,7 @@
         {
         }
 
-        public override bool Visible => base.Visible && Actor.IsSuper && SearchAccount.IsMaster;
+        public override bool Visible => Actor.IsSuper && SearchAccount.IsMaster;
 
         public override bool Checked => Request.GetData<bool>(DataKey.SearchAccount.IsAllowedMasterAutoPT);
 
