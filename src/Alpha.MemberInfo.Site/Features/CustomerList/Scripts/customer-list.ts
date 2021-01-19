@@ -122,7 +122,10 @@ $(function () {
     window.actionAfterUpdatedLiveCasinoSettingSingle = isUpdatePartial => customerListPopup.successfulUpdatingCallback();
 
     window.top.successfulUpdatingCallbackAndReloadMainFrame = () => {
-        customerListPopup.successfulUpdatingCallbackAndReloadMainFrame(customerListDataTable.reloadData);
+        setTimeout(() => {
+            customerListPopup.successfulUpdatingCallback();
+            customerListDataTable.reloadData()
+        }, 1500);
     }
 
     customerList.init();

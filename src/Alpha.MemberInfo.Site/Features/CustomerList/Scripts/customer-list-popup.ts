@@ -112,13 +112,6 @@ class CustomerListPopup {
         }, 1500);
     }
 
-    public successfulUpdatingCallbackAndReloadMainFrame = (reloadData) => {
-        setTimeout(() => {
-            this.successfulUpdatingCallback();
-            reloadData();
-        }, 1500);
-    }
-
     public openStatusSettingPopup = (element, content, title, bindingStatusSettingEvent) => {
         this.buildStatusSettingPopupHtml(content, title);
 

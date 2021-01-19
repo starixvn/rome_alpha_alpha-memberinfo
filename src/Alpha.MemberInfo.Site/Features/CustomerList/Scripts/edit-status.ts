@@ -82,8 +82,8 @@ class EditStatus {
     private updateCustomerStatusSuccess = (currentTarget, parentTarget, data, displayOrder) => {
         if (data.IsSuccessful) {
             // Closed or Suspended
-            if (displayOrder === 1 || displayOrder === 2) {
-                this.$('.btn-submit').click();
+            if ((displayOrder === 1 || displayOrder === 2) && this.topWindow.successfulUpdatingCallbackAndReloadMainFrame) {
+                this.topWindow.successfulUpdatingCallbackAndReloadMainFrame();
             }
 
             this.customerListPopup.closeStatusPopup();
