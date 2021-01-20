@@ -9,9 +9,9 @@
 
     public interface CustomerListDataAccess
     {
-       CustomerStatusModel GetCustomerStatus(SelectCustomerAllStatusModelCriteria criteria);
+        CustomerStatusModel GetCustomerStatus(SelectCustomerAllStatusModelCriteria criteria);
 
-       Result UpdateCustomerStatus(UpdateCustomerStatusCommand command);
+        Result UpdateCustomerStatus(UpdateCustomerStatusCommand command);
     }
 
     public class CustomerListDataAccessImpl : CustomerListDataAccess
@@ -31,7 +31,18 @@
                         nonDCSProduct,
                         dcsProducts
                             .GroupBy(product => product.ProductId)
-                            .Select(group => group.First()));
+                            .Select(products =>
+                            {
+                                foreach (var product in products)
+                                {
+                                    if (product.IsDisabled)
+                                    {
+                                        return product;
+                                    }
+                                }
+
+                                return products.First();
+                            }));
                 }
             }
         }
