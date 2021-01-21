@@ -13,17 +13,14 @@ interface Window {
 class CustomerList {
     private $: JQueryStatic;
     private customerListPopup: CustomerListPopup;
-    private editMultipleSetting: EditMultipleSetting;
     private customerListDataTable: CustomerListDataTable;
     private viewModel: CustomerListViewModel;
-
     private statusDropdown: SingleSelectionDropdownComponent;
     private doubleCommDropdown: SingleSelectionDropdownComponent;
 
     constructor(
         $: JQueryStatic,
         viewModel: CustomerListViewModel,
-        editMultipleSetting: EditMultipleSetting,
         customerListPopup: CustomerListPopup,
         customerListDataTable: CustomerListDataTable,
         statusDropdown: SingleSelectionDropdownComponent,
@@ -32,7 +29,6 @@ class CustomerList {
         this.viewModel = viewModel;
         this.customerListDataTable = customerListDataTable;
         this.customerListPopup = customerListPopup;
-        this.editMultipleSetting = editMultipleSetting;
 
         this.statusDropdown = statusDropdown;
         this.doubleCommDropdown = doubleCommDropdown;
@@ -46,8 +42,7 @@ class CustomerList {
             new SingleSelectionDropdownOption("dcommFilter", "DoubleCommId", () => { }, true, true));
 
         this.bindingTxtUsername();
-        this.customerListDataTable.initDataTable();
-        this.editMultipleSetting.bindingEvent();
+        this.customerListDataTable.bindingEvent();
         this.customerListPopup.bindingBootstrapModalEvent();
     };
 
@@ -104,11 +99,10 @@ $(function () {
         editSingleSetting = new EditSingleSetting($, customerListPopup, customerListServices),
         editMultipleSetting = new EditMultipleSetting($, viewModel, customerListPopup, customerListServices, editSingleSetting),
         editStatus = new EditStatus($, window.top, viewModel.IsMobileView, customerListServices, customerListPopup),
-        customerListDataTable = new CustomerListDataTable($, window.top, viewModel, customerListPopup, customerListServices, editSingleSetting, editStatus),
+        customerListDataTable = new CustomerListDataTable($, window.top, viewModel, customerListPopup, customerListServices, editSingleSetting, editMultipleSetting, editStatus),
         customerList = new CustomerList(
             $,
             viewModel,
-            editMultipleSetting,
             customerListPopup,
             customerListDataTable,
             new SingleSelectionDropdownComponent($),

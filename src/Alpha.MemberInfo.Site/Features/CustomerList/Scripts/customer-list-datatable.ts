@@ -6,6 +6,7 @@ class CustomerListDataTable {
     private customerListPopup: CustomerListPopup;
     private customerListServices: CustomerListServices;
     private editSingleSetting: EditSingleSetting;
+    private editMultipleSetting: EditMultipleSetting;
     private editStatus: EditStatus;
     private viewModel: CustomerListViewModel;
     private topWindow: any;
@@ -20,6 +21,7 @@ class CustomerListDataTable {
         customerListPopup: CustomerListPopup,
         customerListServices: CustomerListServices,
         editSingleSetting: EditSingleSetting,
+        editMultipleSetting: EditMultipleSetting,
         editStatus: EditStatus) {
         this.$ = $;
         this.topWindow = topWindow;
@@ -27,9 +29,15 @@ class CustomerListDataTable {
         this.customerListPopup = customerListPopup;
         this.customerListServices = customerListServices;
         this.editSingleSetting = editSingleSetting;
+        this.editMultipleSetting = editMultipleSetting;
         this.editStatus = editStatus;
 
         this.topWindow.customerListNew = true;
+    }
+
+    public bindingEvent = () => {
+        this.editMultipleSetting.bindingEvent();
+        this.initDataTable();
     }
 
     private getRowClass = (data) => {
@@ -46,7 +54,7 @@ class CustomerListDataTable {
         return data.Enabled.Css;
     }
 
-    public initDataTable = () => {
+    private initDataTable = () => {
         const maxPageSize = this.viewModel.IsMobileView ? 200 : 500;
         const details = {
             type: 'column',
@@ -410,12 +418,15 @@ class CustomerListDataTable {
     public reloadData = () => this.$table.ajax.reload();
 
     private drawCallback = () => {
+        const $selectAll = this.$('#select-all');
+
         this.$('#tbl-customer-list').removeClass('hidden');
 
         this.$('.btn-submit').unbind().bind('click', () => {
             this.username = this.$('#txt-username').val();
             this.status = this.$('#statusFilter').val();
             this.doubleComm = this.$('#dcommFilter').val();
+            $selectAll.prop("checked", false);
             this.$table.ajax.reload();
         });
 
@@ -424,7 +435,7 @@ class CustomerListDataTable {
         this.$('.icon-statement').unbind().bind('click', event => this.viewStatement(event));
 
         this.$('tbody .checkbox').unbind().bind("click", () => {
-            this.$('#select-all').prop("checked", this.$('tbody .checkbox').length === this.$('tbody .checkbox:checked').length);
+            $selectAll.prop("checked", this.$('tbody .checkbox').length === this.$('tbody .checkbox:checked').length);
         });
 
         this.editSingleSetting.bindingEvent();
