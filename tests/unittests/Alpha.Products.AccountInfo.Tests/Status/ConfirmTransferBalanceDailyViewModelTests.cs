@@ -103,7 +103,7 @@
             var act = viewModel.Url;
 
             // Assert
-            Assert.Equal("MicroSiteName/SearchAccount/UpdateAllDayBalanceTransfer", act);
+            Assert.Equal("UpdateAllDayBalanceTransfer", act);
         }
 
         [Fact]

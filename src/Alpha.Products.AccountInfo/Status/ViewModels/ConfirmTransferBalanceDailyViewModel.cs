@@ -21,7 +21,7 @@
 
         public override bool Visible => Request.SearchAccount.IsMaster && Request.GetData<bool>(DataKey.SearchAccount.AllowedAllDayBalTransfer);
 
-        public override string Url => $"{AccountInfoUrl}SearchAccount/UpdateAllDayBalanceTransfer";
+        public override string Url => "UpdateAllDayBalanceTransfer";
 
         public string Tooltip => Request.GetResource("ConfirmTransferBalanceDailyViewModelTooltip");
     }
