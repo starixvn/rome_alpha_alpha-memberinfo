@@ -54,7 +54,6 @@
     <Reference Include="AutoFixture.AutoNSubstitute, Version=4.10.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\AutoFixture.AutoNSubstitute.4.10.0\lib\net452\AutoFixture.AutoNSubstitute.dll</HintPath>
     </Reference>
-    </Reference>
     <Reference Include="CasinoSetting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\CasinoLibrary.2.0.4.33357\lib\net40\CasinoSetting.dll</HintPath>
     </Reference>

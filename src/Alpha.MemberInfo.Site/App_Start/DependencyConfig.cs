@@ -1,9 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
-    using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
-    using System.Web;
-    using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
@@ -52,7 +48,12 @@
     using Sunplus.Agent.Model.Entities.Permission;
     using Sunplus.Agent.Utilities;
     using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Reflection;
     using System.Resources;
+    using System.Web;
+    using System.Web.Mvc;
     using Utilities.IP;
 
     public static class DependencyConfig
@@ -154,6 +155,8 @@
             container.RegisterPerWebRequest<CustomerListService, CustomerListServiceImpl>();
             container.RegisterPerWebRequest<UsernameSuggestionService, UsernameSuggestionServiceImpl>();
 
+            container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();
+            container.RegisterPerWebRequest<DormantAccountWorkbook, DormantAccountWorkbookImpl>();
             container.RegisterCopyAccountServices("CloneAccount:BaseUri", "CloneAccount:ApiKey");
         }
 
@@ -182,8 +185,6 @@
                 .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
                 .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>(new SettingMultipleViewModelFactory())
                 .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
-
-            container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();
-            container.RegisterPerWebRequest<DormantAccountWorkbook, DormantAccountWorkbookImpl>();
+        }
     }
 }

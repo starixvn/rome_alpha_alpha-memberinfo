@@ -624,7 +624,6 @@
       <DependentUpon>customer-list.js</DependentUpon>
     </Content>
     <Content Include="Features\CustomerList\Bundles\muliple-double-comm.js" />
-     <Content Include="Features\CustomerList\Bundles\master-list.js" />
     <Content Include="Features\CustomerList\Bundles\muliple-double-comm.min.js">
       <DependentUpon>muliple-double-comm.js</DependentUpon>
     </Content>
@@ -634,13 +633,13 @@
     <Content Include="Features\CustomerList\Styles\customer-list-07.min.css">
       <DependentUpon>customer-list-07.css</DependentUpon>
     </Content>
-     <Content Include="Features\CustomerList\Styles\customer-list.css">
+    <Content Include="Features\CustomerList\Styles\customer-list.css">
       <DependentUpon>customer-list.scss</DependentUpon>
     </Content>
     <Content Include="assets\styles\quick-introduction.css">
       <DependentUpon>quick-introduction.scss</DependentUpon>
     </Content>
-     <Content Include="Features\CustomerList\Styles\customer-list.min.css">
+    <Content Include="Features\CustomerList\Styles\customer-list.min.css">
       <DependentUpon>customer-list.css</DependentUpon>
     </Content>
     <Content Include="Features\DormantAccountList\Bundles\dormant-account-list.css" />
@@ -790,7 +789,6 @@
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
-     <Compile Include="Features\CustomerList\MasterListHandler.cs" />
     <Compile Include="Features\CustomerList\CustomerListController.cs" />
     <Compile Include="Features\CustomerList\Requests\MultipleDoubleCommRequest.cs" />
     <Compile Include="Features\CustomerList\Requests\UpdateMultipleDoubleCommCommand.cs" />
@@ -1032,10 +1030,10 @@
     </Content>
     <Content Include="Features\CustomerList\Views\Index.cshtml" />
     <Content Include="Views\IndirectLoginAccount\Introduction\QuickIntroduction.cshtml" />
-     <Content Include="Features\CustomerList\Views\web.config">
+    <Content Include="Features\CustomerList\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
-     <Content Include="Features\CustomerList\Styles\customer-list.scss" />
+    <Content Include="Features\CustomerList\Styles\customer-list.scss" />
     <Content Include="Features\Shared\Views\NoInformation.cshtml" />
     <Content Include="Features\CustomerList\Styles\customer-list-07.scss" />
     <Content Include="Features\CustomerList\Views\MultipeDoubleComm.cshtml" />
