@@ -83,12 +83,13 @@ class EditStatus {
         if (data.IsSuccessful) {
             // Closed or Suspended
             if ((displayOrder === 1 || displayOrder === 2) && this.topWindow.successfulUpdatingCallbackAndReloadMainFrame) {
-                this.topWindow.successfulUpdatingCallbackAndReloadMainFrame();
+                this.topWindow.successfulUpdatingCallbackAndReloadMainFrame(true);
+            }
+            else {
+                this.$.unblockUI();
             }
 
             this.customerListPopup.closeStatusPopup();
-
-            setTimeout(() => this.$.unblockUI(), 1500);
         }
         else {
             this.$.unblockUI();

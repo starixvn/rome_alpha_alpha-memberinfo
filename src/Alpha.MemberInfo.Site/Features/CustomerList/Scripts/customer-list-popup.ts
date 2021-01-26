@@ -69,9 +69,9 @@ class CustomerListPopup {
     }
 
     private clearDuplicateHeader = () => {
-        for (let i = 1; i <= 10; i++) {
-            setTimeout(() => this.modifyContentPopup(i), 50 * i);
-        }
+        this.$productIframe.on('load', () => {
+            this.modifyContentPopup();
+        });
     }
 
     private forcusInputElement = () => {
@@ -81,7 +81,7 @@ class CustomerListPopup {
         }
     }
 
-    private modifyContentPopup = i => {
+    private modifyContentPopup = () => {
         const headerClassesOrId = '.setting-header-agency,#header_main,#race-book-positiontaking-header,#title_header,#button_hr';
         this.$productIframe.contents().find(headerClassesOrId).css('display', 'none');
     }
@@ -94,7 +94,7 @@ class CustomerListPopup {
         });
 
         this.$productPopupContainer.on('show.bs.modal', () => {
-            this.clearDuplicateHeader.apply(this.$productIframe.contents());
+            this.clearDuplicateHeader();
         });
 
         this.$productPopupContainer.on('shown.bs.modal', () => {
@@ -106,9 +106,14 @@ class CustomerListPopup {
 
     public closeProductPopup = () => this.$productPopupContainer.modal('hide');
 
+    public reloadFrame = () => {
+        this.$productIframeForm.submit();
+        this.clearDuplicateHeader();
+    }
+
     public successfulUpdatingCallback = () => {
         setTimeout(() => {
-            this.$productIframeForm.submit();
+            this.reloadFrame();
         }, 1500);
     }
 

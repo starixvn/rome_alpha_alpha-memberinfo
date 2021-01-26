@@ -8,6 +8,7 @@ interface Window {
     actionAfterUpdatedLiveCasinoSettingSingle: Function,
     successfulUpdatingCallbackAndReloadMainFrame: Function,
     customerListPopup: any;
+    jquery: JQueryStatic;
 }
 
 class CustomerList {
@@ -115,11 +116,14 @@ $(function () {
     window.actionAfterUpdatedLiveCasinoSettingMultiple = isUpdatePartial => customerListPopup.successfulUpdatingCallback();
     window.actionAfterUpdatedLiveCasinoSettingSingle = isUpdatePartial => customerListPopup.successfulUpdatingCallback();
 
-    window.top.successfulUpdatingCallbackAndReloadMainFrame = () => {
+    window.top.successfulUpdatingCallbackAndReloadMainFrame = (reloadAfterThreeSecond = false) => {
+        $.blockUI();
+
         setTimeout(() => {
-            customerListPopup.successfulUpdatingCallback();
-            customerListDataTable.reloadData()
-        }, 3000);
+            customerListPopup.reloadFrame();
+            customerListDataTable.reloadData();
+            $.unblockUI();
+        }, reloadAfterThreeSecond ? 3000 : 1500);
     }
 
     customerList.init();

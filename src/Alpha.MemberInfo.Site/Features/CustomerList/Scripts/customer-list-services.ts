@@ -22,7 +22,6 @@ class CustomerListServices {
             },
             data: params,
             success: onSuccess,
-            complete: this.$.unblockUI,
             error: this.$.unblockUI
         });
     }
