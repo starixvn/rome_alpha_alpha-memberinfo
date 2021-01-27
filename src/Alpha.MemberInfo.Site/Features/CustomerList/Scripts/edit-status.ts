@@ -82,7 +82,7 @@ class EditStatus {
     private updateCustomerStatusSuccess = (currentTarget, parentTarget, data, displayOrder) => {
         if (data.IsSuccessful) {
             // Closed or Suspended
-            if ((displayOrder === 1 || displayOrder === 2) && this.topWindow.successfulUpdatingCallbackAndReloadMainFrame) {
+            if ((displayOrder === 1 || displayOrder === 2) && this.topWindow.customerListNew) {
                 this.topWindow.successfulUpdatingCallbackAndReloadMainFrame(true);
             }
             else {

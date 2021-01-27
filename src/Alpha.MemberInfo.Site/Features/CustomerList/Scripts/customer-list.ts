@@ -118,11 +118,10 @@ $(function () {
 
     window.top.successfulUpdatingCallbackAndReloadMainFrame = (reloadAfterThreeSecond = false) => {
         $.blockUI();
-
         setTimeout(() => {
-            customerListPopup.reloadFrame();
-            customerListDataTable.reloadData();
             $.unblockUI();
+            customerListDataTable.reloadData();
+            customerListPopup.reloadFrame();
         }, reloadAfterThreeSecond ? 3000 : 1500);
     }
 
