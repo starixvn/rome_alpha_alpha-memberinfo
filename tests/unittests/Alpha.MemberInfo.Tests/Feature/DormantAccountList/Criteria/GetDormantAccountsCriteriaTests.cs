@@ -46,7 +46,7 @@
         [InlineData(3, true)]
         [InlineData(4, false)]
         [InlineData(10, false)]
-        public void IsValid_CustId_ReturnsValid(byte roleId, bool expected)
+        public void IsValid_RoleId_ReturnsValid(byte roleId, bool expected)
         {
             // Arrange
             var param = new DormantAccountParam(1176070, null, roleId, 0, 1, 500);
