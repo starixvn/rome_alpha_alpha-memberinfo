@@ -37,7 +37,6 @@ class EditSingleSetting {
         let html = ['<ul>'];
         this.$.each(settings, (key, item) => {
             const attrs = {
-                'data-title': `${item.AddEditTextToPopupTitle ? this.$('#editText').val() : ''} ${item.Text} - ${username}`,
                 'class': `edit-popup ${item.Icon} ${item.Enabled ? '' : 'grey-color'}`,
                 'data-method': item.Method,
                 'data-params': JSON.stringify(item.QueryStringParamaters),
@@ -45,7 +44,9 @@ class EditSingleSetting {
                 'data-show-guide-line': item.ShowGuideLine,
             };
 
-            html.push(`<li ${buildAttributes(attrs)}>${item.Text}</li>`);
+            const title = `${item.AddEditTextToPopupTitle ? this.$('#editText').val() : ''} ${item.Text} - ${username}`;
+
+            html.push(`<li ${buildAttributes(attrs)} data-title="${title}">${item.Text}</li>`);
         });
 
         return html.join('');

@@ -7,13 +7,14 @@
 
     public class RnGCasinoViewModel : ProductSettingItemViewModel
     {
-        public RnGCasinoViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem) 
+        public RnGCasinoViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
         {
         }
 
-        public override string Text => 
-            request.ActorIsEdittingDirectDownline && !SearchAccount.ProductStatusOf(ProductId).Synced ?
+        private bool Unsynced => request.ActorIsEdittingDirectDownline && !SearchAccount.ProductStatusOf(ProductId).Synced;
+
+        public override string Text => Unsynced ?
             request.GetResource($"Sync{GetType().Name}Text") :
             request.GetResource($"{GetType().Name}Text");
 
@@ -37,6 +38,8 @@
                 ["uplineid"] = Actor.Id.ToString(),
                 ["username"] = SearchAccount.Username
             };
+
+        public override bool AddEditTextToPopupTitle => !Unsynced;
 
         public override bool Visible
         {
