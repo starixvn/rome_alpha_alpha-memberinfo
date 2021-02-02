@@ -294,4 +294,10 @@
   <data name="ViewIPTooltip" xml:space="preserve">
     <value>Nhấn vào IP để xem thông tin IP</value>
   </data>
+  <data name="Collapse" xml:space="preserve">
+    <value>Collapse</value>
+  </data>
+  <data name="Expand" xml:space="preserve">
+    <value>Expand</value>
+  </data>
 </root>

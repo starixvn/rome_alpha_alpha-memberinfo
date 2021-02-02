@@ -44,13 +44,13 @@ class CustomerListServices {
         const $target = this.$(currentTarget),
             action = $target.data("url"),
             params = $target.data("params"),
-            displayOrder = $target.data("displayorder");
+            reloadcustomerlist = JSON.parse($target.data("reloadcustomerlist"));
 
         this.callAjax(
             this.viewModel.MemberInfoUrl + 'CustomerList/' + action,
             'POST',
             params,
-            data => updateCustomerStatusSuccess(currentTarget, parentTarget, data, displayOrder))
+            data => updateCustomerStatusSuccess(currentTarget, parentTarget, data, reloadcustomerlist))
     }
 
     public getSettings = (url, callback, type = "GET", params = {}) => this.callAjax(

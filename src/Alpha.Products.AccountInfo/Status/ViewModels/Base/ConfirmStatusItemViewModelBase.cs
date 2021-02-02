@@ -21,6 +21,8 @@
 
         public virtual bool ReloadCustomerInfo => false;
 
+        public virtual bool ReloadCustomerList => false;
+
         public virtual bool IsPopup => false;
 
         internal virtual string SuffixMessage { get; }

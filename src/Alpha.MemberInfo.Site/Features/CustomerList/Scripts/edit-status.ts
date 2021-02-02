@@ -42,7 +42,7 @@ class EditStatus {
                     'data-disabled': item.Disabled,
                     'data-custid': custId,
                     'data-username': username,
-                    'data-displayorder': item.DisplayOrder,
+                    'data-reloadcustomerlist': item.ReloadCustomerList,
                     'data-url': item.Url,
                     'data-ispopup': item.IsPopup,
                     'data-params': item.JsonParams,
@@ -79,10 +79,10 @@ class EditStatus {
         })
     }
 
-    private updateCustomerStatusSuccess = (currentTarget, parentTarget, data, displayOrder) => {
+    private updateCustomerStatusSuccess = (currentTarget, parentTarget, data, reloadcustomerlist) => {
         if (data.IsSuccessful) {
             // Closed or Suspended
-            if ((displayOrder === 1 || displayOrder === 2) && this.topWindow.customerListNew) {
+            if (reloadcustomerlist && this.topWindow.customerListNew) {
                 this.topWindow.successfulUpdatingCallbackAndReloadMainFrame(true);
             }
             else {

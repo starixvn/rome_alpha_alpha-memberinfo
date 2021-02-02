@@ -143,6 +143,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Collapse.
+        /// </summary>
+        public static string Collapse {
+            get {
+                return ResourceManager.GetString("Collapse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Commission.
         /// </summary>
         public static string Commission {
@@ -229,6 +238,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string EditStatus {
             get {
                 return ResourceManager.GetString("EditStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expand.
+        /// </summary>
+        public static string Expand {
+            get {
+                return ResourceManager.GetString("Expand", resourceCulture);
             }
         }
         

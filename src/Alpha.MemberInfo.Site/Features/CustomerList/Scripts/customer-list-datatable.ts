@@ -96,7 +96,9 @@ class CustomerListDataTable {
                     this.customerListServices.getCutomerList(params, callback);
                 },
                 columns: this.buildDataTableColumns(),
-                createdRow: (row, data) => this.$(row).addClass(this.getRowClass(data)),
+                createdRow: (row, data) => {
+                    this.$(row).addClass(this.getRowClass(data));
+                },
                 responsive: { details },
                 columnDefs: [{
                     className: 'control',
@@ -415,7 +417,11 @@ class CustomerListDataTable {
             false;
     }
 
-    public reloadData = () => this.$table.ajax.reload();
+    public reloadData = () => {
+        this.$.unblockUI();
+        this.$('#select-all').prop("checked", false);
+        this.$table.ajax.reload();
+    }
 
     private drawCallback = () => {
         const $selectAll = this.$('#select-all');
@@ -441,6 +447,10 @@ class CustomerListDataTable {
         this.editSingleSetting.bindingEvent();
 
         this.editStatus.bindingEvent();
+
+        this.$("td.control").each((index, element) => {
+            this.$(element).attr('title', this.$(element).parent().hasClass('parent') ? this.$('#collapseText').val() : this.$('#expandText').val());
+        });
     }
 
     private viewStatement = event => {
