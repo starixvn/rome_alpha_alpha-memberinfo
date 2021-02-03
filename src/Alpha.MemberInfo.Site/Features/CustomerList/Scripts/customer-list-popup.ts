@@ -20,7 +20,7 @@ class CustomerListPopup {
         this.$statusPopupContainer = this.$('#status-popup');
         this.$productPopupContainer = this.$('#product-popup');
         this.$productIframe = this.$('#productIframe');
-        this.$productIframeForm = this.$('#productIframeForm');
+        this.$productIframeForm = this.$('form#productIframeForm');
     }
 
     public openProductPopup = (currentTarget, method = 'GET') => {
@@ -107,8 +107,10 @@ class CustomerListPopup {
     public closeProductPopup = () => this.$productPopupContainer.modal('hide');
 
     public reloadFrame = () => {
-        this.$productIframeForm.submit();
-        this.clearDuplicateHeader();
+        if (this.$('div.modal-product.in').length > 0) {
+            this.$productIframeForm.submit();
+            this.clearDuplicateHeader();
+        }
     }
 
     public successfulUpdatingCallback = () => {

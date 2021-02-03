@@ -69,7 +69,7 @@ class EditStatus {
                 if (!JSON.parse(this.$(event.currentTarget).data("disabled"))) {
                     this.topWindow.bootboxConfirm(
                         this.$(event.currentTarget).data("message"),
-                        this.isMobile ? event.target : this.$(parentElement).context,
+                        event.currentTarget,
                         () => this.customerListServices.updateCustomerStatus(
                             event.currentTarget,
                             this.$(parentElement).context,
@@ -81,7 +81,6 @@ class EditStatus {
 
     private updateCustomerStatusSuccess = (currentTarget, parentTarget, data, reloadcustomerlist) => {
         if (data.IsSuccessful) {
-            // Closed or Suspended
             if (reloadcustomerlist && this.topWindow.customerListNew) {
                 this.topWindow.successfulUpdatingCallbackAndReloadMainFrame(true);
             }

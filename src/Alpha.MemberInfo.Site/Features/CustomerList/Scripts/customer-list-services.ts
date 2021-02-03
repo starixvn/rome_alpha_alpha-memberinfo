@@ -50,7 +50,10 @@ class CustomerListServices {
             this.viewModel.MemberInfoUrl + 'CustomerList/' + action,
             'POST',
             params,
-            data => updateCustomerStatusSuccess(currentTarget, parentTarget, data, reloadcustomerlist))
+            data => {
+                this.$.unblockUI();
+                updateCustomerStatusSuccess(currentTarget, parentTarget, data, reloadcustomerlist);
+            })
     }
 
     public getSettings = (url, callback, type = "GET", params = {}) => this.callAjax(
