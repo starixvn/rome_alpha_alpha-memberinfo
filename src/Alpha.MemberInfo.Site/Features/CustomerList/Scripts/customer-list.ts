@@ -49,7 +49,7 @@ class CustomerList {
 
     private bindingTxtUsername = () => {
         const options = {
-            url: phrase => `${this.viewModel.MemberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&DirectDownlines=true`,
+            url: phrase => `${this.viewModel.MemberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&CustId=${this.viewModel.SearchAccountId}&DirectDownlines=true&IsAccInfo=false`,
             getValue: 'UserName',
             requestDelay: 200,
             minCharNumber: 2,

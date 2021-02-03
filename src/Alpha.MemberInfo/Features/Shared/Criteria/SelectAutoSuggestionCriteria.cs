@@ -6,16 +6,17 @@
     public class SelectAutoSuggestionCriteria : CriteriaBase
     {
         public SelectAutoSuggestionCriteria(
-            int actorId, 
-            string suggestionQuery, 
+            int actorId,
+            string suggestionQuery,
             bool isInternal,
-            bool directDownline)
+            bool directDownline,
+            bool isAccInfo)
         {
             ActorId = actorId;
             SuggestionQuery = suggestionQuery;
             IsInternal = isInternal;
 
-            IsAccInfo = false;
+            IsAccInfo = isAccInfo;
             DirectDownline = directDownline;
         }
 
@@ -26,7 +27,7 @@
 
         [SpParam(SqlParamName = "username")]
         public string SuggestionQuery { get; }
-        
+
         [SpParam(SqlParamName = "isInternalAgent")]
         public bool IsInternal { get; }
 

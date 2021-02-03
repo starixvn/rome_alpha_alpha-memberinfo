@@ -21,6 +21,7 @@
                 message.CustId,
                 message.SuggestionQuery,
                 message.IsInternal,
-                message.DirectDownlines);
+                message.DirectDownlines,
+                message.IsAccInfo);
     }
 }

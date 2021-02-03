@@ -37,7 +37,7 @@
 
             repository.Fetch<UsernameSuggestion>(Arg.Any<SelectAutoSuggestionCriteria>()).Returns(model);
 
-            var actualModel = service.GetUsernamesSuggestion(1, "test", false, true);
+            var actualModel = service.GetUsernamesSuggestion(1, "test", false, true, true);
 
             AssertExtension.Equal(actualModel, model);
         }

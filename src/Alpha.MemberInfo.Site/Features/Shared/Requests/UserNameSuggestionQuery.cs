@@ -17,8 +17,10 @@
 
         public bool DirectDownlines { get; set; }
 
-        public override bool IsValid() => 
-            base.IsValid() && 
+        public bool IsAccInfo { get; set; } = true;
+
+        public override bool IsValid() =>
+            base.IsValid() &&
             !string.IsNullOrEmpty(SuggestionQuery);
     }
 }

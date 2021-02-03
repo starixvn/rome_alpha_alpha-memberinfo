@@ -9,10 +9,11 @@
     public interface UsernameSuggestionService
     {
         IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(
-            int actorId, 
-            string suggestionQuery, 
+            int actorId,
+            string suggestionQuery,
             bool isInternal,
-            bool directDownline);
+            bool directDownline,
+            bool isAccInfo);
     }
 
     public class UsernameSuggestionServiceImpl : UsernameSuggestionService
@@ -25,15 +26,17 @@
         }
 
         public IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(
-            int actorId, 
-            string suggestionQuery, 
-            bool isInternal, 
-            bool directDownline)
+            int actorId,
+            string suggestionQuery,
+            bool isInternal,
+            bool directDownline,
+            bool isAccInfo)
             => dynamicRepository.Fetch<UsernameSuggestion>(
               new SelectAutoSuggestionCriteria(
-                  actorId, 
-                  suggestionQuery, 
-                  isInternal, 
-                  directDownline)).OrderBy(item => item.UserName);
+                  actorId,
+                  suggestionQuery,
+                  isInternal,
+                  directDownline,
+                  isAccInfo)).OrderBy(item => item.UserName);
     }
 }
