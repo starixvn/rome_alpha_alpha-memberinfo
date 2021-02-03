@@ -74,5 +74,7 @@
         bool AllowedTotalBalanceTransfer { get; }
 
         bool IsShowMyanmarOdds { get; }
+
+        bool CanViewReports { get; }
     }
 }

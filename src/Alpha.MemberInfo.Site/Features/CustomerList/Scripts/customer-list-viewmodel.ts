@@ -15,7 +15,8 @@ class CustomerListViewModel {
     AccountInfoUrl: string;
     LimitedDateToShowInfo: boolean;
     CustomerListResources: any;
-    IsShowMyanmarOdds: any;
+    IsShowMyanmarOdds: boolean;
+    CanViewReport: boolean;
 
     constructor(
         uplineRoleId: number,
@@ -32,6 +33,7 @@ class CustomerListViewModel {
         accountInfoUrl: string,
         limitedDateToShowInfo: boolean,
         isShowMyanmarOdds: boolean,
+        canViewReport: boolean,
         customerListResources: any) {
         this.UplineRoleId = uplineRoleId;
         this.SearchAccountId = searchAccountId;
@@ -47,6 +49,7 @@ class CustomerListViewModel {
         this.AccountInfoUrl = accountInfoUrl;
         this.LimitedDateToShowInfo = limitedDateToShowInfo;
         this.IsShowMyanmarOdds = isShowMyanmarOdds;
+        this.CanViewReport = canViewReport;
         this.CustomerListResources = customerListResources;
     }
 }

@@ -171,17 +171,21 @@ class CustomerListDataTable {
             {
                 "className": 'center',
                 "data": item => this.renderStatusColumn(item)
-            },
-            {
+            });
+
+        if (this.viewModel.CanViewReport) {
+            columns.push({
                 "className": 'center',
                 "data": null,
                 "render": item => this.renderStatementColumn(item)
-            },
-            {
-                "className": 'left',
-                "data": null,
-                "render": item => `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${item.FirstName} ${item.LastName}</div>`
             });
+        }
+
+        columns.push({
+            "className": 'left',
+            "data": null,
+            "render": item => `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${item.FirstName} ${item.LastName}</div>`
+        });
 
         if (this.viewModel.SearchAccountRoleId === CustomerLevel.Agent) {
             columns.push({

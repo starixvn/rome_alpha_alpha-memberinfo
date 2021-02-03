@@ -71,7 +71,10 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
+                @if (Model.CanViewReport)
+                {
+                    <th></th>
+                }
                 <th></th>
                 @if (Model.SearchAccountLevel.IsAgentLevel())
                 {
@@ -131,9 +134,12 @@
                 <th rowspan="2" class="header @(Model.IsMobileView ? string.Empty : "all")">
                     @CustomerListResources.Status
                 </th>
-                <th rowspan="2" class="header">
-                    @CustomerListResources.Statement
-                </th>
+                @if (Model.CanViewReport)
+                {
+                    <th rowspan="2" class="header">
+                        @CustomerListResources.Statement
+                    </th>
+                }
                 <th rowspan="2" class="header">
                     @CustomerListResources.FirstLastName
                 </th>
@@ -226,6 +232,7 @@
     <input type="hidden" id="memberInfoUrl" value='@MicroSites.MemberInfoUrl()'>
     <input type="hidden" id="limitedDateToShowInfo" value='@(Model.LimitedDateToShowInfo ? "true" : "false")'>
     <input type="hidden" id="isShowMyanmarOdds" value='@(Model.IsShowMyanmarOdds ? "true" : "false")'>
+    <input type="hidden" id="canViewReport" value='@(Model.CanViewReport ? "true" : "false")'>
     <input type="hidden" id="customerListResources" value='@Model.Resources'>
     <input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
     <input type="hidden" id="arrayCustID" name="arrayCustID" value=''>

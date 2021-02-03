@@ -50,6 +50,7 @@
             IsMobileView = isMobile;
             LimitedDateToShowInfo = limitedDateToShowInfo;
             IsShowMyanmarOdds = request.IsShowMyanmarOdds;
+            CanViewReport = request.CanViewReports;
 
             DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
             DownlineLevelName = DownlineLevel.DisplayName;
@@ -93,6 +94,8 @@
         public string PageTitle { get; }
 
         public bool IsMobileView { get; }
+
+        public bool CanViewReport { get; }
 
         public bool LimitedDateToShowInfo { get; }
 

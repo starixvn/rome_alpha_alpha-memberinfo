@@ -92,6 +92,7 @@ $(function () {
         $('#accountInfoUrl').val(),
         JSON.parse($('#limitedDateToShowInfo').val()),
         JSON.parse($('#isShowMyanmarOdds').val()),
+        JSON.parse($('#canViewReport').val()),
         $.parseJSON($('#customerListResources').val())
     );
 
