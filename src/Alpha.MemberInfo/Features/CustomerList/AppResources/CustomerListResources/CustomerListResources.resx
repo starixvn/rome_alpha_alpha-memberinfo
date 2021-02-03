@@ -169,7 +169,7 @@
     <value>First Name</value>
   </data>
   <data name="Group1X2" xml:space="preserve">
-    <value>1 X 2</value>
+    <value>1X2</value>
   </data>
   <data name="GroupA" xml:space="preserve">
     <value>Group A</value>
@@ -196,7 +196,7 @@
     <value>Member List</value>
   </data>
   <data name="NickName" xml:space="preserve">
-    <value>NickName</value>
+    <value>Nickname</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No.</value>

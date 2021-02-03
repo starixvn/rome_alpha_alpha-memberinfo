@@ -278,7 +278,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1 X 2.
+        ///   Looks up a localized string similar to 1X2.
         /// </summary>
         public static string Group1X2 {
             get {
@@ -368,7 +368,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NickName.
+        ///   Looks up a localized string similar to Nickname.
         /// </summary>
         public static string NickName {
             get {
