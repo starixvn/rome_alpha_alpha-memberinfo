@@ -13,10 +13,7 @@
             DownlinesList = customerListDTO.DownlinesList.Select(
                  downline =>
                  {
-                     if (message.LimitedDateToShowInfo)
-                     {
-                         downline.CreateDate = string.Empty;
-                     }
+                     downline.CreateDateFormat = message.LimitedDateToShowInfo ? string.Empty : downline.CreateDate.ToString("MM/dd/yyyy hh:mm:ss tt");
 
                      if (!message.ShowNickname)
                      {

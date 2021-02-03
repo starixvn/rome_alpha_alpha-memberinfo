@@ -1,4 +1,6 @@
-﻿namespace Alpha.MemberInfo.Features.CustomerList.Models
+﻿using System;
+
+namespace Alpha.MemberInfo.Features.CustomerList.Models
 {
     public class AgentListModel : CustomerListModelBase
     {
@@ -20,7 +22,7 @@
          int currency,
          int matchLimit,
          int virtualMultiplier,
-         string createDate,
+         DateTime createDate,
          bool isInternal,
          bool doubleCommLosing,
          int closedReason,

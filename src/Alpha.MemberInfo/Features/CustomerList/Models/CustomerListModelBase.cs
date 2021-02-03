@@ -1,4 +1,5 @@
 ﻿using Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResources;
+using System;
 
 namespace Alpha.MemberInfo.Features.CustomerList.Models
 {
@@ -21,7 +22,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          int currency,
          int matchLimit,
          int virtualMultiplier,
-         string createDate,
+         DateTime createDate,
          bool isInternal,
          bool doubleCommLosing,
          int closedReason,
@@ -87,7 +88,9 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
 
         public int VirtualMultiplier { get; private set; }
 
-        public string CreateDate { get; set; }
+        public DateTime CreateDate { get; private set; }
+
+        public string CreateDateFormat { get; set; }
 
         public bool IsInternal { get; private set; }
 

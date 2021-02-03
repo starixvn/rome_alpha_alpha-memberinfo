@@ -276,7 +276,7 @@ class CustomerListDataTable {
         if (!this.viewModel.LimitedDateToShowInfo) {
             columns.push({
                 "className": 'center',
-                "data": "CreateDate"
+                "data": "CreateDateFormat"
             });
         }
 

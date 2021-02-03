@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Tests.Services
 {
     using Alpha.MemberInfo.Features.CustomerList.Models;
+    using System;
     using Xunit;
 
     [Trait("Category", "CustomerList")]
@@ -36,7 +37,7 @@
                       20,
                       1,
                       1,
-                      "30-12-2011",
+                      new DateTime(2020, 11, 30),
                       false,
                       true,
                       2,
