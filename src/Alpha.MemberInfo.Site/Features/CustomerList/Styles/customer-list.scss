@@ -1,5 +1,8 @@
 ﻿@import "../../../assets/styles/abstracts/_mixins.scss";
 
+.blockOverlay, .blockMsg {
+    opacity: 0.6 !important;
+}
 
 body:not(.modal-open) {
     padding-right: 0px !important;

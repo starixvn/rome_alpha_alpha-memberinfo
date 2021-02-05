@@ -59,9 +59,10 @@ class CustomerListDataTable {
         const details = {
             type: 'column',
             target: -1,
+            minWidth: "100px",
             auto: false,
             renderer: (api, rowIdx) => this.renderDetailColumn(api, rowIdx),
-            bindingCallback: this.drawCallback
+            bindingCallback: this.detailCallBack
         },
             lengthMenu = `${this.viewModel.CustomerListResources.PageSize} <select>` +
                 '<option value="10">10</option>' +
@@ -102,8 +103,11 @@ class CustomerListDataTable {
                 responsive: { details },
                 columnDefs: [{
                     className: 'control',
+                    data: null,
                     orderable: false,
-                    targets: -1
+                    defaultContent: '', // '<i class="control"> </i>',
+                    targets: -1,
+                    minWidth: "100px",
                 }],
                 stripeClasses: [],
                 ordering: false,
@@ -126,18 +130,57 @@ class CustomerListDataTable {
             });
 
         this.$("#tbl-customer-list").find('tbody').on('click', 'td.control', event => this.doAdjustHeader(event));
+
+        const self = this;
+        this.$('thead tr th.control').unbind().bind("click", function (element) {
+            self.$.blockUI();
+
+            if (self.$(element.currentTarget).parent().hasClass("parent")) {
+                const controlArray = self.$('tbody tr.parent');
+
+                self.$(element.currentTarget).parent().removeClass("parent");
+                controlArray.each(function (index, thControl) {
+                    self.$(thControl).find('.control').click();
+
+                    if (index === controlArray.length - 1) {
+                        self.$table.fixedHeader.adjust();
+                        self.doManuallyScrollToFixedHeight();
+                    }
+                });
+            }
+            else {
+                const controlArray1 = self.$('tbody tr').not(".parent");
+                self.$(element.currentTarget).parent().addClass("parent");
+
+                controlArray1.each(function (index, thControl) {
+                    self.$(thControl).find('.control').click();
+
+                    if (index === controlArray1.length - 1) {
+                        self.$table.fixedHeader.adjust();
+                        self.doManuallyScrollToFixedHeight();
+                    }
+                });
+            }
+        });
     }
 
-    private doAdjustHeader = (event) => {
-        this.$table.fixedHeader.adjust();
+    private doAdjustHeader = event => {
+        if (!event.isTrigger) {
+            this.$table.fixedHeader.adjust();
 
-        if (this.$(event.currentTarget).closest("tr").is(":last-child")) {
-            setTimeout(() => {
-                const scrollTo = this.$(document).height();
-                this.$(window).scrollTop(scrollTo + 15);
-            }, 100);
+            if (this.$(event.currentTarget).closest("tr").is(":last-child")) {
+                this.doManuallyScrollToFixedHeight();
+            }
         }
     };
+
+    private doManuallyScrollToFixedHeight = () => {
+        setTimeout(() => {
+            const scrollTo = this.$(document).height();
+            this.$(window).scrollTop(scrollTo + 15);
+            this.$.unblockUI();
+        }, 100);
+    }
 
     private buildDataTableColumns = () => {
         let columns = [];
@@ -145,7 +188,8 @@ class CustomerListDataTable {
         if (!this.viewModel.IsMobileView) {
             columns.push({
                 "className": 'center',
-                "data": "RowNumber"
+                "data": "RowNumber",
+                "width": "50px;"
             });
         }
 
@@ -427,6 +471,20 @@ class CustomerListDataTable {
         this.$table.ajax.reload();
     }
 
+    private detailCallBack = () => {
+        this.$('.login-ip').unbind().bind('click', event => this.customerListPopup.openProductPopup(event.currentTarget));
+
+        this.$('.icon-statement').unbind().bind('click', event => this.viewStatement(event));
+
+        this.editSingleSetting.bindingEvent();
+
+        this.editStatus.bindingEvent();
+
+        this.$("td.control").each((index, element) => {
+            this.$(element).attr('title', this.$(element).parent().hasClass('parent') ? this.$('#collapseText').val() : this.$('#expandText').val());
+        });
+    }
+
     private drawCallback = () => {
         const $selectAll = this.$('#select-all');
 
@@ -440,21 +498,15 @@ class CustomerListDataTable {
             this.$table.ajax.reload();
         });
 
-        this.$('.login-ip').unbind().bind('click', event => this.customerListPopup.openProductPopup(event.currentTarget));
-
-        this.$('.icon-statement').unbind().bind('click', event => this.viewStatement(event));
-
         this.$('tbody .checkbox').unbind().bind("click", () => {
             $selectAll.prop("checked", this.$('tbody .checkbox').length === this.$('tbody .checkbox:checked').length);
         });
 
-        this.editSingleSetting.bindingEvent();
-
-        this.editStatus.bindingEvent();
-
         this.$("td.control").each((index, element) => {
             this.$(element).attr('title', this.$(element).parent().hasClass('parent') ? this.$('#collapseText').val() : this.$('#expandText').val());
         });
+
+        this.$('thead tr th.control').parent().removeClass("parent");
     }
 
     private viewStatement = event => {
