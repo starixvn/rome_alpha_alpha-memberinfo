@@ -105,9 +105,8 @@ class CustomerListDataTable {
                     className: 'control',
                     data: null,
                     orderable: false,
-                    defaultContent: '', // '<i class="control"> </i>',
-                    targets: -1,
-                    minWidth: "100px",
+                    defaultContent: '',
+                    targets: -1
                 }],
                 stripeClasses: [],
                 ordering: false,
@@ -131,56 +130,37 @@ class CustomerListDataTable {
 
         this.$("#tbl-customer-list").find('tbody').on('click', 'td.control', event => this.doAdjustHeader(event));
 
-        const self = this;
-        this.$('thead tr th.control').unbind().bind("click", function (element) {
-            self.$.blockUI();
+        this.$('thead tr th.control').unbind().bind("click", event => this.collapseExpandAll(event));
+    }
 
-            if (self.$(element.currentTarget).parent().hasClass("parent")) {
-                const controlArray = self.$('tbody tr.parent');
+    private collapseExpandAll = event => {
+        this.$.blockUI();
+        setTimeout(() => {
+            const targetParent = this.$(event.currentTarget).parent();
 
-                self.$(element.currentTarget).parent().removeClass("parent");
-                controlArray.each(function (index, thControl) {
-                    self.$(thControl).find('.control').click();
-
-                    if (index === controlArray.length - 1) {
-                        self.$table.fixedHeader.adjust();
-                        self.doManuallyScrollToFixedHeight();
-                    }
-                });
+            if (targetParent.hasClass("parent")) {
+                targetParent.removeClass("parent");
+                this.triggerClickDetailWhenSwitchAll(this.$('tbody tr.parent'));
             }
             else {
-                const controlArray1 = self.$('tbody tr').not(".parent");
-                self.$(element.currentTarget).parent().addClass("parent");
-
-                controlArray1.each(function (index, thControl) {
-                    self.$(thControl).find('.control').click();
-
-                    if (index === controlArray1.length - 1) {
-                        self.$table.fixedHeader.adjust();
-                        self.doManuallyScrollToFixedHeight();
-                    }
-                });
+                targetParent.addClass("parent");
+                this.triggerClickDetailWhenSwitchAll(this.$('tbody tr').not(".parent"));
             }
-        });
+
+            this.$.unblockUI();
+        }, 100);
+    }
+
+    private triggerClickDetailWhenSwitchAll = (controlArray) => {
+        controlArray.each((index, detailButton) => this.$(detailButton).find('.control').click());
+        this.$table.fixedHeader.adjust();
     }
 
     private doAdjustHeader = event => {
         if (!event.isTrigger) {
             this.$table.fixedHeader.adjust();
-
-            if (this.$(event.currentTarget).closest("tr").is(":last-child")) {
-                this.doManuallyScrollToFixedHeight();
-            }
         }
     };
-
-    private doManuallyScrollToFixedHeight = () => {
-        setTimeout(() => {
-            const scrollTo = this.$(document).height();
-            this.$(window).scrollTop(scrollTo + 15);
-            this.$.unblockUI();
-        }, 100);
-    }
 
     private buildDataTableColumns = () => {
         let columns = [];
