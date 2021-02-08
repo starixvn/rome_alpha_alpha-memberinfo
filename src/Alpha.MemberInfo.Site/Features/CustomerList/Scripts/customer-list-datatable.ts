@@ -447,7 +447,6 @@ class CustomerListDataTable {
 
     public reloadData = () => {
         this.$.unblockUI();
-        this.$('#select-all').prop("checked", false);
         this.$table.ajax.reload();
     }
 
@@ -466,6 +465,8 @@ class CustomerListDataTable {
     }
 
     private drawCallback = () => {
+        this.detailCallBack();
+
         const $selectAll = this.$('#select-all');
 
         this.$('#tbl-customer-list').removeClass('hidden');

@@ -45,12 +45,11 @@ class EditStatus {
                     'data-reloadcustomerlist': item.ReloadCustomerList,
                     'data-url': item.Url,
                     'data-ispopup': item.IsPopup,
-                    'data-params': item.JsonParams,
-                    'data-message': item.ConfirmMessage
+                    'data-params': item.JsonParams
                 };
 
                 html.push(
-                    `<li ${buildAttributes(attrs)}><input ${item.Disabled ? 'disabled' : ''} type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
+                    `<li data-message="${item.ConfirmMessage}" ${buildAttributes(attrs)}><input ${item.Disabled ? 'disabled' : ''} type="checkbox" ${item.Checked ? 'checked' : ''}/> ${item.Text}</li>`);
             }
         });
 

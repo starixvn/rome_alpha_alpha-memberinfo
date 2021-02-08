@@ -46,7 +46,7 @@ class EditSingleSetting {
 
             const title = `${item.AddEditTextToPopupTitle ? this.$('#editText').val() : ''} ${item.Text} - ${username}`;
 
-            html.push(`<li ${buildAttributes(attrs)} data-title="${title}">${item.Text}</li><li ${buildAttributes(attrs)} data-title="${title}">${item.Text}</li>`);
+            html.push(`<li ${buildAttributes(attrs)} data-title="${title}">${item.Text}</li>`);
         });
 
         return html.join('');
