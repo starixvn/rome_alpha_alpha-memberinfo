@@ -302,90 +302,20 @@ table.dataTable tbody tr {
     background: transparent;
 }
 
-@media (max-width: 1440px) {
-    .filter.show-unconfirmed-setting-filter {
-        display: grid;
-        grid-template-columns: 310px 300px 1fr;
-        grid-gap: 12px 16px;
-
-        .form-group {
-            margin-right: 0;
-
-            > label {
-                text-align: right;
-            }
-        }
-
-        .status-box {
-            grid-column: 2/4;
-        }
-
-        .username-box, .comm-box {
-            label {
-                width: 85px;
-            }
-        }
-
-        .unconfirm-box, .status-box {
-            label {
-                width: 120px;
-            }
-        }
-
-        .comm-box .btn-group {
-            width: calc(100% - 100px);
-
-            .multiselect {
-                width: 100%;
-
-                .multiselect-selected-text {
-                    width: 100%;
-                }
-            }
-        }
-    }
-}
-
 @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
     .filter {
-        display: grid;
-        grid-template-columns: 310px 300px 1fr;
-        grid-gap: 12px 16px;
+        #txt-username {
+            width: 185px;
+        }
 
-        .form-group {
+        .multiselect {
+            .multiselect-selected-text {
+                width: 80px;
+            }
+        }
+
+        .form-group.btn-box {
             margin-right: 0;
-
-            > label {
-                text-align: right;
-            }
-        }
-
-        .status-box {
-            grid-column: 2/4;
-        }
-
-        .username-box, .comm-box {
-            label {
-                width: 85px;
-            }
-        }
-
-        .unconfirm-box, .status-box {
-            label {
-                width: 120px;
-            }
-        }
-
-        .comm-box .btn-group {
-            width: calc(100% - 100px);
-
-            .multiselect {
-                width: 100%;
-
-                .multiselect-selected-text {
-                    width: 100%;
-                }
-            }
         }
     }
 }

@@ -121,31 +121,26 @@ body {
 }
 
 .filter {
-    display: block !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr 120px;
+    grid-gap: 16px;
+    align-items: flex-end;
+    padding-bottom: 20px;
 
     .form-group {
         margin-right: 0;
-        margin-bottom: 15px;
 
-        .txt-search, label {
-            font-size: calculateScale(13px);
+        .txt-search {
+            font-size: calculateScale(16px);
         }
 
         label {
-            display: block;
-            width: unset !important;
-            text-align: left !important;
+            font-size: calculateScale(13px);
         }
 
         .txt-search, select, [class*="btn-"] {
             height: calculateScale(36px);
             width: 100% !important;
-        }
-
-        .btn-submit {
-            position: relative;
-            top: 15px;
-            margin-right: 0;
         }
 
         .btn-group button.multiselect {
@@ -165,21 +160,11 @@ body {
     }
 
     .username-box {
-        width: 100%;
+        grid-column: 1/4;
 
         .easy-autocomplete {
             width: 100% !important;
         }
-    }
-
-    .status-box, .unconfirm-box {
-        width: 52%;
-        padding-right: 4%;
-        box-sizing: border-box;
-    }
-
-    .comm-box, .btn-box {
-        width: 47%;
     }
 }
 
