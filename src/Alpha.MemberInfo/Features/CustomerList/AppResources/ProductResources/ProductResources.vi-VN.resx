@@ -441,7 +441,7 @@
   <data name="EditMultipleGoldDeluxeText" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Gold Deluxe</value>
   </data>
-  <data name="EditMultipleRnGKenoText" xml:space="preserve">
+  <data name="EditMultipleRNGKenoText" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho RNG Keno</value>
   </data>
   <data name="EditMultipleSportsbook2" xml:space="preserve">
@@ -451,7 +451,7 @@
     <value>Tùy chỉnh đồng loạt cho Sportsbook</value>
   </data>
   <data name="EditMultipleLiveCasinoText" xml:space="preserve">
-    <value>Edit Multiple Live Casino</value>
+    <value>Tùy chỉnh đồng loạt cho Live Casino</value>
   </data>
   <data name="EditMultipleVoidbridgeText" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Macau Games</value>
