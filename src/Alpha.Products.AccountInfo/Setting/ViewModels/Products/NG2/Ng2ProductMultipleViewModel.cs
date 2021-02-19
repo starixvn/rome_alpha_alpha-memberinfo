@@ -4,7 +4,7 @@
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
     using Alpha.Products.Core.Configuration;
 
-    public class Ng2ProductMultipleViewModel : Ng2ProductViewModel, ISettingItemMultipleViewModel
+    public class Ng2ProductMultipleViewModel : DynamicProductMultipleViewModel, ISettingItemMultipleViewModel
     {
         public Ng2ProductMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
@@ -14,5 +14,10 @@
         public override string Text => $"{request.GetResource("EditMultiple")} {request.GetProductName(productItem.ProductId)}";
 
         public override string Icon => "icon-edit Enable";
+        
+        protected override string BaseAddress
+            => $"{Ng2Url}dcs/viewcustomersetting";
+
+        public override string Url => this.BaseAddress;
     }
 }
