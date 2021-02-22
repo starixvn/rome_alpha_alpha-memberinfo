@@ -12,6 +12,13 @@ body {
 
 .page-title {
     font-size: calculateScale(13px);
+
+    .icon-information-outline {
+        font-size: calculateScale(18px) !important;
+        &:after {
+            content: none;
+        }
+    }
 }
 
 .dataTables_length {
@@ -183,6 +190,11 @@ body {
 table.dataTable tbody tr:last-of-type:hover, .tblRpt.tblRpt-hover > tbody > tr:hover > td {
     background-color: unset !important;
 }
+
+.bootbox-confirm .bootbox-body, .bootbox-confirm .modal-footer .btn {
+    font-size: calculateScale(13px);
+}
+
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2.625) {
     @include scaleHighResolutions(1.2);
