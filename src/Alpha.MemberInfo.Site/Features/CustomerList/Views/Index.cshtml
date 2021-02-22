@@ -1,10 +1,14 @@
-﻿@model CustomerListViewModel
+﻿@using Sunplus.Agent.Model.Entities
+@model CustomerListViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Customer List";
 
     var commissionGroupClass = Model.IsMobileView || (Model.SearchAccountLevel.IsAgentLevel() && Model.Language.Equals("th-TH")) ? "none" : "desktop";
+    var userguideLink = UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
+        MicroSites.MessageUrl("~/StaticMessage/Guide?id=137130") :
+        MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=137130");
 }
 
 @section Styles {
@@ -17,9 +21,10 @@
     <div class="page-title">
         @if (!string.IsNullOrWhiteSpace(Model.PageTitle))
         {
-            <span class="text-title pull-left">
-                @Model.PageTitle
-            </span>
+        <span class="text-title pull-left">
+            @Model.PageTitle
+            &nbsp;<a href="@userguideLink" target="_blank"><span class="icon icon-information-outline"></span></a>
+        </span>
         }
 
         @if (!string.IsNullOrWhiteSpace(Request.Url.Query))
