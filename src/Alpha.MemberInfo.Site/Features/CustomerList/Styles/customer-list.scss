@@ -320,4 +320,26 @@ table.dataTable tbody tr {
     }
 }
 
+@media (max-width: 1082px) {
+    .filter {
+        #txt-username {
+            width: 165px;
+        }
+
+        .multiselect {
+            .multiselect-selected-text {
+                width: 70px;
+            }
+        }
+
+        .form-group.btn-box {
+            margin-right: 0;
+        }
+
+        .form-group .btn-submit {
+            margin-right: 0;
+            padding: 0 12px;
+        }
+    }
+}
 
