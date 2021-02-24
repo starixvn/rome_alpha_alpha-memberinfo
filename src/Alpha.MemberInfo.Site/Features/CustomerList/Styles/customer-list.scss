@@ -320,25 +320,27 @@ table.dataTable tbody tr {
     }
 }
 
-@media (max-width: 1082px) {
+@media (max-width: 1280px) {
     .filter {
-        #txt-username {
-            width: 165px;
-        }
+        display: grid;
+        grid-template-columns: 370px 1fr;
+        grid-gap: 12px;
 
-        .multiselect {
-            .multiselect-selected-text {
-                width: 70px;
-            }
+
+        .status-box {
+            grid-column: 2/3;
         }
 
         .form-group.btn-box {
             margin-right: 0;
         }
 
-        .form-group .btn-submit {
-            margin-right: 0;
-            padding: 0 12px;
+        .username-box label {
+            width: 83px;
+        }
+
+        .form-group > label {
+            text-align: right;
         }
     }
 }
