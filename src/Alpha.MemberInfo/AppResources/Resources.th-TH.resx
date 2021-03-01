@@ -223,7 +223,7 @@
     <value>เปิด</value>
   </data>
   <data name="Suspended" xml:space="preserve">
-    <value>การแข่งขันถูกระงับ</value>
+    <value>ถูกระงับ</value>
   </data>
   <data name="EnterUsername" xml:space="preserve">
     <value>ยูเซอร์เนม หรือ ชื่อ/นามสุกล</value>
