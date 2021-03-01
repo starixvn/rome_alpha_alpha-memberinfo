@@ -319,29 +319,3 @@ table.dataTable tbody tr {
         }
     }
 }
-
-@media (min-width: 1024px) and (max-width: 1280px) {
-    .filter {
-        display: grid;
-        grid-template-columns: 370px 1fr;
-        grid-gap: 12px;
-
-
-        .status-box {
-            grid-column: 2/3;
-        }
-
-        .form-group.btn-box {
-            margin-right: 0;
-        }
-
-        .username-box label {
-            width: 83px;
-        }
-
-        .form-group > label {
-            text-align: right;
-        }
-    }
-}
-

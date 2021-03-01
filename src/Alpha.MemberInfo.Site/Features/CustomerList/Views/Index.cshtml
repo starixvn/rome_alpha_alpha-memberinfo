@@ -21,10 +21,10 @@
     <div class="page-title">
         @if (!string.IsNullOrWhiteSpace(Model.PageTitle))
         {
-        <span class="text-title pull-left">
-            @Model.PageTitle
-            &nbsp;<a href="@userguideLink" target="_blank"><span class="icon icon-information-outline"></span></a>
-        </span>
+            <span class="text-title pull-left">
+                @Model.PageTitle
+                &nbsp;<a href="@userguideLink" target="_blank"><span class="icon icon-information-outline"></span></a>
+            </span>
         }
 
         @if (!string.IsNullOrWhiteSpace(Request.Url.Query))
@@ -132,7 +132,7 @@
                         <span>@CustomerListResources.Edit</span>
                     }
                 </th>
-                <th rowspan="2" class="header all">
+                <th rowspan="2" class="header">
                     @CustomerListResources.Username <br />
                     @CustomerListResources.NickName
                 </th>
@@ -145,7 +145,7 @@
                         @CustomerListResources.Statement
                     </th>
                 }
-                <th rowspan="2" class="header">
+                <th rowspan="2" class="header  @(Model.IsMobileView ? "none" : string.Empty)">
                     @CustomerListResources.FirstLastName
                 </th>
                 @if (Model.SearchAccountRoleId == 2)
