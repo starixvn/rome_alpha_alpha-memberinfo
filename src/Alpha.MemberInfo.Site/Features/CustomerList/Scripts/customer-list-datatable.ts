@@ -141,10 +141,12 @@ class CustomerListDataTable {
             if (targetParent.hasClass("parent")) {
                 targetParent.removeClass("parent");
                 this.triggerClickDetailWhenSwitchAll(this.$('tbody tr.parent'));
+                this.$(event.currentTarget).attr('title', this.$('#expandAllText').val());
             }
             else {
                 targetParent.addClass("parent");
                 this.triggerClickDetailWhenSwitchAll(this.$('tbody tr').not(".parent"));
+                this.$(event.currentTarget).attr('title', this.$('#collapseAllText').val());
             }
 
             this.$.unblockUI();

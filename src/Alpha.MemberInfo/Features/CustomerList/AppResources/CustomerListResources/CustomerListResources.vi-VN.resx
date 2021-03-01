@@ -295,9 +295,15 @@
     <value>Nhấn vào IP để xem thông tin IP</value>
   </data>
   <data name="Collapse" xml:space="preserve">
-    <value>Collapse</value>
+    <value>Thu gọn</value>
   </data>
   <data name="Expand" xml:space="preserve">
-    <value>Expand</value>
+    <value>Mở rộng</value>
+  </data>
+  <data name="CollapseAll" xml:space="preserve">
+    <value>Thu gọn tất cả</value>
+  </data>
+  <data name="ExpandAll" xml:space="preserve">
+    <value>Mở rộng tất cả</value>
   </data>
 </root>

@@ -300,4 +300,10 @@
   <data name="Expand" xml:space="preserve">
     <value>Expand</value>
   </data>
+  <data name="CollapseAll" xml:space="preserve">
+    <value>Collapse all</value>
+  </data>
+  <data name="ExpandAll" xml:space="preserve">
+    <value>Expand all</value>
+  </data>
 </root>

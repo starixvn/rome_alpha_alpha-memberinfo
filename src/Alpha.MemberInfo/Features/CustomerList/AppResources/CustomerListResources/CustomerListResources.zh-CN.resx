@@ -295,9 +295,15 @@
     <value>点击IP查看IP信息</value>
   </data>
   <data name="Collapse" xml:space="preserve">
-    <value>Collapse</value>
+    <value>收缩</value>
   </data>
   <data name="Expand" xml:space="preserve">
-    <value>Expand</value>
+    <value>打开</value>
+  </data>
+  <data name="CollapseAll" xml:space="preserve">
+    <value>全部收缩</value>
+  </data>
+  <data name="ExpandAll" xml:space="preserve">
+    <value>全部打开</value>
   </data>
 </root>

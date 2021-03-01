@@ -295,9 +295,15 @@
     <value>คลิก IP เพื่อดูข้อมูล IP</value>
   </data>
   <data name="Collapse" xml:space="preserve">
-    <value>Collapse</value>
+    <value>ย่อลง</value>
   </data>
   <data name="Expand" xml:space="preserve">
-    <value>Expand</value>
+    <value>ขยาย</value>
+  </data>
+  <data name="CollapseAll" xml:space="preserve">
+    <value>ย่อลงทั้งหมด</value>
+  </data>
+  <data name="ExpandAll" xml:space="preserve">
+    <value>ขยายทั้งหมด</value>
   </data>
 </root>
