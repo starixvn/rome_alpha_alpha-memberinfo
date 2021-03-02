@@ -302,6 +302,13 @@ table.dataTable tbody tr {
     background: transparent;
 }
 
+.filter {
+    padding-bottom: 0;
+    .form-group {
+        padding-bottom: 12px;
+    }
+}
+
 @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
     .filter {
         #txt-username {
