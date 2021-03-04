@@ -10,7 +10,8 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
             decimal credit, 
             string memberNameSuffix,
             bool showPageTitle,
-            string errorMessage)
+            string errorMessage,
+            bool onlyShowErrorMessage)
         {
             MemberNameCopyFrom = memberNameCopyFrom;
             ActorName = actorName;
@@ -18,6 +19,7 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
             Credit = credit;
             ShowPageTitle = showPageTitle;
             MemberNameSuffix = memberNameSuffix;
+            OnlyShowErrorMessage = onlyShowErrorMessage;
         }
 
         public string MemberNameCopyFrom { get; }
@@ -46,5 +48,7 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
 
         public string ShowQRCodeLink 
             => $"{MicroSites.MemberInfoUrl()}QRCodeMemberSignIn/ShowQRCode";
+
+        public bool OnlyShowErrorMessage { get; }
     }
 }

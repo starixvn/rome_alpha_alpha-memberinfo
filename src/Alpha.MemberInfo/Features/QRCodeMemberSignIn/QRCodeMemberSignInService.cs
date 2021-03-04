@@ -1,14 +1,14 @@
 ﻿namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
     using Alpha.CopyAccount.Params;
     using Alpha.CopyAccount.Services;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Alpha.MemberInfo.Models;
     using Fanex.Data.Repository;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     public interface QRCodeMemberSignInService
     {
@@ -29,6 +29,8 @@
         Result ResetMemberPassword(ResetMainAccountPasswordCommand command);
 
         bool CheckExistedCustomer(string username);
+
+        Result CheckLimitNewDownline(int actorId, byte actorRoleId, string language);
     }
 
     public class QRCodeMemberSignInServiceImpl : QRCodeMemberSignInService
@@ -122,6 +124,14 @@
             var criteria = new CheckExistedCustomerCritieria(username);
             dynamicRepository.Execute(criteria);
             return criteria.IsExists;
+        }
+
+        public Result CheckLimitNewDownline(int actorId, byte actorRoleId, string language)
+        {
+            var limitNewDownlineResult = copyAccountService.CheckLimitNewDownline(
+                new CheckLimitNewDownlineParam(actorId, actorRoleId, language));
+
+            return new Result { Code = limitNewDownlineResult.Code, Message = limitNewDownlineResult.Message };
         }
     }
 }

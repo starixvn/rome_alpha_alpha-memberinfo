@@ -1,5 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Enumerations;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
@@ -11,8 +14,6 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
     using Alpha.Products.Core.Services;
     using MediatR;
-    using System;
-    using System.Threading.Tasks;
 
     public class QRCodeMemberSignInHandler :
         IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
@@ -49,19 +50,49 @@
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
-            => new QRCodeMemberSignInViewModel(
-               message.MemberName,
-               message.CustName,
-               message.Credit,
-               qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId),
-               message.ShowPageTitle,
-               message.ErrorMessage);
+        {
+            var onlyShowErrorMessage = false;
+
+            if (string.IsNullOrWhiteSpace(message.ErrorMessage))
+            {
+                var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
+                    message.ViewerId,
+                    message.ViewerLevelId,
+                    message.Language);
+                onlyShowErrorMessage = limitNewDownlineResult.IsFailed;
+                message.ErrorMessage = limitNewDownlineResult.Message;
+            }
+
+            return new QRCodeMemberSignInViewModel(
+                   message.MemberName,
+                   message.CustName,
+                   message.Credit,
+                   qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId),
+                   message.ShowPageTitle,
+                   message.ErrorMessage,
+                   onlyShowErrorMessage);
+        }
 
         public async Task<ResultCreateMemberQRCode> Handle(CreateAccountByQRCodeRequest message)
         {
+            var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
+                message.ViewerId,
+                message.ViewerLevelId,
+                message.Language);
+
+            if (limitNewDownlineResult.IsFailed)
+            {
+                return new ResultCreateMemberQRCode
+                {
+                    Success = false,
+                    ErrCode = limitNewDownlineResult.Code,
+                    ErrMsg = limitNewDownlineResult.Message
+                };
+            }
+
             var creditAndStatusModel = qrCodeMemberSignInService.GetCreditAndStatus(message.UsernameCopyFrom);
 
-            if(creditAndStatusModel.Status != null &&
+            if (creditAndStatusModel.Status != null &&
               !creditAndStatusModel.Status.Equals("OPEN", StringComparison.OrdinalIgnoreCase))
             {
                 return new ResultCreateMemberQRCode
@@ -116,8 +147,8 @@
 
         public CreditAndStatusModel Handle(GetMemberCreditAndStatusRequest message)
             => IsValidBelongingByUsername(
-                message.CustId, 
-                message.SearchAccountName, 
+                message.CustId,
+                message.SearchAccountName,
                 message.SubAccId) ?
                 qrCodeMemberSignInService.GetCreditAndStatus(message.SearchAccountName) :
                 new CreditAndStatusModel();
@@ -195,8 +226,8 @@
 
         public bool Handle(CheckExistedCustomerRequest message)
             => IsValidBelongingByUsername(
-                message.CustId, 
-                message.Username, 
+                message.CustId,
+                message.Username,
                 message.SubAccId) &&
             qrCodeMemberSignInService.CheckExistedCustomer(message.Username);
 
@@ -204,7 +235,7 @@
         {
             var model = qrCodeMemberSignInService.CheckBelongingByUsername(custId, username, subAccountId);
 
-            return model.CustId > 0 && 
+            return model.CustId > 0 &&
                 Enumeration.FromValue<UserLevel>((byte)model.RoleId).IsMemberLevel();
         }
     }

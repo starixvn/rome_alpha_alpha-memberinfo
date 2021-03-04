@@ -1,5 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Site.Tests.Handlers.MemberRequests
 {
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Threading;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
@@ -13,8 +16,6 @@
     using Fixtures;
     using MemberInfo.Models;
     using NSubstitute;
-    using System.Globalization;
-    using System.Threading;
     using Xunit;
 
     [Trait("Category", "QRCodeMemberSignIn")]
@@ -56,6 +57,7 @@
                 ErrorMessage = string.Empty
             };
 
+            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
             service.GetSuggestUsername(Arg.Any<string>(), Arg.Any<int>()).Returns("Suggestion Name");
 
             var expectedViewModel = new QRCodeMemberSignInViewModel(
@@ -64,7 +66,8 @@
                 message.Credit,
                 "Suggestion Name",
                 false,
-                string.Empty);
+                null,
+                false);
 
             // Act
             var actualViewModel = handler.Handle(message);
@@ -116,6 +119,8 @@
 
             var custIdCopyFrom = 999;
 
+            service.CheckLimitNewDownline(message.ViewerId,message.ViewerLevelId,message.Language).Returns(new Result());
+
             service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
 
             service.CheckBelongingByUsername(
@@ -148,6 +153,36 @@
         }
 
         [Fact]
+        public void HandlerCreateAccountByQRCodeRequest_LimitNewDownline_ReturnsErrorResult()
+        {
+            // Arrange
+            var message = new CreateAccountByQRCodeRequest(user)
+            {
+                UsernameCopyFrom = "User",
+                Credit = 100,
+                CreditMin = 10,
+                CreditMax = 1000,
+                FirstSuffix = "A",
+                SecondSuffix = "A",
+                ThirdSuffix = "A",
+                FirstName = "James",
+                ShowPageTitle = true
+            };
+
+            service
+                .CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language)
+                .Returns(new Result { Code = 1001, Message = "Limit new downline" });
+
+            // Act
+            var actualViewModel = handler.Handle(message);
+
+            // Assert
+            Assert.True(!actualViewModel.Result.Success
+                && actualViewModel.Result.ErrCode == 1001
+                && actualViewModel.Result.ErrMsg == "Limit new downline");
+        }
+
+        [Fact]
         public void HandlerCreateAccountByQRCodeRequest_InvalidCustIdFrom_ReturnsErrorResult()
         {
             // Arrange
@@ -165,6 +200,7 @@
             };
 
             var custIdCopyFrom = -1;
+            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
             service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
             service.CheckBelongingByUsername(
                 Arg.Any<int>(),
@@ -203,6 +239,7 @@
                 ShowPageTitle = true
             };
 
+            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
             service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Closed"));
             var result = new ResultCreateMemberQRCode
             {
@@ -236,6 +273,7 @@
             };
 
             var custIdCopyFrom = 999;
+            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
             service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
             service.CheckBelongingByUsername(
                 Arg.Any<int>(),

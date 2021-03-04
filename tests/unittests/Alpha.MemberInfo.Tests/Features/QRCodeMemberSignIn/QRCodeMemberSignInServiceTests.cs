@@ -1,5 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Tests.Services.MemberRequest
 {
+    using System.Collections.Generic;
+    using Alpha.CopyAccount.Models;
+    using Alpha.CopyAccount.Params;
     using Alpha.CopyAccount.Services;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
@@ -9,7 +12,6 @@
     using Fixtures;
     using KellermanSoftware.CompareNetObjects;
     using NSubstitute;
-    using System.Collections.Generic;
     using Xunit;
 
     [Trait("Category", "QRCodeMemberSignIn")]
@@ -158,6 +160,21 @@
             var actualModel = serviceImpl.GetRnGStatus("Test");
 
             AssertExtension.Equal(actualModel, model);
+        }
+
+        [Fact]
+        public void CheckLimitNewDownline_Always_ReturnsCorrectResult()
+        {
+            // Arrange
+            copyAccountService
+                .CheckLimitNewDownline(Arg.Any<CheckLimitNewDownlineParam>())
+                .Returns(new CopyAccountResult { Code = 1001, Message = "Limit new downline" });
+
+            // Act
+            var actualResult = serviceImpl.CheckLimitNewDownline(1, 4, "es-US");
+
+            // Assert
+            Assert.True(actualResult.Code == 1001 && actualResult.Message == "Limit new downline");
         }
     }
 }
