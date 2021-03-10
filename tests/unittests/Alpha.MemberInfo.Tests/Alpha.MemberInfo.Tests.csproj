@@ -43,7 +43,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Alpha.Utilities.IP, Version=1.0.3.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Alpha.Utilities.IP.1.0.3.1-CustomerList03\lib\net461\Alpha.Utilities.IP.dll</HintPath>
+      <HintPath>..\..\..\packages\Alpha.Utilities.IP.1.0.3.1\lib\net461\Alpha.Utilities.IP.dll</HintPath>
     </Reference>
     <Reference Include="AutoFixture, Version=4.14.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\AutoFixture.4.14.0\lib\net452\AutoFixture.dll</HintPath>

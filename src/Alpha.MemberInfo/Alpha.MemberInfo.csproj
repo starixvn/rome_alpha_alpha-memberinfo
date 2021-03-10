@@ -43,7 +43,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Alpha.Utilities.IP, Version=1.0.3.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Utilities.IP.1.0.3.1-CustomerList03\lib\net461\Alpha.Utilities.IP.dll</HintPath>
+      <HintPath>..\..\packages\Alpha.Utilities.IP.1.0.3.1\lib\net461\Alpha.Utilities.IP.dll</HintPath>
     </Reference>
     <Reference Include="CasinoLibrary, Version=2.0.4.33357, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CasinoLibrary.2.0.4.33357\lib\net40\CasinoLibrary.dll</HintPath>
@@ -339,8 +339,8 @@
     <Compile Include="Features\CustomerList\Models\CustomerListDTO.cs" />
     <Compile Include="Features\CustomerList\Models\MemberListModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerListModelBase.cs">
-	 <SonarQubeExclude>true</SonarQubeExclude>
-	</Compile>
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Features\CustomerList\Models\AgentListModel.cs" />
     <Compile Include="Features\CustomerList\Models\MasterListModel.cs" />
     <Compile Include="Features\CustomerList\CustomerListService.cs" />
@@ -350,7 +350,7 @@
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectSyncedCasinoList.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMemberListCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectAgentListCriteria.cs" />
-    <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerListCriteriaBase.cs" >
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerListCriteriaBase.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMasterListCriteria.cs" />
