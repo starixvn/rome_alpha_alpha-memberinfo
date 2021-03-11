@@ -20,6 +20,7 @@
         {
             SubUsername = subUsername;
             IsQRCode = true;
+            Credit = credit;
             CreditMax = creditMax;
             CopyFromUsername = copyFromUsername;
             Username = username;

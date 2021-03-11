@@ -7,13 +7,12 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
+    using AutoFixture;
     using Constants;
     using Extensions;
     using Fixtures;
     using MemberInfo.Models;
     using NSubstitute;
-    using Ploeh.AutoFixture;
-    using System.Collections.Generic;
     using System.Globalization;
     using System.Threading;
     using Xunit;
@@ -74,29 +73,29 @@
             AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
 
-        [Fact]
-        public void HandlerUserNameSuggestionQuery_Always_ReturnsCorrectViewModel()
-        {
-            // Arrange
-            var message = new UserNameSuggestionQuery(user)
-            {
-                SuggestionQuery = "AA"
-            };
+        //[Fact]
+        //public void HandlerUserNameSuggestionQuery_Always_ReturnsCorrectViewModel()
+        //{
+        //    // Arrange
+        //    var message = new UserNameSuggestionQuery(user)
+        //    {
+        //        SuggestionQuery = "AA"
+        //    };
 
-            var model = new List<UsernameSuggestion>
-            {
-                new UsernameSuggestion("test1", "--", "--", "NickName1"),
-                new UsernameSuggestion("test2", "--", "--", "NickName2")
-            };
+        //    var model = new List<UsernameSuggestion>
+        //    {
+        //        new UsernameSuggestion("test1", "--", "--", "NickName1"),
+        //        new UsernameSuggestion("test2", "--", "--", "NickName2")
+        //    };
 
-            service.GetUsernamesSuggestion(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(model);
+        //    service.GetUsernamesSuggestion(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(model);
 
-            // Act
-            var actualViewModel = handler.Handle(message);
+        //    // Act
+        //    var actualViewModel = handler.Handle(message);
 
-            // Assert
-            AssertExtension.Equal(model, actualViewModel);
-        }
+        //    // Assert
+        //    AssertExtension.Equal(model, actualViewModel);
+        //}
 
         [Fact]
         public void HandlerCreateAccountByQRCodeRequest_Always_ReturnsCorrectViewModel()
@@ -370,7 +369,7 @@
             };
 
             qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs().Returns(
-                new QRCodeLoginConfigs("192.468.1.1", new string[] { "domain.com", "domain1.com" }, 1 , 3600));
+                new QRCodeLoginConfigs("192.468.1.1", new string[] { "domain.com", "domain1.com" }, 1, 3600));
 
             service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
 
@@ -384,7 +383,7 @@
             var qrCodeImage = "imageBase64";
             qrCodeAdapter.Generate(Arg.Any<string>()).Returns(qrCodeImage);
             var expectedViewModel = new QRCodeLinkViewModel("linktest.com", qrCodeImage);
-            
+
             // Act
             var actualViewModel = handler.Handle(message);
 
@@ -427,9 +426,9 @@
               Arg.Any<string>(),
               Arg.Any<int>()).Returns(
               new CheckBelongingByUsernameModel(true, custId, false, roleId));
-            
+
             // Act
-            var actualResult = handler.IsValidBelongingByUsername(custId, "test", roleId );
+            var actualResult = handler.IsValidBelongingByUsername(custId, "test", roleId);
 
             // Assert
             AssertExtension.Equal(expectedResult, actualResult);

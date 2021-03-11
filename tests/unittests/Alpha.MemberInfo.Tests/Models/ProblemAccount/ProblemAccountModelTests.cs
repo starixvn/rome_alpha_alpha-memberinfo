@@ -46,24 +46,6 @@ namespace Alpha.MemberInfo.Tests.Models.ProblemAccount
             Assert.Equal(expected, act);
         }
 
-        [Theory]
-        [InlineData(true, "Reviewed")]
-        [InlineData(false, "Not Reviewed")]
-        public void StatusName_Always_GetFromStatus(bool isReviewed, string expected)
-        {
-            // Arrange
-            var model = new ProblemAccountModel
-            {
-                IsReviewed = isReviewed
-            };
-
-            // Act
-            var act = model.ReviewStatus;
-
-            // Assert
-            Assert.Equal(expected, act);
-        }
-
         [Fact]
         public void CreatedDateStr_Always_FormatLongDateTime24h()
         {

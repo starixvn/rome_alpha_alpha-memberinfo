@@ -12,8 +12,6 @@
 
     public interface QRCodeMemberSignInService
     {
-        IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(int actorId, string suggestionQuery, bool isInternal);
-
         CreditAndStatusModel GetCreditAndStatus(string SearchAccountName);
 
         Task<ResultCreateMemberQRCode> CreateMemberByQRCode(InsertMemberCommand command);
@@ -44,10 +42,6 @@
             this.dynamicRepository = dynamicRepository;
             this.copyAccountService = copyAccountService;
         }
-
-        public IEnumerable<UsernameSuggestion> GetUsernamesSuggestion(int actorId, string suggestionQuery, bool isInternal)
-            => dynamicRepository.Fetch<UsernameSuggestion>(
-              new SelectAutoSuggestionCriteria(actorId, suggestionQuery, isInternal)).OrderBy(item => item.UserName);
 
         public CreditAndStatusModel GetCreditAndStatus(string SearchAccountName)
             => dynamicRepository.Get<CreditAndStatusModel>(new SelectCreditAndStatusCriteria(SearchAccountName));

@@ -1,0 +1,145 @@
+﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
+{
+    using Alpha.MemberInfo.Enumerations;
+    using Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResources;
+    using Alpha.MemberInfo.Features.Shared.Models;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
+    using Alpha.MemberInfo.Site.Helpers;
+    using Alpha.Products.Core.Services;
+    using System;
+    using System.Collections.Generic;
+    using System.Resources;
+
+    public class CustomerListViewModel
+    {
+        private readonly Dictionary<UserLevel, string> PageTitleDictonary = new Dictionary<UserLevel, string>
+        {
+            { UserLevel.Super, CustomerListResources.MasterAgentList },
+            { UserLevel.Master, CustomerListResources.AgentList },
+            { UserLevel.Agent, CustomerListResources.MemberList }
+        };
+
+        public CustomerListViewModel(
+            CustomerListRequest request,
+            IEnumerable<CustInfo> breadcrumbLevel,
+            bool isMobile,
+            bool limitedDateToShowInfo,
+            Func<string, ResourceManager, string> convertResourcesJson = null)
+        {
+            UplineRoleId = request.ViewerLevelId;
+
+            SearchAccountId = request.CustId;
+            SearchAccountRoleId = request.CustLevelId;
+            SearchAccountName = request.CustName;
+
+            HideEditMultiple =
+                Enumeration.FromValue<UserLevel>(request.ViewerLevelId).IsSuperLevel() &&
+                Enumeration.FromValue<UserLevel>(request.CustLevelId).IsMasterLevel();
+
+            PageTitle = PageTitleDictonary[Enumeration.FromValue<UserLevel>(request.CustLevelId)];
+
+            BreadcrumbLevel = breadcrumbLevel;
+            BreadcrumbLevelJson = JsonHelper.ToJsonFunc(breadcrumbLevel);
+
+            PageIndex = request.PageIndex;
+            PageSize = request.PageSize;
+            Status = request.Status;
+            DoubleComm = request.DoubleComm;
+            UnconfirmSetting = request.UnconfirmSetting;
+            IsMobileView = isMobile;
+            LimitedDateToShowInfo = limitedDateToShowInfo;
+            IsShowMyanmarOdds = request.IsShowMyanmarOdds;
+            CanViewReport = request.CanViewReports;
+
+            DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
+            DownlineLevelName = DownlineLevel.DisplayName;
+            Language = request.Language;
+
+            SearchAccountLevel = request.CustLevel;
+            CommisionColSpan = SearchAccountLevel.IsAgentLevel() ?
+                      (IsShowMyanmarOdds ? 8 : 6) :
+                     (IsShowMyanmarOdds ? 4 : 6);
+
+            var ConvertResourcesJson = convertResourcesJson ?? SimpleServiceLocator.GetService<Func<string, ResourceManager, string>>();
+            Resources = ConvertResourcesJson(request.Language, CustomerListResources.ResourceManager);
+        }
+
+        public bool HideEditMultiple { get; }
+
+        public byte UplineRoleId { get; }
+
+        public int SearchAccountId { get; }
+
+        public string SearchAccountName { get; }
+
+        public byte SearchAccountRoleId { get; }
+
+        public byte Status { get; }
+
+        public byte DoubleComm { get; }
+
+        public byte UnconfirmSetting { get; }
+
+        public int PageSize { get; }
+
+        public int PageIndex { get; }
+
+        public string DownlineLevelName { get; }
+
+        public UserLevel DownlineLevel { get; }
+
+        public UserLevel SearchAccountLevel { get; }
+
+        public string PageTitle { get; }
+
+        public bool IsMobileView { get; }
+
+        public bool CanViewReport { get; }
+
+        public bool LimitedDateToShowInfo { get; }
+
+        public bool IsShowMyanmarOdds { get; }
+
+        public int CommisionColSpan { get; }
+
+        public IEnumerable<CustInfo> BreadcrumbLevel { get; }
+
+        public string BreadcrumbLevelJson { get; }
+
+        public string Resources { get; }
+
+        public string Language { get; }
+
+        public IEnumerable<CustomerListOption> StatusOptions
+             => new List<CustomerListOption>
+                {
+                    new CustomerListOption(0 , CustomerListResources.All),
+                    new CustomerListOption(1 , CustomerListResources.Open),
+                    new CustomerListOption(2 , CustomerListResources.Suspended),
+                    new CustomerListOption(3 , CustomerListResources.Closed),
+                    new CustomerListOption(4 , CustomerListResources.Disabled)
+                };
+
+        public IEnumerable<CustomerListOption> DoubleCommOptions
+             => new List<CustomerListOption>
+                {
+                    new CustomerListOption(2 , CustomerListResources.All),
+                    new CustomerListOption(1 , CustomerListResources.Allowed),
+                    new CustomerListOption(0 , CustomerListResources.Disallowed)
+                };
+    }
+
+    public class CustomerListOption
+    {
+        public CustomerListOption(int value, string text)
+        {
+            Value = value;
+            Text = text;
+        }
+
+        public int Value { get; }
+
+        public string Text { get; }
+    }
+}

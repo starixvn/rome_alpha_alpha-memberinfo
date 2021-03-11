@@ -9,15 +9,14 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
+    using Alpha.Products.Core.Services;
     using MediatR;
     using System;
-    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public class QRCodeMemberSignInHandler :
         IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
         IAsyncRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
-        IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
         IRequestHandler<GetMemberCreditAndStatusRequest, CreditAndStatusModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>,
         IRequestHandler<GenerateQRCodeRequest, QRCodeLinkViewModel>,
@@ -29,6 +28,14 @@
         private readonly PasswordService passwordService;
 
         public QRCodeMemberSignInHandler(
+           QrCodeAdapter qrCodeAdapter,
+           QRCodeMemberSignInService qrCodeMemberSignInService,
+           PasswordService passwordService)
+            : this(qrCodeAdapter, qrCodeMemberSignInService, passwordService, null)
+        {
+        }
+
+        internal QRCodeMemberSignInHandler(
             QrCodeAdapter qrCodeAdapter,
             QRCodeMemberSignInService qrCodeMemberSignInService,
             PasswordService passwordService,
@@ -37,7 +44,8 @@
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
             this.passwordService = passwordService;
-            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper;
+            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper ??
+                    SimpleServiceLocator.GetService<QRCodeLoginConfigsHelper>();
         }
 
         public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
@@ -105,12 +113,6 @@
                 ErrMsg = Resources.UsernameIsInvalid
             };
         }
-
-        public IEnumerable<UsernameSuggestion> Handle(UserNameSuggestionQuery message)
-            => qrCodeMemberSignInService.GetUsernamesSuggestion(
-                message.CustId,
-                message.SuggestionQuery,
-                message.IsInternal);
 
         public CreditAndStatusModel Handle(GetMemberCreditAndStatusRequest message)
             => IsValidBelongingByUsername(

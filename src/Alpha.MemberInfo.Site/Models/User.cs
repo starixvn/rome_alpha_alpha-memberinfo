@@ -1,12 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Site.Models
 {
+    using Alpha.MemberInfo.Configurations;
+    using MemberInfo.Models;
+    using Sunplus.Agent.Model.Entities;
+    using Sunplus.Agent.Model.Entities.Permission;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
-    using Alpha.MemberInfo.Configurations;
-    using MemberInfo.Models;
-    using Sunplus.Agent.Model.Entities;
 
     public class User : IUser
     {
@@ -52,6 +53,8 @@
         internal virtual IList<int> GetEnableProductsForGame(string gameName)
             => (IList<int>)HttpContext.Current.Session[HttpContext.Current.Session.SessionID + GameEnableSessionKey + gameName];
 
+        public bool GetDisabledProduct(int productId) => userSession.GetDisabledProduct(productId);
+
         public bool CanViewBetLists => userSession.SubPageAccess.GetPermission(PageAccessType.ViewBetLists);
 
         public bool IsAllDayBalTransfer => userSession.IsAllDayBalTransfer;
@@ -71,5 +74,27 @@
         public IEnumerable<int> IndirectLoginSuperIds => AppSettings.IndirectLoginSuperIds;
 
         public bool IsAllowedIndirectLogin => !userSession.IsIndirectLoggedIn && AppSettings.IsAllowedIndirectLogin(Srecommend);
+
+        public bool IsHideKeno => userSession.IsHideKeno;
+
+        public bool IsCasinoSync => userSession.IsCasinoSync;
+
+        public bool IsCasinoDisabled => userSession.IsCasinoDisabled;
+
+        public bool IsDisabledESports => userSession.IsDisabledESports;
+
+        public bool IsNumberGameDisabled => userSession.IsNumberGameDisabled;
+
+        public bool IsHideGoldDeluxe => userSession.IsHideGoldDeluxe;
+
+        public bool DisableGoldDeluxe => userSession.DisableGoldDeluxe;
+
+        public bool AllowedAllDayBalTransfer => userSession.IsAllDayBalTransfer;
+
+        public bool AllowedTotalBalanceTransfer => userSession.IsAllowedTotalBalanceTransfer;
+
+        public bool IsShowMyanmarOdds => UserPermission.IsShowMyanmarOdds;
+
+        public bool CanViewReports => userSession.SubPageAccess.ViewReports;
     }
 }

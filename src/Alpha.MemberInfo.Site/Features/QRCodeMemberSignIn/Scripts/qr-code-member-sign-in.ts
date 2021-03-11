@@ -267,8 +267,8 @@ class QRCodeMemberSignIn {
 
     bidingEasyAutoComplete = () => {
         const options = {
-            url: function (phrase) {
-                return 'QRCodeMemberSignIn/GetUsernamesSuggestion?SuggestionQuery=' + phrase;
+            url: phrase => {
+				return `${this.$('#member-info-url').val()}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}`;
             },
             getValue: 'UserName',
             requestDelay: 200,

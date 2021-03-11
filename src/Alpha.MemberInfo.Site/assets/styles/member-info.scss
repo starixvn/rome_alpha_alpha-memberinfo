@@ -8,9 +8,9 @@
     position: relative;
 }
 
-.msg {
+/*.msg {
     margin-bottom: 0;
-}
+}*/
 
 .icon-refresh, .icon-edit {
     margin-right: 5px;
@@ -121,7 +121,6 @@ input[type="button"][disabled] {
         }
 
         &.daterange-picker {
-            //margin-bottom: 0;
             .ui_nexdatepicker_edit_field, .ui_nexdatepicker_lbl_field {
                 margin-bottom: 15px;
             }
@@ -153,7 +152,6 @@ input[type="button"][disabled] {
 }
 
 #box_header {
-    //margin-top: 12px;
     width: 750px;
 
     @media (max-width: 768px) {
@@ -187,3 +185,24 @@ input[type="button"][disabled] {
 #txt-username, #txt-player-id {
     width: 210px;
 }
+
+
+
+html {
+    height: unset !important;
+}
+
+.multi-double-comm {
+    .msg {
+        margin-top: 0;
+    }
+
+    label {
+        font-size: inherit;
+        color: inherit;
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+}
+

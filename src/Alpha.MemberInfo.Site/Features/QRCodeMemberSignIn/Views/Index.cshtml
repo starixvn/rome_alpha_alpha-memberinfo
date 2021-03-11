@@ -89,6 +89,7 @@
 		@Html.HiddenFor(m => m.ShowPageTitle)
 		@Html.HiddenFor(m => m.MemberNameCopyFrom)
 		@Html.HiddenFor(m => m.ShowQRCodeLink)
+		<input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
 		@Html.AntiForgeryToken()
 	</form>
 

@@ -40,9 +40,11 @@ _CodeCoverageReport
 .vs/
 /OpenCover/*
 
+*.css
+*.min.css
 *.min.js
 *.js
-bundles
+bundles/
 *.js.map
 */**/assets/scripts/**/*.js
 */**/bundles/**/*.js
@@ -67,3 +69,7 @@ src/Alpha.Reports.Site/jsUnitTest.xml
 /src/Alpha.MemberInfo.Site/assets/styles/problem-account/update.css
 /src/Alpha.MemberInfo.Site/assets/styles/problem-account/update.min.css
 /src/Alpha.MemberInfo.Site/Features/*/Styles/*.css
+*.suo
+*.ide
+*.lock
+*.dtbcache

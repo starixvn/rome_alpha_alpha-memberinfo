@@ -1,7 +1,7 @@
-﻿using System;
-using System.Web.Mvc;
-using Alpha.MemberInfo.Site.Helpers;
+﻿using Alpha.MemberInfo.Site.Helpers;
 using Alpha.MemberInfo.Site.Requests.MemberRequest;
+using System;
+using System.Web.Mvc;
 using Xunit;
 
 namespace Alpha.MemberInfo.Site.Tests.Helpers
@@ -37,16 +37,16 @@ namespace Alpha.MemberInfo.Site.Tests.Helpers
             Assert.Equal("CreateInstanceOfAssignableReportBaseQuery", createdInstance);
         }
 
-        [Fact]
-        public void BindModel_Always_CallBaseBindModel()
-        {
-            //// Arrange
+        //[Fact]
+        //public void BindModel_Always_CallBaseBindModel()
+        //{
+        //    //// Arrange
 
-            //// Act
-            var createdInstance = BindModel(null, null);
+        //    //// Act
+        //    var createdInstance = BindModel(null, null);
 
-            //// Assert
-            Assert.Equal("CallBaseBindModel", createdInstance);
-        }
+        //    //// Assert
+        //    Assert.Equal("CallBaseBindModel", createdInstance);
+        //}
     }
 }

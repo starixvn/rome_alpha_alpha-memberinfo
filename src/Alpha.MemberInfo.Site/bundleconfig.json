@@ -2,13 +2,19 @@
   {
     "outputFileName": "assets/bundles/default.css",
     "inputFiles": [
-      "assets/bundles/member-info.css"
+      "assets/styles/member-info.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/credit-balance.css",
+    "inputFiles": [
+      "assets/styles/credit-balance.css"
     ]
   },
   {
     "outputFileName": "assets/bundles/win-loss-limit.css",
     "inputFiles": [
-      "assets/bundles/win-loss-limit.css"
+      "assets/styles/win-loss-limit.css"
     ]
   },
   {
@@ -151,6 +157,41 @@
       "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/components/pager.js",
       "Features/DormantAccountList/Scripts/dormant-account-list.js"
+    ]
+	},
+  {
+    "outputFileName": "Features/CustomerList/Bundles/customer-list.js",
+    "inputFiles": [
+      "assets/scripts/components/single-selection-dropdown.js",
+      "Features/CustomerList/Scripts/customer-list-popup.js",
+      "Features/CustomerList/Scripts/customer-list-services.js",
+      "Features/CustomerList/Scripts/edit-status.js",
+      "Features/CustomerList/Scripts/edit-single-setting.js",
+      "Features/CustomerList/Scripts/edit-multiple-setting.js",
+      "Features/CustomerList/Scripts/customer-list-datatable.js",
+      "Features/CustomerList/Scripts/customer-list-viewmodel.js",
+      "Features/CustomerList/Scripts/customer-list.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/CustomerList/Bundles/customer-list.css",
+    "inputFiles": [
+      "assets/styles/common.css",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
+      "Features/CustomerList/Styles/customer-list.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/CustomerList/Bundles/customer-list-07.css",
+    "inputFiles": [
+      "assets/styles/common-07.css",
+      "Features/CustomerList/Styles/customer-list-07.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/CustomerList/Bundles/muliple-double-comm.js",
+    "inputFiles": [
+      "Features/CustomerList/Scripts/muliple-double-comm.js"
     ]
   }
 ]
