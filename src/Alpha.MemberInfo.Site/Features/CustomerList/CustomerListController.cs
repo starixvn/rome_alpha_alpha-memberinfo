@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList
 {
+    using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.Web;
@@ -12,7 +13,7 @@
         private const string IndexPath = "~/Features/CustomerList/Views/Index.cshtml";
         private const string MultipleDoubleCommPath = "~/Features/CustomerList/Views/MultipeDoubleComm.cshtml";
         private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
-        private readonly Result ErrorDefault = Result.CreateErrorResult("Invalid Request.");
+        private readonly Result ErrorDefault = Result.CreateErrorResult(Lang.NotAuthorized);
         private readonly IMediator mediator;
 
         public CustomerListController(IMediator mediator)
