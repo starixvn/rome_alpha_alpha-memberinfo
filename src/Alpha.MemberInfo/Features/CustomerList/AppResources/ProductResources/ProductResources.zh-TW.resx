@@ -471,4 +471,7 @@
   <data name="EditMultipleVirtualSportsText" xml:space="preserve">
     <value>编辑多重虚拟运动</value>
   </data>
+  <data name="EditMultipleClosedStatusText" xml:space="preserve">
+    <value>Edit Multiple Closed Status</value>
+  </data>
 </root>

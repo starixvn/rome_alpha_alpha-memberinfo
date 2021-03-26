@@ -137,6 +137,7 @@
     <Compile Include="Setting\ViewModels\Base\ISettingItemMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Base\ISettingItemViewModel.cs" />
     <Compile Include="Setting\ViewModels\BetSettingViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Multiple\ClosedMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\SuspendedMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\GoldDeluxe\GoldDeluxeMultipleViewModel.cs" />

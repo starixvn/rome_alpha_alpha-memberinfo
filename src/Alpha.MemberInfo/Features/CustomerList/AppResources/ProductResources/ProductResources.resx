@@ -468,4 +468,7 @@
   <data name="Sportsbook2MultipeViewModelText" xml:space="preserve">
     <value>Sportsbook 2</value>
   </data>
+  <data name="EditMultipleClosedStatusText" xml:space="preserve">
+    <value>Edit Multiple Closed Status</value>
+  </data>
 </root>

@@ -485,6 +485,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Closed Status.
+        /// </summary>
+        public static string EditMultipleClosedStatusText {
+            get {
+                return ResourceManager.GetString("EditMultipleClosedStatusText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Multiple Double Comm.
         /// </summary>
         public static string EditMultipleDoubleCommText {
