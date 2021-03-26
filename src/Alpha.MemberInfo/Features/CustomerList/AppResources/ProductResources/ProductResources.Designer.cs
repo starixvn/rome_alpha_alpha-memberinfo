@@ -1052,11 +1052,29 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unclose &lt;username&gt;.
+        /// </summary>
+        public static string UncloseStatusPopupHeaderText {
+            get {
+                return ResourceManager.GetString("UncloseStatusPopupHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unsuspend &lt;username&gt;.
         /// </summary>
         public static string UnuspendStatusPopupHeader {
             get {
                 return ResourceManager.GetString("UnuspendStatusPopupHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unsuspend &lt;username&gt;.
+        /// </summary>
+        public static string UnuspendStatusPopupHeaderText {
+            get {
+                return ResourceManager.GetString("UnuspendStatusPopupHeaderText", resourceCulture);
             }
         }
         

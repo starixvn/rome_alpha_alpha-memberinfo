@@ -11,7 +11,9 @@
 
         public override bool Disabled => base.Disabled || Request.GetData<bool>(DataKey.SearchAccount.Upline.IsClosed);
 
-        public override bool Checked => Request.GetData<bool>(DataKey.SearchAccount.IsClosed);
+        private bool IsClosedSearchAccount => Request.GetData<bool>(DataKey.SearchAccount.IsClosed);
+
+        public override bool Checked => IsClosedSearchAccount;
 
         public override bool ReloadCustomerInfo => true;
 
@@ -26,5 +28,13 @@
         internal override string StatusName => DataKey.StatusMapping.Closed;
 
         internal override bool StatusValue => !Checked;
+
+        public override bool IsPopup => IsClosedSearchAccount && SearchAccount.IsNotMember;
+
+        public override string PopupHeaderText => Request.GetResource("UncloseStatusPopupHeaderText");
+
+        public override string Url => IsPopup
+            ? $"{AccountInfoUrl}UncloseDownlines/EditSingle?SearchAccountId={SearchAccount.Id}&SearchAccountName={SearchAccount.Username}"
+            : base.Url;
     }
 }
