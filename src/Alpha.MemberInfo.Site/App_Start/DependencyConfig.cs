@@ -27,6 +27,7 @@
     using Alpha.Web.Helpers.Impl;
     using Controllers;
     using DataAccesses;
+    using Fanex.Cryptography.Aes;
     using Fanex.Data.Repository;
     using Fanex.RemotingRef;
     using MediatR;
@@ -154,7 +155,7 @@
 
             container.RegisterPerWebRequest<IndirectLoginAccountService, IndirectLoginAccountServiceImpl>();
             container.RegisterPerWebRequest<SessionManager, SessionManagerImpl>();
-            container.RegisterPerWebRequest<AesService, AesServiceImpl>();
+            container.RegisterSingleton(() => AesService.Default);
 
             container.RegisterPerWebRequest<CustomerListService, CustomerListServiceImpl>();
             container.RegisterPerWebRequest<UsernameSuggestionService, UsernameSuggestionServiceImpl>();

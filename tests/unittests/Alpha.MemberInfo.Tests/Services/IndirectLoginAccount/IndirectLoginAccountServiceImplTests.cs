@@ -8,8 +8,8 @@
     using Alpha.MemberInfo.Criteria.IndirectLoginAccount;
     using Alpha.MemberInfo.Models.IndirectLoginAccount;
     using Alpha.MemberInfo.Params.IndirectLoginAccount;
-    using Alpha.MemberInfo.Services;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
+    using Fanex.Cryptography.Aes;
     using Fanex.Data.Repository;
     using KellermanSoftware.CompareNetObjects;
     using NSubstitute;
@@ -21,14 +21,14 @@
     {
         private readonly IndirectLoginAccountService service;
         private readonly IDynamicRepository repository;
-        private readonly AesService aes;
+        private readonly IAesService aes;
         private readonly Encryptor encryptor;
         private readonly CompareLogic compareLogic;
 
         public IndirectLoginAccountServiceImplTests()
         {
             repository = Substitute.For<IDynamicRepository>();
-            aes = Substitute.For<AesService>();
+            aes = Substitute.For<IAesService>();
             encryptor = Substitute.For<Encryptor>();
             service = new IndirectLoginAccountServiceImpl(repository, aes, encryptor);
             compareLogic = new CompareLogic();
