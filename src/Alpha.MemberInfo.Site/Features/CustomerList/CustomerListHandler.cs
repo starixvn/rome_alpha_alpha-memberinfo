@@ -311,6 +311,8 @@
                 .AddData(DataKey.SearchAccount.Upline.IsClosed, model.NonProduct.UplineClosed)
                 .AddData(DataKey.SearchAccount.IsClosed, model.NonProduct.Closed)
 
+                .AddData(DataKey.SearchAccount.IsLockedAccess, model.NonProduct.Locked)
+
                 .AddData(DataKey.SearchAccount.Upline.IsAllowedDoubleComm, model.NonProduct.UplineDoubleCommLosing)
                 .AddData(DataKey.SearchAccount.IsAllowedDoubleComm, model.NonProduct.DoubleCommLosing)
 

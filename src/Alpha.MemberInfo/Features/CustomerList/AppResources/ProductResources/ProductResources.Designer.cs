@@ -422,6 +422,42 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This account was locked by false inputs of OTP/Security Code. Are you sure you want to unlock this account?.
+        /// </summary>
+        public static string ConfirmUnlockAccessViewModelInCaseFalseInputOTPSC {
+            get {
+                return ResourceManager.GetString("ConfirmUnlockAccessViewModelInCaseFalseInputOTPSC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This account was locked by false inputs of Password. Are you sure you want to unlock this account?.
+        /// </summary>
+        public static string ConfirmUnlockAccessViewModelInCaseFalseInputPassword {
+            get {
+                return ResourceManager.GetString("ConfirmUnlockAccessViewModelInCaseFalseInputPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string ConfirmUnlockAccessViewModelInCaseNone {
+            get {
+                return ResourceManager.GetString("ConfirmUnlockAccessViewModelInCaseNone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locked Access.
+        /// </summary>
+        public static string ConfirmUnlockAccessViewModelText {
+            get {
+                return ResourceManager.GetString("ConfirmUnlockAccessViewModelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Created Date.
         /// </summary>
         public static string CreatedDate {

@@ -21,7 +21,8 @@
             bool uplineDoubleCommLosing,
             bool disableOutright,
             bool uplineDisableOutright,
-            bool isAllDayBalTransfer)
+            bool isAllDayBalTransfer,
+            byte locked)
         {
             HasDownline = hasDownline;
             DisableAutoMPT = disableAutoMPT;
@@ -41,6 +42,8 @@
             DisableOutright = disableOutright;
             UplineDisableOutright = uplineDisableOutright;
             IsAllDayBalTransfer = isAllDayBalTransfer;
+
+            Locked = locked;
         }
 
         public bool HasDownline { get; private set; }
@@ -72,5 +75,7 @@
         public bool UplineDisableOutright { get; private set; }
 
         public bool IsAllDayBalTransfer { get; }
+
+        public byte Locked { get; }
     }
 }
