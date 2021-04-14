@@ -47,10 +47,9 @@ class CustomerListPopup {
 
         this.$productIframeForm.submit();
 
-        const bodyWidth = this.$(window).width() - this.topWindow.$('#side-bar').width();
-
         let width = '100%';
         if (!this.isMobile) {
+            const bodyWidth = this.topWindow.$('#main').width();
             width = bodyWidth < 1160 ? `${bodyWidth - 50}px` : '1160px';
         }
 
