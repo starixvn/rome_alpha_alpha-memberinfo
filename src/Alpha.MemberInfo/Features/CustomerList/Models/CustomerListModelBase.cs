@@ -140,6 +140,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             }
         }
 
-        public byte Locked { get; }
+        public byte Locked { get; private set; }
     }
 }
