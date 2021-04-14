@@ -37,7 +37,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          decimal groupB,
          decimal groupC,
          decimal groupD,
-         decimal discountMyanmarOdds)
+         decimal discountMyanmarOdds,
+         byte locked)
             : base(custId,
             username,
             roleId,
@@ -61,7 +62,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             suspended,
             disableOutright,
             discountCS,
-            discount1x2)
+            discount1x2,
+            locked)
         {
             GroupA = groupA;
             GroupB = groupB;

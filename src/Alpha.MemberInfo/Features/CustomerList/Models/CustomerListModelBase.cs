@@ -1,5 +1,5 @@
-﻿using Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResources;
-using System;
+﻿using System;
+using Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResources;
 
 namespace Alpha.MemberInfo.Features.CustomerList.Models
 {
@@ -32,7 +32,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          bool suspended,
          bool disableOutright,
          decimal discountCS,
-         decimal discount1x2)
+         decimal discount1x2,
+         byte locked)
         {
             CustId = custId;
             Username = username;
@@ -58,6 +59,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             DiscountCS = discountCS;
             Discount1x2 = discount1x2;
             IsInternal = isInternal;
+            Locked = locked;
         }
 
         public int CustId { get; private set; }
@@ -137,5 +139,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
                 }
             }
         }
+
+        public byte Locked { get; }
     }
 }

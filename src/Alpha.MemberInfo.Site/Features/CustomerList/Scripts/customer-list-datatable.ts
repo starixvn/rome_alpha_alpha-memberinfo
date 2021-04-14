@@ -8,6 +8,7 @@ class CustomerListDataTable {
     private editSingleSetting: EditSingleSetting;
     private editMultipleSetting: EditMultipleSetting;
     private editStatus: EditStatus;
+    private unlock: Unlock;
     private viewModel: CustomerListViewModel;
     private topWindow: any;
     private username: string;
@@ -22,7 +23,8 @@ class CustomerListDataTable {
         customerListServices: CustomerListServices,
         editSingleSetting: EditSingleSetting,
         editMultipleSetting: EditMultipleSetting,
-        editStatus: EditStatus) {
+        editStatus: EditStatus,
+        unlock: Unlock) {
         this.$ = $;
         this.topWindow = topWindow;
         this.viewModel = viewModel;
@@ -31,6 +33,7 @@ class CustomerListDataTable {
         this.editSingleSetting = editSingleSetting;
         this.editMultipleSetting = editMultipleSetting;
         this.editStatus = editStatus;
+        this.unlock = unlock;
 
         this.topWindow.customerListNew = true;
     }
@@ -49,6 +52,9 @@ class CustomerListDataTable {
         }
         else if (data.Suspended) {
             return statusClasses.Suspended.Css;
+        }
+        else if (data.Locked) {
+            return statusClasses.Locked.filter(locked => data.Locked === locked.Id)[0].Css;
         }
 
         return data.Enabled.Css;
@@ -321,6 +327,12 @@ class CustomerListDataTable {
     }
 
     private renderUsernameColumn = item => {
+        if (item.RoleId === CustomerLevel.Member) {
+            return item.Locked
+                ? `<div class='pull-left'><span>${item.Username}</span><br/><span class='grey-color'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span></div><div class='pull-right'>${this.renderLockedIcon(item)}</div>`
+                : `<span>${item.Username}</span><br/><span class='grey-color'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span>`;
+        }
+
         const content = `<span>${item.Username}</span> <br /> <span class='grey-color'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span>`;
         const queryString = {
             CustLevelId: item.RoleId,
@@ -332,7 +344,27 @@ class CustomerListDataTable {
         };
 
         const viewDownlineLink = `${this.viewModel.MemberInfoUrl}CustomerList/${this.viewModel.DownlineLevelName}?${this.$.param(queryString)}&BreadcrumbLevelJson=${this.viewModel.BreadcrumbLevelJson}`;
-        return item.RoleId === CustomerLevel.Member ? content : `<div title='${this.$('#usernameTooltipText').val()}'><a href="${viewDownlineLink}" >${content}</a></div>`;
+        return item.Locked
+            ? `<div class='pull-left' title='${this.$('#usernameTooltipText').val()}'><a href="${viewDownlineLink}" >${content}</a></div><div class='pull-right'>${this.renderLockedIcon(item)}</div>`
+            : `<div title='${this.$('#usernameTooltipText').val()}'><a href="${viewDownlineLink}" >${content}</a></div>`;
+    }
+
+    private renderLockedIcon = item => {
+        let confirmMessage = '';
+        if (item.Locked === 1) {
+            confirmMessage = this.$('#confirmUnlockInCaseFalseInputOTPSC').val();
+        } else if (item.Locked === 2) {
+            confirmMessage = this.$('#confirmUnlockInCaseFalseInputPassword').val();
+        }
+
+        const params = {
+            SearchAccountId: item.CustId,
+            SearchAccountName: item.Username,
+            SearchAccountRoleId: item.RoleId,
+            StatusName: "Unlock"
+        };
+
+        return `<span class='icon-locked' title='${this.$('#unlockTooltipText').val()}' data-message='${confirmMessage}' data-url='UpdateCustomerStatus' data-reloadcustomerlist='true' data-params=${JSON.stringify(params)}></span>`;
     }
 
     private renderEditColumn = item => {
@@ -460,6 +492,8 @@ class CustomerListDataTable {
         this.editSingleSetting.bindingEvent();
 
         this.editStatus.bindingEvent();
+
+        this.unlock.bindingEvent();
 
         this.$("td.control").each((index, element) => {
             this.$(element).attr('title', this.$(element).parent().hasClass('parent') ? this.$('#collapseText').val() : this.$('#expandText').val());

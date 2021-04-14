@@ -350,6 +350,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Locked.
+        /// </summary>
+        public static string Locked {
+            get {
+                return ResourceManager.GetString("Locked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login IP.
         /// </summary>
         public static string LoginIP {
@@ -562,6 +571,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string UnconfirmedSetting {
             get {
                 return ResourceManager.GetString("UnconfirmedSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to unlock.
+        /// </summary>
+        public static string UnlockTooltip {
+            get {
+                return ResourceManager.GetString("UnlockTooltip", resourceCulture);
             }
         }
         

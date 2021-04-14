@@ -166,6 +166,7 @@
       "Features/CustomerList/Scripts/customer-list-popup.js",
       "Features/CustomerList/Scripts/customer-list-services.js",
       "Features/CustomerList/Scripts/edit-status.js",
+      "Features/CustomerList/Scripts/unlock.js",
       "Features/CustomerList/Scripts/edit-single-setting.js",
       "Features/CustomerList/Scripts/edit-multiple-setting.js",
       "Features/CustomerList/Scripts/customer-list-datatable.js",

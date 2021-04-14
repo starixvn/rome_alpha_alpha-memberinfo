@@ -1,4 +1,5 @@
 ﻿@using Sunplus.Agent.Model.Entities
+@using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources
 @model CustomerListViewModel
 
 @{
@@ -258,6 +259,9 @@
     <input type="hidden" id="expandText" value='@CustomerListResources.Expand'>
     <input type="hidden" id="collapseAllText" value='@CustomerListResources.CollapseAll'>
     <input type="hidden" id="expandAllText" value='@CustomerListResources.ExpandAll'>
+    <input type="hidden" id="unlockTooltipText" value='@CustomerListResources.UnlockTooltip'>
+    <input type="hidden" id="confirmUnlockInCaseFalseInputOTPSC" value='@ProductResources.ConfirmUnlockAccessViewModelInCaseFalseInputOTPSC'>
+    <input type="hidden" id="confirmUnlockInCaseFalseInputPassword" value='@ProductResources.ConfirmUnlockAccessViewModelInCaseFalseInputPassword'>
     @Alpha.Web.Helpers.GoogleAnalyticHepler.Render()
 </div>
 

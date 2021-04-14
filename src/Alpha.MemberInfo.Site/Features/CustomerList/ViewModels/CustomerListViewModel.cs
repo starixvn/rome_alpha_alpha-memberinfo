@@ -114,11 +114,12 @@
         public IEnumerable<CustomerListOption> StatusOptions
              => new List<CustomerListOption>
                 {
-                    new CustomerListOption(0 , CustomerListResources.All),
-                    new CustomerListOption(1 , CustomerListResources.Open),
-                    new CustomerListOption(2 , CustomerListResources.Suspended),
-                    new CustomerListOption(3 , CustomerListResources.Closed),
-                    new CustomerListOption(4 , CustomerListResources.Disabled)
+                    new CustomerListOption(0, CustomerListResources.All),
+                    new CustomerListOption(1, CustomerListResources.Open),
+                    new CustomerListOption(2, CustomerListResources.Suspended),
+                    new CustomerListOption(3, CustomerListResources.Closed),
+                    new CustomerListOption(4, CustomerListResources.Disabled),
+                    new CustomerListOption(5, CustomerListResources.Locked)
                 };
 
         public IEnumerable<CustomerListOption> DoubleCommOptions

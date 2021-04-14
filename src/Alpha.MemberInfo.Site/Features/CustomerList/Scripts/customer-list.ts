@@ -101,7 +101,8 @@ $(function () {
         editSingleSetting = new EditSingleSetting($, customerListPopup, customerListServices),
         editMultipleSetting = new EditMultipleSetting($, viewModel, customerListPopup, customerListServices, editSingleSetting),
         editStatus = new EditStatus($, window.top, viewModel.IsMobileView, customerListServices, customerListPopup),
-        customerListDataTable = new CustomerListDataTable($, window.top, viewModel, customerListPopup, customerListServices, editSingleSetting, editMultipleSetting, editStatus),
+        unlock = new Unlock($, window.top, customerListServices),
+        customerListDataTable = new CustomerListDataTable($, window.top, viewModel, customerListPopup, customerListServices, editSingleSetting, editMultipleSetting, editStatus, unlock),
         customerList = new CustomerList(
             $,
             viewModel,

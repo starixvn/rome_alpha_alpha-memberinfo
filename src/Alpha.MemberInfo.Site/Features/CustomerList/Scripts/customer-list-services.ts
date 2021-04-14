@@ -70,4 +70,13 @@ class CustomerListServices {
             }
         }
     )
+
+    public unlock = (custId: number, unlockedSuccessfully: Function) => this.callAjax(
+        this.viewModel.MemberInfoUrl + 'CustomerList/UpdateCustomerStatus',
+        'POST',
+        { custId: custId },
+        data => {
+            this.$.unblockUI();
+            unlockedSuccessfully(data);
+        })
 }

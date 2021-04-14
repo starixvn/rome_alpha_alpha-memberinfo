@@ -306,4 +306,10 @@
   <data name="ExpandAll" xml:space="preserve">
     <value>ขยายทั้งหมด</value>
   </data>
+  <data name="Locked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="UnlockTooltip" xml:space="preserve">
+    <value>Click to unlock</value>
+  </data>
 </root>
