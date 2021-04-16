@@ -47,7 +47,7 @@
 
         public override bool IsPopup => IsSuspendedSearchAccount && SearchAccount.IsNotMember;
 
-        public override string PopupHeaderText => Request.GetResource("UnuspendStatusPopupHeaderText");
+        public override string PopupHeaderText => IsPopup ? Request.GetResource("UnuspendStatusPopupHeaderText") : base.PopupHeaderText;
 
         public override string Url => IsPopup ?
             $"{AccountInfoUrl}UnsuspendDownlines/EditSingle?SearchAccountId={SearchAccount.Id}&SearchAccountName={SearchAccount.Username}" :

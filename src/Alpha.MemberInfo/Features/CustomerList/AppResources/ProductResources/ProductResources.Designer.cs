@@ -836,6 +836,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open &lt;username&gt;.
+        /// </summary>
+        public static string OpenCustomerPopupHeaderText {
+            get {
+                return ResourceManager.GetString("OpenCustomerPopupHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Upline has been disabled Outright betting.
         /// </summary>
         public static string OutrightDisabledUpline {
@@ -1088,15 +1097,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unclose &lt;username&gt;.
-        /// </summary>
-        public static string UncloseStatusPopupHeaderText {
-            get {
-                return ResourceManager.GetString("UncloseStatusPopupHeaderText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unsuspend &lt;username&gt;.
         /// </summary>
         public static string UnuspendStatusPopupHeader {
@@ -1120,6 +1120,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         public static string Update {
             get {
                 return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Multiple Closed Status.
+        /// </summary>
+        public static string UpdateMultipleClosedStatusText {
+            get {
+                return ResourceManager.GetString("UpdateMultipleClosedStatusText", resourceCulture);
             }
         }
         

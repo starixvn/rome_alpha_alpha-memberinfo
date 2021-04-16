@@ -31,10 +31,10 @@
 
         public override bool IsPopup => IsClosedSearchAccount && SearchAccount.IsNotMember;
 
-        public override string PopupHeaderText => Request.GetResource("UncloseStatusPopupHeaderText");
+        public override string PopupHeaderText => IsPopup ? Request.GetResource("OpenCustomerPopupHeaderText") : base.PopupHeaderText;
 
         public override string Url => IsPopup
-            ? $"{AccountInfoUrl}UncloseDownlines/EditSingle?SearchAccountId={SearchAccount.Id}&SearchAccountName={SearchAccount.Username}"
+            ? $"{AccountInfoUrl}OpenDownlines/EditSingle?SearchAccountId={SearchAccount.Id}&SearchAccountName={SearchAccount.Username}"
             : base.Url;
     }
 }

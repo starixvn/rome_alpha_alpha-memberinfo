@@ -16,8 +16,10 @@
 
         public override string Text => Request.GetResource("EditMultipleClosedStatusText");
 
+        public string Title => Request.GetResource("UpdateMultipleClosedStatusText");
+
         protected override string BaseAddress
-            => $"{AccountInfoUrl}UncloseDownlines/EditMultiple";
+            => $"{AccountInfoUrl}OpenDownlines/EditMultiple";
 
         public override string Url => BaseAddress;
 

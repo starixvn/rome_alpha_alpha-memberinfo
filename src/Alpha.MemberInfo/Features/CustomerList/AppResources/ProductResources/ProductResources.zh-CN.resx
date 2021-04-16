@@ -486,8 +486,13 @@
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
     <value>Unsuspend &lt;username&gt;</value>
   </data>
-  <data name="UncloseStatusPopupHeaderText" xml:space="preserve">
-    <value>Unclose &lt;username&gt;</value>
+  <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
+    <value>Update Multiple Closed Status</value>
   </data>
-
+  <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
+    <value>Unsuspend &lt;username&gt;</value>
+  </data>
+  <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
+    <value>Open &lt;username&gt;</value>
+  </data>
 </root>
