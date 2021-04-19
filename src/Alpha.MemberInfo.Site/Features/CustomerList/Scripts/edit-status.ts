@@ -45,6 +45,7 @@ class EditStatus {
                     'data-reloadcustomerlist': item.ReloadCustomerList,
                     'data-url': item.Url,
                     'data-ispopup': item.IsPopup,
+                    'data-popupheadertext': item.PopupHeaderText,
                     'data-params': item.JsonParams
                 };
 
@@ -60,8 +61,9 @@ class EditStatus {
         this.$('.edit-status-popup').click(event => {
             const isOpenPopup = JSON.parse(this.$(event.currentTarget).data("ispopup"));
             if (isOpenPopup) {
+                const popupHeaderText = this.$(event.currentTarget).data("popupheadertext");
                 const username = this.$(event.currentTarget).data("username");
-                this.$(event.currentTarget).data('title', this.$('#unuspendStatusPopupHeader').val().replace('<username>', username));
+                this.$(event.currentTarget).data('title', popupHeaderText.replace('<username>', username));
                 this.customerListPopup.openProductPopup(event.currentTarget)
             }
             else {
