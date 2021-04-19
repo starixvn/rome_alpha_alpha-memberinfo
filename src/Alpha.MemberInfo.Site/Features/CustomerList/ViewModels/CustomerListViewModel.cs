@@ -51,6 +51,7 @@
             LimitedDateToShowInfo = limitedDateToShowInfo;
             IsShowMyanmarOdds = request.IsShowMyanmarOdds;
             CanViewReport = request.CanViewReports;
+            CanUpdateAccount = request.CanUpdateAccount;
 
             DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
             DownlineLevelName = DownlineLevel.DisplayName;
@@ -96,6 +97,8 @@
         public bool IsMobileView { get; }
 
         public bool CanViewReport { get; }
+
+        public bool CanUpdateAccount { get; }
 
         public bool LimitedDateToShowInfo { get; }
 

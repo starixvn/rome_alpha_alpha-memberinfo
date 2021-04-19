@@ -350,6 +350,10 @@ class CustomerListDataTable {
     }
 
     private renderLockedIcon = item => {
+        if (!this.viewModel.CanUpdateAccount) {
+            return "<span class='icon-locked'></span>";
+        }
+
         let confirmMessage = '';
         if (item.Locked === 1) {
             confirmMessage = this.$('#confirmUnlockInCaseFalseInputOTPSC').val();

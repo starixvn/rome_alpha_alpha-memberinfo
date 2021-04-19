@@ -35,6 +35,9 @@
         public bool? Closed
             => Status.Equals(1) || Status.Equals(3) ? (bool?)Status.Equals(3) : null;
 
+        public bool Locked
+            => Status.Equals(5);
+
         public bool LimitedDateToShowInfo { get; }
 
         public bool IsShowMyanmarOdds { get; }

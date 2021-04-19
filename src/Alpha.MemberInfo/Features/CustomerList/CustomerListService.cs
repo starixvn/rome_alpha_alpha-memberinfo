@@ -76,6 +76,7 @@
               param.Enabled,
               param.Closed,
               param.Suspended,
+              param.Locked,
               param.DoubleCommLosing,
               param.PageSize,
               param.PageIndex);
@@ -94,6 +95,7 @@
                 param.Enabled,
                 param.Closed,
                 param.Suspended,
+                param.Locked,
                 param.DoubleCommLosing,
                 param.PageSize,
                 param.PageIndex);
@@ -112,6 +114,7 @@
                 param.Enabled,
                 param.Closed,
                 param.Suspended,
+                param.Locked,
                 param.DoubleCommLosing,
                 param.PageSize,
                 param.PageIndex);

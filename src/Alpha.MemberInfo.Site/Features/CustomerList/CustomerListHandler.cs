@@ -106,6 +106,7 @@
                     message.Enabled,
                     message.Closed,
                     message.Suspended,
+                    message.Locked,
                     message.DoubleComm,
                     message.PageSize,
                     message.PageIndex,

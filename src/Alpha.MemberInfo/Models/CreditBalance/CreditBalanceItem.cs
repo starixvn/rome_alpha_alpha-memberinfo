@@ -53,6 +53,8 @@
 
         public bool Suspended { get; }
 
+        public byte Locked { get; set; }
+
         public int CustId { get; }
 
         public string UserName { get; }

@@ -19,7 +19,8 @@
             bool closed,
             bool suspended,
             DateTime? lastVerifyPwd,
-            DateTime? lastChangedPwdDate)
+            DateTime? lastChangedPwdDate,
+            byte locked)
         {
             CustId = custId;
             SubAccId = subAccId;
@@ -30,6 +31,7 @@
             Suspended = suspended;
             LastVerifyPwd = lastVerifyPwd;
             LastChangedPwdDate = lastChangedPwdDate;
+            Locked = locked;
         }
 
         public int CustId { get; }
@@ -91,5 +93,9 @@
         public DateTime? LastVerifyPwd { get; }
 
         public DateTime? LastChangedPwdDate { get; }
+
+        public byte Locked { get; }
+
+        public string LockedStatus => Locked != 0 ? Resources.Yes : Resources.No2;
     }
 }

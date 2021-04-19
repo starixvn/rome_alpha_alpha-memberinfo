@@ -15,13 +15,16 @@ class Unlock {
 
     public bindingEvent = () => this.$('.icon-locked').unbind().bind('click', this.openPopup);
 
-    private openPopup = event => this.topWindow.bootboxConfirm(
-        this.$(event.currentTarget).data("message"),
-        event.currentTarget,
-        () => this.customerListServices.updateCustomerStatus(
+    private openPopup = event => {
+        const confirmMessage = this.$(event.currentTarget).data("message");
+        confirmMessage && this.topWindow.bootboxConfirm(
+            confirmMessage,
             event.currentTarget,
-            null,
-            this.updateCustomerStatusSuccess));
+            () => this.customerListServices.updateCustomerStatus(
+                event.currentTarget,
+                null,
+                this.updateCustomerStatusSuccess));
+    }
 
     private updateCustomerStatusSuccess = (currentTarget, parentTarget, data, reloadcustomerlist) => {
         if (data.IsSuccessful) {

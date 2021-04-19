@@ -34,7 +34,7 @@
         public void CustLevel_Always_ReturnsCorrectValue(byte level)
         {
             // Arrange
-            var model = new IndirectLoginAccountItem(1176083, 91726, "master1", level, true, false, false, DateTime.Today, DateTime.Today.AddDays(1));
+            var model = new IndirectLoginAccountItem(1176083, 91726, "master1", level, true, false, false, DateTime.Today, DateTime.Today.AddDays(1), false);
 
             // Act
             var actual = model.CustLevel;
@@ -51,7 +51,7 @@
         public void LevelName_Always_ReturnsCorrectValue(byte level, string expected)
         {
             // Arrange
-            var model = new IndirectLoginAccountItem(1176083, 0, string.Empty, level, true, false, false, DateTime.Today.AddDays(-1), DateTime.Today);
+            var model = new IndirectLoginAccountItem(1176083, 0, string.Empty, level, true, false, false, DateTime.Today.AddDays(-1), DateTime.Today, false);
 
             // Act
             var actual = model.LevelName;
@@ -64,7 +64,7 @@
         public void Status_Disabled_ReturnsDisabledText()
         {
             // Arrange
-            var model = new IndirectLoginAccountItem(1176083, 91726, "master1", 3, false, false, false, null, null);
+            var model = new IndirectLoginAccountItem(1176083, 91726, "master1", 3, false, false, false, null, null, false);
 
             // Act
             var actual = model.Status;
@@ -77,7 +77,7 @@
         public void Status_Closed_ReturnsClosedText()
         {
             // Arrange
-            var model = new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, true, false, null, null);
+            var model = new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, true, false, null, null, false);
 
             // Act
             var actual = model.Status;
@@ -90,7 +90,7 @@
         public void Status_Suspended_ReturnsSuspendedText()
         {
             // Arrange
-            var model = new IndirectLoginAccountItem(1176083, 91726, "master1", 3, true, false, true, null, null);
+            var model = new IndirectLoginAccountItem(1176083, 91726, "master1", 3, true, false, true, null, null, false);
 
             // Act
             var actual = model.Status;
@@ -103,7 +103,7 @@
         public void Status_Open_ReturnsOpenText()
         {
             // Arrange
-            var model = new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, false, false, null, null);
+            var model = new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, false, false, null, null, false);
 
             // Act
             var actual = model.Status;

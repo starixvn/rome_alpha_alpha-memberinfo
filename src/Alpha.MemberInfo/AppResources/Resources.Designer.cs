@@ -673,6 +673,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Locked Status.
+        /// </summary>
+        public static string LockedStatus {
+            get {
+                return ResourceManager.GetString("LockedStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {

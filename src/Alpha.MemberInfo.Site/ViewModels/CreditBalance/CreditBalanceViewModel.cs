@@ -110,15 +110,18 @@
                 return "suspended-bg";
             }
 
+            if (item.Locked != 0)
+            {
+                return GetLockedBackgroundColor(item.Locked);
+            }
+
             return item.RowNumber % 2 == 0 ? "even-row" : string.Empty;
         }
 
         private static string GetClosedBackgroundColor(byte closedReason)
         {
-            const byte WrongPasswordOrOthers = 0;
             const byte ClosedByAdmin = 1;
             const byte ClosedByUpline = 2;
-            const byte WrongOTPOrSC = 3;
             const byte ByArchive = 4;
 
             switch (closedReason)
@@ -129,15 +132,29 @@
                 case ClosedByUpline:
                     return "closed-byupline";
 
-                case WrongOTPOrSC:
-                    return "closed-wrongotp-sc";
-
                 case ByArchive:
                     return "closed-byArchive";
 
-                case WrongPasswordOrOthers:
                 default:
-                    return "closed-wrongpwd-others";
+                    return string.Empty;
+            }
+        }
+
+        private static string GetLockedBackgroundColor(byte locked)
+        {
+            const byte LockedFalseInputOTPSC = 1;
+            const byte LockedFalseInputPassword = 2;
+
+            switch (locked)
+            {
+                case LockedFalseInputOTPSC:
+                    return "locked-falseOTPSC";
+
+                case LockedFalseInputPassword:
+                    return "locked-falsePassword";
+
+                default:
+                    return string.Empty;
             }
         }
 

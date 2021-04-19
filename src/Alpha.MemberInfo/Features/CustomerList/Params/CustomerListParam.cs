@@ -12,6 +12,7 @@
             bool? enabled,
             bool? closed,
             bool? suspended,
+            bool locked,
             byte doubleCommLosing,
             int pageSize,
             int pageIndex,
@@ -26,6 +27,7 @@
             Enabled = enabled;
             Closed = closed;
             Suspended = suspended;
+            Locked = locked;
             DoubleCommLosing = doubleCommLosing;
             PageSize = pageSize;
             PageIndex = pageIndex;
@@ -47,6 +49,8 @@
         public bool? Closed { get; }
 
         public bool? Suspended { get; }
+
+        public bool Locked { get; }
 
         public byte DoubleCommLosing { get; }
 

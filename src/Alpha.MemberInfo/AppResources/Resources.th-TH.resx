@@ -573,4 +573,7 @@
   <data name="Pager_DisplayItems" xml:space="preserve">
     <value>แสดง {from} ถึง {to} จาก {total} รายการ</value>
   </data>
+  <data name="LockedStatus" xml:space="preserve">
+    <value>Locked Status</value>
+  </data>
 </root>

@@ -17,6 +17,7 @@ class CustomerListViewModel {
     CustomerListResources: any;
     IsShowMyanmarOdds: boolean;
     CanViewReport: boolean;
+    CanUpdateAccount: boolean;
 
     constructor(
         uplineRoleId: number,
@@ -34,6 +35,7 @@ class CustomerListViewModel {
         limitedDateToShowInfo: boolean,
         isShowMyanmarOdds: boolean,
         canViewReport: boolean,
+        canUpdateAccount: boolean,
         customerListResources: any) {
         this.UplineRoleId = uplineRoleId;
         this.SearchAccountId = searchAccountId;
@@ -50,6 +52,7 @@ class CustomerListViewModel {
         this.LimitedDateToShowInfo = limitedDateToShowInfo;
         this.IsShowMyanmarOdds = isShowMyanmarOdds;
         this.CanViewReport = canViewReport;
+        this.CanUpdateAccount = canUpdateAccount;
         this.CustomerListResources = customerListResources;
     }
 }

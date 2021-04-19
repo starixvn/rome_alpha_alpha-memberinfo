@@ -15,7 +15,7 @@
 
         Task<PagedCreditBalance> GetCreditBalancesAsync(CreditBalanceParam param);
 
-        Task<IDictionary<int, byte>> GetClosedReasonsAsync(CreditBalanceParam param);
+        Task<IDictionary<int, CustomerClosedReason>> GetClosedReasonsAsync(CreditBalanceParam param);
 
         Task<IDictionary<int, decimal>> GetAgentNetPositionsAsync(CreditBalanceParam param);
     }
@@ -46,9 +46,10 @@
                     item.IPLogin = FormatIP(item.IPLogin);
                 }
 
-                if (item.Closed && closedReasons.ContainsKey(item.CustId))
+                if (closedReasons.TryGetValue(item.CustId, out var customerClosed))
                 {
-                    item.ClosedReason = closedReasons[item.CustId];
+                    item.ClosedReason = customerClosed.ClosedReason;
+                    item.Locked = customerClosed.Locked;
                 }
 
                 if (agentNetPositions.ContainsKey(item.CustId))
@@ -129,7 +130,7 @@
                 param.PageIndex,
                 param.PageSize);
 
-        public async Task<IDictionary<int, byte>> GetClosedReasonsAsync(CreditBalanceParam param)
+        public async Task<IDictionary<int, CustomerClosedReason>> GetClosedReasonsAsync(CreditBalanceParam param)
         {
             ICriteria criteria;
 
@@ -147,12 +148,12 @@
             }
             else
             {
-                return new Dictionary<int, byte>();
+                return new Dictionary<int, CustomerClosedReason>();
             }
 
             var closedReasons = await repository.FetchAsync<CustomerClosedReason>(criteria);
 
-            return closedReasons.ToDictionary(kvp => kvp.CustId, kvp => kvp.ClosedReason);
+            return closedReasons.ToDictionary(kvp => kvp.CustId, kvp => kvp);
         }
 
         private static GetSuperClosedReasonCriteria GetSuperClosedReasonCriteria(CreditBalanceParam param)
