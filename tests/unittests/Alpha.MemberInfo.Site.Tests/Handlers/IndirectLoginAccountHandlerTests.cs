@@ -64,9 +64,9 @@
             var message = new ManageAccountQuery(user);
             var expected = new List<IndirectLoginAccountItem>
             {
-                new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, false, false, null, null, false),
-                new IndirectLoginAccountItem(1176086, 0, "agent01", 2, true, true, false, null, null, false),
-                new IndirectLoginAccountItem(1775970, 0,"agent99", 2, true, false, true, null, null, false)
+                new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, false, false, null, null, 0),
+                new IndirectLoginAccountItem(1176086, 0, "agent01", 2, true, true, false, null, null, 0),
+                new IndirectLoginAccountItem(1775970, 0,"agent99", 2, true, false, true, null, null, 0)
             };
             service
                 .GetIndirectLoginAccountsAsync(Arg.Is<int>(a => a == message.ViewerId), Arg.Is<int>(a => a == message.SubAccId))

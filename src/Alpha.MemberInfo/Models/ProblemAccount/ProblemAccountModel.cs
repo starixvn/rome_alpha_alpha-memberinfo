@@ -46,5 +46,7 @@
         public string ReviewStatus => IsReviewed ? Resources.Reviewed : Resources.NotReviewed;
 
         public bool CanEdit => !IsReviewed;
+
+        public byte Locked { get; }
     }
 }

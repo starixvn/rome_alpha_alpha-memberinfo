@@ -57,9 +57,9 @@
             var custId = 1176070;
             var expected = new List<IndirectLoginAccountItem>
             {
-                new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, false, false, null, null, false),
-                new IndirectLoginAccountItem(1176086, 0, "agent01", 2, true, true, false, null, null, false),
-                new IndirectLoginAccountItem(1775970, 0, "agent99", 2, true, false, true, null, null, false)
+                new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, false, false, null, null, 0),
+                new IndirectLoginAccountItem(1176086, 0, "agent01", 2, true, true, false, null, null, 0),
+                new IndirectLoginAccountItem(1775970, 0, "agent99", 2, true, false, true, null, null, 0)
             };
 
             repository
@@ -99,7 +99,7 @@
             var indirectCustId = 1176083;
             repository
                 .GetAsync<IndirectLoginAccountItem>(Arg.Any<GetIndirectLoginAccountsCriteria>())
-                .Returns(new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, true, false, null, null, false));
+                .Returns(new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, true, false, null, null, 0));
 
             // Act
             var actual = await service.ValidateIndirectLoginAccountAsync(custId, 0, indirectCustId, 0);
@@ -116,7 +116,7 @@
             var indirectCustId = 1176083;
             repository
                 .GetAsync<IndirectLoginAccountItem>(Arg.Any<GetIndirectLoginAccountsCriteria>())
-                .Returns(new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, false, false, DateTime.Today.AddDays(-1), DateTime.Today, false));
+                .Returns(new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, false, false, DateTime.Today.AddDays(-1), DateTime.Today, 0));
 
             // Act
             var actual = await service.ValidateIndirectLoginAccountAsync(custId, 0, indirectCustId, 0);
@@ -133,7 +133,7 @@
             var indirectCustId = 1176083;
             repository
                 .GetAsync<IndirectLoginAccountItem>(Arg.Any<GetIndirectLoginAccountsCriteria>())
-                .Returns(new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, false, false, DateTime.Today.AddDays(1), DateTime.Today, false));
+                .Returns(new IndirectLoginAccountItem(1176083, 0, "master1", 3, true, false, false, DateTime.Today.AddDays(1), DateTime.Today, 0));
 
             // Act
             var actual = await service.ValidateIndirectLoginAccountAsync(custId, 0, indirectCustId, 0);

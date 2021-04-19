@@ -33,13 +33,13 @@
 
         internal Row OpenRowTemplate { get; set; }
 
-        internal Row CloseRowTemplateWrongPassword { get; set; }
+        internal Row LockedRowTemplateFalsePassword { get; set; }
 
         internal Row CloseRowTemplateByAdmin { get; set; }
 
         internal Row CloseRowTemplateByUpline { get; set; }
 
-        internal Row CloseRowTemplateWrongOTPSC { get; set; }
+        internal Row LockedRowTemplateFalseOTPSC { get; set; }
 
         internal Row CloseRowTemplateByArchive { get; set; }
 
@@ -72,18 +72,11 @@
             Row templateRow;
             switch (account.Status)
             {
-                case ProblemAccountStatusConstants.Open:
-                    templateRow = OpenRowTemplate;
-                    break;
-                case ProblemAccountStatusConstants.Suspended:
-                    templateRow = SuspendedRowTemplate;
+                case ProblemAccountStatusConstants.Disabled:
+                    templateRow = DisabledRowTemplate;
                     break;
                 case ProblemAccountStatusConstants.Closed:
-                    if (account.ClosedReason == CloseReasonConstants.WrongPassword)
-                    {
-                        templateRow = CloseRowTemplateWrongPassword;
-                    }
-                    else if (account.ClosedReason == CloseReasonConstants.ByAdmin)
+                    if (account.ClosedReason == CloseReasonConstants.ByAdmin)
                     {
                         templateRow = CloseRowTemplateByAdmin;
                     }
@@ -97,12 +90,27 @@
                     }
                     else
                     {
-                        templateRow = CloseRowTemplateWrongOTPSC;
+                        templateRow = OpenRowTemplate;
                     }
 
                     break;
+                case ProblemAccountStatusConstants.Suspended:
+                    templateRow = SuspendedRowTemplate;
+                    break;
                 default:
-                    templateRow = DisabledRowTemplate;
+                    if (account.Locked == LockedAccessConstant.ByFalseInputOTPSC)
+                    {
+                        templateRow = LockedRowTemplateFalseOTPSC;
+                    }
+                    else if (account.Locked == LockedAccessConstant.ByFalseInputPassword)
+                    {
+                        templateRow = LockedRowTemplateFalsePassword;
+                    }
+                    else
+                    {
+                        templateRow = OpenRowTemplate;
+                    }
+
                     break;
             }
 
@@ -118,10 +126,10 @@
 
             OpenRowTemplate = sheet.GetRow(currentRowIndex++);
             SuspendedRowTemplate = sheet.GetRow(currentRowIndex++);
-            CloseRowTemplateWrongPassword = sheet.GetRow(currentRowIndex++);
+            LockedRowTemplateFalsePassword = sheet.GetRow(currentRowIndex++);
             CloseRowTemplateByAdmin = sheet.GetRow(currentRowIndex++);
             CloseRowTemplateByUpline = sheet.GetRow(currentRowIndex++);
-            CloseRowTemplateWrongOTPSC = sheet.GetRow(currentRowIndex++);
+            LockedRowTemplateFalseOTPSC = sheet.GetRow(currentRowIndex++);
             CloseRowTemplateByArchive = sheet.GetRow(currentRowIndex++);
             DisabledRowTemplate = sheet.GetRow(currentRowIndex);
 

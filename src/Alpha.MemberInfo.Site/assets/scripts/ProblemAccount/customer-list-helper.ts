@@ -106,6 +106,35 @@ class CustomerListHelper {
         return columnContent;
     }
 
+    private buildAccountStatusCssClass(customer) {
+        let className = "";
+        switch (customer.Status) {
+            case 2:
+            case 4:
+                className = customer.StatusNameEN;
+                break;
+            case 3:
+                className = customer.StatusNameEN + customer.ClosedReasonName;
+                break;
+            default:
+                className = customer.Locked === 0 ? customer.StatusNameEN : this.buildLockedAccessCssClass(customer.Locked);
+                break;
+        }
+
+        return 'row-customer RowBg' + className;
+    }
+
+    private buildLockedAccessCssClass(locked: number) {
+        switch (locked) {
+            case 1: // OTP/ Security Code
+                return 'LockedFalsedOTPSC';
+            case 2: // Password
+                return 'LockedFalsePassword';
+            default:
+                return ''
+        }
+    }
+
     public buildBody(Customers, levelId: number, actorId: number, reportParam: ReportParam) {
         if (Customers.length === 0) {
             if (levelId === siteInfrastructure.Role.Member.Id) {
@@ -125,7 +154,7 @@ class CustomerListHelper {
                 Customers[i],
                 levelId,
                 actorId,
-                customerIndex, ).forEach(column => {
+                customerIndex).forEach(column => {
                     if (column.Visibile) {
                         rowContent += new ColumnWrapper(column.Content,
                             column.Attributes.map(attr => new Attribute(attr.Name, attr.Value))).ToString();
@@ -134,7 +163,7 @@ class CustomerListHelper {
 
             bodyContent += new RowWrapper(rowContent,
                 [
-                    new Attribute('class', 'row-customer' + ' RowBg' + Customers[i].StatusNameEN + (Customers[i].Status == 3 ? Customers[i].ClosedReasonName : '')),
+                    new Attribute('class', this.buildAccountStatusCssClass(Customers[i])),
                     new Attribute('cust-id', Customers[i].CustId)
                 ]).ToString();
         }
