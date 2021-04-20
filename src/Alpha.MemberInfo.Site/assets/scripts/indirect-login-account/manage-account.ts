@@ -25,8 +25,9 @@ class ManageAccount {
         const self = this;
 
         this.$("#btn-connectToNewAccount").click(function () {
+            self.topWindow.alpha.detectResponsiveInformation()
             const url = self.rootURL + "NewAccount";
-            self.topWindow.popupManager.open(url, undefined, 630, 330);
+            self.topWindow.popupManager.open(url, undefined, 630, self.topWindow.alpha.isMobile ? 430 : 350);
         });
 
         this.$(".icon-indirect-login").not(".disabled").click(function (e) {

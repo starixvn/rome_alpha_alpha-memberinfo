@@ -95,7 +95,7 @@ class CreditBalance {
 
 			const popupTitle = `${self.$("#GivenCreditPopupTitle").val()} -  ${$this.data("username")}`;
 			self.topWindow.updateGivenCreditPopup.onClosing = self.givenPopupOnclosing;
-			self.topWindow.popupManager.openWithHanlder(self.topWindow.updateGivenCreditPopup, url, popupTitle, 470, 300);
+			self.topWindow.popupManager.openWithHanlder(self.topWindow.updateGivenCreditPopup, url, popupTitle, 470, 360);
         });
 
         this.$(".balancelink, .yesterdaybalancelink").click(function () {
