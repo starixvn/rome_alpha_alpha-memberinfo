@@ -126,7 +126,7 @@ class CustomerListHelper {
 
     private buildLockedAccessCssClass(locked: number) {
         switch (locked) {
-            case 1: // OTP/ Security Code
+            case 1: // OTP/Security Code
                 return 'LockedFalsedOTPSC';
             case 2: // Password
                 return 'LockedFalsePassword';

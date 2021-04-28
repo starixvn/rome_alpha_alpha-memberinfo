@@ -468,10 +468,10 @@
   <data name="Sportsbook2MultipeViewModelText" xml:space="preserve">
     <value>Sportsbook 2</value>
   </data>
-  <data name="ConfirmUnlockAccessViewModelInCaseFalseInputOTPSC" xml:space="preserve">
+  <data name="ConfirmUnlockAccessViewModelInCaseFalseOTPSC" xml:space="preserve">
     <value>This account was locked by false inputs of OTP/Security Code. Are you sure you want to unlock this account?</value>
   </data>
-  <data name="ConfirmUnlockAccessViewModelInCaseFalseInputPassword" xml:space="preserve">
+  <data name="ConfirmUnlockAccessViewModelInCaseFalsePassword" xml:space="preserve">
     <value>This account was locked by false inputs of Password. Are you sure you want to unlock this account?</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelText" xml:space="preserve">

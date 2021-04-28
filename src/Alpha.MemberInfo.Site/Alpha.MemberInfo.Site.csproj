@@ -846,6 +846,7 @@
     <Compile Include="Handlers\ProblemAccount\ProblemAccountWorkbook.cs" />
     <Compile Include="Handlers\ProgressiveJackpotHandler.cs" />
     <Compile Include="Handlers\WinLossLimitHandler.cs" />
+    <Compile Include="Helpers\BackgroundColorHelper.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\QueryEntityModelBinder.cs" />
     <Compile Include="Helpers\RequestInfoHelper.cs" />

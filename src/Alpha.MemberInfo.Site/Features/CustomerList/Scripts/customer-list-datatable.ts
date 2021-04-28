@@ -329,11 +329,11 @@ class CustomerListDataTable {
     private renderUsernameColumn = item => {
         if (item.RoleId === CustomerLevel.Member) {
             return item.Locked
-                ? `<div class='pull-left'><span>${item.Username}</span><br/><span class='grey-color'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span></div><div class='pull-right'>${this.renderLockedIcon(item)}</div>`
+                ? `<div class='col-username'><span>${item.Username}</span><br/><span class='grey-color'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span>${this.renderLockedIcon(item)}</div>`
                 : `<span>${item.Username}</span><br/><span class='grey-color'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span>`;
         }
 
-        const content = `<span>${item.Username}</span> <br /> <span class='grey-color'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span>`;
+        const content = `<span>${item.Username}</span><br/><span class='grey-color'>${item.UserName2 === '' || item.UserName2 === null ? "--" : item.UserName2}</span>`;
         const queryString = {
             CustLevelId: item.RoleId,
             CustId: item.CustId,
@@ -345,7 +345,7 @@ class CustomerListDataTable {
 
         const viewDownlineLink = `${this.viewModel.MemberInfoUrl}CustomerList/${this.viewModel.DownlineLevelName}?${this.$.param(queryString)}&BreadcrumbLevelJson=${this.viewModel.BreadcrumbLevelJson}`;
         return item.Locked
-            ? `<div class='pull-left' title='${this.$('#usernameTooltipText').val()}'><a href="${viewDownlineLink}" >${content}</a></div><div class='pull-right'>${this.renderLockedIcon(item)}</div>`
+            ? `<div class='col-username' title='${this.$('#usernameTooltipText').val()}'><a href="${viewDownlineLink}" >${content}</a>${this.renderLockedIcon(item)}</div>`
             : `<div title='${this.$('#usernameTooltipText').val()}'><a href="${viewDownlineLink}" >${content}</a></div>`;
     }
 
@@ -356,9 +356,9 @@ class CustomerListDataTable {
 
         let confirmMessage = '';
         if (item.Locked === 1) {
-            confirmMessage = this.$('#confirmUnlockInCaseFalseInputOTPSC').val();
+            confirmMessage = this.$('#confirmUnlockInCaseFalseOTPSC').val();
         } else if (item.Locked === 2) {
-            confirmMessage = this.$('#confirmUnlockInCaseFalseInputPassword').val();
+            confirmMessage = this.$('#confirmUnlockInCaseFalsePassword').val();
         }
 
         const params = {

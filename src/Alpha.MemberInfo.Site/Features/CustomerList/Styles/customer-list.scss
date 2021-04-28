@@ -304,8 +304,19 @@ table.dataTable tbody tr {
 
 .filter {
     padding-bottom: 0;
+
     .form-group {
         padding-bottom: 12px;
+    }
+}
+
+.col-username {
+    position: relative;
+
+    .icon-locked {
+        bottom: 0;
+        right: 0;
+        position: absolute;
     }
 }
 

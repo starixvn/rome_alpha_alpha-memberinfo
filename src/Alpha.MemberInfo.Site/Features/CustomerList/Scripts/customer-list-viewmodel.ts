@@ -71,8 +71,8 @@ const ClosedReason = {
 };
 
 const LockedAccess = {
-    FalseInputOTPSC: 1,
-    FalseInputPassword: 2
+    FalseOTPSC: 1,
+    FalsePassword: 2
 };
 
 const statusClasses = {
@@ -101,13 +101,13 @@ const statusClasses = {
     },
     Locked: [
         {
-            Id: LockedAccess.FalseInputOTPSC,
+            Id: LockedAccess.FalseOTPSC,
             Css: 'locked-falseOTPSC'
         },
         {
-            Id: LockedAccess.FalseInputPassword,
+            Id: LockedAccess.FalsePassword,
             Css: 'locked-falsePassword'
-        },
+        }
     ]
 };
 

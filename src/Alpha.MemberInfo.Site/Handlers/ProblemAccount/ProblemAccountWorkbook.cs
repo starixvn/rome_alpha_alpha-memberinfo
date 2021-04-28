@@ -69,53 +69,52 @@
             ProblemAccountModel account)
         {
             var row = sheet.GetRow(rowIndex);
-            Row templateRow;
-            switch (account.Status)
+            row.CopyCellsFrom(GetTemplateRow(account.Status, account.ClosedReason, account.Locked));
+            FillCells(row, account, RowMapper.Mappings);
+        }
+
+        private Row GetTemplateRow(byte accountStatus, int closedReason, byte locked)
+        {
+            var templateRow = OpenRowTemplate;
+
+            switch (accountStatus)
             {
                 case ProblemAccountStatusConstants.Disabled:
                     templateRow = DisabledRowTemplate;
                     break;
+
                 case ProblemAccountStatusConstants.Closed:
-                    if (account.ClosedReason == CloseReasonConstants.ByAdmin)
+                    if (closedReason == CloseReasonConstants.ByAdmin)
                     {
                         templateRow = CloseRowTemplateByAdmin;
                     }
-                    else if (account.ClosedReason == CloseReasonConstants.ByUpline)
+                    else if (closedReason == CloseReasonConstants.ByUpline)
                     {
                         templateRow = CloseRowTemplateByUpline;
                     }
-                    else if (account.ClosedReason == CloseReasonConstants.ByArchive)
+                    else if (closedReason == CloseReasonConstants.ByArchive)
                     {
                         templateRow = CloseRowTemplateByArchive;
                     }
-                    else
-                    {
-                        templateRow = OpenRowTemplate;
-                    }
-
                     break;
+
                 case ProblemAccountStatusConstants.Suspended:
                     templateRow = SuspendedRowTemplate;
                     break;
+
                 default:
-                    if (account.Locked == LockedAccessConstant.ByFalseInputOTPSC)
+                    if (locked == LockedAccessConstant.FalseOTPSC)
                     {
                         templateRow = LockedRowTemplateFalseOTPSC;
                     }
-                    else if (account.Locked == LockedAccessConstant.ByFalseInputPassword)
+                    else if (locked == LockedAccessConstant.FalsePassword)
                     {
                         templateRow = LockedRowTemplateFalsePassword;
                     }
-                    else
-                    {
-                        templateRow = OpenRowTemplate;
-                    }
-
                     break;
             }
 
-            row.CopyCellsFrom(templateRow);
-            FillCells(row, account, RowMapper.Mappings);
+            return templateRow;
         }
 
         protected override Sheet LoadTemplateSheet()

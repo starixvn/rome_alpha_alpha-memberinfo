@@ -25,14 +25,14 @@
             {
                 var locked = Request.GetData<byte>(DataKey.SearchAccount.IsLockedAccess);
 
-                if (locked == DataKey.LockedAccess.FalseInputOTPSC)
+                if (locked == DataKey.LockedAccess.FalseOTPSC)
                 {
-                    return "InCaseFalseInputOTPSC";
+                    return "InCaseFalseOTPSC";
                 }
 
-                if (locked == DataKey.LockedAccess.FalseInputPassword)
+                if (locked == DataKey.LockedAccess.FalsePassword)
                 {
-                    return "InCaseFalseInputPassword";
+                    return "InCaseFalsePassword";
                 }
 
                 return "InCaseNone";

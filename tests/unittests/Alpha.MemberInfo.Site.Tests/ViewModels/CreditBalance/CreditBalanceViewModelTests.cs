@@ -167,7 +167,7 @@
             var creditBalanceItem = new CreditBalanceItem(
                 1,
                 true,
-                true,
+                false,
                 false,
                 1176070,
                 "master1",
@@ -181,14 +181,14 @@
                 new DateTime(2018, 8, 7, 4, 47, 0),
                 "192.168.1.1")
             {
-                ClosedReason = 3
+                Locked = 2
             };
 
             // Act
             var actual = viewModel.GeStatustBackgroundColor(creditBalanceItem);
 
             // Act & Assert
-            Assert.Equal("closed-wrongotp-sc", actual);
+            Assert.Equal("locked-falseOTPSC", actual);
         }
 
         [Fact]

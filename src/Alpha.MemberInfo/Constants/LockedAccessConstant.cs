@@ -2,7 +2,7 @@
 {
     public static class LockedAccessConstant
     {
-        public const byte ByFalseInputOTPSC = 1;
-        public const byte ByFalseInputPassword = 2;
+        public const byte FalseOTPSC = 1;
+        public const byte FalsePassword = 2;
     }
 }

@@ -78,8 +78,8 @@ namespace Alpha.MemberInfo.Tests.Services
             Assert.True(act.ClosedReason == 0);
             Assert.False(act.IsReviewed);
             Assert.True(act.CanEdit);
-            Assert.True(act.ClosedReason == CloseReasonConstants.WrongPassword);
-            Assert.True(act.ClosedReasonName == nameof(CloseReasonConstants.WrongPassword));
+            Assert.True(act.ClosedReason == 0);
+            Assert.True(act.ClosedReasonName == string.Empty);
             Assert.True(act.StatusNameEN == string.Empty);
         }
 

@@ -54,8 +54,8 @@
         public static class LockedAccess
         {
             public const byte None = 0;
-            public const byte FalseInputOTPSC = 1;
-            public const byte FalseInputPassword = 2;
+            public const byte FalseOTPSC = 1;
+            public const byte FalsePassword = 2;
         }
     }
 }

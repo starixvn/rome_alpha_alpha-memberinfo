@@ -424,18 +424,18 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         /// <summary>
         ///   Looks up a localized string similar to This account was locked by false inputs of OTP/Security Code. Are you sure you want to unlock this account?.
         /// </summary>
-        public static string ConfirmUnlockAccessViewModelInCaseFalseInputOTPSC {
+        public static string ConfirmUnlockAccessViewModelInCaseFalseOTPSC {
             get {
-                return ResourceManager.GetString("ConfirmUnlockAccessViewModelInCaseFalseInputOTPSC", resourceCulture);
+                return ResourceManager.GetString("ConfirmUnlockAccessViewModelInCaseFalseOTPSC", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to This account was locked by false inputs of Password. Are you sure you want to unlock this account?.
         /// </summary>
-        public static string ConfirmUnlockAccessViewModelInCaseFalseInputPassword {
+        public static string ConfirmUnlockAccessViewModelInCaseFalsePassword {
             get {
-                return ResourceManager.GetString("ConfirmUnlockAccessViewModelInCaseFalseInputPassword", resourceCulture);
+                return ResourceManager.GetString("ConfirmUnlockAccessViewModelInCaseFalsePassword", resourceCulture);
             }
         }
         
