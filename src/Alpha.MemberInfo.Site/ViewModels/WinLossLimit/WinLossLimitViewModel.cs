@@ -14,8 +14,9 @@
         private readonly List<int> SportTypeHasNoBetlimitSetting = new List<int> { SportTypeConstants.BBin };
 
         private readonly Dictionary<int, int> NumberOfColumnBySportType = new Dictionary<int, int> {
-            {SportTypeConstants.Sabaclub, 14},
-            {SportTypeConstants.BBin,14}
+            {SportTypeConstants.VGaming, 14},
+            { SportTypeConstants.Sabaclub, 14},
+            {SportTypeConstants.BBin, 14}
         };
 
         public WinLossLimitViewModel(
@@ -65,7 +66,8 @@
 
         public int SportType { get; }
 
-        public bool IsSabaclub => SportType == SportTypeConstants.Sabaclub;
+        public bool IsSabaclub => SportType == SportTypeConstants.Sabaclub || SportType == SportTypeConstants.VGaming;
+
         public bool IsBBin => SportType == SportTypeConstants.BBin;
 
         public int BetType { get; }
