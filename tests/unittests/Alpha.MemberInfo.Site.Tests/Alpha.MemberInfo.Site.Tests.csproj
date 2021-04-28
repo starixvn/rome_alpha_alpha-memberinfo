@@ -285,6 +285,7 @@
     <Compile Include="Handlers\MemberRequestsHandlerTests.cs" />
     <Compile Include="Handlers\ProgressiveJackpotHandlerTests.cs" />
     <Compile Include="Handlers\WinLossLimitHandlerTests.cs" />
+    <Compile Include="Helpers\BackgroundColorHelperTests.cs" />
     <Compile Include="Helpers\QueryEntityModelBinderTests.cs" />
     <Compile Include="Models\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
