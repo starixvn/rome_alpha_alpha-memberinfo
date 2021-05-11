@@ -10,6 +10,7 @@
             public const string IsAllowedOutright = "SearchAccount.IsAllowedOutright";
             public const string IsAllowedDoubleComm = "SearchAccount.IsAllowedDoubleComm";
             public const string IsClosed = "SearchAccount.IsClosed";
+            public const string IsDirectClosed = "SearchAccount.Upline.IsDirectClosed";
             public const string IsLockedAccess = "SearchAccount.Locked";
             public const string IsEnableSecurityCode = "SearchAccount.IsEnableSecurityCode";
             public const string IsAllDayBalTransfer = "SearchAccount.IsAllDayBalTransfer";

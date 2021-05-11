@@ -492,4 +492,7 @@
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
     <value>Open &lt;username&gt;</value>
   </data>
+  <data name="IndirectlyClosedByUpline" xml:space="preserve">
+    <value>This account was indirectly closed by upline.</value>
+  </data>
 </root>

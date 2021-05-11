@@ -12,6 +12,7 @@
             bool hasDownline,
             bool disableAutoMPT,
             bool closed,
+            bool isDirectClosed,
             bool uplineClosed,
             bool suspended,
             bool uplineSuspend,
@@ -28,6 +29,7 @@
             DisableAutoMPT = disableAutoMPT;
 
             Closed = closed;
+            IsDirectClosed = isDirectClosed;
             UplineClosed = uplineClosed;
 
             Suspended = suspended;
@@ -49,6 +51,8 @@
         public bool HasDownline { get; private set; }
 
         public bool Closed { get; private set; }
+
+        public bool IsDirectClosed { get; private set; }
 
         public bool UplineClosed { get; private set; }
 

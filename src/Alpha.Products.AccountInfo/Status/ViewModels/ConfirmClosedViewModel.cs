@@ -9,7 +9,9 @@
         {
         }
 
-        public override bool Disabled => base.Disabled || Request.GetData<bool>(DataKey.SearchAccount.Upline.IsClosed);
+        private bool IsClosedUpline => Request.GetData<bool>(DataKey.SearchAccount.Upline.IsClosed);
+
+        public override bool Disabled => base.Disabled || IsClosedUpline;
 
         private bool IsClosedSearchAccount => Request.GetData<bool>(DataKey.SearchAccount.IsClosed);
 
@@ -28,6 +30,11 @@
         internal override string StatusName => DataKey.StatusMapping.Closed;
 
         internal override bool StatusValue => !Checked;
+
+        public string Tooltip 
+            => IsClosedUpline && !Request.GetData<bool>(DataKey.SearchAccount.IsDirectClosed)
+            ? Request.GetResource("IndirectlyClosedByUpline")
+            : string.Empty;
 
         public override bool IsPopup => IsClosedSearchAccount && SearchAccount.IsNotMember;
 

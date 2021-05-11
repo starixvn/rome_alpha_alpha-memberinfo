@@ -647,6 +647,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This account was indirectly closed by upline..
+        /// </summary>
+        public static string IndirectlyClosedByUpline {
+            get {
+                return ResourceManager.GetString("IndirectlyClosedByUpline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IP.
         /// </summary>
         public static string IP {
