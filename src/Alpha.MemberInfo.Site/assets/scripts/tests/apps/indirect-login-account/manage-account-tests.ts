@@ -22,6 +22,9 @@
         topWindow = {
             popupManager: {
                 open: jasmine.any(Function)
+            },
+            alpha: {
+                detectResponsiveInformation: jasmine.any(Function)
             }
         };
 
@@ -61,6 +64,7 @@
             // arrange
             manageAccount.cacheDOMElements();
             spyOn(topWindow.popupManager, "open");
+            spyOn(topWindow.alpha, "detectResponsiveInformation");
 
             // act
             manageAccount.registerEvents();
