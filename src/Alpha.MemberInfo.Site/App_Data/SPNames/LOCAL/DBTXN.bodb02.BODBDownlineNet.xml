@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions SiteId="105" SiteName="Alpha">
   <Function Name="Credit/Balance">
-    <Setting Key="Age_CustomerSelCreditBalNetPosition_Ag" SpName="Age_CustomerSelCreditBalNetPosition_Ag" DbName="DBTXN.bodb02.BODBDownlineNet" />
+    <Setting Key="Age_CustomerSelCreditBalNetPosition_Ag" SpName="Age_CustomerSelCreditBalNetPosition_Ag_UAT4" DbName="DBTXN.bodb02.BODBDownlineNet" />
   </Function>
 </Functions>
