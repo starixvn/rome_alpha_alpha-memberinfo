@@ -88,6 +88,7 @@
     <Compile Include="Setting\ViewModels\BetSettingViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\CommissionViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\EditInfoViewModelTests.cs" />
+    <Compile Include="Setting\ViewModels\Multiple\ClosedMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Multiple\SuspendedMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Multiple\DoubleCommMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductMultipleViewModelTests.cs" />
