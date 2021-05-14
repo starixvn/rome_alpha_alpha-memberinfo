@@ -811,6 +811,7 @@
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountExcelQuery.cs" />
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountQuery.cs" />
     <Compile Include="Features\DormantAccountList\ViewModels\DormantAccountViewModel.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutController.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QRCodeLoginConfigsHelperImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapterImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInController.cs" />
@@ -1066,6 +1067,11 @@
     </Content>
     <Content Include="Web.aws3.config">
       <DependentUpon>Web.local.config</DependentUpon>
+    </Content>
+    <Content Include="Features\ParlayMaxPayout\Views\EditSingle.cshtml" />
+    <Content Include="Features\ParlayMaxPayout\Views\EditMultiple.cshtml" />
+    <Content Include="Features\ParlayMaxPayout\Views\web.config">
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
