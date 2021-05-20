@@ -320,6 +320,7 @@
     <Compile Include="DataAccesses\WinLossLimitDataAccess.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\NumberExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.Designer.cs">
       <DependentUpon>CustomerListResources.resx</DependentUpon>
@@ -363,6 +364,13 @@
     <Compile Include="Features\DormantAccountList\Models\DormantAccountReport.cs" />
     <Compile Include="Features\DormantAccountList\Models\YesterdayBalanceEntity.cs" />
     <Compile Include="Features\DormantAccountList\Params\DormantAccountParam.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutSelectCriteria.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutUpdateCriteria.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Models\ParlayMaxPayoutModel.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutSelectParam.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutUpdateParam.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutDataAccess.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutService.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckExistedCustomerCritieria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckEnableCustomerCritieria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\InsertMember\InsertMemberCommand.cs">
@@ -535,6 +543,7 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -657,6 +657,11 @@
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.min.css">
       <DependentUpon>dormant-account-list.css</DependentUpon>
     </Content>
+    <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
+    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
+    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.min.css">
+      <DependentUpon>parlay-max-payout.css</DependentUpon>
+    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.css">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
@@ -773,6 +778,9 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Features\ParlayMaxPayout\Views\ParlayMaxPayoutSetting.cshtml" />
+    <Content Include="Features\ParlayMaxPayout\Styles\_mixins.scss" />
+    <Content Include="Features\ParlayMaxPayout\Styles\_variables.scss" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfig.cs">
@@ -812,6 +820,13 @@
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountQuery.cs" />
     <Compile Include="Features\DormantAccountList\ViewModels\DormantAccountViewModel.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutController.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutHandler.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutMultipleSelectQuery.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutSingleSelectQuery.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutMultiplePageViewModel.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutBasePageViewModel.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutSinglePageViewModel.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutViewModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QRCodeLoginConfigsHelperImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapterImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInController.cs" />

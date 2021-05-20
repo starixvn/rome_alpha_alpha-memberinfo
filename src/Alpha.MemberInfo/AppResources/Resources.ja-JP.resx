@@ -360,4 +360,25 @@
   <data name="Total" xml:space="preserve">
     <value>合計</value>
   </data>
+  <data name="ParlayMaxPayoutSubTitle" xml:space="preserve">
+    <value>Parlay Max Payout {0}</value>
+  </data>
+  <data name="ParlayMaxPayoutSingleSubText" xml:space="preserve">
+    <value>Parlay Max Payout: {0}</value>
+  </data>
+  <data name="ParlayMaxPayoutMultipleSubText" xml:space="preserve">
+    <value>Parlay Max Payout</value>
+  </data>
+  <data name="SingleMatchParlay" xml:space="preserve">
+    <value>Single Match Parlay</value>
+  </data>
+  <data name="Combo2" xml:space="preserve">
+    <value>Combo 2</value>
+  </data>
+  <data name="Combo35" xml:space="preserve">
+    <value>Combo 3-5</value>
+  </data>
+  <data name="ComboOver6" xml:space="preserve">
+    <value>Combo 6+ &#38; System Parlay</value>
+  </data>
 </root>

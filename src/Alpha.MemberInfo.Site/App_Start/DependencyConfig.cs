@@ -11,6 +11,7 @@
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
     using Alpha.MemberInfo.Features.DormantAccountList;
+    using Alpha.MemberInfo.Features.ParlayMaxPayout;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
@@ -110,6 +111,7 @@
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
             container.Register<WinLossLimitDataAccess, WinLossLimitDataAccessImpl>(Lifestyle.Singleton);
             container.Register<CustomerListDataAccess, CustomerListDataAccessImpl>(Lifestyle.Singleton);
+            container.Register<ParlayMaxPayoutDataAccess, ParlayMaxPayoutDataAccessImpl>(Lifestyle.Singleton);
         }
 
         private static void RegisterServices(Container container)
@@ -138,6 +140,8 @@
                     container.GetInstance<CacheRefService>(),
                     UserPermission.HasPermissionOnProduct),
                 Lifestyle.Singleton);
+
+            container.Register<ParlayMaxPayoutService, ParlayMaxPayoutServiceImpl>();
 
             container.RegisterPerWebRequest<CreditBalanceService, CreditBalanceServiceImpl>();
             container.RegisterPerWebRequest<IProblemAccountService, ProblemAccountService>();

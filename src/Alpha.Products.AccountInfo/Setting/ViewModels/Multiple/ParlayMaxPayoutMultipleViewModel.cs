@@ -17,7 +17,7 @@
             => new Dictionary<string, string>
             {
                 ["CustIds"] = Request.GetData<string>("customerIds"),
-                ["RoleId"] = SearchAccount.CusomerLevelValue.ToString()
+                ["CustNames"] = Request.GetData<string>("usernames")
             };
 
         public override string Text => Request.GetResource("ParlayMaxPayoutMultipleText");

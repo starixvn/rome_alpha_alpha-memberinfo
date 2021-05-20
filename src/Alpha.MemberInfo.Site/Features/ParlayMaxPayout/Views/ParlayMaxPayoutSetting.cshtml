@@ -1,0 +1,62 @@
+﻿@model ParlayMaxPayoutBasePageViewModel
+
+<div class="pmp-container">
+    <div class="pmp-heading">@Model.SubText</div>
+    <div class="pmp-content">
+        <div class="pmp-setting-name"></div>
+        <div class="pmp-setting-name single-match-parlay">@Model.SingleMatchParlayFieldText</div>
+        <div class="pmp-setting-name combo-2">@Model.Combo2FieldText</div>
+        <div class="pmp-setting-name combo-35">@Model.Combo35FieldText</div>
+        <div class="pmp-setting-name combo-6-plus">@Model.ComboOver6FieldText</div>
+
+        @RenderParlayMaxPayoutSetting(Model.Data)
+    </div>
+    <div class="pmp-footer">
+        <button type="button" class="btn-submit">Update</button>
+    </div>
+</div>
+
+@helper RenderParlayMaxPayoutSetting(IEnumerable<ParlayMaxPayoutViewModel> data)
+{
+    foreach (var item in data)
+    {
+        @RenderParlayMaxPayoutSettingRow(item)
+    }
+}
+
+@helper RenderParlayMaxPayoutSettingRow(ParlayMaxPayoutViewModel item)
+{
+    <div class="pmp-sport-name @Model.GetClassName(item.SportTypeId)">@item.SportTypeName</div>
+
+    @RenderInputControl(item.SingleMatchParlay, item.UplineSingleMatchParlay)
+    @RenderInputControl(item.Combo2, item.UplineCombo2)
+    @RenderInputControl(item.Combo35, item.UplineCombo35)
+    @RenderInputControl(item.ComboOver6, item.UplineComboOver6)
+
+    @RenderCheckBoxControl(item.IsAllowUnlimitSingleMatchParlay)
+    @RenderCheckBoxControl(item.IsAllowUnlimitCombo2)
+    @RenderCheckBoxControl(item.IsAllowUnlimitCombo35)
+    @RenderCheckBoxControl(item.IsAllowUnlimitComboOver6)
+}
+
+@helper RenderInputControl(string value, string maxValue)
+{
+    <div class="pmp-setting-control ctrl-input">
+        <input type="text" maxlength="14" class="tb-setting" value="@value" />
+    </div>
+    <div class="pmp-setting-control ctrl-max-setting"><= @maxValue</div>
+}
+
+@helper RenderCheckBoxControl(bool isAllowUnlimit)
+{
+    <div class="pmp-setting-control ctrl-checkbox">
+        @if (isAllowUnlimit)
+        {
+            <input type="checkbox" class="cb-setting" />
+        }
+    </div>
+    <div class="pmp-setting-control ctrl-checkbox-label">
+        @(isAllowUnlimit ? "Unlimited" : "")
+    </div>
+
+}

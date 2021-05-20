@@ -1,0 +1,4 @@
+﻿@mixin content-space($height: 30px, $lineHeight: 30px) {
+    height: $height;
+    line-height: $lineHeight;
+}

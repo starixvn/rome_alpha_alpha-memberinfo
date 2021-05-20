@@ -1,3 +1,13 @@
-﻿@{
+﻿@model ParlayMaxPayoutMultiplePageViewModel
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@section Styles {
+    @StaticResources.RenderStyles("~/Features/ParlayMaxPayout/Bundles/parlay-max-payout")
+}
+
+<div class="user-list-box">@Model.SubTitle</div>
+
+@Html.Partial(Model.ParlayMaxPayoutSettingPartialViewPath, Model)

@@ -16,8 +16,8 @@
         public override Dictionary<string, string> QueryStringParamaters
             => new Dictionary<string, string>
             {
-                ["SearchAccountId"] = SearchAccount.Id.ToString(),
-                ["SearchAccountName"] = SearchAccount.Username
+                ["CustId"] = SearchAccount.Id.ToString(),
+                ["CustName"] = SearchAccount.Username
             };
 
         public override string Text => Request.GetResource("ParlayMaxPayoutText");

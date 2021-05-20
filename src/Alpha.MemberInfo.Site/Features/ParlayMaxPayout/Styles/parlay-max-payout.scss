@@ -1,0 +1,115 @@
+﻿@import "_mixins.scss";
+@import "_variables.scss";
+
+.user-list-box {
+    @include content-space();
+    background-color: $content-bg-color;
+    border: $border-value;
+    max-width: $max-width;
+    padding: 0 8px;
+}
+
+.pmp-page-title {
+    @include content-space(40px, 40px);
+    border-bottom: $border-value;
+    color: #9d1c1c;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.pmp-container {
+    margin: 20px 0;
+    max-width: $max-width;
+
+    .pmp-heading {
+        @include content-space();
+        background-color: #666;
+        color: #fff;
+        font-weight: bold;
+        padding: 0 8px;
+    }
+
+    .pmp-content {
+        background-color: $content-bg-color;
+        border-bottom: $border-value;
+        border-right: $border-value;
+        display: grid;
+        grid-template-columns: 163px repeat(8, 1fr);
+
+        .pmp-setting-name {
+            @include content-space();
+            border-left: $border-value;
+            border-top: $border-value;
+            font-weight: bold;
+            text-align: center;
+
+            &.single-match-parlay {
+                grid-column: 2/4;
+            }
+
+            &.combo-2 {
+                grid-column: 4/6;
+            }
+
+            &.combo-35 {
+                grid-column: 6/8;
+            }
+
+            &.combo-6-plus {
+                grid-column: 8/10;
+            }
+        }
+
+        .pmp-sport-name {
+            @include content-space(60px, 60px);
+            border-left: $border-value;
+            border-top: $border-value;
+            padding: 0 8px;
+            text-align: left;
+
+            &.soccer-parlay {
+                grid-row: 2/4;
+            }
+
+            &.mixed-sports-parlay {
+                grid-row: 4/6;
+            }
+        }
+
+        .pmp-setting-control {
+            @include content-space();
+            padding: 3px;
+
+            &.ctrl-input {
+                border-left: $border-value;
+                border-top: $border-value;
+
+                .tb-setting {
+                    border: $border-value;
+                    box-shadow: none;
+                }
+            }
+
+            &.ctrl-max-setting {
+                border-top: $border-value;
+            }
+
+            &.ctrl-checkbox {
+                border-left: $border-value;
+
+                .cb-setting {
+                    height: 24px;
+                    margin: 0 0 0 auto;
+                }
+            }
+
+            &.ctrl-checkbox-label {
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    .pmp-footer {
+        margin: 8px 0;
+    }
+}

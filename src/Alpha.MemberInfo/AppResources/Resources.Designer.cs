@@ -241,6 +241,33 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Combo 2.
+        /// </summary>
+        public static string Combo2 {
+            get {
+                return ResourceManager.GetString("Combo2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combo 3-5.
+        /// </summary>
+        public static string Combo35 {
+            get {
+                return ResourceManager.GetString("Combo35", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combo 6+ &amp; System Parlay.
+        /// </summary>
+        public static string ComboOver6 {
+            get {
+                return ResourceManager.GetString("ComboOver6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Commission Setting Follows.
         /// </summary>
         public static string CommissionSettingFollows {
@@ -952,6 +979,33 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parlay Max Payout.
+        /// </summary>
+        public static string ParlayMaxPayoutMultipleSubText {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutMultipleSubText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parlay Max Payout: {0}.
+        /// </summary>
+        public static string ParlayMaxPayoutSingleSubText {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutSingleSubText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parlay Max Payout {0}.
+        /// </summary>
+        public static string ParlayMaxPayoutSubTitle {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutSubTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -1263,6 +1317,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string ShowPassword {
             get {
                 return ResourceManager.GetString("ShowPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Single Match Parlay.
+        /// </summary>
+        public static string SingleMatchParlay {
+            get {
+                return ResourceManager.GetString("SingleMatchParlay", resourceCulture);
             }
         }
         

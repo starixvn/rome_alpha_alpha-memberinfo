@@ -58,5 +58,9 @@
   {
     "outputFile": "assets/styles/member-info-07.css",
     "inputFile": "assets/styles/member-info-07.scss"
+  },
+  {
+    "outputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout.css",
+    "inputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout.scss"
   }
 ]
