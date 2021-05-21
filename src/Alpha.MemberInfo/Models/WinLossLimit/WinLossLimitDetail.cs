@@ -26,6 +26,10 @@
 
         public bool Closed { get; set; }
 
+        public byte ClosedReason { get; set; }
+
+        public byte Locked { get; set; }
+
         public decimal Credit { get; set; }
 
         public bool IsAutoReset { get; set; }

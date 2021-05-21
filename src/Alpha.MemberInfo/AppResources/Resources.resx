@@ -576,7 +576,7 @@
   <data name="DormantAccountClosedTooltip" xml:space="preserve">
     <value>This line has a member logged in after Archive Closed Date. If that member places bet, this line will not be disabled.</value>
   </data>
-  <data name="LockedStatus" xml:space="preserve">
-    <value>Locked Status</value>
+  <data name="LockStatus" xml:space="preserve">
+    <value>Lock Status</value>
   </data>
 </root>

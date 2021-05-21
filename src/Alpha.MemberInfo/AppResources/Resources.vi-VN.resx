@@ -564,7 +564,7 @@
   <data name="Pager_DisplayItems" xml:space="preserve">
     <value>Hiển thị {from} đến {to} trong số {total} mục</value>
   </data>
-  <data name="LockedStatus" xml:space="preserve">
-    <value>Locked Status</value>
+  <data name="LockStatus" xml:space="preserve">
+    <value>Lock Status</value>
   </data>
 </root>

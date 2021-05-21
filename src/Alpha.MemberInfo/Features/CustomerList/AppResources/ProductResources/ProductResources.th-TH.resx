@@ -472,13 +472,13 @@
     <value>กีฬ่า 2</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelInCaseFalseOTPSC" xml:space="preserve">
-    <value>This account was locked by false inputs of OTP/Security Code. Are you sure you want to unlock this account?</value>
+    <value>บัญชีนี้ถูกล็อกเนื่องจากการตรวจสอบล้มเหลวหลายครั้งของ รหัสผ่านครั้งเดียว / รหัสความปลอดภัย คุณต้องการปลดล็อกหรือไม่?</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelInCaseFalsePassword" xml:space="preserve">
-    <value>This account was locked by false inputs of Password. Are you sure you want to unlock this account?</value>
+    <value>บัญชีนี้ถูกล็อกเนื่องจากป้อนรหัสผ่านไม่ถูกต้องหลายครั้ง คุณต้องการปลดล็อกหรือไม่?</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelText" xml:space="preserve">
-    <value>Locked Access</value>
+    <value>ถูกล็อกการเข้าถึง</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
     <value>Edit Multiple Closed Status</value>

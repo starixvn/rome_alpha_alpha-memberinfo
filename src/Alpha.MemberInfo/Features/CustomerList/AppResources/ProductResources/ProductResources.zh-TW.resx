@@ -472,13 +472,13 @@
     <value>编辑多重虚拟运动</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelInCaseFalseOTPSC" xml:space="preserve">
-    <value>This account was locked by false inputs of OTP/Security Code. Are you sure you want to unlock this account?</value>
+    <value>由於一次性密碼/保安碼多次驗證失敗，導致此賬號已被鎖定，請問需要進行解鎖嗎？</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelInCaseFalsePassword" xml:space="preserve">
-    <value>This account was locked by false inputs of Password. Are you sure you want to unlock this account?</value>
+    <value>由於多次輸入錯誤密碼，導致此賬號已被鎖定，請問需要進行解鎖嗎？</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelText" xml:space="preserve">
-    <value>Locked Access</value>
+    <value>鎖定訪問</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
     <value>Edit Multiple Closed Status</value>

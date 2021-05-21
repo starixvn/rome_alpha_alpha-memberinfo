@@ -673,11 +673,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locked Status.
+        ///   Looks up a localized string similar to Lock Status.
         /// </summary>
-        public static string LockedStatus {
+        public static string LockStatus {
             get {
-                return ResourceManager.GetString("LockedStatus", resourceCulture);
+                return ResourceManager.GetString("LockStatus", resourceCulture);
             }
         }
         

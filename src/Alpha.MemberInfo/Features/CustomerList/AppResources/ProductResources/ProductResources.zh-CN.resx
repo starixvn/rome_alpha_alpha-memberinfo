@@ -472,13 +472,13 @@
     <value>体育博彩 2</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelInCaseFalseOTPSC" xml:space="preserve">
-    <value>This account was locked by false inputs of OTP/Security Code. Are you sure you want to unlock this account?</value>
+    <value>由于一次性密码/保安码多次验证失败，导致此账号已被锁定，请问需要进行解锁吗？</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelInCaseFalsePassword" xml:space="preserve">
-    <value>This account was locked by false inputs of Password. Are you sure you want to unlock this account?</value>
+    <value>由于多次输入错误密码，导致此账号已被锁定，请问需要进行解锁吗？</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelText" xml:space="preserve">
-    <value>Locked Access</value>
+    <value>锁定访问</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
     <value>Edit Multiple Closed Status</value>

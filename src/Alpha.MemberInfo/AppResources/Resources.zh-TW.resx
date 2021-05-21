@@ -573,7 +573,7 @@
   <data name="Pager_DisplayItems" xml:space="preserve">
     <value>{total}項目中{from}到{to}的顯示</value>
   </data>
-  <data name="LockedStatus" xml:space="preserve">
-    <value>Locked Status</value>
+  <data name="LockStatus" xml:space="preserve">
+    <value>鎖定狀態</value>
   </data>
 </root>
