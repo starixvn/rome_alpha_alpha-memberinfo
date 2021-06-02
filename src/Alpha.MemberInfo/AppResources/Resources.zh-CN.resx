@@ -609,4 +609,7 @@
   <data name="ComboOver6" xml:space="preserve">
     <value>Combo 6+ &#38; System Parlay</value>
   </data>
+  <data name="ParlayMaxPayoutUpdateSuccessfully" xml:space="preserve">
+    <value>Update successfully</value>
+  </data>
 </root>

@@ -11,3 +11,7 @@
 <div id="header_main" class="pmp-page-title">@Model.SubTitle</div>
 
 @Html.Partial(Model.ParlayMaxPayoutSettingPartialViewPath, Model)
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/ParlayMaxPayout/Bundles/parlay-max-payout")
+}

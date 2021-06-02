@@ -16,6 +16,12 @@
             this.message = message;
         }
 
+        public override string UpdateUrl => "~/ParlayMaxPayout/UpdateSingle";
+
+        public override string CustIdList => message.CustId.ToString();
+
+        public override string CustNameList => message.CustName;
+
         public override string SubTitle
             => string.Format(Resources.ParlayMaxPayoutSubTitle, message.CustName);
 

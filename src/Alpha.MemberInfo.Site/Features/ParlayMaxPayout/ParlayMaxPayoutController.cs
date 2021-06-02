@@ -22,5 +22,13 @@
 
         public ActionResult EditMultiple(ParlayMaxPayoutMultipleSelectQuery message)
             => View(editMultiplePath, mediator.Send(message));
+
+        [HttpPost]
+        public ActionResult UpdateSingle(ParlayMaxPayoutUpdateSingleQuery message)
+            => Json(mediator.Send(message));
+
+        [HttpPost]
+        public ActionResult UpdateMultiple(ParlayMaxPayoutUpdateMultipleQuery message)
+            => Json(mediator.Send(message));
     }
 }

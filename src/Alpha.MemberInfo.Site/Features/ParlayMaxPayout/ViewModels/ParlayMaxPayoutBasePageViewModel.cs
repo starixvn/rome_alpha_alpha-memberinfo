@@ -28,8 +28,15 @@
             Combo35FieldText = Resources.Combo35;
             ComboOver6FieldText = Resources.ComboOver6;
             SingleMatchParlayFieldText = Resources.SingleMatchParlay;
+            UpdateSuccessfullyText = Resources.ParlayMaxPayoutUpdateSuccessfully;
             ParlayMaxPayoutSettingPartialViewPath = parlayMaxPayoutSettingPartialViewPath;
         }
+
+        public virtual string UpdateUrl { get; }
+
+        public virtual string CustIdList { get; }
+
+        public virtual string CustNameList { get; }
 
         public virtual string SubTitle { get; }
 
@@ -42,6 +49,8 @@
         public string ComboOver6FieldText { get; }
 
         public string SingleMatchParlayFieldText { get; }
+
+        public string UpdateSuccessfullyText { get; }
 
         public IEnumerable<ParlayMaxPayoutViewModel> Data
         {

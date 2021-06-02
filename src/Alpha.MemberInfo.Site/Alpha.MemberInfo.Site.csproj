@@ -657,10 +657,17 @@
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.min.css">
       <DependentUpon>dormant-account-list.css</DependentUpon>
     </Content>
+    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.min.js.map">
+      <DependentUpon>parlay-max-payout.min.js</DependentUpon>
+    </Content>
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
+    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.min.css">
       <DependentUpon>parlay-max-payout.css</DependentUpon>
+    </Content>
+    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.min.js">
+      <DependentUpon>parlay-max-payout.js</DependentUpon>
     </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.css">
       <SonarQubeExclude>true</SonarQubeExclude>
@@ -823,6 +830,7 @@
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutHandler.cs" />
     <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutMultipleSelectQuery.cs" />
     <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutSingleSelectQuery.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutUpdateQuery.cs" />
     <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutMultiplePageViewModel.cs" />
     <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutBasePageViewModel.cs" />
     <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutSinglePageViewModel.cs" />
@@ -1143,6 +1151,9 @@
     <TypeScriptCompile Include="Features\CustomerList\Scripts\muliple-double-comm.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\unlock.ts" />
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
+    <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-helper.ts" />
+    <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-service.ts" />
+    <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\show-qr-code.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\qr-code-member-sign-in.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />

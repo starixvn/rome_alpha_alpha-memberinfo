@@ -1,6 +1,10 @@
 ﻿@model ParlayMaxPayoutBasePageViewModel
 
 <div class="pmp-container">
+    <div id="message-container" class="message-container" style="display: none;">
+        <div id="message-text" class="message message-icon"></div>
+    </div>
+
     <div class="pmp-heading">@Model.SubText</div>
     <div class="pmp-content">
         <div class="pmp-setting-name"></div>
@@ -12,9 +16,19 @@
         @RenderParlayMaxPayoutSetting(Model.Data)
     </div>
     <div class="pmp-footer">
-        <button type="button" class="btn-submit">Update</button>
+        <button id="btn-submit" type="button" class="btn-submit">Update</button>
     </div>
+
+    @RenderHiddenFields()
 </div>
+
+@helper RenderHiddenFields()
+{
+    <input id="tb-updatesuccess-msg" type="hidden" value="@Model.UpdateSuccessfullyText" />
+    <input id="tb-updateurl" type="hidden" value="@Url.Content(Model.UpdateUrl)" />
+    <input id="tb-custidlist" type="hidden" value="@Model.CustIdList" />
+    <input id="tb-custnamelist" type="hidden" value="@Model.CustNameList" />
+}
 
 @helper RenderParlayMaxPayoutSetting(IEnumerable<ParlayMaxPayoutViewModel> data)
 {
@@ -26,33 +40,54 @@
 
 @helper RenderParlayMaxPayoutSettingRow(ParlayMaxPayoutViewModel item)
 {
-    <div class="pmp-sport-name @Model.GetClassName(item.SportTypeId)">@item.SportTypeName</div>
+    var className = Model.GetClassName(item.SportTypeId);
 
-    @RenderInputControl(item.SingleMatchParlay, item.UplineSingleMatchParlay)
-    @RenderInputControl(item.Combo2, item.UplineCombo2)
-    @RenderInputControl(item.Combo35, item.UplineCombo35)
-    @RenderInputControl(item.ComboOver6, item.UplineComboOver6)
+    <div class="pmp-sport-name sport-name @className"
+         data-bettypeid="@item.BetTypeId"
+         data-sporttypeid="@item.SportTypeId">
+        @item.SportTypeName
+    </div>
 
-    @RenderCheckBoxControl(item.IsAllowUnlimitSingleMatchParlay)
-    @RenderCheckBoxControl(item.IsAllowUnlimitCombo2)
-    @RenderCheckBoxControl(item.IsAllowUnlimitCombo35)
-    @RenderCheckBoxControl(item.IsAllowUnlimitComboOver6)
+    var singleMatchParlayName = "SingleMatchParlay";
+    var combo2Name = "Combo2";
+    var combo35Name = "Combo35";
+    var comboOver6Name = "ComboOver6";
+
+    @RenderInputControl(item.SportTypeId, singleMatchParlayName, item.SingleMatchParlay, item.UplineSingleMatchParlay)
+    @RenderInputControl(item.SportTypeId, combo2Name, item.Combo2, item.UplineCombo2)
+    @RenderInputControl(item.SportTypeId, combo35Name, item.Combo35, item.UplineCombo35)
+    @RenderInputControl(item.SportTypeId, comboOver6Name, item.ComboOver6, item.UplineComboOver6)
+
+    @RenderCheckBoxControl(item.SportTypeId, singleMatchParlayName, item.IsAllowUnlimitSingleMatchParlay)
+    @RenderCheckBoxControl(item.SportTypeId, combo2Name, item.IsAllowUnlimitCombo2)
+    @RenderCheckBoxControl(item.SportTypeId, combo35Name, item.IsAllowUnlimitCombo35)
+    @RenderCheckBoxControl(item.SportTypeId, comboOver6Name, item.IsAllowUnlimitComboOver6)
 }
 
-@helper RenderInputControl(string value, string maxValue)
+@helper RenderInputControl(byte sportTypeId, string settingName, string value, string maxValue)
 {
     <div class="pmp-setting-control ctrl-input">
-        <input type="text" maxlength="14" class="tb-setting" value="@value" />
+        <input type="text"
+               maxlength="14"
+               id="@settingName@sportTypeId"
+               class="tb-setting"
+               data-sporttypeid="@sportTypeId"
+               data-settingname="@settingName"
+               data-currentvalue="@value"
+               data-maxvalue="@maxValue"
+               value="@value" />
     </div>
     <div class="pmp-setting-control ctrl-max-setting"><= @maxValue</div>
 }
 
-@helper RenderCheckBoxControl(bool isAllowUnlimit)
+@helper RenderCheckBoxControl(byte sportTypeId, string settingName, bool isAllowUnlimit)
 {
     <div class="pmp-setting-control ctrl-checkbox">
         @if (isAllowUnlimit)
         {
-            <input type="checkbox" class="cb-setting" />
+            <input type="checkbox"
+                   class="cb-setting"
+                   data-tbsettingid="@settingName@sportTypeId" />
         }
     </div>
     <div class="pmp-setting-control ctrl-checkbox-label">

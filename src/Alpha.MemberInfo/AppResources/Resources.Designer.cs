@@ -1006,6 +1006,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update successfully.
+        /// </summary>
+        public static string ParlayMaxPayoutUpdateSuccessfully {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutUpdateSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {

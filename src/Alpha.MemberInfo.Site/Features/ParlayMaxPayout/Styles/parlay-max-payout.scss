@@ -1,5 +1,6 @@
 ﻿@import "_mixins.scss";
 @import "_variables.scss";
+@import url($icon-alpha-fonts);
 
 .user-list-box {
     @include content-space();
@@ -87,6 +88,10 @@
                 .tb-setting {
                     border: $border-value;
                     box-shadow: none;
+
+                    &:disabled {
+                        background-color: #bfbfbf;
+                    }
                 }
             }
 
@@ -111,5 +116,49 @@
 
     .pmp-footer {
         margin: 8px 0;
+    }
+}
+
+.message-container {
+    margin: 8px 0;
+
+    .message {
+        line-height: 20px;
+        margin: 3px 0;
+        padding: 8px;
+        text-align: left;
+        vertical-align: middle;
+
+        &.message-error {
+            background-color: $msg-error-bg;
+            border: 1px solid $msg-error-border;
+            color: $msg-error-color;
+
+            &:before {
+                content: '\e93e';
+            }
+        }
+
+        &.message-success {
+            background-color: $msg-success-bg;
+            border: 1px solid $msg-success-border;
+            color: $msg-success-color;
+
+            &:before {
+                content: '\e93b';
+            }
+        }
+
+        &.message-icon {
+            &:before {
+                font: {
+                    family: Iconalpha;
+                    size: 24px;
+                }
+
+                float: left;
+                margin-right: 4px;
+            }
+        }
     }
 }

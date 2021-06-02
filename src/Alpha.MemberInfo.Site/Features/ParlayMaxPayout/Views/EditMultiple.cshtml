@@ -11,3 +11,7 @@
 <div class="user-list-box">@Model.SubTitle</div>
 
 @Html.Partial(Model.ParlayMaxPayoutSettingPartialViewPath, Model)
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/ParlayMaxPayout/Bundles/parlay-max-payout")
+}

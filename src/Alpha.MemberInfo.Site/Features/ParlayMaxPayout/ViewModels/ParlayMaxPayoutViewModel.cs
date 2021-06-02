@@ -18,17 +18,17 @@
             BetTypeName = cacheRefService.GetBetTypeName(BetTypeId);
             SportTypeName = cacheRefService.GetSportTypeName(SportTypeId);
 
-            Combo2 = model.Combo2.ToMoneyFormat();
-            UplineCombo2 = model.UplineCombo2.ToMoneyFormat();
+            Combo2 = ToMoneyFormat(model.Combo2);
+            UplineCombo2 = ToMoneyFormat(model.UplineCombo2);
 
-            Combo35 = model.Combo35.ToMoneyFormat();
-            UplineCombo35 = model.UplineCombo35.ToMoneyFormat();
+            Combo35 = ToMoneyFormat(model.Combo35);
+            UplineCombo35 = ToMoneyFormat(model.UplineCombo35);
 
-            ComboOver6 = model.ComboOver6.ToMoneyFormat();
-            UplineComboOver6 = model.UplineComboOver6.ToMoneyFormat();
+            ComboOver6 = ToMoneyFormat(model.ComboOver6);
+            UplineComboOver6 = ToMoneyFormat(model.UplineComboOver6);
 
-            SingleMatchParlay = model.SingleMatchParlay.ToMoneyFormat();
-            UplineSingleMatchParlay = model.UplineSingleMatchParlay.ToMoneyFormat();
+            SingleMatchParlay = ToMoneyFormat(model.SingleMatchParlay);
+            UplineSingleMatchParlay = ToMoneyFormat(model.UplineSingleMatchParlay);
 
             IsAllowUnlimitCombo2 = model.IsAllowUnlimitCombo2;
             IsAllowUnlimitCombo35 = model.IsAllowUnlimitCombo35;
@@ -67,5 +67,10 @@
         public bool IsAllowUnlimitCombo35 { get; }
 
         public bool IsAllowUnlimitComboOver6 { get; }
+
+        private static string ToMoneyFormat(decimal value)
+            => value > 0
+            ? value.ToMoneyFormat()
+            : "Unlimited";
     }
 }
