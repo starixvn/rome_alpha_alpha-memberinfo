@@ -29,6 +29,8 @@
             ComboOver6FieldText = Resources.ComboOver6;
             SingleMatchParlayFieldText = Resources.SingleMatchParlay;
             UpdateSuccessfullyText = Resources.ParlayMaxPayoutUpdateSuccessfully;
+            InvalidMaxPayoutValueText = Resources.InvalidMaxPayoutValueText;
+            GreaterThanMaxValueText = Resources.GreaterThanMaxValueText;
             ParlayMaxPayoutSettingPartialViewPath = parlayMaxPayoutSettingPartialViewPath;
         }
 
@@ -51,6 +53,10 @@
         public string SingleMatchParlayFieldText { get; }
 
         public string UpdateSuccessfullyText { get; }
+
+        public string InvalidMaxPayoutValueText { get; }
+
+        public string GreaterThanMaxValueText { get; }
 
         public IEnumerable<ParlayMaxPayoutViewModel> Data
         {

@@ -393,4 +393,10 @@
   <data name="ParlayMaxPayoutUpdateSuccessfully" xml:space="preserve">
     <value>Update successfully</value>
   </data>
+  <data name="InvalidMaxPayoutValueText" xml:space="preserve">
+    <value>The value must be a positive amount.</value>
+  </data>
+  <data name="GreaterThanMaxValueText" xml:space="preserve">
+    <value>&lt;BetType&gt;: The setting of &lt;Column&gt; is higher than the upline's.</value>
+  </data>
 </root>

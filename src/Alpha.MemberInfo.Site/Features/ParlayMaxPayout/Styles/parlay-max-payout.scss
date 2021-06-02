@@ -21,6 +21,7 @@
 .pmp-container {
     margin: 20px 0;
     max-width: $max-width;
+    position: relative;
 
     .pmp-heading {
         @include content-space();
@@ -160,5 +161,29 @@
                 margin-right: 4px;
             }
         }
+    }
+}
+
+%hint {
+    border: 1px solid #c93;
+    background-color: #ffc;
+    color: #333;
+    border-radius: 2px;
+}
+
+.hint {
+    @extend %hint;
+    position: absolute;
+    height: 30px;
+    padding: 8px;
+    line-height: 14px;
+
+    .hint-pointer {
+        @extend %hint;
+        height: 14px;
+        width: 14px;
+        transform: rotate( 45deg );
+        border-top: none;
+        border-left: none;
     }
 }

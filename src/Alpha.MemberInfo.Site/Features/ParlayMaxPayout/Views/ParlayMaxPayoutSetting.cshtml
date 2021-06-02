@@ -1,6 +1,6 @@
 ﻿@model ParlayMaxPayoutBasePageViewModel
 
-<div class="pmp-container">
+<div id="pmp-container" class="pmp-container">
     <div id="message-container" class="message-container" style="display: none;">
         <div id="message-text" class="message message-icon"></div>
     </div>
@@ -19,6 +19,11 @@
         <button id="btn-submit" type="button" class="btn-submit">Update</button>
     </div>
 
+    <div id="hint" class="hint" style="display: none;">
+        <div id="hint-text"></div>
+        <div id="hint-pointer" class="hint-pointer"></div>
+    </div>
+
     @RenderHiddenFields()
 </div>
 
@@ -28,6 +33,8 @@
     <input id="tb-updateurl" type="hidden" value="@Url.Content(Model.UpdateUrl)" />
     <input id="tb-custidlist" type="hidden" value="@Model.CustIdList" />
     <input id="tb-custnamelist" type="hidden" value="@Model.CustNameList" />
+    <input id="tb-invalidvalue-msg" type="hidden" value="@Model.InvalidMaxPayoutValueText" />
+    <input id="tb-gtmaxvalue-msg" type="hidden" value="@Model.GreaterThanMaxValueText" />
 }
 
 @helper RenderParlayMaxPayoutSetting(IEnumerable<ParlayMaxPayoutViewModel> data)
@@ -44,6 +51,7 @@
 
     <div class="pmp-sport-name sport-name @className"
          data-bettypeid="@item.BetTypeId"
+         data-bettypename="@item.BetTypeName"
          data-sporttypeid="@item.SportTypeId">
         @item.SportTypeName
     </div>
@@ -53,10 +61,10 @@
     var combo35Name = "Combo35";
     var comboOver6Name = "ComboOver6";
 
-    @RenderInputControl(item.SportTypeId, singleMatchParlayName, item.SingleMatchParlay, item.UplineSingleMatchParlay)
-    @RenderInputControl(item.SportTypeId, combo2Name, item.Combo2, item.UplineCombo2)
-    @RenderInputControl(item.SportTypeId, combo35Name, item.Combo35, item.UplineCombo35)
-    @RenderInputControl(item.SportTypeId, comboOver6Name, item.ComboOver6, item.UplineComboOver6)
+    @RenderInputControl(item.SportTypeId, singleMatchParlayName, item.SingleMatchParlay, item.UplineSingleMatchParlay, Model.SingleMatchParlayFieldText)
+    @RenderInputControl(item.SportTypeId, combo2Name, item.Combo2, item.UplineCombo2, Model.Combo2FieldText)
+    @RenderInputControl(item.SportTypeId, combo35Name, item.Combo35, item.UplineCombo35, Model.Combo35FieldText)
+    @RenderInputControl(item.SportTypeId, comboOver6Name, item.ComboOver6, item.UplineComboOver6, Model.ComboOver6FieldText)
 
     @RenderCheckBoxControl(item.SportTypeId, singleMatchParlayName, item.IsAllowUnlimitSingleMatchParlay)
     @RenderCheckBoxControl(item.SportTypeId, combo2Name, item.IsAllowUnlimitCombo2)
@@ -64,13 +72,14 @@
     @RenderCheckBoxControl(item.SportTypeId, comboOver6Name, item.IsAllowUnlimitComboOver6)
 }
 
-@helper RenderInputControl(byte sportTypeId, string settingName, string value, string maxValue)
+@helper RenderInputControl(byte sportTypeId, string settingName, string value, string maxValue, string columnName)
 {
     <div class="pmp-setting-control ctrl-input">
         <input type="text"
                maxlength="14"
                id="@settingName@sportTypeId"
                class="tb-setting"
+               data-columnname="@columnName"
                data-sporttypeid="@sportTypeId"
                data-settingname="@settingName"
                data-currentvalue="@value"

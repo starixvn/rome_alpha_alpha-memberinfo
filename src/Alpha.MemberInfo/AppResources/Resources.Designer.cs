@@ -610,6 +610,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;BetType&gt;: The setting of &lt;Column&gt; is higher than the upline&apos;s..
+        /// </summary>
+        public static string GreaterThanMaxValueText {
+            get {
+                return ResourceManager.GetString("GreaterThanMaxValueText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Indirect Log In.
         /// </summary>
         public static string IndirectLogIn {
@@ -687,6 +696,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string InputExistingMemberAccount {
             get {
                 return ResourceManager.GetString("InputExistingMemberAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value must be a positive amount..
+        /// </summary>
+        public static string InvalidMaxPayoutValueText {
+            get {
+                return ResourceManager.GetString("InvalidMaxPayoutValueText", resourceCulture);
             }
         }
         

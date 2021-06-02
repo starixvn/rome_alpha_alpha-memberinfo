@@ -5,12 +5,20 @@ class ParlayMaxPayout {
     private $btnSubmit: JQuery;
     private $divMessageContainer: JQuery;
     private $divMessageText: JQuery;
+    private $divPmpContainer: JQuery;
+    private $divHint: JQuery;
+    private $divHintText: JQuery;
+    private $divHintPointer: JQuery;
 
     private parlayMaxPayoutService: ParlayMaxPayoutService;
 
     private custIdList: string;
     private custNameList: string;
     private updateSuccessMessage: string;
+    private invalidMaxPayoutValueText: string;
+    private greaterThanMaxValueText: string;
+
+    private timeout = 1500;
 
     constructor(
         $: JQueryStatic,
@@ -29,17 +37,26 @@ class ParlayMaxPayout {
         this.$btnSubmit = this.$("#btn-submit");
         this.$divMessageContainer = this.$("#message-container");
         this.$divMessageText = this.$("#message-text");
+        this.$divPmpContainer = this.$("#pmp-container");
+        this.$divHint = this.$("#hint");
+        this.$divHintText = this.$("#hint-text");
+        this.$divHintPointer = this.$("#hint-pointer");
     }
 
     private cacheData(): void {
         this.custIdList = this.$("#tb-custidlist").val();
         this.custNameList = this.$("#tb-custnamelist").val();
         this.updateSuccessMessage = this.$("#tb-updatesuccess-msg").val();
+        this.invalidMaxPayoutValueText = this.$("#tb-invalidvalue-msg").val();
+        this.greaterThanMaxValueText = this.$("#tb-gtmaxvalue-msg").val();
     }
 
     private registerEvents(): void {
         this.$btnSubmit.off("click").on("click", this.onSubmit);
-        this.$(".cb-setting").off("change").on("change", this.onChangeUnlimitted);
+        this.$(".cb-setting").off("change").on("change", this.changeSettingValue);
+        this.$(".tb-setting")
+            .off("change").on("change", this.validateSettingValue)
+            .off("keyup").on("keyup", this.formatSettingValue);
     }
 
     private onSubmit = (): void => {
@@ -53,7 +70,7 @@ class ParlayMaxPayout {
 
             let item = `<MaxPayoutLimit SportType="${sportTypeId}" BetType="${betTypeId}"`;
             self.$(`.tb-setting[data-sporttypeid="${sportTypeId}"]`).each(function () {
-                item += ` ${self.$(this).data("settingname")}="${Helper.ToNumber(this.value)}"`;
+                item += ` ${self.$(this).data("settingname")}="${Helper.ToNumberFormat(this.value)}"`;
             });
 
             maxPayoutLimit += `${item} />`;
@@ -69,13 +86,47 @@ class ParlayMaxPayout {
         this.parlayMaxPayoutService.UpdateParlayMaxPayout(params, this.onUpdateSuccess);
     };
 
-    private onChangeUnlimitted = (event): void => {
+    private changeSettingValue = (event): void => {
         const el = event.currentTarget,
             tbSettingId = this.$(el).data("tbsettingid"),
             tbSetting = this.$(`#${tbSettingId}`);
 
         tbSetting.val(el.checked ? Constants.Unlimited : tbSetting.data("currentvalue"));
         tbSetting.prop("disabled", el.checked);
+    };
+
+    private validateSettingValue = (event): void => {
+        const el = event.currentTarget,
+            value = el.value,
+            maxValue = this.$(el).data("maxvalue"),
+            valueNumber = Helper.ToNumber(value),
+            maxValueNumber = Helper.ToNumber(maxValue);
+
+        let isSubmitDisabled = false;
+        if (value === Constants.Unlimited && maxValue !== Constants.Unlimited
+            || value !== Constants.Unlimited && (isNaN(valueNumber) || valueNumber <= 0)) {
+            isSubmitDisabled = true;
+            this.showHint(el, this.invalidMaxPayoutValueText);
+        }
+
+        if (maxValue !== Constants.Unlimited && valueNumber > maxValueNumber) {
+            const sportTypeId = this.$(el).data("sporttypeid"),
+                columnName = this.$(el).data("columnname"),
+                betTypeName = this.$(`.sport-name[data-sporttypeid="${sportTypeId}"]`).data("bettypename"),
+                message = this.greaterThanMaxValueText
+                    .replace("<BetType>", betTypeName)
+                    .replace("<Column>", columnName);
+
+            isSubmitDisabled = true;
+            this.showHint(el, message);
+        }
+
+        this.$btnSubmit.prop("disabled", isSubmitDisabled);
+    };
+
+    private formatSettingValue = (event): void => {
+        const el = event.currentTarget;
+        el.value = Helper.ToMoneyFormat(el.value);
     };
 
     private onUpdateSuccess = (data): void => {
@@ -108,6 +159,40 @@ class ParlayMaxPayout {
         this.reloadAfterSuccess();
     };
 
+    private showHint(el: HTMLElement, message: string): void {
+        this.$divHintText.text(message);
+        this.$divHint.css("display", "block");
+
+        this.adjustHintPosition(el);
+        this.setHideHint();
+    }
+
+    private adjustHintPosition(el: HTMLElement): void {
+        const hintHeight = 30,
+            hintPointerHeight = 12,
+            inputWidth = 120,
+            hintWidth = this.$divHint.width(),
+            elOffset = this.$(el).offset(),
+            containerOffset = this.$divPmpContainer.offset(),
+            containerWidth = this.$divPmpContainer.width(),
+            top = elOffset.top - containerOffset.top - hintHeight - hintPointerHeight;
+
+        if (elOffset.left + hintWidth > containerWidth) {
+            const right = containerOffset.left + containerWidth - elOffset.left - inputWidth;
+            this.$divHint.css({ display: "block", top, right, left: "unset" });
+            this.$divHintPointer.css({ "margin-left": "auto", "margin-right": "unset" });
+        } else {
+            this.$divHint.css({ display: "block", top, right: "unset", left: elOffset.left });
+            this.$divHintPointer.css({ "margin-left": "unset", "margin-right": "auto" });
+        }
+    }
+
+    private setHideHint(): void {
+        setTimeout(() => {
+            this.$divHint.css("display", "none");
+        }, this.timeout);
+    }
+
     private showMessage(message: string, isError: boolean = false): void {
         this.$divMessageText.text(message);
         this.$divMessageText.addClass(isError ? "message-error" : "message-success");
@@ -123,7 +208,7 @@ class ParlayMaxPayout {
     private reloadAfterSuccess(): void {
         setTimeout(function () {
             window.location.reload();
-        }, 3000);
+        }, this.timeout);
     }
 }
 
