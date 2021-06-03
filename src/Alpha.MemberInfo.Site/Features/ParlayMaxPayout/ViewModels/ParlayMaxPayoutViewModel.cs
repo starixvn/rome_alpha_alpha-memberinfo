@@ -1,14 +1,24 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.ParlayMaxPayout.ViewModels
 {
+    using Alpha.MemberInfo.AppResources;
+    using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.ParlayMaxPayout.Models;
     using Alpha.MemberInfo.Services;
     using Fanex.RemotingRef;
+    using System.Collections.Generic;
 
     public class ParlayMaxPayoutViewModel
     {
         private readonly CacheRefService cacheRefService
             = new CacheRefServiceImpl(new RemotingRefService());
+
+        private readonly Dictionary<byte, string> sportNameDictionary
+            = new Dictionary<byte, string>
+            {
+                [SportTypeConstants.SoccerParlay] = Resources.soccerParlay,
+                [SportTypeConstants.MixedSportsParlay] = Resources.mixsports
+            };
 
         public ParlayMaxPayoutViewModel(ParlayMaxPayoutModel model)
         {
@@ -16,7 +26,7 @@
             SportTypeId = model.SportTypeId;
 
             BetTypeName = cacheRefService.GetBetTypeName(BetTypeId);
-            SportTypeName = cacheRefService.GetSportTypeName(SportTypeId);
+            SportTypeName = sportNameDictionary[SportTypeId];
 
             Combo2 = ToMoneyFormat(model.Combo2);
             UplineCombo2 = ToMoneyFormat(model.UplineCombo2);

@@ -844,6 +844,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mix Sports Parlay.
+        /// </summary>
+        public static string mixsports {
+            get {
+                return ResourceManager.GetString("mixsports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Bet Type.
         /// </summary>
         public static string NewBetType {
@@ -1353,6 +1362,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string SingleMatchParlay {
             get {
                 return ResourceManager.GetString("SingleMatchParlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soccer Parlay.
+        /// </summary>
+        public static string soccerParlay {
+            get {
+                return ResourceManager.GetString("soccerParlay", resourceCulture);
             }
         }
         

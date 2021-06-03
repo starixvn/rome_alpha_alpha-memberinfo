@@ -618,4 +618,10 @@
   <data name="GreaterThanMaxValueText" xml:space="preserve">
     <value>&lt;BetType&gt;: The setting of &lt;Column&gt; is higher than the upline's.</value>
   </data>
+  <data name="soccerParlay" xml:space="preserve">
+    <value>บอลชุดฟุตบอล</value>
+  </data>
+  <data name="mixsports" xml:space="preserve">
+    <value>กีฬาบอลชุด</value>
+  </data>
 </root>
