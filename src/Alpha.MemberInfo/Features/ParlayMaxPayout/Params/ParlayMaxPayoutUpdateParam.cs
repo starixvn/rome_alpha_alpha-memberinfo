@@ -5,14 +5,14 @@
         public ParlayMaxPayoutUpdateParam(
             int custId,
             string maxPayoutLimit,
-            int subAccId,
             int userId,
+            string language,
             string ip)
         {
             CustId = custId;
             MaxPayoutLimit = maxPayoutLimit;
-            SubAccId = subAccId;
             UserId = userId;
+            Language = language;
             Ip = ip;
         }
 
@@ -20,9 +20,9 @@
 
         public string MaxPayoutLimit { get; }
 
-        public int SubAccId { get; }
-
         public int UserId { get; }
+
+        public string Language { get; }
 
         public string Ip { get; }
     }

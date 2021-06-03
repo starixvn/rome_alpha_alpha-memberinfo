@@ -8,8 +8,8 @@
     {
         public ParlayMaxPayoutUpdateBaseQuery(IUser viewer)
         {
-            SubAccId = viewer.SubAccId;
             UserId = viewer.Id;
+            Language = viewer.Language;
             Ip = viewer.IP;
         }
 
@@ -17,9 +17,9 @@
 
         public string MaxPayoutLimit { get; set; }
 
-        public int SubAccId { get; }
-
         public int UserId { get; }
+
+        public string Language { get; }
 
         public string Ip { get; }
     }

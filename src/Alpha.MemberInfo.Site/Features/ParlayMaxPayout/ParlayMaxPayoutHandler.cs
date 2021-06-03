@@ -37,8 +37,8 @@
                 new ParlayMaxPayoutUpdateParam(
                      message.CustId,
                      message.MaxPayoutLimit,
-                     message.SubAccId,
                      message.UserId,
+                     message.Language,
                      message.Ip));
 
         public IEnumerable<Result> Handle(ParlayMaxPayoutUpdateMultipleQuery message)
@@ -50,8 +50,8 @@
                     new ParlayMaxPayoutUpdateParam(
                      custId,
                      message.MaxPayoutLimit,
-                     message.SubAccId,
                      message.UserId,
+                     message.Language,
                      message.Ip));
             }
         }

@@ -29,8 +29,8 @@
             => dataAccess.UpdateParlayMaxPayout(new ParlayMaxPayoutUpdateCriteria(
                 param.CustId,
                 param.MaxPayoutLimit,
-                param.SubAccId,
                 param.UserId,
+                param.Language,
                 param.Ip));
     }
 }

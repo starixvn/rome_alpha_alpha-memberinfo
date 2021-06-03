@@ -9,35 +9,31 @@
         public ParlayMaxPayoutUpdateCriteria(
             int custId,
             string maxPayoutLimit,
-            int subAccId,
             int userId,
+            string language,
             string ip)
         {
             CustId = custId;
             MaxPayoutLimit = maxPayoutLimit;
-            SubAccId = subAccId;
             UserId = userId;
+            Language = language;
             Ip = ip;
-            SystemId = alphaSystemId;
         }
 
         public int CustId { get; }
 
         public string MaxPayoutLimit { get; }
 
-        public int SubAccId { get; }
-
         public int UserId { get; }
 
-        public string Ip { get; }
+        public string Language { get; }
 
-        public byte SystemId { get; }
+        public string Ip { get; }
 
         public override string GetSettingKey() => "Acc_CustSetting_MaxPayoutUpd";
 
         public override bool IsValid()
             => CustId > 0
-            && SubAccId > 0
             && UserId > 0
             && !string.IsNullOrWhiteSpace(MaxPayoutLimit);
     }
