@@ -1,13 +1,14 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
     using System;
-    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Enumerations;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
+    using Alpha.MemberInfo.Features.Shared;
+    using Alpha.MemberInfo.Features.Shared.Params;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
@@ -27,12 +28,14 @@
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
         private readonly PasswordService passwordService;
+        private readonly CheckBelongingService checkBelongingService;
 
         public QRCodeMemberSignInHandler(
            QrCodeAdapter qrCodeAdapter,
            QRCodeMemberSignInService qrCodeMemberSignInService,
-           PasswordService passwordService)
-            : this(qrCodeAdapter, qrCodeMemberSignInService, passwordService, null)
+           PasswordService passwordService,
+           CheckBelongingService checkBelongingService)
+            : this(qrCodeAdapter, qrCodeMemberSignInService, passwordService, checkBelongingService, null)
         {
         }
 
@@ -40,11 +43,13 @@
             QrCodeAdapter qrCodeAdapter,
             QRCodeMemberSignInService qrCodeMemberSignInService,
             PasswordService passwordService,
+            CheckBelongingService checkBelongingService,
             QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper)
         {
             this.qrCodeAdapter = qrCodeAdapter;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
             this.passwordService = passwordService;
+            this.checkBelongingService = checkBelongingService;
             this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper ??
                     SimpleServiceLocator.GetService<QRCodeLoginConfigsHelper>();
         }
@@ -155,7 +160,11 @@
 
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
-            if (qrCodeMemberSignInService.IsNotFirstLoginByQRCode(message.SearchAccountId))
+            var belongingInfo = checkBelongingService.GetBelongingInfo(
+                new CheckBelongingParam(message.ViewerId, message.SearchAccountId, message.SubAccId));
+
+            if (belongingInfo.IsValid(message.ViewerLevelId)
+                && qrCodeMemberSignInService.IsNotFirstLoginByQRCode(message.SearchAccountId))
             {
                 var rawPassword = message.RawPassword;
 

@@ -1,5 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Web.Mvc;
     using Alpha.Captcha.Mvc;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
@@ -7,9 +10,6 @@
     using Alpha.Web;
     using Alpha.Web.Filters;
     using MediatR;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
 
     public class QRCodeMemberSignInController : BaseController
     {

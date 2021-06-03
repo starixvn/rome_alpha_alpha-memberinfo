@@ -1,11 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Site.Tests.Handlers.MemberRequests
 {
-    using System.Collections.Generic;
     using System.Globalization;
     using System.Threading;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
+    using Alpha.MemberInfo.Features.Shared;
+    using Alpha.MemberInfo.Features.Shared.Models;
+    using Alpha.MemberInfo.Features.Shared.Params;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
@@ -26,6 +28,7 @@
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly PasswordService passwordService;
+        private readonly CheckBelongingService checkBelongingService;
         private readonly QRCodeMemberSignInHandler handler;
         private readonly IUser user;
         private readonly Fixture fixture;
@@ -36,10 +39,11 @@
             fixture = new Fixture();
             service = Substitute.For<QRCodeMemberSignInService>();
             passwordService = Substitute.For<PasswordService>();
+            checkBelongingService = Substitute.For<CheckBelongingService>();
             qrCodeLoginConfigsHelper = Substitute.For<QRCodeLoginConfigsHelper>();
             qrCodeAdapter = Substitute.For<QrCodeAdapter>();
 
-            handler = new QRCodeMemberSignInHandler(qrCodeAdapter, service, passwordService, qrCodeLoginConfigsHelper);
+            handler = new QRCodeMemberSignInHandler(qrCodeAdapter, service, passwordService, checkBelongingService, qrCodeLoginConfigsHelper);
 
             Thread.CurrentThread.CurrentCulture = new CultureInfo(LanguageCode.English);
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
@@ -333,7 +337,9 @@
                 CreditMin = 10,
                 CreditMax = 1000
             };
+            var belongingInfo = new BelongingInfo(true, 1, string.Empty);
 
+            checkBelongingService.GetBelongingInfo(Arg.Any<CheckBelongingParam>()).Returns(belongingInfo);
             qrCodeLoginConfigsHelper.LocalTest().Returns(true);
             service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
 
@@ -386,7 +392,9 @@
                 CreditMin = 10,
                 CreditMax = 1000
             };
+            var belongingInfo = new BelongingInfo(true, 1, string.Empty);
 
+            checkBelongingService.GetBelongingInfo(Arg.Any<CheckBelongingParam>()).Returns(belongingInfo);
             service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
 
             // Act
