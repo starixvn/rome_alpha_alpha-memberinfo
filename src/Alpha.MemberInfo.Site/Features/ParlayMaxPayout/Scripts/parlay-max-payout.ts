@@ -18,7 +18,8 @@ class ParlayMaxPayout {
     private invalidMaxPayoutValueText: string;
     private greaterThanMaxValueText: string;
 
-    private timeout = 1500;
+    private hideHintTimeout = 3000;
+    private reloadTimeout = 1000;
 
     constructor(
         $: JQueryStatic,
@@ -28,8 +29,8 @@ class ParlayMaxPayout {
     }
 
     public Init(): void {
-        this.cacheDomElements();
         this.cacheData();
+        this.cacheDomElements();
         this.registerEvents();
     }
 
@@ -54,36 +55,59 @@ class ParlayMaxPayout {
     private registerEvents(): void {
         this.$btnSubmit.off("click").on("click", this.onSubmit);
         this.$(".cb-setting").off("change").on("change", this.changeSettingValue);
-        this.$(".tb-setting")
-            .off("change").on("change", this.validateSettingValue)
-            .off("keyup").on("keyup", this.formatSettingValue);
+        this.$(".tb-setting").off("keyup").on("keyup", this.formatSettingValue);
     }
 
     private onSubmit = (): void => {
         const self = this;
 
+        let isValid = true;
         let maxPayoutLimit = "<ROOT>";
         self.$(".sport-name").each(function () {
             let $this = self.$(this),
                 betTypeId = $this.data("bettypeid"),
+                betTypeName = $this.data("bettypename"),
                 sportTypeId = $this.data("sporttypeid");
 
             let item = `<MaxPayoutLimit SportType="${sportTypeId}" BetType="${betTypeId}"`;
             self.$(`.tb-setting[data-sporttypeid="${sportTypeId}"]`).each(function () {
-                item += ` ${self.$(this).data("settingname")}="${Helper.ToNumberFormat(this.value)}"`;
+                let $el = self.$(this),
+                    columnName = $el.data("columnname"),
+                    maxValue = $el.data("maxvalue"),
+                    value = $el.val();
+
+                let result = self.validateSettingValue(value, maxValue);
+                if (result !== ValidateResult.ValidValue) {
+                    isValid = false;
+
+                    let message = result === ValidateResult.InvalidValue
+                        ? self.invalidMaxPayoutValueText
+                        : self.greaterThanMaxValueText
+                            .replace("<BetType>", betTypeName)
+                            .replace("<Column>", columnName);
+                    self.showHint(this, message);
+
+                    return false;
+                }
+
+                item += ` ${$el.data("settingname")}="${Helper.ToNumberFormat(value)}"`;
             });
 
             maxPayoutLimit += `${item} />`;
+
+            return isValid;
         });
 
         maxPayoutLimit += "</ROOT>";
 
-        let params = JSON.stringify({
-            CustIdList: this.custIdList,
-            MaxPayoutLimit: maxPayoutLimit
-        });
+        if (isValid) {
+            let params = JSON.stringify({
+                CustIdList: this.custIdList,
+                MaxPayoutLimit: maxPayoutLimit
+            });
 
-        this.parlayMaxPayoutService.UpdateParlayMaxPayout(params, this.onUpdateSuccess);
+            this.parlayMaxPayoutService.UpdateParlayMaxPayout(params, this.onUpdateSuccess);
+        }
     };
 
     private changeSettingValue = (event): void => {
@@ -95,34 +119,21 @@ class ParlayMaxPayout {
         tbSetting.prop("disabled", el.checked);
     };
 
-    private validateSettingValue = (event): void => {
-        const el = event.currentTarget,
-            value = el.value,
-            maxValue = this.$(el).data("maxvalue"),
-            valueNumber = Helper.ToNumber(value),
-            maxValueNumber = Helper.ToNumber(maxValue);
+    private validateSettingValue(valueText: string, maxValueText: string): ValidateResult {
+        const value = Helper.ToNumber(valueText),
+            maxValue = Helper.ToNumber(maxValueText);
 
-        let isSubmitDisabled = false;
-        if (value === Constants.Unlimited && maxValue !== Constants.Unlimited
-            || value !== Constants.Unlimited && (isNaN(valueNumber) || valueNumber <= 0)) {
-            isSubmitDisabled = true;
-            this.showHint(el, this.invalidMaxPayoutValueText);
+        if (valueText === Constants.Unlimited && maxValueText !== Constants.Unlimited
+            || valueText !== Constants.Unlimited && (isNaN(value) || value <= 0)) {
+            return ValidateResult.InvalidValue;
         }
 
-        if (maxValue !== Constants.Unlimited && valueNumber > maxValueNumber) {
-            const sportTypeId = this.$(el).data("sporttypeid"),
-                columnName = this.$(el).data("columnname"),
-                betTypeName = this.$(`.sport-name[data-sporttypeid="${sportTypeId}"]`).data("bettypename"),
-                message = this.greaterThanMaxValueText
-                    .replace("<BetType>", betTypeName)
-                    .replace("<Column>", columnName);
-
-            isSubmitDisabled = true;
-            this.showHint(el, message);
+        if (maxValueText !== Constants.Unlimited && value > maxValue) {
+            return ValidateResult.GreaterThanMaxValue;
         }
 
-        this.$btnSubmit.prop("disabled", isSubmitDisabled);
-    };
+        return ValidateResult.ValidValue;
+    }
 
     private formatSettingValue = (event): void => {
         const el = event.currentTarget;
@@ -135,7 +146,7 @@ class ParlayMaxPayout {
         }
 
         if (data && data.length > 0) {
-            const custNameList = this.custNameList.split(/\,/gi);
+            const custNameList = this.custNameList.split(/\,/g);
 
             let messages = "";
             data.forEach((item, index) => {
@@ -179,10 +190,10 @@ class ParlayMaxPayout {
 
         if (elOffset.left + hintWidth > containerWidth) {
             const right = containerOffset.left + containerWidth - elOffset.left - inputWidth;
-            this.$divHint.css({ display: "block", top, right, left: "unset" });
+            this.$divHint.css({ top, right, left: "unset" });
             this.$divHintPointer.css({ "margin-left": "auto", "margin-right": "unset" });
         } else {
-            this.$divHint.css({ display: "block", top, right: "unset", left: elOffset.left });
+            this.$divHint.css({ top, right: "unset", left: elOffset.left });
             this.$divHintPointer.css({ "margin-left": "unset", "margin-right": "auto" });
         }
     }
@@ -190,7 +201,7 @@ class ParlayMaxPayout {
     private setHideHint(): void {
         setTimeout(() => {
             this.$divHint.css("display", "none");
-        }, this.timeout);
+        }, this.hideHintTimeout);
     }
 
     private showMessage(message: string, isError: boolean = false): void {
@@ -208,7 +219,7 @@ class ParlayMaxPayout {
     private reloadAfterSuccess(): void {
         setTimeout(function () {
             window.location.reload();
-        }, this.timeout);
+        }, this.reloadTimeout);
     }
 }
 

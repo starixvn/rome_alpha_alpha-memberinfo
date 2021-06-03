@@ -1,17 +1,23 @@
 ﻿"use strict";
 
+enum ValidateResult {
+    ValidValue,
+    InvalidValue,
+    GreaterThanMaxValue
+};
+
 class Constants {
     public static Unlimited: string = "Unlimited";
 }
 
 class Helper {
     public static ToNumber(value: string): number {
-        return Number(value.replace(/\,/gi, ""));
+        return Number(value.replace(/\,/g, ""));
     }
 
     public static ToMoneyFormat(value: string): string {
         return value
-            .replace(/\,/gi, "")
+            .replace(/\,/g, "")
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
