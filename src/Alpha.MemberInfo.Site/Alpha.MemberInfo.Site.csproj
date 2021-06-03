@@ -657,9 +657,6 @@
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.min.css">
       <DependentUpon>dormant-account-list.css</DependentUpon>
     </Content>
-    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.min.js.map">
-      <DependentUpon>parlay-max-payout.min.js</DependentUpon>
-    </Content>
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
