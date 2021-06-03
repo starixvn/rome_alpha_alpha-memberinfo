@@ -86,7 +86,7 @@
                data-maxvalue="@maxValue"
                value="@value" />
     </div>
-    <div class="pmp-setting-control ctrl-max-setting"><= @maxValue</div>
+    <div class="pmp-setting-control ctrl-max-setting">@(maxValue == "Unlimited" ? string.Empty : $"<= {maxValue}")</div>
 }
 
 @helper RenderCheckBoxControl(byte sportTypeId, string settingName, bool isAllowUnlimit)
