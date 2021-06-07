@@ -167,6 +167,14 @@ class ParlayMaxPayout {
             this.showMessages(messages);
         }
 
+        if (!data || data.length < 1) {
+            return this.showMessage("Server error(s).", true);
+        }
+
+        if (data.Code !== 0) {
+            return this.showMessage(data.Message, true);
+        }
+
         this.reloadAfterSuccess();
     };
 
