@@ -589,34 +589,34 @@
     <value>ลบเรียบร้อย</value>
   </data>
   <data name="ParlayMaxPayoutSubTitle" xml:space="preserve">
-    <value>Parlay Max Payout {0}</value>
+    <value>การจ่ายเงินสูงสุดของพาร์เลย์ {0}</value>
   </data>
   <data name="ParlayMaxPayoutSingleSubText" xml:space="preserve">
-    <value>Parlay Max Payout: {0}</value>
+    <value>การจ่ายเงินสูงสุดของพาร์เลย์: {0}</value>
   </data>
   <data name="ParlayMaxPayoutMultipleSubText" xml:space="preserve">
-    <value>Parlay Max Payout</value>
+    <value>การจ่ายเงินสูงสุดของพาร์เลย์</value>
   </data>
   <data name="SingleMatchParlay" xml:space="preserve">
-    <value>Single Match Parlay</value>
+    <value>พาร์เลย์การแข่งขันนัดเดียว</value>
   </data>
   <data name="Combo2" xml:space="preserve">
-    <value>Combo 2</value>
+    <value>คอมโบ 2</value>
   </data>
   <data name="Combo35" xml:space="preserve">
-    <value>Combo 3-5</value>
+    <value>คอมโบ 3-5</value>
   </data>
   <data name="ComboOver6" xml:space="preserve">
-    <value>Combo 6+ &#38; System Parlay</value>
+    <value>คอมโบ 6+ และ ระบบพาร์เลย์</value>
   </data>
   <data name="ParlayMaxPayoutUpdateSuccessfully" xml:space="preserve">
-    <value>Update successfully</value>
+    <value>อัพเดทเสร็จสมบูรณ์</value>
   </data>
   <data name="InvalidMaxPayoutValueText" xml:space="preserve">
-    <value>The value must be a positive amount.</value>
+    <value>ค่าต้องเป็นจำนวนบวก</value>
   </data>
   <data name="GreaterThanMaxValueText" xml:space="preserve">
-    <value>&lt;BetType&gt;: The setting of &lt;Column&gt; is higher than the upline's.</value>
+    <value>&lt;BetType&gt;: การตั้งค่า &lt;Column&gt; สูงกว่าของอัพไลน์</value>
   </data>
   <data name="soccerParlay" xml:space="preserve">
     <value>บอลชุดฟุตบอล</value>

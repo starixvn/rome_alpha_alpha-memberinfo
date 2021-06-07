@@ -589,34 +589,34 @@
     <value>删除</value>
   </data>
   <data name="ParlayMaxPayoutSubTitle" xml:space="preserve">
-    <value>Parlay Max Payout {0}</value>
+    <value>串关最高派彩 {0}</value>
   </data>
   <data name="ParlayMaxPayoutSingleSubText" xml:space="preserve">
-    <value>Parlay Max Payout: {0}</value>
+    <value>串关最高派彩: {0}</value>
   </data>
   <data name="ParlayMaxPayoutMultipleSubText" xml:space="preserve">
-    <value>Parlay Max Payout</value>
+    <value>串关最高派彩</value>
   </data>
   <data name="SingleMatchParlay" xml:space="preserve">
-    <value>Single Match Parlay</value>
+    <value>单场串关</value>
   </data>
   <data name="Combo2" xml:space="preserve">
-    <value>Combo 2</value>
+    <value>复选 2</value>
   </data>
   <data name="Combo35" xml:space="preserve">
-    <value>Combo 3-5</value>
+    <value>复选 3-5</value>
   </data>
   <data name="ComboOver6" xml:space="preserve">
-    <value>Combo 6+ &#38; System Parlay</value>
+    <value>复选 6+ &#38; 系统串关</value>
   </data>
   <data name="ParlayMaxPayoutUpdateSuccessfully" xml:space="preserve">
-    <value>Update successfully</value>
+    <value>修改成功</value>
   </data>
   <data name="InvalidMaxPayoutValueText" xml:space="preserve">
-    <value>The value must be a positive amount.</value>
+    <value>该数额必须为正数</value>
   </data>
   <data name="GreaterThanMaxValueText" xml:space="preserve">
-    <value>&lt;BetType&gt;: The setting of &lt;Column&gt; is higher than the upline's.</value>
+    <value>&lt;BetType&gt;: 该设置 &lt;Column&gt; 高于上线。</value>
   </data>
   <data name="soccerParlay" xml:space="preserve">
     <value>足球混合过关</value>

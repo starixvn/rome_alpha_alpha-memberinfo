@@ -499,12 +499,12 @@
 		<value>此账号被上线间接关闭。</value>
 	</data>
   <data name="ParlayMaxPayoutText" xml:space="preserve">
-    <value>Parlay Max Payout</value>
+    <value>串关最高派彩</value>
   </data>
   <data name="ParlayMaxPayoutPopupHeaderText" xml:space="preserve">
-    <value>Edit &lt;username&gt;</value>
+    <value>修改 &lt;username&gt;</value>
   </data>
   <data name="ParlayMaxPayoutMultipleText" xml:space="preserve">
-    <value>Edit Multiple Parlay Max Payout</value>
+    <value>修改多重串关最高派彩</value>
   </data>
 </root>
