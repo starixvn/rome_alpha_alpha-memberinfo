@@ -11,6 +11,10 @@ class Constants {
 }
 
 class Helper {
+    public static IsFloatingPointNumber(value: number) {
+        return value % 1 !== 0;
+    }
+
     public static ToNumber(value: string): number {
         return Number(value.replace(/\,/g, ""));
     }

@@ -124,7 +124,7 @@ class ParlayMaxPayout {
             maxValue = Helper.ToNumber(maxValueText);
 
         if (valueText === Constants.Unlimited && maxValueText !== Constants.Unlimited
-            || valueText !== Constants.Unlimited && (isNaN(value) || value <= 0)) {
+            || valueText !== Constants.Unlimited && (isNaN(value) || value <= 0 || Helper.IsFloatingPointNumber(value))) {
             return ValidateResult.InvalidValue;
         }
 
