@@ -12,7 +12,7 @@
             bool hasDownline,
             bool disableAutoMPT,
             bool closed,
-            bool isDirectClosed,
+            byte isDirectClosed,
             bool uplineClosed,
             bool suspended,
             bool uplineSuspend,
@@ -52,7 +52,7 @@
 
         public bool Closed { get; private set; }
 
-        public bool IsDirectClosed { get; private set; }
+        public byte IsDirectClosed { get; private set; }
 
         public bool UplineClosed { get; private set; }
 

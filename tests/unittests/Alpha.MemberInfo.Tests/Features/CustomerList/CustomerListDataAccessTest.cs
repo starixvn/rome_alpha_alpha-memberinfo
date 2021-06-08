@@ -137,7 +137,7 @@
                              hasDownline: true,
                              disableAutoMPT: true,
                              closed: true,
-                             isDirectClosed: true,
+                             isDirectClosed: 1,
                              uplineClosed: true,
                              suspended: true,
                              isDirectSuspend: true,
