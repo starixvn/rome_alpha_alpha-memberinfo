@@ -66,14 +66,16 @@
     @RenderInputControl(item.SportTypeId, combo35Name, item.Combo35, item.UplineCombo35, Model.Combo35FieldText)
     @RenderInputControl(item.SportTypeId, comboOver6Name, item.ComboOver6, item.UplineComboOver6, Model.ComboOver6FieldText)
 
-    @RenderCheckBoxControl(item.SportTypeId, singleMatchParlayName, item.IsAllowUnlimitSingleMatchParlay)
-    @RenderCheckBoxControl(item.SportTypeId, combo2Name, item.IsAllowUnlimitCombo2)
-    @RenderCheckBoxControl(item.SportTypeId, combo35Name, item.IsAllowUnlimitCombo35)
-    @RenderCheckBoxControl(item.SportTypeId, comboOver6Name, item.IsAllowUnlimitComboOver6)
+    @RenderCheckBoxControl(item.SportTypeId, singleMatchParlayName, item.SingleMatchParlay, item.IsAllowUnlimitSingleMatchParlay)
+    @RenderCheckBoxControl(item.SportTypeId, combo2Name, item.Combo2, item.IsAllowUnlimitCombo2)
+    @RenderCheckBoxControl(item.SportTypeId, combo35Name, item.Combo35, item.IsAllowUnlimitCombo35)
+    @RenderCheckBoxControl(item.SportTypeId, comboOver6Name, item.ComboOver6, item.IsAllowUnlimitComboOver6)
 }
 
 @helper RenderInputControl(byte sportTypeId, string settingName, string value, string maxValue, string columnName)
 {
+    var unlimited = "Unlimited";
+
     <div class="pmp-setting-control ctrl-input">
         <input type="text"
                maxlength="14"
@@ -84,23 +86,27 @@
                data-settingname="@settingName"
                data-currentvalue="@value"
                data-maxvalue="@maxValue"
-               value="@value" />
+               value="@value"
+               @(value == unlimited ? "disabled" : string.Empty) />
     </div>
-    <div class="pmp-setting-control ctrl-max-setting">@(maxValue == "Unlimited" ? string.Empty : $"<= {maxValue}")</div>
+    <div class="pmp-setting-control ctrl-max-setting">@(maxValue == unlimited ? string.Empty : $"<= {maxValue}")</div>
 }
 
-@helper RenderCheckBoxControl(byte sportTypeId, string settingName, bool isAllowUnlimit)
+@helper RenderCheckBoxControl(byte sportTypeId, string settingName, string value, bool isAllowUnlimit)
 {
+    var unlimited = "Unlimited";
+
     <div class="pmp-setting-control ctrl-checkbox">
         @if (isAllowUnlimit)
         {
             <input type="checkbox"
                    class="cb-setting"
-                   data-tbsettingid="@settingName@sportTypeId" />
+                   data-tbsettingid="@settingName@sportTypeId"
+                   @(value == unlimited ? "checked" : string.Empty) />
         }
     </div>
     <div class="pmp-setting-control ctrl-checkbox-label">
-        @(isAllowUnlimit ? "Unlimited" : "")
+        @(isAllowUnlimit ? unlimited : string.Empty)
     </div>
 
 }
