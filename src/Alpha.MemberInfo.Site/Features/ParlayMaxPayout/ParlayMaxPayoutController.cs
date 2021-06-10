@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.ParlayMaxPayout
 {
     using Alpha.Web;
+    using Alpha.Web.Filters;
     using MediatR;
     using Requests;
     using System.Web.Mvc;
@@ -23,11 +24,11 @@
         public ActionResult EditMultiple(ParlayMaxPayoutMultipleSelectQuery message)
             => View(editMultiplePath, mediator.Send(message));
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public ActionResult UpdateSingle(ParlayMaxPayoutUpdateSingleQuery message)
             => Json(mediator.Send(message));
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public ActionResult UpdateMultiple(ParlayMaxPayoutUpdateMultipleQuery message)
             => Json(mediator.Send(message));
     }

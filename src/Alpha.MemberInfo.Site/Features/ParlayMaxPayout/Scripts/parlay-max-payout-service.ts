@@ -25,6 +25,10 @@ class ParlayMaxPayoutService {
             contentType: 'application/json; charset=utf-8',
             dataType: "json",
             type: type,
+            headers: {
+                __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             data: params,
             success: onSuccess,
             complete: this.$.unblockUI
