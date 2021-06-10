@@ -172,7 +172,7 @@ class ParlayMaxPayout {
             return this.showMessage("Server error(s).", true);
         }
 
-        if (data.Code !== StatusCode.Success) {
+        if (data.Code && data.Code !== StatusCode.Success) {
             return this.showMessage(data.Message, true);
         }
 
