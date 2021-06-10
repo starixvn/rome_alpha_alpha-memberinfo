@@ -73,8 +73,8 @@ class ParlayMaxPayout {
             self.$(`.tb-setting[data-sporttypeid="${sportTypeId}"]`).each(function () {
                 let $el = self.$(this),
                     columnName = $el.data("columnname"),
-                    maxValue = $el.data("maxvalue"),
-                    value = $el.val();
+                    maxValue = `${$el.data("maxvalue")}`,
+                    value = `${$el.val()}`;
 
                 let result = self.validateSettingValue(value, maxValue);
                 if (result !== ValidateResult.ValidValue) {
