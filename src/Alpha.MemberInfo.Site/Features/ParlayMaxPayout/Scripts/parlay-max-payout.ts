@@ -115,7 +115,7 @@ class ParlayMaxPayout {
             tbSettingId = this.$(el).data("tbsettingid"),
             tbSetting = this.$(`#${tbSettingId}`);
 
-        tbSetting.val(el.checked ? Constants.Unlimited : tbSetting.data("currentvalue"));
+        tbSetting.val(el.checked ? Constants.Unlimited : Constants.ZeroValue);
         tbSetting.prop("disabled", el.checked);
     };
 
@@ -124,7 +124,8 @@ class ParlayMaxPayout {
             maxValue = Helper.ToNumber(maxValueText);
 
         if (valueText === Constants.Unlimited && maxValueText !== Constants.Unlimited
-            || valueText !== Constants.Unlimited && (isNaN(value) || value <= 0 || Helper.IsFloatingPointNumber(value))) {
+            || valueText !== Constants.Unlimited
+            && (isNaN(value) || value < Constants.ZeroValue || Helper.IsFloatingPointNumber(value))) {
             return ValidateResult.InvalidValue;
         }
 
@@ -141,7 +142,7 @@ class ParlayMaxPayout {
     };
 
     private onUpdateSuccess = (data): void => {
-        if (data && data.Code === 0) {
+        if (data && data.Code === StatusCode.Success) {
             this.showMessage(this.updateSuccessMessage);
         }
 
@@ -151,10 +152,10 @@ class ParlayMaxPayout {
             let messages = "";
             data.forEach((item, index) => {
                 let custName = custNameList[index];
-                let message = item.Code === 0
+                let message = item.Code === StatusCode.Success
                     ? this.updateSuccessMessage
                     : item.Message;
-                let className = item.Code === 0
+                let className = item.Code === StatusCode.Success
                     ? "message-success"
                     : "message-error";
 
@@ -171,7 +172,7 @@ class ParlayMaxPayout {
             return this.showMessage("Server error(s).", true);
         }
 
-        if (data.Code !== 0) {
+        if (data.Code !== StatusCode.Success) {
             return this.showMessage(data.Message, true);
         }
 
