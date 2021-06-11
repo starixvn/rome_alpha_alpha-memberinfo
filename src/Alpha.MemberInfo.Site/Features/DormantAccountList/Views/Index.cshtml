@@ -66,12 +66,13 @@
                     <th rowspan="2">@Resources.ClearedGivenCredit</th>
                     <th rowspan="2">@Resources.YesterdayBalance</th>
                     <th rowspan="2">@Resources.LastLogin</th>
-                    <th colspan="3">@Resources.ArchiveDate</th>
+                    <th colspan="4">@Resources.ArchiveDate</th>
                 </tr>
                 <tr>
                     <th>@Resources.Closed</th>
                     <th>@Resources.Disabled</th>
                     <th>@Resources.DeletedSettings</th>
+                    <th>@Resources.DeletedAccount</th>
                 </tr>
             }
             else
@@ -93,46 +94,47 @@
                 foreach (var item in Model.Report.DormantAccounts)
                 {
                     var isRedDateTime = item.IsRedDateTime;
-                    <tr>
-                        <td>@item.Username</td>
-                        <td class="text-center">@item.RoleName</td>
-                        <td class="text-center">
-                            @if (item.IsWarningTicket)
-                            {
-                                <div data-toggle="tooltip"><span class="text-danger">@item.Status</span></div>
-                            }
-                            else
-                            {
-                                @:@item.Status
-                            }
-                        </td>
-                        <td class="text-center">@item.ArchiveStage</td>
-                        <td class="text-right">
-                            @if (item.ToBeClearedGivenCredit.HasValue)
-                            {
-                                @HtmlHelpers.FormatNumber(item.ToBeClearedGivenCredit.Value)
-                            }
-                        </td>
-                        <td class="text-right">
-                            @if (item.ClearedGivenCredit.HasValue)
-                            {
-                                @HtmlHelpers.FormatNumber(item.ClearedGivenCredit.Value)
-                            }
-                        </td>
-                        <td class="text-right">@HtmlHelpers.FormatNumber(item.YesterdayBalance)</td>
-                        @if (Model.IsShowDateTimeColumn)
-                        {
-                            <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.LastLogged.ToLongDateTime12h()</td>
-                            <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.ClosedDate.ToLongDateTime12h()</td>
-                            <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.DisabledDate.ToLongDateTime12h()</td>
-                            <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.SettingDeletedDate.ToLongDateTime12h()</td>
-                        }
-                    </tr>
+            <tr>
+                <td>@item.Username</td>
+                <td class="text-center">@item.RoleName</td>
+                <td class="text-center">
+                    @if (item.IsWarningTicket)
+                    {
+                        <div data-toggle="tooltip"><span class="text-danger">@item.Status</span></div>
+                    }
+                    else
+                    {
+                        @:@item.Status
+                    }
+                </td>
+                <td class="text-center">@item.ArchiveStage</td>
+                <td class="text-right">
+                    @if (item.ToBeClearedGivenCredit.HasValue)
+                    {
+                        @HtmlHelpers.FormatNumber(item.ToBeClearedGivenCredit.Value)
+                    }
+                </td>
+                <td class="text-right">
+                    @if (item.ClearedGivenCredit.HasValue)
+                    {
+                        @HtmlHelpers.FormatNumber(item.ClearedGivenCredit.Value)
+                    }
+                </td>
+                <td class="text-right">@HtmlHelpers.FormatNumber(item.YesterdayBalance)</td>
+                @if (Model.IsShowDateTimeColumn)
+                {
+                    <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.LastLogged.ToLongDateTime12h()</td>
+                    <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.ClosedDate.ToLongDateTime12h()</td>
+                    <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.DisabledDate.ToLongDateTime12h()</td>
+                    <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.SettingDeletedDate.ToLongDateTime12h()</td>
+                    <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.AccountDeletedDate.ToLongDateTime12h()</td>
+                }
+            </tr>
                 }
             }
             else
             {
-                @NoInformation.Render(11)
+                @NoInformation.Render(12)
             }
         </tbody>
         @if (Model.Report.HasData)
@@ -155,7 +157,7 @@
                     <td class="text-right">@HtmlHelpers.FormatNumber(Model.Report.Total.YesterdayBalance)</td>
                     @if (Model.IsShowDateTimeColumn)
                     {
-                        <td colspan="4"></td>
+                        <td colspan="5"></td>
                     }
                 </tr>
             </tfoot>

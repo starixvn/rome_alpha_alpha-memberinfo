@@ -94,7 +94,8 @@
                 mapper.Map(H, dormantAccount => dormantAccount.LastLogged.ToLongDateTime12h())
                     .Map(I, dormantAccount => dormantAccount.ClosedDate.ToLongDateTime12h())
                     .Map(J, dormantAccount => dormantAccount.DisabledDate.ToLongDateTime12h())
-                    .Map(K, dormantAccount => dormantAccount.SettingDeletedDate.ToLongDateTime12h());
+                    .Map(K, dormantAccount => dormantAccount.SettingDeletedDate.ToLongDateTime12h())
+                    .Map(L, dormantAccount => dormantAccount.AccountDeletedDate.ToLongDateTime12h());
             }
 
             return mapper;

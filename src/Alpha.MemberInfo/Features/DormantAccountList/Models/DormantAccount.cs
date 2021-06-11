@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Features.DormantAccountList.Models
 {
     using System;
+    using System.Collections.Generic;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Enumerations;
@@ -35,6 +36,7 @@
             ClosedDate = entity.ClosedDate;
             DisabledDate = entity.DisabledDate;
             SettingDeletedDate = entity.SettingDeletedDate;
+            AccountDeletedDate = entity.AccountDeletedDate;
             IsWarningTicket = entity.IsWarningTicket;
         }
 
@@ -59,6 +61,8 @@
         public DateTime? DisabledDate { get; }
 
         public DateTime? SettingDeletedDate { get; }
+
+        public DateTime? AccountDeletedDate { get; }
 
         public bool IsWarningTicket { get; }
 
@@ -95,21 +99,14 @@
 
         private static string GetStatus(byte statusId, bool isWarningTicket)
         {
-            string status;
-
-            if (statusId == StatusIdentity.Closed)
+            var accountStatusList = new Dictionary<byte, string>
             {
-                status = Resources.Closed;
-            }
-            else if (statusId == StatusIdentity.Disabled)
-            {
-                status = Resources.Disabled;
-            }
-            else
-            {
-                status = string.Empty;
-            }
-
+                { StatusIdentity.Closed, Resources.Closed },
+                { StatusIdentity.Disabled, Resources.Disabled },
+                { StatusIdentity.Deleted, Resources.Deleted }
+            };
+            var status = accountStatusList.ContainsKey(statusId) ? accountStatusList[statusId] : string.Empty;
+            
             return isWarningTicket ? $"{status} (*)" : status;
         }
 
@@ -118,21 +115,17 @@
             const int CloseAccount = 1;
             const int DisableAccount = 2;
             const int DeleteSettings = 3;
+            const int DeleteAccount = 4;
 
-            switch (stageId)
+            var archiveStageList = new Dictionary<byte, string>
             {
-                case CloseAccount:
-                    return Resources.CloseAccount;
+                { CloseAccount,  Resources.CloseAccount},
+                { DisableAccount,  Resources.DisableAccount},
+                { DeleteSettings,  Resources.DeleteSettings},
+                { DeleteAccount,  Resources.DeleteAccount}
+            };
 
-                case DisableAccount:
-                    return Resources.DisableAccount;
-
-                case DeleteSettings:
-                    return Resources.DeleteSettings;
-
-                default:
-                    return string.Empty;
-            }
+            return archiveStageList.ContainsKey(stageId) ? archiveStageList[stageId] : string.Empty;
         }
     }
 }

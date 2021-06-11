@@ -20,6 +20,7 @@
             DateTime? closedDate,
             DateTime? disabledDate,
             DateTime? settingDeletedDate,
+            DateTime? accountDeletedDate,
             bool isWarningTicket)
         {
             CustId = custId;
@@ -33,6 +34,7 @@
             ClosedDate = closedDate;
             DisabledDate = disabledDate;
             SettingDeletedDate = settingDeletedDate;
+            AccountDeletedDate = accountDeletedDate;
             IsWarningTicket = isWarningTicket;
         }
 
@@ -57,6 +59,8 @@
         public DateTime? DisabledDate { get; }
 
         public DateTime? SettingDeletedDate { get; }
+
+        public DateTime? AccountDeletedDate { get; }
 
         public bool IsWarningTicket { get; }
     }

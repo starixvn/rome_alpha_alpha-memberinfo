@@ -37,6 +37,9 @@
         public override bool IsValid()
             => CustId > 0
             && FilterRoleId < UserLevel.Super.Value
-            && (FilterStatusId == StatusIdentity.All || FilterStatusId == StatusIdentity.Closed || FilterStatusId == StatusIdentity.Disabled);
+            && (FilterStatusId == StatusIdentity.All ||
+            FilterStatusId == StatusIdentity.Closed || 
+            FilterStatusId == StatusIdentity.Disabled ||
+            FilterStatusId == StatusIdentity.Deleted);
     }
 }

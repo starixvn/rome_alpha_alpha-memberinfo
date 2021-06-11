@@ -23,6 +23,7 @@
                 new DateTime(2020, 9, 15, 15, 33, 0),
                 null,
                 null,
+                null,
                 false);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -47,6 +48,7 @@
                 null,
                 new DateTime(2020, 6, 5),
                 new DateTime(2020, 9, 15, 15, 33, 0),
+                null,
                 null,
                 null,
                 true);
@@ -75,6 +77,7 @@
                 new DateTime(2020, 9, 15, 15, 33, 0),
                 null,
                 null,
+                null,
                 false);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -99,6 +102,7 @@
                 null,
                 new DateTime(2020, 6, 5),
                 new DateTime(2020, 9, 15, 15, 33, 0),
+                null,
                 null,
                 null,
                 false);
@@ -127,6 +131,7 @@
                 new DateTime(2020, 9, 15, 15, 33, 0),
                 null,
                 null,
+                null,
                 false);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -153,6 +158,7 @@
                 new DateTime(2020, 9, 15, 15, 33, 0),
                 null,
                 null,
+                null,
                 false);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -167,16 +173,18 @@
         public void ArchiveStage_Invalid_ReturnsEmpty()
         {
             // Arrange
+            byte invalidStageId = 10;
             var entity = new DormantAccountEntity(
                 1,
                 "SP0101",
                 3,
                 4,
-                4,
+                invalidStageId,
                 1000,
                 null,
                 new DateTime(2020, 6, 5),
                 new DateTime(2020, 9, 15, 15, 33, 0),
+                null,
                 null,
                 null,
                 false);
@@ -239,6 +247,7 @@
                 null,
                 null,
                 null,
+                null,
                 false);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -266,6 +275,7 @@
                 current.AddHours(1),
                 null,
                 null,
+                null,
                 false);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -291,6 +301,7 @@
                 null,
                 current.AddHours(1),
                 current,
+                null,
                 null,
                 null,
                 false);
