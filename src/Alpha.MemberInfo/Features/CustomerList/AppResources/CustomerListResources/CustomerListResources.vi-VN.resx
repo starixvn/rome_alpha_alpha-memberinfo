@@ -310,6 +310,6 @@
     <value>Locked</value>
   </data>
   <data name="UnlockTooltip" xml:space="preserve">
-    <value>Click to unlock</value>
+    <value>Nhấn để mở khoá</value>
   </data>
 </root>

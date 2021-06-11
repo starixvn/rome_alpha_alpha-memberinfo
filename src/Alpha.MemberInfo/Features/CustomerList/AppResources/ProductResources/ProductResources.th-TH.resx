@@ -472,7 +472,7 @@
     <value>กีฬ่า 2</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelInCaseFalseOTPSC" xml:space="preserve">
-    <value>บัญชีนี้ถูกล็อกเนื่องจากการตรวจสอบล้มเหลวหลายครั้งของ รหัสผ่านครั้งเดียว / รหัสความปลอดภัย คุณต้องการปลดล็อกหรือไม่?</value>
+    <value>บัญชีนี้ถูกล็อกเนื่องจากการตรวจสอบล้มเหลวหลายครั้งของรหัสผ่านครั้งเดียว / รหัสความปลอดภัยคุณต้องการปลดล็อกหรือไม่?</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelInCaseFalsePassword" xml:space="preserve">
     <value>บัญชีนี้ถูกล็อกเนื่องจากป้อนรหัสผ่านไม่ถูกต้องหลายครั้ง คุณต้องการปลดล็อกหรือไม่?</value>

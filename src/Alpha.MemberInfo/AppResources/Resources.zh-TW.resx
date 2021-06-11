@@ -576,4 +576,7 @@
   <data name="LockStatus" xml:space="preserve">
     <value>鎖定狀態</value>
   </data>
+  <data name="IndirectLoginAccountLockedError" xml:space="preserve">
+    <value>此賬號已被鎖定，請解鎖後再次重試。</value>
+  </data>
 </root>

@@ -565,6 +565,9 @@
     <value>Hiển thị {from} đến {to} trong số {total} mục</value>
   </data>
   <data name="LockStatus" xml:space="preserve">
-    <value>Lock Status</value>
+    <value>Trạng Thái Khoá</value>
+  </data>
+  <data name="IndirectLoginAccountLockedError" xml:space="preserve">
+    <value>Tài khoản này đã bị khóa, vui lòng mở khóa và thử lại.</value>
   </data>
 </root>

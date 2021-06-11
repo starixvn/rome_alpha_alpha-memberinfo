@@ -472,10 +472,10 @@
     <value>Sportsbook 2</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelInCaseFalseOTPSC" xml:space="preserve">
-    <value>This account was locked by false inputs of OTP/Security Code. Are you sure you want to unlock this account?</value>
+    <value>Tài khoản này đã bị khóa do nhiều lần nhập sai Mã OTP / Mã bảo mật. Bạn có muốn mở khoá không?</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelInCaseFalsePassword" xml:space="preserve">
-    <value>This account was locked by false inputs of Password. Are you sure you want to unlock this account?</value>
+    <value>Tài khoản này đã bị khóa do nhiều lần nhập sai mật khẩu. Bạn có muốn mở khóa không?</value>
   </data>
   <data name="ConfirmUnlockAccessViewModelText" xml:space="preserve">
     <value>Locked Access</value>

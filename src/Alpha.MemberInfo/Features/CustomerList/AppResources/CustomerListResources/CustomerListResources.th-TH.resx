@@ -310,6 +310,6 @@
     <value>ถูกล็อก</value>
   </data>
   <data name="UnlockTooltip" xml:space="preserve">
-    <value>Click to unlock</value>
+    <value>คลิกเพื่อปลดล็อก</value>
   </data>
 </root>

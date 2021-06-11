@@ -422,7 +422,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This account has been locked due to multiple failed OTP/Security Code authentication attempts. Are you sure you want to unlock this account?.
+        ///   Looks up a localized string similar to This account has been locked due to multiple failed OTP/Security Code authentication attempts. Are you sure you want to unlock it?.
         /// </summary>
         public static string ConfirmUnlockAccessViewModelInCaseFalseOTPSC {
             get {
@@ -431,7 +431,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This account has been locked due to multiple failed password attempts. Are you sure you want to unlock this account?.
+        ///   Looks up a localized string similar to This account has been locked due to multiple failed password attempts. Are you sure you want to unlock it?.
         /// </summary>
         public static string ConfirmUnlockAccessViewModelInCaseFalsePassword {
             get {

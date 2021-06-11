@@ -96,6 +96,8 @@
 
         public byte Locked { get; }
 
-        public string LockedStatus => Locked != 0 ? Resources.Yes : Resources.No2;
+        public bool IsLock => Locked != 0;
+
+        public string LockedStatus => IsLock ? Resources.Yes : Resources.No2;
     }
 }

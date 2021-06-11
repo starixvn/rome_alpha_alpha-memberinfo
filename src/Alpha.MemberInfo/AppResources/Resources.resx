@@ -579,4 +579,7 @@
   <data name="LockStatus" xml:space="preserve">
     <value>Lock Status</value>
   </data>
+  <data name="IndirectLoginAccountLockedError" xml:space="preserve">
+    <value>This account is locked, please unlock it and try again.</value>
+  </data>
 </root>

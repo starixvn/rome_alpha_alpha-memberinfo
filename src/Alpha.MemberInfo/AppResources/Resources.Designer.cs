@@ -601,6 +601,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This account is locked, please unlock it and try again..
+        /// </summary>
+        public static string IndirectLoginAccountLockedError {
+            get {
+                return ResourceManager.GetString("IndirectLoginAccountLockedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The account has been successfully connected..
         /// </summary>
         public static string IndirectLoginAccountNewSuccessfully {
