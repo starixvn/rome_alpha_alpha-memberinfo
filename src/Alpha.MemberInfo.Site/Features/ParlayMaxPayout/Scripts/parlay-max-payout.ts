@@ -3,13 +3,8 @@
 class ParlayMaxPayout {
     private $: JQueryStatic;
     private $btnSubmit: JQuery;
-    private $divMessageContainer: JQuery;
-    private $divMessageText: JQuery;
-    private $divPmpContainer: JQuery;
-    private $divHint: JQuery;
-    private $divHintText: JQuery;
-    private $divHintPointer: JQuery;
 
+    private alertService: AlertService;
     private parlayMaxPayoutService: ParlayMaxPayoutService;
 
     private custIdList: string;
@@ -18,17 +13,20 @@ class ParlayMaxPayout {
     private invalidMaxPayoutValueText: string;
     private greaterThanMaxValueText: string;
 
-    private hideHintTimeout = 3000;
     private reloadTimeout = 1000;
 
     constructor(
         $: JQueryStatic,
+        alertService: AlertService,
         parlayMaxPayoutService: ParlayMaxPayoutService) {
         this.$ = $;
+        this.alertService = alertService;
         this.parlayMaxPayoutService = parlayMaxPayoutService;
     }
 
     public Init(): void {
+        this.alertService.Init();
+
         this.cacheData();
         this.cacheDomElements();
         this.registerEvents();
@@ -36,12 +34,6 @@ class ParlayMaxPayout {
 
     private cacheDomElements(): void {
         this.$btnSubmit = this.$("#btn-submit");
-        this.$divMessageContainer = this.$("#message-container");
-        this.$divMessageText = this.$("#message-text");
-        this.$divPmpContainer = this.$("#pmp-container");
-        this.$divHint = this.$("#hint");
-        this.$divHintText = this.$("#hint-text");
-        this.$divHintPointer = this.$("#hint-pointer");
     }
 
     private cacheData(): void {
@@ -85,7 +77,7 @@ class ParlayMaxPayout {
                         : self.greaterThanMaxValueText
                             .replace("<BetType>", betTypeName)
                             .replace("<Column>", columnName);
-                    self.showHint(this, message);
+                    self.alertService.showHint(this, message);
 
                     return false;
                 }
@@ -143,20 +135,20 @@ class ParlayMaxPayout {
 
     private onUpdateSuccess = (data): void => {
         if (this.$.isEmptyObject(data)) {
-            return this.showMessage("Server error(s).", true);
+            return this.alertService.showMessage("Server error(s).", true);
         }
 
         if (data.Code && data.Code !== StatusCode.Success) {
-            return this.showMessage(data.Message, true);
+            return this.alertService.showMessage(data.Message, true);
         }
 
         if (data.Code === StatusCode.Success) {
-            this.showMessage(this.updateSuccessMessage);
+            this.alertService.showMessage(this.updateSuccessMessage);
         }
 
         if (data.length > 0) {
             if (data[0].Code === StatusCode.NotAuthorized) {
-                return this.showMessage(data[0].Message, true);
+                return this.alertService.showMessage(data[0].Message, true);
             }
 
             const custNameList = this.custNameList.split(/\,/g);
@@ -181,7 +173,7 @@ class ParlayMaxPayout {
                     </div>`;
             });
 
-            this.showMessages(messages);
+            this.alertService.showMessages(messages);
             if (hasError) {
                 return;
             }
@@ -189,52 +181,6 @@ class ParlayMaxPayout {
 
         this.reloadAfterSuccess();
     };
-
-    private showHint(el: HTMLElement, message: string): void {
-        this.$divHintText.text(message);
-        this.$divHint.css("display", "block");
-
-        this.adjustHintPosition(el);
-        this.setHideHint();
-    }
-
-    private adjustHintPosition(el: HTMLElement): void {
-        const hintHeight = 30,
-            hintPointerHeight = 12,
-            inputWidth = 120,
-            hintWidth = this.$divHint.width(),
-            elOffset = this.$(el).offset(),
-            containerOffset = this.$divPmpContainer.offset(),
-            containerWidth = this.$divPmpContainer.width(),
-            top = elOffset.top - containerOffset.top - hintHeight - hintPointerHeight;
-
-        if (elOffset.left + hintWidth > containerWidth) {
-            const right = containerOffset.left + containerWidth - elOffset.left - inputWidth;
-            this.$divHint.css({ top, right, left: "unset" });
-            this.$divHintPointer.css({ "margin-left": "auto", "margin-right": "unset" });
-        } else {
-            this.$divHint.css({ top, right: "unset", left: elOffset.left });
-            this.$divHintPointer.css({ "margin-left": "unset", "margin-right": "auto" });
-        }
-    }
-
-    private setHideHint(): void {
-        setTimeout(() => {
-            this.$divHint.css("display", "none");
-        }, this.hideHintTimeout);
-    }
-
-    private showMessage(message: string, isError: boolean = false): void {
-        this.$divMessageText.text(message);
-        this.$divMessageText.addClass(isError ? "message-error" : "message-success");
-        this.$divMessageContainer.css("display", "block");
-    }
-
-    private showMessages(messages: string) {
-        this.$divMessageContainer.empty();
-        this.$divMessageContainer.html(messages);
-        this.$divMessageContainer.css("display", "block");
-    }
 
     private reloadAfterSuccess(): void {
         setTimeout(function () {
@@ -246,6 +192,7 @@ class ParlayMaxPayout {
 $(function () {
     const parlayMaxPayout = new ParlayMaxPayout(
         $,
+        new AlertService($),
         new ParlayMaxPayoutService($));
     parlayMaxPayout.Init();
 });

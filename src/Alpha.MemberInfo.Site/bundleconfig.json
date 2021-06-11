@@ -205,6 +205,7 @@
     "outputFileName": "Features/ParlayMaxPayout/Bundles/parlay-max-payout.js",
     "inputFiles": [
       "Features/ParlayMaxPayout/Scripts/parlay-max-payout-helper.js",
+      "Features/ParlayMaxPayout/Scripts/parlay-max-payout-alert.js",
       "Features/ParlayMaxPayout/Scripts/parlay-max-payout-service.js",
       "Features/ParlayMaxPayout/Scripts/parlay-max-payout.js"
     ]

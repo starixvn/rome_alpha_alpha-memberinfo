@@ -1148,6 +1148,7 @@
     <TypeScriptCompile Include="Features\CustomerList\Scripts\muliple-double-comm.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\unlock.ts" />
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
+    <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-alert.ts" />
     <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-helper.ts" />
     <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-service.ts" />
     <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout.ts" />
