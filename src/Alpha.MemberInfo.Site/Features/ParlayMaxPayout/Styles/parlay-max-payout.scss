@@ -3,7 +3,7 @@
 @import url($icon-alpha-fonts);
 
 .user-list-box {
-    @include content-space();
+    @include content-space(auto, 30px);
     background-color: $content-bg-color;
     border: $border-value;
     max-width: $max-width;
@@ -102,14 +102,16 @@
 
             &.ctrl-checkbox {
                 border-left: $border-value;
+                width: 30px;
 
                 .cb-setting {
                     height: 24px;
-                    margin: 0 0 0 auto;
+                    margin: 0;
                 }
             }
 
             &.ctrl-checkbox-label {
+                margin-left: -105px;
                 text-transform: capitalize;
             }
         }

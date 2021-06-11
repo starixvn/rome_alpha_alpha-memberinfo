@@ -62,7 +62,6 @@ class CustomerListPopup {
             .css({ height: '100%', width })
             .modal({ show: true, backdrop: false });
 
-
         this.$productPopupContainer.draggable({ containment: "window" });
         this.$.unblockUI();
     }
@@ -153,7 +152,7 @@ class CustomerListPopup {
                 left = left - width;
             }
 
-            this.$statusPopupContainer.css({ top, left, height, width });
+            this.$statusPopupContainer.css({ top, left, height });
         }
     }
 
