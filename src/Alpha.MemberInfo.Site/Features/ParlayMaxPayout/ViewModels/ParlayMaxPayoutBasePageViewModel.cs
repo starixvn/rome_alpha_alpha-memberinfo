@@ -2,6 +2,7 @@
 {
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Constants;
+    using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
     using Alpha.MemberInfo.Features.ParlayMaxPayout.Models;
     using System.Collections.Generic;
 
@@ -31,6 +32,7 @@
             UpdateSuccessfullyText = Resources.ParlayMaxPayoutUpdateSuccessfully;
             InvalidMaxPayoutValueText = Resources.InvalidMaxPayoutValueText;
             GreaterThanMaxValueText = Resources.GreaterThanMaxValueText;
+            HasNoChangeText = ProductResources.NoDataChange;
             ParlayMaxPayoutSettingPartialViewPath = parlayMaxPayoutSettingPartialViewPath;
         }
 
@@ -57,6 +59,8 @@
         public string InvalidMaxPayoutValueText { get; }
 
         public string GreaterThanMaxValueText { get; }
+
+        public string HasNoChangeText { get; }
 
         public IEnumerable<ParlayMaxPayoutViewModel> Data
         {

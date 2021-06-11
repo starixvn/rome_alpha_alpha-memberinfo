@@ -69,9 +69,13 @@ class AlertService {
         this.$divMessageContainer.css("display", "block");
     }
 
-    public showMessages(messages: string) {
+    public showMessages(messages: string): void {
         this.$divMessageContainer.empty();
         this.$divMessageContainer.html(messages);
         this.$divMessageContainer.css("display", "block");
+    }
+
+    public clearMessages(): void {
+        this.$divMessageContainer.css("display", "none");
     }
 }

@@ -12,6 +12,8 @@ class ParlayMaxPayout {
     private updateSuccessMessage: string;
     private invalidMaxPayoutValueText: string;
     private greaterThanMaxValueText: string;
+    private hasNoChangeText: string;
+    private isMultiple: boolean;
 
     private reloadTimeout = 1000;
 
@@ -42,6 +44,8 @@ class ParlayMaxPayout {
         this.updateSuccessMessage = this.$("#tb-updatesuccess-msg").val();
         this.invalidMaxPayoutValueText = this.$("#tb-invalidvalue-msg").val();
         this.greaterThanMaxValueText = this.$("#tb-gtmaxvalue-msg").val();
+        this.hasNoChangeText = this.$("#tb-hasnochange-msg").val();
+        this.isMultiple = this.$(".user-list-box").length === 1;
     }
 
     private registerEvents(): void {
@@ -52,19 +56,22 @@ class ParlayMaxPayout {
 
     private onSubmit = (): void => {
         const self = this;
+        this.alertService.clearMessages();
 
         let isValid = true;
         let maxPayoutLimit = "<ROOT>";
-        self.$(".sport-name").each(function () {
+        this.$(".sport-name").each(function () {
             let $this = self.$(this),
                 betTypeId = $this.data("bettypeid"),
                 betTypeName = $this.data("bettypename"),
                 sportTypeId = $this.data("sporttypeid");
 
+            let hasAnyChange = false;
             let item = `<MaxPayoutLimit SportType="${sportTypeId}" BetType="${betTypeId}"`;
             self.$(`.tb-setting[data-sporttypeid="${sportTypeId}"]`).each(function () {
                 let $el = self.$(this),
                     columnName = $el.data("columnname"),
+                    currentValue = `${$el.data("currentvalue")}`,
                     maxValue = `${$el.data("maxvalue")}`,
                     value = `${$el.val()}`;
 
@@ -81,17 +88,23 @@ class ParlayMaxPayout {
 
                     return false;
                 }
+                if (!hasAnyChange && value !== currentValue) {
+                    hasAnyChange = true;
+                }
 
                 item += ` ${$el.data("settingname")}="${Helper.ToNumberFormat(value)}"`;
             });
-
-            maxPayoutLimit += `${item} />`;
+            if (self.isMultiple || hasAnyChange) {
+                maxPayoutLimit += `${item} />`;
+            }
 
             return isValid;
         });
 
         maxPayoutLimit += "</ROOT>";
-
+        if (!this.isMultiple && isValid && maxPayoutLimit.indexOf("MaxPayoutLimit") === -1) {
+            return this.alertService.showMessage(this.hasNoChangeText, true);
+        }
         if (isValid) {
             let params = JSON.stringify({
                 CustIdList: this.custIdList,
