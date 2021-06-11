@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.ParlayMaxPayout
 {
+    using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Features.ParlayMaxPayout;
     using Alpha.MemberInfo.Features.ParlayMaxPayout.Params;
     using Alpha.MemberInfo.Models;
@@ -15,6 +16,7 @@
         IRequestHandler<ParlayMaxPayoutUpdateSingleQuery, Result>,
         IRequestHandler<ParlayMaxPayoutUpdateMultipleQuery, IEnumerable<Result>>
     {
+        const int NotAuthorizedErrorCode = 401;
         private readonly ParlayMaxPayoutService parlayMaxPayoutService;
 
         public ParlayMaxPayoutHandler(ParlayMaxPayoutService parlayMaxPayoutService)
@@ -33,16 +35,29 @@
                 parlayMaxPayoutService.GetParlayMaxPayout(new ParlayMaxPayoutSelectParam(message.CustId)));
 
         public Result Handle(ParlayMaxPayoutUpdateSingleQuery message)
-            => parlayMaxPayoutService.UpdateParlayMaxPayout(
-                new ParlayMaxPayoutUpdateParam(
-                     message.CustId,
-                     message.MaxPayoutLimit,
-                     message.UserId,
-                     message.Language,
-                     message.Ip));
+        {
+            if (!message.CanUpdateAccount)
+            {
+                return Result.CreateErrorResult(Lang.NotAuthorized, NotAuthorizedErrorCode);
+            }
+
+            return parlayMaxPayoutService.UpdateParlayMaxPayout(
+                           new ParlayMaxPayoutUpdateParam(
+                                message.CustId,
+                                message.MaxPayoutLimit,
+                                message.UserId,
+                                message.Language,
+                                message.Ip));
+        }
 
         public IEnumerable<Result> Handle(ParlayMaxPayoutUpdateMultipleQuery message)
         {
+            if (!message.CanUpdateAccount)
+            {
+                yield return Result.CreateErrorResult(Lang.NotAuthorized, NotAuthorizedErrorCode);
+                yield break;
+            }
+
             var custIds = message.CustIdList.Split(',').Select(int.Parse);
             foreach (var custId in custIds)
             {

@@ -11,6 +11,7 @@
             UserId = viewer.Id;
             Language = viewer.Language;
             Ip = viewer.IP;
+            CanUpdateAccount = viewer.CanUpdateAccount;
         }
 
         public string CustIdList { get; set; }
@@ -22,6 +23,8 @@
         public string Language { get; }
 
         public string Ip { get; }
+
+        public bool CanUpdateAccount { get; }
     }
 
     public class ParlayMaxPayoutUpdateSingleQuery :

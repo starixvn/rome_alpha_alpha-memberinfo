@@ -142,13 +142,26 @@ class ParlayMaxPayout {
     };
 
     private onUpdateSuccess = (data): void => {
-        if (data && data.Code === StatusCode.Success) {
+        if (this.$.isEmptyObject(data)) {
+            return this.showMessage("Server error(s).", true);
+        }
+
+        if (data.Code && data.Code !== StatusCode.Success) {
+            return this.showMessage(data.Message, true);
+        }
+
+        if (data.Code === StatusCode.Success) {
             this.showMessage(this.updateSuccessMessage);
         }
 
-        if (data && data.length > 0) {
+        if (data.length > 0) {
+            if (data[0].Code === StatusCode.NotAuthorized) {
+                return this.showMessage(data[0].Message, true);
+            }
+
             const custNameList = this.custNameList.split(/\,/g);
 
+            let hasError = false;
             let messages = "";
             data.forEach((item, index) => {
                 let custName = custNameList[index];
@@ -158,6 +171,9 @@ class ParlayMaxPayout {
                 let className = item.Code === StatusCode.Success
                     ? "message-success"
                     : "message-error";
+                if (!hasError && item.Code !== StatusCode.Success) {
+                    hasError = true;
+                }
 
                 messages +=
                     `<div class="message ${className} message-icon">
@@ -166,14 +182,9 @@ class ParlayMaxPayout {
             });
 
             this.showMessages(messages);
-        }
-
-        if (!data || data.length < 1) {
-            return this.showMessage("Server error(s).", true);
-        }
-
-        if (data.Code && data.Code !== StatusCode.Success) {
-            return this.showMessage(data.Message, true);
+            if (hasError) {
+                return;
+            }
         }
 
         this.reloadAfterSuccess();
