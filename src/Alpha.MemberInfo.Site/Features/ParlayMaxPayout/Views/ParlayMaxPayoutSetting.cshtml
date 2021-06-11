@@ -87,6 +87,7 @@
                data-settingname="@settingName"
                data-currentvalue="@value"
                data-maxvalue="@maxValue"
+               data-cachedvalue="@(value == unlimited ? "0" : value)"
                value="@value"
                @(value == unlimited ? "disabled" : string.Empty) />
     </div>

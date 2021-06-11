@@ -107,7 +107,11 @@ class ParlayMaxPayout {
             tbSettingId = this.$(el).data("tbsettingid"),
             tbSetting = this.$(`#${tbSettingId}`);
 
-        tbSetting.val(el.checked ? Constants.Unlimited : Constants.ZeroValue);
+        if (el.checked) {
+            tbSetting.attr("data-cachedvalue", tbSetting.val());
+        }
+
+        tbSetting.val(el.checked ? Constants.Unlimited : tbSetting.attr("data-cachedvalue"));
         tbSetting.prop("disabled", el.checked);
     };
 
