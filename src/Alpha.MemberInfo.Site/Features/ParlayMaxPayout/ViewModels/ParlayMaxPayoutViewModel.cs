@@ -4,15 +4,10 @@
     using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.ParlayMaxPayout.Models;
-    using Alpha.MemberInfo.Services;
-    using Fanex.RemotingRef;
     using System.Collections.Generic;
 
     public class ParlayMaxPayoutViewModel
     {
-        private readonly CacheRefService cacheRefService
-            = new CacheRefServiceImpl(new RemotingRefService());
-
         private readonly Dictionary<byte, string> sportNameDictionary
             = new Dictionary<byte, string>
             {
@@ -25,7 +20,7 @@
             BetTypeId = model.BetTypeId;
             SportTypeId = model.SportTypeId;
 
-            BetTypeName = cacheRefService.GetBetTypeName(BetTypeId);
+            BetTypeName = sportNameDictionary[SportTypeId];
             SportTypeName = sportNameDictionary[SportTypeId];
 
             Combo2 = ToMoneyFormat(model.Combo2);
