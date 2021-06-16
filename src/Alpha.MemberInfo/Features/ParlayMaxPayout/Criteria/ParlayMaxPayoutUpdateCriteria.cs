@@ -4,8 +4,6 @@
 
     public class ParlayMaxPayoutUpdateCriteria : CriteriaBase
     {
-        private const byte alphaSystemId = 2;
-
         public ParlayMaxPayoutUpdateCriteria(
             int custId,
             string maxPayoutLimit,

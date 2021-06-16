@@ -31,5 +31,9 @@
         [HttpPost, AntiXsrfFilter]
         public ActionResult UpdateMultiple(ParlayMaxPayoutUpdateMultipleQuery message)
             => Json(mediator.Send(message));
+
+        [HttpPost, AntiXsrfFilter]
+        public ActionResult CheckDownline(ParlayMaxPayoutCheckDownlineQuery message)
+            => Json(mediator.Send(message));
     }
 }

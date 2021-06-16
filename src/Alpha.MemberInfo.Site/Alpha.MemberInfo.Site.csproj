@@ -825,6 +825,7 @@
     <Compile Include="Features\DormantAccountList\ViewModels\DormantAccountViewModel.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutController.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutHandler.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutCheckDownlineQuery.cs" />
     <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutMultipleSelectQuery.cs" />
     <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutSingleSelectQuery.cs" />
     <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutUpdateQuery.cs" />

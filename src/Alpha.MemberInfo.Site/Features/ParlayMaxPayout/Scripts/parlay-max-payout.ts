@@ -111,7 +111,7 @@ class ParlayMaxPayout {
                 MaxPayoutLimit: maxPayoutLimit
             });
 
-            this.parlayMaxPayoutService.UpdateParlayMaxPayout(params, this.onUpdateSuccess);
+            this.parlayMaxPayoutService.CheckDownline(params, this.onCheckDownlineSuccess);
         }
     };
 
@@ -148,6 +148,22 @@ class ParlayMaxPayout {
     private formatSettingValue = (event): void => {
         const el = event.currentTarget;
         el.value = Helper.ToMoneyFormat(el.value);
+    };
+
+    private onCheckDownlineSuccess = (data, params): void => {
+        if (this.$.isEmptyObject(data)) {
+            return this.alertService.showMessage("Server error(s).", true);
+        }
+
+        if (data.Code !== StatusCode.Success) {
+            return this.alertService.openBootboxConfirm(
+                data.Message,
+                () => {
+                    this.parlayMaxPayoutService.UpdateParlayMaxPayout(params, this.onUpdateSuccess);
+                });
+        }
+
+        this.parlayMaxPayoutService.UpdateParlayMaxPayout(params, this.onUpdateSuccess);
     };
 
     private onUpdateSuccess = (data): void => {

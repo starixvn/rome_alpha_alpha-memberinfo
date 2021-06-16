@@ -1,5 +1,9 @@
 ﻿"use strict";
 
+interface Window {
+    bootboxConfirm: Function;
+}
+
 class AlertService {
     private $: JQueryStatic;
 
@@ -77,5 +81,9 @@ class AlertService {
 
     public clearMessages(): void {
         this.$divMessageContainer.css("display", "none");
+    }
+
+    public openBootboxConfirm(message: string, onAcceptCallback: Function): void {
+        window.top.bootboxConfirm(message, null, onAcceptCallback);
     }
 }

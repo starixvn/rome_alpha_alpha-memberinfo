@@ -14,9 +14,10 @@
         IRequestHandler<ParlayMaxPayoutSingleSelectQuery, ParlayMaxPayoutSinglePageViewModel>,
         IRequestHandler<ParlayMaxPayoutMultipleSelectQuery, ParlayMaxPayoutMultiplePageViewModel>,
         IRequestHandler<ParlayMaxPayoutUpdateSingleQuery, Result>,
-        IRequestHandler<ParlayMaxPayoutUpdateMultipleQuery, IEnumerable<Result>>
+        IRequestHandler<ParlayMaxPayoutUpdateMultipleQuery, IEnumerable<Result>>,
+        IRequestHandler<ParlayMaxPayoutCheckDownlineQuery, Result>
     {
-        const int NotAuthorizedErrorCode = 401;
+        private const int NotAuthorizedErrorCode = 401;
         private readonly ParlayMaxPayoutService parlayMaxPayoutService;
 
         public ParlayMaxPayoutHandler(ParlayMaxPayoutService parlayMaxPayoutService)
@@ -69,6 +70,17 @@
                      message.Language,
                      message.Ip));
             }
+        }
+
+        public Result Handle(ParlayMaxPayoutCheckDownlineQuery message)
+        {
+            var custId = message.CustIdList.Split(',').Select(int.Parse).FirstOrDefault();
+
+            return parlayMaxPayoutService.CheckDownline(
+                new ParlayMaxPayoutCheckDownlineParam(
+                    custId,
+                    message.MaxPayoutLimit,
+                    message.Language));
         }
     }
 }

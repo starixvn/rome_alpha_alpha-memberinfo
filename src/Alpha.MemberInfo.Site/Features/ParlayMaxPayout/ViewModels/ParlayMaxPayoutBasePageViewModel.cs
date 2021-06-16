@@ -36,6 +36,8 @@
             ParlayMaxPayoutSettingPartialViewPath = parlayMaxPayoutSettingPartialViewPath;
         }
 
+        public string CheckDownlineUrl { get; } = "~/ParlayMaxPayout/CheckDownline";
+
         public virtual string UpdateUrl { get; }
 
         public virtual string CustIdList { get; }

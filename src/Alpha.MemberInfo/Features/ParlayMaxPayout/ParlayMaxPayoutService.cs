@@ -11,6 +11,8 @@
         IEnumerable<ParlayMaxPayoutModel> GetParlayMaxPayout(ParlayMaxPayoutSelectParam param);
 
         Result UpdateParlayMaxPayout(ParlayMaxPayoutUpdateParam param);
+
+        Result CheckDownline(ParlayMaxPayoutCheckDownlineParam param);
     }
 
     public class ParlayMaxPayoutServiceImpl : ParlayMaxPayoutService
@@ -32,5 +34,11 @@
                 param.UserId,
                 param.Language,
                 param.Ip));
+
+        public Result CheckDownline(ParlayMaxPayoutCheckDownlineParam param)
+            => dataAccess.CheckDownline(new ParlayMaxPayoutCheckDownlineCriteria(
+                param.CustId,
+                param.MaxPayoutLimit,
+                param.Language));
     }
 }

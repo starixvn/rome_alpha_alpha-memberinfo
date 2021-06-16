@@ -12,6 +12,8 @@
         IEnumerable<ParlayMaxPayoutModel> GetParlayMaxPayout(ParlayMaxPayoutSelectCriteria criteria);
 
         Result UpdateParlayMaxPayout(ParlayMaxPayoutUpdateCriteria criteria);
+
+        Result CheckDownline(ParlayMaxPayoutCheckDownlineCriteria criteria);
     }
 
     public class ParlayMaxPayoutDataAccessImpl : ParlayMaxPayoutDataAccess
@@ -27,6 +29,12 @@
             => repository.Fetch<ParlayMaxPayoutModel>(criteria);
 
         public Result UpdateParlayMaxPayout(ParlayMaxPayoutUpdateCriteria criteria)
+            => ExecuteNonQuery(criteria);
+
+        public Result CheckDownline(ParlayMaxPayoutCheckDownlineCriteria criteria)
+            => ExecuteNonQuery(criteria);
+
+        private Result ExecuteNonQuery(ICriteria criteria)
         {
             using (var db = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {

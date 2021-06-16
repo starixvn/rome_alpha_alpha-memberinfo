@@ -364,9 +364,11 @@
     <Compile Include="Features\DormantAccountList\Models\DormantAccountReport.cs" />
     <Compile Include="Features\DormantAccountList\Models\YesterdayBalanceEntity.cs" />
     <Compile Include="Features\DormantAccountList\Params\DormantAccountParam.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutCheckDownlineCriteria.cs" />
     <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutSelectCriteria.cs" />
     <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutUpdateCriteria.cs" />
     <Compile Include="Features\ParlayMaxPayout\Models\ParlayMaxPayoutModel.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutCheckDownlineParam.cs" />
     <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutSelectParam.cs" />
     <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutUpdateParam.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutDataAccess.cs" />
