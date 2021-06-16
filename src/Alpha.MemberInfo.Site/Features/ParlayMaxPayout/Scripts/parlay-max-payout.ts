@@ -110,8 +110,11 @@ class ParlayMaxPayout {
                 CustIdList: this.custIdList,
                 MaxPayoutLimit: maxPayoutLimit
             });
+            if (!this.isMultiple) {
+                return this.parlayMaxPayoutService.CheckDownline(params, this.onCheckDownlineSuccess);
+            }
 
-            this.parlayMaxPayoutService.CheckDownline(params, this.onCheckDownlineSuccess);
+            this.parlayMaxPayoutService.UpdateParlayMaxPayout(params, this.onUpdateSuccess);
         }
     };
 
