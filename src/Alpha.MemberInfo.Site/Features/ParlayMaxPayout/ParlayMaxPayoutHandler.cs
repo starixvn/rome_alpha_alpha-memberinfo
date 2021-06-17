@@ -47,6 +47,7 @@
                                 message.CustId,
                                 message.MaxPayoutLimit,
                                 message.UserId,
+                                message.SubAccId,
                                 message.Language,
                                 message.Ip));
         }
@@ -67,6 +68,7 @@
                      custId,
                      message.MaxPayoutLimit,
                      message.UserId,
+                     message.SubAccId,
                      message.Language,
                      message.Ip));
             }

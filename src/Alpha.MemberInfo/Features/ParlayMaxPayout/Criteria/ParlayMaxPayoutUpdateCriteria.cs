@@ -8,12 +8,14 @@
             int custId,
             string maxPayoutLimit,
             int userId,
+            int subAccId,
             string language,
             string ip)
         {
             CustId = custId;
             MaxPayoutLimit = maxPayoutLimit;
             UserId = userId;
+            SubAccId = subAccId;
             Language = language;
             Ip = ip;
         }
@@ -23,6 +25,8 @@
         public string MaxPayoutLimit { get; }
 
         public int UserId { get; }
+
+        public int SubAccId { get; }
 
         public string Language { get; }
 

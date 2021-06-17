@@ -32,6 +32,7 @@
                 param.CustId,
                 param.MaxPayoutLimit,
                 param.UserId,
+                param.SubAccId,
                 param.Language,
                 param.Ip));
 
