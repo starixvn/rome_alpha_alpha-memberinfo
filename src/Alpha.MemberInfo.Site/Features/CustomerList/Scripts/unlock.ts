@@ -3,13 +3,16 @@ class Unlock {
     private $: JQueryStatic;
     private topWindow: any;
     private customerListServices: CustomerListServices;
+    private isMobile: boolean;
 
     constructor(
         $: JQueryStatic,
         topWindow: any,
+        isMobile: boolean,
         customerListServices: CustomerListServices) {
         this.$ = $;
         this.topWindow = topWindow;
+        this.isMobile = isMobile;
         this.customerListServices = customerListServices;
     }
 
@@ -19,7 +22,7 @@ class Unlock {
         const confirmMessage = this.$(event.currentTarget).data("message");
         confirmMessage && this.topWindow.bootboxConfirm(
             confirmMessage,
-            event.currentTarget,
+            this.isMobile ? null : event.currentTarget,
             () => this.customerListServices.updateCustomerStatus(
                 event.currentTarget,
                 null,
@@ -37,7 +40,7 @@ class Unlock {
         }
         else {
             this.$.unblockUI();
-            this.topWindow.bootboxAlert(data.Message);
+            this.topWindow.bootboxAlert(data.Message, this.isMobile ? currentTarget : parentTarget);
         }
     }
 }

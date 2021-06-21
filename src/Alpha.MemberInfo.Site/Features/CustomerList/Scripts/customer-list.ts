@@ -102,7 +102,7 @@ $(function () {
         editSingleSetting = new EditSingleSetting($, customerListPopup, customerListServices),
         editMultipleSetting = new EditMultipleSetting($, viewModel, customerListPopup, customerListServices, editSingleSetting),
         editStatus = new EditStatus($, window.top, viewModel.IsMobileView, customerListServices, customerListPopup),
-        unlock = new Unlock($, window.top, customerListServices),
+        unlock = new Unlock($, window.top, viewModel.IsMobileView, customerListServices),
         customerListDataTable = new CustomerListDataTable($, window.top, viewModel, customerListPopup, customerListServices, editSingleSetting, editMultipleSetting, editStatus, unlock),
         customerList = new CustomerList(
             $,
