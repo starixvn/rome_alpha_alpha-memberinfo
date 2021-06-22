@@ -34,8 +34,9 @@
             SearchAccountName = request.CustName;
 
             HideEditMultiple =
-                Enumeration.FromValue<UserLevel>(request.ViewerLevelId).IsSuperLevel() &&
-                Enumeration.FromValue<UserLevel>(request.CustLevelId).IsMasterLevel();
+                Enumeration.FromValue<UserLevel>(request.ViewerLevelId).IsSuperLevel()
+                && Enumeration.FromValue<UserLevel>(request.CustLevelId).IsMasterLevel()
+                || !request.CanUpdateAccount;
 
             PageTitle = PageTitleDictonary[Enumeration.FromValue<UserLevel>(request.CustLevelId)];
 

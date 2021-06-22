@@ -73,9 +73,14 @@ body {
         li {
             padding: 4px 0;
 
-            &.icon-edit, &.icon-refresh, &.edit-status-popup {
+            &.icon-edit, &.icon-refresh, &.edit-status-popup, &.icon-eye {
                 font-size: calculateScale(13px) !important;
                 line-height: calculateScale(24px) !important;
+            }
+
+            &.icon-eye.View:before {
+                font-size: calculateScale(15px) !important;
+                top: calculateScale(2px) !important;
             }
         }
     }

@@ -222,7 +222,7 @@ body:not(.modal-open) {
                 color: #bbb !important;
             }
 
-            &.icon-edit, &.icon-refresh {
+            &.icon-edit, &.icon-refresh, &.icon-eye {
                 font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
                 font-size: 13px;
                 line-height: 24px;
@@ -234,8 +234,14 @@ body:not(.modal-open) {
                 }
             }
 
-            &.icon-edit:after {
+            &.icon-edit:after, &.icon-eye:after {
                 content: none;
+            }
+
+            &.icon-eye.View:before {
+                position: relative;
+                font-size: 15px;
+                top: 2px;
             }
         }
     }
