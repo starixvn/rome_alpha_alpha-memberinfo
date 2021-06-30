@@ -77,8 +77,25 @@
             padding: 0 8px;
             text-align: left;
 
+            &.no-checkbox-row {
+                grid-row: unset !important;
+                @include content-space(40px, 40px);
+
+                ~ .pmp-setting-control {
+                    @include content-space(40px, 31px);
+                }
+            }
+
             &.soccer-parlay {
                 grid-row: 2/4;
+
+                &.no-checkbox-row ~ .mixed-sports-parlay:not(.no-checkbox-row) {
+                    grid-row: 3/5 !important;
+
+                    ~ .pmp-setting-control {
+                        @include content-space();
+                    }
+                }
             }
 
             &.mixed-sports-parlay {

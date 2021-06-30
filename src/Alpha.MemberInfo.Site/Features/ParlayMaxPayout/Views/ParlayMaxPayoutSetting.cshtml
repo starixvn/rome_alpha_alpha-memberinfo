@@ -52,8 +52,9 @@
 @helper RenderParlayMaxPayoutSettingRow(ParlayMaxPayoutViewModel item)
 {
     var className = Model.GetClassName(item.SportTypeId);
+    var willRenderCheckBoxRow = item.IsAllowUnlimitCombo2 || item.IsAllowUnlimitCombo35 || item.IsAllowUnlimitComboOver6 || item.IsAllowUnlimitSingleMatchParlay;
 
-    <div class="pmp-sport-name sport-name @className"
+    <div class="pmp-sport-name sport-name @className @(willRenderCheckBoxRow ? string.Empty : "no-checkbox-row")"
          data-bettypeid="@item.BetTypeId"
          data-bettypename="@item.BetTypeName"
          data-sporttypeid="@item.SportTypeId">
@@ -70,10 +71,13 @@
     @RenderInputControl(item.SportTypeId, combo35Name, item.Combo35, item.UplineCombo35, Model.Combo35FieldText)
     @RenderInputControl(item.SportTypeId, comboOver6Name, item.ComboOver6, item.UplineComboOver6, Model.ComboOver6FieldText)
 
-    @RenderCheckBoxControl(item.SportTypeId, singleMatchParlayName, item.SingleMatchParlay, item.IsAllowUnlimitSingleMatchParlay)
-    @RenderCheckBoxControl(item.SportTypeId, combo2Name, item.Combo2, item.IsAllowUnlimitCombo2)
-    @RenderCheckBoxControl(item.SportTypeId, combo35Name, item.Combo35, item.IsAllowUnlimitCombo35)
-    @RenderCheckBoxControl(item.SportTypeId, comboOver6Name, item.ComboOver6, item.IsAllowUnlimitComboOver6)
+    if (willRenderCheckBoxRow)
+    {
+        @RenderCheckBoxControl(item.SportTypeId, singleMatchParlayName, item.SingleMatchParlay, item.IsAllowUnlimitSingleMatchParlay)
+        @RenderCheckBoxControl(item.SportTypeId, combo2Name, item.Combo2, item.IsAllowUnlimitCombo2)
+        @RenderCheckBoxControl(item.SportTypeId, combo35Name, item.Combo35, item.IsAllowUnlimitCombo35)
+        @RenderCheckBoxControl(item.SportTypeId, comboOver6Name, item.ComboOver6, item.IsAllowUnlimitComboOver6)
+    }
 }
 
 @helper RenderInputControl(byte sportTypeId, string settingName, string value, string maxValue, string columnName)
