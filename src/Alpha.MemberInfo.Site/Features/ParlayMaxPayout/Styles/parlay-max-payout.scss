@@ -8,6 +8,10 @@
     border: $border-value;
     max-width: $max-width;
     padding: 0 8px;
+
+    @media screen and (max-device-width: 576px) {
+        width: $max-width;
+    }
 }
 
 .pmp-page-title {
@@ -22,6 +26,10 @@
     margin: 20px 0;
     max-width: $max-width;
     position: relative;
+
+    @media screen and (max-device-width: 576px) {
+        width: $max-width;
+    }
 
     .pmp-heading {
         @include content-space();
