@@ -33,6 +33,7 @@
             InvalidMaxPayoutValueText = Resources.InvalidMaxPayoutValueText;
             GreaterThanMaxValueText = Resources.GreaterThanMaxValueText;
             HasNoChangeText = ProductResources.NoDataChange;
+            NotAuthorizedText = Lang.NotAuthorized;
             ParlayMaxPayoutSettingPartialViewPath = parlayMaxPayoutSettingPartialViewPath;
         }
 
@@ -63,6 +64,8 @@
         public string GreaterThanMaxValueText { get; }
 
         public string HasNoChangeText { get; }
+
+        public string NotAuthorizedText { get; }
 
         public IEnumerable<ParlayMaxPayoutViewModel> Data
         {

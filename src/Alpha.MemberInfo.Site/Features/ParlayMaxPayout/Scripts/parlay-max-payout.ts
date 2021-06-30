@@ -226,9 +226,9 @@ class ParlayMaxPayout {
 }
 
 $(function () {
-    const parlayMaxPayout = new ParlayMaxPayout(
-        $,
-        new AlertService($),
-        new ParlayMaxPayoutService($));
+    const alertService = new AlertService($);
+    const parlayMaxPayoutService = new ParlayMaxPayoutService($, alertService);
+    const parlayMaxPayout = new ParlayMaxPayout($, alertService, parlayMaxPayoutService);
+
     parlayMaxPayout.Init();
 });

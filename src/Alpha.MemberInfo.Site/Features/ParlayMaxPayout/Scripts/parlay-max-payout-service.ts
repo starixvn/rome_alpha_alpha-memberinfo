@@ -2,9 +2,11 @@
 
 class ParlayMaxPayoutService {
     private $: JQueryStatic;
+    private alertService: AlertService;
 
-    constructor($: JQueryStatic) {
+    constructor($: JQueryStatic, alertService: AlertService) {
         this.$ = $;
+        this.alertService = alertService;
     }
 
     public CheckDownline(params: string, onSuccessCallback: Function): void {
@@ -41,6 +43,11 @@ class ParlayMaxPayoutService {
                 'X-Requested-With': 'XMLHttpRequest'
             },
             data: params,
+            error: jqXHR => {
+                if (jqXHR.status === StatusCode.Forbidden) {
+                    this.alertService.showMessage(this.$("#tb-notauthorized-msg").val(), true);
+                }
+            },
             success: data => {
                 onSuccessCallback(data);
             },
