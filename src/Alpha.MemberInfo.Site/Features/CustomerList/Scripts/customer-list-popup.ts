@@ -47,10 +47,11 @@ class CustomerListPopup {
 
         this.$productIframeForm.submit();
 
-        let width = '100%';
+        let width = '100%', height = '100%';
         if (!this.isMobile) {
             const bodyWidth = this.topWindow.$('#main').width();
             width = bodyWidth < 1160 ? `${bodyWidth - 50}px` : '1160px';
+            height = this.$(currentTarget).data("popupheight");
         }
 
         const showGuideLineData = this.$(currentTarget).data("showGuideLine"),
@@ -59,7 +60,7 @@ class CustomerListPopup {
 
         this.$productPopupContainer.find('.modal-title').html(`<div>${this.$(currentTarget).data("title")}${formartGuideLineUrl}</div>`);
         this.$productPopupContainer
-            .css({ height: '100%', width })
+            .css({ 'cssText': `width: ${width}; height: ${height}` })
             .modal({ show: true, backdrop: false });
 
         this.$productPopupContainer.draggable({ containment: "window" });

@@ -46,6 +46,7 @@ class EditSingleSetting {
                 'data-params': JSON.stringify(item.QueryStringParamaters),
                 'data-url': item.Url,
                 'data-show-guide-line': item.ShowGuideLine,
+                'data-popupheight': item.PopupHeight || '100%'
             };
 
             const title = item.Title || `${item.AddEditTextToPopupTitle ? this.$('#editText').val() : ''} ${item.Text} - ${username}`;

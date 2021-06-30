@@ -24,5 +24,7 @@
 
         public string Title
             => Request.GetResource("ParlayMaxPayoutPopupHeaderText").Replace("<username>", SearchAccount.Username);
+
+        public string PopupHeight { get; } = "320px !important";
     }
 }
