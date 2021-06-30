@@ -27,9 +27,9 @@ class EditMultipleSetting {
 
     private openPopup = element => {
         let usernames = [], custids = [];
-        this.$('input.checkbox:checkbox:checked').each((index, element) => {
-            usernames.push(this.$(element).data("username"));
-            custids.push(this.$(element).data("custid"));
+        this.$('input.checkbox:checkbox:checked').each((index, checkbox) => {
+            usernames.push(this.$(checkbox).data("username"));
+            custids.push(this.$(checkbox).data("custid"));
         });
 
         const params = {
@@ -47,18 +47,27 @@ class EditMultipleSetting {
 
             this.$('#arrayCustID').val(custids.join('^'));
             this.$('#arrayUserName').val(usernames.join('^'));
+            const $element = this.$(element);
 
-            custids.length === 1 ?
-                this.editSingleSetting.openPopup(this.$(`#setting-${custids[0]}`)) :
+            if (custids.length === 1) {
+                this.editSingleSetting.openPopup(this.$(`#setting-${custids[0]}`), $element);
+            } else {
+                this.customerListPopup.addCursorProgress($element);
+
                 this.customerListServices.getSettings(
                     `${this.viewModel.MemberInfoUrl}CustomerList/MultipleEditPopup`,
-                    data => this.customerListPopup.openStatusSettingPopup(
-                        element,
-                        this.buildPopupHtml(data),
-                        this.$('#editMultipleSettingText').val(),
-                        this.bindingPopupEvent),
+                    data => {
+                        this.customerListPopup.openStatusSettingPopup(
+                            element,
+                            this.buildPopupHtml(data),
+                            this.$('#editMultipleSettingText').val(),
+                            this.bindingPopupEvent);
+
+                        this.customerListPopup.removeCursorProgress($element);
+                    },
                     'POST',
                     params);
+            }
         }
     }
 

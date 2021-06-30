@@ -1,4 +1,5 @@
-﻿@using Sunplus.Agent.Model.Entities
+﻿@using Newtonsoft.Json
+@using Sunplus.Agent.Model.Entities
 @using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources
 @model CustomerListViewModel
 
@@ -267,6 +268,9 @@
 </div>
 
 @section Scripts {
+    <script type="text/javascript">
+        var customerListData = @Html.Raw(JsonConvert.SerializeObject(Model.CustomerListPagingViewModel, Formatting.None));
+    </script>
     @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
     @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
     @StaticResources.RenderScripts("~/Features/CustomerList/Bundles/customer-list")

@@ -164,4 +164,14 @@ class CustomerListPopup {
             this.$statusPopupContainer.find('.modal-title').empty().append(title);
         }
     }
+
+    public addCursorProgress = (element) => {
+        element.css("cursor", "progress");
+        this.$("#tbl-customer-list").css("cursor", "progress");
+    }
+
+    public removeCursorProgress = (element) => {
+        element.css("cursor", "");
+        this.$("#tbl-customer-list").css("cursor", "");
+    }
 }

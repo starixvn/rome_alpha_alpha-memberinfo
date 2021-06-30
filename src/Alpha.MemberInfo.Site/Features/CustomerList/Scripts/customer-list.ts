@@ -9,6 +9,7 @@ interface Window {
     successfulUpdatingCallbackAndReloadMainFrame: Function,
     customerListPopup: any;
     jquery: JQueryStatic;
+    customerListData: any
 }
 
 class CustomerList {
@@ -94,7 +95,8 @@ $(function () {
         JSON.parse($('#isShowMyanmarOdds').val()),
         JSON.parse($('#canViewReport').val()),
         JSON.parse($('#canUpdateAccount').val()),
-        $.parseJSON($('#customerListResources').val())
+        $.parseJSON($('#customerListResources').val()),
+        window.customerListData
     );
 
     const customerListPopup = new CustomerListPopup($, window.top, viewModel.IsMobileView),

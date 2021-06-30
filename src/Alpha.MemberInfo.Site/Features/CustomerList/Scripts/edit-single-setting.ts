@@ -16,20 +16,24 @@ class EditSingleSetting {
 
     public bindingEvent = () => this.$('.edit').unbind().bind('click', event => this.openPopup(this.$(event.currentTarget)));
 
-    public openPopup = element => {
+    public openPopup = (element, parentElement = null) => {
+        const $element = this.$(element);
+        this.customerListPopup.addCursorProgress(parentElement || $element);
         this.$('.edit-multiple').data("custid", '');
         this.$('.edit-multiple').data("url", '');
         this.$('#arrayCustID').val('');
         this.$('#arrayUserName').val('');
 
         this.customerListServices.getSettings(
-            this.$(element).data("url"),
+            $element.data("url"),
             data => {
-                const username = this.$(element).data("username"),
+                const username = $element.data("username"),
                     content = this.buildPopupHtml(data.Settings, username),
                     title = `${this.$('#editSettingText').val()} - ${username}`;
 
                 this.customerListPopup.openStatusSettingPopup(element, content, title, this.bindingPopupEvent)
+
+                this.customerListPopup.removeCursorProgress(parentElement || $element);
             });
     }
 
