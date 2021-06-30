@@ -12,7 +12,12 @@ class CustomerListServices {
 
     public callAjax = (url, type, params, onSuccess) => {
         this.$.blockUI();
-        this.$.ajax({
+        const xhr = this.callAjaxWithoutBlocking(url, type, params, onSuccess);
+        xhr.error = this.$.unblockUI;
+    }
+
+    public callAjaxWithoutBlocking = (url, type, params, onSuccess): JQueryXHR => {
+        return this.$.ajax({
             url: url,
             dataType: "json",
             type: type,
@@ -21,8 +26,7 @@ class CustomerListServices {
                 'X-Requested-With': 'XMLHttpRequest'
             },
             data: params,
-            success: onSuccess,
-            error: this.$.unblockUI
+            success: onSuccess
         });
     }
 
@@ -58,16 +62,10 @@ class CustomerListServices {
             })
     }
 
-    public getSettings = (url, callback, type = "GET", params = {}) => this.callAjax(
+    public getSettings = (url, callback, type = "GET", params = {}) => this.callAjaxWithoutBlocking(
         url,
         type,
         params,
-        data => {
-            this.$.unblockUI();
-
-            if (typeof callback === 'function') {
-                callback.apply(this, [data]);
-            }
-        }
+        data => typeof callback === 'function' && callback.apply(this, [data])
     )
 }
