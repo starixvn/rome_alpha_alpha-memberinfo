@@ -39,6 +39,8 @@
 
         public string CheckDownlineUrl { get; } = "~/ParlayMaxPayout/CheckDownline";
 
+        public virtual bool IsMultiple { get; }
+
         public virtual string UpdateUrl { get; }
 
         public virtual string CustIdList { get; }

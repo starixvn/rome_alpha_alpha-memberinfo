@@ -45,12 +45,13 @@ class ParlayMaxPayout {
         this.invalidMaxPayoutValueText = this.$("#tb-invalidvalue-msg").val();
         this.greaterThanMaxValueText = this.$("#tb-gtmaxvalue-msg").val();
         this.hasNoChangeText = this.$("#tb-hasnochange-msg").val();
-        this.isMultiple = this.$(".user-list-box").length === 1;
+        this.isMultiple = parseInt(this.$("#tb-ismultiple").val()) === 1;
     }
 
     private registerEvents(): void {
         this.$btnSubmit.off("click").on("click", this.onSubmit);
         this.$(".cb-setting").off("change").on("change", this.changeSettingValue);
+        this.$(".cb-sporttypename").off("change").on("change", this.setWillUpdate);
         this.$(".tb-setting").off("keyup").on("keyup", this.formatSettingValue);
     }
 
@@ -94,7 +95,9 @@ class ParlayMaxPayout {
 
                 item += ` ${$el.data("settingname")}="${Helper.ToNumberFormat(value)}"`;
             });
-            if (self.isMultiple || hasAnyChange) {
+
+            let willBeUpdated = self.$(`.cb-sporttypename[data-sporttypeid="${sportTypeId}"]`).prop("checked");
+            if (self.isMultiple && willBeUpdated || !self.isMultiple && hasAnyChange) {
                 maxPayoutLimit += `${item} />`;
             }
 
@@ -102,7 +105,7 @@ class ParlayMaxPayout {
         });
 
         maxPayoutLimit += "</ROOT>";
-        if (!this.isMultiple && isValid && maxPayoutLimit.indexOf("MaxPayoutLimit") === -1) {
+        if (isValid && maxPayoutLimit.indexOf("MaxPayoutLimit") === -1) {
             return this.alertService.showMessage(this.hasNoChangeText, true);
         }
         if (isValid) {
@@ -151,6 +154,18 @@ class ParlayMaxPayout {
     private formatSettingValue = (event): void => {
         const el = event.currentTarget;
         el.value = Helper.ToMoneyFormat(el.value);
+    };
+
+    private setWillUpdate = (event): void => {
+        const el = event.currentTarget,
+            sportTypeId = this.$(el).data("sporttypeid"),
+            cbSettingControls = this.$(`.cb-setting[data-sporttypeid="${sportTypeId}"]`),
+            tbSettingControls = this.$(`.tb-setting[data-sporttypeid="${sportTypeId}"]`);
+
+        cbSettingControls.prop("disabled", !el.checked);
+        tbSettingControls.each(function () {
+            this.disabled = !el.checked || `${this.value}` === Constants.Unlimited;
+        });
     };
 
     private onCheckDownlineSuccess = (data, params): void => {
