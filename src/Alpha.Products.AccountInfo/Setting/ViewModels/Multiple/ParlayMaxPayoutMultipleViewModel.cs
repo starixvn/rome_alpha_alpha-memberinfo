@@ -22,6 +22,6 @@
 
         public override string Text => Request.GetResource("ParlayMaxPayoutMultipleText");
 
-        public string PopupHeight { get; } = "354px !important";
+        public string PopupHeight { get; } = "420px !important";
     }
 }
