@@ -86,8 +86,7 @@ class EditMultipleSetting {
                 'data-params': JSON.stringify(item.QueryStringParamaters),
                 'data-url': item.Url,
                 'data-show-guide-line': item.ShowGuideLine,
-                'data-guide-line-url': item.GuideLineUrl,
-                'data-popupheight': item.PopupHeight || '100%'
+                'data-guide-line-url': item.GuideLineUrl
             };
 
             html.push(`<li ${buildAttributes(attrs)}>${item.Text}</li>`);

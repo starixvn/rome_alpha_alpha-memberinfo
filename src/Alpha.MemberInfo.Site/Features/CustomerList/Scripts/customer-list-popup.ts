@@ -47,12 +47,15 @@ class CustomerListPopup {
 
         this.$productIframeForm.submit();
 
-        let width = '100%', height = '100%';
+        let width = '100%';
         if (!this.isMobile) {
             const bodyWidth = this.topWindow.$('#main').width();
             width = bodyWidth < 1160 ? `${bodyWidth - 50}px` : '1160px';
-            height = this.$(currentTarget).data("popupheight");
         }
+
+        const css = !this.isMobile && url.indexOf('ParlayMaxPayout') > -1
+            ? { cssText: 'max-width: 1032px; width: 100%; height: 420px !important' }
+            : { cssText: `max-width: ''; width: ${width}; height: 100%` };
 
         const showGuideLineData = this.$(currentTarget).data("showGuideLine"),
             showGuideLine = showGuideLineData === undefined || showGuideLineData === '' ? false : JSON.parse(this.$(currentTarget).data("showGuideLine")),
@@ -60,7 +63,7 @@ class CustomerListPopup {
 
         this.$productPopupContainer.find('.modal-title').html(`<div>${this.$(currentTarget).data("title")}${formartGuideLineUrl}</div>`);
         this.$productPopupContainer
-            .css({ 'cssText': `width: ${width}; height: ${height}` })
+            .css(css)
             .modal({ show: true, backdrop: false });
 
         this.$productPopupContainer.draggable({ containment: "window" });

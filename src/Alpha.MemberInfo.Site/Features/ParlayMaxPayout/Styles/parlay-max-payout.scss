@@ -6,12 +6,8 @@
     @include content-space(auto, 30px);
     background-color: $content-bg-color;
     border: $border-value;
-    max-width: $max-width;
+    width: $max-width;
     padding: 0 8px;
-
-    @media screen and (max-device-width: 576px) {
-        width: $max-width;
-    }
 }
 
 .pmp-page-title {
@@ -24,12 +20,8 @@
 
 .pmp-container {
     margin: 20px 0;
-    max-width: $max-width;
+    width: $max-width;
     position: relative;
-
-    @media screen and (max-device-width: 576px) {
-        width: $max-width;
-    }
 
     .pmp-heading {
         @include content-space();
