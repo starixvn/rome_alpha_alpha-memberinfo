@@ -481,18 +481,18 @@
     <value>ถูกล็อกการเข้าถึง</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
-    <value>Edit Multiple Closed Status</value>
-  </data>
+		<value>แก้ไขสถานะปิดหลายรายการ</value>
+	</data>
   <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
-    <value>Update Multiple Closed Status</value>
-  </data>
+		<value>แก้ไขสถานะปิดหลายรายการ</value>
+	</data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
-    <value>Unsuspend &lt;username&gt;</value>
-  </data>
+		<value>Unsuspend &lt;username&gt;</value>
+	</data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
-    <value>Open &lt;username&gt;</value>
-  </data>
+		<value>เปิด &lt;username&gt;</value>
+	</data>
   <data name="IndirectlyClosedByUpline" xml:space="preserve">
-    <value>This account was indirectly closed by upline.</value>
-  </data>
+		<value>บัญชีนี้ถูกปิดทางอ้อมโดยอัพไลน์</value>
+	</data>
 </root>

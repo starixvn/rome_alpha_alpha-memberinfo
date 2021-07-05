@@ -481,18 +481,18 @@
     <value>鎖定訪問</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
-    <value>Edit Multiple Closed Status</value>
-  </data>
+		<value>修改多重關閉狀態</value>
+	</data>
   <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
-    <value>Update Multiple Closed Status</value>
-  </data>
+		<value>修改多重關閉狀態</value>
+	</data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
-    <value>Unsuspend &lt;username&gt;</value>
-  </data>
+		<value>Unsuspend &lt;username&gt;</value>
+	</data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
-    <value>Open &lt;username&gt;</value>
-  </data>
+		<value>開啟 &lt;username&gt;</value>
+	</data>
   <data name="IndirectlyClosedByUpline" xml:space="preserve">
-    <value>This account was indirectly closed by upline.</value>
-  </data>
+		<value>此賬號被上線間接關閉。</value>
+	</data>
 </root>

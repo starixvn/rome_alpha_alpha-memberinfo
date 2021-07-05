@@ -481,18 +481,18 @@
     <value>锁定访问</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
-    <value>Edit Multiple Closed Status</value>
-  </data>
-  <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
-    <value>Unsuspend &lt;username&gt;</value>
-  </data>
+		<value>修改多重关闭状态</value>
+	</data>
   <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
-    <value>Update Multiple Closed Status</value>
-  </data>
+		<value>修改多重关闭状态</value>
+	</data>
+  <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
+		<value>Unsuspend &lt;username&gt;</value>
+	</data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
-    <value>Open &lt;username&gt;</value>
-  </data>
+		<value>开启 &lt;username&gt;</value>
+	</data>
   <data name="IndirectlyClosedByUpline" xml:space="preserve">
-    <value>This account was indirectly closed by upline.</value>
-  </data>
+		<value>此账号被上线间接关闭。</value>
+	</data>
 </root>
