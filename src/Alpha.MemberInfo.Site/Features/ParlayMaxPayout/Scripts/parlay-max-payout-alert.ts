@@ -45,7 +45,7 @@ class AlertService {
         const hintHeight = 30,
             hintPointerHeight = 12,
             inputWidth = 120,
-            hintWidth = this.$divHint.width(),
+            hintWidth = this.$divHint.outerWidth(),
             elOffset = this.$(el).offset(),
             containerOffset = this.$divPmpContainer.offset(),
             containerWidth = this.$divPmpContainer.width(),
