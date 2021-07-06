@@ -53,9 +53,9 @@ class CustomerListPopup {
             width = bodyWidth < 1160 ? `${bodyWidth - 50}px` : '1160px';
         }
 
-        const css = !this.isMobile && url.indexOf('ParlayMaxPayout') > -1
-            ? { cssText: 'max-width: 1032px; width: 100%; height: 420px !important' }
-            : { cssText: `max-width: ''; width: ${width}; height: 100%` };
+        if (!this.isMobile && url.indexOf('ParlayMaxPayout') > -1) {
+            this.$productPopupContainer.addClass('parlay-max-payout-popup-new');
+        }
 
         const showGuideLineData = this.$(currentTarget).data("showGuideLine"),
             showGuideLine = showGuideLineData === undefined || showGuideLineData === '' ? false : JSON.parse(this.$(currentTarget).data("showGuideLine")),
@@ -63,7 +63,7 @@ class CustomerListPopup {
 
         this.$productPopupContainer.find('.modal-title').html(`<div>${this.$(currentTarget).data("title")}${formartGuideLineUrl}</div>`);
         this.$productPopupContainer
-            .css(css)
+            .css({ height: '100%', width })
             .modal({ show: true, backdrop: false });
 
         this.$productPopupContainer.draggable({ containment: "window" });
