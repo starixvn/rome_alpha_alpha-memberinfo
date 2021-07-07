@@ -29,7 +29,7 @@
             user = Substitute.For<IUser>();
 
             service = Substitute.For<DormantAccountService>();
-            report = new DormantAccountReport(Enumerable.Empty<DormantAccount>(), new DormantAccount(), 0);
+            report = new DormantAccountReport(Enumerable.Empty<DormantAccount>(), 0);
             service
                 .GetDormantAccountsAsync(Arg.Any<DormantAccountParam>())
                 .Returns(report);
@@ -117,19 +117,6 @@
 
             // Assert
             onebookWorkbook.Received().Header(Arg.Any<Func<string, string>>());
-        }
-
-        [Fact]
-        public async Task HandleDormantAccountExcelQuery_Always_ExportsCorrectFooter()
-        {
-            // Arrange
-            var message = new DormantAccountExcelQuery(user);
-
-            // Act
-            await handler.Handle(message);
-
-            // Assert
-            onebookWorkbook.Received().Footer(Arg.Is(report.Total), Arg.Any<Mapper<DormantAccount>>());
         }
 
         [Fact]

@@ -588,7 +588,7 @@
   <data name="Deleted" xml:space="preserve">
     <value>Deleted</value>
   </data>
-    <data name="DeleteAccount" xml:space="preserve">
-    <value>Delete Account</value>
+  <data name="DeletedAccount" xml:space="preserve">
+    <value>Deleted Account</value>
   </data>
 </root>

@@ -24,7 +24,8 @@
                 null,
                 null,
                 null,
-                false);
+                false,
+                0);
             var dormantAccount = new DormantAccount(entity, 0);
 
             // Act
@@ -51,7 +52,8 @@
                 null,
                 null,
                 null,
-                true);
+                true,
+                0);
             var dormantAccount = new DormantAccount(entity, 0);
 
             // Act
@@ -78,7 +80,8 @@
                 null,
                 null,
                 null,
-                false);
+                false,
+                0);
             var dormantAccount = new DormantAccount(entity, 0);
 
             // Act
@@ -105,7 +108,8 @@
                 null,
                 null,
                 null,
-                false);
+                false,
+                0);
             var dormantAccount = new DormantAccount(entity, 0);
 
             // Act
@@ -132,7 +136,8 @@
                 null,
                 null,
                 null,
-                false);
+                false,
+                0);
             var dormantAccount = new DormantAccount(entity, 0);
 
             // Act
@@ -159,7 +164,8 @@
                 null,
                 null,
                 null,
-                false);
+                false,
+                0);
             var dormantAccount = new DormantAccount(entity, 0);
 
             // Act
@@ -187,7 +193,8 @@
                 null,
                 null,
                 null,
-                false);
+                false,
+                0);
             var dormantAccount = new DormantAccount(entity, 0);
 
             // Act
@@ -195,40 +202,6 @@
 
             // Assert
             Assert.Empty(actual);
-        }
-
-        [Fact]
-        public void OperatorOverloading_Null_ReturnsCorrectTotal()
-        {
-            // Arrange
-            var source = new DormantAccount(null, null, 1000);
-            var destination = new DormantAccount(null, 1000, 2000);
-
-            // Act
-            var actual = source + destination;
-
-            // Assert
-            Assert.True(
-                null == actual.ToBeClearedGivenCredit
-                && 1000 == actual.ClearedGivenCredit
-                && 3000 == actual.YesterdayBalance);
-        }
-
-        [Fact]
-        public void OperatorOverloading_NotNull_ReturnsCorrectTotal()
-        {
-            // Arrange
-            var source = new DormantAccount(1000, 1000, 1000);
-            var destination = new DormantAccount(2000, null, 2000);
-
-            // Act
-            var actual = source + destination;
-
-            // Assert
-            Assert.True(
-                3000 == actual.ToBeClearedGivenCredit
-                && 1000 == actual.ClearedGivenCredit
-                && 3000 == actual.YesterdayBalance);
         }
 
         [Fact]
@@ -248,7 +221,8 @@
                 null,
                 null,
                 null,
-                false);
+                false,
+                0);
             var dormantAccount = new DormantAccount(entity, 0);
 
             // Act
@@ -276,7 +250,8 @@
                 null,
                 null,
                 null,
-                false);
+                false,
+                0);
             var dormantAccount = new DormantAccount(entity, 0);
 
             // Act
@@ -304,7 +279,8 @@
                 null,
                 null,
                 null,
-                false);
+                false,
+                0);
             var dormantAccount = new DormantAccount(entity, 0);
 
             // Act

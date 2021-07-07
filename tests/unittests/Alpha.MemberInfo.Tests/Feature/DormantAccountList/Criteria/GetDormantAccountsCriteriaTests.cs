@@ -65,7 +65,7 @@
         [InlineData(4, true)]
         [InlineData(1, false)]
         [InlineData(2, false)]
-        [InlineData(5, false)]
+        [InlineData(5, true)]
         public void IsValid_StatusId_ReturnsValid(byte statusId, bool expected)
         {
             // Arrange

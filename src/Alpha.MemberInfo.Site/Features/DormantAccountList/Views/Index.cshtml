@@ -1,5 +1,7 @@
 ﻿@using Alpha.MemberInfo.Extensions
 @using Alpha.MemberInfo.Site.ViewModels.Components
+@using Alpha.MemberInfo.Features.DormantAccountList.Models;
+
 @model DormantAccountViewModel
 
 @{
@@ -89,47 +91,16 @@
             }
         </thead>
         <tbody>
+            @if (Model.Report.TotalAccount != null)
+            {
+                @RenderRow(Model.Report.TotalAccount);
+            }
+
             @if (Model.Report.HasData)
             {
                 foreach (var item in Model.Report.DormantAccounts)
                 {
-                    var isRedDateTime = item.IsRedDateTime;
-            <tr>
-                <td>@item.Username</td>
-                <td class="text-center">@item.RoleName</td>
-                <td class="text-center">
-                    @if (item.IsWarningTicket)
-                    {
-                        <div data-toggle="tooltip"><span class="text-danger">@item.Status</span></div>
-                    }
-                    else
-                    {
-                        @:@item.Status
-                    }
-                </td>
-                <td class="text-center">@item.ArchiveStage</td>
-                <td class="text-right">
-                    @if (item.ToBeClearedGivenCredit.HasValue)
-                    {
-                        @HtmlHelpers.FormatNumber(item.ToBeClearedGivenCredit.Value)
-                    }
-                </td>
-                <td class="text-right">
-                    @if (item.ClearedGivenCredit.HasValue)
-                    {
-                        @HtmlHelpers.FormatNumber(item.ClearedGivenCredit.Value)
-                    }
-                </td>
-                <td class="text-right">@HtmlHelpers.FormatNumber(item.YesterdayBalance)</td>
-                @if (Model.IsShowDateTimeColumn)
-                {
-                    <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.LastLogged.ToLongDateTime12h()</td>
-                    <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.ClosedDate.ToLongDateTime12h()</td>
-                    <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.DisabledDate.ToLongDateTime12h()</td>
-                    <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.SettingDeletedDate.ToLongDateTime12h()</td>
-                    <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.AccountDeletedDate.ToLongDateTime12h()</td>
-                }
-            </tr>
+                    @RenderRow(item);
                 }
             }
             else
@@ -137,31 +108,6 @@
                 @NoInformation.Render(12)
             }
         </tbody>
-        @if (Model.Report.HasData)
-        {
-            <tfoot>
-                <tr class="tbl-footer">
-                    <td class="text-right" colspan="4">@Resources.Total</td>
-                    <td class="text-right">
-                        @if (Model.Report.Total.ToBeClearedGivenCredit.HasValue)
-                        {
-                            @HtmlHelpers.FormatNumber(Model.Report.Total.ToBeClearedGivenCredit.Value)
-                        }
-                    </td>
-                    <td class="text-right">
-                        @if (Model.Report.Total.ClearedGivenCredit.HasValue)
-                        {
-                            @HtmlHelpers.FormatNumber(Model.Report.Total.ClearedGivenCredit.Value)
-                        }
-                    </td>
-                    <td class="text-right">@HtmlHelpers.FormatNumber(Model.Report.Total.YesterdayBalance)</td>
-                    @if (Model.IsShowDateTimeColumn)
-                    {
-                        <td colspan="5"></td>
-                    }
-                </tr>
-            </tfoot>
-        }
     </table>
     @if (Model.Report.HasData)
     {
@@ -186,3 +132,45 @@
 </div>
 
 <input type="hidden" id="closed-tooltip-title" value="@Resources.DormantAccountClosedTooltip" />
+
+@helper RenderRow(DormantAccount item)
+{
+    var isRedDateTime = item.IsRedDateTime;
+    var classCSS = item.IsSummaryRow ? "tbl-footer" : string.Empty;
+    <tr class = "@classCSS">
+        <td>@item.Username</td>
+        <td class="text-center">@item.RoleName</td>
+        <td class="text-center">
+            @if (item.IsWarningTicket)
+            {
+                <div data-toggle="tooltip"><span class="text-danger">@item.Status</span></div>
+            }
+            else
+            {
+                @:@item.Status
+            }
+        </td>
+        <td class="text-center">@item.ArchiveStage</td>
+        <td class="text-right">
+            @if (item.ToBeClearedGivenCredit.HasValue)
+            {
+                @HtmlHelpers.FormatNumber(item.ToBeClearedGivenCredit.Value)
+            }
+        </td>
+        <td class="text-right">
+            @if (item.ClearedGivenCredit.HasValue)
+            {
+                @HtmlHelpers.FormatNumber(item.ClearedGivenCredit.Value)
+            }
+        </td>
+        <td class="text-right">@HtmlHelpers.FormatNumber(item.YesterdayBalance)</td>
+        @if (Model.IsShowDateTimeColumn)
+        {
+            <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.LastLogged.ToLongDateTime12h()</td>
+            <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.ClosedDate.ToLongDateTime12h()</td>
+            <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.DisabledDate.ToLongDateTime12h()</td>
+            <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.SettingDeletedDate.ToLongDateTime12h()</td>
+            <td class="text-center @(isRedDateTime ? "text-danger" : string.Empty)">@item.AccountDeletedDate.ToLongDateTime12h()</td>
+        }
+    </tr>
+}

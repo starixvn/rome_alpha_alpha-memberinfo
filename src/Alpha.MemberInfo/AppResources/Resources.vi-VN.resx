@@ -570,4 +570,13 @@
   <data name="IndirectLoginAccountLockedError" xml:space="preserve">
     <value>Tài khoản này đã bị khóa, vui lòng mở khóa và thử lại.</value>
   </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Đã Xoá</value>
+  </data>
+  <data name="DeletedAccount" xml:space="preserve">
+    <value>Tài Khoản Đã Xoá</value>
+  </data>
+  <data name="DeleteAccount" xml:space="preserve">
+    <value>Tài Khoản Đã Xoá</value>
+  </data>
 </root>

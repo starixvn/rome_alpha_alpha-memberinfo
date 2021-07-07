@@ -21,7 +21,8 @@
             DateTime? disabledDate,
             DateTime? settingDeletedDate,
             DateTime? accountDeletedDate,
-            bool isWarningTicket)
+            bool isWarningTicket,
+            int rowNumber)
         {
             CustId = custId;
             Username = username;
@@ -36,6 +37,7 @@
             SettingDeletedDate = settingDeletedDate;
             AccountDeletedDate = accountDeletedDate;
             IsWarningTicket = isWarningTicket;
+            RowNumber = rowNumber;
         }
 
         public int CustId { get; }
@@ -63,5 +65,8 @@
         public DateTime? AccountDeletedDate { get; }
 
         public bool IsWarningTicket { get; }
+
+        public int RowNumber { get; }
+
     }
 }

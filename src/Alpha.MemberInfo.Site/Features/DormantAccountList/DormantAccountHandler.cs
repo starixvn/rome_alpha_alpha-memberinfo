@@ -46,12 +46,11 @@
             var totalMapper = GetTotalRowMapper();
 
             var fileContent = workbook
-                .SetData(report.DormantAccounts, report.Total)
+                .SetData(report.DormantAccounts, report.TotalAccount)
                 .SetRowMappers(GetBodyRowMapper(isShowDateTimeColumn), totalMapper)
                 .UseTemplate(GetTemplateInfo(isShowDateTimeColumn))
                 .Title(GetReportTitle())
                 .Header(Resources.ResourceManager.GetString)
-                .Footer(report.Total, totalMapper)
                 .Sheet(Resources.DormantAccountList)
                 .ExportToBytes();
 

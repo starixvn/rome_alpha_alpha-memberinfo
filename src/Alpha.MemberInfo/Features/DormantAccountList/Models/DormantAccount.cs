@@ -38,6 +38,7 @@
             SettingDeletedDate = entity.SettingDeletedDate;
             AccountDeletedDate = entity.AccountDeletedDate;
             IsWarningTicket = entity.IsWarningTicket;
+            IsSummaryRow = entity.RowNumber == 0;
         }
 
         public string Username { get; }
@@ -71,36 +72,14 @@
             && ClosedDate.HasValue
             && LastLogged.Value > ClosedDate.Value;
 
-        public static DormantAccount operator +(DormantAccount source, DormantAccount destination)
-            => new DormantAccount(
-                Plus(source.ToBeClearedGivenCredit, destination.ToBeClearedGivenCredit),
-                Plus(source.ClearedGivenCredit, destination.ClearedGivenCredit),
-                source.YesterdayBalance + destination.YesterdayBalance);
-
-        private static decimal? Plus(decimal? source, decimal? destination)
-        {
-            decimal? total = null;
-
-            if (source.HasValue && destination.HasValue)
-            {
-                total = source + destination;
-            }
-            else if (source.HasValue)
-            {
-                total = source;
-            }
-            else if (destination.HasValue)
-            {
-                total = destination;
-            }
-
-            return total;
-        }
-
+        public bool IsSummaryRow { get; }
+                
         private static string GetStatus(byte statusId, bool isWarningTicket)
         {
             var accountStatusList = new Dictionary<byte, string>
             {
+                { StatusIdentity.Open, Resources.Open },
+                { StatusIdentity.Suspended, Resources.Suspended },
                 { StatusIdentity.Closed, Resources.Closed },
                 { StatusIdentity.Disabled, Resources.Disabled },
                 { StatusIdentity.Deleted, Resources.Deleted }

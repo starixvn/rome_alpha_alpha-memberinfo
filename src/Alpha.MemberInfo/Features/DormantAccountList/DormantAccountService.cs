@@ -27,7 +27,6 @@
             var criteria = new GetDormantAccountsCriteria(param);
             var rawdata = await dynamicRepository.FetchMultipleAsync<DormantAccountEntity, YesterdayBalanceEntity>(criteria);
 
-            var total = new DormantAccount();
             var dormantAccounts = new List<DormantAccount>();
 
             if (rawdata.Item1.Any())
@@ -37,12 +36,11 @@
                 rawdata.Item1.ToList().ForEach(entity =>
                 {
                     var account = new DormantAccount(entity, yesterdayBalanceHash.TryGetValue(entity.CustId, out var yesterdayBalance) ? yesterdayBalance : 0);
-                    total += account;
                     dormantAccounts.Add(account);
                 });
             }
 
-            return new DormantAccountReport(dormantAccounts, total, criteria.TotalItems);
+            return new DormantAccountReport(dormantAccounts, criteria.TotalItems);
         }
     }
 }

@@ -1,22 +1,22 @@
 ﻿namespace Alpha.MemberInfo.Features.DormantAccountList.Models
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     public class DormantAccountReport
     {
         public DormantAccountReport(
             IEnumerable<DormantAccount> dormantAccounts,
-            DormantAccount total,
             int totalItems)
         {
-            DormantAccounts = dormantAccounts;
-            Total = total;
+            DormantAccounts = dormantAccounts.Where(i => !i.IsSummaryRow);
+            TotalAccount = dormantAccounts.FirstOrDefault(i => i.IsSummaryRow);
             TotalItems = totalItems;
         }
 
         public IEnumerable<DormantAccount> DormantAccounts { get; }
 
-        public DormantAccount Total { get; }
+        public DormantAccount TotalAccount { get; }
 
         public int TotalItems { get; }
 
