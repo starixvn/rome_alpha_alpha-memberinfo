@@ -610,7 +610,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;BetType&gt;: The setting of &lt;Column&gt; is higher than the upline&apos;s..
+        ///   Looks up a localized string similar to &lt;Bet Type&gt;: The setting of &lt;Column&gt; is higher than the upline&apos;s..
         /// </summary>
         public static string GreaterThanMaxValueText {
             get {

@@ -1,4 +1,5 @@
-﻿@model ParlayMaxPayoutBasePageViewModel
+﻿@using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources
+@model ParlayMaxPayoutBasePageViewModel
 
 <div id="pmp-container" class="pmp-container">
     <div id="message-container" class="message-container" style="display: none;">
@@ -16,7 +17,7 @@
         @RenderParlayMaxPayoutSetting(Model.Data)
     </div>
     <div class="pmp-footer">
-        <button id="btn-submit" type="button" class="btn-submit">Update</button>
+        <button id="btn-submit" type="button" class="btn-submit">@ProductResources.Update</button>
     </div>
 
     <div id="hint" class="hint" style="display: none;">
