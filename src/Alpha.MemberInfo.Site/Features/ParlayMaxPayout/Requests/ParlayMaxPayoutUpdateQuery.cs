@@ -10,7 +10,7 @@
         {
             UserId = viewer.Id;
             SubAccId = viewer.SubAccId;
-            Language = viewer.Language;
+            Language = viewer.LanguageKey;
             Ip = viewer.IP;
             CanUpdateAccount = viewer.CanUpdateAccount;
         }

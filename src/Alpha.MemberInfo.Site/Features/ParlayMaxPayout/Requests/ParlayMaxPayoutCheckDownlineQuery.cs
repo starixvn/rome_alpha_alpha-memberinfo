@@ -7,7 +7,7 @@
     {
         public ParlayMaxPayoutCheckDownlineQuery(IUser viewer)
         {
-            Language = viewer.Language;
+            Language = viewer.LanguageKey;
         }
 
         public string CustIdList { get; set; }
