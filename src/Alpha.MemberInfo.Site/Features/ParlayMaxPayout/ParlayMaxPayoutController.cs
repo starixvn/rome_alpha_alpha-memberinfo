@@ -21,6 +21,7 @@
         public ActionResult EditSingle(ParlayMaxPayoutSingleSelectQuery message)
             => View(editSinglePath, mediator.Send(message));
 
+        [HttpPost]
         public ActionResult EditMultiple(ParlayMaxPayoutMultipleSelectQuery message)
             => View(editMultiplePath, mediator.Send(message));
 

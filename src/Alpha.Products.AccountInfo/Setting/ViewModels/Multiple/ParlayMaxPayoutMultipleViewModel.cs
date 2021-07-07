@@ -13,6 +13,8 @@
 
         protected override string BaseAddress => $"{MemberInfoUrl}ParlayMaxPayout/EditMultiple";
 
+        public override string Url => BaseAddress;
+
         public override Dictionary<string, string> QueryStringParamaters
             => new Dictionary<string, string>
             {
@@ -21,5 +23,7 @@
             };
 
         public override string Text => Request.GetResource("ParlayMaxPayoutMultipleText");
+
+        public override string Method => DataKey.Method.POST;
     }
 }
