@@ -580,13 +580,13 @@
     <value>Tài Khoản Đã Xoá</value>
   </data>
   <data name="ParlayMaxPayoutSubTitle" xml:space="preserve">
-    <value>Thanh Toán Tối Đa Cho Cược Xiên {0}</value>
+    <value>Thanh toán tối đa cho Cược Xiên {0}</value>
   </data>
   <data name="ParlayMaxPayoutSingleSubText" xml:space="preserve">
-    <value>Thanh Toán Tối Đa Cho Cược Xiên: {0}</value>
+    <value>Thanh toán tối đa cho Cược Xiên: {0}</value>
   </data>
   <data name="ParlayMaxPayoutMultipleSubText" xml:space="preserve">
-    <value>Thanh Toán Tối Đa Cho Cược Xiên</value>
+    <value>Thanh toán tối đa cho Cược Xiên</value>
   </data>
   <data name="SingleMatchParlay" xml:space="preserve">
     <value>Cược Xiên Một Trận</value>

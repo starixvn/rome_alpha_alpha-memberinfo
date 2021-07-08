@@ -499,12 +499,12 @@
     <value>Tài khoản này đã bị đóng gián tiếp bởi cấp trên.</value>
   </data>
   <data name="ParlayMaxPayoutText" xml:space="preserve">
-    <value>Thanh Toán Tối Đa Cho Cược Xiên</value>
+    <value>Thanh toán tối đa cho Cược Xiên</value>
   </data>
   <data name="ParlayMaxPayoutPopupHeaderText" xml:space="preserve">
     <value>Tùy chỉnh &lt;username&gt;</value>
   </data>
   <data name="ParlayMaxPayoutMultipleText" xml:space="preserve">
-    <value>Tuỳ Chỉnh Đồng Loạt Cho Thanh Toán Tối Đa Cược Xiên</value>
+    <value>Tuỳ chỉnh đồng loạt thanh toán tối đa cho Cược Xiên</value>
   </data>
 </root>
