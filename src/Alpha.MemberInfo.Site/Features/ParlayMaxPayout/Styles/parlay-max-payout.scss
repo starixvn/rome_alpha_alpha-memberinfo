@@ -8,6 +8,8 @@
     border: $border-value;
     width: $max-width;
     padding: 0 8px;
+    max-height: 125px;
+    overflow-y: scroll;
 }
 
 .pmp-page-title {
