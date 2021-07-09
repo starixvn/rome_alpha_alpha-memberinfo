@@ -4,6 +4,9 @@
     using Alpha.MemberInfo.Features.ParlayMaxPayout;
     using Alpha.MemberInfo.Features.ParlayMaxPayout.Params;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Params;
+    using Alpha.MemberInfo.Services;
+    using Constants;
     using MediatR;
     using Requests;
     using System.Collections.Generic;
@@ -19,10 +22,14 @@
     {
         private const int NotAuthorizedErrorCode = 401;
         private readonly ParlayMaxPayoutService parlayMaxPayoutService;
+        private readonly CheckUMService checkUMService;
 
-        public ParlayMaxPayoutHandler(ParlayMaxPayoutService parlayMaxPayoutService)
+        public ParlayMaxPayoutHandler(
+            ParlayMaxPayoutService parlayMaxPayoutService,
+            CheckUMService checkUMService)
         {
             this.parlayMaxPayoutService = parlayMaxPayoutService;
+            this.checkUMService = checkUMService;
         }
 
         public ParlayMaxPayoutSinglePageViewModel Handle(ParlayMaxPayoutSingleSelectQuery message)
@@ -42,14 +49,19 @@
                 return Result.CreateErrorResult(Lang.NotAuthorized, NotAuthorizedErrorCode);
             }
 
-            return parlayMaxPayoutService.UpdateParlayMaxPayout(
-                           new ParlayMaxPayoutUpdateParam(
-                                message.CustId,
-                                message.MaxPayoutLimit,
-                                message.UserId,
-                                message.SubAccId,
-                                message.Language,
-                                message.Ip));
+            var checkUMResult = checkUMService.CheckUM(
+                new CheckUMParam(message.CustId, NonDcsProduct.Sportsbook, message.Language));
+
+            return checkUMResult.IsFailed
+                ? checkUMResult
+                : parlayMaxPayoutService.UpdateParlayMaxPayout(
+                    new ParlayMaxPayoutUpdateParam(
+                        message.CustId,
+                        message.MaxPayoutLimit,
+                        message.UserId,
+                        message.SubAccId,
+                        message.Language,
+                        message.Ip));
         }
 
         public IEnumerable<Result> Handle(ParlayMaxPayoutUpdateMultipleQuery message)
@@ -63,14 +75,19 @@
             var custIds = message.CustIdList.Split(',').Select(int.Parse);
             foreach (var custId in custIds)
             {
-                yield return parlayMaxPayoutService.UpdateParlayMaxPayout(
-                    new ParlayMaxPayoutUpdateParam(
-                     custId,
-                     message.MaxPayoutLimit,
-                     message.UserId,
-                     message.SubAccId,
-                     message.Language,
-                     message.Ip));
+                var checkUMResult = checkUMService.CheckUM(
+                    new CheckUMParam(custId, NonDcsProduct.Sportsbook, message.Language));
+
+                yield return checkUMResult.IsFailed
+                    ? checkUMResult
+                    : parlayMaxPayoutService.UpdateParlayMaxPayout(
+                        new ParlayMaxPayoutUpdateParam(
+                            custId,
+                            message.MaxPayoutLimit,
+                            message.UserId,
+                            message.SubAccId,
+                            message.Language,
+                            message.Ip));
             }
         }
 

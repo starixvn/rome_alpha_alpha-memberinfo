@@ -23,7 +23,7 @@
     <Setting Key="Age_ProblemAccount_ReviewStatusUpd" SpName="Age_ProblemAccount_ReviewStatusUpd" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Create Member By QR Code">
-    <Setting Key="Age_CustomerInsMember_Ag_CreditStatusSel" SpName="Age_CustomerInsMember_Ag_CreditStatusSel" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" >
+    <Setting Key="Age_CustomerInsMember_Ag_CreditStatusSel" SpName="Age_CustomerInsMember_Ag_CreditStatusSel" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0">
       <Mapping DataField="RefCredit" ObjectProperty="Credit" />
       <Mapping DataField="MaxCredit_Mem" ObjectProperty="CreditMax" />
       <Mapping DataField="MinCredit_Mem" ObjectProperty="CreditMin" />
@@ -34,7 +34,7 @@
     <Setting Key="Acc_CustomerSelCheckEnable" SpName="Acc_CustomerSelCheckEnable" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_CustomerSelRnGStatus" SpName="Acc_CustomerSelRnGStatus" DbName="DBCust.CustDB.BODBDownlineNet" />
     <Setting Key="ResetMainAccountPassword" SpName="Age_CustomerUpdPwd" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CheckQRFirstLogin" SpName="Age_CheckQRFirstLogin" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0"/>
+    <Setting Key="Age_CheckQRFirstLogin" SpName="Age_CheckQRFirstLogin" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_CustomerCheckExists" SpName="Age_CustomerCheckExists" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Indirect Login Account">
@@ -47,7 +47,7 @@
     <Setting Key="Age_CustomerIndirectLoginAccountDel" SpName="Age_CustomerIndirectLoginAccountDel" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_CustomerIndirectLoginAccountPwdCheck" SpName="Age_CustomerIndirectLoginAccountPwdCheck" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
-   <Function Name="Dormant Account List">
+  <Function Name="Dormant Account List">
     <Setting Key="Acc_DormantAccountList_Sel" SpName="Acc_DormantAccountList_Sel" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Indirect Login Account">
@@ -82,5 +82,9 @@
     </Setting>
     <Setting Key="Acc_CustSetting_MaxPayoutUpd" SpName="Acc_CustSetting_MaxPayoutUpd" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_CustSetting_MaxPayoutCheckDownline" SpName="Acc_CustSetting_MaxPayoutCheckDownline" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+  </Function>
+
+  <Function Name="UM On Product">
+    <Setting Key="Acc_CheckUM" SpName="Acc_CheckUM" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>

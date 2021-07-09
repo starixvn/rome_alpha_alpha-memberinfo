@@ -112,6 +112,7 @@
             container.Register<WinLossLimitDataAccess, WinLossLimitDataAccessImpl>(Lifestyle.Singleton);
             container.Register<CustomerListDataAccess, CustomerListDataAccessImpl>(Lifestyle.Singleton);
             container.Register<ParlayMaxPayoutDataAccess, ParlayMaxPayoutDataAccessImpl>(Lifestyle.Singleton);
+            container.Register<CheckUMDataAccess, CheckUMDataAccessImpl>(Lifestyle.Singleton);
         }
 
         private static void RegisterServices(Container container)
@@ -142,6 +143,7 @@
                 Lifestyle.Singleton);
 
             container.Register<ParlayMaxPayoutService, ParlayMaxPayoutServiceImpl>();
+            container.Register<CheckUMService, CheckUMServiceImpl>();
 
             container.RegisterPerWebRequest<CreditBalanceService, CreditBalanceServiceImpl>();
             container.RegisterPerWebRequest<IProblemAccountService, ProblemAccountService>();

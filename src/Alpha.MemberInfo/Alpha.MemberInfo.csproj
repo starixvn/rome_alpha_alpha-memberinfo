@@ -282,12 +282,14 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Constants\LockedAccessConstant.cs" />
+    <Compile Include="Constants\NonDcsProduct.cs" />
     <Compile Include="Constants\ProblemAccountStatusConstants.cs" />
     <Compile Include="Constants\ProductId.cs" />
     <Compile Include="Constants\ReviewStatusConstant.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Constants\SportTypeConstants.cs" />
+    <Compile Include="Criteria\CheckUMCriteria.cs" />
     <Compile Include="Criteria\GetAgentListCriteria.cs" />
     <Compile Include="Criteria\GetMasterListCriteria.cs" />
     <Compile Include="Criteria\IndirectLoginAccount\DisconnectAccountCriteria.cs" />
@@ -316,6 +318,7 @@
     <Compile Include="Criteria\WinLossLimit\GetOutstandingCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\GetBalanceCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\GetWinLossLimitProductCriteria.cs" />
+    <Compile Include="DataAccesses\CheckUMDataAccess.cs" />
     <Compile Include="DataAccesses\MemberInfoObjectDbFactory.cs" />
     <Compile Include="DataAccesses\WinLossLimitDataAccess.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
@@ -428,6 +431,7 @@
     <Compile Include="Models\WinLossLimit\WinLossLimitGroupProductModel.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
+    <Compile Include="Params\CheckUMParam.cs" />
     <Compile Include="Params\CreditBalanceParam.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitDetail.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitPage.cs" />
@@ -452,6 +456,7 @@
     <Compile Include="Services\AesService.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
+    <Compile Include="Services\CheckUMService.cs" />
     <Compile Include="Services\CreditBalance\CreditBalanceService.cs" />
     <Compile Include="Services\IndirectLoginAccount\IndirectLoginAccountService.cs" />
     <Compile Include="Services\MemberRequest\MemberRequestService.cs" />
