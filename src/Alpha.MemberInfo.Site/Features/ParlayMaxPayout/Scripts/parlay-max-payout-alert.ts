@@ -68,7 +68,7 @@ class AlertService {
     }
 
     public showMessage(message: string, isError: boolean = false): void {
-        this.$divMessageText.text(message);
+        this.$divMessageText.html(message);
         this.$divMessageText.addClass(isError ? "message-error" : "message-success");
         this.$divMessageContainer.css("display", "block");
     }
