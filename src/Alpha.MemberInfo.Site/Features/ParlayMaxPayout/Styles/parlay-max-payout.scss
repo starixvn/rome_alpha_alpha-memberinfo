@@ -37,7 +37,9 @@
         background-color: $content-bg-color;
         border-bottom: $border-value;
         border-right: $border-value;
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 163px 127px 81px 127px 81px 127px 81px 127px 81px;
         grid-template-columns: 163px repeat(8, 1fr);
 
         .pmp-setting-name {
@@ -48,18 +50,26 @@
             text-align: center;
 
             &.single-match-parlay {
+                -ms-grid-column: 2;
+                -ms-grid-column-span: 2;
                 grid-column: 2/4;
             }
 
             &.combo-2 {
+                -ms-grid-column: 4;
+                -ms-grid-column-span: 2;
                 grid-column: 4/6;
             }
 
             &.combo-35 {
+                -ms-grid-column: 6;
+                -ms-grid-column-span: 2;
                 grid-column: 6/8;
             }
 
             &.combo-6-plus {
+                -ms-grid-column: 8;
+                -ms-grid-column-span: 2;
                 grid-column: 8/10;
             }
         }
@@ -72,6 +82,7 @@
             text-align: left;
 
             &.no-checkbox-row {
+                -ms-grid-row-span: 1 !important;
                 grid-row: unset !important;
                 @include content-space(40px, 40px);
 
@@ -81,9 +92,13 @@
             }
 
             &.soccer-parlay {
+                -ms-grid-row: 2;
+                -ms-grid-row-span: 2;
                 grid-row: 2/4;
 
                 &.no-checkbox-row ~ .mixed-sports-parlay:not(.no-checkbox-row) {
+                    -ms-grid-row: 3 !important;
+                    -ms-grid-row-span: 2 !important;
                     grid-row: 3/5 !important;
 
                     ~ .pmp-setting-control {
@@ -93,10 +108,13 @@
             }
 
             &.mixed-sports-parlay {
+                -ms-grid-row: 4;
+                -ms-grid-row-span: 2;
                 grid-row: 4/6;
             }
 
             .sport-type-name {
+                display: -ms-flexbox;
                 display: flex;
 
                 .sport-type-name-ctrl {
@@ -114,6 +132,24 @@
         .pmp-setting-control {
             @include content-space();
             padding: 3px;
+
+            @include -ms-setting-control("ctrl-input", "SingleMatchParlay", 2, 2);
+            @include -ms-setting-control("ctrl-max-setting", "SingleMatchParlay", 3, 2);
+            @include -ms-setting-control("ctrl-input", "Combo2", 4, 2);
+            @include -ms-setting-control("ctrl-max-setting", "Combo2", 5, 2);
+            @include -ms-setting-control("ctrl-input", "Combo35", 6, 2);
+            @include -ms-setting-control("ctrl-max-setting", "Combo35", 7, 2);
+            @include -ms-setting-control("ctrl-input", "ComboOver6", 8, 2);
+            @include -ms-setting-control("ctrl-max-setting", "ComboOver6", 9, 2);
+
+            @include -ms-setting-control("ctrl-checkbox", "SingleMatchParlay", 2, 3);
+            @include -ms-setting-control("ctrl-checkbox-label", "SingleMatchParlay", 3, 3);
+            @include -ms-setting-control("ctrl-checkbox", "Combo2", 4, 3);
+            @include -ms-setting-control("ctrl-checkbox-label", "Combo2", 5, 3);
+            @include -ms-setting-control("ctrl-checkbox", "Combo35", 6, 3);
+            @include -ms-setting-control("ctrl-checkbox-label", "Combo35", 7, 3);
+            @include -ms-setting-control("ctrl-checkbox", "ComboOver6", 8, 3);
+            @include -ms-setting-control("ctrl-checkbox-label", "ComboOver6", 9, 3);
 
             &.ctrl-input {
                 border-left: $border-value;

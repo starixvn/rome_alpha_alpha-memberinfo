@@ -82,6 +82,14 @@
 
         public string ParlayMaxPayoutSettingPartialViewPath { get; }
 
-        public string GetClassName(byte sportTypeId) => classNameDictionary[sportTypeId];
+        public string GetClassName(byte sportTypeId)
+        {
+            if (classNameDictionary.ContainsKey(sportTypeId))
+            {
+                return classNameDictionary[sportTypeId];
+            }
+
+            return string.Empty;
+        }
     }
 }

@@ -101,8 +101,9 @@
 @helper RenderInputControl(byte sportTypeId, string settingName, string value, string maxValue, string columnName, bool isMultiple)
 {
     var unlimited = "Unlimited";
+    var className = Model.GetClassName(sportTypeId);
 
-    <div class="pmp-setting-control ctrl-input">
+    <div class="pmp-setting-control ctrl-input @className-@settingName">
         <input type="text"
                maxlength="14"
                id="@settingName@sportTypeId"
@@ -116,14 +117,15 @@
                value="@value"
                @(isMultiple || value == unlimited ? "disabled" : string.Empty) />
     </div>
-    <div class="pmp-setting-control ctrl-max-setting">@(maxValue == unlimited ? string.Empty : $"<= {maxValue}")</div>
+    <div class="pmp-setting-control ctrl-max-setting @className-@settingName">@(maxValue == unlimited ? string.Empty : $"<= {maxValue}")</div>
 }
 
 @helper RenderCheckBoxControl(byte sportTypeId, string settingName, string value, bool isAllowUnlimit, bool isMultiple)
 {
     var unlimited = "Unlimited";
+    var className = Model.GetClassName(sportTypeId);
 
-    <div class="pmp-setting-control ctrl-checkbox">
+    <div class="pmp-setting-control ctrl-checkbox @className-@settingName">
         @if (isAllowUnlimit)
         {
             <input type="checkbox"
@@ -134,7 +136,7 @@
                    @(isMultiple ? "disabled" : string.Empty) />
         }
     </div>
-    <div class="pmp-setting-control ctrl-checkbox-label">
+    <div class="pmp-setting-control ctrl-checkbox-label @className-@settingName">
         @(isAllowUnlimit ? unlimited : string.Empty)
     </div>
 
