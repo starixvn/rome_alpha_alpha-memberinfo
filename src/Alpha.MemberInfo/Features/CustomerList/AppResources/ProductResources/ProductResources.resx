@@ -484,7 +484,7 @@
     <value>Edit Multiple Closed Status</value>
   </data>
   <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
-    <value>Update Multiple Closed Status</value>
+    <value>Edit Multiple Closed Status</value>
   </data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
     <value>Unsuspend &lt;username&gt;</value>
