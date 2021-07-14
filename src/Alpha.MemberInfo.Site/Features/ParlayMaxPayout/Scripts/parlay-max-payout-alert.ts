@@ -53,11 +53,11 @@ class AlertService {
 
         if (elOffset.left + hintWidth > containerWidth) {
             const right = containerOffset.left + containerWidth - elOffset.left - inputWidth;
-            this.$divHint.css({ top, right, left: "unset" });
-            this.$divHintPointer.css({ "margin-left": "auto", "margin-right": "unset" });
+            this.$divHint.css({ top, right, left: "auto" });
+            this.$divHintPointer.css({ "margin-left": "auto", "margin-right": 0 });
         } else {
-            this.$divHint.css({ top, right: "unset", left: elOffset.left });
-            this.$divHintPointer.css({ "margin-left": "unset", "margin-right": "auto" });
+            this.$divHint.css({ top, right: "auto", left: elOffset.left });
+            this.$divHintPointer.css({ "margin-left": 0, "margin-right": "auto" });
         }
     }
 
