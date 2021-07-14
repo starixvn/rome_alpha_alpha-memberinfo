@@ -2,6 +2,10 @@
 @import "_variables.scss";
 @import url($icon-alpha-fonts);
 
+body {
+    max-height: 90%;
+}
+
 .user-list-box {
     @include content-space(auto, 30px);
     background-color: $content-bg-color;
