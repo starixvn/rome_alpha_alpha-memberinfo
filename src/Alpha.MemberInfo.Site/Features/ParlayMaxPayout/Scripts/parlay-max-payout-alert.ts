@@ -63,7 +63,7 @@ class AlertService {
 
     private setHideHint(): void {
         setTimeout(() => {
-            this.$divHint.css("display", "none");
+            this.$divHint.css({ display: "none", left: 0, right: "auto" });
         }, this.hideHintTimeout);
     }
 
