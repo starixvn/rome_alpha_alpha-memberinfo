@@ -234,9 +234,15 @@ class ParlayMaxPayout {
     };
 
     private reloadAfterSuccess(): void {
-        setTimeout(function () {
-            window.location.reload();
-        }, this.reloadTimeout);
+        if (!this.isMultiple) {
+            setTimeout(function () {
+                window.location.reload();
+            }, this.reloadTimeout);
+        } else {
+            window.top.customerListNew
+                ? window.top.customerListPopup.successfulUpdatingCallback(this.reloadTimeout)
+                : window.top.successfulUpdatingCallback(this.reloadTimeout);
+        }
     }
 }
 

@@ -2,6 +2,7 @@
 
 interface Window {
     bootboxConfirm: Function;
+    customerListNew: boolean;
 }
 
 class AlertService {
