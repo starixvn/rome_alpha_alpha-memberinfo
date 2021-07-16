@@ -107,6 +107,7 @@ body {
 
                     ~ .pmp-setting-control {
                         @include content-space();
+                        @include -ms-setting-control(true);
                     }
                 }
             }
@@ -137,23 +138,7 @@ body {
             @include content-space();
             padding: 3px;
 
-            @include -ms-setting-control("ctrl-input", "SingleMatchParlay", 2, 2);
-            @include -ms-setting-control("ctrl-max-setting", "SingleMatchParlay", 3, 2);
-            @include -ms-setting-control("ctrl-input", "Combo2", 4, 2);
-            @include -ms-setting-control("ctrl-max-setting", "Combo2", 5, 2);
-            @include -ms-setting-control("ctrl-input", "Combo35", 6, 2);
-            @include -ms-setting-control("ctrl-max-setting", "Combo35", 7, 2);
-            @include -ms-setting-control("ctrl-input", "ComboOver6", 8, 2);
-            @include -ms-setting-control("ctrl-max-setting", "ComboOver6", 9, 2);
-
-            @include -ms-setting-control("ctrl-checkbox", "SingleMatchParlay", 2, 3);
-            @include -ms-setting-control("ctrl-checkbox-label", "SingleMatchParlay", 3, 3);
-            @include -ms-setting-control("ctrl-checkbox", "Combo2", 4, 3);
-            @include -ms-setting-control("ctrl-checkbox-label", "Combo2", 5, 3);
-            @include -ms-setting-control("ctrl-checkbox", "Combo35", 6, 3);
-            @include -ms-setting-control("ctrl-checkbox-label", "Combo35", 7, 3);
-            @include -ms-setting-control("ctrl-checkbox", "ComboOver6", 8, 3);
-            @include -ms-setting-control("ctrl-checkbox-label", "ComboOver6", 9, 3);
+            @include -ms-setting-control();
 
             &.ctrl-input {
                 border-left: $border-value;
