@@ -481,18 +481,18 @@
     <value>Locked Access</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
-    <value>Edit Multiple Closed Status</value>
-  </data>
+		<value>Edit Multiple Closed Statuses</value>
+	</data>
   <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
-    <value>Edit Multiple Closed Status</value>
-  </data>
+		<value>Edit Multiple Closed Statuses</value>
+	</data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
-    <value>Unsuspend &lt;username&gt;</value>
-  </data>
+		<value>Huỷ đình chỉ &lt;username&gt;</value>
+	</data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
-    <value>Open &lt;username&gt;</value>
-  </data>
+		<value>Open &lt;username&gt;</value>
+	</data>
   <data name="IndirectlyClosedByUpline" xml:space="preserve">
-    <value>This account was indirectly closed by upline.</value>
-  </data>
+		<value>This account is indirectly closed by upline</value>
+	</data>
 </root>

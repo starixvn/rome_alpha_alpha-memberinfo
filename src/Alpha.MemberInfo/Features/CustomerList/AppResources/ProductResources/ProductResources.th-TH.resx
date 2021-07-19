@@ -487,7 +487,7 @@
 		<value>แก้ไขสถานะปิดหลายรายการ</value>
 	</data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
-		<value>Unsuspend &lt;username&gt;</value>
+		<value>ยกเลิกการระงับ &lt;username&gt;</value>
 	</data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
 		<value>เปิด &lt;username&gt;</value>

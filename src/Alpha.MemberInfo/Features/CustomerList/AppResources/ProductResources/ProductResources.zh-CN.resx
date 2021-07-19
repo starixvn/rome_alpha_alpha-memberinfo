@@ -412,7 +412,7 @@
     <value>转账</value>
   </data>
   <data name="UnuspendStatusPopupHeader" xml:space="preserve">
-    <value>&lt;username&gt; 取消暂停</value>
+    <value>取消暂停 &lt;username&gt;</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>更改</value>
@@ -487,7 +487,7 @@
 		<value>修改多重关闭状态</value>
 	</data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
-		<value>Unsuspend &lt;username&gt;</value>
+		<value>取消暂停 &lt;username&gt;</value>
 	</data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
 		<value>开启 &lt;username&gt;</value>

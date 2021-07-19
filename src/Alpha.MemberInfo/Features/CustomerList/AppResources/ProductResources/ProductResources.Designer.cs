@@ -521,7 +521,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Closed Status.
+        ///   Looks up a localized string similar to Edit Multiple Closed Statuses.
         /// </summary>
         public static string EditMultipleClosedStatusText {
             get {
@@ -647,7 +647,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This account was indirectly closed by upline..
+        ///   Looks up a localized string similar to This account is indirectly closed by upline.
         /// </summary>
         public static string IndirectlyClosedByUpline {
             get {
@@ -1133,7 +1133,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Closed Status.
+        ///   Looks up a localized string similar to Edit Multiple Closed Statuses.
         /// </summary>
         public static string UpdateMultipleClosedStatusText {
             get {

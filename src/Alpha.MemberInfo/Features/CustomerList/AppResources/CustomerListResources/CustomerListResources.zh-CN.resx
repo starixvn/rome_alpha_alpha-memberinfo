@@ -268,7 +268,7 @@
     <value>双倍佣金更新成功</value>
   </data>
   <data name="UnuspendStatusPopupHeader" xml:space="preserve">
-    <value>&lt;username&gt; 取消暂停</value>
+    <value>取消暂停 &lt;username&gt;</value>
   </data>
   <data name="AccountMyanmarOdds" xml:space="preserve">
     <value>A缅甸盘</value>
