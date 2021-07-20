@@ -133,7 +133,7 @@
     <value>Tiền chưa xử lý của Agent</value>
   </data>
   <data name="Agents" xml:space="preserve">
-    <value>Agents (Mở/Bị khóa/Bị đình chỉ)</value>
+    <value>Agents (Mở/Bị đóng/Bị đình chỉ)</value>
   </data>
   <data name="And" xml:space="preserve">
     <value>và</value>
@@ -190,13 +190,13 @@
     <value>Cho phép Outright</value>
   </data>
   <data name="ConfirmClosedViewModelInCaseChangeClosedStatusMessage" xml:space="preserve">
-    <value>Bạn có chắc muốn thay đổi trạng thái "Khóa" của thành viên này không?</value>
+    <value>Bạn có chắc muốn thay đổi trạng thái "Đóng" của thành viên này không?</value>
   </data>
   <data name="ConfirmClosedViewModelInCaseClosedDownlinesMessage" xml:space="preserve">
-    <value>Bạn có chắc muốn khóa thành viên này?\nKhuyến cáo: tất cả cấp dưới của tài khoản này cũng sẽ bị khóa!</value>
+    <value>Bạn có chắc muốn đóng thành viên này?\nKhuyến cáo: tất cả cấp dưới của tài khoản này cũng sẽ bị đóng!</value>
   </data>
   <data name="ConfirmClosedViewModelText" xml:space="preserve">
-    <value>Bị khóa</value>
+    <value>Bị đóng</value>
   </data>
   <data name="ConfirmDoubleCommViewModelInCaseDisabledMasterOrAgentMessage" xml:space="preserve">
     <value>Bạn có chắc muốn khóa chức năng Nhân đôi hoa hồng với những cá cược bị thua trong Sportbooks của tài khoản này không? Cảnh báo, tất cả những thành viên cấp dưới trực thuộc tài khoản này sẽ đều bị khóa chức năng đó!</value>
@@ -301,7 +301,7 @@
     <value>Hạn mức tín dụng tối đa của Member</value>
   </data>
   <data name="Members" xml:space="preserve">
-    <value>Members (Mở/Bị khóa/Bị đình chỉ)</value>
+    <value>Members (Mở/Bị đóng/Bị đình chỉ)</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Tên</value>
@@ -397,7 +397,7 @@
     <value>Thành viên này không online</value>
   </data>
   <data name="TotalAgentActiveClosed" xml:space="preserve">
-    <value>Số tài khoản Agent hiện đang: Kích hoạt/Khóa/Đình chỉ</value>
+    <value>Số tài khoản Agent hiện đang: Kích hoạt/Đóng/Đình chỉ</value>
   </data>
   <data name="TotalBalance" xml:space="preserve">
     <value>Tổng số tiền giao dịch</value>
@@ -406,7 +406,7 @@
     <value>Tổng số dư tài khoản</value>
   </data>
   <data name="TotalMemberActiveClosed" xml:space="preserve">
-    <value>Số tài khoản Member hiện đang: Kích hoạt/Khóa/Đình chỉ</value>
+    <value>Số tài khoản Member hiện đang: Kích hoạt/Đóng/Đình chỉ</value>
   </data>
   <data name="TransferViewModelText" xml:space="preserve">
     <value>Chuyển khoản</value>
@@ -481,18 +481,18 @@
     <value>Truy Cập Bị Từ Chối</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
-		<value>Tùy chỉnh đồng loạt Trạng thái Khóa</value>
-	</data>
+    <value>Tùy chỉnh đồng loạt Trạng thái Khóa</value>
+  </data>
   <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
-		<value>Tùy chỉnh đồng loạt Trạng thái Khóa</value>
-	</data>
+    <value>Tùy chỉnh đồng loạt Trạng thái Khóa</value>
+  </data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
     <value>Huỷ đình chỉ &lt;username&gt;</value>
   </data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
-		<value>Mở &lt;username&gt;</value>
-	</data>
+    <value>Mở &lt;username&gt;</value>
+  </data>
   <data name="IndirectlyClosedByUpline" xml:space="preserve">
-		<value>Tài khoản này đã bị đóng gián tiếp bởi cấp trên.</value>
-	</data>
+    <value>Tài khoản này đã bị đóng gián tiếp bởi cấp trên.</value>
+  </data>
 </root>

@@ -196,7 +196,7 @@
     <value>Tất cả</value>
   </data>
   <data name="Closed" xml:space="preserve">
-    <value>Bị khóa</value>
+    <value>Bị đóng</value>
   </data>
   <data name="Disabled" xml:space="preserve">
     <value>Vô hiệu hóa</value>
