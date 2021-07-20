@@ -6,6 +6,7 @@
     using MediatR;
     using MemberInfo.Models;
     using NSubstitute;
+    using Sunplus.Agent.Model.Entities;
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
@@ -16,12 +17,14 @@
     public class QRCodeMemberSignInControllerTests
     {
         private readonly IMediator mediator;
+        private readonly IUserSession userSession;
         private readonly IUser user;
         private readonly QRCodeMemberSignInController controller;
 
         public QRCodeMemberSignInControllerTests()
         {
             mediator = Substitute.For<IMediator>();
+            userSession = Substitute.For<IUserSession>();
 
             user = Substitute.For<IUser>();
             user.LoggedInUserId.Returns(1176070);
@@ -32,7 +35,7 @@
             user.Language.Returns("En");
             user.IsInternal.Returns(false);
 
-            controller = new QRCodeMemberSignInController(mediator);
+            controller = new QRCodeMemberSignInController(mediator, userSession);
         }
 
         [Fact]
@@ -68,18 +71,18 @@
         public void CreateAccount_Success_ReturnCorrectDataWithRawPassword()
         {
             // Arrange
-           var message = new CreateAccountByQRCodeRequest(user)
-           {
-               UsernameCopyFrom = "User",
-               Credit = 100,
-               CreditMin = 10,
-               CreditMax = 1000,
-               FirstSuffix = "A",
-               SecondSuffix = "A",
-               ThirdSuffix = "A",
-               FirstName = "James",
-               ShowPageTitle = true
-           };
+            var message = new CreateAccountByQRCodeRequest(user)
+            {
+                UsernameCopyFrom = "User",
+                Credit = 100,
+                CreditMin = 10,
+                CreditMax = 1000,
+                FirstSuffix = "A",
+                SecondSuffix = "A",
+                ThirdSuffix = "A",
+                FirstName = "James",
+                ShowPageTitle = true
+            };
 
             var result = new ResultCreateMemberQRCode
             {

@@ -71,5 +71,9 @@
 
         private static int ValueOfNotNullOrWhiteSpace(string value)
             => value.Equals("*", StringComparison.OrdinalIgnoreCase) ? int.MaxValue : Convert.ToInt32(value);
+
+        public static IEnumerable<string> NewCaptchaLogCurrencies => string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["NewCaptcha:LogCurrencies"])
+            ? Enumerable.Empty<string>()
+            : ConfigurationManager.AppSettings["NewCaptcha:LogCurrencies"].Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
     }
 }

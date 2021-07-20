@@ -209,7 +209,8 @@ class QRCodeMemberSignIn {
                         this.reloadFrame(result);
                     }, 1000);
                 }
-				else {
+                else {
+                    this.$('.captcha-icon-refresh').click();
 					this.showErrorMessage(result.ErrMsg);
 					this.$.unblockUI();
 				}
