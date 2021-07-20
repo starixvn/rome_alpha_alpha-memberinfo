@@ -521,7 +521,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Closed Statuses.
+        ///   Looks up a localized string similar to Edit Multiple Closed Status.
         /// </summary>
         public static string EditMultipleClosedStatusText {
             get {
@@ -1133,7 +1133,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Closed Statuses.
+        ///   Looks up a localized string similar to Edit Multiple Closed Status.
         /// </summary>
         public static string UpdateMultipleClosedStatusText {
             get {
