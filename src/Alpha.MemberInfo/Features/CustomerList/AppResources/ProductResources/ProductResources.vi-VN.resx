@@ -481,18 +481,18 @@
     <value>Truy Cập Bị Từ Chối</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
-    <value>Edit Multiple Closed Statuses</value>
-  </data>
+		<value>Tùy chỉnh đồng loạt Trạng thái Khóa</value>
+	</data>
   <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
-    <value>Edit Multiple Closed Statuses</value>
-  </data>
+		<value>Tùy chỉnh đồng loạt Trạng thái Khóa</value>
+	</data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
     <value>Huỷ đình chỉ &lt;username&gt;</value>
   </data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
-    <value>Open &lt;username&gt;</value>
-  </data>
+		<value>Mở &lt;username&gt;</value>
+	</data>
   <data name="IndirectlyClosedByUpline" xml:space="preserve">
-    <value>This account is indirectly closed by upline</value>
-  </data>
+		<value>Tài khoản này đã bị đóng gián tiếp bởi cấp trên.</value>
+	</data>
 </root>
