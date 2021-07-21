@@ -195,6 +195,9 @@
   <data name="ConfirmClosedViewModelInCaseClosedDownlinesMessage" xml:space="preserve">
     <value>Bạn có chắc muốn đóng thành viên này?\nKhuyến cáo: tất cả cấp dưới của tài khoản này cũng sẽ bị đóng!</value>
   </data>
+  <data name="ConfirmClosedViewModelInCaseOpenedMemberMessage" xml:space="preserve">
+    <value>Bạn có chắc muốn mở tài khoản này?</value>
+  </data>
   <data name="ConfirmClosedViewModelText" xml:space="preserve">
     <value>Bị đóng</value>
   </data>

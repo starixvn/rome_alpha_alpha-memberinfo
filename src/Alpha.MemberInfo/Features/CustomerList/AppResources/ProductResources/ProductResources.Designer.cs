@@ -278,7 +278,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to change Close status for this customer?.
+        ///   Looks up a localized string similar to Are you sure you want to change Closed status for this customer?.
         /// </summary>
         public static string ConfirmClosedViewModelInCaseChangeClosedStatusMessage {
             get {
@@ -287,11 +287,20 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to change Close status for this customer? Warning, all downlines will be closed as well!.
+        ///   Looks up a localized string similar to Are you sure you want to change Closed status for this customer? Warning, all downlines will be closed as well!.
         /// </summary>
         public static string ConfirmClosedViewModelInCaseClosedDownlinesMessage {
             get {
                 return ResourceManager.GetString("ConfirmClosedViewModelInCaseClosedDownlinesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to open this account?.
+        /// </summary>
+        public static string ConfirmClosedViewModelInCaseOpenedMemberMessage {
+            get {
+                return ResourceManager.GetString("ConfirmClosedViewModelInCaseOpenedMemberMessage", resourceCulture);
             }
         }
         

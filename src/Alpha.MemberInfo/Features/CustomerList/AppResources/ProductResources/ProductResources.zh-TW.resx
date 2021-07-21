@@ -195,6 +195,9 @@
   <data name="ConfirmClosedViewModelInCaseClosedDownlinesMessage" xml:space="preserve">
     <value>您確定要更改這個客戶的關閉狀態？警告！所有下線將被關閉！</value>
   </data>
+  <data name="ConfirmClosedViewModelInCaseOpenedMemberMessage" xml:space="preserve">
+    <value>您確定要開啟此賬號？</value>
+  </data>
   <data name="ConfirmClosedViewModelText" xml:space="preserve">
     <value>關閉</value>
   </data>

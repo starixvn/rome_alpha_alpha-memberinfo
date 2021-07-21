@@ -195,6 +195,9 @@
   <data name="ConfirmClosedViewModelInCaseClosedDownlinesMessage" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าต้องการเปลี่ยนสถานะเป็นปิดให้กับลูกค้าท่านนี้? คำเตือน : ดาวน์ไลน์ทั้งหมดจะถูกปิดลงเช่นกัน</value>
   </data>
+  <data name="ConfirmClosedViewModelInCaseOpenedMemberMessage" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการเปิดบัญชีนี้</value>
+  </data>
   <data name="ConfirmClosedViewModelText" xml:space="preserve">
     <value>ที่ถูกปิด</value>
   </data>

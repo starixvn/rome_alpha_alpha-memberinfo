@@ -190,10 +190,13 @@
     <value>Outright</value>
   </data>
   <data name="ConfirmClosedViewModelInCaseChangeClosedStatusMessage" xml:space="preserve">
-    <value>Are you sure you want to change Close status for this customer?</value>
+    <value>Are you sure you want to change Closed status for this customer?</value>
   </data>
   <data name="ConfirmClosedViewModelInCaseClosedDownlinesMessage" xml:space="preserve">
-    <value>Are you sure you want to change Close status for this customer? Warning, all downlines will be closed as well!</value>
+    <value>Are you sure you want to change Closed status for this customer? Warning, all downlines will be closed as well!</value>
+  </data>
+  <data name="ConfirmClosedViewModelInCaseOpenedMemberMessage" xml:space="preserve">
+    <value>Are you sure you want to open this account?</value>
   </data>
   <data name="ConfirmClosedViewModelText" xml:space="preserve">
     <value>閉鎖</value>
