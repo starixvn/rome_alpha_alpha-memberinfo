@@ -11,6 +11,9 @@ class QRCodeMemberSignIn {
     $creditMinLabel: JQuery;
     $creditMaxLabel: JQuery;
 
+    $captchaInput: JQuery;
+    $submitBtn: JQuery;
+
     $creditInput: JQuery;
     credit: number;
     creditMin: number;
@@ -31,10 +34,10 @@ class QRCodeMemberSignIn {
 
     inValidCustomerCopyFrom: boolean;
     inValidUsername: boolean;
-	invalidCredit: boolean;
+    invalidCredit: boolean;
 
-	showCreateFromUnopenedMemberMessage: boolean;
-	cannotCreateClosedMemberQRCodeMessage: string;
+    showCreateFromUnopenedMemberMessage: boolean;
+    cannotCreateClosedMemberQRCodeMessage: string;
 
     constructor(
         $: JQueryStatic,
@@ -78,6 +81,8 @@ class QRCodeMemberSignIn {
         this.$form = this.$('#qrCodeMemberSignInForm');
         this.$usernameCopyFrom = this.$('#UsernameCopyFrom');
         this.usernameCopyFromInQueryRequest = this.$('#MemberNameCopyFrom').val();
+        this.$captchaInput = this.$('.captcha-input');
+        this.$submitBtn = this.$('#btn-submit');
 
         this.$creditRange = this.$('#credit-range');
         this.$creditMinLabel = this.$("#credit-min-label");
@@ -89,8 +94,8 @@ class QRCodeMemberSignIn {
         this.$messageContent = this.$('#message-content');
         this.memberAccountInvalidMessage = this.$('#MemberAccountIsInvalid').val();
         this.usernameIsInvalid = this.$('#UsernameIsInvalid').val();
-		this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
-		this.cannotCreateClosedMemberQRCodeMessage = this.$('#CannotCreateClosedMemberQRCode').val();
+        this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
+        this.cannotCreateClosedMemberQRCodeMessage = this.$('#CannotCreateClosedMemberQRCode').val();
     }
 
     getMemberCredit = () => {
@@ -101,14 +106,14 @@ class QRCodeMemberSignIn {
             headers: this.getHeadersForPostRequest(),
             data: { SearchAccountName: this.$usernameCopyFrom.val() },
             dataType: 'json',
-			url: "QRCodeMemberSignIn/GetMemberCreditAndStatus",
+            url: "QRCodeMemberSignIn/GetMemberCreditAndStatus",
             success: result => {
-				this.$.unblockUI();
-				this.showCreateFromUnopenedMemberMessage = result.Status !== null && result.Status.toUpperCase() !== 'OPEN';
+                this.$.unblockUI();
+                this.showCreateFromUnopenedMemberMessage = result.Status !== null && result.Status.toUpperCase() !== 'OPEN';
 
-				this.showCreateFromUnopenedMemberMessage ?
-					this.showClosedMemberQRCodeMessage(): 
-					this.$messageContainer.removeClass('msg msg-error').addClass('hidden');
+                this.showCreateFromUnopenedMemberMessage ?
+                    this.showClosedMemberQRCodeMessage() :
+                    this.$messageContainer.removeClass('msg msg-error').addClass('hidden');
 
                 const numberFormat = '0,0.##';
                 this.creditMin = result.CreditMin;
@@ -120,10 +125,10 @@ class QRCodeMemberSignIn {
                 this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
                 this.$creditInput.val(numeral(result.Credit).format(numberFormat));
 
-				this.validateCredit();
-				this.$.unblockUI();
-			},
-			error: () => { this.$.unblockUI(); }
+                this.validateCredit();
+                this.$.unblockUI();
+            },
+            error: () => { this.$.unblockUI(); }
         });
     }
 
@@ -143,27 +148,27 @@ class QRCodeMemberSignIn {
             __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
             'X-Requested-With': 'XMLHttpRequest'
         };
-	}
+    }
 
     validateCredit = () => {
         this.credit = parseFloat(this.cleave.getRawValue());
-        this.invalidCredit = isNaN(this.credit)  || this.credit < this.creditMin || this.credit > this.creditMax;
-        const errorClass = this.invalidCredit ?'icon-close' : 'icon-check';
+        this.invalidCredit = isNaN(this.credit) || this.credit < this.creditMin || this.credit > this.creditMax;
+        const errorClass = this.invalidCredit ? 'icon-close' : 'icon-check';
         this.$('#icon-message-credit').removeClass().addClass(errorClass);
     }
 
-	showClosedMemberQRCodeMessage = () => {
-		this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
-		this.$(`#${this.iconMessageUsernameCopyFrom}`).removeClass().addClass('icon-close');
-	}
+    showClosedMemberQRCodeMessage = () => {
+        this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
+        this.$(`#${this.iconMessageUsernameCopyFrom}`).removeClass().addClass('icon-close');
+    }
 
     submitEvent = (event) => {
         event.preventDefault();
 
-		if (this.showCreateFromUnopenedMemberMessage) {
-			this.showClosedMemberQRCodeMessage();
-			return;
-		}
+        if (this.showCreateFromUnopenedMemberMessage) {
+            this.showClosedMemberQRCodeMessage();
+            return;
+        }
 
         if (this.inValidCustomerCopyFrom) {
             this.showErrorMessage(this.memberAccountInvalidMessage);
@@ -178,7 +183,7 @@ class QRCodeMemberSignIn {
         if (this.inValidUsername) {
             this.showErrorMessage(this.usernameIsInvalid);
             return;
-		}
+        }
 
         this.$.blockUI();
 
@@ -196,13 +201,13 @@ class QRCodeMemberSignIn {
             c_f: this.$("input[name=c_f]").val()
         };
 
-		this.$.ajax({
-			method: "POST",
-			headers: this.getHeadersForPostRequest(),
-			data: data,
-			dataType: 'json',
-			url: "QRCodeMemberSignIn/CreateAccount",
-			success: (result, status, xqr) => {
+        this.$.ajax({
+            method: "POST",
+            headers: this.getHeadersForPostRequest(),
+            data: data,
+            dataType: 'json',
+            url: "QRCodeMemberSignIn/CreateAccount",
+            success: (result, status, xqr) => {
                 if (result.ErrCode === 0 || status === "302" || xqr.status === 302) {
                     localStorage.setItem("memberNameCopyFrom", data.UsernameCopyFrom);
                     setTimeout(() => {
@@ -211,31 +216,31 @@ class QRCodeMemberSignIn {
                 }
                 else {
                     this.$('.captcha-icon-refresh').click();
-					this.showErrorMessage(result.ErrMsg);
-					this.$.unblockUI();
-				}
-			},
-			error: () => { this.$.unblockUI(); }
+                    this.showErrorMessage(result.ErrMsg);
+                    this.$.unblockUI();
+                }
+            },
+            error: () => { this.$.unblockUI(); }
         });
     }
 
-	reloadFrame = (result) => {
-		const frms = window.top.parent.frames;
-		const showQRCodeLink = `${this.$('#ShowQRCodeLink').val()}?${this.$.param(result)}`;
-		if (frms && frms["main"]) {
-			frms["main"].frames['frmAddNewMember'] ?
-				frms["main"].frames['frmAddNewMember'].location = showQRCodeLink :
-				frms["main"].location = showQRCodeLink;
-		}
-		else {
-			window.location.href = showQRCodeLink;
-		}
+    reloadFrame = (result) => {
+        const frms = window.top.parent.frames;
+        const showQRCodeLink = `${this.$('#ShowQRCodeLink').val()}?${this.$.param(result)}`;
+        if (frms && frms["main"]) {
+            frms["main"].frames['frmAddNewMember'] ?
+                frms["main"].frames['frmAddNewMember'].location = showQRCodeLink :
+                frms["main"].location = showQRCodeLink;
+        }
+        else {
+            window.location.href = showQRCodeLink;
+        }
     }
 
     showMessageIcon = (iconId: string, existedCustomer: boolean, checkCustomerCopyFrom: boolean = true) => {
         this.$(`#${iconId}`).removeClass();
 
-        let iconClass = ''; 
+        let iconClass = '';
         if (checkCustomerCopyFrom) {
             this.inValidCustomerCopyFrom = !existedCustomer;
             iconClass = existedCustomer ? 'icon-check' : 'icon-close';
@@ -269,7 +274,7 @@ class QRCodeMemberSignIn {
     bidingEasyAutoComplete = () => {
         const options = {
             url: phrase => {
-				return `${this.$('#member-info-url').val()}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}`;
+                return `${this.$('#member-info-url').val()}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}`;
             },
             getValue: 'UserName',
             requestDelay: 200,
@@ -289,9 +294,18 @@ class QRCodeMemberSignIn {
         this.$usernameCopyFrom.easyAutocomplete(options);
         this.$usernameCopyFrom.blur(() => {
             setTimeout(() => {
-                    this.blurEventCustomerCopyFrom();
-                }, 300);
+                this.blurEventCustomerCopyFrom();
+            }, 300);
         });
+
+        const validateInputs = () => {
+            const username = this.$.trim(this.$usernameCopyFrom.val());
+            const captcha = this.$.trim(this.$captchaInput.val());
+            this.$submitBtn.prop('disabled', !username || !captcha);
+        }
+
+        this.$usernameCopyFrom.on('input', validateInputs);
+        this.$captchaInput.on('input', validateInputs);
     }
 }
 
