@@ -4,23 +4,23 @@
     <Setting Key="Age_SelBalanceUpDay" SpName="Age_SelBalanceUpDay" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Check Belonging">
-    <Setting Key="Age_CustomerSelCheckBelonging" SpName="Age_CustomerSelCheckBelonging_uat4" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CustomerStatusSel" SpName="Age_CustomerStatusSel_uat4" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelCheckBelonging" SpName="Age_CustomerSelCheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerStatusSel" SpName="Age_CustomerStatusSel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Win Loss Limit">
     <Setting Key="Age_CustomerSelWinLimitProduct" SpName="Age_CustomerSelWinLimitProduct" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Credit/Balance">
-    <Setting Key="Age_CustomerSelCreditBalanceList_Ag" SpName="Age_CustomerSelCreditBalanceList_Ag_UAT4" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CustomerSelCreditBalanceList_Mag" SpName="Age_CustomerSelCreditBalanceList_MAg_UAT4" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CustomerSelCreditBalanceList_Sag" SpName="Age_CustomerSelCreditBalanceList_SAg_UAT4" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelCreditBalanceList_Ag" SpName="Age_CustomerSelCreditBalanceList_Ag" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelCreditBalanceList_Mag" SpName="Age_CustomerSelCreditBalanceList_MAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelCreditBalanceList_Sag" SpName="Age_CustomerSelCreditBalanceList_SAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Create Member By QR Code">
     <Setting Key="Age_CustomerSelUserSearch" SpName="Age_CustomerSelUserSearch" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CustomerSelCheckBelonging_ByUsername" SpName="Age_CustomerSelCheckBelonging_ByUsername_uat4" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelCheckBelonging_ByUsername" SpName="Age_CustomerSelCheckBelonging_ByUsername" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Customer List">
-    <Setting Key="Age_CustomerSelAllStatus" SpName="Age_CustomerSelAllStatus_uat4" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelAllStatus" SpName="Age_CustomerSelAllStatus" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_CustomerSelSyncCasino" SpName="Age_CustomerSelSyncCasino" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
 </Functions>
