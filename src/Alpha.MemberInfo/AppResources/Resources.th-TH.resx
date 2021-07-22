@@ -573,4 +573,10 @@
   <data name="Pager_DisplayItems" xml:space="preserve">
     <value>แสดง {from} ถึง {to} จาก {total} รายการ</value>
   </data>
+  <data name="LockStatus" xml:space="preserve">
+    <value>สถานะล็อก</value>
+  </data>
+  <data name="IndirectLoginAccountLockedError" xml:space="preserve">
+    <value>บัญชีนี้ถูกล็อก กรุณาปลดล็อกและลองใหม่อีกครั้ง</value>
+  </data>
 </root>

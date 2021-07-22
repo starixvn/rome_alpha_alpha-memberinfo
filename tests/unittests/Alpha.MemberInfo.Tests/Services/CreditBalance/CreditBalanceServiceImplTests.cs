@@ -73,7 +73,7 @@
                 .Returns(creditBalances);
             var closedReasons = new List<CustomerClosedReason>
             {
-                new CustomerClosedReason(1176083, 1)
+                new CustomerClosedReason(1176083, 1, 0)
             };
             dynamicRepository.FetchAsync<CustomerClosedReason>(Arg.Any<GetSuperClosedReasonCriteria>())
                 .Returns(closedReasons);
@@ -339,11 +339,11 @@
                 IsAdminCanViewVNIPTest);
             var closedReasons = new List<CustomerClosedReason>
             {
-                new CustomerClosedReason(1, 0),
-                new CustomerClosedReason(2, 1),
-                new CustomerClosedReason(3, 2),
-                new CustomerClosedReason(4, 3),
-                new CustomerClosedReason(5, 4)
+                new CustomerClosedReason(1, 0, 1),
+                new CustomerClosedReason(2, 1, 0),
+                new CustomerClosedReason(3, 2, 0),
+                new CustomerClosedReason(4, 0, 2),
+                new CustomerClosedReason(5, 4, 0)
             };
             dynamicRepository.FetchAsync<CustomerClosedReason>(Arg.Any<GetSuperClosedReasonCriteria>())
                 .Returns(closedReasons);
@@ -352,9 +352,7 @@
             var actual = await service.GetClosedReasonsAsync(param);
 
             // Assert
-            Assert.True(
-                actual.Count > 0
-                && actual[3] == 2);
+            Assert.True(actual.Count > 0 && actual[3].ClosedReason == 2);
         }
 
         [Fact]
@@ -371,11 +369,11 @@
                 IsAdminCanViewVNIPTest);
             var closedReasons = new List<CustomerClosedReason>
             {
-                new CustomerClosedReason(1, 0),
-                new CustomerClosedReason(2, 1),
-                new CustomerClosedReason(3, 2),
-                new CustomerClosedReason(4, 3),
-                new CustomerClosedReason(5, 4)
+                new CustomerClosedReason(1, 0, 1),
+                new CustomerClosedReason(2, 1, 0),
+                new CustomerClosedReason(3, 2, 0),
+                new CustomerClosedReason(4, 0, 2),
+                new CustomerClosedReason(5, 4, 0)
             };
             dynamicRepository.FetchAsync<CustomerClosedReason>(Arg.Any<GetMasterClosedReasonCriteria>())
                 .Returns(closedReasons);
@@ -384,9 +382,7 @@
             var actual = await service.GetClosedReasonsAsync(param);
 
             // Assert
-            Assert.True(
-                actual.Count > 0
-                && actual[3] == 2);
+            Assert.True(actual.Count > 0 && actual[3].ClosedReason == 2);
         }
 
         [Fact]
@@ -403,11 +399,11 @@
                 IsAdminCanViewVNIPTest);
             var closedReasons = new List<CustomerClosedReason>
             {
-                new CustomerClosedReason(1, 0),
-                new CustomerClosedReason(2, 1),
-                new CustomerClosedReason(3, 2),
-                new CustomerClosedReason(4, 3),
-                new CustomerClosedReason(5, 4)
+                new CustomerClosedReason(1, 0, 1),
+                new CustomerClosedReason(2, 1, 0),
+                new CustomerClosedReason(3, 2, 0),
+                new CustomerClosedReason(4, 0, 2),
+                new CustomerClosedReason(5, 4, 0)
             };
             dynamicRepository.FetchAsync<CustomerClosedReason>(Arg.Any<GetAgentClosedReasonCriteria>())
                 .Returns(closedReasons);
@@ -416,9 +412,7 @@
             var actual = await service.GetClosedReasonsAsync(param);
 
             // Assert
-            Assert.True(
-                actual.Count > 0
-                && actual[3] == 2);
+            Assert.True(actual.Count > 0 && actual[3].ClosedReason == 2);
         }
 
         [Fact]

@@ -1,4 +1,5 @@
-﻿@model WinLossLimitViewModel
+﻿@using Alpha.MemberInfo.Site.Helpers
+@model WinLossLimitViewModel
 @{
     ViewBag.Title = "Member Win/Loss Limit";
 }
@@ -23,8 +24,10 @@
                                     data-sport-type="@product.SportType"
                                     data-bet-type="@product.BetType"
                                     @(Model.UserSelectedProductId == product.ProductId ? " selected=\"selected\"" : string.Empty)
-                                    data-isnested="1">@product.ProductName</option>
-                        }
+                                    data-isnested="1">
+                                @product.ProductName
+                                </option>
+                            }
                     </optgroup>
                 }
                 else
@@ -35,10 +38,12 @@
                                 data-product-id="@product.ProductId"
                                 data-sport-type="@product.SportType"
                                 data-bet-type="@product.BetType"
-                                @(Model.UserSelectedProductId == product.ProductId ? " selected=\"selected\"" : string.Empty)>@product.ProductName</option>
+                                @(Model.UserSelectedProductId == product.ProductId ? " selected=\"selected\"" : string.Empty)>
+                            @product.ProductName
+                            </option>
+                        }
                     }
                 }
-            }
         </select>
     </div>
     @if (Model.ViewerLevel.IsSuperLevel())
@@ -127,7 +132,7 @@
             <tbody>
                 @foreach (var winLossLimitDetail in Model.WinLossLimitPage.WinLossLimitDetail)
                 {
-                    <tr class="@(index%2==0 ? "even-row": "")">
+                    <tr class="@BackgroundColorHelper.GetClassNameByAccountStatus(winLossLimitDetail.Enabled, winLossLimitDetail.Closed, winLossLimitDetail.ClosedReason, winLossLimitDetail.Suspended, winLossLimitDetail.Locked, index)">
                         <td class="text-center">@index</td>
                         <td class="text-left">@WinLossLimitViewModel.GetStatusText(winLossLimitDetail.Status)</td>
                         <td class="text-left" title="@winLossLimitDetail.Username">@winLossLimitDetail.Username</td>

@@ -14,7 +14,10 @@
 
         public override string Text => request.GetProductName(ProductId);
 
-        public override string Icon => "icon-edit Enable";
+        public override string Icon
+            => request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission)
+            ? "icon-edit Enable"
+            : "icon-eye View";
 
         public override bool Enabled => true;
 

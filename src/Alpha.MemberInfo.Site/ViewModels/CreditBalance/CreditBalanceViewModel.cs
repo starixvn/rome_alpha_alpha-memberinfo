@@ -93,54 +93,6 @@
 
         public string CookiePrefix { get; }
 
-        public string GeStatustBackgroundColor(CreditBalanceItem item)
-        {
-            if (!item.Enabled)
-            {
-                return "disabled-bg";
-            }
-
-            if (item.Closed)
-            {
-                return GetClosedBackgroundColor(item.ClosedReason);
-            }
-
-            if (item.Suspended)
-            {
-                return "suspended-bg";
-            }
-
-            return item.RowNumber % 2 == 0 ? "even-row" : string.Empty;
-        }
-
-        private static string GetClosedBackgroundColor(byte closedReason)
-        {
-            const byte WrongPasswordOrOthers = 0;
-            const byte ClosedByAdmin = 1;
-            const byte ClosedByUpline = 2;
-            const byte WrongOTPOrSC = 3;
-            const byte ByArchive = 4;
-
-            switch (closedReason)
-            {
-                case ClosedByAdmin:
-                    return "closed-byadmin";
-
-                case ClosedByUpline:
-                    return "closed-byupline";
-
-                case WrongOTPOrSC:
-                    return "closed-wrongotp-sc";
-
-                case ByArchive:
-                    return "closed-byArchive";
-
-                case WrongPasswordOrOthers:
-                default:
-                    return "closed-wrongpwd-others";
-            }
-        }
-
         public string GetRunningBetListLink(CreditBalanceItem item)
             => MicroSites.BetListsUrl($"~/RunningBetList/Index?custId={item.CustId}&custName={item.UserName}&getAll=true");
 

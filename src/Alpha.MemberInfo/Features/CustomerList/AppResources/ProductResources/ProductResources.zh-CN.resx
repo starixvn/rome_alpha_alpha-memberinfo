@@ -195,6 +195,9 @@
   <data name="ConfirmClosedViewModelInCaseClosedDownlinesMessage" xml:space="preserve">
     <value>您确定要更改这个客户的关闭状态？警告！所有下线将被关闭！</value>
   </data>
+  <data name="ConfirmClosedViewModelInCaseOpenedMemberMessage" xml:space="preserve">
+    <value>您确定要开启此账号？</value>
+  </data>
   <data name="ConfirmClosedViewModelText" xml:space="preserve">
     <value>关闭</value>
   </data>
@@ -412,7 +415,7 @@
     <value>转账</value>
   </data>
   <data name="UnuspendStatusPopupHeader" xml:space="preserve">
-    <value>&lt;username&gt; 取消暂停</value>
+    <value>取消暂停 &lt;username&gt;</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>更改</value>
@@ -471,4 +474,28 @@
   <data name="Sportsbook2MultipeViewModelText" xml:space="preserve">
     <value>体育博彩 2</value>
   </data>
+  <data name="ConfirmUnlockAccessViewModelInCaseFalseOTPSC" xml:space="preserve">
+    <value>由于一次性密码/保安码多次验证失败，导致此账号已被锁定，请问需要进行解锁吗？</value>
+  </data>
+  <data name="ConfirmUnlockAccessViewModelInCaseFalsePassword" xml:space="preserve">
+    <value>由于多次输入错误密码，导致此账号已被锁定，请问需要进行解锁吗？</value>
+  </data>
+  <data name="ConfirmUnlockAccessViewModelText" xml:space="preserve">
+    <value>锁定访问</value>
+  </data>
+  <data name="EditMultipleClosedStatusText" xml:space="preserve">
+		<value>修改多重关闭状态</value>
+	</data>
+  <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
+		<value>修改多重关闭状态</value>
+	</data>
+  <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
+		<value>取消暂停 &lt;username&gt;</value>
+	</data>
+  <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
+		<value>开启 &lt;username&gt;</value>
+	</data>
+  <data name="IndirectlyClosedByUpline" xml:space="preserve">
+		<value>此账号被上线间接关闭。</value>
+	</data>
 </root>

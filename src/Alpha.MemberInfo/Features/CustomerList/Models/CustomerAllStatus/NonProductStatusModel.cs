@@ -12,6 +12,7 @@
             bool hasDownline,
             bool disableAutoMPT,
             bool closed,
+            byte isDirectClosed,
             bool uplineClosed,
             bool suspended,
             bool uplineSuspend,
@@ -21,12 +22,14 @@
             bool uplineDoubleCommLosing,
             bool disableOutright,
             bool uplineDisableOutright,
-            bool isAllDayBalTransfer)
+            bool isAllDayBalTransfer,
+            byte locked)
         {
             HasDownline = hasDownline;
             DisableAutoMPT = disableAutoMPT;
 
             Closed = closed;
+            IsDirectClosed = isDirectClosed;
             UplineClosed = uplineClosed;
 
             Suspended = suspended;
@@ -41,11 +44,15 @@
             DisableOutright = disableOutright;
             UplineDisableOutright = uplineDisableOutright;
             IsAllDayBalTransfer = isAllDayBalTransfer;
+
+            Locked = locked;
         }
 
         public bool HasDownline { get; private set; }
 
         public bool Closed { get; private set; }
+
+        public byte IsDirectClosed { get; private set; }
 
         public bool UplineClosed { get; private set; }
 
@@ -72,5 +79,7 @@
         public bool UplineDisableOutright { get; private set; }
 
         public bool IsAllDayBalTransfer { get; }
+
+        public byte Locked { get; }
     }
 }

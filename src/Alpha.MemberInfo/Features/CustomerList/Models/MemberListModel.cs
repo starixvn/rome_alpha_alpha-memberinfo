@@ -38,7 +38,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          decimal playerDiscount1x2,
          decimal discount,
          decimal playerDiscountMyanmarOdds,
-         decimal adiscountMyanmarOdds)
+         decimal adiscountMyanmarOdds,
+         byte locked)
             : base(custId,
             username,
             roleId,
@@ -62,7 +63,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             suspended,
             disableOutright,
             discountCS,
-            discount1x2)
+            discount1x2,
+            locked)
         {
             PlayerDiscount = playerDiscount;
             PlayerDiscountCS = playerDiscountCS;

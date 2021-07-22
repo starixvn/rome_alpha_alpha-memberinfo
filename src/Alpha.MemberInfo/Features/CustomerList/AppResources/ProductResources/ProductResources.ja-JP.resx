@@ -190,10 +190,13 @@
     <value>Outright</value>
   </data>
   <data name="ConfirmClosedViewModelInCaseChangeClosedStatusMessage" xml:space="preserve">
-    <value>Are you sure you want to change Close status for this customer?</value>
+    <value>Are you sure you want to change Closed status for this customer?</value>
   </data>
   <data name="ConfirmClosedViewModelInCaseClosedDownlinesMessage" xml:space="preserve">
-    <value>Are you sure you want to change Close status for this customer? Warning, all downlines will be closed as well!</value>
+    <value>Are you sure you want to change Closed status for this customer? Warning, all downlines will be closed as well!</value>
+  </data>
+  <data name="ConfirmClosedViewModelInCaseOpenedMemberMessage" xml:space="preserve">
+    <value>Are you sure you want to open this account?</value>
   </data>
   <data name="ConfirmClosedViewModelText" xml:space="preserve">
     <value>閉鎖</value>
@@ -462,4 +465,19 @@
   <data name="Sportsbook2MultipeViewModelText" xml:space="preserve">
     <value>Sportsbook 2</value>
   </data>
+  <data name="EditMultipleClosedStatusText" xml:space="preserve">
+		<value>Edit Multiple Closed Status</value>
+	</data>
+  <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
+		<value>Edit Multiple Closed Status</value>
+	</data>
+  <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
+		<value>Unsuspend &lt;username&gt;</value>
+	</data>
+  <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
+		<value>Open &lt;username&gt;</value>
+	</data>
+  <data name="IndirectlyClosedByUpline" xml:space="preserve">
+		<value>This account is indirectly closed by upline</value>
+	</data>
 </root>

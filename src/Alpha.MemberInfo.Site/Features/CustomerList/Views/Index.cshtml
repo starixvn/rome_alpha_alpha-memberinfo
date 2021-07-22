@@ -1,4 +1,5 @@
 ﻿@using Sunplus.Agent.Model.Entities
+@using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources
 @model CustomerListViewModel
 
 @{
@@ -239,6 +240,7 @@
     <input type="hidden" id="limitedDateToShowInfo" value='@(Model.LimitedDateToShowInfo ? "true" : "false")'>
     <input type="hidden" id="isShowMyanmarOdds" value='@(Model.IsShowMyanmarOdds ? "true" : "false")'>
     <input type="hidden" id="canViewReport" value='@(Model.CanViewReport ? "true" : "false")'>
+    <input type="hidden" id="canUpdateAccount" value='@(Model.CanUpdateAccount ? "true" : "false")'>
     <input type="hidden" id="customerListResources" value='@Model.Resources'>
     <input type="hidden" id="arrayStatusRnCasino" name="arrayStatusRnCasino" value=''>
     <input type="hidden" id="arrayCustID" name="arrayCustID" value=''>
@@ -258,6 +260,9 @@
     <input type="hidden" id="expandText" value='@CustomerListResources.Expand'>
     <input type="hidden" id="collapseAllText" value='@CustomerListResources.CollapseAll'>
     <input type="hidden" id="expandAllText" value='@CustomerListResources.ExpandAll'>
+    <input type="hidden" id="unlockTooltipText" value='@CustomerListResources.UnlockTooltip'>
+    <input type="hidden" id="confirmUnlockInCaseFalseOTPSC" value='@ProductResources.ConfirmUnlockAccessViewModelInCaseFalseOTPSC'>
+    <input type="hidden" id="confirmUnlockInCaseFalsePassword" value='@ProductResources.ConfirmUnlockAccessViewModelInCaseFalsePassword'>
     @Alpha.Web.Helpers.GoogleAnalyticHepler.Render()
 </div>
 

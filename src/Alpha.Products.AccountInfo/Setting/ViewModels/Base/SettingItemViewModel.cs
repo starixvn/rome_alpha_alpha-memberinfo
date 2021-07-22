@@ -43,7 +43,10 @@
             }
         }
 
-        public virtual string Icon => "icon-edit Enable";
+        public virtual string Icon
+            => Request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission)
+            ? "icon-edit Enable"
+            : "icon-eye View";
 
         public abstract Dictionary<string, string> QueryStringParamaters { get; }
 

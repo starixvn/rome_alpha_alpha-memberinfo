@@ -195,6 +195,9 @@
   <data name="ConfirmClosedViewModelInCaseClosedDownlinesMessage" xml:space="preserve">
     <value>이 고객의 계정을 비활성화 상태로 바꾸시겠습니까? 주의!! 모든 하부라인의 계정도 비활성화 되어집니다.</value>
   </data>
+  <data name="ConfirmClosedViewModelInCaseOpenedMemberMessage" xml:space="preserve">
+    <value>Are you sure you want to open this account?</value>
+  </data>
   <data name="ConfirmClosedViewModelText" xml:space="preserve">
     <value>중지</value>
   </data>
@@ -462,4 +465,19 @@
   <data name="Sportsbook2MultipeViewModelText" xml:space="preserve">
     <value>Sportsbook 2</value>
   </data>
+  <data name="EditMultipleClosedStatusText" xml:space="preserve">
+		<value>Edit Multiple Closed Status</value>
+	</data>
+  <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
+		<value>Edit Multiple Closed Status</value>
+	</data>
+  <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
+		<value>Unsuspend &lt;username&gt;</value>
+	</data>
+  <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
+		<value>Open &lt;username&gt;</value>
+	</data>
+  <data name="IndirectlyClosedByUpline" xml:space="preserve">
+		<value>This account is indirectly closed by upline</value>
+	</data>
 </root>

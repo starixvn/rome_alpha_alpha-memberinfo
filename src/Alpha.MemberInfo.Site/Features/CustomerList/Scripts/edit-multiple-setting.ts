@@ -72,7 +72,7 @@ class EditMultipleSetting {
 
             const attrs = {
                 'class': `edit-multiple-settings ${item.Icon}`,
-                'data-title': item.Text,
+                'data-title': item.Title || item.Text,
                 'data-method': item.Method,
                 'data-params': JSON.stringify(item.QueryStringParamaters),
                 'data-url': item.Url,

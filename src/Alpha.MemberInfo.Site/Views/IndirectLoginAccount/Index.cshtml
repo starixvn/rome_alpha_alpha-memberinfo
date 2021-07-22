@@ -29,6 +29,7 @@
                 <th>@Resources.Username</th>
                 <th>@Resources.Level</th>
                 <th>@Resources.Status</th>
+                <th>@Resources.LockStatus</th>
                 <th>@Resources.IndirectLogIn</th>
                 <th>@Resources.Disconnect</th>
             </tr>
@@ -42,8 +43,9 @@
                         <td>@account.Username</td>
                         <td class="text-center">@account.LevelName</td>
                         <td class="text-center">@account.Status</td>
+                        <td class="text-center">@account.LockedStatus</td>
                         <td class="text-center">
-                            @if (!account.Enabled || account.Closed)
+                            @if (!account.Enabled || account.Closed || account.Locked != 0)
                             {
                                 <span class="icon icon-indirect-login disabled"></span>
                             }
@@ -61,7 +63,7 @@
         }
         else
         {
-            @NoInformation.Render(5);
+            @NoInformation.Render(6);
         }
     </table>
 </div>

@@ -90,16 +90,17 @@
         }
 
         [Theory]
-        [InlineData(true, 3, true, "MicroSiteName/UnsuspendDownlines/EditSingle?SearchAccountId=2&SearchAccountName=username1")]
-        [InlineData(true, 2, true, "MicroSiteName/UnsuspendDownlines/EditSingle?SearchAccountId=2&SearchAccountName=username1")]
-        [InlineData(true, 1, false, "UpdateCustomerStatus")]
-        [InlineData(false, 3, false, "UpdateCustomerStatus")]
-        [InlineData(false, 2, false, "UpdateCustomerStatus")]
-        [InlineData(false, 1, false, "UpdateCustomerStatus")]
+        [InlineData(true, 3, true, "UnuspendStatusPopupHeaderText", "MicroSiteName/UnsuspendDownlines/EditSingle?SearchAccountId=2&SearchAccountName=username1")]
+        [InlineData(true, 2, true, "UnuspendStatusPopupHeaderText", "MicroSiteName/UnsuspendDownlines/EditSingle?SearchAccountId=2&SearchAccountName=username1")]
+        [InlineData(true, 1, false, "", "UpdateCustomerStatus")]
+        [InlineData(false, 3, false, "", "UpdateCustomerStatus")]
+        [InlineData(false, 2, false, "", "UpdateCustomerStatus")]
+        [InlineData(false, 1, false, "", "UpdateCustomerStatus")]
         public void Return_CorrectIsPopupProperty_AndReloadCustomerList(
             bool IsSuspendedSearchAccount,
             byte downlineLevel,
             bool expectedResult,
+            string expectedPopupHeaderText,
             string expectedUrl)
         {
             var request = RequestHelper.CreateRequest(4, downlineLevel);
@@ -112,6 +113,7 @@
             var viewModel = new ConfirmSuspendedViewModel(request);
 
             Assert.Equal(expectedResult, viewModel.IsPopup);
+            Assert.Equal(expectedPopupHeaderText, viewModel.PopupHeaderText);
             Assert.Equal(expectedUrl, viewModel.Url);
         }
 

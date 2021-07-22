@@ -38,7 +38,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          decimal groupC,
          decimal groupD,
          bool disableAutoMPT,
-         decimal discountMyanmarOdds)
+         decimal discountMyanmarOdds,
+         byte locked)
             : base(custId,
             username,
             roleId,
@@ -67,7 +68,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             groupB,
             groupC,
             groupD,
-            discountMyanmarOdds)
+            discountMyanmarOdds,
+            locked)
         {
             DisableAutoMPT = disableAutoMPT;
         }

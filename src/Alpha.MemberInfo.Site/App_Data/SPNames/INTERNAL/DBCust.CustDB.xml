@@ -1,4 +1,7 @@
 ﻿<Functions>
+  <Function Name="Check Belonging in DBCUST">
+    <Setting Key="Age_CustomerSelCheckBelonging_DBCUST" SpName="Age_CustomerSelCheckBelonging" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+  </Function>
   <Function Name="Transfer">
     <Setting Key="Acc_CustomerSelTransferOption" SpName="Acc_CustomerSelTransferOption" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
   </Function>
@@ -57,6 +60,7 @@
     <Setting Key="Acc_CustomerUpdMaster_DisableAutoMPT" SpName="Acc_CustomerUpdMaster_DisableAutoMPT" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Acc_CustomerUpdDisableOutright" SpName="Acc_CustomerUpdDisableOutright" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Acc_CustomerUpdDoubleCommLosing" SpName="Acc_CustomerUpdDoubleCommLosing" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Acc_CustomerUpdLocked" SpName="Acc_CustomerUpdLocked" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
   </Function>
   <Function Name="Dormant Account List">
     <Setting Key="Acc_DormantAccountList_Sel" SpName="Acc_DormantAccountList_Sel" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />

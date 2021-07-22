@@ -278,7 +278,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to change Close status for this customer?.
+        ///   Looks up a localized string similar to Are you sure you want to change Closed status for this customer?.
         /// </summary>
         public static string ConfirmClosedViewModelInCaseChangeClosedStatusMessage {
             get {
@@ -287,11 +287,20 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to change Close status for this customer? Warning, all downlines will be closed as well!.
+        ///   Looks up a localized string similar to Are you sure you want to change Closed status for this customer? Warning, all downlines will be closed as well!.
         /// </summary>
         public static string ConfirmClosedViewModelInCaseClosedDownlinesMessage {
             get {
                 return ResourceManager.GetString("ConfirmClosedViewModelInCaseClosedDownlinesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to open this account?.
+        /// </summary>
+        public static string ConfirmClosedViewModelInCaseOpenedMemberMessage {
+            get {
+                return ResourceManager.GetString("ConfirmClosedViewModelInCaseOpenedMemberMessage", resourceCulture);
             }
         }
         
@@ -422,6 +431,42 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This account has been locked due to multiple failed OTP/Security Code authentication attempts. Are you sure you want to unlock it?.
+        /// </summary>
+        public static string ConfirmUnlockAccessViewModelInCaseFalseOTPSC {
+            get {
+                return ResourceManager.GetString("ConfirmUnlockAccessViewModelInCaseFalseOTPSC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This account has been locked due to multiple failed password attempts. Are you sure you want to unlock it?.
+        /// </summary>
+        public static string ConfirmUnlockAccessViewModelInCaseFalsePassword {
+            get {
+                return ResourceManager.GetString("ConfirmUnlockAccessViewModelInCaseFalsePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string ConfirmUnlockAccessViewModelInCaseNone {
+            get {
+                return ResourceManager.GetString("ConfirmUnlockAccessViewModelInCaseNone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locked Access.
+        /// </summary>
+        public static string ConfirmUnlockAccessViewModelText {
+            get {
+                return ResourceManager.GetString("ConfirmUnlockAccessViewModelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Created Date.
         /// </summary>
         public static string CreatedDate {
@@ -481,6 +526,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         public static string EditMultipleCasinoText {
             get {
                 return ResourceManager.GetString("EditMultipleCasinoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Closed Status.
+        /// </summary>
+        public static string EditMultipleClosedStatusText {
+            get {
+                return ResourceManager.GetString("EditMultipleClosedStatusText", resourceCulture);
             }
         }
         
@@ -598,6 +652,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         public static string GoldDeluxeViewModelText {
             get {
                 return ResourceManager.GetString("GoldDeluxeViewModelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This account is indirectly closed by upline.
+        /// </summary>
+        public static string IndirectlyClosedByUpline {
+            get {
+                return ResourceManager.GetString("IndirectlyClosedByUpline", resourceCulture);
             }
         }
         
@@ -787,6 +850,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         public static string OnlineList {
             get {
                 return ResourceManager.GetString("OnlineList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open &lt;username&gt;.
+        /// </summary>
+        public static string OpenCustomerPopupHeaderText {
+            get {
+                return ResourceManager.GetString("OpenCustomerPopupHeaderText", resourceCulture);
             }
         }
         
@@ -1052,11 +1124,29 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unsuspend &lt;username&gt;.
+        /// </summary>
+        public static string UnuspendStatusPopupHeaderText {
+            get {
+                return ResourceManager.GetString("UnuspendStatusPopupHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update.
         /// </summary>
         public static string Update {
             get {
                 return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Closed Status.
+        /// </summary>
+        public static string UpdateMultipleClosedStatusText {
+            get {
+                return ResourceManager.GetString("UpdateMultipleClosedStatusText", resourceCulture);
             }
         }
         

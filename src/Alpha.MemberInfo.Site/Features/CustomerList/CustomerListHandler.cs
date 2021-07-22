@@ -106,6 +106,7 @@
                     message.Enabled,
                     message.Closed,
                     message.Suspended,
+                    message.Locked,
                     message.DoubleComm,
                     message.PageSize,
                     message.PageIndex,
@@ -310,6 +311,9 @@
 
                 .AddData(DataKey.SearchAccount.Upline.IsClosed, model.NonProduct.UplineClosed)
                 .AddData(DataKey.SearchAccount.IsClosed, model.NonProduct.Closed)
+                .AddData(DataKey.SearchAccount.IsDirectClosed, model.NonProduct.IsDirectClosed > 0)
+
+                .AddData(DataKey.SearchAccount.IsLockedAccess, model.NonProduct.Locked)
 
                 .AddData(DataKey.SearchAccount.Upline.IsAllowedDoubleComm, model.NonProduct.UplineDoubleCommLosing)
                 .AddData(DataKey.SearchAccount.IsAllowedDoubleComm, model.NonProduct.DoubleCommLosing)

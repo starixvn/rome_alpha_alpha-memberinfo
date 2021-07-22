@@ -57,6 +57,7 @@
                 {
                     CustId = 3,
                     Closed = true,
+                    ClosedReason = 1,
                     Enabled = false,
                     Suspended = false,
                     Username = "CustName",
@@ -66,12 +67,14 @@
                     IsAutoReset = true,
                     MaxWinLimit = 100,
                     MaxLossLimit = 5,
-                    PlayerId = "6"
+                    PlayerId = "6",
+                    Locked = 0
                 },
                 new WinLossLimitDetail
                 {
                     CustId = 3,
                     Closed = true,
+                    ClosedReason = 2,
                     Enabled = false,
                     Suspended = false,
                     Username = "CustName",
@@ -80,7 +83,8 @@
                     Credit = 2,
                     IsAutoReset = true,
                     MaxWinLimit = 100,
-                    PlayerId = "7"
+                    PlayerId = "7",
+                    Locked = 2
                 }
             };
 

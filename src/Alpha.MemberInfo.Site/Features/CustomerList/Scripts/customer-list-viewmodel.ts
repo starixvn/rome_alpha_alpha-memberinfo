@@ -17,6 +17,7 @@ class CustomerListViewModel {
     CustomerListResources: any;
     IsShowMyanmarOdds: boolean;
     CanViewReport: boolean;
+    CanUpdateAccount: boolean;
 
     constructor(
         uplineRoleId: number,
@@ -34,6 +35,7 @@ class CustomerListViewModel {
         limitedDateToShowInfo: boolean,
         isShowMyanmarOdds: boolean,
         canViewReport: boolean,
+        canUpdateAccount: boolean,
         customerListResources: any) {
         this.UplineRoleId = uplineRoleId;
         this.SearchAccountId = searchAccountId;
@@ -50,6 +52,7 @@ class CustomerListViewModel {
         this.LimitedDateToShowInfo = limitedDateToShowInfo;
         this.IsShowMyanmarOdds = isShowMyanmarOdds;
         this.CanViewReport = canViewReport;
+        this.CanUpdateAccount = canUpdateAccount;
         this.CustomerListResources = customerListResources;
     }
 }
@@ -62,19 +65,18 @@ enum CustomerLevel {
 }
 
 const ClosedReason = {
-    ByOtherReason: 0,
     ByAdmin: 1,
     ByUpline: 2,
-    ByWrongOTPSC: 3,
     ByArchive: 4
+};
+
+const LockedAccess = {
+    FalseOTPSC: 1,
+    FalsePassword: 2
 };
 
 const statusClasses = {
     Closed: [
-        {
-            Id: ClosedReason.ByOtherReason,
-            Css: 'closed-wrongPwdOthers'
-        },
         {
             Id: ClosedReason.ByAdmin,
             Css: 'closed-byAdmin'
@@ -82,10 +84,6 @@ const statusClasses = {
         {
             Id: ClosedReason.ByUpline,
             Css: 'closed-byUpline'
-        },
-        {
-            Id: ClosedReason.ByWrongOTPSC,
-            Css: 'closed-wrongOTPSC'
         },
         {
             Id: ClosedReason.ByArchive,
@@ -100,7 +98,17 @@ const statusClasses = {
     },
     Enabled: {
         Css: 'enabled'
-    }
+    },
+    Locked: [
+        {
+            Id: LockedAccess.FalseOTPSC,
+            Css: 'locked-falseOTPSC'
+        },
+        {
+            Id: LockedAccess.FalsePassword,
+            Css: 'locked-falsePassword'
+        }
+    ]
 };
 
 const buildAttributes = attrs => this.$.map(attrs, (value, key) => `${key}='${value}'`).join(' ');

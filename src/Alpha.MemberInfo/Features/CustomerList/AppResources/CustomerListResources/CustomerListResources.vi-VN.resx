@@ -136,7 +136,7 @@
     <value>Cho phép</value>
   </data>
   <data name="Closed" xml:space="preserve">
-    <value>Bị khóa</value>
+    <value>Bị đóng</value>
   </data>
   <data name="Commission" xml:space="preserve">
     <value>Hoa hồng</value>
@@ -305,5 +305,11 @@
   </data>
   <data name="ExpandAll" xml:space="preserve">
     <value>Mở rộng tất cả</value>
+  </data>
+  <data name="Locked" xml:space="preserve">
+    <value>Bị khóa</value>
+  </data>
+  <data name="UnlockTooltip" xml:space="preserve">
+    <value>Nhấn để mở khoá</value>
   </data>
 </root>

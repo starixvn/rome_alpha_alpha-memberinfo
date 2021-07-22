@@ -25,6 +25,8 @@
 
         public virtual bool IsPopup => false;
 
+        public virtual string PopupHeaderText => string.Empty;
+
         internal virtual string SuffixMessage { get; }
 
         internal virtual string StatusName { get; }

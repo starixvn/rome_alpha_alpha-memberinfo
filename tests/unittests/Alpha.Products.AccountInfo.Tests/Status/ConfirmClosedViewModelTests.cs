@@ -116,5 +116,54 @@
 
             Assert.Equal(expectedStatus, viewModel.Disabled);
         }
+
+        [Theory]
+        [InlineData(false, false, "")]
+        [InlineData(false, true, "")]
+        [InlineData(true, false, "IndirectlyClosedByUpline")]
+        [InlineData(true, true, "")]
+        public void Return_CorrectTooltip(bool isClosedUpline, bool isDirectClosed, string expectedTooltip)
+        {
+            var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData("Actor.HasUpdateAccountPermission", true);
+            request.AddData("SearchAccount.Upline.IsClosed", isClosedUpline);
+            request.AddData("SearchAccount.Upline.IsDirectClosed", isDirectClosed);
+            request.AddData("SearchAccount.Upline.IsSuspended", false);
+            request.AddData("SearchAccount.Upline.IsDirectSuspend", false);
+            request.AddData("SearchAccount.IsClosed", true);
+
+            var viewModel = new ConfirmClosedViewModel(request);
+
+            Assert.Equal(expectedTooltip, viewModel.Tooltip);
+        }
+
+        [Theory]
+        [InlineData(true, 3, true, "OpenCustomerPopupHeaderText", "MicroSiteName/OpenDownlines/EditSingle?SearchAccountId=2&SearchAccountName=username1")]
+        [InlineData(true, 2, true, "OpenCustomerPopupHeaderText", "MicroSiteName/OpenDownlines/EditSingle?SearchAccountId=2&SearchAccountName=username1")]
+        [InlineData(true, 1, false, "", "UpdateCustomerStatus")]
+        [InlineData(false, 3, false, "", "UpdateCustomerStatus")]
+        [InlineData(false, 2, false, "", "UpdateCustomerStatus")]
+        [InlineData(false, 1, false, "", "UpdateCustomerStatus")]
+        public void Return_CorrectIsPopupProperty_AndReloadCustomerList(
+            bool isClosedSearchAccount,
+            byte downlineLevel,
+            bool expectedResult,
+            string expectedPopupHeaderText,
+            string expectedUrl)
+        {
+            var request = RequestHelper.CreateRequest(4, downlineLevel);
+            request.AddData("Actor.HasUpdateAccountPermission", true);
+            request.AddData("SearchAccount.Upline.IsClosed", true);
+            request.AddData("SearchAccount.Upline.IsDirectClosed", false);
+            request.AddData("SearchAccount.Upline.IsSuspended", false);
+            request.AddData("SearchAccount.Upline.IsDirectSuspend", false);
+            request.AddData("SearchAccount.IsClosed", isClosedSearchAccount);
+
+            var viewModel = new ConfirmClosedViewModel(request);
+
+            Assert.Equal(expectedResult, viewModel.IsPopup);
+            Assert.Equal(expectedPopupHeaderText, viewModel.PopupHeaderText);
+            Assert.Equal(expectedUrl, viewModel.Url);
+        }
     }
 }

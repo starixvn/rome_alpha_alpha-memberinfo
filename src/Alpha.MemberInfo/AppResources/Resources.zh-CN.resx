@@ -573,4 +573,10 @@
   <data name="Pager_DisplayItems" xml:space="preserve">
     <value>{total}项目中{from}到{to}的显示</value>
   </data>
+  <data name="LockStatus" xml:space="preserve">
+    <value>锁定状态</value>
+  </data>
+  <data name="IndirectLoginAccountLockedError" xml:space="preserve">
+    <value>此账号已被锁定，请解锁后再次重试。</value>
+  </data>
 </root>

@@ -52,22 +52,34 @@
 
         public async Task<Result> ValidateIndirectLoginAccountAsync(int custId, int subAccId, int indirectCustId, int indirectSubAccId)
         {
+            Result result;
             var criteria = new GetIndirectLoginAccountsCriteria(custId, subAccId, indirectCustId, indirectSubAccId);
             var account = await dynamicRepository.GetAsync<IndirectLoginAccountItem>(criteria);
 
-            if (account == null || !account.Enabled || account.Closed)
+            if (account == null)
             {
-                return Result.CreateErrorResult(Resources.IndirectLoginAccountClosedOrDisabledError);
+                result = Result.CreateErrorResult(Resources.IndirectLoginAccountClosedOrDisabledError);
             }
-
-            if (account.LastVerifyPwd.HasValue
+            else if (!account.Enabled || account.Closed)
+            {
+                result = Result.CreateErrorResult(Resources.IndirectLoginAccountClosedOrDisabledError);
+            }
+            else if (account.IsLock)
+            {
+                result = Result.CreateErrorResult(Resources.IndirectLoginAccountLockedError);
+            }
+            else if (account.LastVerifyPwd.HasValue
                 && account.LastChangedPwdDate.HasValue
                 && account.LastVerifyPwd <= account.LastChangedPwdDate)
             {
-                return Result.CreateErrorResult(string.Empty, NeedToReEnterPassword);
+                result = Result.CreateErrorResult(string.Empty, NeedToReEnterPassword);
+            }
+            else
+            {
+                result = new Result();
             }
 
-            return new Result();
+            return result;
         }
 
         public async Task<Result> NewAccountAsync(NewAccountParam param)

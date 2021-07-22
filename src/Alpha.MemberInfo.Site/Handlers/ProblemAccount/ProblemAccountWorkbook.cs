@@ -33,13 +33,13 @@
 
         internal Row OpenRowTemplate { get; set; }
 
-        internal Row CloseRowTemplateWrongPassword { get; set; }
+        internal Row LockedRowTemplateFalsePassword { get; set; }
 
         internal Row CloseRowTemplateByAdmin { get; set; }
 
         internal Row CloseRowTemplateByUpline { get; set; }
 
-        internal Row CloseRowTemplateWrongOTPSC { get; set; }
+        internal Row LockedRowTemplateFalseOTPSC { get; set; }
 
         internal Row CloseRowTemplateByArchive { get; set; }
 
@@ -69,45 +69,52 @@
             ProblemAccountModel account)
         {
             var row = sheet.GetRow(rowIndex);
-            Row templateRow;
-            switch (account.Status)
+            row.CopyCellsFrom(GetTemplateRow(account.Status, account.ClosedReason, account.Locked));
+            FillCells(row, account, RowMapper.Mappings);
+        }
+
+        private Row GetTemplateRow(byte accountStatus, int closedReason, byte locked)
+        {
+            var templateRow = OpenRowTemplate;
+
+            switch (accountStatus)
             {
-                case ProblemAccountStatusConstants.Open:
-                    templateRow = OpenRowTemplate;
+                case ProblemAccountStatusConstants.Disabled:
+                    templateRow = DisabledRowTemplate;
                     break;
-                case ProblemAccountStatusConstants.Suspended:
-                    templateRow = SuspendedRowTemplate;
-                    break;
+
                 case ProblemAccountStatusConstants.Closed:
-                    if (account.ClosedReason == CloseReasonConstants.WrongPassword)
-                    {
-                        templateRow = CloseRowTemplateWrongPassword;
-                    }
-                    else if (account.ClosedReason == CloseReasonConstants.ByAdmin)
+                    if (closedReason == CloseReasonConstants.ByAdmin)
                     {
                         templateRow = CloseRowTemplateByAdmin;
                     }
-                    else if (account.ClosedReason == CloseReasonConstants.ByUpline)
+                    else if (closedReason == CloseReasonConstants.ByUpline)
                     {
                         templateRow = CloseRowTemplateByUpline;
                     }
-                    else if (account.ClosedReason == CloseReasonConstants.ByArchive)
+                    else if (closedReason == CloseReasonConstants.ByArchive)
                     {
                         templateRow = CloseRowTemplateByArchive;
                     }
-                    else
-                    {
-                        templateRow = CloseRowTemplateWrongOTPSC;
-                    }
-
                     break;
+
+                case ProblemAccountStatusConstants.Suspended:
+                    templateRow = SuspendedRowTemplate;
+                    break;
+
                 default:
-                    templateRow = DisabledRowTemplate;
+                    if (locked == LockedAccessConstant.FalseOTPSC)
+                    {
+                        templateRow = LockedRowTemplateFalseOTPSC;
+                    }
+                    else if (locked == LockedAccessConstant.FalsePassword)
+                    {
+                        templateRow = LockedRowTemplateFalsePassword;
+                    }
                     break;
             }
 
-            row.CopyCellsFrom(templateRow);
-            FillCells(row, account, RowMapper.Mappings);
+            return templateRow;
         }
 
         protected override Sheet LoadTemplateSheet()
@@ -118,10 +125,10 @@
 
             OpenRowTemplate = sheet.GetRow(currentRowIndex++);
             SuspendedRowTemplate = sheet.GetRow(currentRowIndex++);
-            CloseRowTemplateWrongPassword = sheet.GetRow(currentRowIndex++);
+            LockedRowTemplateFalsePassword = sheet.GetRow(currentRowIndex++);
             CloseRowTemplateByAdmin = sheet.GetRow(currentRowIndex++);
             CloseRowTemplateByUpline = sheet.GetRow(currentRowIndex++);
-            CloseRowTemplateWrongOTPSC = sheet.GetRow(currentRowIndex++);
+            LockedRowTemplateFalseOTPSC = sheet.GetRow(currentRowIndex++);
             CloseRowTemplateByArchive = sheet.GetRow(currentRowIndex++);
             DisabledRowTemplate = sheet.GetRow(currentRowIndex);
 

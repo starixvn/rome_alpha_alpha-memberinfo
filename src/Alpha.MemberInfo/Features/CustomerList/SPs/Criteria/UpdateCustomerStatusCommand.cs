@@ -1,10 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Features.CustomerList.Criteria
 {
+    using System.Collections;
+    using System.Collections.Generic;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Fanex.Data;
     using Fanex.Data.Repository;
-    using System.Collections;
-    using System.Collections.Generic;
 
     public class UpdateCustomerStatusCommand : NonQueryCommand
     {
@@ -18,6 +18,7 @@
                 { StatusNames.DoubleComm, "Acc_CustomerUpdDoubleCommLosing" },
                 { StatusNames.DisableOutright, "Acc_CustomerUpdDisableOutright" },
                 { StatusNames.Suspended, "Acc_CustomerUpdSuspended" },
+                { StatusNames.Unlock, "Acc_CustomerUpdLocked" },
          };
 
         public UpdateCustomerStatusCommand(
@@ -68,9 +69,13 @@
         {
             var spParams = base.GetSpParams();
 
-            spParams.Add(StatusName, StatusValue);
+            if (!StatusName.Equals(StatusNames.Unlock))
+            {
+                spParams.Add(StatusName, StatusValue);
+            }
 
-            if (StatusName.Equals(StatusNames.Closed))
+            if (StatusName.Equals(StatusNames.Closed)
+                || StatusName.Equals(StatusNames.Unlock))
             {
                 spParams.Add("SystemID", AlphaSystemId);
             }

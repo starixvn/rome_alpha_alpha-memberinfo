@@ -93,6 +93,7 @@ $(function () {
         JSON.parse($('#limitedDateToShowInfo').val()),
         JSON.parse($('#isShowMyanmarOdds').val()),
         JSON.parse($('#canViewReport').val()),
+        JSON.parse($('#canUpdateAccount').val()),
         $.parseJSON($('#customerListResources').val())
     );
 
@@ -101,7 +102,8 @@ $(function () {
         editSingleSetting = new EditSingleSetting($, customerListPopup, customerListServices),
         editMultipleSetting = new EditMultipleSetting($, viewModel, customerListPopup, customerListServices, editSingleSetting),
         editStatus = new EditStatus($, window.top, viewModel.IsMobileView, customerListServices, customerListPopup),
-        customerListDataTable = new CustomerListDataTable($, window.top, viewModel, customerListPopup, customerListServices, editSingleSetting, editMultipleSetting, editStatus),
+        unlock = new Unlock($, window.top, viewModel.IsMobileView, customerListServices),
+        customerListDataTable = new CustomerListDataTable($, window.top, viewModel, customerListPopup, customerListServices, editSingleSetting, editMultipleSetting, editStatus, unlock),
         customerList = new CustomerList(
             $,
             viewModel,

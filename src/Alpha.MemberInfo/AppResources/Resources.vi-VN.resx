@@ -196,7 +196,7 @@
     <value>Tất cả</value>
   </data>
   <data name="Closed" xml:space="preserve">
-    <value>Bị khóa</value>
+    <value>Bị đóng</value>
   </data>
   <data name="Disabled" xml:space="preserve">
     <value>Vô hiệu hóa</value>
@@ -563,5 +563,11 @@
   </data>
   <data name="Pager_DisplayItems" xml:space="preserve">
     <value>Hiển thị {from} đến {to} trong số {total} mục</value>
+  </data>
+  <data name="LockStatus" xml:space="preserve">
+    <value>Trạng Thái Khoá</value>
+  </data>
+  <data name="IndirectLoginAccountLockedError" xml:space="preserve">
+    <value>Tài khoản này đã bị khóa, vui lòng mở khóa và thử lại.</value>
   </data>
 </root>

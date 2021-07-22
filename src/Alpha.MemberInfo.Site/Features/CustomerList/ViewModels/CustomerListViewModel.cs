@@ -34,8 +34,9 @@
             SearchAccountName = request.CustName;
 
             HideEditMultiple =
-                Enumeration.FromValue<UserLevel>(request.ViewerLevelId).IsSuperLevel() &&
-                Enumeration.FromValue<UserLevel>(request.CustLevelId).IsMasterLevel();
+                Enumeration.FromValue<UserLevel>(request.ViewerLevelId).IsSuperLevel()
+                && Enumeration.FromValue<UserLevel>(request.CustLevelId).IsMasterLevel()
+                || !request.CanUpdateAccount;
 
             PageTitle = PageTitleDictonary[Enumeration.FromValue<UserLevel>(request.CustLevelId)];
 
@@ -51,6 +52,7 @@
             LimitedDateToShowInfo = limitedDateToShowInfo;
             IsShowMyanmarOdds = request.IsShowMyanmarOdds;
             CanViewReport = request.CanViewReports;
+            CanUpdateAccount = request.CanUpdateAccount;
 
             DownlineLevel = Enumeration.FromValue<UserLevel>(request.CustLevelId).GetDirectDownLineLevel();
             DownlineLevelName = DownlineLevel.DisplayName;
@@ -97,6 +99,8 @@
 
         public bool CanViewReport { get; }
 
+        public bool CanUpdateAccount { get; }
+
         public bool LimitedDateToShowInfo { get; }
 
         public bool IsShowMyanmarOdds { get; }
@@ -114,11 +118,12 @@
         public IEnumerable<CustomerListOption> StatusOptions
              => new List<CustomerListOption>
                 {
-                    new CustomerListOption(0 , CustomerListResources.All),
-                    new CustomerListOption(1 , CustomerListResources.Open),
-                    new CustomerListOption(2 , CustomerListResources.Suspended),
-                    new CustomerListOption(3 , CustomerListResources.Closed),
-                    new CustomerListOption(4 , CustomerListResources.Disabled)
+                    new CustomerListOption(0, CustomerListResources.All),
+                    new CustomerListOption(1, CustomerListResources.Open),
+                    new CustomerListOption(2, CustomerListResources.Suspended),
+                    new CustomerListOption(3, CustomerListResources.Closed),
+                    new CustomerListOption(4, CustomerListResources.Disabled),
+                    new CustomerListOption(5, CustomerListResources.Locked)
                 };
 
         public IEnumerable<CustomerListOption> DoubleCommOptions

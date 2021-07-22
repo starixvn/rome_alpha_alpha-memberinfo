@@ -47,9 +47,14 @@
             li {
                 padding: 4px 0;
 
-                &.icon-edit, &.icon-refresh, &.edit-status-popup {
+                &.icon-edit, &.icon-refresh, &.edit-status-popup, &.icon-eye {
                     font-size: calculateScaleRatio(13px, $ratio) !important;
                     line-height: calculateScaleRatio(24px, $ratio) !important;
+                }
+
+                &.icon-eye.View:before {
+                    font-size: calculateScaleRatio(15px, $ratio) !important;
+                    top: calculateScaleRatio(2px, $ratio) !important;
                 }
             }
         }
