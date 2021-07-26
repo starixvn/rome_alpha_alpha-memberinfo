@@ -195,7 +195,7 @@
 }
 
 @section Styles {
-    @StaticResources.RenderStyles("~/assets/bundles/credit-balance")
+    @StaticResources.RenderStyles($"~/assets/bundles/credit-balance{ViewData["DarkModeName"]}")
 }
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")

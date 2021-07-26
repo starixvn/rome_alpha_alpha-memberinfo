@@ -140,7 +140,7 @@
         {
             // IndirectCustId, IndirectSubAccId, LoginTimeTicks, Language, CustId, SubAccId, Username, BrowserSize
             var parameter = string.Format(
-                "{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}",
+                "{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}",
                 param.IndirectCustId,
                 param.IndirectSubAccId,
                 DateTime.Now.Ticks,
@@ -149,7 +149,8 @@
                 param.ActorSubAccId,
                 param.ActorUsername,
                 param.BrowserSize,
-                param.IndirectUsername);
+                param.IndirectUsername,
+                param.DarkModeName);
 
             parameter = await Task.Run(() =>
                 new EncryptionThread().EncryptString(parameter, KeySize, param.IBCPKey)

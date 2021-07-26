@@ -88,8 +88,8 @@
     <Reference Include="Alpha.Utilities.IP, Version=1.0.3.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.Utilities.IP.1.0.3.2\lib\net461\Alpha.Utilities.IP.dll</HintPath>
     </Reference>
-    <Reference Include="Alpha.Web, Version=1.0.8.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Web.1.0.8.7\lib\net461\Alpha.Web.dll</HintPath>
+    <Reference Include="Alpha.Web, Version=1.0.8.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Web.1.0.8.6-dark05\lib\net461\Alpha.Web.dll</HintPath>
     </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Antlr3.Runtime.3.3.1.7705\lib\net20\Antlr3.Runtime.dll</HintPath>
@@ -319,8 +319,8 @@
       <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.5.8\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.5.6-dark02\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Model.Casino.3.0.0.5\lib\net461\Sunplus.Agent.Model.Casino.dll</HintPath>
@@ -502,6 +502,10 @@
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBTXN.CustDB.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\credit-balance-dark.css" />
+    <Content Include="assets\bundles\credit-balance-dark.min.css">
+      <DependentUpon>credit-balance-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\credit-balance.css">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
@@ -512,6 +516,10 @@
     <Content Include="assets\bundles\credit-balance\credit-balance.min.js">
       <DependentUpon>credit-balance.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\default-dark.css" />
+    <Content Include="assets\bundles\default-dark.min.css">
+      <DependentUpon>default-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\default.css" />
     <Content Include="assets\bundles\default.min.css">
       <DependentUpon>default.css</DependentUpon>
@@ -519,6 +527,10 @@
     <Content Include="assets\bundles\indirect-login-account\disconnect.js" />
     <Content Include="assets\bundles\indirect-login-account\disconnect.min.js">
       <DependentUpon>disconnect.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\indirect-login-account\indirect-login-account-dark.css" />
+    <Content Include="assets\bundles\indirect-login-account\indirect-login-account-dark.min.css">
+      <DependentUpon>indirect-login-account-dark.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\indirect-login-account\indirect-login-account.css">
       <SonarQubeExclude>true</SonarQubeExclude>
@@ -542,6 +554,10 @@
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
       <DependentUpon>member-requests.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\problem-account\index-dark.css" />
+    <Content Include="assets\bundles\problem-account\index-dark.min.css">
+      <DependentUpon>index-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\problem-account\index.css" />
     <Content Include="assets\bundles\problem-account\index.js" />
     <Content Include="assets\bundles\problem-account\index.min.css">
@@ -549,6 +565,10 @@
     </Content>
     <Content Include="assets\bundles\problem-account\index.min.js">
       <DependentUpon>index.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\problem-account\update-dark.css" />
+    <Content Include="assets\bundles\problem-account\update-dark.min.css">
+      <DependentUpon>update-dark.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\problem-account\update.css" />
     <Content Include="assets\bundles\problem-account\update.js" />
@@ -561,6 +581,10 @@
     <Content Include="assets\bundles\progressive-jackpot\progressive-jackpot.js" />
     <Content Include="assets\bundles\progressive-jackpot\progressive-jackpot.min.js">
       <DependentUpon>progressive-jackpot.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\win-loss-limit-dark.css" />
+    <Content Include="assets\bundles\win-loss-limit-dark.min.css">
+      <DependentUpon>win-loss-limit-dark.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\win-loss-limit.css" />
     <Content Include="assets\bundles\win-loss-limit.min.css">
@@ -585,6 +609,18 @@
     <Content Include="assets\scripts\tests\libs\jquery\stickytableheaders.js" />
     <Content Include="assets\styles\credit-balance.css">
       <DependentUpon>credit-balance.scss</DependentUpon>
+      </Content>
+    <Content Include="assets\styles\common-dark.css">
+      <DependentUpon>common-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\common-dark.min.css">
+      <DependentUpon>common-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\credit-balance-dark.css">
+      <DependentUpon>credit-balance-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\credit-balance-dark.min.css">
+      <DependentUpon>credit-balance-dark.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\images\arrow.png" />
     <Content Include="assets\styles\images\Slide2.en-US.png" />
@@ -615,11 +651,23 @@
     <Content Include="assets\scripts\tests\libs\pagination\jquery.pagination.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.parser.js" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.resizable.js" />
+    <Content Include="assets\styles\indirect-login-account-dark.css">
+      <DependentUpon>indirect-login-account-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\indirect-login-account-dark.min.css">
+      <DependentUpon>indirect-login-account-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\indirect-login-account.css">
       <DependentUpon>indirect-login-account.scss</DependentUpon>
     </Content>
     <Content Include="assets\styles\indirect-login-account.min.css">
       <DependentUpon>indirect-login-account.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\member-info-dark.css">
+      <DependentUpon>member-info-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\member-info-dark.min.css">
+      <DependentUpon>member-info-dark.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\member-info.css">
       <DependentUpon>member-info.scss</DependentUpon>
@@ -627,11 +675,23 @@
     <Content Include="assets\styles\member-info.min.css">
       <DependentUpon>member-info.css</DependentUpon>
     </Content>
+    <Content Include="assets\styles\problem-account\index-dark.css">
+      <DependentUpon>index-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\index-dark.min.css">
+      <DependentUpon>index-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\problem-account\index.css">
       <DependentUpon>index.scss</DependentUpon>
     </Content>
     <Content Include="assets\styles\problem-account\index.min.css">
       <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\update-dark.css">
+      <DependentUpon>update-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\update-dark.min.css">
+      <DependentUpon>update-dark.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\problem-account\update.css">
       <DependentUpon>update.scss</DependentUpon>
@@ -639,12 +699,22 @@
     <Content Include="assets\styles\problem-account\update.min.css">
       <DependentUpon>update.css</DependentUpon>
     </Content>
+    <Content Include="assets\styles\win-loss-limit-dark.css">
+      <DependentUpon>win-loss-limit-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\win-loss-limit-dark.min.css">
+      <DependentUpon>win-loss-limit-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\win-loss-limit.css">
       <DependentUpon>win-loss-limit.scss</DependentUpon>
     </Content>
     <Content Include="Features\CustomerList\Bundles\customer-list-07.css" />
     <Content Include="Features\CustomerList\Bundles\customer-list-07.min.css">
       <DependentUpon>customer-list-07.css</DependentUpon>
+    </Content>
+    <Content Include="Features\CustomerList\Bundles\customer-list-dark.css" />
+    <Content Include="Features\CustomerList\Bundles\customer-list-dark.min.css">
+      <DependentUpon>customer-list-dark.css</DependentUpon>
     </Content>
     <Content Include="Features\CustomerList\Bundles\customer-list.css" />
     <Content Include="Features\CustomerList\Bundles\customer-list.js" />
@@ -664,6 +734,12 @@
     <Content Include="Features\CustomerList\Styles\customer-list-07.min.css">
       <DependentUpon>customer-list-07.css</DependentUpon>
     </Content>
+    <Content Include="Features\CustomerList\Styles\customer-list-dark.css">
+      <DependentUpon>customer-list-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\CustomerList\Styles\customer-list-dark.min.css">
+      <DependentUpon>customer-list-dark.css</DependentUpon>
+    </Content>
     <Content Include="Features\CustomerList\Styles\customer-list.css">
       <DependentUpon>customer-list.scss</DependentUpon>
     </Content>
@@ -673,6 +749,10 @@
     <Content Include="Features\CustomerList\Styles\customer-list.min.css">
       <DependentUpon>customer-list.css</DependentUpon>
     </Content>
+    <Content Include="Features\DormantAccountList\Bundles\dormant-account-list-dark.css" />
+    <Content Include="Features\DormantAccountList\Bundles\dormant-account-list-dark.min.css">
+      <DependentUpon>dormant-account-list-dark.css</DependentUpon>
+    </Content>
     <Content Include="Features\DormantAccountList\Bundles\dormant-account-list.css" />
     <Content Include="Features\DormantAccountList\Bundles\dormant-account-list.js" />
     <Content Include="Features\DormantAccountList\Bundles\dormant-account-list.min.css">
@@ -681,11 +761,21 @@
     <Content Include="Features\DormantAccountList\Bundles\dormant-account-list.min.js">
       <DependentUpon>dormant-account-list.js</DependentUpon>
     </Content>
+    <Content Include="Features\DormantAccountList\Styles\dormant-account-list-dark.css">
+      <DependentUpon>dormant-account-list-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\DormantAccountList\Styles\dormant-account-list-dark.min.css">
+      <DependentUpon>dormant-account-list-dark.css</DependentUpon>
+    </Content>
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.css">
       <DependentUpon>dormant-account-list.scss</DependentUpon>
     </Content>
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.min.css">
       <DependentUpon>dormant-account-list.css</DependentUpon>
+    </Content>
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in-dark.css" />
+    <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in-dark.min.css">
+      <DependentUpon>qr-code-member-sign-in-dark.css</DependentUpon>
     </Content>
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
@@ -734,6 +824,12 @@
     <Content Include="Features\QRCodeMemberSignIn\Scripts\EasyAutocomplete\jquery.easy-autocomplete.min.js">
       <DependentUpon>jquery.easy-autocomplete.js</DependentUpon>
     </Content>
+    <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in-dark.css">
+      <DependentUpon>qr-code-member-sign-in-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in-dark.min.css">
+      <DependentUpon>qr-code-member-sign-in-dark.css</DependentUpon>
+    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in.css">
       <DependentUpon>qr-code-member-sign-in.scss</DependentUpon>
     </Content>
@@ -777,6 +873,7 @@
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-1.png" />
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-2.png" />
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-3.png" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page-dark.css" />
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.css" />
     <Content Include="Views\Shared\InvalidPage.cshtml" />
     <Content Include="Web.AppSettings.local2.config">
@@ -992,6 +1089,14 @@
     <Content Include="assets\styles\abstracts\_variables.scss" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountList.xls" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountListHideDateTime.xls" />
+    <Content Include="assets\styles\problem-account\index-dark.scss" />
+    <Content Include="assets\styles\problem-account\update-dark.scss" />
+    <Content Include="assets\styles\_columns-control-dark.scss" />
+    <Content Include="assets\styles\common-dark.scss" />
+    <Content Include="assets\styles\credit-balance-dark.scss" />
+    <Content Include="assets\styles\indirect-login-account-dark.scss" />
+    <Content Include="assets\styles\member-info-dark.scss" />
+    <Content Include="assets\styles\win-loss-limit-dark.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -1126,6 +1231,9 @@
     <Content Include="Web.aws3.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <Content Include="Features\CustomerList\Styles\customer-list-dark.scss" />
+    <Content Include="Features\DormantAccountList\Styles\dormant-account-list-dark.scss" />
+    <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in-dark.scss" />
     <Content Include="Features\ParlayMaxPayout\Views\EditSingle.cshtml" />
     <Content Include="Features\ParlayMaxPayout\Views\EditMultiple.cshtml" />
     <Content Include="Features\ParlayMaxPayout\Views\web.config">

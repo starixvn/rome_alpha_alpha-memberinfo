@@ -7,8 +7,8 @@
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
+    using Alpha.MemberInfo.Site.Controllers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
-    using Alpha.Web;
     using Alpha.Web.Filters;
     using Fanex.Logging.Extensions.Web;
     using MediatR;
@@ -16,9 +16,8 @@
     using System;
     using System.Diagnostics;
 
-    public class QRCodeMemberSignInController : BaseController
+    public class QRCodeMemberSignInController : SiteBaseController
     {
-        private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         private const string IndexPath = "~/Features/QRCodeMemberSignIn/Views/Index.cshtml";
         private const string ShowQRCodePath = "~/Features/QRCodeMemberSignIn/Views/ShowQRCode.cshtml";
         private const string NotAuthorizedPath = "~/Features/QRCodeMemberSignIn/Views/_NotAuthorized.cshtml";
@@ -27,26 +26,18 @@
         private readonly string CaptchaFunctionName = "c_f";
         private readonly int EmptyCaptchaErrorCode = 1;
 
-        private readonly IMediator mediator;
         private readonly IUserSession userSession;
         private readonly int ErrorCodeDefault = 998;
 
         public QRCodeMemberSignInController(IMediator mediator, IUserSession userSession)
+            : base(mediator)
         {
-            this.mediator = mediator;
             this.userSession = userSession;
         }
 
         [HttpGet]
         public ActionResult Index(QRCodeMemberSignInRequest message)
-        {
-            if (message != null && !message.IsValid())
-            {
-                return View(InvalidPageViewPath);
-            }
-
-            return View(IndexPath, mediator.Send(message));
-        }
+            => View(message, IndexPath);
 
         [HttpPost, CaptchaValidation(true), AntiXsrfFilter]
         public async Task<ActionResult> CreateAccount(CreateAccountByQRCodeRequest message)
@@ -122,6 +113,7 @@
         [HttpGet]
         public ActionResult ShowQRCode(ShowQRCodeRequest message)
         {
+            AssignDarkModeViewData();
             if (message != null && !message.IsValid())
             {
                 return View(message.IsInternal ? NotAuthorizedPath : InvalidPageViewPath);

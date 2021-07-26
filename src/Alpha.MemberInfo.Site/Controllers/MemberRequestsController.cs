@@ -4,29 +4,18 @@
     using System.Web.SessionState;
     using MediatR;
     using Requests.MemberRequest;
-    using Web;
 
     [SessionState(SessionStateBehavior.Default)]
-    public class MemberRequestsController : BaseController
+    public class MemberRequestsController : SiteBaseController
     {
-        private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
-        private readonly IMediator mediator;
-
         public MemberRequestsController(IMediator mediator)
+            : base(mediator)
         {
-            this.mediator = mediator;
         }
 
         [HttpGet]
         public ActionResult Index(ProductQuery message)
-        {
-            if (message != null && !message.IsValid())
-            {
-                return View(InvalidPageViewPath);
-            }
-
-            return View(mediator.Send(message));
-        }
+            => View(message, "~/Views/MemberRequest/Index.cshtml");
 
         [HttpGet]
         public ActionResult Members(MemberRequestsQuery message)

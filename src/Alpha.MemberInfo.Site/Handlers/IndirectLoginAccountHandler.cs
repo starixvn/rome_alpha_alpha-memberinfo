@@ -110,7 +110,8 @@
                 message.ViewerUsername,
                 message.BrowserSize,
                 message.IBCPKey,
-                message.CustName));
+                message.CustName,
+                message.DarkModeName));
 
         private string GetHashKey()
         {

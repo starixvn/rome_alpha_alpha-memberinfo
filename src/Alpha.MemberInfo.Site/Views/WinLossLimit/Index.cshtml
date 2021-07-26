@@ -4,9 +4,9 @@
     ViewBag.Title = "Member Win/Loss Limit";
 }
 @section Styles {
-    @StaticResources.RenderStyles("~/assets/bundles/win-loss-limit")
+    @StaticResources.RenderStyles($"~/assets/bundles/win-loss-limit{ViewData["DarkModeName"]}")
 }
-<div class="page-title">
+<div class="page-title title-@ViewData["TitleLevel"]">
     <span class="pull-left">@Resources.MemberWinLossLimit</span>
 </div>
 <form id="win-loss-limit-form" class="form-inline demo-form-inline filter" role="form">

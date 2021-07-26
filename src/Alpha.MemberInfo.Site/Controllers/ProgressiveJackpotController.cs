@@ -4,27 +4,25 @@
     using MediatR;
     using MemberInfo.Models;
     using Requests.ProgressiveJackpot;
-    using Web;
 
-    public class ProgressiveJackpotController : BaseController
+    public class ProgressiveJackpotController : SiteBaseController
     {
-        private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
-        private readonly IMediator mediator;
         private readonly IUser viewer;
 
         public ProgressiveJackpotController(IMediator mediator, IUser viewer)
+            : base(mediator)
         {
-            this.mediator = mediator;
             this.viewer = viewer;
         }
 
         public ActionResult Index(ProgressiveJacpotQuery message)
-            => message != null && message.IsValid()
-            ? View(mediator.Send(message))
-            : View(InvalidPageViewPath);
+            => View(message, "~/Views/ProgressiveJackpot/Index.cshtml");
 
         public ActionResult Handbook()
-            => View($"~/Views/ProgressiveJackpot/Handbook/{viewer.Language}.cshtml");
+        {
+            AssignDarkModeViewData();
+            return View($"~/Views/ProgressiveJackpot/Handbook/{viewer.Language}.cshtml");
+        }
 
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {

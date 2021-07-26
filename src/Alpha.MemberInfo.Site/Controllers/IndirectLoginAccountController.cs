@@ -34,7 +34,10 @@
             => await JsonAsync(message, JsonRequestBehavior.DenyGet);
 
         public ActionResult DisconnectPopup(DisconnectCommand message)
-            => View(message);
+        {
+            AssignDarkModeViewData();
+            return View(message);
+        }
 
         [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> Disconnect(DisconnectCommand message)

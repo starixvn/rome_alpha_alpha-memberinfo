@@ -8,6 +8,7 @@
     {
         public RedirectQuery(IUser viewer) : base(viewer)
         {
+            DarkModeName = viewer.DarkModeName;
         }
 
         public string BrowserSize { get; set; }
@@ -17,5 +18,7 @@
 
         public HttpRequest Request
             => HttpContext.Current.Request;
+
+        public string DarkModeName { get; }
     }
 }

@@ -13,7 +13,7 @@
     [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1304:NonPrivateReadonlyFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
     public abstract class SiteBaseController : BaseController
     {
-        private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
+        protected const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         private const string InvalidExcelFileName = "Invalid";
         private const int BadRequestErrorCode = 999;
 
@@ -25,9 +25,12 @@
         }
 
         protected ActionResult View<TResponse>(IRequest<TResponse> message, string viewName)
-            => (message as MemberInfoBaseQuery).IsValid()
+        {
+            AssignDarkModeViewData();
+            return (message as MemberInfoBaseQuery).IsValid()
                 ? View(viewName, mediator.Send(message))
                 : View(InvalidPageViewPath);
+        }
 
         protected FileContentResult ExcelView(IRequest<ExcelFileViewModel> message)
             => (message as MemberInfoBaseQuery).IsValid()
@@ -43,14 +46,20 @@
             => File(viewModel.Content, ExcelFileViewModel.ContentType, viewModel.Name);
 
         protected async Task<ActionResult> ViewAsync<TResponse>(IAsyncRequest<TResponse> message)
-            => (message as MemberInfoBaseQuery).IsValid()
+        {
+            AssignDarkModeViewData();
+            return (message as MemberInfoBaseQuery).IsValid()
                 ? View(await mediator.SendAsync(message))
                 : View(InvalidPageViewPath);
+        }
 
         protected async Task<ActionResult> ViewAsync<TResponse>(IAsyncRequest<TResponse> message, string viewName)
-            => (message as MemberInfoBaseQuery).IsValid()
+        {
+            AssignDarkModeViewData();
+            return (message as MemberInfoBaseQuery).IsValid()
                 ? View(viewName, await mediator.SendAsync(message))
                 : View(InvalidPageViewPath);
+        }
 
         protected async Task<ActionResult> JsonAsync<TResponse>(
             IAsyncRequest<TResponse> message,
