@@ -77,6 +77,7 @@
         public void Icon_Return_CorrectClass()
         {
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData("Actor.HasUpdateAccountPermission", true);
             var viewModel = new SportsbookViewModel(request, ProductItem);
 
             Assert.Equal("icon-edit Enable", viewModel.Icon);

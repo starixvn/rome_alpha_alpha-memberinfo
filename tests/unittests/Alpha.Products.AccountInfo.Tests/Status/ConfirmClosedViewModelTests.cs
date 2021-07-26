@@ -49,7 +49,7 @@
         [InlineData(false, 3, "InCaseClosedDownlinesMessage")]
         [InlineData(true, 2, "InCaseChangeClosedStatusMessage")]
         [InlineData(true, 3, "InCaseChangeClosedStatusMessage")]
-        [InlineData(true, 1, "InCaseChangeClosedStatusMessage")]
+        [InlineData(true, 1, "InCaseOpenedMemberMessage")]
         [InlineData(false, 1, "InCaseChangeClosedStatusMessage")]
         public void Return_CorrectSuffixMessage_By_Checked(bool closed, byte searchAccountRoleId, string expectedSuffixMessages)
         {

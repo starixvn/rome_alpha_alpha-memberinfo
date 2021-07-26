@@ -238,7 +238,7 @@
             var actorAccount = CustomerHelper.CreateCustomer(1, 4, customerProductStatus: actorProductStatus);
             var searchAccount = CustomerHelper.CreateCustomer(2, 3, customerProductStatus: searchAccountProductStatus);
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
-
+            request.AddData("Actor.HasUpdateAccountPermission", true);
             // Act
             var viewModel = new RnGCasinoViewModel(request, ProductItem);
 
