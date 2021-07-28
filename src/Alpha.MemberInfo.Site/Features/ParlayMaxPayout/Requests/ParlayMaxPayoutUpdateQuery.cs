@@ -13,6 +13,7 @@
             Language = viewer.LanguageKey;
             Ip = viewer.IP;
             CanUpdateAccount = viewer.CanUpdateAccount;
+            IsInternal = viewer.IsInternal;
         }
 
         public string CustIdList { get; set; }
@@ -28,6 +29,8 @@
         public string Ip { get; }
 
         public bool CanUpdateAccount { get; }
+
+        public bool IsInternal { get; }
     }
 
     public class ParlayMaxPayoutUpdateSingleQuery :

@@ -45,8 +45,10 @@ class ParlayMaxPayoutService {
             data: params,
             error: jqXHR => {
                 if (jqXHR.status === StatusCode.Forbidden) {
-                    this.alertService.showMessage(this.$("#tb-notauthorized-msg").val(), true);
+                    return this.alertService.showMessage(this.$("#tb-notauthorized-msg").val(), true);
                 }
+
+                this.alertService.showMessage("Server error.", true);
             },
             success: data => {
                 onSuccessCallback(data);

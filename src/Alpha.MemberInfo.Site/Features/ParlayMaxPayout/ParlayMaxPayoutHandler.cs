@@ -44,7 +44,7 @@
 
         public Result Handle(ParlayMaxPayoutUpdateSingleQuery message)
         {
-            if (!message.CanUpdateAccount)
+            if (!message.CanUpdateAccount || message.IsInternal)
             {
                 return Result.CreateErrorResult(Lang.NotAuthorized, NotAuthorizedErrorCode);
             }
@@ -66,7 +66,7 @@
 
         public IEnumerable<Result> Handle(ParlayMaxPayoutUpdateMultipleQuery message)
         {
-            if (!message.CanUpdateAccount)
+            if (!message.CanUpdateAccount || message.IsInternal)
             {
                 yield return Result.CreateErrorResult(Lang.NotAuthorized, NotAuthorizedErrorCode);
                 yield break;
