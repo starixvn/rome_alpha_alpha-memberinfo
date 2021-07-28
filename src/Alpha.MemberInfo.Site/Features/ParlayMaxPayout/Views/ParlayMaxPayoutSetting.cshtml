@@ -32,14 +32,14 @@
 @helper RenderHiddenFields()
 {
     <input id="tb-updatesuccess-msg" type="hidden" value="@Model.UpdateSuccessfullyText" />
-    <input id="tb-updateurl" type="hidden" value="@Url.Content(Model.UpdateUrl)" />
+    <input id="tb-updateurl" type="hidden" value="@Response.ApplyAppPathModifier(Model.UpdateUrl)" />
     <input id="tb-custidlist" type="hidden" value="@Model.CustIdList" />
     <input id="tb-custnamelist" type="hidden" value="@Model.CustNameList" />
     <input id="tb-invalidvalue-msg" type="hidden" value="@Model.InvalidMaxPayoutValueText" />
     <input id="tb-gtmaxvalue-msg" type="hidden" value="@Model.GreaterThanMaxValueText" />
     <input id="tb-hasnochange-msg" type="hidden" value="@Model.HasNoChangeText" />
     <input id="tb-notauthorized-msg" type="hidden" value="@Model.NotAuthorizedText" />
-    <input id="tb-checkdownlineurl" type="hidden" value="@Url.Content(Model.CheckDownlineUrl)" />
+    <input id="tb-checkdownlineurl" type="hidden" value="@Response.ApplyAppPathModifier(Model.CheckDownlineUrl)" />
     <input id="tb-ismultiple" type="hidden" value="@(Model.IsMultiple ? 1 : 0)" />
 }
 
