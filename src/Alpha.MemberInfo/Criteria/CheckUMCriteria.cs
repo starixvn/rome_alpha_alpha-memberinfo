@@ -2,7 +2,7 @@
 {
     using Fanex.Data.Repository;
 
-    public class CheckUMCriteria : CriteriaBase
+    public class CheckUMCriteria : NonQueryCommand
     {
         public CheckUMCriteria(
             int custId,
@@ -20,9 +20,13 @@
 
         public byte FunctionType => 1;
 
-        public string Language { get; set; }
+        public string Language { get; }
 
         public bool ReturnUMData => false;
+
+        public int ErrCode { get; set; }
+
+        public string ErrMsg { get; set; }
 
         public override string GetSettingKey() => "Acc_CheckUM";
 

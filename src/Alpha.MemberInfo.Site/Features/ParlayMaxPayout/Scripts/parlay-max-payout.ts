@@ -198,10 +198,6 @@ class ParlayMaxPayout {
         }
 
         if (data.length > 0) {
-            if (data[0].Code === StatusCode.NotAuthorized) {
-                return this.alertService.showMessage(data[0].Message, true);
-            }
-
             const custNameList = this.custNameList.split(/\,/g);
 
             let hasError = false;

@@ -1,12 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
-    using System.Resources;
-    using System.Web;
-    using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
@@ -55,6 +48,13 @@
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Model.Entities.Permission;
     using Sunplus.Agent.Utilities;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Reflection;
+    using System.Resources;
+    using System.Web;
+    using System.Web.Mvc;
     using Utilities.IP;
 
     public static class DependencyConfig
@@ -111,8 +111,6 @@
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
             container.Register<WinLossLimitDataAccess, WinLossLimitDataAccessImpl>(Lifestyle.Singleton);
             container.Register<CustomerListDataAccess, CustomerListDataAccessImpl>(Lifestyle.Singleton);
-            container.Register<ParlayMaxPayoutDataAccess, ParlayMaxPayoutDataAccessImpl>(Lifestyle.Singleton);
-            container.Register<CheckUMDataAccess, CheckUMDataAccessImpl>(Lifestyle.Singleton);
         }
 
         private static void RegisterServices(Container container)

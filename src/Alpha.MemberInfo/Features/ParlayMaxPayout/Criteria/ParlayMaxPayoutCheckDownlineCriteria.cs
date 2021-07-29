@@ -1,8 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Features.ParlayMaxPayout.Criteria
 {
-    using Fanex.Data.Repository;
-
-    public class ParlayMaxPayoutCheckDownlineCriteria : CriteriaBase
+    public class ParlayMaxPayoutCheckDownlineCriteria : ResultCriteria
     {
         public ParlayMaxPayoutCheckDownlineCriteria(
             int custId,

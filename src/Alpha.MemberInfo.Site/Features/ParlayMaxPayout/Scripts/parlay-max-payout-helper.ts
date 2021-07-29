@@ -45,6 +45,5 @@ class Regex {
 
 class StatusCode {
     public static Forbidden: number = 403;
-    public static NotAuthorized: number = 401;
     public static Success: number = 0;
 }

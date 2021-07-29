@@ -2,6 +2,7 @@
 {
     using Alpha.MemberInfo.Models;
     using Criteria;
+    using Fanex.Data.Repository;
     using Models;
     using Params;
     using System.Collections.Generic;
@@ -17,18 +18,18 @@
 
     public class ParlayMaxPayoutServiceImpl : ParlayMaxPayoutService
     {
-        private readonly ParlayMaxPayoutDataAccess dataAccess;
+        private readonly IDynamicRepository repository;
 
-        public ParlayMaxPayoutServiceImpl(ParlayMaxPayoutDataAccess dataAccess)
+        public ParlayMaxPayoutServiceImpl(IDynamicRepository repository)
         {
-            this.dataAccess = dataAccess;
+            this.repository = repository;
         }
 
         public IEnumerable<ParlayMaxPayoutModel> GetParlayMaxPayout(ParlayMaxPayoutSelectParam param)
-            => dataAccess.GetParlayMaxPayout(new ParlayMaxPayoutSelectCriteria(param.CustId));
+            => repository.Fetch<ParlayMaxPayoutModel>(new ParlayMaxPayoutSelectCriteria(param.CustId));
 
         public Result UpdateParlayMaxPayout(ParlayMaxPayoutUpdateParam param)
-            => dataAccess.UpdateParlayMaxPayout(new ParlayMaxPayoutUpdateCriteria(
+            => ExecuteNonQuery(new ParlayMaxPayoutUpdateCriteria(
                 param.CustId,
                 param.MaxPayoutLimit,
                 param.UserId,
@@ -37,9 +38,20 @@
                 param.Ip));
 
         public Result CheckDownline(ParlayMaxPayoutCheckDownlineParam param)
-            => dataAccess.CheckDownline(new ParlayMaxPayoutCheckDownlineCriteria(
+            => ExecuteNonQuery(new ParlayMaxPayoutCheckDownlineCriteria(
                 param.CustId,
                 param.MaxPayoutLimit,
                 param.Language));
+
+        private Result ExecuteNonQuery(ResultCriteria criteria)
+        {
+            repository.Execute(criteria);
+
+            return new Result
+            {
+                Code = criteria.ErrCode,
+                Message = criteria.ErrMsg
+            };
+        }
     }
 }

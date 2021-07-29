@@ -1,19 +1,15 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.ParlayMaxPayout.Requests
 {
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Requests;
     using MediatR;
     using System.Collections.Generic;
 
-    public class ParlayMaxPayoutUpdateBaseQuery
+    public class ParlayMaxPayoutUpdateBaseQuery : MemberInfoBaseQuery
     {
-        public ParlayMaxPayoutUpdateBaseQuery(IUser viewer)
+        public ParlayMaxPayoutUpdateBaseQuery(IUser viewer) : base(viewer)
         {
             UserId = viewer.Id;
-            SubAccId = viewer.SubAccId;
-            Language = viewer.LanguageKey;
-            Ip = viewer.IP;
-            CanUpdateAccount = viewer.CanUpdateAccount;
-            IsInternal = viewer.IsInternal;
         }
 
         public string CustIdList { get; set; }
@@ -22,15 +18,13 @@
 
         public int UserId { get; }
 
-        public int SubAccId { get; }
-
-        public string Language { get; }
-
-        public string Ip { get; }
-
-        public bool CanUpdateAccount { get; }
-
-        public bool IsInternal { get; }
+        public override bool IsValid()
+            => base.IsValid()
+            && UserId > 0
+            && !string.IsNullOrWhiteSpace(CustIdList)
+            && !string.IsNullOrWhiteSpace(MaxPayoutLimit)
+            && CanUpdateAccount
+            && !IsInternal;
     }
 
     public class ParlayMaxPayoutUpdateSingleQuery :
@@ -40,7 +34,7 @@
         {
         }
 
-        public int CustId
+        public int SelectedCustId
         {
             get
             {

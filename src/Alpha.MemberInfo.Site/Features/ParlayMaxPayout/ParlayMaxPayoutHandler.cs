@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.ParlayMaxPayout
 {
-    using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Features.ParlayMaxPayout;
     using Alpha.MemberInfo.Features.ParlayMaxPayout.Params;
     using Alpha.MemberInfo.Models;
@@ -20,7 +19,6 @@
         IRequestHandler<ParlayMaxPayoutUpdateMultipleQuery, IEnumerable<Result>>,
         IRequestHandler<ParlayMaxPayoutCheckDownlineQuery, Result>
     {
-        private const int NotAuthorizedErrorCode = 401;
         private readonly ParlayMaxPayoutService parlayMaxPayoutService;
         private readonly CheckUMService checkUMService;
 
@@ -40,38 +38,27 @@
         public ParlayMaxPayoutMultiplePageViewModel Handle(ParlayMaxPayoutMultipleSelectQuery message)
             => new ParlayMaxPayoutMultiplePageViewModel(
                 message,
-                parlayMaxPayoutService.GetParlayMaxPayout(new ParlayMaxPayoutSelectParam(message.CustId)));
+                parlayMaxPayoutService.GetParlayMaxPayout(new ParlayMaxPayoutSelectParam(message.SelectedCustId)));
 
         public Result Handle(ParlayMaxPayoutUpdateSingleQuery message)
         {
-            if (!message.CanUpdateAccount || message.IsInternal)
-            {
-                return Result.CreateErrorResult(Lang.NotAuthorized, NotAuthorizedErrorCode);
-            }
-
             var checkUMResult = checkUMService.CheckUM(
-                new CheckUMParam(message.CustId, NonDcsProduct.Sportsbook, message.Language));
+                new CheckUMParam(message.SelectedCustId, NonDcsProduct.Sportsbook, message.Language));
 
             return checkUMResult.IsFailed
                 ? checkUMResult
                 : parlayMaxPayoutService.UpdateParlayMaxPayout(
                     new ParlayMaxPayoutUpdateParam(
-                        message.CustId,
+                        message.SelectedCustId,
                         message.MaxPayoutLimit,
                         message.UserId,
                         message.SubAccId,
                         message.Language,
-                        message.Ip));
+                        message.IP));
         }
 
         public IEnumerable<Result> Handle(ParlayMaxPayoutUpdateMultipleQuery message)
         {
-            if (!message.CanUpdateAccount || message.IsInternal)
-            {
-                yield return Result.CreateErrorResult(Lang.NotAuthorized, NotAuthorizedErrorCode);
-                yield break;
-            }
-
             var custIds = message.CustIdList.Split(',').Select(int.Parse);
             foreach (var custId in custIds)
             {
@@ -87,7 +74,7 @@
                             message.UserId,
                             message.SubAccId,
                             message.Language,
-                            message.Ip));
+                            message.IP));
             }
         }
 

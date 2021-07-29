@@ -1,19 +1,22 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.ParlayMaxPayout.Requests
 {
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Requests;
     using MediatR;
 
-    public class ParlayMaxPayoutCheckDownlineQuery : IRequest<Result>
+    public class ParlayMaxPayoutCheckDownlineQuery : MemberInfoBaseQuery, IRequest<Result>
     {
-        public ParlayMaxPayoutCheckDownlineQuery(IUser viewer)
+        public ParlayMaxPayoutCheckDownlineQuery(IUser viewer) : base(viewer)
         {
-            Language = viewer.LanguageKey;
         }
 
         public string CustIdList { get; set; }
 
         public string MaxPayoutLimit { get; set; }
 
-        public string Language { get; }
+        public override bool IsValid()
+            => base.IsValid()
+            && !string.IsNullOrWhiteSpace(CustIdList)
+            && !string.IsNullOrWhiteSpace(MaxPayoutLimit);
     }
 }

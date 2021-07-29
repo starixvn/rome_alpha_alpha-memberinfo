@@ -318,7 +318,6 @@
     <Compile Include="Criteria\WinLossLimit\GetOutstandingCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\GetBalanceCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\GetWinLossLimitProductCriteria.cs" />
-    <Compile Include="DataAccesses\CheckUMDataAccess.cs" />
     <Compile Include="DataAccesses\MemberInfoObjectDbFactory.cs" />
     <Compile Include="DataAccesses\WinLossLimitDataAccess.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
@@ -370,11 +369,11 @@
     <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutCheckDownlineCriteria.cs" />
     <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutSelectCriteria.cs" />
     <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutUpdateCriteria.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Criteria\ResultCriteria.cs" />
     <Compile Include="Features\ParlayMaxPayout\Models\ParlayMaxPayoutModel.cs" />
     <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutCheckDownlineParam.cs" />
     <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutSelectParam.cs" />
     <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutUpdateParam.cs" />
-    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutDataAccess.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutService.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckExistedCustomerCritieria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckEnableCustomerCritieria.cs" />
