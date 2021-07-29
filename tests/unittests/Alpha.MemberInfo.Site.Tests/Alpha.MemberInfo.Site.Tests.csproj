@@ -276,6 +276,8 @@
     <Compile Include="Features\DormantAccountList\DormantAccountHandlerTests.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountWorkbookImplForTesting.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountWorkbookImplTests.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutControllerTests.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutHandlerTests.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInHandlerTests.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInControllerTests.cs" />
     <Compile Include="Fixtures\UserFixture.cs" />

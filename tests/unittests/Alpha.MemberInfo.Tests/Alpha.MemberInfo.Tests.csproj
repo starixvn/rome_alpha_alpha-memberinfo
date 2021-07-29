@@ -295,6 +295,7 @@
     <Compile Include="Constants\CasinoGameKind.cs" />
     <Compile Include="Constants\ProductId.cs" />
     <Compile Include="Constants\RoleId.cs" />
+    <Compile Include="Criteria\CheckUMCriteriaTests.cs" />
     <Compile Include="Criteria\GetAgentListCriteriaTests.cs" />
     <Compile Include="Criteria\GetMasterListCriteriaTests.cs" />
     <Compile Include="Criteria\CreditBalance\GetAgentClosedReasonCriteriaTests.cs" />
@@ -330,6 +331,10 @@
     <Compile Include="Features\CustomerList\CustomerListDataAccessTest.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerListModelBaseTests.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerAllStatusModelCriteriaTest.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutCheckDownlineCriteriaTests.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutSelectCriteriaTests.cs" />
+    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutUpdateCriteriaTests.cs" />
+    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutServiceImplTests.cs" />
     <Compile Include="Feature\DormantAccountList\Criteria\GetDormantAccountsCriteriaTests.cs" />
     <Compile Include="Feature\DormantAccountList\DormantAccountServiceTests.cs" />
     <Compile Include="Feature\DormantAccountList\Models\DormantAccountTests.cs" />
@@ -371,6 +376,7 @@
     <Compile Include="Params\ProductSettingParamTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CacheRefServiceImplTests.cs" />
+    <Compile Include="Services\CheckUMServiceImplTests.cs" />
     <Compile Include="Services\CreditBalance\CreditBalanceServiceImplTests.cs" />
     <Compile Include="Services\IndirectLoginAccount\IndirectLoginAccountServiceImplTests.cs" />
     <Compile Include="Services\MemberRequest\CasinoCustomerImplErrorMock.cs" />
