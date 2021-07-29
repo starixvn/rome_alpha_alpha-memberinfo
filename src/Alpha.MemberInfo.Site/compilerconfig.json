@@ -62,7 +62,7 @@
   {
     "outputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout.css",
     "inputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout.scss"
-  }
+  },
   {
     "outputFile": "assets/styles/problem-account/index-dark.css",
     "inputFile": "assets/styles/problem-account/index-dark.scss"

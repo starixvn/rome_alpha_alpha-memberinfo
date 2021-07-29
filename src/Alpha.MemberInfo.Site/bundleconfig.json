@@ -209,7 +209,7 @@
       "Features/ParlayMaxPayout/Scripts/parlay-max-payout-service.js",
       "Features/ParlayMaxPayout/Scripts/parlay-max-payout.js"
     ]
-  }
+  },
   /************************** Dark Mode ************************/
   {
     "outputFileName": "assets/bundles/default-dark.css",
