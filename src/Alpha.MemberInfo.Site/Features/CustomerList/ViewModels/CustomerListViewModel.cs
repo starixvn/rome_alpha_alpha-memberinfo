@@ -25,7 +25,8 @@
             IEnumerable<CustInfo> breadcrumbLevel,
             bool isMobile,
             bool limitedDateToShowInfo,
-            Func<string, ResourceManager, string> convertResourcesJson = null)
+            Func<string, ResourceManager, string> convertResourcesJson = null,
+            CustomerListPagingViewModel customerListPagingViewModel = null)
         {
             UplineRoleId = request.ViewerLevelId;
 
@@ -65,6 +66,7 @@
 
             var ConvertResourcesJson = convertResourcesJson ?? SimpleServiceLocator.GetService<Func<string, ResourceManager, string>>();
             Resources = ConvertResourcesJson(request.Language, CustomerListResources.ResourceManager);
+            CustomerListPagingViewModel = customerListPagingViewModel;
         }
 
         public bool HideEditMultiple { get; }
@@ -133,6 +135,8 @@
                     new CustomerListOption(1 , CustomerListResources.Allowed),
                     new CustomerListOption(0 , CustomerListResources.Disallowed)
                 };
+
+        public CustomerListPagingViewModel CustomerListPagingViewModel { get; }
     }
 
     public class CustomerListOption

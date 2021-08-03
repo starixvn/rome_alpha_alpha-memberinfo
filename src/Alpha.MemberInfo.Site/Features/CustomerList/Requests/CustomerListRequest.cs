@@ -8,6 +8,9 @@
     {
         public CustomerListRequest(IUser viewer) : base(viewer)
         {
+            Viewer = viewer;
         }
+
+        public IUser Viewer { get; }
     }
 }

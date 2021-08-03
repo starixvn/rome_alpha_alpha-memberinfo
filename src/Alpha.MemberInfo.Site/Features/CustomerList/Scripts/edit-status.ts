@@ -21,17 +21,24 @@ class EditStatus {
 
     public bindingEvent = () => this.$('.status-popup').unbind().bind('click', event => this.openPopup(this.$(event.currentTarget)));
 
-    private openPopup = element => this.customerListServices.getSettings(
-        this.$(element).data("url"),
-        data => {
-            const username = this.$(element).data("username"),
-                custId = this.$(element).data("custid"),
-                content = this.buildPopupHtml(data.Status, username, custId),
-                title = `${this.$('#editStatusText').val()} - ${username}`;
+    private openPopup = element => {
+        const $element = this.$(element);
+        const $span = $element.find(":first-child");
+        this.customerListPopup.addCursorProgress($span);
 
-            this.customerListPopup.openStatusSettingPopup(element, content, title, this.bindingPopupEvent)
-        }
-    );
+        this.customerListServices.getSettings(
+            $element.data("url"),
+            data => {
+                const username = $element.data("username"),
+                    custId = $element.data("custid"),
+                    content = this.buildPopupHtml(data.Status, username, custId),
+                    title = `${this.$('#editStatusText').val()} - ${username}`;
+
+                this.customerListPopup.openStatusSettingPopup(element, content, title, this.bindingPopupEvent);
+
+                this.customerListPopup.removeCursorProgress($span);
+            });
+    }
 
     private buildPopupHtml = (statusArray, username, custId) => {
         let html = ['<ul>'];

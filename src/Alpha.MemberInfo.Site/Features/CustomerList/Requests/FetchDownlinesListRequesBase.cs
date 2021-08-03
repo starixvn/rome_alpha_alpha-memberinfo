@@ -22,9 +22,9 @@
 
         public byte UnconfirmSetting { get; set; }
 
-        public int PageSize { get; set; }
+        public int PageSize { get; set; } = 100;
 
-        public int PageIndex { get; set; }
+        public int PageIndex { get; set; } = 1;
 
         public bool? Suspended
            => Status.Equals(2) ? (bool?)true : null;

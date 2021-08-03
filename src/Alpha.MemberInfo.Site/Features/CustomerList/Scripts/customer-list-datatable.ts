@@ -85,22 +85,31 @@ class CustomerListDataTable {
             };
 
         this.$table = this.$('#tbl-customer-list')
-            .on('processing.dt', (e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
+            //.on('processing.dt', (e, settings, processing) => processing ? this.$.blockUI() : this.$.unblockUI())
             .DataTable({
                 serverSide: true,
                 ajax: (data, callback) => {
-                    const params = {
-                        CustName: this.viewModel.SearchAccountName,
-                        CustId: this.viewModel.SearchAccountId,
-                        CustLevelId: this.viewModel.SearchAccountRoleId,
-                        PageIndex: (data.start / data.length) + 1,
-                        PageSize: data.length,
-                        Username: this.username,
-                        Status: this.status,
-                        DoubleComm: this.doubleComm
-                    };
+                    if (this.viewModel.CustomerListData) {
+                        callback({
+                            data: this.viewModel.CustomerListData.DownlinesList,
+                            recordsTotal: this.viewModel.CustomerListData.TotalDownlines,
+                            recordsFiltered: this.viewModel.CustomerListData.TotalDownlines
+                        });
+                        delete this.viewModel.CustomerListData;
+                    } else {
+                        const params = {
+                            CustName: this.viewModel.SearchAccountName,
+                            CustId: this.viewModel.SearchAccountId,
+                            CustLevelId: this.viewModel.SearchAccountRoleId,
+                            PageIndex: (data.start / data.length) + 1,
+                            PageSize: data.length,
+                            Username: this.username,
+                            Status: this.status,
+                            DoubleComm: this.doubleComm
+                        };
 
-                    this.customerListServices.getCutomerList(params, callback);
+                        this.customerListServices.getCutomerList(params, callback);
+                    }
                 },
                 columns: this.buildDataTableColumns(),
                 createdRow: (row, data) => {
@@ -118,7 +127,7 @@ class CustomerListDataTable {
                 ordering: false,
                 paging: true,
                 pagingType: "input",
-                pageLength: this.viewModel.IsMobileView ? 50 : 100,
+                pageLength: 100,
                 searching: false,
                 bInfo: false,
                 fixedHeader: true,
@@ -216,7 +225,7 @@ class CustomerListDataTable {
         columns.push({
             "className": 'left',
             "data": null,
-            "render": item => `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${item.FirstName} ${item.LastName}</div>`
+            "render": item => `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${item.FirstName || ""} ${item.LastName || ""}</div>`
         });
 
         if (this.viewModel.SearchAccountRoleId === CustomerLevel.Agent) {

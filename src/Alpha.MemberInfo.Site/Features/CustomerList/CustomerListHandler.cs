@@ -1,5 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.Shared.Models;
@@ -20,8 +22,6 @@
     using Alpha.Web.Helpers;
     using Fanex.Common;
     using MediatR;
-    using System.Collections.Generic;
-    using System.Linq;
 
     public class CustomerListHandler :
         IRequestHandler<CustomerListRequest, CustomerListViewModel>,
@@ -92,8 +92,27 @@
             }
 
             breadcrumbLevel.Add(new CustInfo(message.CustId, message.CustName, message.CustLevelId));
+            var customerListPagingViewModel = Handle(
+                new FetchDownlinesListRequest(message.Viewer)
+                {
+                    CustName = message.CustName,
+                    CustId = message.CustId,
+                    CustLevelId = message.CustLevelId,
+                    Username = message.Username,
+                    Status = message.Status,
+                    DoubleComm = message.DoubleComm,
+                    UnconfirmSetting = message.UnconfirmSetting,
+                    PageIndex = message.PageIndex,
+                    PageSize = message.PageSize
+                }
+             );
 
-            return new CustomerListViewModel(message, breadcrumbLevel, browserHelper.IsMobile(isOnlyTablet: false), message.LimitedDateToShowInfo);
+            return new CustomerListViewModel(
+                message,
+                breadcrumbLevel,
+                browserHelper.IsMobile(isOnlyTablet: false),
+                message.LimitedDateToShowInfo,
+                customerListPagingViewModel: customerListPagingViewModel);
         }
 
         public CustomerListPagingViewModel Handle(FetchDownlinesListRequest message)
