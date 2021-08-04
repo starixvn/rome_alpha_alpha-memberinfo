@@ -237,7 +237,7 @@ class ParlayMaxPayout {
         } else {
             window.top.customerListNew
                 ? window.top.customerListPopup.successfulUpdatingCallback(this.reloadTimeout)
-                : window.top.successfulUpdatingCallback(this.reloadTimeout);
+                : window.top.reloadPopUpSetting(this.reloadTimeout);
         }
     }
 }
