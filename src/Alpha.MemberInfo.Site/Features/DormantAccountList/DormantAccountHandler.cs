@@ -46,12 +46,11 @@
             var totalMapper = GetTotalRowMapper();
 
             var fileContent = workbook
-                .SetData(report.DormantAccounts, report.Total)
+                .SetData(report.DormantAccounts, report.TotalAccount)
                 .SetRowMappers(GetBodyRowMapper(isShowDateTimeColumn), totalMapper)
                 .UseTemplate(GetTemplateInfo(isShowDateTimeColumn))
                 .Title(GetReportTitle())
                 .Header(Resources.ResourceManager.GetString)
-                .Footer(report.Total, totalMapper)
                 .Sheet(Resources.DormantAccountList)
                 .ExportToBytes();
 
@@ -94,7 +93,8 @@
                 mapper.Map(H, dormantAccount => dormantAccount.LastLogged.ToLongDateTime12h())
                     .Map(I, dormantAccount => dormantAccount.ClosedDate.ToLongDateTime12h())
                     .Map(J, dormantAccount => dormantAccount.DisabledDate.ToLongDateTime12h())
-                    .Map(K, dormantAccount => dormantAccount.SettingDeletedDate.ToLongDateTime12h());
+                    .Map(K, dormantAccount => dormantAccount.SettingDeletedDate.ToLongDateTime12h())
+                    .Map(L, dormantAccount => dormantAccount.AccountDeletedDate.ToLongDateTime12h());
             }
 
             return mapper;

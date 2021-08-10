@@ -54,11 +54,12 @@
             var sheet = GetSheetAt(TemplateInfo.SheetIndex);
             currentRowIndex = TemplateInfo.BodyStartIndex;
 
+            TotalRowTemplate = sheet.GetRow(currentRowIndex++);
             NormalRowTemplate = sheet.GetRow(currentRowIndex++);
             WarningTicketRowTemplate = sheet.GetRow(currentRowIndex++);
             WarningTicketRedDateTimeRowTemplate = sheet.GetRow(currentRowIndex++);
             RedDateTimeRowTemplate = sheet.GetRow(currentRowIndex++);
-            TotalRowTemplate = sheet.GetRow(currentRowIndex);
+
 
             var reportSheet = GetSheetAt(DataSheetIndex);
             reportSheet.FooterRowsTemplate = new List<Row> { TotalRowTemplate };
@@ -95,6 +96,13 @@
         {
             currentRowIndex = TemplateInfo.BodyStartIndex;
 
+            if (Total != null)
+            {
+                var row = sheet.GetRow(currentRowIndex++);
+                row.CopyCellsFrom(GetRowTemplate(Total));
+                FillCells(row, Total, DormantAccountMapper.Mappings);
+            }
+
             foreach (var item in DormantAccounts)
             {
                 var row = sheet.GetRow(currentRowIndex++);
@@ -121,25 +129,16 @@
             {
                 templateRow = RedDateTimeRowTemplate;
             }
+            else if (account.IsSummaryRow)
+            {
+                templateRow = TotalRowTemplate;
+            }
             else
             {
                 templateRow = NormalRowTemplate;
             }
 
             return templateRow;
-        }
-
-        protected override void FillFooterRows(Sheet sheet)
-        {
-            if (!SpreadSheet.FooterRows.Any())
-            {
-                return;
-            }
-
-            var row = sheet.GetRow(currentRowIndex);
-            row.CopyCellsFrom(TotalRowTemplate);
-
-            FillCells(row, Total, TotalMapper.Mappings);
         }
 
         protected override void FillSheetName(int index, string name)

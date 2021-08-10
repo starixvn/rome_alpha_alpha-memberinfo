@@ -7,5 +7,6 @@
         public const byte Suspended = 2;
         public const byte Closed = 3;
         public const byte Disabled = 4;
+        public const byte Deleted = 5;
     }
 }

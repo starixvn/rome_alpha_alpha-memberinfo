@@ -579,4 +579,13 @@
   <data name="IndirectLoginAccountLockedError" xml:space="preserve">
     <value>此账号已被锁定，请解锁后再次重试。</value>
   </data>
+  <data name="DeleteAccount" xml:space="preserve">
+    <value>删除账号</value>
+  </data>
+  <data name="DeletedAccount" xml:space="preserve">
+    <value>删除账号</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>删除</value>
+  </data>
 </root>

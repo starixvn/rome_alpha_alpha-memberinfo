@@ -579,4 +579,13 @@
   <data name="IndirectLoginAccountLockedError" xml:space="preserve">
     <value>บัญชีนี้ถูกล็อก กรุณาปลดล็อกและลองใหม่อีกครั้ง</value>
   </data>
+  <data name="DeleteAccount" xml:space="preserve">
+    <value>บัญชีถูกลบ</value>
+  </data>
+  <data name="DeletedAccount" xml:space="preserve">
+    <value>ลบเรียบร้อย</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>ลบเรียบร้อย</value>
+  </data>
 </root>

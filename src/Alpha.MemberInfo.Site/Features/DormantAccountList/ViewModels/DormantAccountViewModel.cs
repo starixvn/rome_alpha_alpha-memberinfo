@@ -53,6 +53,7 @@
                 yield return BuildSelectListItem(Resources.All, StatusIdentity.All, StatusIdentity.All == Message.StatusId);
                 yield return BuildSelectListItem(Resources.Closed, StatusIdentity.Closed, StatusIdentity.Closed == Message.StatusId);
                 yield return BuildSelectListItem(Resources.Disabled, StatusIdentity.Disabled, StatusIdentity.Disabled == Message.StatusId);
+                yield return BuildSelectListItem(Resources.Deleted, StatusIdentity.Deleted, StatusIdentity.Deleted == Message.StatusId);
             }
         }
 
