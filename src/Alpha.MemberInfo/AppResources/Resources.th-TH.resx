@@ -588,4 +588,40 @@
   <data name="Deleted" xml:space="preserve">
     <value>ลบเรียบร้อย</value>
   </data>
+  <data name="ParlayMaxPayoutSubTitle" xml:space="preserve">
+    <value>การจ่ายเงินสูงสุดของพาร์เลย์ {0}</value>
+  </data>
+  <data name="ParlayMaxPayoutSingleSubText" xml:space="preserve">
+    <value>การจ่ายเงินสูงสุดของพาร์เลย์: {0}</value>
+  </data>
+  <data name="ParlayMaxPayoutMultipleSubText" xml:space="preserve">
+    <value>การจ่ายเงินสูงสุดของพาร์เลย์</value>
+  </data>
+  <data name="SingleMatchParlay" xml:space="preserve">
+    <value>พาร์เลย์การแข่งขันนัดเดียว</value>
+  </data>
+  <data name="Combo2" xml:space="preserve">
+    <value>คอมโบ 2</value>
+  </data>
+  <data name="Combo35" xml:space="preserve">
+    <value>คอมโบ 3-5</value>
+  </data>
+  <data name="ComboOver6" xml:space="preserve">
+    <value>คอมโบ 6+ และ ระบบพาร์เลย์</value>
+  </data>
+  <data name="ParlayMaxPayoutUpdateSuccessfully" xml:space="preserve">
+    <value>อัพเดทเสร็จสมบูรณ์</value>
+  </data>
+  <data name="InvalidMaxPayoutValueText" xml:space="preserve">
+    <value>ค่าต้องเป็นจำนวนบวก</value>
+  </data>
+  <data name="GreaterThanMaxValueText" xml:space="preserve">
+    <value>&lt;BetType&gt;: การตั้งค่า &lt;Column&gt; สูงกว่าของอัพไลน์</value>
+  </data>
+  <data name="soccerParlay" xml:space="preserve">
+    <value>บอลชุดฟุตบอล</value>
+  </data>
+  <data name="mixsports" xml:space="preserve">
+    <value>กีฬาบอลชุด</value>
+  </data>
 </root>

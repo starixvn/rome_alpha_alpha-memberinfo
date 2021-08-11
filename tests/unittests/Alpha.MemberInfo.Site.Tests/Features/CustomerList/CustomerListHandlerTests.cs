@@ -1,5 +1,9 @@
 ﻿namespace Alpha.MemberInfo.Site.Tests.Handlers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Resources;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.Shared.Models;
@@ -31,10 +35,6 @@
     using KellermanSoftware.CompareNetObjects;
     using MemberInfo.Models;
     using NSubstitute;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Resources;
     using Xunit;
 
     [Trait("Category", "CustomerList")]
@@ -95,7 +95,31 @@
             cacheRefService.GetProductName(Arg.Any<int>()).Returns("Product");
             browserHelper.IsMobile(isOnlyTablet: false).Returns(true);
 
-            var expectedViewModel = new CustomerListViewModel(message, breadcrumbLevel, true, true);
+            var customerListDTO = new CustomerListDTO(new List<CustomerListModelBase>(), 0, 0);
+            service.GetCustomerList(Arg.Any<CustomerListParam>()).Returns(customerListDTO);
+
+            var customerListPagingViewModel = new CustomerListPagingViewModel(
+                customerListDTO,
+                new FetchDownlinesListRequest(message.Viewer)
+                {
+                    CustName = message.CustName,
+                    CustId = message.CustId,
+                    CustLevelId = message.CustLevelId,
+                    Username = message.Username,
+                    Status = message.Status,
+                    DoubleComm = message.DoubleComm,
+                    UnconfirmSetting = message.UnconfirmSetting,
+                    PageIndex = message.PageIndex,
+                    PageSize = message.PageSize
+                },
+                ipService);
+
+            var expectedViewModel = new CustomerListViewModel(
+                message,
+                breadcrumbLevel,
+                true,
+                true,
+                customerListPagingViewModel: customerListPagingViewModel);
 
             var actualViewModel = handler.Handle(message);
 

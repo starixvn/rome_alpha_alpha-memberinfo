@@ -45,10 +45,10 @@ class EditSingleSetting {
                 'data-method': item.Method,
                 'data-params': JSON.stringify(item.QueryStringParamaters),
                 'data-url': item.Url,
-                'data-show-guide-line': item.ShowGuideLine,
+                'data-show-guide-line': item.ShowGuideLine
             };
 
-            const title = `${item.AddEditTextToPopupTitle ? this.$('#editText').val() : ''} ${item.Text} - ${username}`;
+            const title = item.Title || `${item.AddEditTextToPopupTitle ? this.$('#editText').val() : ''} ${item.Text} - ${username}`;
 
             html.push(`<li ${buildAttributes(attrs)} data-title="${title}">${item.Text}</li>`);
         });

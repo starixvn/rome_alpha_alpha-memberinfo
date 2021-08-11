@@ -498,4 +498,13 @@
   <data name="IndirectlyClosedByUpline" xml:space="preserve">
 		<value>此賬號被上線間接關閉。</value>
 	</data>
+  <data name="ParlayMaxPayoutText" xml:space="preserve">
+    <value>串關最高派彩</value>
+  </data>
+  <data name="ParlayMaxPayoutPopupHeaderText" xml:space="preserve">
+    <value>修改 &lt;username&gt;</value>
+  </data>
+  <data name="ParlayMaxPayoutMultipleText" xml:space="preserve">
+    <value>修改多重串關最高派彩</value>
+  </data>
 </root>

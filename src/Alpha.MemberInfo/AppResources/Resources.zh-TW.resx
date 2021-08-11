@@ -588,4 +588,40 @@
   <data name="Deleted" xml:space="preserve">
     <value>刪除</value>
   </data>
+  <data name="ParlayMaxPayoutSubTitle" xml:space="preserve">
+    <value>串關最高派彩 {0}</value>
+  </data>
+  <data name="ParlayMaxPayoutSingleSubText" xml:space="preserve">
+    <value>串關最高派彩: {0}</value>
+  </data>
+  <data name="ParlayMaxPayoutMultipleSubText" xml:space="preserve">
+    <value>串關最高派彩</value>
+  </data>
+  <data name="SingleMatchParlay" xml:space="preserve">
+    <value>單場串關</value>
+  </data>
+  <data name="Combo2" xml:space="preserve">
+    <value>複選 2</value>
+  </data>
+  <data name="Combo35" xml:space="preserve">
+    <value>複選 3-5</value>
+  </data>
+  <data name="ComboOver6" xml:space="preserve">
+    <value>複選 6+ &#38; 系統串關</value>
+  </data>
+  <data name="ParlayMaxPayoutUpdateSuccessfully" xml:space="preserve">
+    <value>修改成功</value>
+  </data>
+  <data name="InvalidMaxPayoutValueText" xml:space="preserve">
+    <value>該數額必須為正數</value>
+  </data>
+  <data name="GreaterThanMaxValueText" xml:space="preserve">
+    <value>&lt;BetType&gt;: 該設置 &lt;Column&gt; 高於上線。</value>
+  </data>
+  <data name="soccerParlay" xml:space="preserve">
+    <value>足球混合過關</value>
+  </data>
+  <data name="mixsports" xml:space="preserve">
+    <value>混合體育過關</value>
+  </data>
 </root>

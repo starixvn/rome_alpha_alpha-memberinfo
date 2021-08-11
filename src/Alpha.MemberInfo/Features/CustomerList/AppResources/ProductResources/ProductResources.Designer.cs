@@ -890,6 +890,33 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Parlay Max Payout.
+        /// </summary>
+        public static string ParlayMaxPayoutMultipleText {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutMultipleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit &lt;username&gt;.
+        /// </summary>
+        public static string ParlayMaxPayoutPopupHeaderText {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutPopupHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parlay Max Payout.
+        /// </summary>
+        public static string ParlayMaxPayoutText {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 3rd Party Pending Transfer.
         /// </summary>
         public static string PendingTransfer3rd {

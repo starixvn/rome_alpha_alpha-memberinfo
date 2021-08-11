@@ -63,4 +63,29 @@
     <Setting Key="Acc_CustomerUpdDoubleCommLosing" SpName="Acc_CustomerUpdDoubleCommLosing" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_CustomerUpdLocked" SpName="Acc_CustomerUpdLocked" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
+
+  <Function Name="Parlay Max Payout">
+    <Setting Key="Acc_CustSetting_MaxPayoutSelect" SpName="Acc_CustSetting_MaxPayoutSelect" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0">
+      <Mapping DataField="SportType" ObjectProperty="SportTypeId" />
+      <Mapping DataField="BetType" ObjectProperty="BetTypeId" />
+      <Mapping DataField="Combo2" ObjectProperty="Combo2" />
+      <Mapping DataField="Combo35" ObjectProperty="Combo35" />
+      <Mapping DataField="ComboOver6" ObjectProperty="ComboOver6" />
+      <Mapping DataField="SingleMatchParlay" ObjectProperty="SingleMatchParlay" />
+      <Mapping DataField="Upline_SingleMatchParlay" ObjectProperty="UplineSingleMatchParlay" />
+      <Mapping DataField="Upline_Combo2" ObjectProperty="UplineCombo2" />
+      <Mapping DataField="Upline_Combo35" ObjectProperty="UplineCombo35" />
+      <Mapping DataField="Upline_ComboOver6" ObjectProperty="UplineComboOver6" />
+      <Mapping DataField="SingleMatchParlay_IsAllowUnlimit" ObjectProperty="IsAllowUnlimitSingleMatchParlay" />
+      <Mapping DataField="Combo2_IsAllowUnlimit" ObjectProperty="IsAllowUnlimitCombo2" />
+      <Mapping DataField="Combo35_IsAllowUnlimit" ObjectProperty="IsAllowUnlimitCombo35" />
+      <Mapping DataField="ComboOver6_IsAllowUnlimit" ObjectProperty="IsAllowUnlimitComboOver6" />
+    </Setting>
+    <Setting Key="Acc_CustSetting_MaxPayoutUpd" SpName="Acc_CustSetting_MaxPayoutUpd" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_CustSetting_MaxPayoutCheckDownline" SpName="Acc_CustSetting_MaxPayoutCheckDownline" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+  </Function>
+
+  <Function Name="UM On Product">
+    <Setting Key="Acc_CheckUM" SpName="Acc_CheckUM" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+  </Function>
 </Functions>

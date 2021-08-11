@@ -53,6 +53,10 @@ class CustomerListPopup {
             width = bodyWidth < 1160 ? `${bodyWidth - 50}px` : '1160px';
         }
 
+        if (!this.isMobile && url.indexOf('ParlayMaxPayout') > -1) {
+            this.$productPopupContainer.addClass('parlay-max-payout-popup-new');
+        }
+
         const showGuideLineData = this.$(currentTarget).data("showGuideLine"),
             showGuideLine = showGuideLineData === undefined || showGuideLineData === '' ? false : JSON.parse(this.$(currentTarget).data("showGuideLine")),
             formartGuideLineUrl = showGuideLine ? `<a class='icon-information-outline icon-info' href='${this.$(currentTarget).data("guideLineUrl")}' target='_blank'/>` : '';
@@ -61,7 +65,6 @@ class CustomerListPopup {
         this.$productPopupContainer
             .css({ height: '100%', width })
             .modal({ show: true, backdrop: false });
-
 
         this.$productPopupContainer.draggable({ containment: "window" });
         this.$.unblockUI();
@@ -153,7 +156,7 @@ class CustomerListPopup {
                 left = left - width;
             }
 
-            this.$statusPopupContainer.css({ top, left, height, width });
+            this.$statusPopupContainer.css({ top, left, height });
         }
     }
 

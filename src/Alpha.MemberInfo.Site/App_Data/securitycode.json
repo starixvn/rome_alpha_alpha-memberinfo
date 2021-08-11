@@ -7,7 +7,11 @@
     "QRCodeMemberSignIn/ShowQRCode",
     "QRCodeMemberSignIn/GenerateQrCode",
     "IndirectLoginAccount/NewAccount",
-    "IndirectLoginAccount/Disconnect"
+    "IndirectLoginAccount/Disconnect",
+    "ParlayMaxPayout/EditSingle",
+    "ParlayMaxPayout/EditMultiple",
+    "ParlayMaxPayout/UpdateSingle",
+    "ParlayMaxPayout/UpdateMultiple"
   ],
   "sites": [
   ],

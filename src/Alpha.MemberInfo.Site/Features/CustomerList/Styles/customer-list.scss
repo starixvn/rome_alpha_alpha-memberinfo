@@ -266,6 +266,16 @@ body:not(.modal-open) {
             }
         }
     }
+
+    &.parlay-max-payout-popup-new {
+        max-width: 1032px !important;
+        width: 100% !important;
+        height: 450px !important;
+
+        .modal-body-product {
+            padding-right: 0;
+        }
+    }
 }
 
 .dtr-column {

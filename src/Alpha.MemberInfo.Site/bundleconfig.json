@@ -158,7 +158,7 @@
       "assets/scripts/components/pager.js",
       "Features/DormantAccountList/Scripts/dormant-account-list.js"
     ]
-	},
+  },
   {
     "outputFileName": "Features/CustomerList/Bundles/customer-list.js",
     "inputFiles": [
@@ -193,6 +193,21 @@
     "outputFileName": "Features/CustomerList/Bundles/muliple-double-comm.js",
     "inputFiles": [
       "Features/CustomerList/Scripts/muliple-double-comm.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/ParlayMaxPayout/Bundles/parlay-max-payout.css",
+    "inputFiles": [
+      "Features/ParlayMaxPayout/Styles/parlay-max-payout.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/ParlayMaxPayout/Bundles/parlay-max-payout.js",
+    "inputFiles": [
+      "Features/ParlayMaxPayout/Scripts/parlay-max-payout-helper.js",
+      "Features/ParlayMaxPayout/Scripts/parlay-max-payout-alert.js",
+      "Features/ParlayMaxPayout/Scripts/parlay-max-payout-service.js",
+      "Features/ParlayMaxPayout/Scripts/parlay-max-payout.js"
     ]
   }
 ]

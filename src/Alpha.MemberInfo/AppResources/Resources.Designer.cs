@@ -241,6 +241,33 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Combo 2.
+        /// </summary>
+        public static string Combo2 {
+            get {
+                return ResourceManager.GetString("Combo2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combo 3-5.
+        /// </summary>
+        public static string Combo35 {
+            get {
+                return ResourceManager.GetString("Combo35", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combo 6+ &amp; System Parlay.
+        /// </summary>
+        public static string ComboOver6 {
+            get {
+                return ResourceManager.GetString("ComboOver6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Commission Setting Follows.
         /// </summary>
         public static string CommissionSettingFollows {
@@ -583,6 +610,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;Bet Type&gt;: The setting of &lt;Column&gt; is higher than the upline&apos;s..
+        /// </summary>
+        public static string GreaterThanMaxValueText {
+            get {
+                return ResourceManager.GetString("GreaterThanMaxValueText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Indirect Log In.
         /// </summary>
         public static string IndirectLogIn {
@@ -660,6 +696,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string InputExistingMemberAccount {
             get {
                 return ResourceManager.GetString("InputExistingMemberAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value must be a positive amount..
+        /// </summary>
+        public static string InvalidMaxPayoutValueText {
+            get {
+                return ResourceManager.GetString("InvalidMaxPayoutValueText", resourceCulture);
             }
         }
         
@@ -795,6 +840,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string MemberWinLossLimit {
             get {
                 return ResourceManager.GetString("MemberWinLossLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mix Sports Parlay.
+        /// </summary>
+        public static string mixsports {
+            get {
+                return ResourceManager.GetString("mixsports", resourceCulture);
             }
         }
         
@@ -948,6 +1002,42 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Pager_DisplayItems {
             get {
                 return ResourceManager.GetString("Pager_DisplayItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parlay Max Payout.
+        /// </summary>
+        public static string ParlayMaxPayoutMultipleSubText {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutMultipleSubText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parlay Max Payout: {0}.
+        /// </summary>
+        public static string ParlayMaxPayoutSingleSubText {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutSingleSubText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parlay Max Payout {0}.
+        /// </summary>
+        public static string ParlayMaxPayoutSubTitle {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutSubTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update successfully.
+        /// </summary>
+        public static string ParlayMaxPayoutUpdateSuccessfully {
+            get {
+                return ResourceManager.GetString("ParlayMaxPayoutUpdateSuccessfully", resourceCulture);
             }
         }
         
@@ -1263,6 +1353,24 @@ namespace Alpha.MemberInfo.AppResources {
         public static string ShowPassword {
             get {
                 return ResourceManager.GetString("ShowPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Single Match Parlay.
+        /// </summary>
+        public static string SingleMatchParlay {
+            get {
+                return ResourceManager.GetString("SingleMatchParlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soccer Parlay.
+        /// </summary>
+        public static string soccerParlay {
+            get {
+                return ResourceManager.GetString("soccerParlay", resourceCulture);
             }
         }
         

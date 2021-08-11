@@ -1,0 +1,37 @@
+﻿namespace Alpha.MemberInfo.Services
+{
+    using Criteria;
+    using Fanex.Data.Repository;
+    using Models;
+    using Params;
+
+    public interface CheckUMService
+    {
+        Result CheckUM(CheckUMParam param);
+    }
+
+    public class CheckUMServiceImpl : CheckUMService
+    {
+        private readonly CacheRefService refService;
+        private readonly IDynamicRepository repository;
+
+        public CheckUMServiceImpl(CacheRefService refService, IDynamicRepository repository)
+        {
+            this.refService = refService;
+            this.repository = repository;
+        }
+
+        public Result CheckUM(CheckUMParam param)
+        {
+            var criteria = new CheckUMCriteria(param.CustId, param.ProductId, param.Language);
+
+            repository.Execute(criteria);
+
+            return new Result
+            {
+                Code = criteria.ErrCode,
+                Message = string.Format(criteria.ErrMsg, refService.GetProductName(param.ProductId))
+            };
+        }
+    }
+}
