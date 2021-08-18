@@ -343,7 +343,8 @@
                              disableOutright: true,
                              uplineDisableOutright: true,
                              isAllDayBalTransfer: false,
-                             locked: 0);
+                             locked: 0,
+                             isProtectedMode: false);
 
         private static List<DCSProductStatusModel> StubDcsProducts()
             => new List<DCSProductStatusModel>

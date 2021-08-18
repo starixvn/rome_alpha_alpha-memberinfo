@@ -6,7 +6,7 @@
 
     public class ParlayMaxPayoutMultipleViewModel : SettingItemViewModel, ISettingItemMultipleViewModel
     {
-        public ParlayMaxPayoutMultipleViewModel(ISearchAccountInfoRequest request, int displayOrder = 1003)
+        public ParlayMaxPayoutMultipleViewModel(ISearchAccountInfoRequest request, int displayOrder = 1004)
             : base(request, displayOrder)
         {
         }

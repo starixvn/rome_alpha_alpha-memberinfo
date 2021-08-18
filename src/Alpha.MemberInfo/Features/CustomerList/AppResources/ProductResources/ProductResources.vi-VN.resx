@@ -507,4 +507,13 @@
   <data name="ParlayMaxPayoutMultipleText" xml:space="preserve">
     <value>Tuỳ chỉnh đồng loạt thanh toán tối đa cho Cược Xiên</value>
   </data>
+  <data name="ConfirmProtectedViewModelInCaseChangeProtectedStatusMessage" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn thay đổi Trạng Thái Bảo Vệ cho (các) tài khoản đã chọn không? Trạng Thái Bảo Vệ chỉ nên được bật trong các tình huống khẩn cấp.</value>
+  </data>
+  <data name="ConfirmProtectedViewModelText" xml:space="preserve">
+    <value>Được bảo vệ</value>
+  </data>
+  <data name="EditMultipleProtectedStatusText" xml:space="preserve">
+    <value>Tuỳ chỉnh đồng loạt Trạng Thái Bảo Vệ</value>
+  </data>
 </root>

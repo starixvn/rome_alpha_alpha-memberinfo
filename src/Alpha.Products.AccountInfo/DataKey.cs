@@ -12,6 +12,8 @@
             public const string IsClosed = "SearchAccount.IsClosed";
             public const string IsDirectClosed = "SearchAccount.Upline.IsDirectClosed";
             public const string IsLockedAccess = "SearchAccount.Locked";
+            public const string IsOfferProtectedMode = "SearchAccount.IsOfferProtectedMode";
+            public const string IsProtectedMode = "SearchAccount.IsProtectedMode";
             public const string IsEnableSecurityCode = "SearchAccount.IsEnableSecurityCode";
             public const string IsAllDayBalTransfer = "SearchAccount.IsAllDayBalTransfer";
             public const string AllowedAllDayBalTransfer = "SearchAccount.AllowedAllDayBalTransfer";
@@ -40,6 +42,7 @@
             public const string DisableAutoMasterPT = "DisableAutoMPT";
             public const string Closed = "Closed";
             public const string Unlock = "Unlock";
+            public const string Protected = "IsProtectionMode";
             public const string DoubleComm = "DoubleCommLosing";
             public const string DisableOutright = "DisableOutright";
             public const string Suspended = "Suspended";

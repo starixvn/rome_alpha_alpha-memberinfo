@@ -76,5 +76,7 @@
         bool IsShowMyanmarOdds { get; }
 
         bool CanViewReports { get; }
+
+        bool IsOfferProtectedMode { get; }
     }
 }

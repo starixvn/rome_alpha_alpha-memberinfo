@@ -67,6 +67,7 @@
 
             GlobalFilters.Filters.Add(new CheckBelongingFilter());
             GlobalFilters.Filters.Add(new AfterLoginFlowFilter());
+            GlobalFilters.Filters.Add(new ProtectedModeFilter());
 
             StaticResources.Init(GetBuildVersion());
 

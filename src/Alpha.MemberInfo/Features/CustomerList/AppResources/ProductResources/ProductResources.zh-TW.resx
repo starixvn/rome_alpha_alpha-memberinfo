@@ -484,20 +484,20 @@
     <value>鎖定訪問</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
-		<value>修改多重關閉狀態</value>
-	</data>
+    <value>修改多重關閉狀態</value>
+  </data>
   <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
-		<value>修改多重關閉狀態</value>
-	</data>
+    <value>修改多重關閉狀態</value>
+  </data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
-		<value>取消暫停 &lt;username&gt;</value>
-	</data>
+    <value>取消暫停 &lt;username&gt;</value>
+  </data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
-		<value>開啟 &lt;username&gt;</value>
-	</data>
+    <value>開啟 &lt;username&gt;</value>
+  </data>
   <data name="IndirectlyClosedByUpline" xml:space="preserve">
-		<value>此賬號被上線間接關閉。</value>
-	</data>
+    <value>此賬號被上線間接關閉。</value>
+  </data>
   <data name="ParlayMaxPayoutText" xml:space="preserve">
     <value>串關最高派彩</value>
   </data>
@@ -506,5 +506,14 @@
   </data>
   <data name="ParlayMaxPayoutMultipleText" xml:space="preserve">
     <value>修改多重串關最高派彩</value>
+  </data>
+  <data name="ConfirmProtectedViewModelInCaseChangeProtectedStatusMessage" xml:space="preserve">
+    <value>您確定要更改所選賬戶的保護狀態嗎？保護狀態應該在緊急情況下開啟。</value>
+  </data>
+  <data name="ConfirmProtectedViewModelText" xml:space="preserve">
+    <value>受保護</value>
+  </data>
+  <data name="EditMultipleProtectedStatusText" xml:space="preserve">
+    <value>修改多重保護狀態</value>
   </data>
 </root>

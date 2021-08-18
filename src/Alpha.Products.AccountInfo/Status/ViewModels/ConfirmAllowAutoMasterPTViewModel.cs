@@ -4,7 +4,7 @@
 
     public class ConfirmAllowAutoMasterPTViewModel : ConfirmStatusItemViewModelBase
     {
-        public ConfirmAllowAutoMasterPTViewModel(ISearchAccountInfoRequest request, int displayOrder = 4)
+        public ConfirmAllowAutoMasterPTViewModel(ISearchAccountInfoRequest request, int displayOrder = 6)
           : base(request, displayOrder)
         {
         }

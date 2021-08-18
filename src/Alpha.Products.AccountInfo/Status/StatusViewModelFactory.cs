@@ -21,6 +21,7 @@ namespace Alpha.Products.AccountInfo.Status
             yield return new ConfirmSuspendedViewModel(request);
             yield return new ConfirmClosedViewModel(request);
             yield return new ConfirmUnlockAccessViewModel(request);
+            yield return new ConfirmProtectedViewModel(request);
             yield return new ConfirmAllowOutrightViewModel(request);
             yield return new ConfirmAllowAutoMasterPTViewModel(request);
             yield return new ConfirmDoubleCommViewModel(request);

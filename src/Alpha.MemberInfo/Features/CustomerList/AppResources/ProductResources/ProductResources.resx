@@ -484,20 +484,20 @@
     <value>None</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
-		<value>Edit Multiple Closed Status</value>
-	</data>
+    <value>Edit Multiple Closed Status</value>
+  </data>
   <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
-		<value>Edit Multiple Closed Status</value>
-	</data>
+    <value>Edit Multiple Closed Status</value>
+  </data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
-		<value>Unsuspend &lt;username&gt;</value>
-	</data>
+    <value>Unsuspend &lt;username&gt;</value>
+  </data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
-		<value>Open &lt;username&gt;</value>
-	</data>
+    <value>Open &lt;username&gt;</value>
+  </data>
   <data name="IndirectlyClosedByUpline" xml:space="preserve">
-		<value>This account is indirectly closed by upline</value>
-	</data>
+    <value>This account is indirectly closed by upline</value>
+  </data>
   <data name="ParlayMaxPayoutText" xml:space="preserve">
     <value>Parlay Max Payout</value>
   </data>
@@ -506,5 +506,14 @@
   </data>
   <data name="ParlayMaxPayoutMultipleText" xml:space="preserve">
     <value>Edit Multiple Parlay Max Payout</value>
+  </data>
+  <data name="ConfirmProtectedViewModelInCaseChangeProtectedStatusMessage" xml:space="preserve">
+    <value>Are you sure you want to change the Protection Status for selected account(s)? Protection Status should just be turned on in emergency situations.</value>
+  </data>
+  <data name="ConfirmProtectedViewModelText" xml:space="preserve">
+    <value>Protected</value>
+  </data>
+  <data name="EditMultipleProtectedStatusText" xml:space="preserve">
+    <value>Edit Multiple Protection Status</value>
   </data>
 </root>

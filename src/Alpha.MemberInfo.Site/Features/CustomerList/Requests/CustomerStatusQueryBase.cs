@@ -2,6 +2,7 @@
 {
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.Shared.Requests;
+    using Alpha.Web.Configurations;
 
     public class CustomerStatusQueryBase : BaseRequest
     {
@@ -72,5 +73,7 @@
 
         public bool AllowedAllDayBalTransfer
             => viewer.AllowedAllDayBalTransfer;
+
+        public bool IsOfferProtectedMode => viewer.IsOfferProtectedMode;
     }
 }

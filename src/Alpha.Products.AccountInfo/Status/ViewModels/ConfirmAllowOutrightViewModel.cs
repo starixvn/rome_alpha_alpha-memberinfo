@@ -4,7 +4,7 @@
 
     public class ConfirmAllowOutrightViewModel : ConfirmStatusItemViewModelBase
     {
-        public ConfirmAllowOutrightViewModel(ISearchAccountInfoRequest request, int displayOrder = 3)
+        public ConfirmAllowOutrightViewModel(ISearchAccountInfoRequest request, int displayOrder = 5)
         : base(request, displayOrder)
         {
         }

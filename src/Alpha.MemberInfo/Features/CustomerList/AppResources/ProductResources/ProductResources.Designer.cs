@@ -359,6 +359,24 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to change the Protection Status for selected account(s)? Protection Status should just be turned on in emergency situations..
+        /// </summary>
+        public static string ConfirmProtectedViewModelInCaseChangeProtectedStatusMessage {
+            get {
+                return ResourceManager.GetString("ConfirmProtectedViewModelInCaseChangeProtectedStatusMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Protected.
+        /// </summary>
+        public static string ConfirmProtectedViewModelText {
+            get {
+                return ResourceManager.GetString("ConfirmProtectedViewModelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to change Suspend status for this customer? Warning, all members under this agent can&apos;t place bet!.
         /// </summary>
         public static string ConfirmSuspendedViewModelInCaseSuspendedMasterOrAgentMessage {
@@ -562,6 +580,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         public static string EditMultipleLiveCasinoText {
             get {
                 return ResourceManager.GetString("EditMultipleLiveCasinoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Protection Status.
+        /// </summary>
+        public static string EditMultipleProtectedStatusText {
+            get {
+                return ResourceManager.GetString("EditMultipleProtectedStatusText", resourceCulture);
             }
         }
         

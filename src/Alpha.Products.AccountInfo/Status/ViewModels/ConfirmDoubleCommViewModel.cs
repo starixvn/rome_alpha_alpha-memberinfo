@@ -4,7 +4,7 @@
 
     public class ConfirmDoubleCommViewModel : ConfirmStatusItemViewModelBase
     {
-        public ConfirmDoubleCommViewModel(ISearchAccountInfoRequest request, int displayOrder = 5)
+        public ConfirmDoubleCommViewModel(ISearchAccountInfoRequest request, int displayOrder = 7)
            : base(request, displayOrder)
         {
         }

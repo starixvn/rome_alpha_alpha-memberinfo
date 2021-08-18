@@ -1,5 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Tests.DataAccesses
 {
+    using System.Collections;
+    using System.Collections.Generic;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.Criteria;
     using Alpha.MemberInfo.Features.CustomerList.Models;
@@ -8,8 +10,6 @@
     using Alpha.MemberInfo.Tests.Extensions;
     using Fanex.Data;
     using NSubstitute;
-    using System.Collections;
-    using System.Collections.Generic;
     using Xunit;
 
     [Trait("Category", "CustomerList")]
@@ -148,7 +148,8 @@
                              disableOutright: true,
                              uplineDisableOutright: true,
                              isAllDayBalTransfer: false,
-                             locked: 0);
+                             locked: 0,
+                             isProtectedMode: false);
 
         private static List<DCSProductStatusModel> StubDcsProducts()
             => new List<DCSProductStatusModel>
