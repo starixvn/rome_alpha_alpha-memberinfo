@@ -12,7 +12,7 @@
         Level = CaptchaLevels.Low,
         IsForm = false,
         IsShowButton = false,
-        FunctionName = "QRCode"
+        FunctionName = "qrcode"
     };
 
     var userguideLink = UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
@@ -20,7 +20,7 @@
         MicroSites.HowToUseUrl("~/Index.aspx?redirectTo=QRCode");
 }
 @section Styles {
-    <link href="@Configuration.CaptchaStylesheet" rel="stylesheet" />
+    @Html.Stylesheet()
     @StaticResources.RenderStyles("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
 }
 @if (Model.ShowPageTitle)
@@ -87,7 +87,7 @@ else
                 @Html.Captcha(captchaSetting)
             </div>
             <div class="form-group">
-                <button type="submit" class="btn-submit" id="btn-submit">@Resources.CreateAccount</button>
+                <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateAccount</button>
             </div>
         </div>
         <input type="hidden" id="MemberAccountIsInvalid" value="@Resources.MemberAccountIsInvalid" />
@@ -96,7 +96,7 @@ else
         @Html.HiddenFor(m => m.ShowPageTitle)
         @Html.HiddenFor(m => m.MemberNameCopyFrom)
         @Html.HiddenFor(m => m.ShowQRCodeLink)
-		<input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
+        <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
         @Html.AntiForgeryToken()
     </form>
 
