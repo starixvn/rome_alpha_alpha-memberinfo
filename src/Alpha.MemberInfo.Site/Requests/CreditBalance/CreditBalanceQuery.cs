@@ -30,7 +30,10 @@
             CanViewBetLists = user.CanViewBetLists;
             LimitedDateToShowInfo = user.LimitedDateToShowInfo;
             IsAdminCanViewVNIP = user.IsAdminCanViewVNIP;
+            Language = user.Language;
         }
+
+        public string Language { get; }
 
         public int CustId
         {

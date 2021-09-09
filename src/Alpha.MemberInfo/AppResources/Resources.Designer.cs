@@ -277,6 +277,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Condition To Clear Credit.
+        /// </summary>
+        public static string ConditionToClearCredit {
+            get {
+                return ResourceManager.GetString("ConditionToClearCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connect.
         /// </summary>
         public static string Connect {
@@ -309,6 +318,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string CreateAccount {
             get {
                 return ResourceManager.GetString("CreateAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created Date.
+        /// </summary>
+        public static string CreatedDate {
+            get {
+                return ResourceManager.GetString("CreatedDate", resourceCulture);
             }
         }
         
@@ -610,7 +628,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;Bet Type&gt;: The setting of &lt;Column&gt; is higher than the upline&apos;s..
+        ///   Looks up a localized string similar to &lt;BetType&gt;: The setting of &lt;Column&gt; is higher than the upline&apos;s..
         /// </summary>
         public static string GreaterThanMaxValueText {
             get {

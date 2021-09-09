@@ -11,6 +11,8 @@ class CreditBalance {
     $: JQueryStatic;
     topWindow: any;
     creditBalanceForm: JQuery;
+    $reportLegend: JQuery;
+    $iconInformation: JQuery;
     pager: PagerComponent;
     columnsControl: ColumnsControlComponent;
     statusComponent: SingleSelectionDropdownComponent
@@ -60,6 +62,8 @@ class CreditBalance {
     cacheDOMElements = () => {
         this.creditBalanceForm = this.$("#creditBalanceForm");
         this.submitButton = this.$("#btn-submit");
+        this.$reportLegend = this.$("#report-legend");
+        this.$iconInformation = this.$("#icon-information");
     };
 
 	givenPopupOnclosing = (username = null, updateSuccessfully = false, credit = 0, custid = 0) => {
@@ -106,6 +110,19 @@ class CreditBalance {
 
         this.$(".iplink").click(function () {
             self.topWindow.popupManager.openByRelativeUrl("_IPInfo/IpInfo.aspx?ip=" + this.text, "", 400, 300);
+        });
+
+        this.$iconInformation.on("click", this.showLegend);
+    };
+
+    showLegend = () => {
+        this.$reportLegend.modal({ show: true, backdrop: false });
+
+        var iconHelpPosition = this.$iconInformation.position();
+        this.$reportLegend.css({
+            bottom: "auto",
+            top: iconHelpPosition.top + 90,
+            left: 0
         });
     };
 

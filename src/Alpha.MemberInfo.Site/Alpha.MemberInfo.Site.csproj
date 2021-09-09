@@ -450,6 +450,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <AdditionalFiles Include="..\..\SonarQube\alpha-memberinfo\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
     <Content Include="App_Data\SPNames\Internal\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBAGE.bodb02.BODBDownlineNet.xml" />
@@ -577,6 +580,9 @@
     <Content Include="assets\scripts\tests\libs\jquery\cookie.js" />
     <Content Include="assets\scripts\tests\libs\jquery\jquery-1.11.3.js" />
     <Content Include="assets\scripts\tests\libs\jquery\stickytableheaders.js" />
+    <Content Include="assets\styles\credit-balance.css">
+      <DependentUpon>credit-balance.scss</DependentUpon>
+    </Content>
     <Content Include="assets\styles\images\arrow.png" />
     <Content Include="assets\styles\images\Slide2.en-US.png" />
     <Content Include="assets\styles\images\Slide2.th-TH.png" />
@@ -599,9 +605,6 @@
     </Content>
     <Content Include="assets\styles\common.min.css">
       <DependentUpon>common.css</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\credit-balance.css">
-      <DependentUpon>credit-balance.scss</DependentUpon>
     </Content>
     <Content Include="assets\styles\images\star.gif" />
     <Content Include="assets\scripts\tests\libs\pagination\jquery.draggable.js" />
@@ -809,6 +812,11 @@
     <Content Include="Features\ParlayMaxPayout\Views\ParlayMaxPayoutSetting.cshtml" />
     <Content Include="Features\ParlayMaxPayout\Styles\_mixins.scss" />
     <Content Include="Features\ParlayMaxPayout\Styles\_variables.scss" />
+    <Content Include="Views\CreditBalance\Legend.en-US.cshtml" />
+    <Content Include="Views\CreditBalance\Legend.zh-CN.cshtml" />
+    <Content Include="Views\CreditBalance\Legend.zh-TW.cshtml" />
+    <Content Include="Views\CreditBalance\Legend.th-TH.cshtml" />
+    <Content Include="Views\CreditBalance\Legend.vi-VN.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfig.cs">

@@ -9,7 +9,9 @@
     let template: any = {
         normal: `<body>
                     <div class="page-title">
-                        <span>Credit/Balance</span>
+                        <span>Credit/Balance
+                            <span id="icon-information" class="icon icon-information-outline"></span>
+                        </span>
                     </div>
                     <form action="/site-memberinfo/creditbalance" id="creditBalanceForm">
                         <div class="form-group">
@@ -61,6 +63,7 @@
                                     <th class="column-yb">Yesterday Balance</th>
                                     <th class="column-bc">Available Credit</th>
                                     <th class="column-ot">Outstanding</th>
+                                    <th class="column-crd">Created Date</th>
                                     <th class="column-ll">Last Login</th>
                                     <th class="column-li">Login IP</th>
                                     <th class="column-un">Username</th>
@@ -91,6 +94,7 @@
                                     <td class="text-right column-bc">826,715,185</td>
                                     <td class="text-right column-ot">371,662</td>
                                     <td class="text-right column-to">2,468,058</td>
+                                    <td class="text-center text-sm column-crd">08/07/2018 04:47:00 AM</td>
                                     <td class="text-center text-sm column-ll">08/07/2018 04:47:00 AM</td>
                                     <td class="text-center text-sm column-li">
                                         <a href="javascript:;" class="link iplink column-loginip">::1</a>
@@ -123,6 +127,7 @@
                                     <td class="text-right column-bc">0</td>
                                     <td class="text-right column-ot">0</td>
                                     <td class="text-right column-to">0</td>
+                                    <td class="text-center text-sm column-crd">-</td>
                                     <td class="text-center text-sm column-ll">-</td>
                                     <td class="text-center text-sm column-li">
                                         <a href="javascript:;" class="link iplink column-loginip">192.168.1.1</a>
