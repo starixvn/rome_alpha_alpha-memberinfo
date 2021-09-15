@@ -40,7 +40,7 @@ body:not(.modal-open) {
     .btn-group, select {
         appearance: auto;
         box-shadow: none;
-        border-radius: 4px;
+        border-radius: 0;
         margin: 0;
 
         .dropdown-menu {
@@ -48,9 +48,13 @@ body:not(.modal-open) {
         }
     }
 
+    select {
+        width: 80px;
+    }
+
     [class*="btn-"] {
         box-shadow: none;
-        border-radius: 4px;
+        border-radius: 0;
     }
 
     .btn {
@@ -69,11 +73,29 @@ body:not(.modal-open) {
 .dataTable {
     width: 100% !important;
     overflow: hidden;
+    border: none !important;
 
     .status-popup {
         span:first-child {
             cursor: pointer;
         }
+    }
+
+    thead tr th {
+        border-top: 1px solid #3e3f41 !important;
+        height: 28px;
+        padding: 10px 8px;
+        white-space: nowrap;
+        vertical-align: middle;
+        box-sizing: border-box;
+        background: #383838;
+        border-left: 1px solid #5f626b !important;
+    }
+
+    thead .thead-row2 th {
+        background: #2e2e2e !important;
+        border-top: 1px solid #5f626b !important;
+        border-bottom: 1px solid #3e3f41 !important;
     }
 
     .icon-table-edit {
@@ -129,11 +151,11 @@ body:not(.modal-open) {
     }
 
     .closed-byAdmin {
-        background-color: #b3a2c7 !important;
+        background-color: #453659 !important;
     }
 
     .closed-byUpline {
-        background-color: #f79646 !important;
+        background-color: #874D1E !important;
     }
 
     .closed-wrongOTPSC {
@@ -141,19 +163,31 @@ body:not(.modal-open) {
     }
 
     .closed-byArchive {
-        background-color: #969696 !important;
+        background-color: #0D3C54 !important;
     }
 
     .RowBgSuspended {
-        background-color: #584571;
+        background-color: #805757 !important;
     }
 
     .RowBgDisabled {
-        background-color: #a0a97a !important;
+        background-color: #4B5425 !important;
     }
 
     .login-ip, .icon-statement {
         cursor: pointer;
+    }
+
+    .locked-falseOTPSC {
+        background-color: #315063 !important;
+    }
+
+    .locked-falsePassword {
+        background-color: #6E654E !important;
+    }
+
+    a {
+        color: #41A4FF;
     }
 }
 
@@ -302,8 +336,18 @@ table.dataTable tbody tr {
 
 .filter {
     padding-bottom: 0;
+
     .form-group {
         padding-bottom: 12px;
+    }
+
+    .easy-autocomplete {
+        input {
+            border-radius: 0;
+            &::placeholder {
+                color: #e7e7e7;
+            }
+        }
     }
 }
 
@@ -339,3 +383,4 @@ table.dataTable tbody tr {
         }
     }
 }
+
