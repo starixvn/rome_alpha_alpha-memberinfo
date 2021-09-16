@@ -9,6 +9,7 @@
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Models.IndirectLoginAccount;
     using Alpha.MemberInfo.Params.IndirectLoginAccount;
+    using Fanex.Cryptography.Aes;
     using Fanex.Data.Repository;
     using RSACryptoPad;
     using Sunplus.Agent.Utilities;
@@ -34,12 +35,12 @@
         private const int KeySize = 1024;
 
         private readonly IDynamicRepository dynamicRepository;
-        private readonly AesService aes;
+        private readonly IAesService aes;
         private readonly Encryptor encryptor;
 
         public IndirectLoginAccountServiceImpl(
             IDynamicRepository dynamicRepository,
-            AesService aes,
+            IAesService aes,
             Encryptor encryptor)
         {
             this.dynamicRepository = dynamicRepository;
