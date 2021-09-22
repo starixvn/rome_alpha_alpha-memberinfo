@@ -98,6 +98,10 @@ body:not(.modal-open) {
         border-bottom: 1px solid #3e3f41 !important;
     }
 
+    tbody tr td {
+        padding: 0px 8px !important;
+    }
+
     .icon-table-edit {
         cursor: pointer;
         position: relative;
@@ -394,10 +398,10 @@ table.dataTable tbody tr {
 
 .checkmark {
     position: absolute;
-    top: 0;
+    top: 0px;
     left: 10px;
-    height: 16px;
-    width: 16px;
+    height: 15px;
+    width: 15px;
     background-color: transparent;
     border: 1px solid #999999;
     border-radius: 3px;
