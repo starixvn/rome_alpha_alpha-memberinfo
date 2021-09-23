@@ -194,7 +194,7 @@ class CustomerListDataTable {
             columns.push({
                 "className": 'center',
                 "data": null,
-                "render": item => `<label class="custom-checkbox"><input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/><span class="checkmark"></span></label>`
+                "render": item => `<input type="checkbox" class="checkbox" data-custid="${item.CustId}" data-username="${item.Username}"/>`
             });
         }
 
