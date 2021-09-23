@@ -434,6 +434,15 @@ table.dataTable tbody tr {
     transform: rotate(45deg);
 }
 
+.col-username {
+    position: relative;
+    .icon-locked {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+}
+
 
 
 @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
