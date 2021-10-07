@@ -17,7 +17,11 @@
             => await ViewAsync(message);
 
         public ActionResult NewAccount(NewAccountQuery message)
-            => View(mediator.Send(message));
+        {
+            AssignDarkModeViewData();
+            return View(mediator.Send(message));
+
+        }
 
         [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> NewAccount(NewAccountCommand message)
