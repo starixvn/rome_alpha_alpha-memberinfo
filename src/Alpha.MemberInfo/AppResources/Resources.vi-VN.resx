@@ -615,4 +615,10 @@
   <data name="mixsports" xml:space="preserve">
     <value>Mix Sports Parlay</value>
   </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Ngày tạo</value>
+  </data>
+  <data name="ConditionToClearCredit" xml:space="preserve">
+    <value>Điều Kiện Để Xoá Hạn Mức Được Cấp</value>
+  </data>
 </root>

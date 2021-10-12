@@ -16,21 +16,22 @@
                 <div id="msg-content">
                     @if (Model.CustLevel.IsAgentLevel())
                     {
-                        <p>- Any Member has not logged in after created by Agent for over 14 days.</p>
+                    <p>- Bao gồm các Member chưa đăng nhập sau khi được tạo bởi Agent trong hơn 14 ngày.</p>
                     }
                     else
                     {
-                        <span>Downlines’ given credit will be automatically cleared if any of the following conditions are met.</span>
+                        <span>Hạn mức được cấp của các cấp dưới sẽ bị tự động xóa trong các trường hợp sau đây:
+                        </span>
                         if (Model.CustLevel.IsSuperLevel())
                         {
                             <ul class="list-msg">
                                 <li>
-                                    For Master/Agent who does not have any downlines:
-                                    <p>- Any Master/Agent has not logged in after created by direct upline for over 7 days.</p>
+                                    Đối với Master/Agent không có cấp dưới:
+                                    <p>- Bao gồm các Master/Agent chưa đăng nhập sau khi được tạo bởi cấp trên trực thuộc trong hơn 7 ngày.</p>
                                 </li>
                                 <li>
-                                    For Member:
-                                    <p>- Any Member has not logged in after created by Agent for over 14 days.</p>
+                                    Đối với Member:
+                                    <p>- Bao gồm các Member chưa đăng nhập sau khi được tạo bởi Agent trong hơn 14 ngày.</p>
                                 </li>
                             </ul>
                         }
@@ -38,12 +39,12 @@
                         {
                             <ul class="list-msg">
                                 <li>
-                                    For Agent who does not have any downlines:
-                                    <p>- Any Agent has not logged in after created by direct upline for over 7 days.</p>
+                                    Đối với Agent không có cấp dưới:
+                                    <p>- Bao gồm các Agent chưa đăng nhập sau khi được tạo bởi Master trong hơn 7 ngày.</p>
                                 </li>
                                 <li>
-                                    For Member:
-                                    <p>- Any Member has not logged in after created by Agent for over 14 days.</p>
+                                    Đối với Member:
+                                    <p>- Bất kỳ Member chưa đăng nhập sau khi được tạo bởi Agent trong hơn 14 ngày.</p>
                                 </li>
                             </ul>
                         }
