@@ -268,5 +268,11 @@
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
       "Features/CustomerList/Styles/customer-list-dark.css"
     ]
+  },
+  {
+    "outputFileName": "Features/ParlayMaxPayout/Bundles/parlay-max-payout-dark.css",
+    "inputFiles": [
+      "Features/ParlayMaxPayout/Styles/parlay-max-payout-dark.css"
+    ]
   }
 ]

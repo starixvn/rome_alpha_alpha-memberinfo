@@ -110,5 +110,9 @@
   {
     "outputFile": "Views/ProgressiveJackpot/Handbook/Styles/page-dark.css",
     "inputFile": "Views/ProgressiveJackpot/Handbook/Styles/page-dark.scss"
+  },
+  {
+    "outputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout-dark.css",
+    "inputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout-dark.scss"
   }
 ]

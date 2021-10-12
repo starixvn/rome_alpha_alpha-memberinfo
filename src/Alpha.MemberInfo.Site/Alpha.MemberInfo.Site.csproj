@@ -89,7 +89,7 @@
       <HintPath>..\..\packages\Alpha.Utilities.IP.1.0.3.2\lib\net461\Alpha.Utilities.IP.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.Web, Version=1.0.8.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Web.1.0.8.6-dark10\lib\net461\Alpha.Web.dll</HintPath>
+      <HintPath>..\..\packages\Alpha.Web.1.0.8.6-dark11\lib\net461\Alpha.Web.dll</HintPath>
     </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Antlr3.Runtime.3.3.1.7705\lib\net20\Antlr3.Runtime.dll</HintPath>
@@ -773,10 +773,24 @@
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.min.css">
       <DependentUpon>dormant-account-list.css</DependentUpon>
     </Content>
+    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout-dark.css" />
+    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout-dark.min.css">
+      <DependentUpon>parlay-max-payout-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout-dark.css">
+      <DependentUpon>parlay-max-payout-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout-dark.min.css">
+      <DependentUpon>parlay-max-payout-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.css">
+      <DependentUpon>parlay-max-payout.scss</DependentUpon>
+    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in-dark.css" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in-dark.min.css">
       <DependentUpon>qr-code-member-sign-in-dark.css</DependentUpon>
     </Content>
+    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout-dark.scss" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
@@ -924,6 +938,7 @@
     <Content Include="Features\ParlayMaxPayout\Styles\_variables.scss" />
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.scss" />
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page-dark.scss" />
+    <Content Include="Features\ParlayMaxPayout\Styles\_variables-dark.scss" />
     <Content Include="Views\CreditBalance\Legend.en-US.cshtml" />
     <Content Include="Views\CreditBalance\Legend.zh-CN.cshtml" />
     <Content Include="Views\CreditBalance\Legend.zh-TW.cshtml" />
