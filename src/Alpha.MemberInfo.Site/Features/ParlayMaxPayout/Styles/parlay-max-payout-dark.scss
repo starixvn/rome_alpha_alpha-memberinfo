@@ -31,8 +31,8 @@ body {
 
     .pmp-heading {
         @include content-space();
-        background-color: #666;
-        color: #fff;
+        background-color: #383838;
+        color: #EDEDED;
         font-weight: bold;
         padding: 0 8px;
     }
@@ -145,11 +145,14 @@ body {
                 border-top: $border-value;
 
                 .tb-setting {
-                    border: $border-value;
+                    border: 1px solid #474747;
                     box-shadow: none;
+                    background: #313131;
 
                     &:disabled {
-                        background-color: #bfbfbf;
+                        background-color: #2B2B2B !important;
+                        color: #464646;
+                        border: 1px solid #474747 !important; 
                     }
                 }
             }
