@@ -25,12 +25,9 @@
         }
 
         protected ActionResult View<TResponse>(IRequest<TResponse> message, string viewName)
-        {
-            AssignDarkModeViewData();
-            return (message as MemberInfoBaseQuery).IsValid()
+            => (message as MemberInfoBaseQuery).IsValid()
                 ? View(viewName, mediator.Send(message))
                 : View(InvalidPageViewPath);
-        }
 
         protected FileContentResult ExcelView(IRequest<ExcelFileViewModel> message)
             => (message as MemberInfoBaseQuery).IsValid()
@@ -46,20 +43,14 @@
             => File(viewModel.Content, ExcelFileViewModel.ContentType, viewModel.Name);
 
         protected async Task<ActionResult> ViewAsync<TResponse>(IAsyncRequest<TResponse> message)
-        {
-            AssignDarkModeViewData();
-            return (message as MemberInfoBaseQuery).IsValid()
+            => (message as MemberInfoBaseQuery).IsValid()
                 ? View(await mediator.SendAsync(message))
                 : View(InvalidPageViewPath);
-        }
 
         protected async Task<ActionResult> ViewAsync<TResponse>(IAsyncRequest<TResponse> message, string viewName)
-        {
-            AssignDarkModeViewData();
-            return (message as MemberInfoBaseQuery).IsValid()
+            => (message as MemberInfoBaseQuery).IsValid()
                 ? View(viewName, await mediator.SendAsync(message))
                 : View(InvalidPageViewPath);
-        }
 
         protected async Task<ActionResult> JsonAsync<TResponse>(
             IAsyncRequest<TResponse> message,

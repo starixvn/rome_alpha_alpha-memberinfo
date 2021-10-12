@@ -5,14 +5,13 @@
 @model ProblemAccountReportViewModel
 @{
     ViewBag.Title = Resources.ProblemAccountList;
-    var darkModeName = ViewData["DarkModeName"];
 }
 @section Styles {
-    @StaticResources.AssetStyles.Render($"/bundles/site-memberinfo/problem-account-{Model.Query.CustLevel.DisplayName}{darkModeName}")
-    @StaticResources.RenderStyles($"~/assets/bundles/problem-account/index{darkModeName}")
+    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/site-memberinfo/problem-account-{Model.Query.CustLevel.DisplayName}")
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/problem-account/index")
 }
 
-<div class="page-title title-@ViewData["TitleLevel"]">
+<div class="page-title">
     <span class="pull-left">@Resources.ProblemAccountList</span>
 </div>
 <div id="page_main">

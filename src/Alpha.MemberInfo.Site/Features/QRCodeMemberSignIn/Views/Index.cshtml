@@ -21,11 +21,11 @@
 }
 @section Styles {
     @Html.Stylesheet()
-    @StaticResources.RenderStyles($"~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in{ViewData["DarkModeName"]}")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
 }
 @if (Model.ShowPageTitle)
 {
-    <div class="page-title title-agent">
+    <div class="page-title">
         <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
         &nbsp;<a href="@userguideLink" target="_blank"><span class="icon icon-information-outline"></span></a>
     </div>

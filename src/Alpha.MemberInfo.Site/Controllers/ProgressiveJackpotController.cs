@@ -19,10 +19,7 @@
             => View(message, "~/Views/ProgressiveJackpot/Index.cshtml");
 
         public ActionResult Handbook()
-        {
-            AssignDarkModeViewData();
-            return View($"~/Views/ProgressiveJackpot/Handbook/{viewer.Language}.cshtml");
-        }
+            => View($"~/Views/ProgressiveJackpot/Handbook/{viewer.Language}.cshtml");
 
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {

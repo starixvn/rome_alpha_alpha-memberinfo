@@ -14,11 +14,8 @@
         }
 
         public async Task<ActionResult> Index(CreditBalanceQuery message)
-        {
-            AssignDarkModeViewData();
-            return View(message.IsValid()
+            => View(message.IsValid()
                 ? await mediator.SendAsync(message)
                 : new CreditBalanceViewModel(message));
-        }
     }
 }

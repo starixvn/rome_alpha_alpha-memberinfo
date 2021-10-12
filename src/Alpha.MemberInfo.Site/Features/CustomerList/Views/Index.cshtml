@@ -11,17 +11,16 @@
     var userguideLink = UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
         MicroSites.MessageUrl("~/StaticMessage/Guide?id=137130") :
         MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=137130");
-    var darkModeName = ViewData["DarkModeName"];
 }
 
 @section Styles {
-    @StaticResources.AssetStyles.RenderCommon($"/bundles/site-asset/data-table{darkModeName}")
-    @StaticResources.RenderStyles($"~/Features/CustomerList/Bundles/customer-list{darkModeName}")
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/CustomerList/Bundles/customer-list")
     @StaticResources.RenderStylesWithMedia(767, "~/Features/CustomerList/Bundles/customer-list-07")
 }
 
 <div class="customer-list">
-    <div class="page-title title-@ViewData["TitleLevel"]">
+    <div class="page-title">
         @if (!string.IsNullOrWhiteSpace(Model.PageTitle))
         {
             <span class="text-title pull-left">

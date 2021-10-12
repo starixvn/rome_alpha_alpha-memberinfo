@@ -1,5 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
+    using System;
+    using System.Diagnostics;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Mvc;
@@ -13,8 +15,6 @@
     using Fanex.Logging.Extensions.Web;
     using MediatR;
     using Sunplus.Agent.Model.Entities;
-    using System;
-    using System.Diagnostics;
 
     public class QRCodeMemberSignInController : SiteBaseController
     {
@@ -113,7 +113,6 @@
         [HttpGet]
         public ActionResult ShowQRCode(ShowQRCodeRequest message)
         {
-            AssignDarkModeViewData();
             if (message != null && !message.IsValid())
             {
                 return View(message.IsInternal ? NotAuthorizedPath : InvalidPageViewPath);

@@ -10,14 +10,14 @@
 }
 
 @section Styles {
-    @StaticResources.RenderStyles($"~/Features/DormantAccountList/Bundles/dormant-account-list{ViewData["DarkModeName"]}")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/DormantAccountList/Bundles/dormant-account-list")
 }
 
 @section Scripts {
     @StaticResources.RenderScripts("~/Features/DormantAccountList/Bundles/dormant-account-list")
 }
 
-<div class="page-title title-@ViewData["TitleLevel"]">
+<div class="page-title">
     <span class="pull-left">@Resources.DormantAccountList</span>
     &nbsp;<span class="icon icon-information-outline" data-toggle="modal" data-backdrop="false" data-target="#popup-archiveProcess" id="icon-archiveProcess"></span>
 </div>

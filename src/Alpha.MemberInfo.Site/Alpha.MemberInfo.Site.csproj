@@ -89,7 +89,7 @@
       <HintPath>..\..\packages\Alpha.Utilities.IP.1.0.3.2\lib\net461\Alpha.Utilities.IP.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.Web, Version=1.0.8.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Web.1.0.8.6-dark05\lib\net461\Alpha.Web.dll</HintPath>
+      <HintPath>..\..\packages\Alpha.Web.1.0.8.6-dark10\lib\net461\Alpha.Web.dll</HintPath>
     </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Antlr3.Runtime.3.3.1.7705\lib\net20\Antlr3.Runtime.dll</HintPath>
@@ -319,8 +319,8 @@
       <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.5.6-dark02\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.5.9-dark01\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Model.Casino.3.0.0.5\lib\net461\Sunplus.Agent.Model.Casino.dll</HintPath>
@@ -873,8 +873,18 @@
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-1.png" />
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-2.png" />
     <Content Include="Views\ProgressiveJackpot\Handbook\Styles\Images\vn\case-3.png" />
-    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page-dark.css" />
-    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.css" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page-dark.css">
+      <DependentUpon>page-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page-dark.min.css">
+      <DependentUpon>page-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.css">
+      <DependentUpon>page.scss</DependentUpon>
+    </Content>
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.min.css">
+      <DependentUpon>page.css</DependentUpon>
+    </Content>
     <Content Include="Views\Shared\InvalidPage.cshtml" />
     <Content Include="Web.AppSettings.local2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
@@ -912,6 +922,8 @@
     <Content Include="Features\ParlayMaxPayout\Views\ParlayMaxPayoutSetting.cshtml" />
     <Content Include="Features\ParlayMaxPayout\Styles\_mixins.scss" />
     <Content Include="Features\ParlayMaxPayout\Styles\_variables.scss" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.scss" />
+    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page-dark.scss" />
     <Content Include="Views\CreditBalance\Legend.en-US.cshtml" />
     <Content Include="Views\CreditBalance\Legend.zh-CN.cshtml" />
     <Content Include="Views\CreditBalance\Legend.zh-TW.cshtml" />
