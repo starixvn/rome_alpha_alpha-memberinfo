@@ -70,7 +70,7 @@ body:not(.modal-open) {
 
 .dataTable {
     width: 100% !important;
-    overflow: hidden;
+    //overflow: hidden;
 
     .status-popup {
         span:first-child {
@@ -352,4 +352,15 @@ table.dataTable tbody tr {
             margin-right: 0;
         }
     }
+}
+
+.fixedHeader-floating {
+    display: none !important;
+}
+
+#tbl-customer-list thead {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 99999;
 }
