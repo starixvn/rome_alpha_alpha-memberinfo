@@ -66,6 +66,7 @@
                     -20399.61m,
                     371662,
                     new DateTime(2018, 8, 6, 23, 35, 0),
+                    new DateTime(2018, 8, 6, 23, 35, 0),
                     "10.18.200.119"),
             };
 
@@ -114,6 +115,7 @@
                     -20399.61m,
                     371662,
                     new DateTime(2018, 8, 6, 23, 35, 0),
+                    new DateTime(2018, 8, 6, 23, 35, 0),
                     "10.18.200.119"),
             };
             dynamicRepository.FetchAsync<CreditBalanceItem>(Arg.Any<GetMasterCreditBalanceCriteria>())
@@ -158,6 +160,7 @@
                     -20399.61m,
                     -20399.61m,
                     371662,
+                    new DateTime(2018, 8, 6, 23, 35, 0),
                     new DateTime(2018, 8, 6, 23, 35, 0),
                     "10.18.200.119"),
             };
@@ -211,6 +214,7 @@
                     -20399.61m,
                     371662,
                     new DateTime(2018, 8, 6, 23, 35, 0),
+                    new DateTime(2018, 8, 6, 23, 35, 0),
                     "10.18.200.119"),
             };
             dynamicRepository.FetchAsync<CreditBalanceItem>(Arg.Any<GetSuperCreditBalanceCriteria>())
@@ -252,6 +256,7 @@
                     -20399.61m,
                     371662,
                     new DateTime(2018, 8, 6, 23, 35, 0),
+                    new DateTime(2018, 8, 6, 23, 35, 0),
                     "10.18.200.119"),
             };
             dynamicRepository.FetchAsync<CreditBalanceItem>(Arg.Any<GetMasterCreditBalanceCriteria>())
@@ -292,6 +297,7 @@
                     -20399.61m,
                     -20399.61m,
                     371662,
+                    new DateTime(2018, 8, 6, 23, 35, 0),
                     new DateTime(2018, 8, 6, 23, 35, 0),
                     "10.18.200.119"),
             };

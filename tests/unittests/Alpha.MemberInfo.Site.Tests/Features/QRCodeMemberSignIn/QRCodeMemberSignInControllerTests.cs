@@ -202,7 +202,7 @@
                 ShowPageTitle = true
             };
 
-            controller.ModelState.AddModelError("QRCode", "Invalid Captcha.");
+            controller.ModelState.AddModelError("c_v_1", "Invalid Captcha.");
 
             // Act
             var actualData = controller.CreateAccount(message).Result as JsonResult;
