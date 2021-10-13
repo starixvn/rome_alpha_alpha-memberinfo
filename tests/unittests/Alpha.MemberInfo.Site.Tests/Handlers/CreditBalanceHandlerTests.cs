@@ -99,6 +99,7 @@
                 -20399.61m,
                 371662,
                 new DateTime(2018, 8, 7, 4, 47, 0),
+                new DateTime(2018, 8, 7, 4, 47, 0),
                 "192.168.1.1");
             var pagedCreditBalances = new PagedCreditBalance(1, 500, 1, new List<CreditBalanceItem> { creditBalanceItem });
 
