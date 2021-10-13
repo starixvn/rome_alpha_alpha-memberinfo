@@ -8,7 +8,11 @@
     var pagedCreditBalances = Model.PagedCreditBalances;
 }
 <div class="page-title">
-    <span>@Resources.CreditBalance</span>
+    <span>
+        @Resources.CreditBalance
+        <span id="icon-information" class="icon icon-information-outline"></span>
+    </span>
+
 </div>
 @using (Html.BeginForm("Index", "CreditBalance", FormMethod.Get, new { id = "creditBalanceForm", @class = "form-inline filter", role = "form" }))
 {
@@ -62,6 +66,7 @@
                 <th class="column-ot">@Resources.Outstanding</th>
                 @if (Model.IsShowDateTimeColumn)
                 {
+                    <th class="column-crd">@Resources.CreatedDate</th>
                     <th class="column-ll">@Resources.LastLogin</th>
                 }
                 <th class="column-li">@Resources.LoginIP</th>
@@ -86,6 +91,7 @@
                         <td class="text-right column-ot">@renderOutstandingColumn(item)</td>
                         @if (Model.IsShowDateTimeColumn)
                         {
+                            <td class="text-center text-sm column-crd">@item.CreatedDate.FormatDateTimeEn12()</td>
                             <td class="text-center text-sm column-ll">@item.LastLogged.FormatDateTimeEn12()</td>
                         }
                         <td class="text-center text-sm column-li">
@@ -101,13 +107,13 @@
         }
         else
         {
-            @NoInformation.Render(13);
+            @NoInformation.Render(14);
         }
         @if (pagedCreditBalances.ShowPager)
         {
             <tfoot>
                 <tr>
-                    <td colspan="13">
+                    <td colspan="14">
                         @Pager.Render(new PagerViewModel(pagedCreditBalances.PageIndex, pagedCreditBalances.PageSize, pagedCreditBalances.TotalItems))
                     </td>
                 </tr>
@@ -119,7 +125,7 @@
 <input type="hidden" value="@Model.CookiePrefix" id="CookiePrefix" />
 <input type="hidden" value="@Model.GivenCreditLink" id="GivenCreditLink" />
 <input type="hidden" value="@Resources.GivenCreditPopupTitle" id="GivenCreditPopupTitle" />
-
+@Html.Partial(Model.LegendView, Model)
 @helper RenderUsernameColumn(CreditBalanceItem item, int pageSize)
 {
     if (Model.IsViewingMemberList)

@@ -19,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 	ProjectSection(SolutionItems) = preProject
 		SonarQube\Alpha-MemberInfoCSharp.ruleset = SonarQube\Alpha-MemberInfoCSharp.ruleset
 		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+		SonarQube\alpha-memberinfo\CSharp\SonarLint.xml = SonarQube\alpha-memberinfo\CSharp\SonarLint.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Products.AccountInfo", "src\Alpha.Products.AccountInfo\Alpha.Products.AccountInfo.csproj", "{D00A2D4E-7115-48A5-A8A5-5DA2354CF1E9}"

@@ -624,4 +624,10 @@
   <data name="mixsports" xml:space="preserve">
     <value>กีฬาบอลชุด</value>
   </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>สร้างขึ้นเมื่อ</value>
+  </data>
+  <data name="ConditionToClearCredit" xml:space="preserve">
+    <value>เงื่อนไขในการเคลียร์เครดิต</value>
+  </data>
 </root>

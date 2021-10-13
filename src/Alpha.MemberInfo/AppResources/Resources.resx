@@ -610,7 +610,7 @@
     <value>Combo 3-5</value>
   </data>
   <data name="ComboOver6" xml:space="preserve">
-    <value>Combo 6+ &#38; System Parlay</value>
+    <value>Combo 6+ &amp; System Parlay</value>
   </data>
   <data name="ParlayMaxPayoutUpdateSuccessfully" xml:space="preserve">
     <value>Update successfully</value>
@@ -626,5 +626,11 @@
   </data>
   <data name="mixsports" xml:space="preserve">
     <value>Mix Sports Parlay</value>
+  </data>
+  <data name="ConditionToClearCredit" xml:space="preserve">
+    <value>Condition To Clear Credit</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Created Date</value>
   </data>
 </root>

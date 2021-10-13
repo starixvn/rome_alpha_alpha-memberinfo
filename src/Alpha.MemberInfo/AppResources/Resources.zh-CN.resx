@@ -607,7 +607,7 @@
     <value>复选 3-5</value>
   </data>
   <data name="ComboOver6" xml:space="preserve">
-    <value>复选 6+ &#38; 系统串关</value>
+    <value>复选 6+ &amp; 系统串关</value>
   </data>
   <data name="ParlayMaxPayoutUpdateSuccessfully" xml:space="preserve">
     <value>修改成功</value>
@@ -623,5 +623,11 @@
   </data>
   <data name="mixsports" xml:space="preserve">
     <value>混合体育过关</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>新增日期</value>
+  </data>
+  <data name="ConditionToClearCredit" xml:space="preserve">
+    <value>清除信用额的条件</value>
   </data>
 </root>

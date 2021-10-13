@@ -26,11 +26,13 @@
             string transferCondition,
             CreditBalanceQuery message)
         {
+            LegendView = $"Legend.{message.Language}";
             PagedCreditBalances = pagedCreditBalances;
             TransferCondition = transferCondition;
 
             CustId = message.CustId;
             CustLevelId = message.CustLevelId;
+            CustLevel = message.CustLevel;
             UserName = message.UserName;
             StatusId = message.StatusId.Value;
 
@@ -48,6 +50,8 @@
             CookiePrefix = Encryption.PearsonEncode(string.Concat(message.LoggedInUserId, message.ActorId, message.SubAccId, "CreditBalance"));
         }
 
+        public string LegendView { get; }
+
         public PagedCreditBalance PagedCreditBalances { get; }
 
         public string TransferCondition { get; }
@@ -55,6 +59,8 @@
         public int CustId { get; }
 
         public byte CustLevelId { get; }
+
+        public UserLevel CustLevel { get; }
 
         public string UserName { get; }
 

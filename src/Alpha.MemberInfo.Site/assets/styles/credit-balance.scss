@@ -73,3 +73,50 @@
         font-size: 8pt;
     }
 }
+
+// report-legend
+#report-legend, #product-pt-list-popup {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    @include box-shadow-multiple(none);
+
+    .modal-dialog {
+        width: 700px;
+        margin: 0;
+        padding: 10px 0;
+
+        @media only screen and (max-device-width : 767px) {
+            width: 90%;
+        }
+
+        @media only screen and (max-device-width : 767px) and (orientation: landscape) {
+            width: 70%;
+        }
+
+        .modal-body {
+            padding-bottom: 0;
+        }
+
+        #msg-content {
+            padding: 12px 0;
+        }
+
+        .list-msg {
+            line-height: 28px;
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style-type: circle;
+
+            li {
+                margin-left: 30px;
+                p{
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
