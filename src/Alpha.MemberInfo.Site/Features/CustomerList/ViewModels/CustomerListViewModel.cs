@@ -67,6 +67,8 @@
             var ConvertResourcesJson = convertResourcesJson ?? SimpleServiceLocator.GetService<Func<string, ResourceManager, string>>();
             Resources = ConvertResourcesJson(request.Language, CustomerListResources.ResourceManager);
             CustomerListPagingViewModel = customerListPagingViewModel;
+
+            IsDarkMode = !string.IsNullOrWhiteSpace(request.Viewer.DarkModeName);
         }
 
         public bool HideEditMultiple { get; }
@@ -137,6 +139,8 @@
                 };
 
         public CustomerListPagingViewModel CustomerListPagingViewModel { get; }
+
+        public bool IsDarkMode { get; }
     }
 
     public class CustomerListOption

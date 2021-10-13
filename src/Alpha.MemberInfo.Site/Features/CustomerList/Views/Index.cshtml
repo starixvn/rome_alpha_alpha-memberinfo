@@ -120,10 +120,10 @@
                 }
                 @if (!Model.HideEditMultiple)
                 {
-            <th rowspan="2" class="header all padding-icon">
-                <input type="checkbox" id="select-all" />
-                    
-            </th>
+                    <th rowspan="2" class="header all padding-icon">
+                        <input type="checkbox" id="select-all" />
+
+                    </th>
                 }
                 <th rowspan="2" class="header all padding-icon">
                     @if (!Model.HideEditMultiple)
@@ -265,6 +265,7 @@
     <input type="hidden" id="unlockTooltipText" value='@CustomerListResources.UnlockTooltip'>
     <input type="hidden" id="confirmUnlockInCaseFalseOTPSC" value='@ProductResources.ConfirmUnlockAccessViewModelInCaseFalseOTPSC'>
     <input type="hidden" id="confirmUnlockInCaseFalsePassword" value='@ProductResources.ConfirmUnlockAccessViewModelInCaseFalsePassword'>
+    <input type="hidden" id="isDarkMode" value="@Model.IsDarkMode.ToString().ToLowerInvariant()" name="isDarkMode" />
     @Alpha.Web.Helpers.GoogleAnalyticHepler.Render()
 </div>
 

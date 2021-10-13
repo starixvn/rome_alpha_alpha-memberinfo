@@ -9,6 +9,7 @@ class CustomerListPopup {
     private topWindow: any;
     private isMobile: boolean;
     private $editPopupContainer: JQuery;
+    private isDarkMode: JQuery;
 
     constructor($: JQueryStatic, topWindow: any, isMobile: boolean) {
         this.$ = $;
@@ -23,6 +24,7 @@ class CustomerListPopup {
         this.$productIframe = this.$('#productIframe');
         this.$productIframeForm = this.$('form#productIframeForm');
         this.$editPopupContainer = this.$('#status-popup');
+        this.isDarkMode = this.$('#isDarkMode');
     }
 
     public openProductPopup = (currentTarget, method = 'GET') => {
@@ -45,6 +47,7 @@ class CustomerListPopup {
         if (params !== undefined && params !== null) {
             const attrs = this.$.map(params, (value, key) => `<input type="hidden"  name='${key}' id='${key}' value='${value}'/>`).join(' ');
             this.$productIframeForm.append(attrs);
+            this.$productIframeForm.append(this.isDarkMode);
         }
 
         this.$productIframeForm.submit();
