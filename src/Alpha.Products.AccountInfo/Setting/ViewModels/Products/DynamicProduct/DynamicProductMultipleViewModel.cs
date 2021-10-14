@@ -8,6 +8,8 @@
 
     public class DynamicProductMultipleViewModel : DynamicProductViewModel, ISettingItemMultipleViewModel
     {
+        private readonly bool isDarkMode;
+
         public DynamicProductMultipleViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
         {
@@ -24,6 +26,8 @@
                     GuideLineUrl = string.Empty;
                     break;
             }
+
+            isDarkMode = request.GetData<bool>(DataKey.Theme.IsDarkMode);
         }
 
         public override string Text => $"{request.GetResource("EditMultiple")} {request.GetProductName(productItem.ProductId)}";
@@ -52,7 +56,8 @@
                     ["subAccId"] = Actor.SubAccountId.ToString(),
                     ["formType"] = "1",
                     ["isForcingMode"] = "false",
-                    ["language"] = request.GetData<string>("language")
+                    ["language"] = request.GetData<string>("language"),
+                    ["isDarkMode"] = isDarkMode.ToString().ToLowerInvariant()
                 };
 
                 if (SearchAccount.IsMember)
