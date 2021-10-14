@@ -10,14 +10,17 @@
     /// </summary>
     public class DynamicProductViewModel : ProductSettingItemViewModel
     {
+        private readonly bool isDarkMode;
+
         public DynamicProductViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request, productItem)
         {
+            isDarkMode = request.GetData<bool>(DataKey.Theme.IsDarkMode);
         }
 
         public override string Text => request.GetProductName(ProductId);
 
-        protected override string BaseAddress 
+        protected override string BaseAddress
             => $"{OldMainUrl}dcs/viewcustomersetting";
 
         public override Dictionary<string, string> QueryStringParamaters
@@ -28,7 +31,8 @@
                 {
                     ["customerLevel"] = SearchAccount.CustomerLevel.Value.ToString(),
                     ["customerId"] = SearchAccount.Id.ToString(),
-                    ["productId"] = ProductId.ToString()
+                    ["productId"] = ProductId.ToString(),
+                    ["isDarkMode"] = isDarkMode.ToString().ToLowerInvariant()
                 };
 
                 if (SearchAccount.IsMember)

@@ -61,5 +61,10 @@
             public const byte FalseOTPSC = 1;
             public const byte FalsePassword = 2;
         }
+
+        public static class Theme
+        {
+            public const string IsDarkMode = "Theme.IsDarkMode";
+        }
     }
 }

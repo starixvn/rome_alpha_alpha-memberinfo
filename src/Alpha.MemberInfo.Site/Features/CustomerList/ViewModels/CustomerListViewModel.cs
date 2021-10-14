@@ -1,5 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.ViewModels
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Resources;
     using Alpha.MemberInfo.Enumerations;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResources;
     using Alpha.MemberInfo.Features.Shared.Models;
@@ -7,9 +10,6 @@
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Helpers;
     using Alpha.Products.Core.Services;
-    using System;
-    using System.Collections.Generic;
-    using System.Resources;
 
     public class CustomerListViewModel
     {
@@ -67,8 +67,6 @@
             var ConvertResourcesJson = convertResourcesJson ?? SimpleServiceLocator.GetService<Func<string, ResourceManager, string>>();
             Resources = ConvertResourcesJson(request.Language, CustomerListResources.ResourceManager);
             CustomerListPagingViewModel = customerListPagingViewModel;
-
-            IsDarkMode = !string.IsNullOrWhiteSpace(request.Viewer.DarkModeName);
         }
 
         public bool HideEditMultiple { get; }
@@ -139,8 +137,6 @@
                 };
 
         public CustomerListPagingViewModel CustomerListPagingViewModel { get; }
-
-        public bool IsDarkMode { get; }
     }
 
     public class CustomerListOption

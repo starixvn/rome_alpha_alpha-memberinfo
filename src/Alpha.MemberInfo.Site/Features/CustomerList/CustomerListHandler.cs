@@ -361,7 +361,8 @@
             request
                  .AddData(DataKey.Actor.CanEditDailyTransferOption, model.NonProduct.TransferDaily)
                  .AddData(DataKey.Actor.HasUpdateAccountPermission, message.CanUpdateAccount)
-                 .AddData(DataKey.SearchAccount.IsEnableSecurityCode, securityCodeChecker.IsEnableSecurityCode());
+                 .AddData(DataKey.SearchAccount.IsEnableSecurityCode, securityCodeChecker.IsEnableSecurityCode())
+                 .AddData(DataKey.Theme.IsDarkMode, !string.IsNullOrWhiteSpace(message.DarkModeName));
 
             return settingViewModelFactory.GetViewModels(request).Where(setting => setting.Visible).OrderBy(setting => setting.DisplayOrder);
         }
