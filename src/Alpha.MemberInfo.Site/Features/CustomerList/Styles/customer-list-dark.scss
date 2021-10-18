@@ -259,6 +259,10 @@ body:not(.modal-open) {
                 color: #bbb !important;
             }
 
+            &.Disable_edit{
+                color: #888;
+            }
+
             &.icon-edit, &.icon-refresh {
                 font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
                 font-size: 13px;
