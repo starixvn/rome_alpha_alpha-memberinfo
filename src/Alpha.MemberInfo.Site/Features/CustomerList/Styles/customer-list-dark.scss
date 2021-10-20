@@ -469,6 +469,7 @@ table.dataTable tbody tr {
 }
 // custom ease-autocomplete //
 .easy-autocomplete-container {
+    z-index : 9999;
     ul {
         background-color: #2B2B2B;
         border-top-color: #474747;
