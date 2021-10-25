@@ -334,6 +334,9 @@
 
                 .AddData(DataKey.SearchAccount.IsLockedAccess, model.NonProduct.Locked)
 
+                .AddData(DataKey.SearchAccount.IsOfferProtectedMode, message.IsOfferProtectedMode)
+                .AddData(DataKey.SearchAccount.IsProtectedMode, model.NonProduct.IsProtectedMode)
+
                 .AddData(DataKey.SearchAccount.Upline.IsAllowedDoubleComm, model.NonProduct.UplineDoubleCommLosing)
                 .AddData(DataKey.SearchAccount.IsAllowedDoubleComm, model.NonProduct.DoubleCommLosing)
 

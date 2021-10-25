@@ -484,20 +484,20 @@
     <value>ถูกล็อกการเข้าถึง</value>
   </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
-		<value>แก้ไขสถานะปิดหลายรายการ</value>
-	</data>
+    <value>แก้ไขสถานะปิดหลายรายการ</value>
+  </data>
   <data name="UpdateMultipleClosedStatusText" xml:space="preserve">
-		<value>แก้ไขสถานะปิดหลายรายการ</value>
-	</data>
+    <value>แก้ไขสถานะปิดหลายรายการ</value>
+  </data>
   <data name="UnuspendStatusPopupHeaderText" xml:space="preserve">
-		<value>ยกเลิกการระงับ &lt;username&gt;</value>
-	</data>
+    <value>ยกเลิกการระงับ &lt;username&gt;</value>
+  </data>
   <data name="OpenCustomerPopupHeaderText" xml:space="preserve">
-		<value>เปิด &lt;username&gt;</value>
-	</data>
+    <value>เปิด &lt;username&gt;</value>
+  </data>
   <data name="IndirectlyClosedByUpline" xml:space="preserve">
-		<value>บัญชีนี้ถูกปิดทางอ้อมโดยอัพไลน์</value>
-	</data>
+    <value>บัญชีนี้ถูกปิดทางอ้อมโดยอัพไลน์</value>
+  </data>
   <data name="ParlayMaxPayoutText" xml:space="preserve">
     <value>การจ่ายเงินสูงสุดของพาร์เลย์</value>
   </data>
@@ -506,5 +506,14 @@
   </data>
   <data name="ParlayMaxPayoutMultipleText" xml:space="preserve">
     <value>แก้ไขการจ่ายเงินสูงสุดของพาร์เลย์หลายรายการ</value>
+  </data>
+  <data name="ConfirmProtectedViewModelInCaseChangeProtectedStatusMessage" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการเปลี่ยนสถานะการป้องกันสำหรับบัญชีที่เลือก(?) สถานะการป้องกันควรเปิดในสถานการณ์ฉุกเฉิน</value>
+  </data>
+  <data name="ConfirmProtectedViewModelText" xml:space="preserve">
+    <value>ได้รับการป้องกัน</value>
+  </data>
+  <data name="EditMultipleProtectedStatusText" xml:space="preserve">
+    <value>แก้ไขสถานะการป้องกันหลายรายการ</value>
   </data>
 </root>

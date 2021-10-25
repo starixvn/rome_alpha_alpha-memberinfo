@@ -27,6 +27,7 @@ namespace Alpha.Products.AccountInfo.Setting
             yield return new DoubleCommMultipleViewModel(request);
             yield return new SuspendedMultipleViewModel(request);
             yield return new ClosedMultipleViewModel(request);
+            yield return new ProtectedMultipleViewModel(request);
             yield return new ParlayMaxPayoutMultipleViewModel(request);
         }
 

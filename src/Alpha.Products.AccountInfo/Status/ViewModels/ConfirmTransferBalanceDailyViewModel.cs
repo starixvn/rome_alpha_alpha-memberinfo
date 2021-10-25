@@ -4,7 +4,7 @@
 
     public class ConfirmTransferBalanceDailyViewModel : ConfirmStatusItemViewModelBase
     {
-        public ConfirmTransferBalanceDailyViewModel(ISearchAccountInfoRequest request, int displayOrder = 6)
+        public ConfirmTransferBalanceDailyViewModel(ISearchAccountInfoRequest request, int displayOrder = 8)
            : base(request, displayOrder)
         {
         }

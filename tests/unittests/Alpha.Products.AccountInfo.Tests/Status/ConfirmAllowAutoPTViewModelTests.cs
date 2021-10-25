@@ -1,7 +1,7 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
-    using Status.ViewModels;
     using System;
+    using Alpha.Products.AccountInfo.Status.ViewModels;
     using Utility;
     using Xunit;
 

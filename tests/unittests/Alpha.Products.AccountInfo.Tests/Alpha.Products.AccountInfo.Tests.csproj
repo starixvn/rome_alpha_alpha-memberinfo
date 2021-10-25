@@ -113,8 +113,10 @@
     <Compile Include="Status\ConfirmAllowOutrightViewModelTests.cs" />
     <Compile Include="Status\ConfirmClosedViewModelTests.cs" />
     <Compile Include="Status\ConfirmDoubleCommViewModelTests.cs" />
+    <Compile Include="Status\ConfirmProtectedViewModelTests.cs" />
     <Compile Include="Status\ConfirmTransferBalanceDailyViewModelTests.cs" />
     <Compile Include="Status\ConfirmSuspendedViewModelTests.cs" />
+    <Compile Include="Status\ConfirmUnlockAccessViewModelTests.cs" />
     <Compile Include="TestCases\SettingViewModelFactoryTestCases.cs" />
     <Compile Include="Utility\AppProductConfigurationHelper.cs" />
     <Compile Include="Utility\CustomerHelper.cs" />

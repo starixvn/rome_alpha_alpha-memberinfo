@@ -2,10 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using Alpha.Products.AccountInfo.Status.ViewModels.Base;
     using Alpha.Products.Core.Configuration;
     using Core.Models;
     using NSubstitute;
-    using Status.ViewModels.Base;
     using Utility;
     using Xunit;
 
