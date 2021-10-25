@@ -23,6 +23,7 @@
         public void Url_Start_With_BaseAddress()
         {
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData(DataKey.Theme.IsDarkMode, false);
             var viewModel = new Ng2ProductViewModel(request, ProductItem);
 
             Assert.StartsWith(BaseAddress, viewModel.Url, StringComparison.OrdinalIgnoreCase);

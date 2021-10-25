@@ -22,6 +22,7 @@
         public void Icon_Return_CorrectClasses()
         {
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData(DataKey.Theme.IsDarkMode, false);
             var viewModel = new Ng2ProductMultipleViewModel(request, ProductItem);
 
             Assert.Equal("icon-edit Enable", viewModel.Icon);
@@ -32,6 +33,7 @@
         {
             var expectedText = "EditMultiple ProductName-23";
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData(DataKey.Theme.IsDarkMode, false);
             var viewModel = new Ng2ProductMultipleViewModel(request, ProductItem);
 
             Assert.Equal(expectedText, viewModel.Text);
