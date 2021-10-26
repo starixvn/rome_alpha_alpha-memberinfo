@@ -25,6 +25,9 @@
                ["CustIds"] = Request.GetData<string>("customerIds")
            };
 
-        public override bool Visible => base.Visible && Request.SearchAccount.IsNotMember;
+        public override bool Visible
+            => base.Visible
+            && Request.SearchAccount.IsNotMember
+            && Request.GetData<bool>(DataKey.SearchAccount.IsOfferProtectedMode);
     }
 }
