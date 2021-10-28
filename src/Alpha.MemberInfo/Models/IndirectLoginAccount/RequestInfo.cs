@@ -7,7 +7,7 @@
             string loginDomain,
             string browserName,
             string platform,
-            string countryCode)
+            string countryCode = null)
         {
             LoginIP = loginIP;
             LoginDomain = loginDomain;
@@ -24,6 +24,6 @@
 
         public string Platform { get; }
 
-        public string CountryCode { get; }
+        public string CountryCode { get; set; }
     }
 }
