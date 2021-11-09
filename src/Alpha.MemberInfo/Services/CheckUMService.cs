@@ -30,7 +30,7 @@
             return new Result
             {
                 Code = criteria.ErrCode,
-                Message = string.Format(criteria.ErrMsg, refService.GetProductName(param.ProductId))
+                Message = string.Format(criteria.ErrMsg ?? string.Empty, refService.GetProductName(param.ProductId))
             };
         }
     }
