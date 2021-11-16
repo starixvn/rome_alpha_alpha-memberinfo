@@ -5,12 +5,11 @@
     using System.Web;
     using Alpha.MemberInfo.Models.IndirectLoginAccount;
     using Fanex.Logging.Extensions.Web;
-    using Sunplus.Core.Common.IPs;
     using UAParser;
 
     public static class RequestInfoHelper
     {
-        public static RequestInfo GetRequestInfo(HttpRequest request, string ip, string browserSize)
+        public static RequestInfo GetRequestInfo(HttpRequest request, string ip, string browserSize, string countryCode)
         {
             var browserName = string.Empty;
             var platform = string.Empty;
@@ -33,26 +32,9 @@
                 request.ServerVariables["SERVER_NAME"],
                 browserName,
                 platform,
-                GetCountryCode(ip));
+                countryCode);
         }
-
-        private static string GetCountryCode(string ip)
-        {
-            var country = "Unknown";
-
-            try
-            {
-                var infoIp = IpUtils.LocationFromIP(ip);
-                country = infoIp.CountryLong == "Reserved" ? null : infoIp.CountryLong;
-            }
-            catch
-            {
-                ExceptionHandler.Handle(new Exception("Cannot get country info (" + ip + ")"), TraceEventType.Information);
-            }
-
-            return country;
-        }
-
+        
         private static string GetBrowserName(UserAgent userAgent, string browserSize)
         {
             var browser = $"{userAgent.Family} {userAgent.Major}.{userAgent.Minor}.{userAgent.Patch ?? "0"}";

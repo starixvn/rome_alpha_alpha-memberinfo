@@ -109,7 +109,7 @@ class CreditBalance {
         });
 
         this.$(".iplink").click(function () {
-            self.topWindow.popupManager.openByRelativeUrl("_IPInfo/IpInfo.aspx?ip=" + this.text, "", 400, 300);
+            self.topWindow.popupManager.openByRelativeUrl("_IPInfo/IpInfo.aspx?ip=" + this.text, "", 400, 400);
         });
 
         this.$iconInformation.on("click", this.showLegend);

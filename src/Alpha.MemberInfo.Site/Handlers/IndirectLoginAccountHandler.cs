@@ -7,6 +7,7 @@
     using Alpha.MemberInfo.Site.Helpers;
     using Alpha.MemberInfo.Site.Requests.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.ViewModels.IndirectLoginAccount;
+    using Alpha.Utilities.IP;
     using Alpha.Web.Helpers;
     using MediatR;
     using Sunplus.Agent.Utilities;
@@ -26,15 +27,18 @@
         private readonly IndirectLoginAccountService service;
         private readonly SessionManager sessionManager;
         private readonly Encryptor encryptor;
+        private readonly IPService ipService;
 
         public IndirectLoginAccountHandler(
             IndirectLoginAccountService service,
             SessionManager sessionManager,
-            Encryptor encryptor)
+            Encryptor encryptor,
+            IPService ipService)
         {
             this.service = service;
             this.sessionManager = sessionManager;
             this.encryptor = encryptor;
+            this.ipService = ipService;
         }
 
         public async Task<ManageAccountViewModel> Handle(ManageAccountQuery message)
@@ -46,7 +50,11 @@
             => await service.ValidateIndirectLoginAccountAsync(message.ViewerId, message.ViewerSubAccId, message.CustId, message.SubAccId);
 
         public async Task<Result> Handle(NewAccountCommand message)
-            => await service.NewAccountAsync(new NewAccountParam(
+        {
+            var countryCode = GetCountryCode(message.IP);
+            var requestInfo = RequestInfoHelper.GetRequestInfo(message.Request, message.IP, message.BrowserSize, countryCode);
+
+            return await service.NewAccountAsync(new NewAccountParam(
                 message.CustName,
                 message.Password,
                 sessionManager.Get<string>(HashKeySessionKey),
@@ -54,13 +62,19 @@
                 message.ViewerSubAccId,
                 message.ViewerLevelId,
                 message.LanguageKey,
-                RequestInfoHelper.GetRequestInfo(message.Request, message.IP, message.BrowserSize)));
+                requestInfo));
+        }
+
 
         public UpdatePasswordViewModel Handle(UpdatePasswordQuery message)
             => new UpdatePasswordViewModel(message.CustId, message.SubAccId, message.CustName, GetHashKey());
 
         public async Task<Result> Handle(UpdatePasswordCommand message)
-            => await service.UpdatePasswordAsync(new UpdatePasswordParam(
+        {
+            var countryCode = GetCountryCode(message.IP);
+            var requestInfo = RequestInfoHelper.GetRequestInfo(message.Request, message.IP, message.BrowserSize, countryCode);
+
+            return await service.UpdatePasswordAsync(new UpdatePasswordParam(
                 message.CustId,
                 message.SubAccId,
                 message.CustName,
@@ -71,7 +85,9 @@
                 message.ViewerSubAccId,
                 message.ViewerUsername,
                 message.LanguageKey,
-                RequestInfoHelper.GetRequestInfo(message.Request, message.IP, message.BrowserSize)));
+                requestInfo));
+        }
+
 
         public async Task<Result> Handle(DisconnectCommand message)
             => await service.DisconnectAsync(new DisconnectAccountParam(
@@ -102,6 +118,18 @@
             sessionManager.Add(HashKeySessionKey, hashKey);
 
             return hashKey;
+        }
+
+        private string GetCountryCode(string ip)
+        {
+            var countryCode = string.Empty;
+            var ipInformation = ipService.GetIPInformation(ip);
+            if (ipInformation != null)
+            {
+                countryCode = ipInformation.CountryLong == "Reserved" ? null : ipInformation.CountryLong;
+            }
+
+            return countryCode;
         }
     }
 }

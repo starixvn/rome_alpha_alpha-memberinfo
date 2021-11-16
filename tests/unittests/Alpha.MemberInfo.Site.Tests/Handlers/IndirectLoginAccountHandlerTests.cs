@@ -10,6 +10,7 @@
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Handlers;
     using Alpha.MemberInfo.Site.Requests.IndirectLoginAccount;
+    using Alpha.Utilities.IP;
     using Alpha.Web.Helpers;
     using NSubstitute;
     using Sunplus.Agent.Utilities;
@@ -25,6 +26,7 @@
         private readonly SessionManager sessionManager;
         private readonly Encryptor encryptor;
         private readonly IndirectLoginAccountHandler handler;
+        private readonly IPService ipService;
 
         public IndirectLoginAccountHandlerTests()
         {
@@ -38,7 +40,8 @@
             service = Substitute.For<IndirectLoginAccountService>();
             sessionManager = Substitute.For<SessionManager>();
             encryptor = Substitute.For<Encryptor>();
-            handler = new IndirectLoginAccountHandler(service, sessionManager, encryptor);
+            ipService = Substitute.For<IPService>();
+            handler = new IndirectLoginAccountHandler(service, sessionManager, encryptor, ipService);
         }
 
         [Fact]
