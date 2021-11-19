@@ -181,10 +181,6 @@ body:not(.modal-open) {
 
     .login-ip, .icon-statement {
         cursor: pointer;
-
-        &:hover {
-            color: #f60;
-        }
     }
 
     .locked-falseOTPSC {
@@ -193,10 +189,6 @@ body:not(.modal-open) {
 
     .locked-falsePassword {
         background-color: #6E654E !important;
-    }
-
-    a {
-        color: #41A4FF;
     }
 }
 
