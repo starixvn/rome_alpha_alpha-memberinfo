@@ -58,6 +58,22 @@
     }
 }
 
+
+.easy-autocomplete-container {
+    ul {
+        background: none repeat scroll 0 0 #2B2B2B !important;
+        border-top: 1px solid #474747 !important;
+
+        li,.eac-category {
+            border-color: transparent !important;
+
+            &.selected {
+                background-color: #3C3C3C !important;
+            }
+        }
+    }
+}
+
 @media only screen and (max-device-width: 767px) {
     * {
         font-size: calculateScale(13px) !important;
