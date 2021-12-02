@@ -31,7 +31,7 @@ class EditSingleSetting {
                     content = this.buildPopupHtml(data.Settings, username),
                     title = `${this.$('#editSettingText').val()} - ${username}`;
 
-                this.customerListPopup.openStatusSettingPopup(element, content, title, this.bindingPopupEvent)
+                this.customerListPopup.openEditSettingPopup(element, content, title, this.bindingPopupEvent)
 
                 this.customerListPopup.removeCursorProgress(parentElement || $element);
             });

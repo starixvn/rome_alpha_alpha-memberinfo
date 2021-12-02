@@ -57,7 +57,7 @@ class EditMultipleSetting {
                 this.customerListServices.getSettings(
                     `${this.viewModel.MemberInfoUrl}CustomerList/MultipleEditPopup`,
                     data => {
-                        this.customerListPopup.openStatusSettingPopup(
+                        this.customerListPopup.openEditSettingPopup(
                             element,
                             this.buildPopupHtml(data),
                             this.$('#editMultipleSettingText').val(),

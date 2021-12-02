@@ -8,6 +8,7 @@ class CustomerListPopup {
     private $productIframeForm: JQuery;
     private topWindow: any;
     private isMobile: boolean;
+    private $editPopupContainer: JQuery;
 
     constructor($: JQueryStatic, topWindow: any, isMobile: boolean) {
         this.$ = $;
@@ -21,6 +22,7 @@ class CustomerListPopup {
         this.$productPopupContainer = this.$('#product-popup');
         this.$productIframe = this.$('#productIframe');
         this.$productIframeForm = this.$('form#productIframeForm');
+        this.$editPopupContainer = this.$('#status-popup');
     }
 
     public openProductPopup = (currentTarget, method = 'GET') => {
@@ -102,11 +104,15 @@ class CustomerListPopup {
         this.$productPopupContainer.on('shown.bs.modal', () => {
             this.forcusInputElement.apply(this.$productIframe.contents());
         });
+
+        this.$editPopupContainer.unbind().bind('mouseleave ', () => this.$editPopupContainer.modal('hide'));
     }
 
     public closeStatusPopup = () => this.$statusPopupContainer.modal('hide');
 
     public closeProductPopup = () => this.$productPopupContainer.modal('hide');
+
+    public closeEditPopup = () => this.$editPopupContainer.modal('hide');
 
     public reloadFrame = () => {
         if (this.$('div.modal-product.in').length > 0) {
@@ -160,11 +166,52 @@ class CustomerListPopup {
         }
     }
 
+    public openEditSettingPopup = (element, content, title, buildEditSettingPopupHtml) => {
+        this.buildEditSettingPopupHtml(content, title);
+
+        buildEditSettingPopupHtml(element);
+
+        const $bootstrapModalDialog = this.$editPopupContainer.find('.modal-dialog');
+
+        if (this.isMobile) {
+            $bootstrapModalDialog.css({ height: '100%', width: '100%' });
+
+            this.$editPopupContainer
+                .css({ top: 0, left: 0, height: '100%', width: '100%', paddingRight: '0px' })
+                .modal({ show: true, backdrop: false });
+        }
+        else {
+            this.$editPopupContainer
+                .css({ height: 'auto', width: 'auto' })
+                .modal({ show: true, backdrop: false });
+
+            $bootstrapModalDialog.css({ width: 'inherit' });
+            const width = $bootstrapModalDialog.outerWidth();
+
+            let top = this.$(element).offset().top - this.$(document).scrollTop(),
+                left = this.$(element).offset().left + this.$(element).width();
+
+            if (this.$(window).width() - left < width) {
+                left = left - width;
+            }
+
+            this.$editPopupContainer.css({ top: 0, left });
+        }
+    }
+
     public buildStatusSettingPopupHtml = (content, title) => {
         this.$statusPopupContainer.find('.modal-body').empty().append(content);
 
         if (this.isMobile) {
             this.$statusPopupContainer.find('.modal-title').empty().append(title);
+        }
+    }
+
+    public buildEditSettingPopupHtml = (content, title) => {
+        this.$editPopupContainer.find('.modal-body').empty().append(content);
+
+        if (this.isMobile) {
+            this.$editPopupContainer.find('.modal-title').empty().append(title);
         }
     }
 
