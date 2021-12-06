@@ -77,3 +77,20 @@ p {
         background: #1C1C1C !important;
     }
 }
+.carousel-caption {
+    background: #171717 !important;
+}
+.buttons-control .carousel-control .text {
+    color: #EDEDED !important;
+}
+
+
+.largeModal {
+    .modal-header, .modal-content, .modal-footer {
+        background: #171717 !important;
+    }
+}
+.modal-dialog .modal-header .close {
+    top: 10px !important;
+    right: 20px !important;
+}
