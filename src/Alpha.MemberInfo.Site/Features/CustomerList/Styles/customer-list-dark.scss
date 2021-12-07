@@ -72,7 +72,7 @@ body:not(.modal-open) {
 }
 
 .dataTable {
-    width: 100% !important;
+    width: 99.5% !important;
     //overflow: hidden;
     border-left: 1px solid #3E3F41;
 
@@ -90,7 +90,11 @@ body:not(.modal-open) {
         vertical-align: middle;
         box-sizing: border-box;
         background: #383838;
-        border-left: 1px solid #5f626b !important;
+        border-right: 1px solid #5f626b !important;
+    }
+
+    thead tr:nth-child(2) th:first-child {
+        border-left: none !important;
     }
 
     thead .thead-row2 th {
@@ -349,12 +353,14 @@ table.dataTable tbody tr {
     .easy-autocomplete {
         input {
             border-radius: 0;
+
             &::placeholder {
                 color: #e7e7e7;
             }
         }
     }
 }
+
 .dtr-column {
     .child {
         .detail-table {
@@ -437,6 +443,7 @@ table.dataTable tbody tr {
 
 .col-username {
     position: relative;
+
     .icon-locked {
         position: absolute;
         right: 0;
@@ -465,7 +472,8 @@ table.dataTable tbody tr {
 }
 // custom ease-autocomplete //
 .easy-autocomplete-container {
-    z-index : 9999;
+    z-index: 9999;
+
     ul {
         background-color: #2B2B2B;
         border-top-color: #474747;
@@ -479,6 +487,7 @@ table.dataTable tbody tr {
         }
     }
 }
+
 @media (max-width : 767px) {
     .customer-list {
         padding: 0 10px;
@@ -501,5 +510,3 @@ table.dataTable tbody tr {
         background-color: #171717;
     }
 }
-    
-
