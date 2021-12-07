@@ -484,9 +484,8 @@ table.dataTable tbody tr {
         padding: 0 10px;
     }
 }
-
-.fixedHeader-floating{
-    display : none !important;
+/*.fixedHeader-floating {
+    display: none !important;
 }
 
 #tbl-customer-list thead {
@@ -494,7 +493,9 @@ table.dataTable tbody tr {
     position: sticky;
     top: -1px;
     z-index: 9;
-}
+}*/
+
+
 .modal-product {
     .modal-content {
         background-color: #171717;
