@@ -44,6 +44,7 @@ body:not(.modal-open) {
         border-radius: 4px;
         border: 1px solid #c4c4c4;
         margin: 0;
+        border-radius: 0;
 
         .dropdown-menu {
             width: 100%;
@@ -52,7 +53,11 @@ body:not(.modal-open) {
 
     [class*="btn-"] {
         box-shadow: none;
-        border-radius: 4px;
+        border-radius: 0;
+    }
+
+    input {
+        border-radius: 0;
     }
 
     .btn {
@@ -382,12 +387,12 @@ table.dataTable tbody tr {
     background: transparent;
     position: fixed;
     top: 0;
-    z-index: 99999999999;
+    z-index: 9;
     right: -4px;
     height: 79px;
     display: block;
     border: none !important;
-
+    cursor : pointer;
     &:before {
         display: none !important;
     }
