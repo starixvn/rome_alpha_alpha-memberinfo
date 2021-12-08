@@ -106,7 +106,7 @@ body:not(.modal-open) {
     tbody tr td {
         border-right: 1px solid #3E3F41 !important;
 
-        &.dtr-title {
+        &.dtr-title, &.dtr-data {
             border-right: none !important;
         }
     }
