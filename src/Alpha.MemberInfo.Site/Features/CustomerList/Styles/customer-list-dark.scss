@@ -523,13 +523,14 @@ table.dataTable tbody tr {
     background: transparent;
     position: fixed;
     top: 0;
-    z-index: 99999999999;
+    z-index: 9;
     right: -4px;
     height: 79px;
     display: block;
     border: none !important;
-    &:before{
-        display : none !important;
+
+    &:before {
+        display: none !important;
     }
 }
 .fixedHeader-floating.dtr-column > thead > tr.parent th.control:before{
