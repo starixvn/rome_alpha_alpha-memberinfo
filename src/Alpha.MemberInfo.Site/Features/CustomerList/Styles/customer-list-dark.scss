@@ -103,6 +103,14 @@ body:not(.modal-open) {
         border-bottom: 1px solid #3e3f41 !important;
     }
 
+    tbody tr td {
+        border-right: 1px solid #3E3F41 !important;
+
+        &.dtr-title {
+            border-right: none !important;
+        }
+    }
+
     .icon-table-edit {
         cursor: pointer;
         position: relative;
