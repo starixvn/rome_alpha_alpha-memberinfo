@@ -365,6 +365,39 @@ table.dataTable tbody tr {
     z-index: 9;
 }*/
 
+#tbl-customer-list thead {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    z-index: 9;
+}
+
+
+
+.fixedHeader-floating th {
+    position: fixed !important;
+}
+
+.fixedHeader-floating .header.control.sorting_disabled {
+    background: transparent;
+    position: fixed;
+    top: 0;
+    z-index: 99999999999;
+    right: -4px;
+    height: 79px;
+    display: block;
+    border: none !important;
+
+    &:before {
+        display: none !important;
+    }
+}
+
+.fixedHeader-floating.dtr-column > thead > tr.parent th.control:before {
+    display: none;
+}
+
+
 .easy-autocomplete-container{
     z-index : 9999;
 }
