@@ -21,8 +21,15 @@ class EditMultipleSetting {
     }
 
     public bindingEvent = () => {
-        this.$('.edit-multiple').unbind().bind("click", event => this.openPopup(event.currentTarget));
-        this.$('#select-all').unbind().bind("click", () => this.$('tbody .checkbox').prop('checked', this.$('#select-all').is(':checked')));
+        var self = this;
+        const tblRpt = this.$(".tblRpt");
+        tblRpt.undelegate();
+        tblRpt.delegate(".edit-multiple", "click", event => this.openPopup(event.currentTarget));
+        tblRpt.delegate(".select-all", "click", function () {
+            const checked = this.checked;
+            self.$('tbody .checkbox').prop('checked', checked);
+            self.$(".select-all").prop('checked', checked);
+        });
     }
 
     private openPopup = element => {
