@@ -74,7 +74,8 @@ body:not(.modal-open) {
 .dataTable {
     width: 99.5% !important;
     //overflow: hidden;
-    border-left: 1px solid #3E3F41;
+    border: 1px solid #5F626B;
+    border-right: none;
 
     .status-popup {
         span:first-child {
@@ -100,17 +101,16 @@ body:not(.modal-open) {
     thead .thead-row2 th {
         background: #2e2e2e !important;
         border-top: 1px solid #5f626b !important;
-        border-bottom: 1px solid #3e3f41 !important;
+        border-bottom: 1px solid #5F626B !important;
     }
 
     tbody tr td {
-        border-right: 1px solid #3E3F41 !important;
+        border-right: 1px solid #5F626B !important;
 
         &.dtr-title, &.dtr-data {
             border-right: none !important;
         }
     }
-
     .icon-table-edit {
         cursor: pointer;
         position: relative;
@@ -542,4 +542,8 @@ table.dataTable tbody tr {
     .modal-content {
         background-color: #171717;
     }
+}
+
+.no-footer {
+    border-bottom-color: #5F626B !important;
 }
