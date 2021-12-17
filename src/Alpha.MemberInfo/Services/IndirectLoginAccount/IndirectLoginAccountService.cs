@@ -138,9 +138,10 @@
 
         public async Task<string> BuildRedirectURLAsync(RedirectParam param)
         {
-            // IndirectCustId, IndirectSubAccId, LoginTimeTicks, Language, CustId, SubAccId, Username, BrowserSize
+            // IndirectCustId, IndirectSubAccId, LoginTimeTicks, Language, CustId, SubAccId, Username
+            // BrowserSize, IndirectUsername, DarkModeName, AssetAppPath
             var parameter = string.Format(
-                "{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}",
+                "{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}&{10}",
                 param.IndirectCustId,
                 param.IndirectSubAccId,
                 DateTime.Now.Ticks,
@@ -150,7 +151,8 @@
                 param.ActorUsername,
                 param.BrowserSize,
                 param.IndirectUsername,
-                param.DarkModeName);
+                param.DarkModeName,
+                param.AssetAppPath);
 
             parameter = await Task.Run(() =>
                 new EncryptionThread().EncryptString(parameter, KeySize, param.IBCPKey)

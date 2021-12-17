@@ -4,6 +4,8 @@
 
     public class PagedCreditBalance
     {
+        private const int MinPageSize = 10;
+
         public PagedCreditBalance(
             int pageIndex,
             int pageSize,
@@ -14,7 +16,7 @@
             PageSize = pageSize;
             TotalItems = totalItems;
             CreditBalances = creditBalances;
-            ShowPager = TotalItems > 0;
+            ShowPager = TotalItems > MinPageSize;
         }
 
         public int PageIndex { get; }

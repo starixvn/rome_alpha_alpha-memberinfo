@@ -65,7 +65,6 @@
                 requestInfo));
         }
 
-
         public UpdatePasswordViewModel Handle(UpdatePasswordQuery message)
             => new UpdatePasswordViewModel(message.CustId, message.SubAccId, message.CustName, GetHashKey());
 
@@ -87,7 +86,6 @@
                 message.LanguageKey,
                 requestInfo));
         }
-
 
         public async Task<Result> Handle(DisconnectCommand message)
             => await service.DisconnectAsync(new DisconnectAccountParam(
@@ -111,7 +109,8 @@
                 message.BrowserSize,
                 message.IBCPKey,
                 message.CustName,
-                message.DarkModeName));
+                message.DarkModeName,
+                message.AssetAppPath));
 
         private string GetHashKey()
         {

@@ -12,7 +12,8 @@
             string browserSize,
             string ibcPKey,
             string indirectUsername,
-            string darkModeName)
+            string darkModeName,
+            string assetAppPath)
         {
             IndirectCustId = indirectCustId;
             IndirectSubAccId = indirectSubAccId;
@@ -24,6 +25,7 @@
             IBCPKey = ibcPKey;
             IndirectUsername = indirectUsername;
             DarkModeName = darkModeName;
+            AssetAppPath = assetAppPath;
         }
 
         public int IndirectCustId { get; }
@@ -45,5 +47,7 @@
         public string IndirectUsername { get; }
 
         public string DarkModeName { get; }
+
+        public string AssetAppPath { get; }
     }
 }
