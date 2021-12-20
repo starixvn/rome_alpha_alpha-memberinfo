@@ -109,6 +109,7 @@ body:not(.modal-open) {
 
         &.dtr-title, &.dtr-data {
             border-right: none !important;
+            border-top: none !important;
         }
     }
 
@@ -146,6 +147,8 @@ body:not(.modal-open) {
 
     .commission-wrapper {
         padding: 0px !important;
+        border-top: 0 !important;
+        border-right: 0 !important;
 
         .commission-header {
             font-weight: bold;
@@ -333,6 +336,8 @@ body:not(.modal-open) {
     .commission-header {
         text-align: left !important;
         font-weight: normal;
+        border-top: 0 !important;
+        border-right: 0 !important;
     }
 
     tr:not(:first-child) {
