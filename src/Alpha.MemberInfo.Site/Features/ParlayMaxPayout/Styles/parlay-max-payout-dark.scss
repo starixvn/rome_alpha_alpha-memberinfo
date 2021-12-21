@@ -152,7 +152,8 @@ body {
                     &:disabled {
                         background-color: #2B2B2B !important;
                         color: #464646;
-                        border: 1px solid #474747 !important; 
+                        border: 1px solid #474747 !important;
+                        -webkit-text-fill-color: #464646 !important;
                     }
                 }
             }
