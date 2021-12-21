@@ -94,14 +94,10 @@
     <Compile Include="Setting\ViewModels\Multiple\DoubleCommMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\Products\GoldDeluxe\GoldDeluxeMultipleViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\Products\GoldDeluxe\GoldDeluxeViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\Keno\KenoMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\Keno\KenoViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\NG2\Ng2ProductMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\NG2\Ng2ProductViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\Products\RnGCasino\RnGCasinoMultipleViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\Products\RnGCasino\RNGCasinoViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\RemoveOtpViewModelTests.cs" />

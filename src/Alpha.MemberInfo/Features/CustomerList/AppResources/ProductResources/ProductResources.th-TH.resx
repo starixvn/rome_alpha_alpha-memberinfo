@@ -267,9 +267,6 @@
   <data name="GivenCreditPopupTitle" xml:space="preserve">
     <value>อัพเดท เครดิตใหม่</value>
   </data>
-  <data name="GoldDeluxeViewModelText" xml:space="preserve">
-    <value>Gold Deluxe</value>
-  </data>
   <data name="IP" xml:space="preserve">
     <value>รหัสของเครื่องคอมพิวเตอร์ที่ใช้</value>
   </data>
@@ -357,9 +354,6 @@
   <data name="ResetSecurityCodeViewModelText" xml:space="preserve">
     <value>Reset Security Code</value>
   </data>
-  <data name="RnGCasinoViewModelText" xml:space="preserve">
-    <value>คาสิโน</value>
-  </data>
   <data name="Setting" xml:space="preserve">
     <value>ตั้งค่า</value>
   </data>
@@ -386,9 +380,6 @@
   </data>
   <data name="SuspendedByUplineTooltip" xml:space="preserve">
     <value>บัญชีนี้ถูกระงับจากอัพไลน์โดยทางอ้อม</value>
-  </data>
-  <data name="SyncRnGCasinoViewModelText" xml:space="preserve">
-    <value>คาสิโนตรงกัน</value>
   </data>
   <data name="ThisAccountWasDisabled" xml:space="preserve">
     <value>บัญชีนี้ได้ถูกปิดไปแล้ว</value>
@@ -437,12 +428,6 @@
   </data>
   <data name="YesterdayCash" xml:space="preserve">
     <value>เงินสดเมื่อวาน</value>
-  </data>
-  <data name="EditMultipleCasinoText" xml:space="preserve">
-    <value>แก้ไขคาสิโนหลายฝ่าย</value>
-  </data>
-  <data name="EditMultipleGoldDeluxeText" xml:space="preserve">
-    <value>Edit Multiple Gold Deluxe</value>
   </data>
   <data name="EditMultipleRNGKenoText" xml:space="preserve">
     <value>แก้ไขคีโน่หลายทาง</value>

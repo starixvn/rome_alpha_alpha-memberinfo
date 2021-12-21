@@ -539,15 +539,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Casino.
-        /// </summary>
-        public static string EditMultipleCasinoText {
-            get {
-                return ResourceManager.GetString("EditMultipleCasinoText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Multiple Closed Status.
         /// </summary>
         public static string EditMultipleClosedStatusText {
@@ -562,15 +553,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         public static string EditMultipleDoubleCommText {
             get {
                 return ResourceManager.GetString("EditMultipleDoubleCommText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Gold Deluxe.
-        /// </summary>
-        public static string EditMultipleGoldDeluxeText {
-            get {
-                return ResourceManager.GetString("EditMultipleGoldDeluxeText", resourceCulture);
             }
         }
         
@@ -670,15 +652,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         public static string GivenCreditPopupTitle {
             get {
                 return ResourceManager.GetString("GivenCreditPopupTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gold Deluxe.
-        /// </summary>
-        public static string GoldDeluxeViewModelText {
-            get {
-                return ResourceManager.GetString("GoldDeluxeViewModelText", resourceCulture);
             }
         }
         
@@ -989,15 +962,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Casino.
-        /// </summary>
-        public static string RnGCasinoViewModelText {
-            get {
-                return ResourceManager.GetString("RnGCasinoViewModelText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Setting.
         /// </summary>
         public static string Setting {
@@ -1084,15 +1048,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         public static string SuspendedByUplineTooltip {
             get {
                 return ResourceManager.GetString("SuspendedByUplineTooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sync Casino.
-        /// </summary>
-        public static string SyncRnGCasinoViewModelText {
-            get {
-                return ResourceManager.GetString("SyncRnGCasinoViewModelText", resourceCulture);
             }
         }
         

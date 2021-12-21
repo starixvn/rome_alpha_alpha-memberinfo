@@ -41,18 +41,11 @@
         public bool GetSyncedProduct(int productId) => viewer.GetSyncedProduct(productId);
 
         public bool IsHideKeno => viewer.IsHideKeno;
-
-        public bool IsCasinoSync => viewer.IsCasinoSync;
-
-        public bool IsCasinoDisabled => viewer.IsCasinoDisabled;
+       
 
         public bool IsDisabledESports => viewer.IsDisabledESports;
 
-        public bool IsNumberGameDisabled => viewer.IsNumberGameDisabled;
-
-        public bool IsHideGoldDeluxe => viewer.IsHideGoldDeluxe;
-
-        public bool DisableGoldDeluxe => viewer.DisableGoldDeluxe;
+        public bool IsNumberGameDisabled => viewer.IsNumberGameDisabled;       
 
         public override bool IsValid() => IsValidSearchAccount && IsValidUpline;
 

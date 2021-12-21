@@ -111,9 +111,9 @@
         }
 
         [Theory]
-        [InlineData(true, "1")]
-        [InlineData(false, "0")]
-        public void QueryStringParamaters_With_Correctvalues(bool searchAccountSynced, string expectedSynced)
+        [InlineData(true)]
+        [InlineData(false)]
+        public void QueryStringParamaters_With_Correctvalues(bool searchAccountSynced)
         {
             var customerProductStatus = new List<CustomerProductStatus>
             {
@@ -127,8 +127,7 @@
 
             Assert.Equal("2", viewModel.QueryStringParamaters["custId"]);
             Assert.Equal("username1", viewModel.QueryStringParamaters["username"]);
-            Assert.Equal("3", viewModel.QueryStringParamaters["custRoleId"]);
-            Assert.Equal(expectedSynced, viewModel.QueryStringParamaters["isCasinoSync"]);
+            Assert.Equal("3", viewModel.QueryStringParamaters["custRoleId"]);           
         }
     }
 }

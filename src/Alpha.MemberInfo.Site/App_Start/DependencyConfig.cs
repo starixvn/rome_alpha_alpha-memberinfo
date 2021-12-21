@@ -38,14 +38,12 @@
     using Services;
     using Services.CreditBalance;
     using Services.MemberRequest;
-    using Services.ProgressiveJackpot;
     using Services.Transfer;
     using Services.WinLossLimit;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
     using Sunplus.Agent.Model.Base;
-    using Sunplus.Agent.Model.Casino;
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Model.Entities.Permission;
     using Sunplus.Agent.Utilities;
@@ -123,23 +121,14 @@
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<IPService, IPServiceImpl>();
             container.RegisterSingleton<SecurityCodeChecker, SecurityCodeCheckerImpl>();
-            container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
-
-            container.RegisterPerWebRequest<CasinoService, CasinoServiceImpl>();
-            container.RegisterPerWebRequest<CasinoCustomer, CasinoCustomerImpl>();
+            container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();          
 
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
             container.Register<WinLossLimitService>(
                 () => new WinLossLimitServiceImpl(
                     container.GetInstance<IDynamicRepository>(),
                     container.GetInstance<WinLossLimitDataAccess>(),
-                    container.GetInstance<CacheRefService>().GetProductName));
-
-            container.Register<ProgressiveJackpotService>(
-                () => new ProgressiveJackpotServiceImpl(
-                    container.GetInstance<CacheRefService>(),
-                    UserPermission.HasPermissionOnProduct),
-                Lifestyle.Singleton);
+                    container.GetInstance<CacheRefService>().GetProductName));     
 
             container.Register<ParlayMaxPayoutService, ParlayMaxPayoutServiceImpl>();
             container.Register<CheckUMService, CheckUMServiceImpl>();

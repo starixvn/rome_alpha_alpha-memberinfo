@@ -57,17 +57,7 @@
 
             Assert.Equal(expectedStatusValue, viewModel.StatusValue);
         }
-
-        [Fact]
-        public void Always_Return_Correct_SyncedCasino3rd_StatusName()
-        {
-            var request = RequestHelper.CreateRequest(4, 3);
-            request.AddData("SearchAccount.IsAllowedMasterAutoPT", true);
-
-            var viewModel = new ConfirmAllowAutoMasterPTViewModel(request);
-
-            Assert.Equal("DisableAutoMPT", viewModel.StatusName);
-        }
+        
 
         [Theory]
         [InlineData(false, "ConfirmAllowAutoMasterPTViewModelInCaseEnabledMessage")]

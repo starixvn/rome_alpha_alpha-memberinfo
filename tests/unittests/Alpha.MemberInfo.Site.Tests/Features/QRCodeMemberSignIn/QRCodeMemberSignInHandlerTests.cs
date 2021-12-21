@@ -364,7 +364,6 @@
                 domains,
                 message.CreateMode,
                 message.ShowPageTitle,
-                true,
                 "ABC");
 
             qrCodeAdapter.CreateMobileLoginUrl(

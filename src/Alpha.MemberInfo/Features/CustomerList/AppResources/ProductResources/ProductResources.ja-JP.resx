@@ -258,9 +258,6 @@
   <data name="GivenCreditPopupTitle" xml:space="preserve">
     <value>Update Given Credit</value>
   </data>
-  <data name="GoldDeluxeViewModelText" xml:space="preserve">
-    <value>Gold Deluxe</value>
-  </data>
   <data name="IP" xml:space="preserve">
     <value>IP</value>
   </data>
@@ -348,9 +345,6 @@
   <data name="ResetSecurityCodeViewModelText" xml:space="preserve">
     <value>Reset Security Code</value>
   </data>
-  <data name="RnGCasinoViewModelText" xml:space="preserve">
-    <value>Casino</value>
-  </data>
   <data name="Setting" xml:space="preserve">
     <value>Setting</value>
   </data>
@@ -377,9 +371,6 @@
   </data>
   <data name="SuspendedByUplineTooltip" xml:space="preserve">
     <value>This account was indirectly suspended by upline</value>
-  </data>
-  <data name="SyncRnGCasinoViewModelText" xml:space="preserve">
-    <value>Sync Casino</value>
   </data>
   <data name="ThisAccountWasDisabled" xml:space="preserve">
     <value>This account was disabled.</value>
@@ -428,12 +419,6 @@
   </data>
   <data name="YesterdayCash" xml:space="preserve">
     <value>Yesterday Cash</value>
-  </data>
-  <data name="EditMultipleCasinoText" xml:space="preserve">
-    <value>Edit Multiple Casino</value>
-  </data>
-  <data name="EditMultipleGoldDeluxeText" xml:space="preserve">
-    <value>Edit Multiple Gold Deluxe</value>
   </data>
   <data name="EditMultipleRNGKenoText" xml:space="preserve">
     <value>Edit Multiple RNG Keno</value>

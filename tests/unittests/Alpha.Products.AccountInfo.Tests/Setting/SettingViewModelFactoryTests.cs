@@ -33,27 +33,5 @@
 
             factory = new SettingViewModelFactory();
         }
-
-        //[Theory]
-        //[InlineData(Sportsbook, typeof(SportsbookViewModel))]
-        //[InlineData(RNGCasino, typeof(RNGCasinoViewModel))]
-        //[InlineData(Keno, typeof(KenoViewModel))]
-        //[InlineData(GoldDeluxe, typeof(GoldDeluxeViewModel))]
-        //[InlineData(ColossusBets, typeof(ColossusBetsViewModel))]
-        //[InlineData(24, typeof(DynamicProductViewModel))]
-        //[InlineData(26, typeof(DynamicProductViewModel))]
-        //[InlineData(28, typeof(DynamicProductViewModel))]
-        //public void GetViewModels_Returns_RightMappingProductViewModel(int productId, Type viewModelType)
-        //{
-        //    var request = new SettingSearchAccountRequest(CreateSuper(), CreateMaster());
-
-        //    var viewModels = factory.GetViewModels(request);
-
-        //    var rightModelMapping = viewModels
-        //         .Any(viewModel => viewModel is ProductSettingItemViewModel productViewModel
-        //         && productViewModel.ProductId == productId && productViewModel.GetType() == viewModelType);
-
-        //    Assert.True(rightModelMapping);
-        //}
     }
 }

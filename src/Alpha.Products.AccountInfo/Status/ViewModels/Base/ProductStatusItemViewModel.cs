@@ -13,8 +13,7 @@
 
         private readonly static List<int> productsAllowedSuperViewAgent = new List<int>
         {
-            ProductConstants.Keno,
-            ProductConstants.RNGCasino
+            ProductConstants.Keno
         };
 
         public ProductStatusItemViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)

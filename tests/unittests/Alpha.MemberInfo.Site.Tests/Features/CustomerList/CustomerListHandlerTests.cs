@@ -132,7 +132,6 @@
             var message = new CustomerNonProductStatusCommand(user)
             {
                 SearchAccountId = 1,
-                SyncedCasino3rd = true,
                 StatusName = "outright",
                 StatusValue = true
             };
@@ -225,10 +224,8 @@
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
                 new CustomerProductStatus(ProductConstants.NumberGame, true),
-                new CustomerProductStatus(ProductConstants.RNGCasino, true, synced: true),
                 new CustomerProductStatus(ProductConstants.ESport, true),
                 new CustomerProductStatus(ProductConstants.Keno, hidden: true),
-                new CustomerProductStatus(ProductConstants.GoldDeluxe, true, true)
             };
 
             var actualActorProductStatus = handler.BuildActorProductStatus(message, Enumerable.Empty<DCSProductStatusModel>());
@@ -242,10 +239,8 @@
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
                 new CustomerProductStatus(ProductConstants.NumberGame, true),
-                new CustomerProductStatus(ProductConstants.RNGCasino, true, synced: true),
                 new CustomerProductStatus(ProductConstants.ESport, true),
                 new CustomerProductStatus(ProductConstants.Keno, hidden: true),
-                new CustomerProductStatus(ProductConstants.GoldDeluxe, true, true)
             };
 
             var actualSearchAccountProduct = handler.BuildSearchAccountProductStatus(StubNonDCSProduct(), Enumerable.Empty<DCSProductStatusModel>());
@@ -259,10 +254,8 @@
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
                 new CustomerProductStatus(ProductConstants.NumberGame, true),
-                new CustomerProductStatus(ProductConstants.RNGCasino, true, synced: true),
                 new CustomerProductStatus(ProductConstants.ESport, true),
                 new CustomerProductStatus(ProductConstants.Keno, hidden: true),
-                new CustomerProductStatus(ProductConstants.GoldDeluxe, true, true)
             };
 
             var actualUplineProductStatus = handler.BuildUplineProductStatus(StubNonDCSProduct(), Enumerable.Empty<DCSProductStatusModel>());
@@ -313,19 +306,13 @@
 
         private static NonDCSProductStatusModel StubNonDCSProduct()
             => new NonDCSProductStatusModel(
-                       syncCasino: true,
-                       disableCasino: true,
-                       uplineDisableCS: true,
                        disableNumber: true,
                        uplineDisableNumber: true,
                        disableEsports: true,
                        uplineDisableEsports: true,
                        hideKeno: true,
-                       disableKeno: false,
-                       uplineHideGoldDeluxe: true,
-                       uplineDisableGoldDeluxe: true,
-                       disableGoldDeluxe: true,
-                       hideGoldDeluxe: true);
+                       disableKeno: false
+                      );
 
         private static NonProductStatusModel StubNonProductStatus()
             => new NonProductStatusModel(

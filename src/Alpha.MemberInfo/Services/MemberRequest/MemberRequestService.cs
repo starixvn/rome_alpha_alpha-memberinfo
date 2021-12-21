@@ -29,15 +29,13 @@
 
         public MemberRequestServiceImpl(
             IDynamicRepository dynamicRepository,
-            IUser user,
-            CasinoCustomer casinoCustomer)
+            IUser user)
         {
             this.user = user;
             repository = dynamicRepository;
 
             getSettingFuncs = new Dictionary<int, Func<ProductSettingParam, GetSettingResult>>
             {
-                [ProductId.Casino] = casinoCustomer.GetSetting
             };
         }
 
@@ -69,7 +67,7 @@
 
         public bool IsSync(int productId)
         {
-            return productId != ProductId.Casino || user.GetSyncedProduct(productId);
+            return user.GetSyncedProduct(productId);
         }
 
         internal bool IsShowProduct(int productId)

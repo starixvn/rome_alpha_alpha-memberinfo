@@ -25,12 +25,10 @@
         private readonly IUser user;
         private readonly AnyValueCreatorFixture anyValueCreatorFixture;
         private readonly IEnumerable<MemberRequestModel> memberRequests;
-        private readonly CasinoCustomer casinoCustomer;
 
         public MemberRequestServiceImplTests(AnyValueCreatorFixture anyValueCreatorFixture)
         {
-            this.anyValueCreatorFixture = anyValueCreatorFixture;
-            casinoCustomer = Substitute.For<CasinoCustomer>();
+            this.anyValueCreatorFixture = anyValueCreatorFixture;         
 
             user = Substitute.For<IUser>();
             user.LevelId.Returns((byte)2);
@@ -43,8 +41,7 @@
 
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             dynamicRepository.Fetch<Product>(Arg.Any<PlayForFunProductCriteria>()).Returns(new List<Product>
-            {
-                new Product(6, "Casino", false),
+            {             
                 new Product(22, "Fishing word", true),
                 new Product(24, "Macau Games", true)
             });
@@ -57,7 +54,7 @@
 
             dynamicRepository.Fetch<MemberRequestModel>(Arg.Any<MemberRequestCriteria>()).Returns(memberRequests);
 
-            serviceImpl = new MemberRequestServiceImpl(dynamicRepository, user, casinoCustomer);
+            serviceImpl = new MemberRequestServiceImpl(dynamicRepository, user);
             compareLogic = new CompareLogic();
         }
 
@@ -68,8 +65,7 @@
             var custId = anyValueCreatorFixture.Create<int>();
             user.GetHideProduct(ProductId.FishingWorld).Returns(true);
             var expectedProductList = new List<Product>
-            {
-                new Product(6, "Casino", false),
+            {            
                 new Product(22, "Fishing word", true)
             };
 
@@ -88,8 +84,7 @@
             var custId = anyValueCreatorFixture.Create<int>();
             user.GetHideProduct(ProductId.FishingWorld).Returns(false);
             var expectedProductList = new List<Product>
-            {
-                new Product(6, "Casino", false),
+            {               
                 new Product(22, "Fishing word", true),
                 new Product(24, "Macau Games", true)
             };
@@ -124,63 +119,7 @@
 
             // Assert
             AssertExtension.Equal(expectedData, actualData);
-        }
-
-        [Fact]
-        public void GetSetting_Casino_ReturnsCorrectSetting()
-        {
-            // Arrange
-            var setting = anyValueCreatorFixture.Create<GetCasinoSettingResult>();
-            casinoCustomer.GetSetting(Arg.Any<ProductSettingParam>()).Returns(setting);
-            var param = new ProductSettingParam(6, 1, string.Empty);
-            var expectedSetting = setting;
-
-            // Act
-            var actualSetting = serviceImpl.GetSetting(param);
-
-            // Assert
-            Assert.True(compareLogic.Compare(expectedSetting, actualSetting).AreEqual);
-        }
-
-        [Fact]
-        public void IsSync_NotCasino_ReturnsTrue()
-        {
-            // Arrange
-            var productId = 1;
-
-            // Act
-            var actualIsSync = serviceImpl.IsSync(productId);
-
-            // Assert
-            Assert.True(actualIsSync);
-        }
-
-        [Fact]
-        public void IsSync_CasinoNotSync_ReturnsFalse()
-        {
-            // Arrange
-            var productId = 6;
-            user.GetSyncedProduct(Arg.Is<int>(p => p == 6)).Returns(false);
-
-            // Act
-            var actualIsSync = serviceImpl.IsSync(productId);
-
-            // Assert
-            Assert.False(actualIsSync);
-        }
-
-        [Fact]
-        public void IsSync_CasinoSync_ReturnsFalse()
-        {
-            // Arrange
-            var productId = 6;
-            user.GetSyncedProduct(Arg.Is<int>(p => p == 6)).Returns(true);
-
-            // Act
-            var actualIsSync = serviceImpl.IsSync(productId);
-
-            // Assert
-            Assert.True(actualIsSync);
-        }
+        }       
+       
     }
 }

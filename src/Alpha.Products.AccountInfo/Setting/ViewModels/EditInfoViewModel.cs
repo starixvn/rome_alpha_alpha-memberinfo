@@ -19,8 +19,7 @@
             => new Dictionary<string, string>
             {
                 ["custId"] = SearchAccount.Id.ToString(),
-                ["username"] = SearchAccount.Username,
-                ["isSyncCasino"] = Request.SearchAccount.ProductStatusOf(ProductConstants.RNGCasino).Synced ? "1" : "0"
+                ["username"] = SearchAccount.Username          
             };
     }
 }

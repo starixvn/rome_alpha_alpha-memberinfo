@@ -19,7 +19,6 @@ class MemberRequests {
     $sideBar: JQuery;
     $accountInfoContent: JQuery;
     viewerId: number;
-    editSettingUrl: string;
 
     viewedCustName: string;
 
@@ -63,7 +62,6 @@ class MemberRequests {
         this.$accountInfoHeader = this.topWindow.$("#account-info-header");
         this.$sideBar = this.topWindow.$(".sidebar");
         this.viewerId = parseInt(this.$("#viewerId").val(), 0);
-        this.editSettingUrl = this.$("#editSettingUrl").val();
 
         this.guidelinesTitle = this.$('#PlayForFunGuide').val();
         this.guidelinesUrl = this.$('#GuidelineUrl').val();
@@ -137,10 +135,6 @@ class MemberRequests {
         });
 
         let $editSettingLink = this.$(".edit-setting:not([disabled])");
-        $editSettingLink.on("click", function () {
-            let $this = self.$(this);
-            self.editSetting($this.data("custid"), $this.data("username"));
-        });
     };
     viewMemberInfo = (event: any, element: JQuery) => {
         let username = element.text();
@@ -167,11 +161,7 @@ class MemberRequests {
     isLoadedAccountInfo = () => {
         return this.$accountInfoContent.contents().find("#txtUsername").length !== 0;
     };
-    editSetting = (custId: number, username: string) => {
-        var url = this.editSettingUrl + "?id=" + custId + "&uplineid=" + this.viewerId + "&username=" + username;
-        this.topWindow.popupManager.openByRelativeUrl(url, "", 1160);
-        this.topWindow.clearPopupSubtitle();
-    };
+    
     refreshPage = () => {
         location.reload();
     };
