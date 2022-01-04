@@ -516,4 +516,7 @@
   <data name="EditMultipleProtectedStatusText" xml:space="preserve">
     <value>修改多重保護狀態</value>
   </data>
+  <data name="SportsbookMinPTViewModelText" xml:space="preserve">
+    <value>體育博彩最低佔成數</value>
+  </data>
 </root>
