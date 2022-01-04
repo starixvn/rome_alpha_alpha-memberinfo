@@ -19,8 +19,6 @@
     [Trait("Category", "IndirectLoginAccount")]
     public class IndirectLoginAccountHandlerTests
     {
-        private const string HashKeySessionKey = "Alpha.MemberInfo.Site.Handlers.IndirectLoginAccountHandler.PasswordHash";
-
         private readonly IUser user;
         private readonly IndirectLoginAccountService service;
         private readonly SessionManager sessionManager;
