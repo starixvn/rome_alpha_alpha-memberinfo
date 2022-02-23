@@ -359,8 +359,8 @@ table.dataTable tbody tr {
     }
 }
 
-/*.fixedHeader-floating {
-    display: none !important;
+.fixedHeader-floating {
+    border: none !important;
 }
 
 #tbl-customer-list thead {
@@ -368,16 +368,7 @@ table.dataTable tbody tr {
     position: sticky;
     top: -1px;
     z-index: 9;
-}*/
-
-#tbl-customer-list thead {
-    position: -webkit-sticky;
-    position: sticky;
-    top: -1px;
-    z-index: 9;
 }
-
-
 
 .fixedHeader-floating th {
     position: fixed !important;
