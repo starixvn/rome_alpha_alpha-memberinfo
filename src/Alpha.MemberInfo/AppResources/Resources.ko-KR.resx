@@ -331,7 +331,7 @@
     <value>Member account is invalid.</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
-    <value>Username unavailable!</value>
+    <value>이 사용자 이름을 사용할 수 없습니다.</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Domain</value>
@@ -388,7 +388,7 @@
     <value>Combo 3-5</value>
   </data>
   <data name="ComboOver6" xml:space="preserve">
-    <value>Combo 6+ &#38; System Parlay</value>
+    <value>Combo 6+ &amp; System Parlay</value>
   </data>
   <data name="ParlayMaxPayoutUpdateSuccessfully" xml:space="preserve">
     <value>Update successfully</value>

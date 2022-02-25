@@ -1546,7 +1546,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username is invalid..
+        ///   Looks up a localized string similar to This username is not available..
         /// </summary>
         public static string UsernameIsInvalid {
             get {

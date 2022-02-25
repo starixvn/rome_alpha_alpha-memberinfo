@@ -448,7 +448,7 @@
     <value>會員賬號無效。</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
-    <value>賬號不正確！</value>
+    <value>此帳號無效.</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>域名</value>

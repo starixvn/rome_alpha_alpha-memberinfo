@@ -442,7 +442,7 @@
     <value>Tài khoản Member không hợp lệ.</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
-    <value>Tài khoản không có thực</value>
+    <value>Tên tài khoản đã được dùng.</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Domain</value>
