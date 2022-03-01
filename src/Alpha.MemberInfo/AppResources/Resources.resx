@@ -454,7 +454,7 @@
     <value>Member account is invalid.</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
-    <value>Username is invalid.</value>
+    <value>This username is not available.</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Domain</value>

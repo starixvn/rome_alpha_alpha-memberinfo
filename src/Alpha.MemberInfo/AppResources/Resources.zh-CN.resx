@@ -448,7 +448,7 @@
     <value>会员账号无效。</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
-    <value>账号不正确！</value>
+    <value>此帳戶已有人使用。</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>域名</value>

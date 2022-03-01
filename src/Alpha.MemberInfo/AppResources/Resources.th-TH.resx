@@ -448,7 +448,7 @@
     <value>บัญชีสมาชิกไม่ถูกต้อง</value>
   </data>
   <data name="UsernameIsInvalid" xml:space="preserve">
-    <value>ชื่อผู้ใช้ไม่มีอยู่</value>
+    <value>ชื่อที่ใช้ในการเข้าระบบนี้ ไม่สามารถใช้งานได้.</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>โดเมน</value>
