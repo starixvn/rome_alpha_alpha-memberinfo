@@ -78,5 +78,9 @@
         bool CanViewReports { get; }
 
         bool IsOfferProtectedMode { get; }
+        
+        string DarkModeName { get; }
+
+        string AssetAppPath { get; }
     }
 }

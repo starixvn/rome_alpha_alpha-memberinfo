@@ -182,7 +182,7 @@
 
             // Assert
             Assert.Equal(998, data["ErrCode"]);
-            Assert.Equal("Username is invalid.", data["ErrMsg"]);
+            Assert.Equal("This username is not available.", data["ErrMsg"]);
         }
 
         [Fact]

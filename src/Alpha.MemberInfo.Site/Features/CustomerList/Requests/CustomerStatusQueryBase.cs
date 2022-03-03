@@ -75,5 +75,7 @@
             => viewer.AllowedAllDayBalTransfer;
 
         public bool IsOfferProtectedMode => viewer.IsOfferProtectedMode;
+        
+        public string DarkModeName => AppSettings.IsOfferDarkMode ? viewer.DarkModeName : string.Empty;
     }
 }

@@ -216,7 +216,7 @@
             {
                 Success = false,
                 ErrCode = 100,
-                ErrMsg = "Username is invalid."
+                ErrMsg = "This username is not available."
             };
 
             // Act
@@ -291,7 +291,7 @@
             {
                 Success = false,
                 ErrCode = 100,
-                ErrMsg = "Username is invalid."
+                ErrMsg = "This username is not available."
             };
 
             // Act

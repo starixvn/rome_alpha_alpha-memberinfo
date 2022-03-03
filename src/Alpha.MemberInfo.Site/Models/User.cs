@@ -98,5 +98,9 @@
         public bool CanViewReports => userSession.SubPageAccess.ViewReports;
 
         public bool IsOfferProtectedMode => userSession.IsOfferProtectedMode;
+        
+        public string DarkModeName => userSession.DarkModeName;
+
+        public string AssetAppPath => userSession.AssetAppPath;
     }
 }

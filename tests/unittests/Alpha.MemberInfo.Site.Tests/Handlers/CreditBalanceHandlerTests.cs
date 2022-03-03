@@ -73,7 +73,7 @@
             // Assert
             Assert.True(
                 actual.PagedCreditBalances.TotalItems == 1
-                && actual.PagedCreditBalances.ShowPager
+                && !actual.PagedCreditBalances.ShowPager
                 && actual.PagedCreditBalances.CreditBalances.Any()
                 && actual.TransferCondition == null);
         }
@@ -112,7 +112,7 @@
             // Assert
             Assert.True(
                 actual.PagedCreditBalances.TotalItems == 1
-                && actual.PagedCreditBalances.ShowPager
+                && !actual.PagedCreditBalances.ShowPager
                 && actual.PagedCreditBalances.CreditBalances.Any()
                 && actual.TransferCondition == "You are allowed to transfer on Daily");
         }

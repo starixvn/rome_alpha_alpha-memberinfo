@@ -209,5 +209,70 @@
       "Features/ParlayMaxPayout/Scripts/parlay-max-payout-service.js",
       "Features/ParlayMaxPayout/Scripts/parlay-max-payout.js"
     ]
+  },
+  /************************** Dark Mode ************************/
+  {
+    "outputFileName": "assets/bundles/default-dark.css",
+    "inputFiles": [
+      "assets/styles/member-info-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/credit-balance-dark.css",
+    "inputFiles": [
+      "assets/styles/credit-balance-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/win-loss-limit-dark.css",
+    "inputFiles": [
+      "assets/styles/win-loss-limit-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/problem-account/index-dark.css",
+    "inputFiles": [
+      "assets/styles/problem-account/index-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/problem-account/update-dark.css",
+    "inputFiles": [
+      "assets/styles/problem-account/update-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/QRCodeMemberSignIn/bundles/qr-code-member-sign-in-dark.css",
+    "inputFiles": [
+      "Features/QRCodeMemberSignIn/Styles/qr-code-member-sign-in-dark.css",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/indirect-login-account/indirect-login-account-dark.css",
+    "inputFiles": [
+      "assets/styles/indirect-login-account-dark.css",
+      "assets/styles/quick-introduction.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/DormantAccountList/Bundles/dormant-account-list-dark.css",
+    "inputFiles": [
+      "Features/DormantAccountList/Styles/dormant-account-list-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/CustomerList/Bundles/customer-list-dark.css",
+    "inputFiles": [
+      "assets/styles/common-dark.css",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
+      "Features/CustomerList/Styles/customer-list-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/ParlayMaxPayout/Bundles/parlay-max-payout-dark.css",
+    "inputFiles": [
+      "Features/ParlayMaxPayout/Styles/parlay-max-payout-dark.css"
+    ]
   }
 ]

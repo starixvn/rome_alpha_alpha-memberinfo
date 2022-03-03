@@ -7,8 +7,8 @@
     ViewBag.Title = Resources.ProblemAccountList;
 }
 @section Styles {
-    @StaticResources.AssetStyles.Render($"/bundles/site-memberinfo/problem-account-{Model.Query.CustLevel.DisplayName}")
-    @StaticResources.RenderStyles("~/assets/bundles/problem-account/index")
+    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/site-memberinfo/problem-account-{Model.Query.CustLevel.DisplayName}")
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/problem-account/index")
 }
 
 <div class="page-title">

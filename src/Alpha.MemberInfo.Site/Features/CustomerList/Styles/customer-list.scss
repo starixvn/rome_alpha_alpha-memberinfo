@@ -44,6 +44,7 @@ body:not(.modal-open) {
         border-radius: 4px;
         border: 1px solid #c4c4c4;
         margin: 0;
+        border-radius: 0;
 
         .dropdown-menu {
             width: 100%;
@@ -52,7 +53,11 @@ body:not(.modal-open) {
 
     [class*="btn-"] {
         box-shadow: none;
-        border-radius: 4px;
+        border-radius: 0;
+    }
+
+    input {
+        border-radius: 0;
     }
 
     .btn {
@@ -69,8 +74,8 @@ body:not(.modal-open) {
 }
 
 .dataTable {
-    width: 100% !important;
-    overflow: hidden;
+    width: 99.5% !important;
+    //overflow: hidden;
 
     .status-popup {
         span:first-child {
@@ -352,4 +357,43 @@ table.dataTable tbody tr {
             margin-right: 0;
         }
     }
+}
+
+.fixedHeader-floating {
+    border: none !important;
+}
+
+#tbl-customer-list thead {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    z-index: 9;
+}
+
+.fixedHeader-floating th {
+    position: fixed !important;
+}
+
+.fixedHeader-floating .header.control.sorting_disabled {
+    background: transparent;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    right: -4px;
+    height: 79px;
+    display: block;
+    border: none !important;
+    cursor : pointer;
+    &:before {
+        display: none !important;
+    }
+}
+
+.fixedHeader-floating.dtr-column > thead > tr.parent th.control:before {
+    display: none;
+}
+
+
+.easy-autocomplete-container{
+    z-index : 9999;
 }

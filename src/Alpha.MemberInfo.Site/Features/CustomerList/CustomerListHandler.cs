@@ -361,7 +361,8 @@
             request
                  .AddData(DataKey.Actor.CanEditDailyTransferOption, model.NonProduct.TransferDaily)
                  .AddData(DataKey.Actor.HasUpdateAccountPermission, message.CanUpdateAccount)
-                 .AddData(DataKey.SearchAccount.IsEnableSecurityCode, securityCodeChecker.IsEnableSecurityCode());
+                 .AddData(DataKey.SearchAccount.IsEnableSecurityCode, securityCodeChecker.IsEnableSecurityCode())
+                 .AddData(DataKey.Theme.IsDarkMode, !string.IsNullOrWhiteSpace(message.DarkModeName));
 
             return settingViewModelFactory.GetViewModels(request).Where(setting => setting.Visible).OrderBy(setting => setting.DisplayOrder);
         }
@@ -384,7 +385,8 @@
                  .AddData("customerNames", message.Usernames)
                  .AddData("syncedCasinoList", string.Join("^", syncedCasinoModel.Select(item => item.SyncCasino ? "1" : "0")))
                  .AddData("language", message.Language)
-                 .AddData(DataKey.SearchAccount.IsOfferProtectedMode, message.IsOfferProtectedMode);
+                 .AddData(DataKey.SearchAccount.IsOfferProtectedMode, message.IsOfferProtectedMode)
+                 .AddData(DataKey.Theme.IsDarkMode, !string.IsNullOrWhiteSpace(message.DarkModeName));
 
             return settingMultipleViewModelFactory.GetViewModels(request).Where(setting => setting.Visible).OrderBy(setting => setting.DisplayOrder);
         }

@@ -14,8 +14,8 @@
 }
 
 @section Styles {
-    @StaticResources.AssetStyles.RenderCommon("/bundles/site-asset/data-table")
-    @StaticResources.RenderStyles("~/Features/CustomerList/Bundles/customer-list")
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/CustomerList/Bundles/customer-list")
     @StaticResources.RenderStylesWithMedia(767, "~/Features/CustomerList/Bundles/customer-list-07")
 }
 
@@ -121,7 +121,7 @@
                 @if (!Model.HideEditMultiple)
                 {
                     <th rowspan="2" class="header all padding-icon">
-                        <input type="checkbox" id="select-all" />
+                        <input type="checkbox" class="select-all" />
                     </th>
                 }
                 <th rowspan="2" class="header all padding-icon">

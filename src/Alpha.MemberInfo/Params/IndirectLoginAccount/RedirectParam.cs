@@ -11,7 +11,9 @@
             string actorUsername,
             string browserSize,
             string ibcPKey,
-            string indirectUsername)
+            string indirectUsername,
+            string darkModeName,
+            string assetAppPath)
         {
             IndirectCustId = indirectCustId;
             IndirectSubAccId = indirectSubAccId;
@@ -22,6 +24,8 @@
             BrowserSize = browserSize;
             IBCPKey = ibcPKey;
             IndirectUsername = indirectUsername;
+            DarkModeName = darkModeName;
+            AssetAppPath = assetAppPath;
         }
 
         public int IndirectCustId { get; }
@@ -41,5 +45,9 @@
         public string IBCPKey { get; }
 
         public string IndirectUsername { get; }
+
+        public string DarkModeName { get; }
+
+        public string AssetAppPath { get; }
     }
 }

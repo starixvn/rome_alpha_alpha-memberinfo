@@ -1,24 +1,22 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList
 {
+    using System.Web.Mvc;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Controllers;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
-    using Alpha.Web;
     using Alpha.Web.Filters;
     using MediatR;
-    using System.Web.Mvc;
 
-    public class CustomerListController : BaseController
+    public class CustomerListController : SiteBaseController
     {
         private const string IndexPath = "~/Features/CustomerList/Views/Index.cshtml";
         private const string MultipleDoubleCommPath = "~/Features/CustomerList/Views/MultipeDoubleComm.cshtml";
-        private const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         private readonly Result ErrorDefault = Result.CreateErrorResult(Lang.NotAuthorized);
-        private readonly IMediator mediator;
 
         public CustomerListController(IMediator mediator)
+            : base(mediator)
         {
-            this.mediator = mediator;
         }
 
         [Route("CustomerList/master")]
@@ -26,14 +24,7 @@
         [Route("CustomerList/member")]
         [HttpGet]
         public ActionResult Index(CustomerListRequest message)
-        {
-            if (message != null && !message.IsValid())
-            {
-                return View(InvalidPageViewPath);
-            }
-
-            return View(IndexPath, mediator.Send(message));
-        }
+            => View(message, IndexPath);
 
         [HttpPost]
         public ActionResult GetCustomerListData(FetchDownlinesListRequest message)
@@ -79,15 +70,7 @@
         }
 
         public ActionResult MultipleDoubleComm(MultipleDoubleCommRequest message)
-        {
-            if (message != null && !message.IsValid())
-            {
-                return View(InvalidPageViewPath);
-            }
-
-            return View(MultipleDoubleCommPath, null, mediator.Send(message));
-        }
-
+            => View(message, MultipleDoubleCommPath);
 
         [HttpPost, AntiXsrfFilter]
         public ActionResult UpdateMultipleDoubleComm(UpdateMultipleDoubleCommCommand command)

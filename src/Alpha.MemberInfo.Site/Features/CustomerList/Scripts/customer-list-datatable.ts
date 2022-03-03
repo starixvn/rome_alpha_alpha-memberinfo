@@ -516,20 +516,18 @@ class CustomerListDataTable {
     private drawCallback = () => {
         this.detailCallBack();
 
-        const $selectAll = this.$('#select-all');
-
         this.$('#tbl-customer-list').removeClass('hidden');
 
         this.$('.btn-submit').unbind().bind('click', () => {
             this.username = this.$('#txt-username').val();
             this.status = this.$('#statusFilter').val();
             this.doubleComm = this.$('#dcommFilter').val();
-            $selectAll.prop("checked", false);
+            this.$('.select-all').prop("checked", false);
             this.$table.ajax.reload();
         });
 
         this.$('tbody .checkbox').unbind().bind("click", () => {
-            $selectAll.prop("checked", this.$('tbody .checkbox').length === this.$('tbody .checkbox:checked').length);
+            this.$('.select-all').prop("checked", this.$('tbody .checkbox').length === this.$('tbody .checkbox:checked').length);
         });
 
         this.$("td.control").each((index, element) => {

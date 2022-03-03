@@ -8,8 +8,8 @@
         MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=132782");
 }
 @section Styles {
-    @StaticResources.AssetStyles.Render("/bundles/site-totalbetsforecast/default")
-    @StaticResources.RenderStyles("~/assets/bundles/indirect-login-account/indirect-login-account")
+    @StaticResources.AssetStyles.RenderWithDarkMode("/bundles/site-totalbetsforecast/default")
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/indirect-login-account/indirect-login-account")
 }
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/indirect-login-account/manage-account")

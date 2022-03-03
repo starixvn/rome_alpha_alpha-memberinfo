@@ -37,7 +37,7 @@ class CustomerListServices {
             params,
             data => {
                 this.$.unblockUI();
-                this.$('#select-all').prop("checked", false);
+                this.$('.select-all').prop("checked", false);
                 callback({
                     data: data.DownlinesList,
                     recordsTotal: data.TotalDownlines,

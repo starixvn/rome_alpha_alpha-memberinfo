@@ -1,0 +1,212 @@
+﻿body {
+    background-color: transparent !important;
+}
+
+.page-title {
+    display: table;
+    width: 100%;
+    position: relative;
+
+    &.title-Super{
+        color: #E52C3E;
+    }
+
+    &.title-Master{
+        color: #4DE590;
+    }
+
+    &.title-Agent{
+        color: #63A2E5;
+    }
+}
+
+.icon-refresh, .icon-edit {
+    margin-right: 5px;
+}
+
+#tbl-report {
+    width: 750px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+    .negative-value {
+        color: #FF4F50;
+    }
+
+    tfoot td {
+        padding: 0;
+    }
+}
+
+.link {
+    color: #045ace;
+    cursor: pointer;
+
+    &:hover {
+        color: #F60;
+    }
+}
+
+input[type="checkbox"] {
+    margin-right: 0;
+    display: inherit;
+}
+
+input[type="button"][disabled] {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.page-title .icon-information-outline {
+    font-size: 18px !important;
+    top: -1px;
+}
+
+.filter {
+    display: table;
+    width: 100%;
+    clear: both;
+    padding-top: 0;
+
+    .multiselect .multiselect-selected-text {
+        width: 130px;
+    }
+
+    .multiselect-container label {
+        font-size: 13px;
+
+        input[type="checkbox"] {
+            display: inline-block;
+        }
+    }
+
+    .icon-excel, .icon-back {
+        cursor: pointer;
+        color: #1f7244;
+        font-size: 19px;
+        vertical-align: middle;
+        height: 28px;
+        float: left;
+
+        &:before {
+            position: relative;
+            top: 5px;
+        }
+    }
+
+    .icon-back {
+        margin-left: 20px;
+        font-size: 20px;
+    }
+
+    .select-multiple {
+        height: 28px;
+        width: 160px;
+    }
+
+    .error, .btn-group button.multiselect.error {
+        border: 1px solid #e9322d;
+        padding: 4px 10px;
+    }
+
+    .dropdown-daterange {
+        width: 160px;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+        padding-bottom: 0;
+
+        .btn-submit, .btn-group {
+            float: left;
+        }
+
+        &.daterange-picker {
+            .ui_nexdatepicker_edit_field, .ui_nexdatepicker_lbl_field {
+                margin-bottom: 15px;
+            }
+        }
+
+        &.pull-right {
+            margin-right: 0;
+
+            .btn-refresh {
+                margin-right: 0;
+                display: inline-block;
+                line-height: 28px;
+                padding-left: 7px;
+                padding-right: 10px;
+            }
+
+            .icon-refresh2 {
+                font-size: 20px;
+                vertical-align: middle;
+                margin-right: 3px;
+            }
+        }
+    }
+}
+
+.bootbox-confirm .modal-dialog {
+    top: 10%;
+    left: 10%;
+}
+
+#box_header {
+    width: 750px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.edit-setting {
+    cursor: pointer;
+
+    &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.baio-bettypes-content-bg {
+    background-color: #f1ebc7;
+}
+
+.baio-title-effect-date-format {
+    line-height: 30px;
+    text-indent: 10px;
+}
+
+.star {
+    background: url(../styles/images/star.gif) no-repeat 0 6px;
+    padding-left: 10px;
+}
+
+#txt-username, #txt-player-id {
+    width: 210px;
+}
+
+
+
+html {
+    height: unset !important;
+    background: #171717 !important;
+}
+
+.multi-double-comm {
+    .msg {
+        margin-top: 0;
+    }
+
+    label {
+        font-size: inherit;
+        color: inherit;
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+}
+

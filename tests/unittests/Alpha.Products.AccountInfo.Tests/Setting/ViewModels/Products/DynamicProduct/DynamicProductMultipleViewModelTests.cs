@@ -23,6 +23,7 @@
         public void Url_Start_With_BaseAddress()
         {
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData(DataKey.Theme.IsDarkMode, true);
             var viewModel = new DynamicProductMultipleViewModel(request, ProductItem);
 
             Assert.StartsWith(BaseAddress, viewModel.Url, StringComparison.OrdinalIgnoreCase);
@@ -33,6 +34,7 @@
         {
             var expectedIcon = "icon-edit Enable";
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData(DataKey.Theme.IsDarkMode, true);
             var viewModel = new DynamicProductMultipleViewModel(request, ProductItem);
 
             Assert.StartsWith(expectedIcon, viewModel.Icon, StringComparison.OrdinalIgnoreCase);
@@ -43,6 +45,7 @@
         {
             var expectedText = "EditMultiple ProductName-21";
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData(DataKey.Theme.IsDarkMode, true);
 
             var viewModel = new DynamicProductMultipleViewModel(request, ProductItem);
 
@@ -56,6 +59,7 @@
             request.AddData("customerIds", "1, 3");
             request.AddData("usernames", "test1, test2");
             request.AddData("language", "EN");
+            request.AddData(DataKey.Theme.IsDarkMode, false);
 
             var viewModel = new DynamicProductMultipleViewModel(request, ProductItem);
 
@@ -73,12 +77,14 @@
             Assert.Equal("1", viewModel.QueryStringParamaters["uplineId"]);
             Assert.Equal("21", viewModel.QueryStringParamaters["productId"]);
             Assert.Equal("4", viewModel.QueryStringParamaters["uplinelevel"]);
+            Assert.Equal("false", viewModel.QueryStringParamaters["isDarkMode"]);
         }
 
         [Fact]
         public void Method_Is_Post()
         {
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData(DataKey.Theme.IsDarkMode, true);
             var viewModel = new DynamicProductMultipleViewModel(request, ProductItem);
             Assert.Equal("POST", viewModel.Method, ignoreCase: true);
         }
@@ -96,6 +102,7 @@
             IConfigurationItem productItem = Substitute.For<IConfigurationItem>();
             productItem.ProductId.Returns(productId);
             var request = RequestHelper.CreateRequest(4, 3);
+            request.AddData(DataKey.Theme.IsDarkMode, true);
 
             var viewModel = new DynamicProductMultipleViewModel(request, productItem);
 
@@ -120,6 +127,7 @@
             request.AddData("customerIds", "1, 3");
             request.AddData("usernames", "test1, test2");
             request.AddData("language", "EN");
+            request.AddData(DataKey.Theme.IsDarkMode, true);
 
             var viewModel = new DynamicProductMultipleViewModel(request, ProductItem);
 
