@@ -62,8 +62,8 @@
     <CodeAnalysisRuleSet>Alpha.MemberInfo.Site.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.Auth, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Auth.3.0.4\lib\net461\Alpha.Auth.dll</HintPath>
+    <Reference Include="Alpha.Auth, Version=3.0.4.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Auth.3.0.4.1\lib\net461\Alpha.Auth.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.Captcha, Version=1.1.1.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.Captcha.1.1.1.3\lib\net461\Alpha.Captcha.dll</HintPath>
@@ -296,8 +296,8 @@
       <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.6.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.6.1-beta1\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.6.2-OneRNGDCS01\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.2\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
@@ -546,10 +546,6 @@
     <Content Include="assets\bundles\problem-account\update.min.js">
       <DependentUpon>update.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\progressive-jackpot\progressive-jackpot.js" />
-    <Content Include="assets\bundles\progressive-jackpot\progressive-jackpot.min.js">
-      <DependentUpon>progressive-jackpot.js</DependentUpon>
-    </Content>
     <Content Include="assets\bundles\win-loss-limit-dark.css" />
     <Content Include="assets\bundles\win-loss-limit-dark.min.css">
       <DependentUpon>win-loss-limit-dark.css</DependentUpon>
@@ -666,6 +662,9 @@
     </Content>
     <Content Include="assets\styles\problem-account\update.min.css">
       <DependentUpon>update.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\quick-introduction.min.css">
+      <DependentUpon>quick-introduction.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\win-loss-limit-dark.css">
       <DependentUpon>win-loss-limit-dark.scss</DependentUpon>
@@ -840,18 +839,6 @@
     <Content Include="Views\MemberRequests\Members.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
     <Content Include="App_Code\Components\OpenPopup.cshtml" />
-    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page-dark.css">
-      <DependentUpon>page-dark.scss</DependentUpon>
-    </Content>
-    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page-dark.min.css">
-      <DependentUpon>page-dark.css</DependentUpon>
-    </Content>
-    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.css">
-      <DependentUpon>page.scss</DependentUpon>
-    </Content>
-    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.min.css">
-      <DependentUpon>page.css</DependentUpon>
-    </Content>
     <Content Include="Views\Shared\InvalidPage.cshtml" />
     <Content Include="Web.AppSettings.local2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
@@ -893,8 +880,6 @@
     <Content Include="Features\ParlayMaxPayout\Views\ParlayMaxPayoutSetting.cshtml" />
     <Content Include="Features\ParlayMaxPayout\Styles\_mixins.scss" />
     <Content Include="Features\ParlayMaxPayout\Styles\_variables.scss" />
-    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page.scss" />
-    <Content Include="Views\ProgressiveJackpot\Handbook\Styles\page-dark.scss" />
     <Content Include="Features\ParlayMaxPayout\Styles\_variables-dark.scss" />
     <Content Include="Views\CreditBalance\Legend.en-US.cshtml" />
     <Content Include="Views\CreditBalance\Legend.zh-CN.cshtml" />
