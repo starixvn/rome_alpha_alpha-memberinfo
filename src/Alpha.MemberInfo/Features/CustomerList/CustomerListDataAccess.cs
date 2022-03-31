@@ -35,7 +35,7 @@
                             {
                                 foreach (var product in products)
                                 {
-                                    if (!product.IsHidden && product.IsDisabled)
+                                    if (!product.IsHidden)
                                     {
                                         return product;
                                     }
