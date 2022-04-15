@@ -14,7 +14,7 @@
 
     var reportDomainConfig = System.Web.Configuration.WebConfigurationManager.AppSettings["Report:Domain"];
     var reportDomainValue = reportDomainConfig.IndexOf("{0}") != -1 ?
-        string.Format(reportDomainConfig, Request.Headers["Host"].Replace("mb.", string.Empty).Replace("mb2.", string.Empty)) : reportDomainConfig;
+        string.Format(reportDomainConfig, Request.Headers["Host"]) : reportDomainConfig;
     var reportUrl = string.IsNullOrWhiteSpace(reportDomainConfig) ? MicroSites.ReportsUrl() : $"{reportDomainValue}/";
 }
 
