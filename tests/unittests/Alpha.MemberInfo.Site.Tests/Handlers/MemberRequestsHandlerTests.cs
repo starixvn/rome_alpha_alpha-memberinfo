@@ -42,35 +42,7 @@
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
         }
 
-        [Fact]
-        public void HandlerProductQuery_Always_ReturnsCorrectViewModel()
-        {
-            // Arrange
-            var message = new ProductQuery(user)
-            {
-                UserSelectedProductId = ProductId.Casino
-            };
-
-            service.GetPlayForFunProduct(Arg.Any<int>()).Returns(new List<Product>
-            {
-                new Product(ProductId.Casino, "Casino", false)
-            });
-
-            var expectedViewModel = new ProductsViewModel(
-                message.ViewerId,
-                message.UserSelectedProductId,
-                new List<ProductViewModel>
-                {
-                    new ProductViewModel("Casino", ProductId.Casino.ToString(), true, false, setting)
-                });
-
-            // Act
-            var actualViewModel = handler.Handle(message);
-
-            // Assert
-            AssertExtension.Equal(expectedViewModel, actualViewModel);
-        }
-
+        
         [Fact]
         public void HandlerProductQuery_EmptyProduct_ReturnsCorrectViewModel()
         {
@@ -118,14 +90,14 @@
             // Arrange
             var message = new MemberRequestsQuery(user)
             {
-                UserSelectedProductId = ProductId.Casino,
+                UserSelectedProductId = ProductId.MacauGames,
                 DisabledUserSelectedProduct = false,
                 CustId = 1
             };
 
             var expectedViewModel = new MemberRequestViewModel(
                 Enumerable.Empty<MemberRequestModel>(),
-                ProductId.Casino,
+                ProductId.MacauGames,
                 false,
                 1,
                 message.CanUpdateAccount);

@@ -217,7 +217,6 @@
             expect(memberRequests.$sideBar).toBeDefined();
 
             expect(memberRequests.viewerId).toBe(1);
-            expect(memberRequests.editSettingUrl).toBe("editSettingUrl");
         });
     });
 
@@ -260,112 +259,7 @@
             convertAttributeToBoolTestCase("true", true);
             convertAttributeToBoolTestCase("True", true);
         });
-    });
-    describe("_updateWarningMessage", () => {
-        it("_Disable Product_Show Message Warning: Disabled and Hide Message Info", () => {
-            // arrange
-            setFixtures(`<body>
-                            <select id="dropdown-product">
-                                <option value="6"
-                                        data-productname="Casino"
-                                        data-disabled="true"
-                                        data-has-setting="true"></option>
-                            </select>
-                             <div id="msg-warning"></div>
-                             <div id="msg-info"></div>
-                            <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
-                            <table id="tbl-report" data-has-data="true"></table>
-                          </body>`);
-            memberRequests.cacheDOMElements();
-            memberRequests.$tableReport = memberRequests.$("#tbl-report");
-
-            // act
-            memberRequests.updateWarningMessage();
-
-            // assert
-            expect(memberRequests.$msgWarning.html()).toBe("disabledProductWarningMessage");
-            expect(memberRequests.$msgWarning.hasClass("hide")).toBeFalsy();
-            expect(memberRequests.$msgInfo.hasClass("hide")).toBeTruthy();
-        });
-        it("_Enable and Has Error_Show Message Warning: Error message and Hide Message Info", () => {
-            // arrange
-            setFixtures(`<body>
-                            <select id="dropdown-product">
-                                <option value="6"
-                                        data-productname="Casino"
-                                        data-disabled="false"
-                                        data-has-setting="false"
-                                        data-error-code="1"
-                                        data-error-message="ErrorMessage"></option>
-                            </select>
-                             <div id="msg-warning"></div>
-                             <div id="msg-info"></div>
-                            <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
-                            <table id="tbl-report" data-has-data="true"></table>
-                          </body>`);
-            memberRequests.cacheDOMElements();
-            memberRequests.$tableReport = memberRequests.$("#tbl-report");
-
-            // act
-            memberRequests.updateWarningMessage();
-
-            // assert
-            expect(memberRequests.$msgWarning.html()).toBe("ErrorMessage");
-            expect(memberRequests.$msgWarning.hasClass("hide")).toBeFalsy();
-            expect(memberRequests.$msgInfo.hasClass("hide")).toBeTruthy();
-        });
-        it("_Enable Product/No Error/Not Have Setting_Show Message Warning and Hide Message Info", () => {
-            // arrange
-            setFixtures(`<body>
-                            <select id="dropdown-product">
-                                <option value="6"
-                                        data-productname="Casino"
-                                        data-disabled="false"
-                                        data-error-code="0"
-                                        data-has-setting="false"></option>
-                            </select>
-                             <div id="msg-warning"></div>
-                             <div id="msg-info"></div>
-                             <input id="noSettingWarning" value="noSettingWarning" />
-                            <table id="tbl-report" data-has-data="true"></table>
-                          </body>`);
-            memberRequests.cacheDOMElements();
-            memberRequests.$tableReport = memberRequests.$("#tbl-report");
-
-            // act
-            memberRequests.updateWarningMessage();
-
-            // assert
-            expect(memberRequests.$msgWarning.html()).toBe("noSettingWarning");
-            expect(memberRequests.$msgWarning.hasClass("hide")).toBeFalsy();
-            expect(memberRequests.$msgInfo.hasClass("hide")).toBeTruthy();
-        });
-        it("_Enable Product/No Error/Have Setting_Hide Message Warning and Show Message Info", () => {
-            // arrange
-            setFixtures(`<body>
-                            <select id="dropdown-product">
-                                <option value="6"
-                                        data-productname="Casino"
-                                        data-disabled="false"
-                                        data-error-code="0"
-                                        data-has-setting="true"></option>
-                            </select>
-                             <div id="msg-warning"></div>
-                             <div id="msg-info"></div>
-                            <input id="disabledProductWarningMessage" value="disabledProductWarningMessage" />
-                            <table id="tbl-report" data-has-data="false"></table>
-                          </body>`);
-            memberRequests.cacheDOMElements();
-            memberRequests.$tableReport = memberRequests.$("#tbl-report");
-
-            // act
-            memberRequests.updateWarningMessage();
-
-            // assert
-            expect(memberRequests.$msgWarning.hasClass("hide")).toBeTruthy();
-            expect(memberRequests.$msgInfo.hasClass("hide")).toBeFalsy();
-        });
-    });
+    });   
     describe("_loadMemberRequests", () => {
         it("_Always_Block UI and Call Ajax", () => {
             // arrange
@@ -428,33 +322,7 @@
             // assert
             expect(actualValue.val()).toBe(expectedValue);
         });
-    });
-    describe("_registerEventsForTable", () => {
-        beforeEach(() => {
-            // arrange
-            setFixtures(template.normal);
-            spyOn(memberRequests, "viewMemberInfo");
-            spyOn(memberRequests, "editSetting");
-            memberRequests.cacheDOMElements();
-
-            // act
-            memberRequests.registerEventsForTable();
-        });
-        it("Always_Bind viewMemberInfo event", () => {
-            // act
-            $("#view-member-info-link").click();
-
-            // assert
-            expect(memberRequests.viewMemberInfo).toHaveBeenCalled();
-        });
-        it("Always_Bind editSetting event", () => {
-            // act
-            $("#edit-setting").click();
-
-            // assert
-            expect(memberRequests.editSetting).toHaveBeenCalledWith(1, "member01");
-        });
-    });
+    });  
     describe("_viewMemberInfo", () => {
         let event = { stopPropagation: jasmine.createSpy("stopPropagation", () => null) };
 
@@ -550,23 +418,7 @@
             // assert
             expect(actualValue).toBeFalsy();
         });
-    });
-    describe("_editSetting", () => {
-        it("_Always_Show Popup;Clear Popup Subtitle", () => {
-            // arrange
-            setFixtures(template.normal);
-            memberRequests.cacheDOMElements();
-            spyOn(topWindow.popupManager, "openByRelativeUrl");
-            spyOn(topWindow, "clearPopupSubtitle");
-
-            // act
-            memberRequests.editSetting(1, "member01");
-
-            // assert
-            expect(topWindow.popupManager.openByRelativeUrl).toHaveBeenCalledWith("editSettingUrl?id=1&uplineid=1&username=member01", "", 1160);
-            expect(topWindow.clearPopupSubtitle).toHaveBeenCalled();
-        });
-    });
+    });   
     describe("_refreshPage", () => {
         it("_Always_Reload location", () => {
             // arrange

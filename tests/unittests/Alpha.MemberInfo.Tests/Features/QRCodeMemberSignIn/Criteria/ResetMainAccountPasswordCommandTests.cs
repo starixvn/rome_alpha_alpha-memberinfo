@@ -16,7 +16,6 @@
                 CustId = 1,
                 UserPwd = "aaa",
                 UserId = 2,
-                DisCasino = true,
                 Language = "En",
                 SubAccId = 0,
                 LoginIP = "192.168.1.1"
@@ -41,7 +40,6 @@
                 CustId = custId,
                 UserPwd = "aaa",
                 UserId = 2,
-                DisCasino = true,
                 Language = "En",
                 SubAccId = 0,
                 LoginIP = "192.168.1.1"

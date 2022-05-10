@@ -75,19 +75,11 @@
 
         public bool IsAllowedIndirectLogin => !userSession.IsIndirectLoggedIn && AppSettings.IsAllowedIndirectLogin(Srecommend);
 
-        public bool IsHideKeno => userSession.IsHideKeno;
-
-        public bool IsCasinoSync => userSession.IsCasinoSync;
-
-        public bool IsCasinoDisabled => userSession.IsCasinoDisabled;
+        public bool IsHideKeno => userSession.IsHideKeno;      
 
         public bool IsDisabledESports => userSession.IsDisabledESports;
 
-        public bool IsNumberGameDisabled => userSession.IsNumberGameDisabled;
-
-        public bool IsHideGoldDeluxe => userSession.IsHideGoldDeluxe;
-
-        public bool DisableGoldDeluxe => userSession.DisableGoldDeluxe;
+        public bool IsNumberGameDisabled => userSession.IsNumberGameDisabled;      
 
         public bool AllowedAllDayBalTransfer => userSession.IsAllDayBalTransfer;
 

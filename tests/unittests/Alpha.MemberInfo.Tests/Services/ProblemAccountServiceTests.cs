@@ -82,14 +82,6 @@ namespace Alpha.MemberInfo.Tests.Services
             Assert.True(act.ClosedReasonName == string.Empty);
             Assert.True(act.StatusNameEN == string.Empty);
         }
-
-        [Fact]
-        public void ProgressiveJackpotParam_Properties_HasDefaultValues()
-        {
-            var act = new ProgressiveJackpotParam(0, null, Enumerable.Empty<int>());
-            Assert.True(act.CustId == 0);
-            Assert.Null(act.Language);
-            Assert.False(act.ProductIds.Any());
-        }
+              
     }
 }

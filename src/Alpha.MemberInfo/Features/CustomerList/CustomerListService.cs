@@ -16,8 +16,7 @@
         CustomerStatusModel GetCustomerStatus(int custId);
 
         Result UpdateCustomerStatus(UpdateCustomerStatusParam param);
-
-        IEnumerable<SyncedCasinoModel> GetSyncedCasinoModel(string custIds);
+     
     }
 
     public class CustomerListServiceImpl : CustomerListService
@@ -63,10 +62,7 @@
                 param.Language,
                 param.IP,
                 param.StatusName,
-                param.StatusValue));
-
-        public IEnumerable<SyncedCasinoModel> GetSyncedCasinoModel(string custIds)
-            => dynamicRepository.Fetch<SyncedCasinoModel>(new SelectSyncedCasinoList(custIds));
+                param.StatusValue));      
 
         internal CustomerListDTO FectchMasterList(CustomerListParam param)
         {

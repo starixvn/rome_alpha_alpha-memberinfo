@@ -81,11 +81,7 @@ class EditMultipleSetting {
     private buildPopupHtml = settings => {
         let html = ['<ul>'];
         this.$.each(settings, (key, item) => {
-            //Synced Casino Array
-            if (item.ProductId === 6) {
-                this.$('#arrayStatusRnCasino').val(item.QueryStringParamaters.syncedCasinoList);
-            }
-
+         
             const attrs = {
                 'class': `edit-multiple-settings ${item.Icon}`,
                 'data-title': item.Title || item.Text,

@@ -178,7 +178,6 @@
                         CustId = message.SearchAccountId,
                         UserPwd = passwordModel.EncodePassword,
                         UserId = message.CustId,
-                        DisCasino = false,
                         Language = message.Language,
                         SubAccId = message.SubAccId,
                         LoginIP = message.IP
@@ -191,9 +190,7 @@
                         config.Domains[0],
                         config.SiteId,
                         message.SearchAccountName,
-                        config.ExpireSeconds);
-
-                var rngCasinoStatusModel = qrCodeMemberSignInService.GetRnGStatus(message.SearchAccountName);
+                        config.ExpireSeconds);                
 
                 return new ShowQRCodeViewModel(
                     message.Credit,
@@ -206,8 +203,7 @@
                     qrCodeAdapter.Generate(link),
                     config.Domains,
                     message.CreateMode,
-                    message.ShowPageTitle,
-                    rngCasinoStatusModel.SyncCS,
+                    message.ShowPageTitle,                   
                     rawPassword);
             }
 

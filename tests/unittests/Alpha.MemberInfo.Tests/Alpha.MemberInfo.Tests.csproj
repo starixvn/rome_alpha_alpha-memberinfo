@@ -52,27 +52,12 @@
     <Reference Include="AutoFixture.AutoNSubstitute, Version=4.10.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\AutoFixture.AutoNSubstitute.4.10.0\lib\net452\AutoFixture.AutoNSubstitute.dll</HintPath>
     </Reference>
-    <Reference Include="CasinoLibrary, Version=2.1.0.18354, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.2.1.0.18354\lib\net40\CasinoLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="CasinoSetting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.2.1.0.18354\lib\net40\CasinoSetting.dll</HintPath>
-    </Reference>
-    <Reference Include="CasinoUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.2.1.0.18354\lib\net40\CasinoUtility.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Couchbase, Version=1.2.6.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CouchbaseNetClient.1.2.6.3\lib\net40\Couchbase.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Enyim.Caching, Version=2.12.0.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CouchbaseNetClient.1.2.6.3\lib\net40\Enyim.Caching.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Caching, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Caching.2.2.1\lib\net461\Fanex.Caching.dll</HintPath>
@@ -109,9 +94,6 @@
     </Reference>
     <Reference Include="Fare, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ea68d375bf33a7c8, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fare.2.1.1\lib\net35\Fare.dll</HintPath>
-    </Reference>
-    <Reference Include="HandHistoryLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CasinoLibrary.2.1.0.18354\lib\net40\HandHistoryLibrary.dll</HintPath>
     </Reference>
     <Reference Include="IBCCrypt, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Crypt.1.1.0.0\lib\net40\IBCCrypt.dll</HintPath>
@@ -160,12 +142,9 @@
       <HintPath>..\..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.Interception.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="NetUtility, Version=4.5.6325.30210, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\NetUtility.4.5.6325.30210\lib\net40\NetUtility.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -194,29 +173,17 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.5.9, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Sunplus.Agent.Model.Base.3.0.5.9\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Sunplus.Agent.Model.Casino.3.0.0.5\lib\net461\Sunplus.Agent.Model.Casino.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\packages\Sunplus.Agent.Model.Base.3.0.6.2\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.2\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.3\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.5\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
     </Reference>
-    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Sunplus.Agent.Utilities.3.0.1\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
-    </Reference>
-    <Reference Include="Sunplus.Libraries.AOP, Version=1.0.4218.28561, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Sunplus.Libraries.AOP.1.0.4218.28561\lib\net40\Sunplus.Libraries.AOP.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Sunplus.Libraries.APILogger, Version=1.0.4218.28561, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Sunplus.Libraries.APILogger.1.0.4218.28561\lib\net40\Sunplus.Libraries.APILogger.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Sunplus.Agent.Utilities.3.0.2\lib\net461\Sunplus.Agent.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Libraries.ThirdPartyTestData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Sunplus.Libraries.ThirdPartyTestData.1.0.0.0\lib\net40\Sunplus.Libraries.ThirdPartyTestData.dll</HintPath>
@@ -300,7 +267,6 @@
   <ItemGroup>
     <Compile Include="Collections\AnyValueCreatorCollection.cs" />
     <Compile Include="Configurations\AppSettingsTests.cs" />
-    <Compile Include="Constants\CasinoGameKind.cs" />
     <Compile Include="Constants\ProductId.cs" />
     <Compile Include="Constants\RoleId.cs" />
     <Compile Include="Criteria\CheckUMCriteriaTests.cs" />
@@ -347,7 +313,6 @@
     <Compile Include="Feature\DormantAccountList\DormantAccountServiceTests.cs" />
     <Compile Include="Feature\DormantAccountList\Models\DormantAccountTests.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\UpdateCustomerStatusCommandTest.cs" />
-    <Compile Include="Features\CustomerList\SPs\Criteria\SelectSyncedCasinoListTest.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMemberListCriteriaTest.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMasterListCriteriaTest.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectAgentListCriteriaTest.cs" />
@@ -387,12 +352,8 @@
     <Compile Include="Services\CheckUMServiceImplTests.cs" />
     <Compile Include="Services\CreditBalance\CreditBalanceServiceImplTests.cs" />
     <Compile Include="Services\IndirectLoginAccount\IndirectLoginAccountServiceImplTests.cs" />
-    <Compile Include="Services\MemberRequest\CasinoCustomerImplErrorMock.cs" />
-    <Compile Include="Services\MemberRequest\CasinoCustomerImplMock.cs" />
-    <Compile Include="Services\MemberRequest\CasinoCustomerImplTests.cs" />
     <Compile Include="Services\MemberRequest\MemberRequestServiceImplTests.cs" />
     <Compile Include="Services\ProblemAccountServiceTests.cs" />
-    <Compile Include="Services\ProgressiveJackpotServiceImplTests.cs" />
     <Compile Include="Services\Transfer\TransferServiceImplTests.cs" />
     <Compile Include="Services\WinLossLimit\WinLossLimitServiceImplTests.cs" />
     <Compile Include="TestCases\StringExtensionsTestCases.cs" />

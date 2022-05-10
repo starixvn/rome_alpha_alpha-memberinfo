@@ -12,8 +12,7 @@
         {
             this.viewer = viewer;
         }
-
-        public bool SyncedCasino3rd { get; set; }
+       
 
         public bool StatusValue { get; set; }
 

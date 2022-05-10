@@ -258,9 +258,6 @@
   <data name="GivenCreditPopupTitle" xml:space="preserve">
     <value>Update Given Credit</value>
   </data>
-  <data name="GoldDeluxeViewModelText" xml:space="preserve">
-    <value>Gold Deluxe</value>
-  </data>
   <data name="IP" xml:space="preserve">
     <value>아이피</value>
   </data>
@@ -348,9 +345,6 @@
   <data name="ResetSecurityCodeViewModelText" xml:space="preserve">
     <value>Reset Security Code</value>
   </data>
-  <data name="RnGCasinoViewModelText" xml:space="preserve">
-    <value>카지노</value>
-  </data>
   <data name="Setting" xml:space="preserve">
     <value>설정</value>
   </data>
@@ -377,9 +371,6 @@
   </data>
   <data name="SuspendedByUplineTooltip" xml:space="preserve">
     <value>This account was indirectly suspended by upline</value>
-  </data>
-  <data name="SyncRnGCasinoViewModelText" xml:space="preserve">
-    <value>동기화된 카지노</value>
   </data>
   <data name="ThisAccountWasDisabled" xml:space="preserve">
     <value>이 계정은 실행하실수없는 계정입니다.</value>
@@ -428,12 +419,6 @@
   </data>
   <data name="Update1" xml:space="preserve">
     <value>업데이트</value>
-  </data>
-  <data name="EditMultipleCasinoText" xml:space="preserve">
-    <value>멀티플 카지노 수정하기</value>
-  </data>
-  <data name="EditMultipleGoldDeluxeText" xml:space="preserve">
-    <value>Edit Multiple Gold Deluxe</value>
   </data>
   <data name="EditMultipleRNGKenoText" xml:space="preserve">
     <value>Edit Multiple RNG Keno</value>

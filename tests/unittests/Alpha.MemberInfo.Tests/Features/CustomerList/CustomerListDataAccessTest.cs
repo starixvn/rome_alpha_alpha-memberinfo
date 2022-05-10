@@ -118,19 +118,13 @@
 
         private static NonDCSProductStatusModel StubNonDCSProduct()
             => new NonDCSProductStatusModel(
-                             syncCasino: true,
-                             disableCasino: true,
-                             uplineDisableCS: true,
                              disableNumber: true,
                              uplineDisableNumber: true,
                              disableEsports: true,
                              uplineDisableEsports: true,
                              hideKeno: true,
-                             disableKeno: false,
-                             uplineHideGoldDeluxe: true,
-                             uplineDisableGoldDeluxe: true,
-                             disableGoldDeluxe: true,
-                             hideGoldDeluxe: true);
+                             disableKeno: false
+                            );
 
         private static NonProductStatusModel StubNonProductStatus()
             => new NonProductStatusModel(

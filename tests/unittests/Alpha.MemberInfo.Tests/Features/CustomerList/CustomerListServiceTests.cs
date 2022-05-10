@@ -150,24 +150,7 @@
 
             Assert.True(compareLogic.Compare(actualModel, result).AreEqual);
         }
-
-        [Fact]
-        public void GetSyncedCasinoModel_Always_ReturnsCorrectModel()
-        {
-            var data = new List<SyncedCasinoModel>
-            {
-                new SyncedCasinoModel(),
-                new SyncedCasinoModel(1, true)
-            };
-
-            repository
-                 .Fetch<SyncedCasinoModel>(Arg.Any<SelectSyncedCasinoList>())
-                 .Returns(data);
-
-            var actualModel = service.GetSyncedCasinoModel("1,2");
-
-            Assert.True(compareLogic.Compare(actualModel, data).AreEqual);
-        }
+       
 
         private CustomerListDTO FectchMasterList(CustomerListParam param) =>
             new CustomerListDTO(FakeMasterList(), 100, 2);

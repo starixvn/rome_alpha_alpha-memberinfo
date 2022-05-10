@@ -246,10 +246,8 @@
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
                 new CustomerProductStatus(ProductConstants.NumberGame, nonDCSProduct.DisableNumber),
-                new CustomerProductStatus(ProductConstants.RNGCasino, nonDCSProduct.DisableCasino, synced: nonDCSProduct.SyncCasino),
                 new CustomerProductStatus(ProductConstants.ESport, nonDCSProduct.DisableEsports),
-                new CustomerProductStatus(ProductConstants.Keno, disabled: nonDCSProduct.DisableKeno, hidden: nonDCSProduct.HideKeno),
-                new CustomerProductStatus(ProductConstants.GoldDeluxe, nonDCSProduct.DisableGoldDeluxe, hidden: nonDCSProduct.HideGoldDeluxe)
+                new CustomerProductStatus(ProductConstants.Keno, disabled: nonDCSProduct.DisableKeno, hidden: nonDCSProduct.HideKeno)
             };
 
             dcsProducts.ToList().ForEach(product =>
@@ -269,10 +267,8 @@
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
                 new CustomerProductStatus(ProductConstants.NumberGame, nonDCSProduct.UplineDisableNumber),
-                new CustomerProductStatus(ProductConstants.RNGCasino, nonDCSProduct.UplineDisableCS),
                 new CustomerProductStatus(ProductConstants.ESport, nonDCSProduct.UplineDisableEsports),
-                new CustomerProductStatus(ProductConstants.Keno, hidden: nonDCSProduct.HideKeno),
-                new CustomerProductStatus(ProductConstants.GoldDeluxe, nonDCSProduct.UplineDisableGoldDeluxe, hidden: nonDCSProduct.UplineHideGoldDeluxe)
+                new CustomerProductStatus(ProductConstants.Keno, hidden: nonDCSProduct.HideKeno)
             };
 
             dcsProducts.ToList().ForEach(product =>
@@ -292,10 +288,8 @@
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
                 new CustomerProductStatus(ProductConstants.NumberGame, message.IsNumberGameDisabled),
-                new CustomerProductStatus(ProductConstants.RNGCasino, message.IsCasinoDisabled, synced: message.IsCasinoSync),
                 new CustomerProductStatus(ProductConstants.ESport, message.IsDisabledESports),
-                new CustomerProductStatus(ProductConstants.Keno, hidden:message.IsHideKeno),
-                new CustomerProductStatus(ProductConstants.GoldDeluxe, message.DisableGoldDeluxe, hidden: message.IsHideGoldDeluxe)
+                new CustomerProductStatus(ProductConstants.Keno, hidden:message.IsHideKeno)
             };
 
             dcsProducts.ToList().ForEach(product =>
@@ -372,8 +366,7 @@
            Customer searchAccount,
            CustomerStatusMultipleQuery message,
            CustomerStatusModel model)
-        {
-            var syncedCasinoModel = customerListService.GetSyncedCasinoModel(message.CustIds);
+        {           
 
             var request = new SettingSearchAccountRequest(actor, searchAccount);
             request
@@ -382,8 +375,7 @@
                  .AddData(DataKey.SearchAccount.IsEnableSecurityCode, securityCodeChecker.IsEnableSecurityCode())
                  .AddData("customerIds", message.CustIds)
                  .AddData("usernames", message.Usernames)
-                 .AddData("customerNames", message.Usernames)
-                 .AddData("syncedCasinoList", string.Join("^", syncedCasinoModel.Select(item => item.SyncCasino ? "1" : "0")))
+                 .AddData("customerNames", message.Usernames)                
                  .AddData("language", message.Language)
                  .AddData(DataKey.SearchAccount.IsOfferProtectedMode, message.IsOfferProtectedMode)
                  .AddData(DataKey.Theme.IsDarkMode, !string.IsNullOrWhiteSpace(message.DarkModeName));

@@ -83,7 +83,6 @@
             var message = new CustomerNonProductStatusCommand(user)
             {
                 SearchAccountId = 2,
-                SyncedCasino3rd = true,
                 StatusName = "outright",
                 StatusValue = true
             };

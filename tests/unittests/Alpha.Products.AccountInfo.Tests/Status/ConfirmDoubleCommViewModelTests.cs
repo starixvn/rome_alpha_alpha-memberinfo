@@ -93,20 +93,7 @@
             var viewModel = new ConfirmDoubleCommViewModel(request);
 
             Assert.Equal(expectedStatusValue, viewModel.StatusValue);
-        }
-
-        [Fact]
-        public void Always_Return_Correct_SyncedCasino3rd_StatusName()
-        {
-            var request = RequestHelper.CreateRequest(4, 3);
-            request.AddData("SearchAccount.IsAllowedDoubleComm", true);
-            request.AddData("Actor.HasUpdateAccountPermission", true);
-            request.AddData("SearchAccount.Upline.IsAllowedDoubleComm", true);
-
-            var viewModel = new ConfirmDoubleCommViewModel(request);
-
-            Assert.Equal("DoubleCommLosing", viewModel.StatusName);
-        }
+        }        
 
         [Fact]
         public void Always_ShowOn_CustomerList()

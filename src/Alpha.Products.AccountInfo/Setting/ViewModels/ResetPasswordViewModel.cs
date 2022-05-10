@@ -19,8 +19,7 @@
           {
               ["custId"] = SearchAccount.Id.ToString(),
               ["username"] = SearchAccount.Username,
-              ["custRoleId"] = SearchAccount.CusomerLevelValue.ToString(),
-              ["isCasinoSync"] = Request.SearchAccount.ProductStatusOf(ProductConstants.RNGCasino).Synced ? "1" : "0"
+              ["custRoleId"] = SearchAccount.CusomerLevelValue.ToString()
           };
 
         public override bool Visible => Actor.IsMainAccount || Request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission);

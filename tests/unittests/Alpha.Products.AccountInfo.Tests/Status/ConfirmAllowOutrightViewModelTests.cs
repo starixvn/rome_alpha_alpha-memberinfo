@@ -75,7 +75,7 @@
         }
 
         [Fact]
-        public void Always_Return_Correct_SyncedCasino3rd_StatusName()
+        public void Always_Return_Correct_AllowOutright_StatusName()
         {
             var request = RequestHelper.CreateRequest(4, 3);
 

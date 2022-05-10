@@ -36,16 +36,10 @@ namespace Alpha.Products.AccountInfo.Setting
             switch (productItem.ProductId)
             {
                 case Sportsbook:
-                    return new SportsbookMultipleViewModel(request, productItem);
-
-                case RNGCasino:
-                    return new RnGCasinoMultipleViewModel(request, productItem);
+                    return new SportsbookMultipleViewModel(request, productItem);            
 
                 case Keno:
-                    return new KenoMultipleViewModel(request, productItem);
-
-                case GoldDeluxe:
-                    return new GoldDeluxeMultipleViewModel(request, productItem);
+                    return new KenoMultipleViewModel(request, productItem);              
 
                 case Sportsbook2:
                     return new Sportsbook2MultipeViewModel(request, productItem);
