@@ -11,8 +11,10 @@
     @StaticResources.AssetStyles.RenderWithDarkMode("/bundles/site-memberinfo/default")
     @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/default")
     @RenderSection("Styles", required: false)
+    @Alpha.Web.Helpers.GoogleAnalyticHepler.GtagScript()
 </head>
 <body>
+    @Alpha.Web.Helpers.GoogleAnalyticHepler.GtagNoScript()
     @RenderBody()
     @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
     @StaticResources.AssetScripts.Render("/bundles/site-memberinfo/default")
