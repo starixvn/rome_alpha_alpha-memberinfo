@@ -249,10 +249,12 @@
     <Compile Include="Constants\CloseReasonConstants.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
+    <Compile Include="Constants\ReachedThresholdLimitTypeConstants.cs" />
     <Compile Include="Constants\LockedAccessConstant.cs" />
     <Compile Include="Constants\NonDcsProduct.cs" />
     <Compile Include="Constants\ProblemAccountStatusConstants.cs" />
     <Compile Include="Constants\ProductId.cs" />
+    <Compile Include="Constants\ReachedThresholdStatusConstants.cs" />
     <Compile Include="Constants\ReviewStatusConstant.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
@@ -332,6 +334,42 @@
     <Compile Include="Features\DormantAccountList\Models\DormantAccountReport.cs" />
     <Compile Include="Features\DormantAccountList\Models\YesterdayBalanceEntity.cs" />
     <Compile Include="Features\DormantAccountList\Params\DormantAccountParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Criteria\AddPersonalPresetCommand.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Criteria\DeletePersonalPresetCommand.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Criteria\DeletePersonalThresholdCommand.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Criteria\InsertMultiplePersonalThresholdCriteria.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Criteria\SelectGlobalThresholdCriteria.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Criteria\SelectPresetsCriteria.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Criteria\SelectWatchlistAccountsCriteria.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Criteria\UpdateGlobalThresholdCommand.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Criteria\UpdatePersonalPresetCommand.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Criteria\UpdatePersonalThresholdCommand.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Models\ManageWatchlistAccountsModel.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Models\NamedResult.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Models\GlobalThresholdModel.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Models\PersonalPresetModel.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Models\PersonalPresetResultModel.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Models\WatchlistAccountDTO.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Models\WatchlistAccountModel.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\MyWatchlistAccountsService.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Params\AddPersonalPresetParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Params\AddPersonalThresholdParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Params\DeletePersonalPresetParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Params\DeletePersonalThresholdParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Params\SelectGlobalThresholdParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Params\SelectPresetsParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Params\UpdateGlobalThresholdParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Params\UpdatePersonalPresetParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Params\UpdatePersonalThresholdParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Params\SelectWatchlistAccountsParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\Criteria\SelectReachDetailCriteria.cs" />
+    <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\Criteria\SelectReachListCriteria.cs" />
+    <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\Models\ReachHistoryModel.cs" />
+    <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\Models\ReachlistAccountDTO.cs" />
+    <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\Models\ReachlistAccountModel.cs" />
+    <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\Params\SelectReachDetailParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\Params\SelectReachListParam.cs" />
+    <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\ReachedThresholdService.cs" />
     <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutCheckDownlineCriteria.cs" />
     <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutSelectCriteria.cs" />
     <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutUpdateCriteria.cs" />
@@ -509,6 +547,7 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.22.0.31243\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.22.0.31243\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

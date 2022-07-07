@@ -1,0 +1,159 @@
+﻿@using Newtonsoft.Json
+@model MyWatchlistAccountsViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "My Watchlist Accounts";
+}
+
+@section Styles {
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/my-watchlist-accounts")
+}
+
+<div class="my-watchlist-accounts">
+    <div class="page-title">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation">
+                @Html.ActionLink("Reached Threshold", "Index", "ReachedThreshold")
+            </li>
+            <li role="presentation" class="active">
+                <a href="#" aria-controls="home" role="tab" data-toggle="tab">My Watchlist Accounts</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="form-inline filter form-report">
+        <div class="form-group username-box">
+            <label>@Resources.Username</label>
+            <input type="text" class="txt-search" id="txt-username" placeholder="@Resources.Username" />
+        </div>
+
+        <div class="form-group btn-box">
+            <input type="submit" value="@Resources.Submit" class="btn-submit" id="btn-submit" />
+        </div>
+
+        <div class="form-group btn-box">
+            <button class="btn-default btn-manage-preset" id="btn-manage-preset">Manage Personal Threshold Preset</button>
+        </div>
+
+        <div class="form-group  btn-box" ">
+            <button class="btn-default btn-global-threshold" id="btn-global-threshold">Global Threshold</button>
+        </div>
+    </div>
+
+    <div>
+        <span class="red">*</span> This function supports Sportsbook data only
+    </div>
+
+    <div>
+        <span class="red">*</span>
+        Global Winning Threshold:
+        <span class="red">
+            @if (Model.GlobalThresholdModel != null)
+            {
+                @FormatThreshold(Model.GlobalThresholdModel.WinningThreshold)
+            }
+            else
+            {
+                @("Unlimited");
+            }
+        </span>; Global Losing Threshold:
+        <span class="red">
+            @if (Model.GlobalThresholdModel != null)
+            {
+                @FormatThreshold(Model.GlobalThresholdModel.LosingThreshold)
+            }
+            else
+            {
+                @("Unlimited");
+            }
+        </span>
+    </div>
+
+    <div class="table-title">
+        <div class="title">
+            My Watchlist Accounts
+        </div>
+        <div class="btn-box">
+            <button class="btn-submit" id="btn-add-members">Add Members</button>
+        </div>
+    </div>
+
+    <table id="tbl-my-watchlist-accounts" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th class="header all padding-icon">
+                    No.
+                </th>
+                <th class="header all padding-icon">
+                    <input type="checkbox" class="select-all" />
+                </th>
+                <th class="header all padding-icon">
+                    <div class="edit-multiple icon-table-edit" data-url="" title="Edit Multiple Setting"></div>
+                </th>
+                <th class="header">Username</th>
+                <th class="header">Last Login</th>
+                <th class="header">Status</th>
+                <th class="header">Winning Threshold</th>
+                <th class="header">Losing Threshold</th>
+            </tr>
+        </thead>
+    </table>
+
+    <div class="modal modal-sm fade" id="edit-popup" tabindex="-2" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                @*@if (Model.IsMobileView)
+                    {
+                        <div class="modal-header">
+                            <h5 class="modal-title"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-edit-popup">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }*@
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="search-account-id" value="@Model.SearchAccountId">
+    <input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
+    <input type="hidden" id="arrayCustID" name="arrayCustID" value=''>
+    <input type="hidden" id="arrayUserName" name="arrayUserName" value=''>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        var watchlistAccountData = @Html.Raw(JsonConvert.SerializeObject(Model.MyWatchListAccountPagingViewModel, Formatting.None));
+        console.log(watchlistAccountData);
+    </script>
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/my-watchlist-accounts")
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
+    @StaticResources.RenderScripts("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/my-watchlist-accounts")
+}
+
+@helper FormatThreshold(decimal? number)
+{
+    if (number.HasValue)
+    {
+        @HtmlHelpers.FormatDecimal(number.Value);
+    }
+    else
+    {
+        @("Unlimited");
+    }
+}

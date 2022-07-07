@@ -1,0 +1,16 @@
+﻿input {
+    width: 90%;
+    height: 100%;
+}
+
+.icon-edit, .icon-bin, .icon-check, .icon-close {
+    cursor: pointer;
+}
+
+.icon-check, .icon-close {
+    font-size: 18px;
+}
+
+.action {
+    text-align: center;
+}

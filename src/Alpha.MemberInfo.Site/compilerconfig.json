@@ -106,5 +106,29 @@
   {
     "outputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout-dark.css",
     "inputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout-dark.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold.css",
+    "inputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-watchlist-accounts.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-watchlist-accounts.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-global-threshold.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-global-threshold.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-presets.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-presets.scss"
   }
 ]

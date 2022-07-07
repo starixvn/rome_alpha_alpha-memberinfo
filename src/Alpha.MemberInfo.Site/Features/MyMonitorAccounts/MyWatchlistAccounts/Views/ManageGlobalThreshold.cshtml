@@ -1,0 +1,25 @@
+﻿@model ManageGlobalThresholdViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Global Threshold Setting";
+}
+
+@section Styles {
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-global-threshold")
+}
+
+<div id="manage-global-threshold">
+    <div class="alert-message"></div>
+    <p>Global threshold setting will be applied for Members who are not in the My Watchlist Accounts</p>
+    @Html.Partial("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Views/ThresholdInputGroup.cshtml", Model.Threshold)
+    <button class="btn-submit" id="btn-update">Update</button>
+</div>
+
+<input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
+<input type="hidden" id="old-winning-threshold" value="@Model.Threshold.WinningThreshold" />
+<input type="hidden" id="old-losing-threshold" value="@Model.Threshold.LosingThreshold" />
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-global-threshold")
+}

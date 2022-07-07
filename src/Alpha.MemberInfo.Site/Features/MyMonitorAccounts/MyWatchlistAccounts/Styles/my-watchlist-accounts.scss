@@ -1,0 +1,241 @@
+﻿.form-group {
+    label {
+        font-size: 13px;
+        color: #333;
+    }
+}
+
+.form-report {
+    .form-group {
+        margin-right: 20px;
+
+        input {
+            border-radius: 0px;
+        }
+
+        .btn-manage-preset {
+            background: #31859C;
+            color: #FFF;
+        }
+
+        .btn-global-threshold {
+            background: #77933C;
+            color: #FFF;
+        }
+    }
+}
+
+.red {
+    color: #ff0101;
+}
+
+.table-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #D9D9D9;
+    height: 35px;
+    margin-top: 15px;
+
+    .title {
+        padding-left: 5px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+}
+
+.dataTable {
+    .icon-table-edit {
+        cursor: pointer;
+        position: relative;
+        top: 1px;
+
+        &:hover {
+            color: #F60;
+        }
+    }
+}
+
+.modal-content .modal-header {
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0;
+
+    &:after, &:before {
+        content: none;
+    }
+
+    .modal-title {
+        border-bottom: none;
+    }
+
+    button {
+        padding: 0 16px;
+        opacity: 0.7;
+    }
+}
+
+#edit-popup {
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.19);
+
+    .modal-dialog {
+        position: relative;
+        display: table;
+        overflow: auto;
+        width: auto;
+        min-width: 150px;
+        margin: 0px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+    }
+
+    .modal-content .modal-body {
+        padding: 0;
+    }
+
+    ul,
+    ol {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        li {
+            display: block !important;
+            padding: 2px 8px;
+            cursor: pointer;
+
+            &.edit-status-popup {
+                padding: 4px 8px;
+            }
+
+            &:hover {
+                background-color: #dadada;
+            }
+
+            input[type="checkbox"] {
+                display: inline-block;
+            }
+
+            &.Disable_edit:before {
+                color: #bbb !important;
+            }
+
+            &.icon-edit, &.icon-refresh, &.icon-eye {
+                font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
+                font-size: 13px;
+                line-height: 24px;
+                margin-right: 0;
+
+                &:before {
+                    margin-right: 5px;
+                    font-family: 'Iconalpha';
+                }
+            }
+
+            &.icon-edit:after, &.icon-eye:after {
+                content: none;
+            }
+
+            &.icon-eye.View:before {
+                position: relative;
+                font-size: 15px;
+                top: 2px;
+            }
+        }
+    }
+}
+
+#manage-watchlist-accounts, #manage-global-threshold, #manage-preset {
+    top: 8px !important;
+    padding-right: 0 !important;
+
+    .modal-dialog {
+        margin: 0 0;
+    }
+}
+
+#manage-watchlist-accounts, #manage-global-threshold {
+    .modal-body {
+        padding: 10px 40px 20px 20px;
+
+        .form-group {
+            margin: 10px 0 20px 0;
+            padding-bottom: 3px;
+        }
+
+        .sel-preset {
+            width: 260px;
+        }
+
+        .txt-usernames {
+            width: 100%;
+        }
+
+        .lbl-threshold {
+            width: 160px;
+        }
+
+        .txt-threshold {
+            width: 140px;
+        }
+
+        .ckb-unlimited {
+            display: inline-block;
+            margin-left: 40px;
+            margin-right: 10px;
+        }
+
+        .btn-submit {
+            width: 90px;
+        }
+    }
+}
+
+#manage-preset {
+    .modal-dialog {
+        width: 815px;
+    }
+
+    .modal-body {
+        padding: 10px 40px 10px 20px;
+
+        input {
+            width: 90%;
+            height: 100%;
+        }
+
+        .icon-edit, .icon-bin, .icon-check, .icon-close {
+            cursor: pointer;
+        }
+
+        .icon-check, .icon-close {
+            font-size: 18px;
+        }
+
+        .action {
+           text-align: center;
+        }
+    }
+}
+
+.show-alert-message {
+    background: #faf8dd;
+    border: 1px solid #bcba7d;
+    padding: 10px 2px;
+    max-height: 200px;
+    overflow: auto;
+    margin-bottom: 15px;
+
+    .name {
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .msg {
+        border: none;
+        margin: 0;
+    }
+
+    .msg-success, .msg-error {
+        background: none;
+    }
+}

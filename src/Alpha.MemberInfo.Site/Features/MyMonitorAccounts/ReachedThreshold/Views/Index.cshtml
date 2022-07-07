@@ -1,0 +1,203 @@
+﻿@using Newtonsoft.Json
+@model ReachedThresholdViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Reached Threshold";
+}
+
+@section Styles {
+    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/site-memberinfo/reached-threshold")
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyMonitorAccounts/ReachedThreshold/Bundles/reached-threshold")
+}
+
+<div class="my-watchlist-accounts">
+    <div class="page-title">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#" aria-controls="home" role="tab" data-toggle="tab">Reached Threshold</a>
+            </li>
+            <li role="presentation">
+                @Html.ActionLink("My Watchlist Accounts", "Index", "MyWatchlistAccounts")
+            </li>
+        </ul>
+    </div>
+
+    <div class="form-inline filter form-report" id="report-form">
+        <div class="form-group username-box">
+            <label>@Resources.Username</label>
+            <input type="text" class="txt-search" id="txt-username" placeholder="@Resources.Username" />
+        </div>
+
+        <div id="daterange-picker"
+             class="daterange-picker"
+             data-currentdate="@DateTime.Now"
+             data-mindate="@Model.DateRangePickerViewModel.MinDate.ToShortDateWithSlash()"
+             data-maxdate="@Model.DateRangePickerViewModel.MaxDate.ToShortDateWithSlash()">
+        </div>
+
+        <div class="form-group  from-date-box">
+            <label>From</label>
+
+            <div class="control date">
+                <div id="from-date-container"
+                     class="input-group date fromdate">
+                    <input type="text"
+                           id="from-date"
+                           name="FromDate"
+                           readonly="readonly"
+                           autocomplete="off"
+                           class="ui_nexdatepicker_datetextbox ui_nexdatepicker_fromdate form-control"
+                           value="@Model.DateRangePickerViewModel.FromDate.ToShortDateWithSlash()" />
+                    <span class="input-group-addon">
+                        <span class="icon-calendar" id="fdate_trigger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>@Resources.To</label>
+
+            <div class="control date">
+                <div id="to-date-container"
+                     class="input-group date todate">
+                    <input type="text"
+                           id="to-date"
+                           name="ToDate"
+                           readonly="readonly"
+                           autocomplete="off"
+                           class="ui_nexdatepicker_datetextbox ui_nexdatepicker_todate form-control"
+                           value="@Model.DateRangePickerViewModel.ToDate.ToShortDateWithSlash()" />
+                    <span class="input-group-addon">
+                        <span class="icon-calendar" id="tdate_trigger"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="status-dropdown">Status</label>
+            <select id="status-dropdown">
+                @foreach (var status in Model.StatusOptions)
+                    {
+                        <option value="@status.Value" @(status.Selected ? " selected=\"selected\"" : string.Empty)>
+                            @status.Text
+                        </option>
+                    }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="limit-type-dropdown">Limit Type</label>
+            <select id="limit-type-dropdown">
+            @foreach (var status in Model.LimitTypeOptions)
+                {
+                    <option value="@status.Value" @(status.Selected ? " selected=\"selected\"" : string.Empty)>
+                        @status.Text
+                    </option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group btn-box">
+            <input type="submit" value="@Resources.Submit" class="btn-submit" id="btn-submit" />
+        </div>
+
+        <div class="form-group">
+            <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
+        </div>
+    </div>
+
+    <div>
+        <span class="red">*</span> You can view the report data from @Model.DateRangePickerViewModel.MinDate.ToShortDateWithSlash()
+    </div>
+
+    <div>
+        <span class="red">*</span> This function supports Sportsbook data only
+    </div>
+
+    <div>
+        <span class="red">*</span>
+        Global Winning Threshold:
+        <span class="red">
+            @if (Model.GlobalThresholdModel != null)
+            {
+                @FormatThreshold(Model.GlobalThresholdModel.WinningThreshold)
+            }
+            else
+            {
+                @("Unlimited");
+            }
+        </span>; Global Losing Threshold:
+        <span class="red">
+            @if (Model.GlobalThresholdModel != null)
+            {
+                @FormatThreshold(Model.GlobalThresholdModel.LosingThreshold)
+            }
+            else
+            {
+                @("Unlimited");
+            }
+        </span>
+    </div>
+
+    <table id="tbl-reached-threshold" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%; margin-top: 15px;">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th class="header all padding-icon">
+                    No.
+                </th>
+                <th class="header">Username</th>
+                <th class="header">Last Login</th>
+                <th class="header">Status</th>
+                <th class="header">Last Reach</th>
+                <th class="header">Last Limit Type Reach</th>
+                <th class="header">Winning/Losing Amount</th>
+                <th class="header">Last Reach Winning Threshold</th>
+                <th class="header">Last Reach Losing Threshold</th>
+                <th class="header">#No Reach</th>
+            </tr>
+        </thead>
+    </table>
+
+    <input type="hidden" id="search-account-id" value="@Model.SearchAccountId">
+    <input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        var reachlistAccountData = @Html.Raw(JsonConvert.SerializeObject(Model.ReachedThresholdPagingViewModel, Formatting.None));
+        console.log(reachlistAccountData);
+    </script>
+
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/reached-threshold")
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
+    @StaticResources.RenderScripts("~/Features/MyMonitorAccounts/ReachedThreshold/Bundles/reached-threshold")
+}
+
+@helper FormatThreshold(decimal? number)
+{
+    if (number.HasValue)
+    {
+        @HtmlHelpers.FormatDecimal(number.Value);
+    }
+    else
+    {
+        @("Unlimited");
+    }
+}

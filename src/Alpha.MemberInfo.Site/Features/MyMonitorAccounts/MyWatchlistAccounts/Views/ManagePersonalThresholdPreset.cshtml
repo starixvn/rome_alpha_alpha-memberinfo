@@ -1,0 +1,106 @@
+﻿@*<div class="modal modal-popup modal-sm fade" id="manage-preset" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Manage Personal Threshold Preset</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-manage-preset">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert-message"></div>
+                        <table id="tbl-report" class="tblRpt tblRpt-bordered alternative-row-table tblRpt-hover">
+                            <thead>
+                                <tr>
+                                    <th style="width: 55px;">No</th>
+                                    <th style="width: 195px;">Threshold Preset</th>
+                                    <th style="width: 210px;">Winning Threshold</th>
+                                    <th style="width: 195px;">Losing Threshold</th>
+                                    <th style="width: 90px;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                            </tbody>
+                        </table>
+                        <div class="btn-group">
+                            <button class="btn-submit" id="btn-add-row">Add Row</button>
+                            <button class="btn-submit" id="btn-save">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>*@
+
+@using Newtonsoft.Json
+@model ManagePersonalThresholdPresetViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Manage Personal Threshold Preset";
+}
+
+@section Styles {
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-presets")
+}
+
+<div id="manage-preset">
+    <div class="alert-message"></div>
+    <table id="tbl-report" class="tblRpt tblRpt-bordered alternative-row-table tblRpt-hover">
+        <thead>
+            <tr>
+                <th style="width: 55px;">No</th>
+                <th style="width: 195px;">Threshold Preset</th>
+                <th style="width: 210px;">Winning Threshold</th>
+                <th style="width: 195px;">Losing Threshold</th>
+                <th style="width: 90px;">Action</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            @RenderTable()
+        </tbody>
+    </table>
+    <div class="btn-group">
+        <button class="btn-submit" id="btn-add">Add Row</button>
+        <button class="btn-submit" id="btn-save">Save</button>
+    </div>
+</div>
+
+@helper RenderTable()
+{
+    var index = 0;
+    foreach (var preset in Model.PersonalPresets)
+    {
+        var winningThresholdString = @HtmlHelpers.FormatDecimal(preset.WinningThreshold);
+        var losingThresholdString = @HtmlHelpers.FormatDecimal(preset.LosingThreshold);
+
+        <tr id="preset-@index"
+            data-index=@index
+            data-id=@preset.ID
+            data-title=@preset.PresetTitle
+            data-winningthresholdstring=@winningThresholdString
+            data-losingthresholdstring=@losingThresholdString
+            class="preset">
+            <td>@(index + 1)</td>
+            <td class="preset-title">@preset.PresetTitle</td>
+            <td class="winning-threshold">@winningThresholdString</td>
+            <td class="losing-threshold">@losingThresholdString</td>
+            <td class="action">
+                <div class="edit-group">
+                    <span class="icon-edit"></span>
+                    <span class="icon-bin remove"></span>
+                </div>
+                <div class="confirm-group hidden">
+                    <span class="icon-check"></span>
+                    <span class="icon-close"></span>
+                </div>
+            </td>
+        </tr>
+        index++;
+    }
+}
+
+<input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-presets")
+}

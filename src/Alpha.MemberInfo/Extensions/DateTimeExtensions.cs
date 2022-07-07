@@ -8,6 +8,7 @@ namespace Alpha.MemberInfo.Extensions
         private const string LongDateTime24h = "MM/dd/yyyy HH:mm";
         private const string ShortDateWithHyphen = "yyyy-MM-dd";
         private const string LongDateTime12h = "MM/dd/yyyy hh:mm tt";
+        private const string LongDateTime12hWithHyphen = "MM-dd-yyyy HH:mm:ss tt";
 
         public static string ToShortDateWithHyphen(this DateTime dateTime)
             => dateTime.ToString(ShortDateWithHyphen);
@@ -23,5 +24,8 @@ namespace Alpha.MemberInfo.Extensions
 
         public static string ToLongDateTime12h(this DateTime? dateTime)
             => dateTime.HasValue ? dateTime.Value.ToLongDateTime12h() : string.Empty;
+
+        public static string ToLongDateTime12hWithHyphen(this DateTime dateTime)
+            => dateTime.ToString(LongDateTime12hWithHyphen);
     }
 }

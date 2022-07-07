@@ -1,0 +1,65 @@
+﻿@model ReachHistoryViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Model.Username + " - #No Reach History";
+}
+
+<div>
+    <table id="tbl-reach-history" class="tblRpt tblRpt-bordered tblRpt-hover hide">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Date Time</th>
+                <th>Limit Type Reach</th>
+                <th>Winning / Losing Amount</th>
+                <th>Winning Threshold</th>
+                <th>Losing Threshold</th>
+            </tr>
+        </thead>
+        <tbody>
+            @RenderTable()
+            @RenderTable()
+            @RenderTable()
+            @RenderTable()
+            @RenderTable()
+            @RenderTable()
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $("#tbl-reach-history").removeClass("hide").stickyTableHeaders();
+        });
+    </script>
+}
+
+@helper RenderTable()
+{
+    var index = 1;
+    foreach (var row in Model.ReachHistories)
+    {
+        <tr>
+            <td>@(index++)</td>
+            <td>@row.CreatedDate.ToLongDateTime12hWithHyphen()</td>
+            <td>@row.LimitTypeReach</td>
+            <td class="text-right">@row.WinLossAmount.ToMoneyFormat()</td>
+            <td class="text-right">@FormatThreshold(row.WinningThreshold)</td>
+            <td class="text-right">@FormatThreshold(row.LosingThreshold)</td>
+        </tr>        
+    }
+}
+
+@helper FormatThreshold(decimal? number)
+{
+    if (number.HasValue)
+    {
+        @number.Value.ToMoneyFormat();
+    }
+    else
+    {
+        @("Unlimited");
+    }
+}

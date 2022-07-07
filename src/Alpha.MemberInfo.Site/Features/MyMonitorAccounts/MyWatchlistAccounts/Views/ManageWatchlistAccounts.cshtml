@@ -1,0 +1,79 @@
+﻿@model ManageWatchlistAccountsViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Model.IsEditWatchlistAccountsPopup ? "Edit Watchlist Account" : "Add New Watchlist Account";
+}
+
+@section Styles {
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-watchlist-accounts")
+}
+
+<div id="manage-watchlist-accounts">
+    <div class="alert-message"></div>
+    @if (Model.IsEditWatchlistAccountsPopup)
+    {
+        if (Model.Usernames.Split(',').Length > 1)
+        {
+            <div>@Model.Usernames</div>
+        }
+    }
+    else
+    {
+        <div>
+            <p>Enter list of Member usernames *(Maximum 50 members, separated by comma '.')</p>
+            <textarea rows="3" class="txt-usernames" name="usernames"></textarea>
+        </div>
+    }
+
+    <p style="margin-top: 10px;">Select threshold preset or set threshold to members above:</p>
+    <div class="form-group">
+        <label class="lbl-threshold">Personal Threshold Preset</label>
+        <select id="preset-dropdown" name="presetFilter" class="sel-preset">
+            <option value="">Select preset</option>
+            @foreach (var preset in Model.PresetSelectionViewModel.Presets)
+            {
+                <option value="@preset.Value" @(preset.Selected ? " selected=\"selected\"" : string.Empty)>
+                    @preset.Text
+                </option>
+            }
+        </select>
+    </div>
+
+    @if (Model.IsEditWatchlistAccountsPopup)
+    {
+        @Html.Partial("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Views/ThresholdInputGroup.cshtml", Model.Threshold)
+        <button class="btn-submit" id="btn-update">Update</button>
+    }
+    else
+    {
+        <div class="form-group">
+            <label class="lbl-threshold">Winning Threshold</label>
+            <input class="txt-threshold" type="text" name="winningThreshold" value="" />
+            <input class="ckb-unlimited" type="checkbox" name="winningUnlimited" value="" />
+            <label class="lbl-unlimited">Unlimited</label>
+        </div>
+
+        <div class="form-group">
+            <label class="lbl-threshold">Losing Threshold</label>
+            <input class="txt-threshold" type="text" name="losingThreshold" value="" />
+            <input class="ckb-unlimited" type="checkbox" name="losingUnlimited" value="" />
+            <label class="lbl-unlimited">Unlimited</label>
+        </div>
+
+        <button class="btn-submit" id="btn-add">Add</button>
+    }
+</div>
+
+<input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
+@if (Model.IsEditWatchlistAccountsPopup)
+{
+    <input type="hidden" id="old-winning-threshold" value="@Model.Threshold.WinningThreshold" />
+    <input type="hidden" id="old-losing-threshold" value="@Model.Threshold.LosingThreshold" />
+    <input type="hidden" id="usernames" value="@Model.Usernames" />
+    <input type="hidden" id="custids" value="@Model.CustIds" />
+}
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-watchlist-accounts")
+}
