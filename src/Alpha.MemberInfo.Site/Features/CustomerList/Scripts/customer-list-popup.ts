@@ -143,7 +143,7 @@ class CustomerListPopup {
         }
         else {
             this.$statusPopupContainer
-                .css({ height: 'auto', width: 'auto' })
+                .css({ height: 'auto' })
                 .modal({ show: true, backdrop: false });
 
             $bootstrapModalDialog.css({ width: 'inherit' });
@@ -182,7 +182,7 @@ class CustomerListPopup {
         }
         else {
             this.$editPopupContainer
-                .css({ height: 'auto', width: 'auto' })
+                .css({ height: 'auto' })
                 .modal({ show: true, backdrop: false });
 
             $bootstrapModalDialog.css({ width: 'inherit' });
