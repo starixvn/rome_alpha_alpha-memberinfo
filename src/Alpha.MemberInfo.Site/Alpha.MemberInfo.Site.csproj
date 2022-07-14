@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -743,6 +743,10 @@
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.min.css">
       <DependentUpon>dormant-account-list.css</DependentUpon>
     </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold-media.css" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold-media.min.css">
+      <DependentUpon>manage-global-threshold-media.css</DependentUpon>
+    </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold.css" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold.js" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold.min.css">
@@ -750,6 +754,10 @@
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold.min.js">
       <DependentUpon>manage-global-threshold.js</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-presets-media.css" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-presets-media.min.css">
+      <DependentUpon>manage-presets-media.css</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-presets.css" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-presets.js" />
@@ -759,6 +767,10 @@
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-presets.min.js">
       <DependentUpon>manage-presets.js</DependentUpon>
     </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-media.css" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-media.min.css">
+      <DependentUpon>manage-watchlist-accounts-media.css</DependentUpon>
+    </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts.css" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts.js" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts.min.css">
@@ -766,6 +778,10 @@
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts.min.js">
       <DependentUpon>manage-watchlist-accounts.js</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\my-watchlist-accounts-media.css" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\my-watchlist-accounts-media.min.css">
+      <DependentUpon>my-watchlist-accounts-media.css</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\my-watchlist-accounts.css" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\my-watchlist-accounts.js" />
@@ -775,17 +791,36 @@
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\my-watchlist-accounts.min.js">
       <DependentUpon>my-watchlist-accounts.js</DependentUpon>
     </Content>
+    <None Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-media.scss" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-media.css">
+      <DependentUpon>manage-global-threshold-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-media.min.css">
+      <DependentUpon>manage-global-threshold-media.css</DependentUpon>
+    </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold.css">
       <DependentUpon>manage-global-threshold.scss</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold.min.css">
       <DependentUpon>manage-global-threshold.css</DependentUpon>
     </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-presets-media.css">
+      <DependentUpon>manage-presets-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-presets-media.min.css">
+      <DependentUpon>manage-presets-media.css</DependentUpon>
+    </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-presets.css">
       <DependentUpon>manage-presets.scss</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-presets.min.css">
       <DependentUpon>manage-presets.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-watchlist-accounts-media.css">
+      <DependentUpon>manage-watchlist-accounts-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-watchlist-accounts-media.min.css">
+      <DependentUpon>manage-watchlist-accounts-media.css</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-watchlist-accounts.css">
       <DependentUpon>manage-watchlist-accounts.scss</DependentUpon>
@@ -799,11 +834,25 @@
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert.min.css">
       <DependentUpon>my-watchlist-accounts-alert.css</DependentUpon>
     </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts-media.css">
+      <DependentUpon>my-watchlist-accounts-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts-media.min.css">
+      <DependentUpon>my-watchlist-accounts-media.css</DependentUpon>
+    </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts.css">
       <DependentUpon>my-watchlist-accounts.scss</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts.min.css">
       <DependentUpon>my-watchlist-accounts.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reach-history-media.css" />
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reach-history-media.min.css">
+      <DependentUpon>reach-history-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reached-threshold-media.css" />
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reached-threshold-media.min.css">
+      <DependentUpon>reached-threshold-media.css</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reached-threshold.css" />
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reached-threshold.js" />
@@ -812,6 +861,15 @@
     </Content>
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reached-threshold.min.js">
       <DependentUpon>reached-threshold.js</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reach-history-media.css">
+      <DependentUpon>reach-history-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold-media.css">
+      <DependentUpon>reached-threshold-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold-media.min.css">
+      <DependentUpon>reached-threshold-media.css</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold.css">
       <DependentUpon>reached-threshold.scss</DependentUpon>
@@ -831,6 +889,9 @@
     </Content>
     <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.css">
       <DependentUpon>parlay-max-payout.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.min.css">
+      <DependentUpon>parlay-max-payout.css</DependentUpon>
     </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in-dark.css" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in-dark.min.css">
@@ -852,6 +913,11 @@
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Views\ThresholdInputGroup.cshtml" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-presets.scss" />
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Views\ReachHistory.cshtml" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts-media.scss" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-watchlist-accounts-media.scss" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-presets-media.scss" />
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold-media.scss" />
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reach-history-media.scss" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
@@ -1060,7 +1126,7 @@
     <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\ViewModels\ReachHistoryViewModel.cs" />
     <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\ViewModels\ReachlistAccountViewModel.cs" />
     <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\ViewModels\StatusSelectionViewModel.cs" />
-    <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\Views\ReachedThresholdWorkbook.cs" />
+    <Compile Include="Features\MyMonitorAccounts\ReachedThreshold\ReachedThresholdWorkbook.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutController.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutHandler.cs" />
     <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutCheckDownlineQuery.cs" />
@@ -1388,9 +1454,10 @@
     <TypeScriptCompile Include="Features\CustomerList\Scripts\muliple-double-comm.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\unlock.ts" />
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
+    <TypeScriptCompile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Scripts\iframe-popup.ts" />
     <TypeScriptCompile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Scripts\threshold-inputs-base.ts" />
     <TypeScriptCompile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Scripts\my-watchlist-accounts-alert.ts" />
-    <TypeScriptCompile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Scripts\helper.ts" />
+    <TypeScriptCompile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Scripts\my-watchlist-accounts-helper.ts" />
     <TypeScriptCompile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Scripts\manage-global-threshold.ts" />
     <TypeScriptCompile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Scripts\manage-presets.ts" />
     <TypeScriptCompile Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Scripts\my-watchlist-accounts-service.ts" />
@@ -1471,7 +1538,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets'))" />
-    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <PropertyGroup>

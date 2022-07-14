@@ -7,6 +7,7 @@
 
 @section Styles {
     @StaticResources.RenderStylesWithDarkMode("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-watchlist-accounts")
+    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-watchlist-accounts-media")
 }
 
 <div id="manage-watchlist-accounts">
@@ -21,16 +22,16 @@
     else
     {
         <div>
-            <p>Enter list of Member usernames *(Maximum 50 members, separated by comma '.')</p>
+            <p>@Resources.EnterListOfMemberUsernames</p>
             <textarea rows="3" class="txt-usernames" name="usernames"></textarea>
         </div>
     }
 
-    <p style="margin-top: 10px;">Select threshold preset or set threshold to members above:</p>
+    <p style="margin-top: 10px;">@Resources.SelectThresholdPreset</p>
     <div class="form-group">
-        <label class="lbl-threshold">Personal Threshold Preset</label>
+        <label class="lbl-threshold">@Resources.PersonalThresholdPreset</label>
         <select id="preset-dropdown" name="presetFilter" class="sel-preset">
-            <option value="">Select preset</option>
+            <option value="">@Resources.SelectPreset</option>
             @foreach (var preset in Model.PresetSelectionViewModel.Presets)
             {
                 <option value="@preset.Value" @(preset.Selected ? " selected=\"selected\"" : string.Empty)>
@@ -43,35 +44,48 @@
     @if (Model.IsEditWatchlistAccountsPopup)
     {
         @Html.Partial("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Views/ThresholdInputGroup.cshtml", Model.Threshold)
-        <button class="btn-submit" id="btn-update">Update</button>
+        <button class="btn-submit" id="btn-update">@Resources.Update</button>
     }
     else
     {
         <div class="form-group">
-            <label class="lbl-threshold">Winning Threshold</label>
-            <input class="txt-threshold" type="text" name="winningThreshold" value="" />
+            <label class="lbl-threshold">@Resources.WinningThreshold</label>
+            <input class="txt-threshold" type="text" name="winningThreshold" value="" maxlength="18" />
             <input class="ckb-unlimited" type="checkbox" name="winningUnlimited" value="" />
-            <label class="lbl-unlimited">Unlimited</label>
+            <label class="lbl-unlimited">@Resources.Unlimited</label>
         </div>
 
         <div class="form-group">
-            <label class="lbl-threshold">Losing Threshold</label>
-            <input class="txt-threshold" type="text" name="losingThreshold" value="" />
+            <label class="lbl-threshold">@Resources.LosingThreshold</label>
+            <input class="txt-threshold" type="text" name="losingThreshold" value="" maxlength="18" />
             <input class="ckb-unlimited" type="checkbox" name="losingUnlimited" value="" />
-            <label class="lbl-unlimited">Unlimited</label>
+            <label class="lbl-unlimited">@Resources.Unlimited</label>
         </div>
 
-        <button class="btn-submit" id="btn-add">Add</button>
+        <button class="btn-submit" id="btn-add">@Resources.Add</button>
     }
 </div>
 
 <input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
+<input type="hidden" id="no-change-to-update-error" value="@Resources.NoChangeToUpdateError" />
+<input type="hidden" id="add-successfully" value="@Resources.AddSuccessfully" />
+<input type="hidden" id="update-successfully" value="@Resources.UpdateSuccessfully" />
+<input type="hidden" id="is-not-member-error" value="@Resources.IsNotMemberError" />
+<input type="hidden" id="invalid-account-error" value="@Resources.InvalidAccountError" />
+<input type="hidden" id="was-added-watchlist-already-error" value="@Resources.WasAddedWatchlistAlreadyError" />
+<input type="hidden" id="must-enter-username-error" value="@Resources.MustEnterUsernameError" />
+<input type="hidden" id="more-usernames-error" value="@Resources.MoreThan50UsernamesError" />
+
 @if (Model.IsEditWatchlistAccountsPopup)
 {
     <input type="hidden" id="old-winning-threshold" value="@Model.Threshold.WinningThreshold" />
     <input type="hidden" id="old-losing-threshold" value="@Model.Threshold.LosingThreshold" />
     <input type="hidden" id="usernames" value="@Model.Usernames" />
     <input type="hidden" id="custids" value="@Model.CustIds" />
+}
+else
+{
+    <input type="hidden" id="must-enter-threshold-or-check-error" value="@Resources.MustEnterThresholdOrCheckError" />
 }
 
 @section Scripts {

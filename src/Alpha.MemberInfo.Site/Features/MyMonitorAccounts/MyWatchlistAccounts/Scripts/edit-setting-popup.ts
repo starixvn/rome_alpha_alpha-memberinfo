@@ -5,18 +5,21 @@ class EditSettingPopup {
     private topWindow: any;
     private viewModel: MyWatchlistAccountsViewModel;
     private service: MyWatchlistAccountService;
+    private iframePopup: IframePopup;
     private $editPopupContainer: JQuery;
 
     constructor(
         $: JQueryStatic,
         topWindow: any,
         viewModel: MyWatchlistAccountsViewModel,
-        service: MyWatchlistAccountService
+        service: MyWatchlistAccountService,
+        iframePopup: IframePopup
     ) {
         this.$ = $;
         this.topWindow = topWindow;
         this.viewModel = viewModel;
         this.service = service;
+        this.iframePopup = iframePopup;
         this.cacheDom();
     }
 
@@ -29,21 +32,15 @@ class EditSettingPopup {
     public bindingEditEvent = () => this.$('.edit').off().click(event => this.openSinglePopup(this.$(event.currentTarget)));
 
     private openSinglePopup = element => {
-        // Show popup with edit and remove button
-        //this.$('.edit-multiple').data("custid", '');
-        //this.$('.edit-multiple').data("url", '');
-        //this.$('#arrayCustID').val('');
-        //this.$('#arrayUserName').val('');
-
         var content =
             `<ul>
-                <li class="edit-popup icon-edit">Edit Personal Threshold</li>
-                <li class="remove-popup icon-edit">Remove Accounts</li> 
+                <li class="edit-popup icon-edit">${this.$("#edit-personal-threshold").val()}</li>
+                <li class="remove-popup icon-bin">${this.$("#remove-accounts").val()}</li>
              </ul>`;
         this.openEditSettingPopup(
             element,
             content,
-            "",
+            "Edit",
             {
                 usernames: [this.$(element).data("username")],
                 custIds: [this.$(element).data("custid")],
@@ -69,8 +66,8 @@ class EditSettingPopup {
     private openMultiplePopup = element => {
         var content =
                     `<ul>
-                        <li class="edit-popup icon-edit">Edit Multiple Personal Threshold</li>
-                        <li class="remove-popup icon-edit">Remove Multiple Accounts</li> 
+                        <li class="edit-popup icon-edit">${this.$("#edit-multiple-personal-threshold").val()}</li>
+                        <li class="remove-popup icon-bin">${this.$("#remove-multiple-accounts").val()}</li>
                     </ul>`;
 
         const checkboxs = this.$('input.checkbox:checkbox:checked');
@@ -85,7 +82,7 @@ class EditSettingPopup {
             this.openEditSettingPopup(
                 element,
                 content,
-                "",
+                "Edit Multiple",
                 {
                     custIds,
                     usernames,
@@ -100,20 +97,16 @@ class EditSettingPopup {
     private openEditSettingPopup = (element, content, title, data) => {
         this.$editPopupContainer.find('.modal-body').empty().append(content);
 
-        //if (this.isMobile) {
-        //    this.$editPopupContainer.find('.modal-title').empty().append(title);
-        //}
-
         const $modalDialog = this.$editPopupContainer.find('.modal-dialog');
 
-        //if (this.isMobile) {
-        //    $bootstrapModalDialog.css({ height: '100%', width: '100%' });
-
-        //    this.$editPopupContainer
-        //        .css({ top: 0, left: 0, height: '100%', width: '100%', paddingRight: '0px' })
-        //        .modal({ show: true, backdrop: false });
-        //}
-        //else {
+        if (this.topWindow.alpha.isMobile) {
+            this.$editPopupContainer.find('.modal-title').empty().append(title);
+            $modalDialog.css({ height: '100%', width: '100%' });
+            this.$editPopupContainer
+                .css({ top: 0, left: 0, height: '100%', width: '100%', paddingRight: '0px' })
+                .modal({ show: true, backdrop: false });
+        }
+        else {
             this.$editPopupContainer
                 .css({ height: 'auto', width: 'auto' })
                 .modal({ show: true, backdrop: false });
@@ -129,15 +122,14 @@ class EditSettingPopup {
             }
 
             this.$editPopupContainer.css({ top, left });
-        //}
+        }
 
-        // Bind edit, remove button
-        //this.$('.edit-popup').click(event => this.manageWatchlistAccountsPopup.openEditPopup(data));
         this.$('.edit-popup').click(event => {
             data.usernames = data.usernames.join(", ");
             data.custIds = data.custIds.join(",");
-            const url = this.viewModel.MemberInfoUrl + `MyWatchlistAccounts/ManageWatchlistAccounts?${this.$.param(data)}`;
-            this.topWindow.popupManager.open(url, undefined, 630, this.topWindow.alpha.isMobile ? 430 : 350);
+
+            const url = this.viewModel.URL + "/ManageWatchlistAccounts";
+            this.iframePopup.open("1032px","700px", this.$("#edit-account-popup-title").val(), url, data);
         });
         this.$('.remove-popup').click(() => this.openRemoveWatchlistAccountPopup(data));
     }
@@ -154,7 +146,7 @@ class EditSettingPopup {
         }
 
         this.topWindow.bootboxConfirm(
-            usernames + "Are you sure you want to remove customer(s) from the list ?",
+            usernames + this.$("#are-you-sure-to-remove-accounts").val(),
             null,
             () => {
                 this.service.deleteMultiplePersonalThreshold({ users }, result => {

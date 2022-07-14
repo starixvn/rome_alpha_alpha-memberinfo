@@ -5,13 +5,10 @@
 
     public class ReachHistoryViewModel
     {
-        public ReachHistoryViewModel(string username, IEnumerable<ReachHistoryModel> reachHistories)
+        public ReachHistoryViewModel(IEnumerable<ReachHistoryModel> reachHistories)
         {
-            Username = username;
             ReachHistories = reachHistories;
         }
-
-        public string Username { get; }
 
         public IEnumerable<ReachHistoryModel> ReachHistories { get; }
     }

@@ -130,5 +130,29 @@
   {
     "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-presets.css",
     "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-presets.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-media.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-media.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-global-threshold-media.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-global-threshold-media.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-watchlist-accounts-media.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-watchlist-accounts-media.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-presets-media.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-presets-media.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold-media.css",
+    "inputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold-media.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reach-history-media.css",
+    "inputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reach-history-media.scss"
   }
 ]

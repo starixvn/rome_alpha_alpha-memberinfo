@@ -1,16 +1,15 @@
 ﻿"use strict";
 
 class ManageGlobalThreshold extends ThresholdInputsBase {
-    private topWindow: any;
     private service: MyWatchlistAccountService;
+
+    private reloadTimeout = 3000;
 
     constructor(
         $: JQueryStatic,
-        topWindow: any,
         service: MyWatchlistAccountService,
     ) {
         super($);
-        this.topWindow = topWindow;
         this.service = service;
     }
 
@@ -29,8 +28,8 @@ class ManageGlobalThreshold extends ThresholdInputsBase {
         const thresholdInputs = this.getThresholdInputs();
         this.service.updateGlobalThreshold(thresholdInputs, result => {
             if (result.IsSuccessful) {
-                this.alert.showSuccess("Update successfully");
-                this.topWindow.closePopupAndReloadMainFrameAfterUpdateSuccess(3000);
+                this.alert.showSuccess(this.$("#update-successfully").val());
+                WatchlistHelper.reloadMainFrameAfterSuccess(this.reloadTimeout);
             }
         });
     }
@@ -38,7 +37,7 @@ class ManageGlobalThreshold extends ThresholdInputsBase {
 
 $(function () {
     const service = new MyWatchlistAccountService($);
-    const manageGlobalThreshold = new ManageGlobalThreshold($, window.top, service);
+    const manageGlobalThreshold = new ManageGlobalThreshold($, service);
 
     manageGlobalThreshold.init();
 })

@@ -1,13 +1,22 @@
-﻿.form-group {
-    label {
-        font-size: 13px;
-        color: #333;
+﻿.red {
+    color: #ff0101;
+}
+
+.page-title {
+    ul > li > a {
+        text-transform: capitalize;
     }
 }
 
+// Filter
 .form-report {
     .form-group {
         margin-right: 20px;
+
+        label {
+            font-size: 13px;
+            color: #333;
+        }
 
         input {
             border-radius: 0px;
@@ -23,12 +32,13 @@
             color: #FFF;
         }
     }
+
+    .easy-autocomplete-container {
+        z-index: 10;
+    }
 }
 
-.red {
-    color: #ff0101;
-}
-
+// Data Table
 .table-title {
     display: flex;
     justify-content: space-between;
@@ -56,6 +66,77 @@
     }
 }
 
+.fixedHeader-floating {
+    border: none !important;
+
+    th {
+        position: fixed !important;
+    }
+
+    .control, .username, .winning, .losing {
+        background: transparent;
+        position: fixed;
+        top: 0;
+        z-index: 9;
+        display: block;
+        font-size: 0;
+        border: none !important;
+        cursor: pointer;
+    }
+
+    .control {
+        right: -14px;
+        height: 58px;
+
+        &:before {
+            display: none !important;
+        }
+    }
+
+    .username {
+        left: 92px;
+        height: 58px;
+
+        &:after {
+            display: none !important;
+        }
+    }
+
+    .winning {
+        left: 214px;
+        height: 58px;
+
+        &:after {
+            display: none !important;
+        }
+    }
+
+    .losing {
+        right: 96px;
+        height: 58px;
+
+        &:after {
+            display: none !important;
+        }
+    }
+}
+
+#tbl-my-watchlist-accounts thead {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    z-index: 9;
+}
+
+.fixedHeader-floating.dtr-column > thead > tr.parent th.control:before {
+    display: none;
+}
+
+#tbl-my-watchlist-accounts_length {
+    font-weight: bold;
+}
+
+// Modal
 .modal-content .modal-header {
     border-bottom: 1px solid #e5e5e5;
     display: flex;
@@ -119,7 +200,7 @@
                 color: #bbb !important;
             }
 
-            &.icon-edit, &.icon-refresh, &.icon-eye {
+            &.icon-edit, &.icon-bin {
                 font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
                 font-size: 13px;
                 line-height: 24px;
@@ -131,111 +212,30 @@
                 }
             }
 
-            &.icon-edit:after, &.icon-eye:after {
+            &.icon-edit:after, &.icon-bin {
                 content: none;
-            }
-
-            &.icon-eye.View:before {
-                position: relative;
-                font-size: 15px;
-                top: 2px;
             }
         }
     }
 }
 
-#manage-watchlist-accounts, #manage-global-threshold, #manage-preset {
+#iframe-popup-container {
     top: 8px !important;
     padding-right: 0 !important;
 
     .modal-dialog {
-        margin: 0 0;
-    }
-}
+        width: 100%;
+        height: 100%;
 
-#manage-watchlist-accounts, #manage-global-threshold {
-    .modal-body {
-        padding: 10px 40px 20px 20px;
-
-        .form-group {
-            margin: 10px 0 20px 0;
-            padding-bottom: 3px;
-        }
-
-        .sel-preset {
-            width: 260px;
-        }
-
-        .txt-usernames {
+        .modal-body-iframe {
             width: 100%;
-        }
+            height: calc(100% - 40px);
+            padding: 10px;
 
-        .lbl-threshold {
-            width: 160px;
-        }
-
-        .txt-threshold {
-            width: 140px;
-        }
-
-        .ckb-unlimited {
-            display: inline-block;
-            margin-left: 40px;
-            margin-right: 10px;
-        }
-
-        .btn-submit {
-            width: 90px;
+            iframe {
+                height: 100% !important;
+            }
         }
     }
 }
 
-#manage-preset {
-    .modal-dialog {
-        width: 815px;
-    }
-
-    .modal-body {
-        padding: 10px 40px 10px 20px;
-
-        input {
-            width: 90%;
-            height: 100%;
-        }
-
-        .icon-edit, .icon-bin, .icon-check, .icon-close {
-            cursor: pointer;
-        }
-
-        .icon-check, .icon-close {
-            font-size: 18px;
-        }
-
-        .action {
-           text-align: center;
-        }
-    }
-}
-
-.show-alert-message {
-    background: #faf8dd;
-    border: 1px solid #bcba7d;
-    padding: 10px 2px;
-    max-height: 200px;
-    overflow: auto;
-    margin-bottom: 15px;
-
-    .name {
-        font-weight: bold;
-        margin-left: 10px;
-    }
-
-    .msg {
-        border: none;
-        margin: 0;
-    }
-
-    .msg-success, .msg-error {
-        background: none;
-    }
-}

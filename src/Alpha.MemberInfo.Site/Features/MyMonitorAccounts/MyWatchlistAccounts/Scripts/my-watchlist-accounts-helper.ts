@@ -1,18 +1,13 @@
 ﻿"use strict";
 
 class WatchlistHelper {
-    static formatThreshold = threshold => threshold === null ? "Unlimited" : threshold;
-
-    static reloadGrid = () => {
-        $("#btn-submit").click();
-    }
-
     static reloadPage = () => window.location = window.location;
 
-    static reloadPageWithTimeout = callback => setTimeout(() => {
-        callback();
-        WatchlistHelper.reloadPage();
-    }, 3000);
+    static reloadMainFrameAfterSuccess = reloadTimeout => {
+        setTimeout(function () {
+            window.parent.location = window.parent.location;
+        }, reloadTimeout);
+    }
 
     static ToMoneyFormat(value) {
         return value

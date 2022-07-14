@@ -42,6 +42,4 @@ class MyWatchlistAccountsAlert {
     public hide = () => {
         this.divAlert.removeClass("show-alert-message").html("");
     }
-
-    public hideAfter3Seconds = () => setTimeout(() => this.hide(), 3000);
 }

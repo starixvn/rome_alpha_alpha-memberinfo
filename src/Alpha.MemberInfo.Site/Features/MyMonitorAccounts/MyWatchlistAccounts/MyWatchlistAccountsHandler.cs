@@ -6,6 +6,7 @@
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.MyMonitorAccounts.MyWatchlistAccounts.Requests;
     using Alpha.MemberInfo.Site.Features.MyMonitorAccounts.MyWatchlistAccounts.ViewModels;
+    using Alpha.Web.Helpers;
     using MediatR;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -17,7 +18,6 @@
         IAsyncRequestHandler<AddPersonalThresholdCommand, IEnumerable<NamedResult>>,
         IAsyncRequestHandler<UpdateMultiplePersonalThresholdCommand, IEnumerable<NamedResult>>,
         IAsyncRequestHandler<DeleteMultiplePersonalThresholdCommand, IEnumerable<NamedResult>>,
-        //IAsyncRequestHandler<GlobalThresholdQuery, GlobalThresholdModel>,
         IAsyncRequestHandler<UpdateGlobalThresholdCommand, Result>,
         IAsyncRequestHandler<AddMultiplePersonalPresetCommand, IEnumerable<NamedResult>>,
         IAsyncRequestHandler<UpdatePersonalPresetCommand, Result>,
@@ -27,14 +27,19 @@
         IAsyncRequestHandler<ManagePersonalThresholdPresetQuery, ManagePersonalThresholdPresetViewModel>
     {
         private readonly MyWatchlistAccountsService service;
+        private readonly BrowserHelper browserHelper;
 
-        public MyWatchlistAccountsHandler(MyWatchlistAccountsService service)
+        public MyWatchlistAccountsHandler(
+            MyWatchlistAccountsService service,
+            BrowserHelper browserHelper)
         {
             this.service = service;
+            this.browserHelper = browserHelper;
         }
 
         public async Task<MyWatchlistAccountsViewModel> Handle(MyWatchlistAccountsRequest message)
         {
+            var isMobile = browserHelper.IsMobile(isOnlyTablet: false);
             var query = new WatchlistAccountsQuery(message.Viewer)
             {
                 Username = message.Username,
@@ -46,9 +51,13 @@
             var pagingViewModel = await Handle(query);
 
             var param = new SelectGlobalThresholdParam(message.CustId);
-            var globalThreshold = await service.GetGlobalThreshold(param);
+            var globalThreshold = await service.GetGlobalThreshold(param);            
 
-            return new MyWatchlistAccountsViewModel(message, globalThreshold, pagingViewModel);
+            return new MyWatchlistAccountsViewModel(
+                message, 
+                globalThreshold,
+                isMobile,
+                pagingViewModel);
         }
 
         public async Task<MyWatchlistAccountsPagingViewModel> Handle(WatchlistAccountsQuery message)
@@ -126,13 +135,6 @@
 
             return await Task.WhenAll(tasks);
         }
-
-        //public async Task<GlobalThresholdModel> Handle(GlobalThresholdQuery message)
-        //{
-        //    var param = new GlobalThresholdParam(message.CustId);
-
-        //    return await service.GetGlobalThreshold(param);
-        //}
 
         public async Task<Result> Handle(UpdateGlobalThresholdCommand message)
         {

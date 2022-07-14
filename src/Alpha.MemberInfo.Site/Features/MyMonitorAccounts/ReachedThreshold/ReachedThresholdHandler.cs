@@ -7,6 +7,7 @@
     using Alpha.MemberInfo.Features.MyMonitorAccounts.ReachedThreshold.Params;
     using Alpha.MemberInfo.Site.Features.MyMonitorAccounts.ReachedThreshold.Requests;
     using Alpha.MemberInfo.Site.Features.MyMonitorAccounts.ReachedThreshold.ViewModels;
+    using Alpha.Web.Helpers;
     using MediatR;
     using System.Threading.Tasks;
 
@@ -17,15 +18,21 @@
     {
         private readonly ReachedThresholdService reachedThresholdService;
         private readonly MyWatchlistAccountsService myWatchlistAccountsService;
+        private readonly BrowserHelper browserHelper;
 
-        public ReachedThresholdHandler(ReachedThresholdService reachedThresholdService, MyWatchlistAccountsService myWatchlistAccountsService)
+        public ReachedThresholdHandler(
+            ReachedThresholdService reachedThresholdService, 
+            MyWatchlistAccountsService myWatchlistAccountsService,
+            BrowserHelper browserHelper)
         {
             this.reachedThresholdService = reachedThresholdService;
             this.myWatchlistAccountsService = myWatchlistAccountsService;
+            this.browserHelper = browserHelper;
         }
 
         public async Task<ReachedThresholdViewModel> Handle(ReachedThresholdRequest message)
         {
+            var isMobile = browserHelper.IsMobile(isOnlyTablet: false);
             var query = new ReachedThresholdQuery(message.Viewer)
             {
                 Username = message.Username,
@@ -44,7 +51,7 @@
             var param = new SelectGlobalThresholdParam(message.CustId);
             var globalThreshold = await myWatchlistAccountsService.GetGlobalThreshold(param);
 
-            return new ReachedThresholdViewModel(message, globalThreshold, pagingViewModel);
+            return new ReachedThresholdViewModel(message, globalThreshold, isMobile, pagingViewModel);
         }
 
         public async Task<ReachedThresholdPagingViewModel> Handle(ReachedThresholdQuery message)
@@ -76,7 +83,7 @@
 
             var reachHistories = await reachedThresholdService.GetReachDetail(param);
 
-            return new ReachHistoryViewModel(message.Username, reachHistories);
+            return new ReachHistoryViewModel(reachHistories);
         }
     }
 }

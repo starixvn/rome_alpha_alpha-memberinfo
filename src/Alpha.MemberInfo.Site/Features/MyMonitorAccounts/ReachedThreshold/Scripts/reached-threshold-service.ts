@@ -1,4 +1,6 @@
-﻿class ReachedThresholdService {
+﻿"use strict";
+
+class ReachedThresholdService {
     private $: JQueryStatic;
     private url: string;
 
@@ -16,6 +18,10 @@
     public callAjaxWithoutBlocking = (url, type, params, onSuccess): JQueryXHR => {
         return this.$.ajax({
             url: url,
+            headers: {
+                __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             dataType: "json",
             type: type,
             data: params,

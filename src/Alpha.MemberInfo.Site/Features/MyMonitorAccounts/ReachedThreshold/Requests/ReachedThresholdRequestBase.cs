@@ -13,9 +13,9 @@
 
         public string Username { get; set; }
 
-        public DateTime FromDate { get; set; } = new DateTime(2022, 5, 1);
+        public DateTime FromDate { get; set; } = DateTime.Now;
 
-        public DateTime ToDate { get; set; } = new DateTime(2022, 5, 2);
+        public DateTime ToDate { get; set; } = DateTime.Now;
 
         public byte Status { get; set; }
 

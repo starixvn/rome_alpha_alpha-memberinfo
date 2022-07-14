@@ -2,19 +2,22 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = Model.Username + " - #No Reach History";
+}
+
+@section Styles {
+    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyMonitorAccounts/ReachedThreshold/Bundles/reach-history-media")
 }
 
 <div>
     <table id="tbl-reach-history" class="tblRpt tblRpt-bordered tblRpt-hover hide">
         <thead>
             <tr>
-                <th>No</th>
-                <th>Date Time</th>
-                <th>Limit Type Reach</th>
-                <th>Winning / Losing Amount</th>
-                <th>Winning Threshold</th>
-                <th>Losing Threshold</th>
+                <th>@Resources.No</th>
+                <th>@Resources.DateTime</th>
+                <th>@Resources.LimitTypeReach</th>
+                <th>@Resources.WinningLosingAmount</th>
+                <th>@Resources.WinningThreshold</th>
+                <th>@Resources.LosingThreshold</th>
             </tr>
         </thead>
         <tbody>
@@ -48,7 +51,7 @@
             <td class="text-right">@row.WinLossAmount.ToMoneyFormat()</td>
             <td class="text-right">@FormatThreshold(row.WinningThreshold)</td>
             <td class="text-right">@FormatThreshold(row.LosingThreshold)</td>
-        </tr>        
+        </tr>
     }
 }
 
@@ -60,6 +63,6 @@
     }
     else
     {
-        @("Unlimited");
+        @Resources.Unlimited;
     }
 }

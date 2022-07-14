@@ -1,0 +1,68 @@
+﻿@import "../../../../assets/styles/abstracts/_mixins.scss";
+
+body {
+    font-size: calculateScale(13px) !important;
+    background-color: #fff;
+}
+
+.page-title .nav.nav-tabs > li > a {
+    font-size: calculateScale(13px) !important;
+}
+
+.filter {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+    align-items: flex-end;
+    padding-bottom: 20px;
+
+    .form-group {
+        margin-right: 0;
+
+        .txt-search {
+            font-size: calculateScale(13px);
+        }
+
+        label {
+            font-size: calculateScale(13px);
+            width: calculateScale(75px);
+        }
+
+        [class*="btn-"] {
+            font-size: calculateScale(11px);
+        }
+
+        .ui_nexdatepicker_datetextbox {
+            font-size: calculateScale(11px);
+        }
+
+        .txt-search, select, [class*="btn-"], .input-group, .ui_nexdatepicker_datetextbox {
+            height: calculateScale(32px);
+            width: 100% !important;
+        }
+
+        .control.date {
+            width: calculateScale(120px);
+        }
+
+        .btn-group {
+            margin-bottom: 0;
+        }
+    }
+
+    .username-box {
+        grid-column: 1/4;
+
+        .easy-autocomplete {
+            width: 100% !important;
+
+            .easy-autocomplete-container {
+                font-size: calculateScale(10px);
+            }
+        }
+    }
+
+    .icon-excel {
+        font-size: calculateScale(18px);
+    }
+}

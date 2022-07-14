@@ -15,8 +15,8 @@
             LastLogged = account.LastLogged;
             LastReachedDate = account.LastReachedDate;
             LastLimitTypeReach = account.LastLimitTypeReach;
-            WinLossAmount = account.WinLossAmount;
-            ReachedCnt = account.ReachedCnt;
+            WinLossAmount = account.WinLossAmmount;
+            ReachedCnt = account.ReachCnt;
             Status = account.Status;
             WinningThreshold = account.WinningThreshold;
             LosingThreshold = account.LosingThreshold;
@@ -25,7 +25,7 @@
             LastReachedDateString = account.LastReachedDate.ToLongDateTime12hWithHyphen();
             WinningThresholdString = ToMoneyFormat(account.WinningThreshold);
             LosingThresholdString = ToMoneyFormat(account.LosingThreshold);
-            WinLossAmountString = account.WinLossAmount.ToMoneyFormat();
+            WinLossAmountString = account.WinLossAmmount.ToMoneyFormat();
         }
 
         public int RowNumber { get; }

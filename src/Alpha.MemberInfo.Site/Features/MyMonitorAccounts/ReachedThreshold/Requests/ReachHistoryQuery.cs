@@ -21,8 +21,6 @@
 
         public byte LimitType { get; set; }
 
-        public string Username { get; set; }
-
         public override bool IsValid()
             => base.IsValid() && FromDate <= ToDate && FromDate >= DateTime.Today.AddMonths(-3).FirstDayOfMonth();
     }

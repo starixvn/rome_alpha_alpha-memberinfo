@@ -7,6 +7,8 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
 
     private $txtAreaUsernames: JQuery;
 
+    private reloadTimeout = 3000;
+
     constructor(
         $: JQueryStatic,
         topWindow: any,
@@ -71,25 +73,27 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
                 result.forEach(res => {
                     switch (res.ErrCode) {
                         case 0:
-                            this.alert.showMultipleSuccess(res.Name, "Add successfully");
+                            this.alert.showMultipleSuccess(res.Name, this.$("#add-successfully").val());
                             break;
                         case 101:
-                            this.alert.showMultipleError(res.Name, "Are not member");
+                            this.alert.showMultipleError(res.Name, this.$("#is-not-member-error").val());
                             break;
                         case 103:
-                            this.alert.showMultipleError(res.Name, "Added into watchlist already");
+                            this.alert.showMultipleError(res.Name, this.$("#was-added-watchlist-already-error").val());
                             break;
                         default:
                             break;
                     }
                 });
 
-                //if (result.find(r => r.ErrCode === 0) && result.find(r => r.ErrCode !== 0)) {
-                //    WatchlistHelper.reloadGrid();
-                //}
+                if (result.find(r => r.ErrCode === 0) && result.find(r => r.ErrCode !== 0)) {
+                    this.topWindow.reloadDataTable();
+                    return;
+                }
 
                 if (result.filter(r => r.ErrCode === 0).length === result.length) {
-                    this.topWindow.closePopupAndReloadMainFrameAfterUpdateSuccess(3000);
+                    WatchlistHelper.reloadMainFrameAfterSuccess(this.reloadTimeout);
+                    return;
                 }
             }
         });
@@ -98,12 +102,13 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
     private handleUpdate = () => {
         this.alert.hide();
 
-        if (!this.validateThresholdInput() || !this.validateEditThresholdNoChangeUpdate())
-            return;
-
         const users = [];
         const custIds = this.$("#custids").val().split(",");
         const usernames = this.$("#usernames").val().split(",");
+
+        if (!this.validateThresholdInput() || (custIds.length === 1 && !this.validateEditThresholdNoChangeUpdate()))
+            return;
+
         for (let i = 0; i < custIds.length; i++) {
             users.push({
                 custId: custIds[i],
@@ -124,25 +129,27 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
                 result.forEach(res => {
                     switch (res.ErrCode) {
                         case 0:
-                            this.alert.showMultipleSuccess(res.Name, "Update successfully");
+                            this.alert.showMultipleSuccess(res.Name, this.$("#update-successfully").val());
                             break;
                         case 102:
-                            this.alert.showMultipleError(res.Name, "Invalid account");
+                            this.alert.showMultipleError(res.Name, this.$("#invalid-account-error").val());
                             break;
                         case 103:
-                            this.alert.showMultipleError(res.Name, "This member is not in watchlist account any longer");
+                            this.alert.showMultipleError(res.Name, this.$("#is-not-member-error").val());
                             break;
                         default:
                             break;
                     }
                 });
 
-                //if (result.find(r => r.ErrCode === 0) && result.find(r => r.ErrCode !== 0)) {
-                //    WatchlistHelper.reloadGrid();
-                //}
+                if (result.find(r => r.ErrCode === 0) && result.find(r => r.ErrCode !== 0)) {
+                    this.topWindow.reloadDataTable();
+                    return;
+                }
 
                 if (result.filter(r => r.ErrCode === 0).length === result.length) {
-                    this.topWindow.closePopupAndReloadMainFrameAfterUpdateSuccess(3000);
+                    WatchlistHelper.reloadMainFrameAfterSuccess(this.reloadTimeout);
+                    return;
                 }
             }
         });
@@ -157,12 +164,12 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
 
     private validateUsernamesInput = usernameArr => {
         if (usernameArr.length === 0) {
-            this.alert.showError("Must enter member username");
+            this.alert.showError(this.$("#must-enter-username-error").val());
             return false;
         }
 
         if (usernameArr.length > 50) {
-            this.alert.showError("They're more than 50 member usernames");
+            this.alert.showError(this.$("#more-usernames-error").val());
             return false;
         }
 

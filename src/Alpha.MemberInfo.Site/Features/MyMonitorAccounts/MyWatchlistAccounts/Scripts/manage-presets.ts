@@ -7,6 +7,7 @@ class ManagePresets {
     private service: MyWatchlistAccountService;
 
     private $tableBody: JQuery;
+    private reloadTimeout = 1000;
 
     constructor(
         $: JQueryStatic,
@@ -38,8 +39,10 @@ class ManagePresets {
         const $presetHtml = this.$(event.currentTarget).parents(".preset");
 
         $presetHtml.find(".preset-title").html(`<input type="text" name="presetTitle" value="${$presetHtml.data("title")}" />`);
-        $presetHtml.find(".winning-threshold").html(`<input type="text" class="threshold-input" name="winningThreshold" value="${$presetHtml.data("winningthresholdstring")}" />`);
-        $presetHtml.find(".losing-threshold").html(`<input type="text" class="threshold-input" name="losingThreshold" value="${$presetHtml.data("losingthresholdstring")}" />`);
+        $presetHtml.find(".winning-threshold").html(
+            `<input type="text" class="threshold-input" name="winningThreshold" value="${$presetHtml.data("winningthresholdstring")}" maxlength="18" />`);
+        $presetHtml.find(".losing-threshold").html(
+            `<input type="text" class="threshold-input" name="losingThreshold" value="${$presetHtml.data("losingthresholdstring")}" maxlength="18" />`);
 
         $presetHtml.find(".edit-group").addClass("hidden");
         $presetHtml.find(".confirm-group").removeClass("hidden");
@@ -68,11 +71,10 @@ class ManagePresets {
 
         this.service.updatePersonalPreset(params, result => {
             if (result.IsSuccessful) {
-                this.alert.showSuccess("Update successfully");
-                WatchlistHelper.reloadPage();
-                //WatchlistHelper.reloadPageWithTimeout(() => this.alert.showSuccess("Update successfully"));
+                this.alert.showSuccess(this.$("#update-successfully").val());
+                this.reloadAfterSuccess(this.reloadTimeout);
             } else if (result.Code === 103) {
-                this.alert.showError("Preset name is duplicated");
+                this.alert.showError(this.$("#preset-is-duplicated").val());
             }
         });
     }
@@ -90,7 +92,7 @@ class ManagePresets {
 
     private handleRemove = event => {
         this.topWindow.bootboxConfirm(
-            "Are you sure you want to remove the Personal Threshold preset?",
+            this.$("#are-you-sure-to-remove-preset").val(),
             null,
             () => {
                 const $presetHtml = this.$(event.currentTarget).parents(".preset");
@@ -101,8 +103,8 @@ class ManagePresets {
 
                 this.service.deletePersonalPreset(params, result => {
                     if (result.IsSuccessful) {
-                        this.alert.showSuccess("Remove successfully");
-                        WatchlistHelper.reloadPage();
+                        this.alert.showSuccess(this.$("#remove-successfully").val());
+                        this.reloadAfterSuccess(this.reloadTimeout);
                     } else {
                         this.alert.showError(result.ErrMsg);
                     }
@@ -120,8 +122,8 @@ class ManagePresets {
                              data-index="${index}">
                                 <td>${index + 1}</td>
                                 <td class="preset-title"><input type="text" name="presetTitle" value="" /></td>
-                                <td class="winning-threshold"><input type="text" class="threshold-input" name="winningThreshold" value="" /></td>
-                                <td class="losing-threshold"><input type="text" class="threshold-input" name="losingThreshold" value="" /></td>
+                                <td class="winning-threshold"><input type="text" class="threshold-input" name="winningThreshold" value="" maxlength="18"/></td>
+                                <td class="losing-threshold"><input type="text" class="threshold-input" name="losingThreshold" value="" maxlength="18" /></td>
                                 <td class="action">
                                     <span class="icon-bin remove-new-row"></span>
                                 </td>
@@ -151,34 +153,31 @@ class ManagePresets {
         }
 
         if (params.presets.length === 0) {
-            this.alert.showError("There is no change to update.");
+            this.alert.showError(this.$("#no-change-to-update-error").val());
             return;
         }
 
         this.service.addMultiplePersonalPreset(params, result => {
             if (result && result.length > 0) {
+                let isError = false;
                 result.forEach(res => {
                     switch (res.ErrCode) {
                         case 0:
-                            this.alert.showMultipleSuccess(res.Name, "Add successfully");
+                            this.alert.showMultipleSuccess(res.Name, this.$("#add-successfully").val());
                             break;
                         case 103:
-                            this.alert.showMultipleError(res.Name, "Preset name is duplicated");
+                            this.alert.showMultipleError(res.Name, this.$("#preset-is-duplicated").val());
+                            isError = true;
                             break;
                         default:
                             break;
                     }
                 });
-            }
 
-            //if (result.find(r => r.ErrCode === 0) && result.find(r => r.ErrCode !== 0)) {
-            //    WatchlistHelper.reloadGrid();
-            //}
-
-            if (result.filter(r => r.ErrCode === 0).length === result.length) {
-                this.topWindow.closePopupAndReloadMainFrameAfterUpdateSuccess(3000);
+                if (isError)  return;
+               
+                this.reloadAfterSuccess(3000);
             }
-            return;
         });
     }
 
@@ -195,6 +194,12 @@ class ManagePresets {
 
         return true;
     }
+
+    private reloadAfterSuccess = reloadTimeout => {
+        setTimeout(function () {
+            window.location.reload();
+        }, reloadTimeout);
+    }
 }
 
 $(function () {
@@ -202,186 +207,3 @@ $(function () {
     const managePersonalThresholdPreset = new ManagePresets($, window.top, service);
     managePersonalThresholdPreset.init();
 })
-
-
-//public openPopup = currentTarget => {
-//    this.service.getPersonalPresets({}, presets => {
-//        if (presets) {
-//            this.$tableBody.html("");
-//            this.alert.hide();
-
-//            presets.forEach((element, index) => {
-//                this.$tableBody.append(
-//                    ``);
-//            });
-
-//            this.$managePresetContainer.find(".icon-edit").off().on("click", event => {
-//                const $presetHtml = this.$(event.currentTarget).parents(".preset");
-//                const id = parseInt($presetHtml.attr("data-id"));
-//                const presetData = presets.find(p => p.ID === id);
-
-//                $presetHtml.find(".preset-title").html(`<input type="text" name="presetTitle" value="${presetData.PresetTitle}" />`);
-//                $presetHtml.find(".winning-threshold").html(`<input type="text" name="winningThreshold" value="${presetData.WinningThreshold}" />`);
-//                $presetHtml.find(".losing-threshold").html(`<input type="text" name="losingThreshold" value="${presetData.LosingThreshold}" />`);
-
-//                $presetHtml.find(".edit-group").addClass("hidden");
-//                $presetHtml.find(".confirm-group").removeClass("hidden");
-
-//                console.log(presets);
-//            });
-
-//            this.$tableBody.off().on("click", ".remove", event => {
-//                this.topWindow.bootboxConfirm(
-//                    "Are you sure you want to remove the Personal Threshold preset?",
-//                    null,
-//                    () => {
-//                        const $presetHtml = this.$(event.currentTarget).parents(".preset");
-
-//                        const params = {
-//                            id: parseInt($presetHtml.attr("data-id"))
-//                        }
-
-//                        this.service.deletePersonalPreset(params, result => {
-//                            if (result.IsSuccessful) {
-//                                this.alert.showSuccess("Remove successfully");
-
-//                                const id = parseInt($presetHtml.attr("data-id"));
-//                                presets = presets.filter(p => p.ID !== id);
-//                                $presetHtml.remove();
-//                            } else {
-//                                this.alert.showError(result.ErrMsg);
-//                            }
-//                        });
-//                    }
-//                );
-//            });
-
-//            this.$managePresetContainer.find(".icon-check").off().on("click", event => {
-//                const $presetHtml = this.$(event.currentTarget).parent().parent().parent();
-
-//                const params = {
-//                    ID: parseInt($presetHtml.attr("data-id")),
-//                    PresetTitle: $presetHtml.find('input[name="presetTitle"]').val(),
-//                    WinningThreshold: $presetHtml.find('input[name="winningThreshold"]').val(),
-//                    LosingThreshold: $presetHtml.find('input[name="losingThreshold"]').val()
-//                }
-
-//                this.service.updatePersonalPreset(params, result => {
-//                    if (result.IsSuccessful) {
-//                        $presetHtml.find(".preset-title").html(`${params.PresetTitle}`);
-//                        $presetHtml.find(".winning-threshold").html(`${params.WinningThreshold}`);
-//                        $presetHtml.find(".losing-threshold").html(`${params.LosingThreshold}`);
-
-//                        $presetHtml.find(".edit-group").removeClass("hidden");
-//                        $presetHtml.find(".confirm-group").addClass("hidden");
-
-//                        const index = parseInt($presetHtml.attr("data-index"));
-//                        presets[index] = params;
-
-//                        console.log(presets);
-
-//                        this.alert.showSuccess("Update successfully");
-//                    } else if (result.Code === 103) {
-//                        this.alert.showError("Preset name is duplicated");
-//                    }
-//                });
-//            });
-
-//            this.$managePresetContainer.find(".icon-close").off().on("click", event => {
-//                const $presetHtml = this.$(event.currentTarget).parents(".preset");
-//                const id = parseInt($presetHtml.attr("data-id"));
-//                const presetData = presets.find(p => p.ID === id);
-
-//                $presetHtml.find(".preset-title").html(presetData.PresetTitle);
-//                $presetHtml.find(".winning-threshold").html(`${presetData.WinningThreshold}`);
-//                $presetHtml.find(".losing-threshold").html(`${presetData.LosingThreshold}`);
-
-//                $presetHtml.find(".edit-group").removeClass("hidden");
-//                $presetHtml.find(".confirm-group").addClass("hidden");
-//            });
-
-//            this.$managePresetContainer.find("#btn-add-row").off().on("click", event => {
-//                const dataIndex = parseInt(this.$tableBody.children().last().attr("data-index"));
-//                var index = isNaN(dataIndex) ? 0 : dataIndex + 1;
-//                this.$tableBody.append(
-//                    `<tr id="preset-${index}"
-//                             class="preset newRow"
-//                             data-index="${index}">
-//                                <td>${index + 1}</td>
-//                                <td class="preset-title"><input type="text" name="presetTitle" value="" /></td>
-//                                <td class="winning-threshold"><input type="text" name="winningThreshold" value="" /></td>
-//                                <td class="losing-threshold"><input type="text" name="losingThreshold" value="" /></td>
-//                                <td class="action">
-//                                    <span class="icon-bin remove-new-row"></span>
-//                                </td>
-//                         </tr>`);
-
-//                this.$(".remove-new-row").on("click", event => this.$(event.currentTarget).parents(".preset").remove());
-//            });
-
-//            this.$managePresetContainer.find("#btn-save").off().on("click", event => {
-//                this.alert.hide();
-//                const params = { presets: [] };
-//                const newRows = this.$tableBody.find(".newRow");
-//                for (var row of newRows.toArray()) {
-//                    const preset = {
-//                        presetTitle: this.$(row).find('input[name="presetTitle"]').val(),
-//                        winningThreshold: this.$(row).find('input[name="winningThreshold"]').val(),
-//                        losingThreshold: this.$(row).find('input[name="losingThreshold"]').val()
-//                    }
-
-//                    if (preset.presetTitle === "" && (preset.winningThreshold !== "" || preset.losingThreshold !== "")) {
-//                        this.alert.showError("Must enter preset name");
-//                        return false;
-//                    }
-
-//                    if (preset.presetTitle !== "" && (preset.winningThreshold === "" || preset.losingThreshold === "")) {
-//                        this.alert.showError("Must enter threshold");
-//                        return false;
-//                    }
-
-//                    if (preset.presetTitle !== "" && preset.winningThreshold !== "" && preset.losingThreshold !== "") {
-//                        params.presets.push(preset);
-//                    }
-//                }
-
-//                if (params.presets.length === 0) {
-//                    this.alert.showError("There is no change to update.");
-//                    return;
-//                }
-
-//                this.service.addMultiplePersonalPreset(params, result => {
-//                    if (result && result.length > 0) {
-//                        result.forEach(res => {
-//                            switch (res.ErrCode) {
-//                                case 0:
-//                                    this.alert.showMultipleSuccess(res.Name, "Add successfully");
-//                                    break;
-//                                case 103:
-//                                    this.alert.showMultipleError(res.Name, "Preset name is duplicated");
-//                                    break;
-//                                default:
-//                                    break;
-//                            }
-//                        });
-//                    }
-
-//                    if (result.find(r => r.ErrCode === 0) && result.find(r => r.ErrCode !== 0)) {
-//                        WatchlistHelper.reloadGrid();
-//                    }
-
-//                    if (result.filter(r => r.ErrCode === 0).length === result.length) {
-//                        WatchlistHelper.reloadPageWithTimeout(() => this.$managePresetContainer.modal("hide"));
-//                    }
-//                    return;
-//                });
-//            });
-
-//            this.$managePresetContainer
-//                .css({ height: '100%', width: '100%' })
-//                .modal({ show: true, backdrop: false });
-
-//            this.$managePresetContainer.draggable({ containment: "window" });
-//        }
-//    });
-//}

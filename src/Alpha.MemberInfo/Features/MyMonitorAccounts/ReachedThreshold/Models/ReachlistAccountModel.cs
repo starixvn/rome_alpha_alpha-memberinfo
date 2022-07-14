@@ -24,12 +24,12 @@
 
         public string Status { get; }
 
-        public decimal WinLossAmount { get; }
+        public decimal WinLossAmmount { get; }
 
         public decimal? WinningThreshold { get; }
 
         public decimal? LosingThreshold { get; }
 
-        public int ReachedCnt { get; }
+        public int ReachCnt { get; }
     }
 }

@@ -8,18 +8,21 @@
         public MyWatchlistAccountsViewModel(
             MyWatchlistAccountsRequest request,
             GlobalThresholdModel globalThresholdModel,
+            bool isMobile,
             MyWatchlistAccountsPagingViewModel myWatchListAccountPagingViewModel = null)
         {
             SearchAccountId = request.CustId;
-
+            IsMobile = isMobile;
             GlobalThresholdModel = globalThresholdModel;
             MyWatchListAccountPagingViewModel = myWatchListAccountPagingViewModel;
         }
 
         public int SearchAccountId { get; }
 
-        public MyWatchlistAccountsPagingViewModel MyWatchListAccountPagingViewModel { get; }
-
         public GlobalThresholdModel GlobalThresholdModel { get; }
+
+        public bool IsMobile { get; }
+
+        public MyWatchlistAccountsPagingViewModel MyWatchListAccountPagingViewModel { get; }
     }
 }

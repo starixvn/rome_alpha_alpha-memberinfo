@@ -14,5 +14,8 @@
             [Global] = nameof(Global),
             [Personal] = nameof(Personal)
         };
+
+        public static string GetReachedThresholdLimitType(byte key)
+        => Items.ContainsKey(key) ? Items[key] : string.Empty;
     }
 }

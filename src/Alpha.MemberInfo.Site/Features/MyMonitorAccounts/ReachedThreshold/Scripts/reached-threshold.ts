@@ -72,11 +72,13 @@ $(function () {
     const viewModel = new ReachedThresholdViewModel(
         parseInt($('#search-account-id').val()),
         $('#member-info-url').val(),
+        JSON.parse($('#is-mobile').val()),
         window.reachlistAccountData
     );
     const service = new ReachedThresholdService($);
-    var dateRangePickerComponent = new DateRangePickerComponent($);
-    var dataTable = new ReachedThresholdDataTable($, service, viewModel, window.top);
+    const dateRangePickerComponent = new DateRangePickerComponent($);
+    const iframePopup = new IframePopup($, window.top);
+    const dataTable = new ReachedThresholdDataTable($, service, viewModel, iframePopup, window.top);
 
     const reachedThreshold = new ReachedThreshold($, dataTable, viewModel, dateRangePickerComponent);
 

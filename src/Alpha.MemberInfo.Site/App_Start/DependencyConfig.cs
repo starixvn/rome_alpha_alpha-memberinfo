@@ -11,6 +11,7 @@
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
+    using Alpha.MemberInfo.Site.Features.MyMonitorAccounts.ReachedThreshold;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.Shared.Helpers;
@@ -159,6 +160,7 @@
 
             container.RegisterPerWebRequest<MyWatchlistAccountsService, MyWatchlistAccountsServiceImpl>();
             container.RegisterPerWebRequest<ReachedThresholdService, ReachedThresholdServiceImpl>();
+            container.RegisterPerWebRequest<ReachedThresholdWorkbook, ReachedThresholdWorkbookImpl>();
         }
 
         private static void StartConfiguration(Container container)

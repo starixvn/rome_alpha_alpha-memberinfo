@@ -1,8 +1,11 @@
-﻿class ReachedThresholdDataTable {
+﻿"use strict";
+
+class ReachedThresholdDataTable {
     private $: JQueryStatic;
 
     private service: ReachedThresholdService;
     private viewModel: ReachedThresholdViewModel;
+    private iframePopup: IframePopup;
     private topWindow: any;
 
     private $divTable: JQuery;
@@ -12,6 +15,7 @@
     private $selStatus: JQuery;
     private $selLimitType: JQuery;
     private $btnSubmit: JQuery;
+    private $btnExcel: JQuery;
 
     private $table: JQuery;
 
@@ -19,12 +23,14 @@
         $: JQueryStatic,
         service: ReachedThresholdService,
         viewModel: ReachedThresholdViewModel,
+        iframePopup: IframePopup,
         topWindow: any
     ) {
         this.$ = $;
         this.service = service;
         this.viewModel = viewModel;
         this.topWindow = topWindow;
+        this.iframePopup = iframePopup;
         this.cacheDom();
     }
 
@@ -36,30 +42,18 @@
         this.$selLimitType = this.$("#limit-type-dropdown");
         this.$divTable = this.$('#tbl-reached-threshold');
         this.$btnSubmit = this.$("#btn-submit");
+        this.$btnExcel = this.$("#icon-excel");
     }
 
     public bindingEvent = () => {
         this.initDataTable();
-
-        this.$divTable.on("click", ".reach-count", event => {
-            const row = this.$table.row(this.$(event.currentTarget).parent()).data();
-
-            const data = {
-                username: row.Username,
-                selectedCustId: row.CustId,
-                fromDate: this.$fromDate.val(),
-                toDate: this.$toDate.val(),
-                limitType: this.$selLimitType.val()
-            }
-
-            const url = this.viewModel.MemberInfoUrl + `ReachedThreshold/GetReachHistory?${this.$.param(data)}`;
-            this.topWindow.popupManager.open(url, undefined, 750, this.topWindow.alpha.isMobile ? 430 : 500);
-        });
+        this.$divTable.on("click", ".reach-count", this.handleOpenReachHistory);
+        this.$btnExcel.off().click(this.handleExportExcel);
     }
 
     private initDataTable = () => {
-        const maxPageSize = 500;
-        const lengthMenu = `Page Size <select>` +
+        const maxPageSize = this.viewModel.IsMobile ? 200 : 500;
+        const lengthMenu = `${this.$("#page-size").val()} <select>` +
             '<option value="10">10</option>' +
             '<option value="50">50</option>' +
             '<option value="100">100</option>' +
@@ -70,13 +64,12 @@
             sPrevious: '',
             sNext: '',
             sLast: '',
-            info: `Page _INPUT_ Of _TOTAL_`
+            info: `${this.$("#page").val()} _INPUT_ ${this.$("#of").val()} _TOTAL_`
         };
 
         this.$table = this.$divTable.DataTable({
             serverSide: true,
             ajax: (data, callback) => {
-                console.log("data: ", data);
                 if (this.viewModel.ReachlistAccountData) {
                     callback({
                         data: this.viewModel.ReachlistAccountData.ReachlistAccounts,
@@ -91,7 +84,7 @@
                         ToDate: this.$toDate.val(),
                         Status: this.$selStatus.val(),
                         LimitType: this.$selLimitType.val(),
-                        SortType: data.order[0].column,
+                        SortType: this.viewModel.IsMobile ? data.order[0].column + 1 : data.order[0].column,
                         IsDesc: data.order[0].dir === 'desc',
                         PageIndex: (data.start / data.length) + 1,
                         PageSize: data.length
@@ -100,13 +93,24 @@
                 }
             },
             columns: this.buildDataTableColumns(),
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: -1,
+                    auto: false,
+                    minWidth: "100px"
+                }
+            },
             columnDefs: [
                 {
+                    className: 'control',
+                    data: null,
                     orderable: false,
-                    targets: 0
-                }
+                    defaultContent: '',
+                    targets: -1
+                },
             ],
-            order: [[1, 'asc']],
+            order: [[this.viewModel.IsMobile ? 0 : 1, 'asc']],
             stripeClasses: [],
             ordering: true,
             paging: true,
@@ -121,22 +125,30 @@
                 processing: '',
                 lengthMenu,
                 oPaginate,
-                emptyTable: "There is no data" // Get from resource
+                emptyTable: this.$("#no-info").val()
             },
             drawCallback: this.drawCallback,
             isSubmit: false
-        })
+        });
+
+        this.$("#tbl-reached-threshold").find('tbody').on('click', 'td.control', event => this.doAdjustHeader(event));
+
+        this.$("thead tr th.control").off().click(event => this.collapseExpandAll(event));
     }
 
     private buildDataTableColumns = () => {
         let columns = [];
 
-        columns.push(
-            {
+        if (!this.viewModel.IsMobile) {
+            columns.push({
                 "className": 'center',
                 "data": "RowNumber",
-                "width": "60px"
-            },
+                "width": "60px",
+                "orderable": false,
+            });
+        }
+
+        columns.push(
             {
                 "className": 'text-left',
                 "data": "Username",
@@ -171,9 +183,12 @@
             },
             {
                 "className": 'text-right',
-                "data": "ReachedCnt",
-                "render": item => `<a class="reach-count" href="#">${item}</a>`
+                "data": null,
+                "render": item => `<a class="reach-count" href="#" data-custid="${item.CustId}" data-username="${item.Username}">${item.ReachedCnt}</a>`
             },
+            {
+                "data": null,
+            }
         );
 
         return columns;
@@ -186,4 +201,60 @@
             this.$table.ajax.reload();
         });
     }
+
+    private handleOpenReachHistory = event => {
+        const custId = this.$(event.currentTarget).data("custid");
+        const username = this.$(event.currentTarget).data("username");
+
+        const params = {
+            selectedCustId: custId,
+            fromDate: this.$fromDate.val(),
+            toDate: this.$toDate.val(),
+            limitType: this.$selLimitType.val()
+        }
+
+        const url = this.viewModel.URL + "/GetReachHistory";
+        this.iframePopup.open("800px", "600px", username + " - " + this.$("#reach-history-popup-title").val(), url, params);
+    }
+
+    private handleExportExcel = () => {
+        this.$("#Username").val(this.$txtUsername.val());
+        this.$("#FromDate").val(this.$fromDate.val());
+        this.$("#ToDate").val(this.$toDate.val());
+        this.$("#Status").val(this.$selStatus.val());
+        this.$("#LimitType").val(this.$selLimitType.val());
+
+        this.$("#export-excel-form").submit();
+    }
+
+    private collapseExpandAll = event => {
+        this.$.blockUI();
+        setTimeout(() => {
+            const targetParent = this.$(event.currentTarget).parent();
+
+            if (targetParent.hasClass("parent")) {
+                targetParent.removeClass("parent");
+                this.triggerClickDetailWhenSwitchAll(this.$('tbody tr.parent'));
+                this.$(event.currentTarget).attr('title', this.$('#expandAllText').val());
+            }
+            else {
+                targetParent.addClass("parent");
+                this.triggerClickDetailWhenSwitchAll(this.$('tbody tr').not(".parent"));
+                this.$(event.currentTarget).attr('title', this.$('#collapseAllText').val());
+            }
+
+            this.$.unblockUI();
+        }, 100);
+    }
+
+    private triggerClickDetailWhenSwitchAll = controlArray => {
+        controlArray.each((index, detailButton) => this.$(detailButton).find('.control').click());
+        this.$table.fixedHeader.adjust();
+    }
+
+    private doAdjustHeader = event => {
+        if (!event.isTrigger) {
+            this.$table.fixedHeader();
+        }
+    };
 }

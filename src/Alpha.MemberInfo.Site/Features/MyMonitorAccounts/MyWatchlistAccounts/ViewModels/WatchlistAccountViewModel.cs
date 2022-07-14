@@ -18,8 +18,8 @@
             LosingThreshold = account.LosingThreshold;
 
             LastLoggedString = account.LastLogged.ToLongDateTime12hWithHyphen();
-            WinningThresholdString = ToMoneyFormat(account.WinningThreshold);
-            LosingThresholdString = ToMoneyFormat(account.LosingThreshold);
+            WinningThresholdString = account.WinningThreshold.ToMoneyFormatWithUnlimited();
+            LosingThresholdString = account.LosingThreshold.ToMoneyFormatWithUnlimited();
         }
 
         public int RowNumber { get; }
@@ -43,10 +43,5 @@
         public string WinningThresholdString { get; }
 
         public string LosingThresholdString { get; }
-
-        private static string ToMoneyFormat(decimal? number)
-            => number.HasValue 
-            ? number.Value.ToMoneyFormat()
-            : "Unlimited";
     }
 }

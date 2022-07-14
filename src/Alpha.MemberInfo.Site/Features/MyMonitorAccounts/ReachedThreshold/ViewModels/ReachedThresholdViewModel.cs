@@ -14,6 +14,7 @@
         public ReachedThresholdViewModel(
             ReachedThresholdRequest request,
             GlobalThresholdModel globalThresholdModel,
+            bool isMobile,
             ReachedThresholdPagingViewModel reachedThresholdPagingViewModel = null)
         {
             SearchAccountId = request.CustId;
@@ -26,21 +27,21 @@
             StatusOptions = ReachedThresholdStatusConstants.Items
                             .Select(s => new SelectListItem
                             {
-                                //Text = AppResources.Resources.ResourceManager.GetString(s.Value),
-                                Text = s.Value,
+                                Text = AppResources.Resources.ResourceManager.GetString(s.Value),
                                 Value = s.Key.ToString(),
                                 Selected = s.Key == ReachedThresholdStatusConstants.All
                             });
             LimitTypeOptions = ReachedThresholdLimitTypeConstants.Items
                                 .Select(s => new SelectListItem
                                 {
-                                    Text = s.Value,
+                                    Text = AppResources.Resources.ResourceManager.GetString(s.Value),
                                     Value = s.Key.ToString(),
                                     Selected = s.Key == ReachedThresholdLimitTypeConstants.All
                                 });
 
             ReachedThresholdPagingViewModel = reachedThresholdPagingViewModel;
             GlobalThresholdModel = globalThresholdModel;
+            IsMobile = isMobile;
         }
 
         public ReachedThresholdPagingViewModel ReachedThresholdPagingViewModel { get; }
@@ -54,5 +55,7 @@
         public GlobalThresholdModel GlobalThresholdModel { get; }
 
         public int SearchAccountId { get; }
+
+        public bool IsMobile { get; }
     }
 }

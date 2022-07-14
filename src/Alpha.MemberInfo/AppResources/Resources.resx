@@ -636,4 +636,178 @@
   <data name="CreditBalanceNote" xml:space="preserve">
     <value>The Balance and Bet Credit values displayed on the report may not be up to date comparing with the values displayed on Account lnfo feature at the left panel. You can click on Bet Credit amount to view the latest value.</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddMembers" xml:space="preserve">
+    <value>Add Members</value>
+  </data>
+  <data name="AddNewWatchlistAccount" xml:space="preserve">
+    <value>Add New Watchlist Account</value>
+  </data>
+  <data name="AddRow" xml:space="preserve">
+    <value>Add Row</value>
+  </data>
+  <data name="AddSuccessfully" xml:space="preserve">
+    <value>Add successfully</value>
+  </data>
+  <data name="AreYouSureToRemoveAccounts" xml:space="preserve">
+    <value>Are you sure you want to remove customer(s) from the list ?</value>
+  </data>
+  <data name="AreYouSureToRemovePreset" xml:space="preserve">
+    <value>Are you sure you want to remove the Personal Threshold preset?</value>
+  </data>
+  <data name="CanViewReportData" xml:space="preserve">
+    <value>You can view the report data from {0}</value>
+  </data>
+  <data name="EditMultiplePersonalThreshold" xml:space="preserve">
+    <value>Edit Multiple Personal Threshold</value>
+  </data>
+  <data name="EditPersonalThreshold" xml:space="preserve">
+    <value>Edit Personal Threshold</value>
+  </data>
+  <data name="EditWatchlistAccount" xml:space="preserve">
+    <value>Edit Watchlist Account</value>
+  </data>
+  <data name="EnterListOfMemberUsernames" xml:space="preserve">
+    <value>Enter list of Member usernames *(Maximum 50 members, separated by comma '.')</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="Global" xml:space="preserve">
+    <value>Global</value>
+  </data>
+  <data name="GlobalLosingThreshold" xml:space="preserve">
+    <value>Global Losing Threshold</value>
+  </data>
+  <data name="GlobalThreshold" xml:space="preserve">
+    <value>Global Threshold</value>
+  </data>
+  <data name="GlobalThresholdSetting" xml:space="preserve">
+    <value>Global Threshold Setting</value>
+  </data>
+  <data name="GlobalThresholdWillBeAppliedForMembers" xml:space="preserve">
+    <value>Global threshold setting will be applied for Members who are not in the My Watchlist Accounts</value>
+  </data>
+  <data name="GlobalWinningThreshold" xml:space="preserve">
+    <value>Global Winning Threshold</value>
+  </data>
+  <data name="InvalidAccountError" xml:space="preserve">
+    <value>Invalid Account</value>
+  </data>
+  <data name="IsNotMemberError" xml:space="preserve">
+    <value>This is not member</value>
+  </data>
+  <data name="LastLimitTypeReach" xml:space="preserve">
+    <value>Last Limit Type Reach</value>
+  </data>
+  <data name="LastReach" xml:space="preserve">
+    <value>Last Reach</value>
+  </data>
+  <data name="LastReachLosingThreshold" xml:space="preserve">
+    <value>Last Reach Losing Threshold</value>
+  </data>
+  <data name="LastReachWinningThreshold" xml:space="preserve">
+    <value>Last Reach Winning Threshold</value>
+  </data>
+  <data name="LimitType" xml:space="preserve">
+    <value>Limit Type</value>
+  </data>
+  <data name="Locked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="LosingThreshold" xml:space="preserve">
+    <value>Losing Threshold</value>
+  </data>
+  <data name="ManagePersonalThresholdPreset" xml:space="preserve">
+    <value>Manage Personal Threshold Preset</value>
+  </data>
+  <data name="MoreThan50UsernamesError" xml:space="preserve">
+    <value>The're more than 50 member usernames</value>
+  </data>
+  <data name="MustEnterPresetNameError" xml:space="preserve">
+    <value>Must enter preset name</value>
+  </data>
+  <data name="MustEnterThresholdError" xml:space="preserve">
+    <value>Must enter threshold</value>
+  </data>
+  <data name="MustEnterThresholdOrCheckError" xml:space="preserve">
+    <value>Must enter threshold or check on Unlimited</value>
+  </data>
+  <data name="MustEnterUsernameError" xml:space="preserve">
+    <value>Must enter member username</value>
+  </data>
+  <data name="MyWatchlistAccounts" xml:space="preserve">
+    <value>My Watchlist Accounts</value>
+  </data>
+  <data name="NoChangeToUpdateError" xml:space="preserve">
+    <value>There is no change to update.</value>
+  </data>
+  <data name="NoReach" xml:space="preserve">
+    <value>#No Reach</value>
+  </data>
+  <data name="NoReachHistory" xml:space="preserve">
+    <value>#No Reach History</value>
+  </data>
+  <data name="NotInWatchlistAnyLongerError" xml:space="preserve">
+    <value>This member is not in watchlist account any longer</value>
+  </data>
+  <data name="PageSize" xml:space="preserve">
+    <value>Page Size</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>Personal</value>
+  </data>
+  <data name="PersonalThresholdPreset" xml:space="preserve">
+    <value>Personal Threshold Preset</value>
+  </data>
+  <data name="PresetIsNotAvailable" xml:space="preserve">
+    <value>This preset is not available</value>
+  </data>
+  <data name="PresetNameIsDuplicated" xml:space="preserve">
+    <value>Preset name is duplicated</value>
+  </data>
+  <data name="ReachedThreshold" xml:space="preserve">
+    <value>Reached Threshold</value>
+  </data>
+  <data name="RemoveAccounts" xml:space="preserve">
+    <value>Remove Accounts</value>
+  </data>
+  <data name="RemoveMultipleAccounts" xml:space="preserve">
+    <value>Remove Multiple Accounts</value>
+  </data>
+  <data name="RemoveSuccessfully" xml:space="preserve">
+    <value>Remove successfully</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SelectPreset" xml:space="preserve">
+    <value>Select preset</value>
+  </data>
+  <data name="SelectThresholdPreset" xml:space="preserve">
+    <value>Select threshold preset or set threshold to members above:</value>
+  </data>
+  <data name="SupportsSportsbookDataOnly" xml:space="preserve">
+    <value>This function supports Sportsbook data only</value>
+  </data>
+  <data name="ThresholdPreset" xml:space="preserve">
+    <value>Threshold Preset</value>
+  </data>
+  <data name="Unlimited" xml:space="preserve">
+    <value>Unlimited</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="WasAddedWatchlistAlreadyError" xml:space="preserve">
+    <value>This member was added into watchlist already</value>
+  </data>
+  <data name="WinningLosingAmount" xml:space="preserve">
+    <value>Winning/Losing Amount</value>
+  </data>
+  <data name="WinningThreshold" xml:space="preserve">
+    <value>Winning Threshold</value>
+  </data>
 </root>

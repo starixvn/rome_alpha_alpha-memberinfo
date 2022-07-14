@@ -25,14 +25,14 @@ abstract class ThresholdInputsBase {
         this.alert = new MyWatchlistAccountsAlert(this.$);
     }
 
-    private handleInputThresholdChange = event => {
-        const el = event.currentTarget;
-        el.value = WatchlistHelper.ToMoneyFormat(el.value);
-    }
-
     protected bindingThresholdTxtInput = () => {
         this.$txtWinningThreshold.off().on("keyup", this.handleInputThresholdChange);
         this.$txtLosingThreshold.off().on("keyup", this.handleInputThresholdChange);
+    }
+
+    private handleInputThresholdChange = event => {
+        const el = event.currentTarget;
+        el.value = WatchlistHelper.ToMoneyFormat(el.value);
     }
 
     protected bindingThresholdCheckboxs = () => {
@@ -45,7 +45,7 @@ abstract class ThresholdInputsBase {
     protected validateThresholdInput = () => {
         if (!((this.$ckbWinningUnlimited.is(":checked") || this.$txtWinningThreshold.val() !== "")
             && (this.$ckbLosingUnlimited.is(":checked") || this.$txtLosingThreshold.val() !== ""))) {
-            this.alert.showError("Must enter threshold or check on Unlimited");
+            this.alert.showError(this.$("#must-enter-threshold-or-check-error").val());
             return false;
         }
 
@@ -58,7 +58,7 @@ abstract class ThresholdInputsBase {
 
         const thresholdInputs = this.getThresholdInputs();
         if (oldWinningThreshold === thresholdInputs.winningThreshold && oldLosingThreshold === thresholdInputs.losingThreshold) {
-            this.alert.showError("There is no change to update.");
+            this.alert.showError(this.$("#no-change-to-update-error").val());
             return false;
         }
 

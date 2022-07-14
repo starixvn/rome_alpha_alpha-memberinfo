@@ -1,5 +1,6 @@
 ﻿interface Window {
     watchlistAccountData: any;
+    reloadDataTable: Function;
 }
 
 class MyWatchlistAccounts {
@@ -7,33 +8,45 @@ class MyWatchlistAccounts {
     private topWindow: any;
     private viewModel: MyWatchlistAccountsViewModel;
     private dataTable: MyWatchlistAccountsDataTable;
+    private iframePopup: IframePopup;
 
     constructor(
         $: JQueryStatic,
         topWindow: any,
         viewModel: MyWatchlistAccountsViewModel,
         dataTable: MyWatchlistAccountsDataTable,
+        iframePopup: IframePopup
     ) {
         this.$ = $;
         this.topWindow = topWindow,
         this.viewModel = viewModel;
         this.dataTable = dataTable;
+        this.iframePopup = iframePopup;
     }
 
     public init = () => {
         this.bindingTxtUsername();
-        this.$("#btn-global-threshold").off().click(event => {
-            const url = this.viewModel.MemberInfoUrl + "MyWatchlistAccounts/ManageGlobalThreshold";
-            this.topWindow.popupManager.open(url, undefined, 630, this.topWindow.alpha.isMobile ? 430 : 350);
-        });
-        this.$("#btn-manage-preset").off().click(event => {
-            const url = this.viewModel.MemberInfoUrl + "MyWatchlistAccounts/ManagePersonalThresholdPreset";
-            this.topWindow.popupManager.open(url, undefined, 630, this.topWindow.alpha.isMobile ? 430 : 350);
-        });
-        this.$("#btn-add-members").off().click(event => {
-            const url = this.viewModel.MemberInfoUrl + "MyWatchlistAccounts/ManageWatchlistAccounts";
-            this.topWindow.popupManager.open(url, undefined, 630, this.topWindow.alpha.isMobile ? 430 : 350);
-        })
+        this.$("#btn-global-threshold").off().click(_ =>
+            this.iframePopup.open(
+                "1032px",
+                "400px",
+                this.$("#global-threshold-popup-title").val(),
+                this.viewModel.URL + "/ManageGlobalThreshold")
+        );
+        this.$("#btn-manage-preset").off().click(_ =>
+            this.iframePopup.open(
+                "1032px",
+                "100%",
+                this.$("#manage-preset-popup-title").val(),
+                this.viewModel.URL + "/ManagePersonalThresholdPreset")
+        );
+        this.$("#btn-add-members").off().click(_ => 
+            this.iframePopup.open(
+                "1032px",
+                "700px",
+                this.$("#add-new-account-popup-title").val(),
+                this.viewModel.URL + "/ManageWatchlistAccounts")
+        );
         this.dataTable.bindingEvent();
     }
 
@@ -70,18 +83,25 @@ $(function () {
     const viewModel = new MyWatchlistAccountsViewModel(
         parseInt($('#search-account-id').val()),
         $('#member-info-url').val(),
+        JSON.parse($('#is-mobile').val()),
         window.watchlistAccountData
     );
     const service = new MyWatchlistAccountService($);
-    const editSettingPopup = new EditSettingPopup($, window.top, viewModel, service);
+    const iframePopup = new IframePopup($, window.top);
+    const editSettingPopup = new EditSettingPopup($, window.top, viewModel, service, iframePopup);
     const dataTable = new MyWatchlistAccountsDataTable($, service, viewModel, editSettingPopup);
 
     const myWatchlistAccounts = new MyWatchlistAccounts(
         $,
         window.top,
         viewModel,
-        dataTable
+        dataTable,
+        iframePopup
     );
+
+    window.top.reloadDataTable = () => {
+        dataTable.reloadData();
+    }
 
     myWatchlistAccounts.init();
 });

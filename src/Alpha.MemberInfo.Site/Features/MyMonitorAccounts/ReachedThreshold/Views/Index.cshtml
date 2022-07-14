@@ -10,16 +10,17 @@
     @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/site-memberinfo/reached-threshold")
     @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
     @StaticResources.RenderStylesWithDarkMode("~/Features/MyMonitorAccounts/ReachedThreshold/Bundles/reached-threshold")
+    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyMonitorAccounts/ReachedThreshold/Bundles/reached-threshold-media")
 }
 
 <div class="my-watchlist-accounts">
     <div class="page-title">
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
-                <a href="#" aria-controls="home" role="tab" data-toggle="tab">Reached Threshold</a>
+                <a href="#" aria-controls="home" role="tab" data-toggle="tab">@Resources.ReachedThreshold</a>
             </li>
             <li role="presentation">
-                @Html.ActionLink("My Watchlist Accounts", "Index", "MyWatchlistAccounts")
+                @Html.ActionLink(Resources.MyWatchlistAccounts, "Index", "MyWatchlistAccounts")
             </li>
         </ul>
     </div>
@@ -38,7 +39,7 @@
         </div>
 
         <div class="form-group  from-date-box">
-            <label>From</label>
+            <label>@Resources.From</label>
 
             <div class="control date">
                 <div id="from-date-container"
@@ -78,21 +79,21 @@
         </div>
 
         <div class="form-group">
-            <label for="status-dropdown">Status</label>
+            <label for="status-dropdown">@Resources.Status</label>
             <select id="status-dropdown">
                 @foreach (var status in Model.StatusOptions)
-                    {
-                        <option value="@status.Value" @(status.Selected ? " selected=\"selected\"" : string.Empty)>
-                            @status.Text
-                        </option>
-                    }
+                {
+                    <option value="@status.Value" @(status.Selected ? " selected=\"selected\"" : string.Empty)>
+                        @status.Text
+                    </option>
+                }
             </select>
         </div>
 
         <div class="form-group">
-            <label for="limit-type-dropdown">Limit Type</label>
+            <label for="limit-type-dropdown">@Resources.LimitType</label>
             <select id="limit-type-dropdown">
-            @foreach (var status in Model.LimitTypeOptions)
+                @foreach (var status in Model.LimitTypeOptions)
                 {
                     <option value="@status.Value" @(status.Selected ? " selected=\"selected\"" : string.Empty)>
                         @status.Text
@@ -111,16 +112,16 @@
     </div>
 
     <div>
-        <span class="red">*</span> You can view the report data from @Model.DateRangePickerViewModel.MinDate.ToShortDateWithSlash()
+        <span class="red">*</span> @String.Format(Resources.CanViewReportData, @Model.DateRangePickerViewModel.MinDate.ToShortDateWithSlash())
     </div>
 
     <div>
-        <span class="red">*</span> This function supports Sportsbook data only
+        <span class="red">*</span> @Resources.SupportsSportsbookDataOnly
     </div>
 
     <div>
         <span class="red">*</span>
-        Global Winning Threshold:
+        @Resources.GlobalWinningThreshold:
         <span class="red">
             @if (Model.GlobalThresholdModel != null)
             {
@@ -128,9 +129,9 @@
             }
             else
             {
-                @("Unlimited");
+                @Resources.Unlimited
             }
-        </span>; Global Losing Threshold:
+        </span>; @Resources.GlobalLosingThreshold:
         <span class="red">
             @if (Model.GlobalThresholdModel != null)
             {
@@ -138,7 +139,7 @@
             }
             else
             {
-                @("Unlimited");
+                @Resources.Unlimited
             }
         </span>
     </div>
@@ -146,6 +147,10 @@
     <table id="tbl-reached-threshold" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%; margin-top: 15px;">
         <thead>
             <tr>
+                @if (!Model.IsMobile)
+                {
+                    <th></th>
+                }
                 <th></th>
                 <th></th>
                 <th></th>
@@ -158,30 +163,68 @@
                 <th></th>
             </tr>
             <tr>
-                <th class="header all padding-icon">
-                    No.
-                </th>
-                <th class="header">Username</th>
-                <th class="header">Last Login</th>
-                <th class="header">Status</th>
-                <th class="header">Last Reach</th>
-                <th class="header">Last Limit Type Reach</th>
-                <th class="header">Winning/Losing Amount</th>
-                <th class="header">Last Reach Winning Threshold</th>
-                <th class="header">Last Reach Losing Threshold</th>
-                <th class="header">#No Reach</th>
+                @if (!Model.IsMobile)
+                {
+                    <th class="header all padding-icon">
+                        @Resources.No
+                    </th>
+                }
+                <th class="header all username">@Resources.Username</th>
+                <th class="header">@Resources.LastLogin</th>
+                <th class="header">@Resources.Status</th>
+                <th class="header all last-reach">@Resources.LastReach</th>
+                <th class="header">@Resources.LastLimitTypeReach</th>
+                <th class="header all winning-losing">@Resources.WinningLosingAmount</th>
+                <th class="header">@Resources.LastReachWinningThreshold</th>
+                <th class="header">@Resources.LastReachLosingThreshold</th>
+                <th class="header">@Resources.NoReach</th>
+                <th class="header" style="width: 100px !important;"></th>
             </tr>
         </thead>
     </table>
 
+    <form class="form-inline hide" role="form" id="export-excel-form" action="@Url.Action("Excel")">
+        @Html.Hidden("UserName")
+        @Html.Hidden("FromDate")
+        @Html.Hidden("ToDate")
+        @Html.Hidden("Status")
+        @Html.Hidden("LimitType")
+    </form>
+
+    <form target="iframePopup" action="" id="iframe-popup-form">
+        <input type="hidden" value="" />
+        <input type="submit" class="hidden">
+    </form>
+
+    <div class="modal modal-iframe modal-sm fade" id="iframe-popup-container" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-popup">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body-iframe">
+                    <iFrame src="" name="iframePopup" id="iframe-popup" style="width:100%; height:95%;"></iFrame>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <input type="hidden" id="search-account-id" value="@Model.SearchAccountId">
     <input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
+    <input type="hidden" id="reach-history-popup-title" value="@Resources.NoReachHistory">
+    <input type="hidden" id="is-mobile" value='@(Model.IsMobile ? "true" : "false")'>
+    <input type="hidden" id="page-size" value="@Resources.PageSize" />
+    <input type="hidden" id="page" value="@Resources.Page" />
+    <input type="hidden" id="of" value="@Resources.Of" />
+    <input type="hidden" id="no-info" value="@Resources.NoInformationIsAvailable" />
 </div>
 
 @section Scripts {
     <script type="text/javascript">
         var reachlistAccountData = @Html.Raw(JsonConvert.SerializeObject(Model.ReachedThresholdPagingViewModel, Formatting.None));
-        console.log(reachlistAccountData);
     </script>
 
     @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
@@ -198,6 +241,6 @@
     }
     else
     {
-        @("Unlimited");
+        @Resources.Unlimited;
     }
 }

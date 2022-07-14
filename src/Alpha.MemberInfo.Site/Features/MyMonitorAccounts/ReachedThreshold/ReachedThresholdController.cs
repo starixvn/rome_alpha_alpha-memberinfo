@@ -36,7 +36,7 @@
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
-        //public async Task<ActionResult> Excel(ReachedThresholdExcelQuery message)
-        //    => await ExcelView(message);
+        public async Task<ActionResult> Excel(ReachedThresholdExcelQuery message)
+            => await ExcelViewAsync(message);
     }
 }

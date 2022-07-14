@@ -16,6 +16,10 @@
     public callAjaxWithoutBlocking = (url, type, params, onSuccess): JQueryXHR => {
         return this.$.ajax({
             url: url,
+            headers: {
+                __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             dataType: "json",
             type: type,
             data: params,
@@ -51,29 +55,38 @@
     }
 
     public addPersonalThreshold = (params, callback) => {
-        this.callAjaxWithoutBlocking(
+        this.callAjax(
             this.url + "/AddPersonalThreshold",
             "POST",
             params,
-            data => callback(data)
+            data => {
+                this.$.unblockUI();
+                callback(data);
+            }
         );
     }
 
     public updateMultiplePersonalThreshold = (params, callback) => {
-        this.callAjaxWithoutBlocking(
+        this.callAjax(
             this.url + "/UpdateMultiplePersonalThreshold",
             "POST",
             params,
-            data => callback(data)
+            data => {
+                this.$.unblockUI();
+                callback(data);
+            }
         );
     }
 
     public deleteMultiplePersonalThreshold = (params, callback) => {
-        this.callAjaxWithoutBlocking(
+        this.callAjax(
             this.url + "/DeleteMultiplePersonalThreshold",
             "POST",
             params,
-            data => callback(data)
+            data => {
+                this.$.unblockUI();
+                callback(data);
+            }
         );
     }
 
@@ -89,11 +102,14 @@
     }
 
     public updateGlobalThreshold = (params, callback) => {
-        this.callAjaxWithoutBlocking(
+        this.callAjax(
             this.url + "/UpdateGlobalThreshold",
             "POST",
             params,
-            data => callback(data)
+            data => {
+                this.$.unblockUI();
+                callback(data);
+            }
         );
     }
 
