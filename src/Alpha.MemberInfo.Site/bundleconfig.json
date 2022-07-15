@@ -399,5 +399,45 @@
     "inputFiles": [
       "Features/ParlayMaxPayout/Styles/parlay-max-payout-dark.css"
     ]
+  },
+  {
+    "outputFileName": "Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/my-watchlist-accounts-dark.css",
+    "inputFiles": [
+      "assets/styles/common-dark.css",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-watchlist-accounts-dark.css",
+    "inputFiles": [
+      "assets/styles/common-dark.css",
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-watchlist-accounts.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-global-threshold-dark.css",
+    "inputFiles": [
+      "assets/styles/common-dark.css",
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-global-threshold.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-presets-dark.css",
+    "inputFiles": [
+      "assets/styles/common-dark.css",
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-presets.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyMonitorAccounts/ReachedThreshold/Bundles/reached-threshold-dark.css",
+    "inputFiles": [
+      "assets/styles/common-dark.css",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
+      "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold.css"
+    ]
   }
 ]

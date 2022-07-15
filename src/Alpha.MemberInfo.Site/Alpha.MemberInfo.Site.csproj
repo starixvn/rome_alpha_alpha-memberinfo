@@ -743,6 +743,10 @@
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.min.css">
       <DependentUpon>dormant-account-list.css</DependentUpon>
     </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold-dark.css" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold-dark.min.css">
+      <DependentUpon>manage-global-threshold-dark.css</DependentUpon>
+    </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold-media.css" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold-media.min.css">
       <DependentUpon>manage-global-threshold-media.css</DependentUpon>
@@ -754,6 +758,10 @@
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-global-threshold.min.js">
       <DependentUpon>manage-global-threshold.js</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-presets-dark.css" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-presets-dark.min.css">
+      <DependentUpon>manage-presets-dark.css</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-presets-media.css" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-presets-media.min.css">
@@ -767,6 +775,10 @@
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-presets.min.js">
       <DependentUpon>manage-presets.js</DependentUpon>
     </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-dark.css" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-dark.min.css">
+      <DependentUpon>manage-watchlist-accounts-dark.css</DependentUpon>
+    </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-media.css" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-media.min.css">
       <DependentUpon>manage-watchlist-accounts-media.css</DependentUpon>
@@ -778,6 +790,10 @@
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\manage-watchlist-accounts.min.js">
       <DependentUpon>manage-watchlist-accounts.js</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\my-watchlist-accounts-dark.css" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\my-watchlist-accounts-dark.min.css">
+      <DependentUpon>my-watchlist-accounts-dark.css</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\my-watchlist-accounts-media.css" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\my-watchlist-accounts-media.min.css">
@@ -849,6 +865,10 @@
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reach-history-media.css" />
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reach-history-media.min.css">
       <DependentUpon>reach-history-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reached-threshold-dark.css" />
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reached-threshold-dark.min.css">
+      <DependentUpon>reached-threshold-dark.css</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reached-threshold-media.css" />
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Bundles\reached-threshold-media.min.css">
