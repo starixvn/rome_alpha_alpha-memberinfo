@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyMonitorAccounts.ReachedThreshold
 {
+    using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Features.MyMonitorAccounts.ReachedThreshold.Models;
     using ONEbook.SpreadSheets;
     using ONEbook.SpreadSheets.NPOI;
@@ -22,7 +23,21 @@
 
         internal Mapper<ReachlistAccountModel> RowMapper { get; set; }
 
-        internal Row RowTemplate { get; set; }
+        internal Row OpenRowTemplate { get; set; }
+
+        internal Row LockedRowTemplateFalsePassword { get; set; }
+
+        internal Row CloseRowTemplateByAdmin { get; set; }
+
+        internal Row CloseRowTemplateByUpline { get; set; }
+
+        internal Row LockedRowTemplateFalseOTPSC { get; set; }
+
+        internal Row CloseRowTemplateByArchive { get; set; }
+
+        internal Row SuspendedRowTemplate { get; set; }
+
+        internal Row DisabledRowTemplate { get; set; }
 
         public ReachedThresholdWorkbook SetData(IEnumerable<ReachlistAccountModel> data)
         {
@@ -42,7 +57,16 @@
         {
             var sheet = GetSheetAt(TemplateInfo.SheetIndex);
 
-            RowTemplate = sheet.GetRow(TemplateInfo.BodyStartIndex);
+            var currentRowIndex = TemplateInfo.BodyStartIndex;
+
+            OpenRowTemplate = sheet.GetRow(currentRowIndex++);
+            SuspendedRowTemplate = sheet.GetRow(currentRowIndex++);
+            LockedRowTemplateFalsePassword = sheet.GetRow(currentRowIndex++);
+            CloseRowTemplateByAdmin = sheet.GetRow(currentRowIndex++);
+            CloseRowTemplateByUpline = sheet.GetRow(currentRowIndex++);
+            CloseRowTemplateByArchive = sheet.GetRow(currentRowIndex++);
+            DisabledRowTemplate = sheet.GetRow(currentRowIndex++);
+            LockedRowTemplateFalseOTPSC = sheet.GetRow(currentRowIndex);
 
             return GetSheetAt(ReportSheetIndex);
         }
@@ -86,8 +110,52 @@
         internal void FillReachlistAccounts(Sheet sheet, int rowIndex, ReachlistAccountModel account)
         {
             var row = sheet.GetRow(rowIndex);
-            row.CopyCellsFrom(RowTemplate);
+            row.CopyCellsFrom(GetTemplateRow(account.Status, account.ClosedReason, account.Locked));
             FillCells(row, account, RowMapper.Mappings);
+        }
+
+        private Row GetTemplateRow(string accountStatus, int closedReason, byte locked)
+        {
+            var templateRow = OpenRowTemplate;
+
+            switch (accountStatus)
+            {
+                case nameof(ReachedThresholdStatusConstants.Disabled):
+                    templateRow = DisabledRowTemplate;
+                    break;
+
+                case nameof(ReachedThresholdStatusConstants.Closed):
+                    if (closedReason == CloseReasonConstants.ByAdmin)
+                    {
+                        templateRow = CloseRowTemplateByAdmin;
+                    }
+                    else if (closedReason == CloseReasonConstants.ByUpline)
+                    {
+                        templateRow = CloseRowTemplateByUpline;
+                    }
+                    else if (closedReason == CloseReasonConstants.ByArchive)
+                    {
+                        templateRow = CloseRowTemplateByArchive;
+                    }
+                    break;
+
+                case nameof(ReachedThresholdStatusConstants.Suspended):
+                    templateRow = SuspendedRowTemplate;
+                    break;
+
+                default:
+                    if (locked == LockedAccessConstant.FalseOTPSC)
+                    {
+                        templateRow = LockedRowTemplateFalseOTPSC;
+                    }
+                    else if (locked == LockedAccessConstant.FalsePassword)
+                    {
+                        templateRow = LockedRowTemplateFalsePassword;
+                    }
+                    break;
+            }
+
+            return templateRow;
         }
 
         protected override void FillNoInfoRow(Sheet sheet)
@@ -104,7 +172,7 @@
                 rowIndex,
                 colIndex,
                 rowIndex,
-                RowTemplate.LastCellIndex - 1,
+                OpenRowTemplate.LastCellIndex - 1,
                 TemplateInfo.NoInfomationText);
 
             sheet.GetCell(rowIndex, colIndex).SetCenterHorizontalAlignment();
