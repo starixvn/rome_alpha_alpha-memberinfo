@@ -8,6 +8,7 @@
 
 @section Styles {
     @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
+    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/site-memberinfo/tab-{Model.CustLevel.ToLowerInvariant()}")
     @StaticResources.RenderStylesWithDarkMode("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/my-watchlist-accounts")
     @StaticResources.RenderStylesWithMedia(767, "~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/my-watchlist-accounts-media")
 }
@@ -91,7 +92,10 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
+                @if (!Model.LimitedDateToShowInfo)
+                {
+                    <th></th>
+                }
                 <th></th>
                 <th></th>
                 <th></th>
@@ -111,7 +115,10 @@
                     <div class="edit-multiple icon-table-edit" data-url="" title="Edit Multiple Setting"></div>
                 </th>
                 <th class="header all username">@Resources.Username</th>
-                <th class="header desktop">@Resources.LastLogin</th>
+                @if (!Model.LimitedDateToShowInfo)
+                {
+                    <th class="header desktop">@Resources.LastLogin</th>
+                }
                 <th class="header desktop">@Resources.Status</th>
                 <th class="header all winning">@Resources.WinningThreshold</th>
                 <th class="header all losing">@Resources.LosingThreshold</th>
@@ -176,6 +183,7 @@
     <input type="hidden" id="page" value="@Resources.Page" />
     <input type="hidden" id="of" value="@Resources.Of" />
     <input type="hidden" id="no-info" value="@Resources.NoInformationIsAvailable" />
+    <input type="hidden" id="limited-date" value="@(Model.LimitedDateToShowInfo ? "true" : "false")" />
 </div>
 
 @section Scripts {

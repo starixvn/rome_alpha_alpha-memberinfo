@@ -9,13 +9,14 @@
     {
         public ReachedThresholdRequestBase(IUser viewer) : base(viewer)
         {
+            LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
         }
 
         public string Username { get; set; }
 
-        public DateTime FromDate { get; set; } = DateTime.Now;
+        public DateTime FromDate { get; set; } = DateTime.Today.AddDays(-1);
 
-        public DateTime ToDate { get; set; } = DateTime.Now;
+        public DateTime ToDate { get; set; } = DateTime.Today;
 
         public byte Status { get; set; }
 
@@ -28,6 +29,8 @@
         public int PageIndex { get; set; } = 1;
 
         public int PageSize { get; set; } = 100;
+
+        public bool LimitedDateToShowInfo { get; }
 
         public DateTime MinDate => DateTime.Today.AddMonths(-3).FirstDayOfMonth();
 

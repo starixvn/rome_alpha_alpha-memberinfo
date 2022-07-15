@@ -67,6 +67,18 @@ class ReachedThresholdDataTable {
             info: `${this.$("#page").val()} _INPUT_ ${this.$("#of").val()} _TOTAL_`
         };
 
+        const sortDefinitions = {
+            Username: 1,
+            LastLogin: 2,
+            Status: 3,
+            LastReach: 4,
+            LastLimitTypeReach: 5,
+            WinningLosingAmount: 6,
+            LastReachWinningThreshold: 7,
+            LastReachLosingThreshold: 8,
+            NoOfReach: 9
+        }
+
         this.$table = this.$divTable.DataTable({
             serverSide: true,
             ajax: (data, callback) => {
@@ -78,16 +90,18 @@ class ReachedThresholdDataTable {
                     });
                     delete this.viewModel.ReachlistAccountData;
                 } else {
+                    const columnName = data.columns[data.order[0].column].name;
+                    const sortType = sortDefinitions[columnName];
                     const params = {
-                        Username: this.$txtUsername.val(),
-                        FromDate: this.$fromDate.val(),
-                        ToDate: this.$toDate.val(),
-                        Status: this.$selStatus.val(),
-                        LimitType: this.$selLimitType.val(),
-                        SortType: this.viewModel.IsMobile ? data.order[0].column + 1 : data.order[0].column,
-                        IsDesc: data.order[0].dir === 'desc',
-                        PageIndex: (data.start / data.length) + 1,
-                        PageSize: data.length
+                        username: this.$txtUsername.val(),
+                        fromDate: this.$fromDate.val(),
+                        toDate: this.$toDate.val(),
+                        status: this.$selStatus.val(),
+                        limitType: this.$selLimitType.val(),
+                        sortType,
+                        isDesc: data.order[0].dir === 'desc',
+                        pageIndex: (data.start / data.length) + 1,
+                        pageSize: data.length
                     }
                     this.service.getReachlistThreshold(params, callback);
                 }
@@ -110,6 +124,9 @@ class ReachedThresholdDataTable {
                     targets: -1
                 },
             ],
+            createdRow: (row, data) => {
+                this.$(row).addClass(this.getRowClass(data));
+            },
             order: [[this.viewModel.IsMobile ? 0 : 1, 'asc']],
             stripeClasses: [],
             ordering: true,
@@ -136,6 +153,26 @@ class ReachedThresholdDataTable {
         this.$("thead tr th.control").off().click(event => this.collapseExpandAll(event));
     }
 
+    private getRowClass = (data) => {
+        if (data.Status === "Disabled") {
+            return reachedThresholdStatusClasses.Disabled.Css;
+        }
+
+        if (data.Status === "Suspended") {
+            return reachedThresholdStatusClasses.Suspended.Css;
+        }
+
+        if (data.ClosedReason !== 0) {
+            return reachedThresholdStatusClasses.Closed.filter(closedReason => data.ClosedReason === closedReason.Id)[0].Css;
+        }
+
+        if (data.Locked !== 0) {
+            return reachedThresholdStatusClasses.Locked.filter(locked => data.Locked === locked.Id)[0].Css;
+        }
+
+        return "";
+    }
+
     private buildDataTableColumns = () => {
         let columns = [];
 
@@ -150,41 +187,56 @@ class ReachedThresholdDataTable {
 
         columns.push(
             {
-                "className": 'text-left',
+                "className": 'left',
                 "data": "Username",
+                "name": "Username"
             },
-            {
+        );
+
+        if (!this.viewModel.LimitedDateToShowInfo) {
+            columns.push({
                 "className": 'center',
                 "data": "LastLoggedString",
-            },
+                "name": "LastReach"
+            });
+        }
+
+        columns.push(
             {
                 "className": 'center',
                 "data": "Status",
+                "name": "Status"
             },
             {
                 "className": 'center',
                 "data": "LastReachedDateString",
+                "name": "LastReach"
             },
             {
                 "className": 'center',
                 "data": "LastLimitTypeReach",
+                "name": "LastLimitTypeReach"
             },
             {
-                "className": 'text-right',
+                "className": 'right',
                 "data": "WinLossAmountString",
+                "name": "WinningLosingAmount"
             },
             {
-                "className": 'text-right',
+                "className": 'right',
                 "data": "WinningThresholdString",
+                "name": "LastReachWinningThreshold"
             },
             {
-                "className": 'text-right',
+                "className": 'right',
                 "data": "LosingThresholdString",
+                "name": "LastReachLosingThreshold"
             },
             {
-                "className": 'text-right',
+                "className": 'right',
                 "data": null,
-                "render": item => `<a class="reach-count" href="#" data-custid="${item.CustId}" data-username="${item.Username}">${item.ReachedCnt}</a>`
+                "render": item => `<a class="reach-count" href="#" data-custid="${item.CustId}" data-username="${item.Username}">${item.ReachedCnt}</a>`,
+                "name": "NoOfReach"
             },
             {
                 "data": null,

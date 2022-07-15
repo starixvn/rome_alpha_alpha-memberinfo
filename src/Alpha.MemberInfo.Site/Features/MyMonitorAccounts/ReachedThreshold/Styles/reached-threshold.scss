@@ -6,6 +6,10 @@
     ul > li > a {
         text-transform: capitalize;
     }
+
+    .nav-tabs {
+        border: none;
+    }
 }
 
 .filter {
@@ -26,10 +30,61 @@
         .multiselect-selected-text {
             text-transform: none;
         }
+
+        select {
+            appearance: auto;
+            box-shadow: none;
+            border-radius: 4px;
+            border: 1px solid #c4c4c4;
+            margin: 0;
+            border-radius: 0;
+
+            .dropdown-menu {
+                width: 100%;
+            }
+        }
+
+        button.multiselect {
+            box-shadow: none;
+        }
     }
 
     .easy-autocomplete-container {
         z-index: 10;
+    }
+}
+
+.dataTable {
+    .header {
+        height: 50px;
+    }
+
+    .locked-falsePassword {
+        background-color: #ccc7ba !important;
+    }
+
+    .closed-byAdmin {
+        background-color: #b3a2c7 !important;
+    }
+
+    .closed-byUpline {
+        background-color: #f79646 !important;
+    }
+
+    .locked-falseOTPSC {
+        background-color: #86c5e4 !important;
+    }
+
+    .closed-byArchive {
+        background-color: #969696 !important;
+    }
+
+    .RowBgSuspended {
+        background-color: #f8ded7 !important;
+    }
+
+    .RowBgDisabled {
+        background-color: #a0a97a !important;
     }
 }
 

@@ -6,18 +6,21 @@
 
     public class WatchlistAccountViewModel
     {
-        public WatchlistAccountViewModel(WatchlistAccountModel account)
+        public WatchlistAccountViewModel(
+            WatchlistAccountModel account,
+            bool limitedDateToShowInfo)
         {
             RowNumber = account.RowNumber;
             CustId = account.CustId;
             Sporttype = account.Sporttype;
             Username = account.Username;
-            LastLogged = account.LastLogged;
             Status = account.Status;
             WinningThreshold = account.WinningThreshold;
             LosingThreshold = account.LosingThreshold;
+            ClosedReason = account.ClosedReason;
+            Locked = account.Locked;
 
-            LastLoggedString = account.LastLogged.ToLongDateTime12hWithHyphen();
+            LastLoggedString = limitedDateToShowInfo ? string.Empty : account.LastLogged.ToLongDateTime12hWithHyphen();
             WinningThresholdString = account.WinningThreshold.ToMoneyFormatWithUnlimited();
             LosingThresholdString = account.LosingThreshold.ToMoneyFormatWithUnlimited();
         }
@@ -30,13 +33,15 @@
 
         public string Username { get; }
 
-        public DateTime LastLogged { get; }
-
         public string Status { get; }
 
         public decimal? WinningThreshold { get; }
 
         public decimal? LosingThreshold { get; }
+
+        public byte ClosedReason { get; }
+
+        public byte Locked { get; }
 
         public string LastLoggedString { get; }
 

@@ -6,26 +6,27 @@
 
     public class ReachlistAccountViewModel
     {
-        public ReachlistAccountViewModel(ReachlistAccountModel account)
+        public ReachlistAccountViewModel(ReachlistAccountModel account, bool limitedDateToShowInfo)
         {
             RowNumber = account.RowNumber;
             CustId = account.CustId;
             Sporttype = account.Sporttype;
             Username = account.Username;
-            LastLogged = account.LastLogged;
-            LastReachedDate = account.LastReachedDate;
             LastLimitTypeReach = account.LastLimitTypeReach;
             WinLossAmount = account.WinLossAmmount;
             ReachedCnt = account.ReachCnt;
             Status = account.Status;
             WinningThreshold = account.WinningThreshold;
             LosingThreshold = account.LosingThreshold;
+            ClosedReason = account.ClosedReason;
+            Locked = account.Locked;
 
-            LastLoggedString = account.LastLogged.ToLongDateTime12hWithHyphen();
+            LastLoggedString = limitedDateToShowInfo ? string.Empty : account.LastLogged.ToLongDateTime12hWithHyphen();
             LastReachedDateString = account.LastReachedDate.ToLongDateTime12hWithHyphen();
             WinningThresholdString = ToMoneyFormat(account.WinningThreshold);
             LosingThresholdString = ToMoneyFormat(account.LosingThreshold);
             WinLossAmountString = account.WinLossAmmount.ToMoneyFormat();
+            TranslatedStatus = account.Status;
         }
 
         public int RowNumber { get; }
@@ -36,17 +37,19 @@
 
         public string Username { get; }
 
-        public DateTime LastLogged { get; }
-
-        public DateTime LastReachedDate { get; }
-
         public string LastLimitTypeReach { get; }
 
         public string Status { get; }
 
+        public string TranslatedStatus { get; }
+
         public decimal WinLossAmount { get; }
 
         public decimal? WinningThreshold { get; }
+
+        public byte ClosedReason { get; }
+
+        public byte Locked { get; }
 
         public decimal? LosingThreshold { get; }
 

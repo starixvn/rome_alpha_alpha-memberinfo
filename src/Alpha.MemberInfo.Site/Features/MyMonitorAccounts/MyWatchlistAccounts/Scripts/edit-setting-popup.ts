@@ -129,13 +129,14 @@ class EditSettingPopup {
             data.custIds = data.custIds.join(",");
 
             const url = this.viewModel.URL + "/ManageWatchlistAccounts";
-            this.iframePopup.open("1032px","700px", this.$("#edit-account-popup-title").val(), url, data);
+            this.iframePopup.open("1032px","450px", this.$("#edit-account-popup-title").val(), url, data);
         });
         this.$('.remove-popup').click(() => this.openRemoveWatchlistAccountPopup(data));
     }
 
     private openRemoveWatchlistAccountPopup = data => {
-        const usernames = data.usernames.length > 1 ? data.usernames + " <br />" : "";
+        console.log(data);
+        const usernames = data.usernames.length > 1 ? data.usernames.join(", ") + " <br />" : "";
 
         const users = [];
         for (let i = 0; i < data.custIds.length; i++) {

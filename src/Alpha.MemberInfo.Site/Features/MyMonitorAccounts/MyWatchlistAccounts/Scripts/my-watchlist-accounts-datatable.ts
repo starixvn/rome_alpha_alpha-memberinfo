@@ -43,6 +43,13 @@ class MyWatchlistAccountsDataTable {
             sLast: '',
             info: `${this.$("#page").val()} _INPUT_ ${this.$("#of").val()} _TOTAL_`
         };
+        const sortDefinitions = {
+            Username: 1,
+            LastLogin: 2,
+            Status: 3,
+            WinningThreshold: 4,
+            LosingThreshold: 5
+        }
 
         this.$table = this.$('#tbl-my-watchlist-accounts').DataTable({
             serverSide: true,
@@ -55,7 +62,8 @@ class MyWatchlistAccountsDataTable {
                     });
                     delete this.viewModel.WatchlistAccountData;
                 } else {
-                    const sortType = !this.viewModel.IsMobile ? data.order[0].column - 2 : data.order[0].column - 1;
+                    const columnName = data.columns[data.order[0].column].name;
+                    const sortType = sortDefinitions[columnName];
                     const params = {
                         sortType,
                         isDesc: data.order[0].dir === 'desc',
@@ -84,6 +92,9 @@ class MyWatchlistAccountsDataTable {
                     targets: -1
                 },
             ],
+            createdRow: (row, data) => {
+                this.$(row).addClass(this.getRowClass(data));
+            },
             order: [[this.viewModel.IsMobile ? 2 : 3, 'asc']],
             stripeClasses: [],
             ordering: true,
@@ -108,6 +119,26 @@ class MyWatchlistAccountsDataTable {
         this.$("#tbl-my-watchlist-accounts").find('tbody').on('click', 'td.control', event => this.doAdjustHeader(event));
 
         this.$("thead tr th.control").off().click(event => this.collapseExpandAll(event));
+    }
+
+    private getRowClass = (data) => {
+        if (data.Status === "Disabled") {
+            return myWatchlistAccountsStatusClasses.Disabled.Css;
+        }
+
+        if (data.Status === "Suspended") {
+            return myWatchlistAccountsStatusClasses.Suspended.Css;
+        }
+
+        if (data.ClosedReason !== 0) {
+            return myWatchlistAccountsStatusClasses.Closed.filter(closedReason => data.ClosedReason === closedReason.Id)[0].Css;
+        }
+
+        if (data.Locked !== 0) {
+            return myWatchlistAccountsStatusClasses.Locked.filter(locked => data.Locked === locked.Id)[0].Css;
+        }
+
+        return "";
     }
 
     private buildDataTableColumns = () => {
@@ -135,24 +166,36 @@ class MyWatchlistAccountsDataTable {
                 "orderable": false,
             },
             {
-                "className": 'center',
+                "className": 'left',
                 "data": "Username",
-            },
-            {
-                "className": 'center',
-                "data": "LastLoggedString",
-            },
+                "name": "Username"
+            }
+        );
+
+        if (!this.viewModel.LimitedDateToShowInfo) {
+            columns.push(
+                {
+                    "className": 'center',
+                    "data": "LastLoggedString",
+                    "name": "LastLogin"
+                });
+        }
+
+        columns.push(
             {
                 "className": 'center',
                 "data": "Status",
+                "name": "Status"
             },
             {
-                "className": 'center',
+                "className": 'right',
                 "data": "WinningThresholdString",
+                "name": "WinningThreshold"
             },
             {
-                "className": 'center',
+                "className": 'right',
                 "data": "LosingThresholdString",
+                "name": "LosingThreshold",
             },
             {
                 "data": null,

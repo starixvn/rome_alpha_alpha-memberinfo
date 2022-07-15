@@ -664,7 +664,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter list of Member usernames *(Maximum 50 members, separated by comma &apos;.&apos;).
+        ///   Looks up a localized string similar to Enter list of Member usernames.
         /// </summary>
         public static string EnterListOfMemberUsernames {
             get {
@@ -1083,6 +1083,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string MaximumLoss {
             get {
                 return ResourceManager.GetString("MaximumLoss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (Maximum 50 members, separated by comma &apos;.&apos;).
+        /// </summary>
+        public static string MaximumMembers {
+            get {
+                return ResourceManager.GetString("MaximumMembers", resourceCulture);
             }
         }
         

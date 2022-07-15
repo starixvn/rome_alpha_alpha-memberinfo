@@ -6,6 +6,10 @@
     ul > li > a {
         text-transform: capitalize;
     }
+
+    .nav-tabs {
+        border: none;
+    }
 }
 
 // Filter
@@ -55,14 +59,47 @@
 }
 
 .dataTable {
+    .header {
+        height: 56px;
+    }
+
     .icon-table-edit {
         cursor: pointer;
         position: relative;
         top: 1px;
+        font-size: 16px;
 
         &:hover {
             color: #F60;
         }
+    }
+
+    .locked-falsePassword {
+        background-color: #ccc7ba !important;
+    }
+
+    .closed-byAdmin {
+        background-color: #b3a2c7 !important;
+    }
+
+    .closed-byUpline {
+        background-color: #f79646 !important;
+    }
+
+    .locked-falseOTPSC {
+        background-color: #86c5e4 !important;
+    }
+
+    .closed-byArchive {
+        background-color: #969696 !important;
+    }
+
+    .RowBgSuspended {
+        background-color: #f8ded7 !important;
+    }
+
+    .RowBgDisabled {
+        background-color: #a0a97a !important;
     }
 }
 
@@ -133,7 +170,9 @@
 }
 
 #tbl-my-watchlist-accounts_length {
-    font-weight: bold;
+    label {
+        font-weight: bold;
+    }
 }
 
 // Modal

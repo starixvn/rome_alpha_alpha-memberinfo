@@ -1,15 +1,16 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyMonitorAccounts.MyWatchlistAccounts.ViewModels
 {
     using Alpha.MemberInfo.Features.MyMonitorAccounts.MyWatchlistAccounts.Models;
+    using Alpha.MemberInfo.Site.Features.MyMonitorAccounts.MyWatchlistAccounts.Requests;
     using System.Collections.Generic;
     using System.Linq;
 
     public class MyWatchlistAccountsPagingViewModel
     {
-        public MyWatchlistAccountsPagingViewModel(WatchlistAccountDTO watchlistAccountDTO)
+        public MyWatchlistAccountsPagingViewModel(WatchlistAccountDTO watchlistAccountDTO, WatchlistAccountsQuery request)
         {
             WatchlistAccounts = watchlistAccountDTO.WatchlistAccounts
-                                    .Select(account => new WatchlistAccountViewModel(account));
+                                    .Select(account => new WatchlistAccountViewModel(account, request.LimitedDateToShowInfo));
             TotalItems = watchlistAccountDTO.TotalItems;
         }
 

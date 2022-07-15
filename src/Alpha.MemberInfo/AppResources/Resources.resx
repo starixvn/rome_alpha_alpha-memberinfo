@@ -670,7 +670,7 @@
     <value>Edit Watchlist Account</value>
   </data>
   <data name="EnterListOfMemberUsernames" xml:space="preserve">
-    <value>Enter list of Member usernames *(Maximum 50 members, separated by comma '.')</value>
+    <value>Enter list of Member usernames</value>
   </data>
   <data name="From" xml:space="preserve">
     <value>From</value>
@@ -809,5 +809,8 @@
   </data>
   <data name="WinningThreshold" xml:space="preserve">
     <value>Winning Threshold</value>
+  </data>
+  <data name="MaximumMembers" xml:space="preserve">
+    <value>(Maximum 50 members, separated by comma '.')</value>
   </data>
 </root>

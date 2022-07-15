@@ -807,6 +807,7 @@
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Bundles\my-watchlist-accounts.min.js">
       <DependentUpon>my-watchlist-accounts.js</DependentUpon>
     </Content>
+    <Content Include="App_Data\ExcelTemplates\ReachedThreshold\ReachedThreshold.xls" />
     <None Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-media.scss" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-media.css">
       <DependentUpon>manage-global-threshold-media.scss</DependentUpon>

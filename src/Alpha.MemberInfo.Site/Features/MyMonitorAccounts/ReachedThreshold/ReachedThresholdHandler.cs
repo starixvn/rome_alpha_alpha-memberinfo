@@ -70,7 +70,7 @@
 
             var reachlistAccountDTO = await reachedThresholdService.GetReachlistAccounts(param);
 
-            return new ReachedThresholdPagingViewModel(reachlistAccountDTO);
+            return new ReachedThresholdPagingViewModel(reachlistAccountDTO, message);
         }
 
         public async Task<ReachHistoryViewModel> Handle(ReachHistoryQuery message)

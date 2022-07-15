@@ -2,11 +2,13 @@
 {
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Requests;
+    using System;
 
     public class MyWatchlistAccountsRequestBase : MemberInfoBaseQuery
     {
         public MyWatchlistAccountsRequestBase(IUser viewer) : base(viewer)
         {
+            LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
         }
 
         public string Username { get; set; }
@@ -18,5 +20,7 @@
         public int PageIndex { get; set; } = 1;
 
         public int PageSize { get; set; } = 100;
+
+        public bool LimitedDateToShowInfo { get; }
     }
 }

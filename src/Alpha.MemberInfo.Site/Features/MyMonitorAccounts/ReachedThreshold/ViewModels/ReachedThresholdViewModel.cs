@@ -42,6 +42,8 @@
             ReachedThresholdPagingViewModel = reachedThresholdPagingViewModel;
             GlobalThresholdModel = globalThresholdModel;
             IsMobile = isMobile;
+            LimitedDateToShowInfo = request.LimitedDateToShowInfo;
+            CustLevel = request.CustLevel.DisplayName;
         }
 
         public ReachedThresholdPagingViewModel ReachedThresholdPagingViewModel { get; }
@@ -57,5 +59,9 @@
         public int SearchAccountId { get; }
 
         public bool IsMobile { get; }
+
+        public bool LimitedDateToShowInfo { get; }
+
+        public string CustLevel { get; }
     }
 }

@@ -32,3 +32,4 @@ class WatchlistConstants {
     static EmptyChar: string = "";
     static SeparatorChar: string = ",";
 }
+

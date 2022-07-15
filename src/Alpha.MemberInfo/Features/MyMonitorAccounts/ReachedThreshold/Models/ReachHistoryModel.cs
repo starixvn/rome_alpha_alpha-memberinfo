@@ -17,5 +17,9 @@
         public decimal? WinningThreshold { get; }
 
         public decimal? LosingThreshold { get; }
+
+        public byte ClosedReason { get; }
+
+        public byte Locked { get; }
     }
 }

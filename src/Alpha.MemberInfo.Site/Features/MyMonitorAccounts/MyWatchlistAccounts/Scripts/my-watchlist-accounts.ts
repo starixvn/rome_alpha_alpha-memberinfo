@@ -35,7 +35,7 @@ class MyWatchlistAccounts {
         );
         this.$("#btn-manage-preset").off().click(_ =>
             this.iframePopup.open(
-                "1032px",
+                "795px",
                 "100%",
                 this.$("#manage-preset-popup-title").val(),
                 this.viewModel.URL + "/ManagePersonalThresholdPreset")
@@ -43,7 +43,7 @@ class MyWatchlistAccounts {
         this.$("#btn-add-members").off().click(_ => 
             this.iframePopup.open(
                 "1032px",
-                "700px",
+                "450px",
                 this.$("#add-new-account-popup-title").val(),
                 this.viewModel.URL + "/ManageWatchlistAccounts")
         );
@@ -84,6 +84,7 @@ $(function () {
         parseInt($('#search-account-id').val()),
         $('#member-info-url').val(),
         JSON.parse($('#is-mobile').val()),
+        JSON.parse($('#limited-date').val()),
         window.watchlistAccountData
     );
     const service = new MyWatchlistAccountService($);

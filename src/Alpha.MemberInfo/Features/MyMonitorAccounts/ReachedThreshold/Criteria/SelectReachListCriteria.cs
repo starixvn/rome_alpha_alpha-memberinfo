@@ -57,6 +57,6 @@
 
         public override string GetSettingKey() => "Acc_WLMonitored_Player_ReachList_Sel";
 
-        public override bool IsValid() => AgentId > 0 && FromDate < ToDate;
+        public override bool IsValid() => AgentId > 0 && FromDate <= ToDate;
     }
 }

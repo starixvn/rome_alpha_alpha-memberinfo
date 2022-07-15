@@ -7,7 +7,8 @@
 }
 
 @section Styles {
-    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/site-memberinfo/reached-threshold")
+    @StaticResources.AssetStyles.RenderWithDarkMode("/bundles/site-memberinfo/reached-threshold")
+    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/site-memberinfo/tab-{Model.CustLevel.ToLowerInvariant()}")
     @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
     @StaticResources.RenderStylesWithDarkMode("~/Features/MyMonitorAccounts/ReachedThreshold/Bundles/reached-threshold")
     @StaticResources.RenderStylesWithMedia(767, "~/Features/MyMonitorAccounts/ReachedThreshold/Bundles/reached-threshold-media")
@@ -152,8 +153,10 @@
                     <th></th>
                 }
                 <th></th>
-                <th></th>
-                <th></th>
+                @if (!Model.LimitedDateToShowInfo)
+                {
+                    <th></th>
+                }
                 <th></th>
                 <th></th>
                 <th></th>
@@ -170,7 +173,10 @@
                     </th>
                 }
                 <th class="header all username">@Resources.Username</th>
-                <th class="header">@Resources.LastLogin</th>
+                @if (!Model.LimitedDateToShowInfo)
+                {
+                    <th class="header">@Resources.LastLogin</th>
+                }
                 <th class="header">@Resources.Status</th>
                 <th class="header all last-reach">@Resources.LastReach</th>
                 <th class="header">@Resources.LastLimitTypeReach</th>
@@ -178,7 +184,7 @@
                 <th class="header">@Resources.LastReachWinningThreshold</th>
                 <th class="header">@Resources.LastReachLosingThreshold</th>
                 <th class="header">@Resources.NoReach</th>
-                <th class="header" style="width: 100px !important;"></th>
+                <th class="header"  style="width: 100px !important;"></th>
             </tr>
         </thead>
     </table>
@@ -220,6 +226,7 @@
     <input type="hidden" id="page" value="@Resources.Page" />
     <input type="hidden" id="of" value="@Resources.Of" />
     <input type="hidden" id="no-info" value="@Resources.NoInformationIsAvailable" />
+    <input type="hidden" id="limited-date" value="@(Model.LimitedDateToShowInfo ? "true" : "false")" />
 </div>
 
 @section Scripts {

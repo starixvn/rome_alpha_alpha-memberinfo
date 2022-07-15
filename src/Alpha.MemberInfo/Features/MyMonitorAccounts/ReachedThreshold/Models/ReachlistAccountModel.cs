@@ -31,5 +31,9 @@
         public decimal? LosingThreshold { get; }
 
         public int ReachCnt { get; }
+
+        public byte ClosedReason { get; }
+
+        public byte Locked { get; }
     }
 }

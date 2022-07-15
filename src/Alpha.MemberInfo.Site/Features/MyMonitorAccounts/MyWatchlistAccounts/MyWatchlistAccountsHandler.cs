@@ -72,7 +72,7 @@
 
             var watchlistAccountDTO = await service.GetWatchlistAccounts(param);
 
-            return new MyWatchlistAccountsPagingViewModel(watchlistAccountDTO);
+            return new MyWatchlistAccountsPagingViewModel(watchlistAccountDTO, message);
         }
 
         public async Task<IEnumerable<PersonalPresetModel>> Handle(PersonalPresetQuery message)
