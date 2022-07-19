@@ -82,7 +82,7 @@ class EditSettingPopup {
             this.openEditSettingPopup(
                 element,
                 content,
-                "Edit Multiple",
+                "Edit Multiple", //Todo: Add resources
                 {
                     custIds,
                     usernames,
@@ -125,18 +125,21 @@ class EditSettingPopup {
         }
 
         this.$('.edit-popup').click(event => {
+            const title = data.usernames.length === 1
+                ? data.usernames + " - " + this.$("#edit-account-popup-title").val()
+                : this.$("#edit-account-popup-title").val();
+
             data.usernames = data.usernames.join(", ");
             data.custIds = data.custIds.join(",");
 
             const url = this.viewModel.URL + "/ManageWatchlistAccounts";
-            this.iframePopup.open("1032px","450px", this.$("#edit-account-popup-title").val(), url, data);
+            this.iframePopup.open("1032px", "450px", title, url, data);
         });
         this.$('.remove-popup').click(() => this.openRemoveWatchlistAccountPopup(data));
     }
 
     private openRemoveWatchlistAccountPopup = data => {
-        console.log(data);
-        const usernames = data.usernames.length > 1 ? data.usernames.join(", ") + " <br />" : "";
+        const usernames = data.usernames.join(", ") + " <br />";
 
         const users = [];
         for (let i = 0; i < data.custIds.length; i++) {

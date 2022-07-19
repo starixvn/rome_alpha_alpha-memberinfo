@@ -23,6 +23,7 @@
             LastLoggedString = limitedDateToShowInfo ? string.Empty : account.LastLogged.ToLongDateTime12hWithHyphen();
             WinningThresholdString = account.WinningThreshold.ToMoneyFormatWithUnlimited();
             LosingThresholdString = account.LosingThreshold.ToMoneyFormatWithUnlimited();
+            TranslatedStatus = AppResources.Resources.ResourceManager.GetString(account.Status);
         }
 
         public int RowNumber { get; }
@@ -34,6 +35,8 @@
         public string Username { get; }
 
         public string Status { get; }
+
+        public string TranslatedStatus { get; }
 
         public decimal? WinningThreshold { get; }
 

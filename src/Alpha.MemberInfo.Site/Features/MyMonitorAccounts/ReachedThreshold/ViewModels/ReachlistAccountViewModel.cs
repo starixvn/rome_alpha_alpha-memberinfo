@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyMonitorAccounts.ReachedThreshold.ViewModels
 {
+    using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.MyMonitorAccounts.ReachedThreshold.Models;
     using System;
@@ -26,7 +27,7 @@
             WinningThresholdString = ToMoneyFormat(account.WinningThreshold);
             LosingThresholdString = ToMoneyFormat(account.LosingThreshold);
             WinLossAmountString = account.WinLossAmmount.ToMoneyFormat();
-            TranslatedStatus = account.Status;
+            TranslatedStatus = AppResources.Resources.ResourceManager.GetString(account.Status);
         }
 
         public int RowNumber { get; }

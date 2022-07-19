@@ -43,7 +43,7 @@ class MyWatchlistAccounts {
         this.$("#btn-add-members").off().click(_ => 
             this.iframePopup.open(
                 "1032px",
-                "450px",
+                "550px",
                 this.$("#add-new-account-popup-title").val(),
                 this.viewModel.URL + "/ManageWatchlistAccounts")
         );

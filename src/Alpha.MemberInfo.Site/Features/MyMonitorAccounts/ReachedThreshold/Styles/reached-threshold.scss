@@ -31,6 +31,10 @@
             text-transform: none;
         }
 
+        .multiselect-container.dropdown-menu label.radio {
+            display: block;
+        }
+
         select {
             appearance: auto;
             box-shadow: none;
@@ -188,6 +192,10 @@
     position: sticky;
     top: -1px;
     z-index: 9;
+}
+
+#tbl-reached-threshold_length {
+    margin-top: 10px;
 }
 
 .fixedHeader-floating.dtr-column > thead > tr.parent th.control:before {
