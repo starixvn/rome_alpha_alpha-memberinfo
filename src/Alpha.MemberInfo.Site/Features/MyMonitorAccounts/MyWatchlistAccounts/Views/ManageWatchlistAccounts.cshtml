@@ -22,7 +22,7 @@
     else
     {
         <div>
-            <p>@Resources.EnterListOfMemberUsernames <span class="red">*</span> @Resources.MaximumMembers</p> 
+            <p>@Resources.EnterListOfMemberUsernames <span class="red">*</span> @Resources.MaximumMembers</p>
             <textarea rows="3" class="txt-usernames" name="usernames"></textarea>
         </div>
     }
@@ -51,15 +51,15 @@
         <div class="form-group">
             <label class="lbl-threshold">@Resources.WinningThreshold</label>
             <input class="txt-threshold" type="text" name="winningThreshold" value="" maxlength="18" />
-            <input class="ckb-unlimited" type="checkbox" name="winningUnlimited" value="" />
-            <label class="lbl-unlimited">@Resources.Unlimited</label>
+            <input id="winning-unlimited" class="ckb-unlimited" type="checkbox" name="winningUnlimited" value="" />
+            <label for="winning-unlimited" class="lbl-unlimited">@Resources.Unlimited</label>
         </div>
 
         <div class="form-group">
             <label class="lbl-threshold">@Resources.LosingThreshold</label>
             <input class="txt-threshold" type="text" name="losingThreshold" value="" maxlength="18" />
-            <input class="ckb-unlimited" type="checkbox" name="losingUnlimited" value="" />
-            <label class="lbl-unlimited">@Resources.Unlimited</label>
+            <input id="losing-unlimited" class="ckb-unlimited" type="checkbox" name="losingUnlimited" value="" />
+            <label for="losing-unlimited" class="lbl-unlimited">@Resources.Unlimited</label>
         </div>
 
         <button class="btn-submit" id="btn-add">@Resources.Add</button>

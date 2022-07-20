@@ -22,7 +22,7 @@
         {
         }
 
-        public async Task<ActionResult> Index(MyWatchlistAccountsRequest message)
+        public async Task<ActionResult> Index(MyWatchlistAccountsQuery message)
             => await ViewAsync(message, IndexPath);
 
         public async Task<ActionResult> ManageWatchlistAccounts(ManageWatchlistAccountsQuery message)

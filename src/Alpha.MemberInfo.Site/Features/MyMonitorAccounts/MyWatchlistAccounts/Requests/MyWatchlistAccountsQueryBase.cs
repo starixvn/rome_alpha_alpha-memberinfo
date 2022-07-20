@@ -4,9 +4,9 @@
     using Alpha.MemberInfo.Site.Requests;
     using System;
 
-    public class MyWatchlistAccountsRequestBase : MemberInfoBaseQuery
+    public class MyWatchlistAccountsQueryBase : MemberInfoBaseQuery
     {
-        public MyWatchlistAccountsRequestBase(IUser viewer) : base(viewer)
+        public MyWatchlistAccountsQueryBase(IUser viewer) : base(viewer)
         {
             LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
         }

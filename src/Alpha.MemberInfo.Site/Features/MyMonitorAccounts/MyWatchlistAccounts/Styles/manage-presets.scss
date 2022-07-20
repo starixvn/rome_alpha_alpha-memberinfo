@@ -1,16 +1,20 @@
-﻿input {
-    width: 90% !important;
-    height: 100%;
-}
+﻿#manage-preset {
+    padding: 10px 40px 20px 20px;
 
-.icon-edit, .icon-bin, .icon-check, .icon-close {
-    cursor: pointer;
-}
+    input {
+        width: 90% !important;
+        height: 100%;
+    }
 
-.icon-check, .icon-close {
-    font-size: 18px;
-}
+    .icon-edit, .icon-bin, .icon-check, .icon-close {
+        cursor: pointer;
+    }
 
-.action {
-    text-align: center;
+    .icon-check, .icon-close {
+        font-size: 18px;
+    }
+
+    .action {
+        text-align: center;
+    }
 }

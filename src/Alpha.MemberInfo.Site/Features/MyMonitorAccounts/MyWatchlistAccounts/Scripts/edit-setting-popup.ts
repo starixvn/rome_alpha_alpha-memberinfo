@@ -82,7 +82,7 @@ class EditSettingPopup {
             this.openEditSettingPopup(
                 element,
                 content,
-                "Edit Multiple", //Todo: Add resources
+                "Edit Multiple",
                 {
                     custIds,
                     usernames,
@@ -108,10 +108,10 @@ class EditSettingPopup {
         }
         else {
             this.$editPopupContainer
-                .css({ height: 'auto', width: 'auto' })
+                .css({ height: '70px', width: '250px' })
                 .modal({ show: true, backdrop: false });
 
-            $modalDialog.css({ width: 'inherit' });
+            $modalDialog.css({ width: '100%' });
             const width = $modalDialog.outerWidth();
 
             let top = this.$(element).offset().top - this.$(document).scrollTop();
@@ -133,7 +133,7 @@ class EditSettingPopup {
             data.custIds = data.custIds.join(",");
 
             const url = this.viewModel.URL + "/ManageWatchlistAccounts";
-            this.iframePopup.open("1032px", "450px", title, url, data);
+            this.iframePopup.open("820px", "520px", title, url, data);
         });
         this.$('.remove-popup').click(() => this.openRemoveWatchlistAccountPopup(data));
     }

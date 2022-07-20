@@ -5,9 +5,9 @@
     using Fanex.Common.Extensions;
     using System;
 
-    public class ReachedThresholdRequestBase : MemberInfoBaseQuery
+    public class ReachedThresholdQueryBase : MemberInfoBaseQuery
     {
-        public ReachedThresholdRequestBase(IUser viewer) : base(viewer)
+        public ReachedThresholdQueryBase(IUser viewer) : base(viewer)
         {
             LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
         }

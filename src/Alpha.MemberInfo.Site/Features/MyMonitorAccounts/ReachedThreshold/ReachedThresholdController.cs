@@ -20,13 +20,13 @@
         {
         }
 
-        public async Task<ActionResult> Index(ReachedThresholdRequest message)
+        public async Task<ActionResult> Index(ReachedThresholdQuery message)
             => await ViewAsync(message, IndexPath);
 
         public async Task<ActionResult> GetReachHistory(ReachHistoryQuery message)
             => await ViewAsync(message, ReachHistoryPath);
 
-        public async Task<ActionResult> GetReachlistThreshold(ReachedThresholdQuery message)
+        public async Task<ActionResult> GetReachlistThreshold(ReachlistAccountsQuery message)
         {
             if (!message.IsValid())
             {

@@ -32,7 +32,7 @@ class ManagePresets {
         this.$(".remove").off().click(this.handleRemove);
         this.$("#btn-add").off().click(this.handleAddRow);
         this.$("#btn-save").off().click(this.handleSaveNewRows);
-        this.$tableBody.off().on("keyup", ".threshold-input", this.handleInputThresholdChange);
+        this.$tableBody.off().on("input", ".threshold-input", this.handleInputThresholdChange);
     }
 
     private handleOpenEdit = event => {

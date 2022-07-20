@@ -12,7 +12,7 @@
     public class ReachedThresholdViewModel
     {
         public ReachedThresholdViewModel(
-            ReachedThresholdRequest request,
+            ReachedThresholdQuery request,
             GlobalThresholdModel globalThresholdModel,
             bool isMobile,
             ReachedThresholdPagingViewModel reachedThresholdPagingViewModel = null)

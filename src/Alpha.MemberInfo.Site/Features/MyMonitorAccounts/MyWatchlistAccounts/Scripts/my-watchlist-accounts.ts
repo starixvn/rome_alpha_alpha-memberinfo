@@ -28,22 +28,22 @@ class MyWatchlistAccounts {
         this.bindingTxtUsername();
         this.$("#btn-global-threshold").off().click(_ =>
             this.iframePopup.open(
-                "1032px",
-                "400px",
+                "700px",
+                "330px",
                 this.$("#global-threshold-popup-title").val(),
                 this.viewModel.URL + "/ManageGlobalThreshold")
         );
         this.$("#btn-manage-preset").off().click(_ =>
             this.iframePopup.open(
                 "795px",
-                "100%",
+                "700px",
                 this.$("#manage-preset-popup-title").val(),
                 this.viewModel.URL + "/ManagePersonalThresholdPreset")
         );
         this.$("#btn-add-members").off().click(_ => 
             this.iframePopup.open(
-                "1032px",
-                "550px",
+                "820px",
+                "520px",
                 this.$("#add-new-account-popup-title").val(),
                 this.viewModel.URL + "/ManageWatchlistAccounts")
         );

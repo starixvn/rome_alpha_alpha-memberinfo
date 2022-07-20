@@ -26,8 +26,8 @@ abstract class ThresholdInputsBase {
     }
 
     protected bindingThresholdTxtInput = () => {
-        this.$txtWinningThreshold.off().on("keyup", this.handleInputThresholdChange);
-        this.$txtLosingThreshold.off().on("keyup", this.handleInputThresholdChange);
+        this.$txtWinningThreshold.off().on("input", this.handleInputThresholdChange);
+        this.$txtLosingThreshold.off().on("input", this.handleInputThresholdChange);
     }
 
     private handleInputThresholdChange = event => {

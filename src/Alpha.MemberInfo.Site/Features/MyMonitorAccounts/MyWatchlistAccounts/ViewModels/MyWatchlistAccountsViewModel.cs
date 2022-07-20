@@ -6,7 +6,7 @@
     public class MyWatchlistAccountsViewModel
     {
         public MyWatchlistAccountsViewModel(
-            MyWatchlistAccountsRequest request,
+            MyWatchlistAccountsQuery request,
             GlobalThresholdModel globalThresholdModel,
             bool isMobile,
             MyWatchlistAccountsPagingViewModel myWatchListAccountPagingViewModel = null)

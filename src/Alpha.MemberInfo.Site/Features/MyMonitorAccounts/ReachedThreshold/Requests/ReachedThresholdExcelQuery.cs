@@ -4,7 +4,7 @@
     using Alpha.MemberInfo.Site.ViewModels;
     using MediatR;
 
-    public class ReachedThresholdExcelQuery : ReachedThresholdRequestBase, IAsyncRequest<ExcelFileViewModel>
+    public class ReachedThresholdExcelQuery : ReachedThresholdQueryBase, IAsyncRequest<ExcelFileViewModel>
     {
         public ReachedThresholdExcelQuery(IUser viewer) : base(viewer)
         {

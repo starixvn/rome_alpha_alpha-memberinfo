@@ -7,7 +7,7 @@
 
     public class ReachedThresholdPagingViewModel
     {
-        public ReachedThresholdPagingViewModel(ReachlistAccountDTO reachlistAccountDTO, ReachedThresholdQuery request)
+        public ReachedThresholdPagingViewModel(ReachlistAccountDTO reachlistAccountDTO, ReachlistAccountsQuery request)
         {
             ReachlistAccounts = reachlistAccountDTO.ReachlistAccounts
                                     .Select(account => new ReachlistAccountViewModel(account, request.LimitedDateToShowInfo));

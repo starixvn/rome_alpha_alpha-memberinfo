@@ -12,8 +12,8 @@
     using System.Threading.Tasks;
 
     public class ReachedThresholdHandler : 
-        IAsyncRequestHandler<ReachedThresholdRequest, ReachedThresholdViewModel>,
-        IAsyncRequestHandler<ReachedThresholdQuery, ReachedThresholdPagingViewModel>,
+        IAsyncRequestHandler<ReachedThresholdQuery, ReachedThresholdViewModel>,
+        IAsyncRequestHandler<ReachlistAccountsQuery, ReachedThresholdPagingViewModel>,
         IAsyncRequestHandler<ReachHistoryQuery, ReachHistoryViewModel>
     {
         private readonly ReachedThresholdService reachedThresholdService;
@@ -30,10 +30,10 @@
             this.browserHelper = browserHelper;
         }
 
-        public async Task<ReachedThresholdViewModel> Handle(ReachedThresholdRequest message)
+        public async Task<ReachedThresholdViewModel> Handle(ReachedThresholdQuery message)
         {
             var isMobile = browserHelper.IsMobile(isOnlyTablet: false);
-            var query = new ReachedThresholdQuery(message.Viewer)
+            var query = new ReachlistAccountsQuery(message.Viewer)
             {
                 Username = message.Username,
                 FromDate = message.FromDate,
@@ -54,7 +54,7 @@
             return new ReachedThresholdViewModel(message, globalThreshold, isMobile, pagingViewModel);
         }
 
-        public async Task<ReachedThresholdPagingViewModel> Handle(ReachedThresholdQuery message)
+        public async Task<ReachedThresholdPagingViewModel> Handle(ReachlistAccountsQuery message)
         {
             var param = new SelectReachListParam(
                 message.CustId,

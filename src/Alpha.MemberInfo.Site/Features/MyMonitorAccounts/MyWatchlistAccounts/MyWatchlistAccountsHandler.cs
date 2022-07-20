@@ -12,7 +12,7 @@
     using System.Threading.Tasks;
 
     public class MyWatchlistAccountsHandler :
-        IAsyncRequestHandler<MyWatchlistAccountsRequest, MyWatchlistAccountsViewModel>,
+        IAsyncRequestHandler<MyWatchlistAccountsQuery, MyWatchlistAccountsViewModel>,
         IAsyncRequestHandler<WatchlistAccountsQuery, MyWatchlistAccountsPagingViewModel>,
         IAsyncRequestHandler<PersonalPresetQuery, IEnumerable<PersonalPresetModel>>,
         IAsyncRequestHandler<AddPersonalThresholdCommand, IEnumerable<NamedResult>>,
@@ -37,7 +37,7 @@
             this.browserHelper = browserHelper;
         }
 
-        public async Task<MyWatchlistAccountsViewModel> Handle(MyWatchlistAccountsRequest message)
+        public async Task<MyWatchlistAccountsViewModel> Handle(MyWatchlistAccountsQuery message)
         {
             var isMobile = browserHelper.IsMobile(isOnlyTablet: false);
             var query = new WatchlistAccountsQuery(message.Viewer)
