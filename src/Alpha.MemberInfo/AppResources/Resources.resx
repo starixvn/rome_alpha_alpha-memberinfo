@@ -813,4 +813,10 @@
   <data name="MaximumMembers" xml:space="preserve">
     <value>(Maximum 50 members, separated by comma '.')</value>
   </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>Date Time</value>
+  </data>
+  <data name="LimitTypeReach" xml:space="preserve">
+    <value>Limit Type Reach</value>
+  </data>
 </root>

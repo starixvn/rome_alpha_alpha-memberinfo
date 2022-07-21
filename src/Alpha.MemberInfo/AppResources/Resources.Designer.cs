@@ -484,6 +484,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date Time.
+        /// </summary>
+        public static string DateTime {
+            get {
+                return ResourceManager.GetString("DateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Account.
         /// </summary>
         public static string DeleteAccount {
@@ -1011,6 +1020,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string LimitType {
             get {
                 return ResourceManager.GetString("LimitType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limit Type Reach.
+        /// </summary>
+        public static string LimitTypeReach {
+            get {
+                return ResourceManager.GetString("LimitTypeReach", resourceCulture);
             }
         }
         
