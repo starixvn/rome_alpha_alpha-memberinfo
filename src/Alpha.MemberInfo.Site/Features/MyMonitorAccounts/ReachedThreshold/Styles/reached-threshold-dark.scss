@@ -1,0 +1,266 @@
+﻿@import "abstracts/_variables";
+
+.red {
+    color: $color-red;
+}
+
+.page-title {
+    ul > li > a {
+        text-transform: capitalize;
+    }
+
+    .nav-tabs {
+        border: none;
+    }
+}
+
+.filter {
+    .form-group {
+        label {
+            font-size: 13px;
+            color: $color-label;
+        }
+
+        .btn-group {
+            float: unset;
+        }
+
+        input {
+            border-radius: 0px;
+        }
+
+        .multiselect-selected-text {
+            text-transform: none;
+        }
+
+        .multiselect-container.dropdown-menu label.radio {
+            display: block;
+        }
+
+        select {
+            appearance: auto;
+            box-shadow: none;
+            border-radius: 4px;
+            border: 1px solid $border-color-select;
+            margin: 0;
+            border-radius: 0;
+
+            .dropdown-menu {
+                width: 100%;
+            }
+        }
+
+        button.multiselect {
+            box-shadow: none;
+        }
+    }
+
+    .easy-autocomplete-container {
+        z-index: 10;
+    }
+}
+
+.dataTable {
+    .header {
+        height: 50px;
+    }
+
+    .locked-falsePassword {
+        background-color: #ccc7ba !important;
+    }
+
+    .closed-byAdmin {
+        background-color: #b3a2c7 !important;
+    }
+
+    .closed-byUpline {
+        background-color: #f79646 !important;
+    }
+
+    .locked-falseOTPSC {
+        background-color: #86c5e4 !important;
+    }
+
+    .closed-byArchive {
+        background-color: #969696 !important;
+    }
+
+    .RowBgSuspended {
+        background-color: #f8ded7 !important;
+    }
+
+    .RowBgDisabled {
+        background-color: #a0a97a !important;
+    }
+}
+
+.modal-content .modal-header {
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0;
+
+    &:after, &:before {
+        content: none;
+    }
+
+    .modal-title {
+        border-bottom: none;
+    }
+
+    button {
+        padding: 0 16px;
+        opacity: 0.7;
+    }
+}
+
+#iframe-popup-container {
+    top: 8px !important;
+    padding-right: 0 !important;
+
+    .modal-dialog {
+        width: 100%;
+        height: 100%;
+
+        .modal-body-iframe {
+            width: 100%;
+            height: calc(100% - 40px);
+            padding: 10px;
+
+            iframe {
+                height: 100% !important;
+            }
+        }
+    }
+}
+
+.fixedHeader-floating {
+    border: none !important;
+
+    th {
+        position: fixed !important;
+    }
+
+    .control, .username, .last-reach, .winning-losing {
+        background: transparent;
+        position: fixed;
+        top: 0;
+        z-index: 9;
+        display: block;
+        font-size: 0;
+        border: none !important;
+        cursor: pointer;
+    }
+
+    .control {
+        right: -4px;
+        height: 79px;
+
+        &:before {
+            display: none !important;
+        }
+    }
+
+    .username {
+        left: 7px;
+        height: 42px;
+
+        &:after {
+            display: none !important;
+        }
+    }
+
+    .last-reach {
+        left: 94px;
+        height: 38px;
+
+        &:after {
+            display: none !important;
+        }
+    }
+
+    .winning-losing {
+        right: 86px;
+        height: 44px;
+
+        &:after {
+            display: none !important;
+        }
+    }
+}
+
+#tbl-reached-threshold thead {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    z-index: 9;
+}
+
+#tbl-reached-threshold_length {
+    margin-top: 10px;
+}
+
+.fixedHeader-floating.dtr-column > thead > tr.parent th.control:before {
+    display: none;
+}
+
+// Data Table
+.table-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #D9D9D9;
+    height: 35px;
+    margin-top: 15px;
+
+    .title {
+        padding-left: 5px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+}
+
+.dataTable {
+    .header {
+        height: 56px;
+    }
+
+    .icon-table-edit {
+        cursor: pointer;
+        position: relative;
+        top: 1px;
+        font-size: 16px;
+
+        &:hover {
+            color: #F60;
+        }
+    }
+
+    .locked-falsePassword {
+        background-color: #ccc7ba !important;
+    }
+
+    .closed-byAdmin {
+        background-color: #b3a2c7 !important;
+    }
+
+    .closed-byUpline {
+        background-color: #f79646 !important;
+    }
+
+    .locked-falseOTPSC {
+        background-color: #86c5e4 !important;
+    }
+
+    .closed-byArchive {
+        background-color: #969696 !important;
+    }
+
+    .RowBgSuspended {
+        background-color: #f8ded7 !important;
+    }
+
+    .RowBgDisabled {
+        background-color: #a0a97a !important;
+    }
+}

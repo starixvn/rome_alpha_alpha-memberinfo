@@ -1,0 +1,48 @@
+﻿@import "abstracts/_variables";
+
+
+#manage-watchlist-accounts {
+    .form-group {
+        margin: 10px 0 20px 0;
+        padding-bottom: 3px;
+
+        label {
+            font-size: 13px;
+            color: $color-label;
+        }
+    }
+
+    .sel-preset {
+        width: 260px;
+    }
+
+    .txt-usernames {
+        width: 100%;
+    }
+
+    .lbl-threshold {
+        width: 160px;
+    }
+
+    .txt-threshold {
+        width: 140px;
+    }
+
+    .ckb-unlimited {
+        display: inline-block;
+        margin-left: 40px;
+        margin-right: 10px;
+    }
+
+    .btn-submit {
+        width: 90px;
+    }
+
+    .multiselect-selected-text {
+        text-transform: none;
+    }
+
+    .red {
+        color: #E54748;
+    }
+}

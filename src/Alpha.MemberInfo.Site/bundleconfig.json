@@ -405,7 +405,7 @@
     "inputFiles": [
       "assets/styles/common-dark.css",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
-      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts.css"
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-dark.css"
     ]
   },
   {
@@ -413,7 +413,7 @@
     "inputFiles": [
       "assets/styles/common-dark.css",
       "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
-      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-watchlist-accounts.css"
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-watchlist-accounts-dark.css" 
     ]
   },
   {
@@ -437,7 +437,7 @@
     "inputFiles": [
       "assets/styles/common-dark.css",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
-      "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold.css"
+      "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold-dark.css"
     ]
   }
 ]

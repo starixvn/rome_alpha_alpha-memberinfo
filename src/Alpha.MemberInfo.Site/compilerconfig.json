@@ -154,5 +154,17 @@
   {
     "outputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reach-history-media.css",
     "inputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reach-history-media.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-dark.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-dark.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-watchlist-accounts-dark.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-watchlist-accounts-dark.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold-dark.css",
+    "inputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold-dark.scss"
   }
 ]
