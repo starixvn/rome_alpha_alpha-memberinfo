@@ -9,7 +9,7 @@
 }
 
 <div>
-    <table id="tbl-reach-history" class="tblRpt tblRpt-bordered tblRpt-hover hide">
+    <table id="tbl-reach-history" class="tblRpt tblRpt-bordered tblRpt-hover hide" style="width: 100%">
         <thead>
             <tr>
                 <th>@Resources.No</th>
@@ -21,11 +21,6 @@
             </tr>
         </thead>
         <tbody>
-            @RenderTable()
-            @RenderTable()
-            @RenderTable()
-            @RenderTable()
-            @RenderTable()
             @RenderTable()
         </tbody>
     </table>
@@ -45,9 +40,9 @@
     foreach (var row in Model.ReachHistories)
     {
         <tr>
-            <td>@(index++)</td>
-            <td>@row.CreatedDate.ToLongDateTime12hWithHyphen()</td>
-            <td>@row.LimitTypeReach</td>
+            <td class="text-center">@(index++)</td>
+            <td class="text-center">@row.CreatedDate.ToLongDateTime12hWithHyphen()</td>
+            <td class="text-center">@row.LimitTypeReach</td>
             <td class="text-right">@row.WinLossAmount.ToMoneyFormat()</td>
             <td class="text-right">@FormatThreshold(row.WinningThreshold)</td>
             <td class="text-right">@FormatThreshold(row.LosingThreshold)</td>
