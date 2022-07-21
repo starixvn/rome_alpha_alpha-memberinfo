@@ -7,7 +7,8 @@
 }
 
 @section Styles {
-    @StaticResources.AssetStyles.RenderWithDarkMode("/bundles/site-memberinfo/reached-threshold")
+    @StaticResources.AssetStyles.RenderWithDarkMode("/bundles/common/common")
+    @StaticResources.AssetStyles.Render("/bundles/site-memberinfo/reached-threshold")
     @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/site-memberinfo/tab-{Model.CustLevel.ToLowerInvariant()}")
     @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
     @StaticResources.RenderStylesWithDarkMode("~/Features/MyMonitorAccounts/ReachedThreshold/Bundles/reached-threshold")
@@ -184,7 +185,7 @@
                 <th class="header">@Resources.LastReachWinningThreshold</th>
                 <th class="header">@Resources.LastReachLosingThreshold</th>
                 <th class="header">@Resources.NoReach</th>
-                <th class="header"  style="width: 100px !important;"></th>
+                <th class="header" style="width: 100px !important;"></th>
             </tr>
         </thead>
     </table>
