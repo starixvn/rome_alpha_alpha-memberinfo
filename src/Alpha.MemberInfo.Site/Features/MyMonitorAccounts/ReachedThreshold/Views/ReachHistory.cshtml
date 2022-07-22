@@ -42,7 +42,7 @@
         <tr>
             <td class="text-center">@(index++)</td>
             <td class="text-center">@row.CreatedDate.ToLongDateTime12hWithHyphen()</td>
-            <td class="text-center">@row.LimitTypeReach</td>
+            <td>@Resources.ResourceManager.GetString(row.LimitTypeReach)</td>
             <td class="text-right">@row.WinLossAmount.ToMoneyFormat()</td>
             <td class="text-right">@FormatThreshold(row.WinningThreshold)</td>
             <td class="text-right">@FormatThreshold(row.LosingThreshold)</td>

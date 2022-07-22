@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyMonitorAccounts.ReachedThreshold.ViewModels
 {
+    using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.MyMonitorAccounts.ReachedThreshold.Models;
@@ -13,7 +14,7 @@
             CustId = account.CustId;
             Sporttype = account.Sporttype;
             Username = account.Username;
-            LastLimitTypeReach = account.LastLimitTypeReach;
+            LastLimitTypeReach = Resources.ResourceManager.GetString(account.LastLimitTypeReach);
             WinLossAmount = account.WinLossAmmount;
             ReachedCnt = account.ReachCnt;
             Status = account.Status;
@@ -27,7 +28,7 @@
             WinningThresholdString = ToMoneyFormat(account.WinningThreshold);
             LosingThresholdString = ToMoneyFormat(account.LosingThreshold);
             WinLossAmountString = account.WinLossAmmount.ToMoneyFormat();
-            TranslatedStatus = AppResources.Resources.ResourceManager.GetString(account.Status);
+            TranslatedStatus = Resources.ResourceManager.GetString(account.Status);
         }
 
         public int RowNumber { get; }

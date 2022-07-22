@@ -792,8 +792,8 @@
   <data name="SupportsSportsbookDataOnly" xml:space="preserve">
     <value>This function supports Sportsbook data only</value>
   </data>
-  <data name="ThresholdPreset" xml:space="preserve">
-    <value>Threshold Preset</value>
+  <data name="ThresholdPresetName" xml:space="preserve">
+    <value>Threshold Preset Name</value>
   </data>
   <data name="Unlimited" xml:space="preserve">
     <value>Unlimited</value>
@@ -818,5 +818,8 @@
   </data>
   <data name="LimitTypeReach" xml:space="preserve">
     <value>Limit Type Reach</value>
+  </data>
+  <data name="AccumulatedMemberWinLossNote" xml:space="preserve">
+    <value>Accumulated member win loss is only counted when a win/loss threshold is set. It will be reset daily or when the function is off</value>
   </data>
 </root>

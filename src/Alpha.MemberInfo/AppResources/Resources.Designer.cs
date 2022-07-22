@@ -70,6 +70,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accumulated member win loss is only counted when a win/loss threshold is set. It will be reset daily or when the function is off.
+        /// </summary>
+        public static string AccumulatedMemberWinLossNote {
+            get {
+                return ResourceManager.GetString("AccumulatedMemberWinLossNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action.
         /// </summary>
         public static string Action {
@@ -1969,11 +1978,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Threshold Preset.
+        ///   Looks up a localized string similar to Threshold Preset Name.
         /// </summary>
-        public static string ThresholdPreset {
+        public static string ThresholdPresetName {
             get {
-                return ResourceManager.GetString("ThresholdPreset", resourceCulture);
+                return ResourceManager.GetString("ThresholdPresetName", resourceCulture);
             }
         }
         
