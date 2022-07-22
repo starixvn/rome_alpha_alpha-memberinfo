@@ -10,14 +10,15 @@ body {
 }
 
 .filter {
-    display: grid;
+    display: block;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
     align-items: flex-end;
-    padding-bottom: 20px;
 
     .form-group {
-        margin-right: 0;
+        margin-right: calculateScale(5px);
+        vertical-align: bottom;
+        margin-bottom: calculateScale(8px);
 
         .txt-search {
             font-size: calculateScale(13px);
@@ -32,7 +33,7 @@ body {
         }
 
         .txt-search, [class*="btn-"] {
-            height: calculateScale(32px);
+            height: calculateScale(28px);
             width: 100% !important;
         }
     }
@@ -51,6 +52,7 @@ body {
 }
 
 .table-title {
+    height: calculateScale(35px);
     .title {
         font-size: calculateScale(13px);
     }
@@ -136,4 +138,7 @@ body {
 
 .dataTables_paginate {
     left: 20% !important;
+}
+table.dataTable tbody td {
+    height: 40px;
 }

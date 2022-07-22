@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -858,10 +858,9 @@
       <DependentUpon>my-watchlist-accounts-media.css</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts.css">
-
       <DependentUpon>my-watchlist-accounts.scss</DependentUpon>
     </Content>
-	<Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts-dark.css">
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts-dark.css">
       <DependentUpon>my-watchlist-accounts-dark.scss</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts.min.css">
@@ -890,6 +889,9 @@
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reach-history-media.css">
       <DependentUpon>reach-history-media.scss</DependentUpon>
     </Content>
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold-dark.min.css">
+      <DependentUpon>reached-threshold-dark.css</DependentUpon>
+    </Content>
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold-media.css">
       <DependentUpon>reached-threshold-media.scss</DependentUpon>
     </Content>
@@ -899,7 +901,7 @@
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold.css">
       <DependentUpon>reached-threshold.scss</DependentUpon>
     </Content>
-	<Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold-dark.css">
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold-dark.css">
       <DependentUpon>reached-threshold-dark.scss</DependentUpon>
     </Content>
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold.min.css">
@@ -929,14 +931,14 @@
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Views\Index.cshtml" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Views\web.config" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts.scss" />
-	<Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts-dark.scss" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts-dark.scss" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Views\ManageGlobalThreshold.cshtml" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Views\ManageWatchlistAccounts.cshtml" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Views\ManagePersonalThresholdPreset.cshtml" />
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Views\web.config" />
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Views\Index.cshtml" />
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold.scss" />
-	<Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold-dark.scss" />
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\reached-threshold-dark.scss" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-watchlist-accounts.scss" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert.scss" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold.scss" />
@@ -1284,8 +1286,8 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
     <Content Include="assets\styles\abstracts\_variables.scss" />
-	<Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\abstracts\_variables.scss" />
-	<Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\abstracts\_variables.scss" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\abstracts\_variables.scss" />
+    <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Styles\abstracts\_variables.scss" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountList.xls" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountListHideDateTime.xls" />
     <Content Include="assets\styles\problem-account\index-dark.scss" />

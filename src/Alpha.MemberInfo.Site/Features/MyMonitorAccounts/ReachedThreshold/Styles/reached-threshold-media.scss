@@ -10,14 +10,28 @@ body {
 }
 
 .filter {
-    display: grid;
+    display: block;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
     align-items: flex-end;
     padding-bottom: 20px;
 
     .form-group {
-        margin-right: 0;
+        margin-right: calculateScale(8px);
+        vertical-align: bottom;
+        margin-bottom: calculateScale(8px);
+
+        label {
+            display: block;
+        }
+
+        &.username-box {
+            width: calculateScale(120px);
+        }
+
+        .contror {
+            margin: 0;
+        }
 
         .txt-search {
             font-size: calculateScale(13px);
@@ -42,7 +56,7 @@ body {
         }
 
         .control.date {
-            width: calculateScale(120px);
+            width: calculateScale(100px);
         }
 
         .btn-group {
