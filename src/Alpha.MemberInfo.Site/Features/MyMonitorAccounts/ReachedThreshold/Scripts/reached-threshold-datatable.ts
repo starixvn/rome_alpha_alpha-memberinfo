@@ -266,7 +266,7 @@ class ReachedThresholdDataTable {
         }
 
         const url = this.viewModel.URL + "/GetReachHistory";
-        this.iframePopup.open("800px", "600px", username + " - " + this.$("#reach-history-popup-title").val(), url, params);
+        this.iframePopup.open("900px", "600px", username + " - " + this.$("#reach-history-popup-title").val(), url, params);
     }
 
     private handleExportExcel = () => {

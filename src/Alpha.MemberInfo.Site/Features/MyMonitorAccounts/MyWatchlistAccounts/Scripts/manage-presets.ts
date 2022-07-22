@@ -120,7 +120,7 @@ class ManagePresets {
             `<tr id="preset-${index}"
                              class="preset newRow"
                              data-index="${index}">
-                                <td>${index + 1}</td>
+                                <td class="text-center">${index + 1}</td>
                                 <td class="preset-title"><input type="text" name="presetTitle" value="" /></td>
                                 <td class="winning-threshold"><input type="text" class="threshold-input" name="winningThreshold" value="" maxlength="18"/></td>
                                 <td class="losing-threshold"><input type="text" class="threshold-input" name="losingThreshold" value="" maxlength="18" /></td>

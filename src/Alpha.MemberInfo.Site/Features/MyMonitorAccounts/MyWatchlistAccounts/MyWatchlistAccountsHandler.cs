@@ -151,7 +151,7 @@
 
         public async Task<IEnumerable<NamedResult>> Handle(AddMultiplePersonalPresetCommand message)
         {
-            var tasks = new List<Task<NamedResult>>();
+            var results = new List<NamedResult>();
 
             foreach(var preset in message.Presets)
             {
@@ -160,10 +160,11 @@
                     preset.PresetTitle,
                     preset.WinningThreshold,
                     preset.LosingThreshold);
-                tasks.Add(service.AddPersonalPreset(param));
+
+                results.Add(await service.AddPersonalPreset(param));
             }
 
-            return await Task.WhenAll(tasks);
+            return results;
         }
 
         public async Task<Result> Handle(UpdatePersonalPresetCommand message)
