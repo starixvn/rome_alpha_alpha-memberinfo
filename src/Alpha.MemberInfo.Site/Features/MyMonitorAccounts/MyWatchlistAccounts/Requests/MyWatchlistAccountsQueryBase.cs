@@ -3,6 +3,7 @@
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Requests;
     using System;
+    using System.Web.Mvc;
 
     public class MyWatchlistAccountsQueryBase : MemberInfoBaseQuery
     {
@@ -11,6 +12,7 @@
             LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
         }
 
+        [AllowHtml]
         public string Username { get; set; }
 
         public byte SortType { get; set; } = 1;

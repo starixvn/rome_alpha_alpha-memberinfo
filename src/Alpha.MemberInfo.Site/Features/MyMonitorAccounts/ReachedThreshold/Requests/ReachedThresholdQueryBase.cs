@@ -4,6 +4,7 @@
     using Alpha.MemberInfo.Site.Requests;
     using Fanex.Common.Extensions;
     using System;
+    using System.Web.Mvc;
 
     public class ReachedThresholdQueryBase : MemberInfoBaseQuery
     {
@@ -12,6 +13,7 @@
             LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
         }
 
+        [AllowHtml]
         public string Username { get; set; }
 
         public DateTime FromDate { get; set; } = DateTime.Today.AddDays(-1);

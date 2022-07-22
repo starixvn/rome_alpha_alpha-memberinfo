@@ -3,6 +3,7 @@
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Requests;
     using MediatR;
+    using System.Web.Mvc;
 
     public class UpdatePersonalPresetCommand : MemberInfoBaseQuery, IAsyncRequest<Result>
     {
@@ -12,6 +13,7 @@
 
         public int ID { get; set; }
 
+        [AllowHtml]
         public string PresetTitle { get; set; }
 
         public decimal WinningThreshold { get; set; }

@@ -5,6 +5,7 @@
     using Alpha.MemberInfo.Site.Requests;
     using MediatR;
     using System.Collections.Generic;
+    using System.Web.Mvc;
 
     public class AddPersonalThresholdCommand : MemberInfoBaseQuery, IAsyncRequest<IEnumerable<NamedResult>>
     {
@@ -12,6 +13,7 @@
         {
         }
 
+        [AllowHtml]
         public string Usernames { get; set; }
 
         public decimal? WinningThreshold { get; set; }

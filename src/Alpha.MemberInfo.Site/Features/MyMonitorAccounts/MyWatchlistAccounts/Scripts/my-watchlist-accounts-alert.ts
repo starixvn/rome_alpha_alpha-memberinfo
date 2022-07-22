@@ -23,20 +23,18 @@ class MyWatchlistAccountsAlert {
 
     public showMultipleSuccess = (name, message) => {
         this.divAlert.addClass("show-alert-message");
-        this.divAlert.append(`
-            <div>
-                <div class="name">${name}</div>
-                <div class="msg msg-success">${message}</div>
-            </div>`);
+        const divName = this.$('<div class="name"></div>').text(name);
+        const divMsg = this.$('<div class="msg msg-success"></div>').text(message);
+        const divContainer = this.$('<div></div>').append(divName, divMsg);
+        this.divAlert.append(divContainer);
     }
 
     public showMultipleError = (name, message) => {
         this.divAlert.addClass("show-alert-message");
-        this.divAlert.append(`
-            <div>
-                <div class="name">${name}</div>
-                <div class="msg msg-error">${message}</div>
-            </div>`);
+        const divName = this.$('<div class="name"></div>').text(name);
+        const divMsg = this.$('<div class="msg msg-error"></div>').text(message);
+        const divContainer = this.$('<div></div>').append(divName, divMsg);
+        this.divAlert.append(divContainer);
     }
 
     public hide = () => {

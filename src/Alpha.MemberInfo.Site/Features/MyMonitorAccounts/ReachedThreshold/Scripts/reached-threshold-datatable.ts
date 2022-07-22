@@ -197,7 +197,7 @@ class ReachedThresholdDataTable {
             columns.push({
                 "className": 'center',
                 "data": "LastLoggedString",
-                "name": "LastReach"
+                "name": "LastLogin"
             });
         }
 

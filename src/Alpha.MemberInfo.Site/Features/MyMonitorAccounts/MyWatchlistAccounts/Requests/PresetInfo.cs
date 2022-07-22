@@ -1,7 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyMonitorAccounts.MyWatchlistAccounts.Requests
 {
+    using System.Web.Mvc;
+
     public class PresetInfo
     {
+        [AllowHtml]
         public string PresetTitle { get; set; }
 
         public decimal WinningThreshold { get; set; }
