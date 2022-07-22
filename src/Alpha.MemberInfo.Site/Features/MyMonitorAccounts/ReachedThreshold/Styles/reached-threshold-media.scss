@@ -4,7 +4,9 @@ body {
     font-size: calculateScale(13px) !important;
     background-color: #fff;
 }
-
+.my-watchlist-accounts {
+    padding: 0 calculateScale(6px);
+}
 .page-title .nav.nav-tabs > li > a {
     font-size: calculateScale(13px) !important;
 }
@@ -17,12 +19,13 @@ body {
     padding-bottom: 20px;
 
     .form-group {
-        margin-right: calculateScale(8px);
+        margin-right: calculateScale(5px);
         vertical-align: bottom;
         margin-bottom: calculateScale(8px);
 
         label {
             display: block;
+            margin-bottom: calculateScale(4px);
         }
 
         &.username-box {
@@ -78,5 +81,14 @@ body {
 
     .icon-excel {
         font-size: calculateScale(18px);
+    }
+}
+.dataTables_length {
+    label {
+        font-size: calculateScale(13px) !important;
+    }
+
+    select {
+        height: calculateScale(27px);
     }
 }

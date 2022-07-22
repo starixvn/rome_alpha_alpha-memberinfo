@@ -4,7 +4,9 @@ body {
     font-size: calculateScale(13px) !important;
     background-color: #fff;
 }
-
+.my-watchlist-accounts {
+    padding: 0 calculateScale(6px);
+}
 .page-title .nav.nav-tabs > li > a {
     font-size: calculateScale(13px) !important;
 }
@@ -72,6 +74,10 @@ body {
 .dataTables_length {
     label {
         font-size: calculateScale(13px) !important;
+    }
+
+    select {
+        height: calculateScale(27px);
     }
 }
 
