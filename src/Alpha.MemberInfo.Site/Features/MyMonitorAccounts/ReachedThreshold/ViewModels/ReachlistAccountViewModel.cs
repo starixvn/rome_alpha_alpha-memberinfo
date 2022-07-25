@@ -15,8 +15,8 @@
             Sporttype = account.Sporttype;
             Username = account.Username;
             LastLimitTypeReach = Resources.ResourceManager.GetString(account.LastLimitTypeReach);
-            WinLossAmount = account.WinLossAmmount;
-            ReachedCnt = account.ReachCnt;
+            WinLossAmount = account.WinLossAmount;
+            ReachedCnt = account.ReachedCnt;
             Status = account.Status;
             WinningThreshold = account.WinningThreshold;
             LosingThreshold = account.LosingThreshold;
@@ -27,7 +27,7 @@
             LastReachedDateString = account.LastReachedDate.ToLongDateTime12hWithHyphen();
             WinningThresholdString = ToMoneyFormat(account.WinningThreshold);
             LosingThresholdString = ToMoneyFormat(account.LosingThreshold);
-            WinLossAmountString = account.WinLossAmmount.ToMoneyFormat();
+            WinLossAmountString = account.WinLossAmount.ToMoneyFormat();
             TranslatedStatus = Resources.ResourceManager.GetString(account.Status);
         }
 

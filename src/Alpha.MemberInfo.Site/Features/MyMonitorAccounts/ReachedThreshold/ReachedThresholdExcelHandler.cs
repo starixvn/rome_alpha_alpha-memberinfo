@@ -60,15 +60,31 @@
         {
             var mapper = new Mapper<ReachlistAccountModel>()
                 .Map(A, data => data.RowNumber)
-                .Map(B, data => data.Username)
-                .Map(C, data => data.LastLogged.ToLongDateTime12hWithHyphen())
-                .Map(D, data => Resources.ResourceManager.GetString(data.Status))
-                .Map(E, data => data.LastReachedDate.ToLongDateTime12hWithHyphen())
-                .Map(F, data => Resources.ResourceManager.GetString(data.LastLimitTypeReach))
-                .Map(G, data => data.WinLossAmmount.ToMoneyFormat())
-                .Map(H, data => data.WinningThreshold.ToMoneyFormatWithUnlimited())
-                .Map(I, data => data.LosingThreshold.ToMoneyFormatWithUnlimited())
-                .Map(J, data => data.ReachCnt);
+                .Map(B, data => data.Username);
+
+            if (!message.LimitedDateToShowInfo)
+            {
+                mapper
+                    .Map(C, data => data.LastLogged.ToLongDateTime12hWithHyphen())
+                    .Map(D, data => Resources.ResourceManager.GetString(data.Status))
+                    .Map(E, data => data.LastReachedDate.ToLongDateTime12hWithHyphen())
+                    .Map(F, data => Resources.ResourceManager.GetString(data.LastLimitTypeReach))
+                    .Map(G, data => data.WinLossAmount.ToMoneyFormat())
+                    .Map(H, data => data.WinningThreshold.ToMoneyFormatWithUnlimited())
+                    .Map(I, data => data.LosingThreshold.ToMoneyFormatWithUnlimited())
+                    .Map(J, data => data.ReachedCnt);
+            }
+            else
+            {
+                mapper
+                    .Map(C, data => Resources.ResourceManager.GetString(data.Status))
+                    .Map(D, data => data.LastReachedDate.ToLongDateTime12hWithHyphen())
+                    .Map(E, data => Resources.ResourceManager.GetString(data.LastLimitTypeReach))
+                    .Map(F, data => data.WinLossAmount.ToMoneyFormat())
+                    .Map(G, data => data.WinningThreshold.ToMoneyFormatWithUnlimited())
+                    .Map(H, data => data.LosingThreshold.ToMoneyFormatWithUnlimited())
+                    .Map(I, data => data.ReachedCnt);
+            }
 
             return mapper;
         }

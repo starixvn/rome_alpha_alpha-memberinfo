@@ -8,6 +8,7 @@ class ManagePresets {
 
     private $tableBody: JQuery;
     private reloadTimeout = 1000;
+    private removeReloadTimeout = 500;
 
     constructor(
         $: JQueryStatic,
@@ -35,10 +36,17 @@ class ManagePresets {
         this.$tableBody.off().on("input", ".threshold-input", this.handleInputThresholdChange);
     }
 
+    private escapeHtml = (str) => str.replace(/&/g, '&amp;')
+        .replace(/>/g, '&gt;')
+        .replace(/</g, '&lt;')
+        .replace(/\//g, '&#x2F')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+
     private handleOpenEdit = event => {
         const $presetHtml = this.$(event.currentTarget).parents(".preset");
 
-        $presetHtml.find(".preset-title").html(`<input type="text" name="presetTitle" value="${$presetHtml.data("title")}" />`);
+        $presetHtml.find(".preset-title").html(`<input type="text" name="presetTitle" value="${this.escapeHtml($presetHtml.data("title"))}" />`);
         $presetHtml.find(".winning-threshold").html(
             `<input type="text" class="threshold-input" name="winningThreshold" value="${$presetHtml.data("winningthresholdstring")}" maxlength="18" />`);
         $presetHtml.find(".losing-threshold").html(
@@ -82,7 +90,7 @@ class ManagePresets {
     private handleCloseEdit = event => {
         const $presetHtml = this.$(event.currentTarget).parents(".preset");
 
-        $presetHtml.find(".preset-title").html($presetHtml.data("title"));
+        $presetHtml.find(".preset-title").html(this.escapeHtml($presetHtml.data("title")));
         $presetHtml.find(".winning-threshold").html($presetHtml.data("winningthresholdstring"));
         $presetHtml.find(".losing-threshold").html($presetHtml.data("losingthresholdstring"));
 
@@ -104,7 +112,7 @@ class ManagePresets {
                 this.service.deletePersonalPreset(params, result => {
                     if (result.IsSuccessful) {
                         this.alert.showSuccess(this.$("#remove-successfully").val());
-                        this.reloadAfterSuccess(this.reloadTimeout);
+                        this.reloadAfterSuccess(this.removeReloadTimeout);
                     } else {
                         this.alert.showError(result.ErrMsg);
                     }

@@ -24,13 +24,13 @@
 
         public string Status { get; }
 
-        public decimal WinLossAmmount { get; }
+        public decimal WinLossAmount { get; }
 
         public decimal? WinningThreshold { get; }
 
         public decimal? LosingThreshold { get; }
 
-        public int ReachCnt { get; }
+        public int ReachedCnt { get; }
 
         public byte ClosedReason { get; }
 
