@@ -421,7 +421,7 @@
     "inputFiles": [
       "assets/styles/common-dark.css",
       "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
-      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-global-threshold.css"
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-global-threshold-dark.css"
     ]
   },
   {

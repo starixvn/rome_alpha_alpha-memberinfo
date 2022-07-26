@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -808,6 +808,13 @@
       <DependentUpon>my-watchlist-accounts.js</DependentUpon>
     </Content>
     <Content Include="App_Data\ExcelTemplates\ReachedThreshold\ReachedThreshold.xls" />
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-dark.css">
+      <DependentUpon>manage-global-threshold-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-dark.min.css">
+      <DependentUpon>manage-global-threshold-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-dark.scss" />
     <None Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-media.scss" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-media.css">
       <DependentUpon>manage-global-threshold-media.scss</DependentUpon>

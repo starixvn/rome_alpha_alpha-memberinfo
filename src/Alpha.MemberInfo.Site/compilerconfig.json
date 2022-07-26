@@ -128,6 +128,10 @@
     "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-global-threshold.scss"
   },
   {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-global-threshold-dark.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-global-threshold-dark.scss"
+  },
+  {
     "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-presets.css",
     "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-presets.scss"
   },
