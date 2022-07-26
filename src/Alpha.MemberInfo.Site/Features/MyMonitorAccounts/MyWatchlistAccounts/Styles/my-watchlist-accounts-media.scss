@@ -148,3 +148,6 @@ body {
 table.dataTable tbody td {
     height: 40px;
 }
+table.dataTable.nowrap th, table.dataTable.nowrap td {
+    white-space: inherit;
+}

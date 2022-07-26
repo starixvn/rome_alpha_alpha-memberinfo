@@ -287,6 +287,7 @@ table.dataTable {
     border: 1px solid #5F626B;
     border-right: none;
     box-sizing: border-box;
+
     .status-popup {
         span:first-child {
             cursor: pointer;
@@ -294,7 +295,7 @@ table.dataTable {
     }
 
     thead tr th {
-        border-top: 1px solid #3e3f41 !important;
+        border-top: 1px solid #5f626b !important;
         height: 28px;
         padding: 10px 8px;
         white-space: nowrap;
