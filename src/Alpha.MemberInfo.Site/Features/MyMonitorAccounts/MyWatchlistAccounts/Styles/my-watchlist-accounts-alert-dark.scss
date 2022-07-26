@@ -1,0 +1,22 @@
+﻿.show-alert-message {
+    background: #312F26;
+    border: 1px solid #78776D;
+    padding: 10px 2px;
+    max-height: 200px;
+    overflow: auto;
+    margin-bottom: 15px;
+
+    .name {
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .msg {
+        border: none;
+        margin: 0;
+    }
+
+    .msg-success, .msg-error {
+        background: none;
+    }
+}

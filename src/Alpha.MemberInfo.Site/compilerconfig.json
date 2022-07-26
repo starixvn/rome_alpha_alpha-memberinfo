@@ -166,5 +166,9 @@
   {
     "outputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold-dark.css",
     "inputFile": "Features/MyMonitorAccounts/ReachedThreshold/Styles/reached-threshold-dark.scss"
+  },
+  {
+    "outputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert-dark.css",
+    "inputFile": "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert-dark.scss"
   }
 ]

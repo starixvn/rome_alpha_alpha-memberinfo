@@ -4,11 +4,9 @@ body {
     font-size: calculateScale(13px) !important;
     background-color: #fff;
 }
-.my-watchlist-accounts {
-    padding: 0 calculateScale(6px);
-}
 .page-title .nav.nav-tabs > li > a {
-    font-size: calculateScale(13px) !important;
+    padding: calculateScale(10px) calculateScale(10px) calculateScale(8px);
+    font-size: calculateScale(13px);
 }
 
 .filter {
