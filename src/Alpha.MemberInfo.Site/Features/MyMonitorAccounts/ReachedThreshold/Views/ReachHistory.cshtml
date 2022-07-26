@@ -8,23 +8,21 @@
     @StaticResources.RenderStylesWithMedia(767, "~/Features/MyMonitorAccounts/ReachedThreshold/Bundles/reach-history-media")
 }
 
-<div style="padding: 10px 40px 20px 20px;">
-    <table id="tbl-reach-history" class="tblRpt tblRpt-bordered tblRpt-hover hide" style="width: 100%;">
-        <thead>
-            <tr>
-                <th>@Resources.No</th>
-                <th>@Resources.DateTime</th>
-                <th>@Resources.LimitTypeReach</th>
-                <th>@Resources.WinningLosingAmount</th>
-                <th>@Resources.WinningThreshold</th>
-                <th>@Resources.LosingThreshold</th>
-            </tr>
-        </thead>
-        <tbody>
-            @RenderTable()
-        </tbody>
-    </table>
-</div>
+<table id="tbl-reach-history" class="tblRpt tblRpt-bordered tblRpt-hover hide" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>@Resources.No</th>
+            <th>@Resources.DateTime</th>
+            <th>@Resources.LimitTypeReach</th>
+            <th>@Resources.WinningLosingAmount</th>
+            <th>@Resources.WinningThreshold</th>
+            <th>@Resources.LosingThreshold</th>
+        </tr>
+    </thead>
+    <tbody>
+        @RenderTable()
+    </tbody>
+</table>
 
 @section Scripts {
     <script type="text/javascript">
