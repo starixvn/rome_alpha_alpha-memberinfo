@@ -77,59 +77,61 @@
         </span>
     </div>
 
-    <div class="table-title">
-        <div class="title">
-            @Resources.MyWatchlistAccounts
+    <div class="table-container">
+        <div class="table-title">
+            <div class="title">
+                @Resources.MyWatchlistAccounts
+            </div>
+            <div class="btn-box">
+                <button class="btn-submit" id="btn-add-members">@Resources.AddMembers</button>
+            </div>
         </div>
-        <div class="btn-box">
-            <button class="btn-submit" id="btn-add-members">@Resources.AddMembers</button>
-        </div>
-    </div>
 
-    <table id="tbl-my-watchlist-accounts" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%">
-        <thead>
-            <tr>
-                @if (!Model.IsMobile)
-                {
+        <table id="tbl-my-watchlist-accounts" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%">
+            <thead>
+                <tr>
+                    @if (!Model.IsMobile)
+                    {
+                        <th></th>
+                    }
                     <th></th>
-                }
-                <th></th>
-                <th></th>
-                <th></th>
-                @if (!Model.LimitedDateToShowInfo)
-                {
                     <th></th>
-                }
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                @if (!Model.IsMobile)
-                {
-                    <th class="header padding-icon">
-                        @Resources.No
+                    <th></th>
+                    @if (!Model.LimitedDateToShowInfo)
+                    {
+                        <th></th>
+                    }
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    @if (!Model.IsMobile)
+                    {
+                        <th class="header padding-icon">
+                            @Resources.No
+                        </th>
+                    }
+                    <th class="header all padding-icon">
+                        <input type="checkbox" class="select-all" />
                     </th>
-                }
-                <th class="header all padding-icon">
-                    <input type="checkbox" class="select-all" />
-                </th>
-                <th class="header all padding-icon">
-                    <div class="edit-multiple icon-table-edit" data-url="" title="Edit Multiple Setting"></div>
-                </th>
-                <th class="header all username">@Resources.Username</th>
-                @if (!Model.LimitedDateToShowInfo)
-                {
-                    <th class="header desktop">@Resources.LastLogin</th>
-                }
-                <th class="header desktop">@Resources.Status</th>
-                <th class="header all winning">@Resources.WinningThreshold</th>
-                <th class="header all losing">@Resources.LosingThreshold</th>
-                <th class="header" style="width: 100px !important;"></th>
-            </tr>
-        </thead>
-    </table>
+                    <th class="header all padding-icon">
+                        <div class="edit-multiple icon-table-edit" data-url="" title="Edit Multiple Setting"></div>
+                    </th>
+                    <th class="header all username">@Resources.Username</th>
+                    @if (!Model.LimitedDateToShowInfo)
+                    {
+                        <th class="header desktop">@Resources.LastLogin</th>
+                    }
+                    <th class="header desktop">@Resources.Status</th>
+                    <th class="header all winning">@Resources.WinningThreshold</th>
+                    <th class="header all losing">@Resources.LosingThreshold</th>
+                    <th class="header" style="width: 100px !important;"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 
     <div class="modal modal-sm fade" id="edit-popup" tabindex="-2" role="dialog">
         <div class="modal-dialog" role="document">

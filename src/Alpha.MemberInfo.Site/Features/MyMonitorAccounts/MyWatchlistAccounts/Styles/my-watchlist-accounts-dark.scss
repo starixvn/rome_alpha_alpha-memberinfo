@@ -438,3 +438,15 @@ table.dataTable {
         }
     }
 }
+
+@media only screen and (min-width: 1024px) {
+    .table-container {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .table-container {
+        width: 70%;
+    }
+}
