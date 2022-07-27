@@ -36,7 +36,7 @@ class MyWatchlistAccounts {
         this.$("#btn-manage-preset").off().click(_ =>
             this.iframePopup.open(
                 "795px",
-                "700px",
+                "100%",
                 this.$("#manage-preset-popup-title").val(),
                 this.viewModel.URL + "/ManagePersonalThresholdPreset")
         );

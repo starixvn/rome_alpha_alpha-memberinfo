@@ -48,9 +48,9 @@ class ManagePresets {
 
         $presetHtml.find(".preset-title").html(`<input type="text" name="presetTitle" value="${this.escapeHtml($presetHtml.data("title"))}" />`);
         $presetHtml.find(".winning-threshold").html(
-            `<input type="text" class="threshold-input" name="winningThreshold" value="${$presetHtml.data("winningthresholdstring")}" maxlength="18" />`);
+            `<input type="text" class="threshold-input text-right" name="winningThreshold" value="${$presetHtml.data("winningthresholdstring")}" maxlength="18" />`);
         $presetHtml.find(".losing-threshold").html(
-            `<input type="text" class="threshold-input" name="losingThreshold" value="${$presetHtml.data("losingthresholdstring")}" maxlength="18" />`);
+            `<input type="text" class="threshold-input text-right" name="losingThreshold" value="${$presetHtml.data("losingthresholdstring")}" maxlength="18" />`);
 
         $presetHtml.find(".edit-group").addClass("hidden");
         $presetHtml.find(".confirm-group").removeClass("hidden");
@@ -130,8 +130,8 @@ class ManagePresets {
                              data-index="${index}">
                                 <td class="text-center">${index + 1}</td>
                                 <td class="preset-title"><input type="text" name="presetTitle" value="" /></td>
-                                <td class="winning-threshold"><input type="text" class="threshold-input" name="winningThreshold" value="" maxlength="18"/></td>
-                                <td class="losing-threshold"><input type="text" class="threshold-input" name="losingThreshold" value="" maxlength="18" /></td>
+                                <td class="winning-threshold"><input type="text" class="threshold-input text-right" name="winningThreshold" value="" maxlength="18"/></td>
+                                <td class="losing-threshold"><input type="text" class="threshold-input text-right" name="losingThreshold" value="" maxlength="18" /></td>
                                 <td class="action">
                                     <span class="icon-bin remove-new-row"></span>
                                 </td>

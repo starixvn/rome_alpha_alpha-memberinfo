@@ -42,20 +42,8 @@
             <td class="text-center">@row.CreatedDate.ToLongDateTime12hWithHyphen()</td>
             <td class="text-center">@Resources.ResourceManager.GetString(row.LimitTypeReach)</td>
             <td class="text-right">@row.WinLossAmount.ToMoneyFormat()</td>
-            <td class="text-right">@FormatThreshold(row.WinningThreshold)</td>
-            <td class="text-right">@FormatThreshold(row.LosingThreshold)</td>
+            <td class="text-right">@HtmlHelpers.FormatThreshold(row.WinningThreshold)</td>
+            <td class="text-right">@HtmlHelpers.FormatThreshold(row.LosingThreshold)</td>
         </tr>
-    }
-}
-
-@helper FormatThreshold(decimal? number)
-{
-    if (number.HasValue)
-    {
-        @number.Value.ToMoneyFormat();
-    }
-    else
-    {
-        @Resources.Unlimited;
     }
 }

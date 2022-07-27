@@ -127,7 +127,7 @@
         <span class="red">
             @if (Model.GlobalThresholdModel != null)
             {
-                @FormatThreshold(Model.GlobalThresholdModel.WinningThreshold)
+                @HtmlHelpers.FormatThreshold(Model.GlobalThresholdModel.WinningThreshold)
             }
             else
             {
@@ -137,7 +137,7 @@
         <span class="red">
             @if (Model.GlobalThresholdModel != null)
             {
-                @FormatThreshold(Model.GlobalThresholdModel.LosingThreshold)
+                @HtmlHelpers.FormatThreshold(Model.GlobalThresholdModel.LosingThreshold)
             }
             else
             {
@@ -239,16 +239,4 @@
     @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/reached-threshold")
     @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
     @StaticResources.RenderScripts("~/Features/MyMonitorAccounts/ReachedThreshold/Bundles/reached-threshold")
-}
-
-@helper FormatThreshold(decimal? number)
-{
-    if (number.HasValue)
-    {
-        @HtmlHelpers.FormatDecimal(number.Value);
-    }
-    else
-    {
-        @Resources.Unlimited;
-    }
 }
