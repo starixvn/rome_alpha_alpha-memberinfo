@@ -1330,24 +1330,6 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #No Reach.
-        /// </summary>
-        public static string NoReach {
-            get {
-                return ResourceManager.GetString("NoReach", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #No Reach History.
-        /// </summary>
-        public static string NoReachHistory {
-            get {
-                return ResourceManager.GetString("NoReachHistory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Product settings have not been configured for your account yet, please contact your upline..
         /// </summary>
         public static string NoSettingWarning {
@@ -1618,11 +1600,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reach Count.
+        /// </summary>
+        public static string ReachCount {
+            get {
+                return ResourceManager.GetString("ReachCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reached Threshold.
         /// </summary>
         public static string ReachedThreshold {
             get {
                 return ResourceManager.GetString("ReachedThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reach History.
+        /// </summary>
+        public static string ReachHistory {
+            get {
+                return ResourceManager.GetString("ReachHistory", resourceCulture);
             }
         }
         

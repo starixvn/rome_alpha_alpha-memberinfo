@@ -31,7 +31,7 @@ class IframePopup {
         this.$iframePopupForm.empty();
         
         if (params !== undefined && params !== null) {
-            const attrs = this.$.map(params, (value, key) => `<input type="hidden"  name='${key}' id='${key}' value='${value ? value : ""}'/>`).join(' ');
+            const attrs = this.$.map(params, (value, key) => `<input type="hidden"  name='${key}' id='${key}' value='${value !== null ? value : ""}'/>`).join(' ');
             this.$iframePopupForm.append(attrs);
         }
 

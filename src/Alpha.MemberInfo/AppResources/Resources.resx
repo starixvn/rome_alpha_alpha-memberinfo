@@ -744,11 +744,11 @@
   <data name="NoChangeToUpdateError" xml:space="preserve">
     <value>There is no change to update.</value>
   </data>
-  <data name="NoReach" xml:space="preserve">
-    <value>#No Reach</value>
+  <data name="ReachCount" xml:space="preserve">
+    <value>Reach Count</value>
   </data>
-  <data name="NoReachHistory" xml:space="preserve">
-    <value>#No Reach History</value>
+  <data name="ReachHistory" xml:space="preserve">
+    <value>Reach History</value>
   </data>
   <data name="NotInWatchlistAnyLongerError" xml:space="preserve">
     <value>This member is not in watchlist account any longer</value>
