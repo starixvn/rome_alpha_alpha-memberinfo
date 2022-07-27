@@ -428,7 +428,7 @@
     "outputFileName": "Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-presets-dark.css",
     "inputFiles": [
       "assets/styles/common-dark.css",
-      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
+      "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert-dark.css",
       "Features/MyMonitorAccounts/MyWatchlistAccounts/Styles/manage-presets.css"
     ]
   },

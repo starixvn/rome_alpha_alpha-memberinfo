@@ -592,3 +592,27 @@ table.dataTable {
 .input-group.date .icon-calendar {
     color: $color-text;
 }
+// custom ease-autocomplete //
+.easy-autocomplete-container {
+    z-index: 9999;
+
+    ul {
+        background-color: #2B2B2B;
+        border-top-color: #474747;
+
+        li {
+            border-color: #474747;
+
+            &.selected {
+                background-color: #3C3C3C;
+            }
+        }
+    }
+}
+// arrow date picker
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
+    border-bottom-color: #292929;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
+    border-bottom-color: #171717;
+}

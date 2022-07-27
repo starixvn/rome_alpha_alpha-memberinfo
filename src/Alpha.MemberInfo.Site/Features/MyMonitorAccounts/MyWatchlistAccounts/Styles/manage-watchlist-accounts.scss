@@ -15,6 +15,14 @@
 
     .txt-usernames {
         width: 100%;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+        -webkit-appearance: none;
+        appearance: none;
+        box-sizing: border-box;
+        border-radius: 1px;
+        border: 0;
+        resize: none;
+        padding: 5px 10px; 
     }
 
     .lbl-threshold {
