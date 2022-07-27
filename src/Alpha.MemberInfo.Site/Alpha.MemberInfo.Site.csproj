@@ -818,6 +818,9 @@
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold.css">
       <DependentUpon>manage-global-threshold.scss</DependentUpon>
     </Content>
+	<Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-dark.css">
+      <DependentUpon>manage-global-threshold-dark.scss</DependentUpon>
+    </Content>
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold.min.css">
       <DependentUpon>manage-global-threshold.css</DependentUpon>
     </Content>
@@ -958,6 +961,7 @@
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-watchlist-accounts-dark.scss" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert.scss" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold.scss" />
+	<Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-global-threshold-dark.scss" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Views\ThresholdInputGroup.cshtml" />
     <Content Include="Features\MyMonitorAccounts\MyWatchlistAccounts\Styles\manage-presets.scss" />
     <Content Include="Features\MyMonitorAccounts\ReachedThreshold\Views\ReachHistory.cshtml" />
