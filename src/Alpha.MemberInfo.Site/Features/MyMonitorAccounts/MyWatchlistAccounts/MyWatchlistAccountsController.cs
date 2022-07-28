@@ -4,6 +4,7 @@
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Controllers;
     using Alpha.MemberInfo.Site.Features.MyMonitorAccounts.MyWatchlistAccounts.Requests;
+    using Alpha.Web.Filters;
     using MediatR;
     using System.Threading.Tasks;
     using System.Web.Mvc;
@@ -14,8 +15,6 @@
         private const string ManageWatchlistAccountsPath = "~/Features/MyMonitorAccounts/MyWatchlistAccounts/Views/ManageWatchlistAccounts.cshtml";
         private const string ManageGlobalThresholdPath = "~/Features/MyMonitorAccounts/MyWatchlistAccounts/Views/ManageGlobalThreshold.cshtml";
         private const string ManagePersonalThresholdPresetPath = "~/Features/MyMonitorAccounts/MyWatchlistAccounts/Views/ManagePersonalThresholdPreset.cshtml";
-
-        private readonly Result ErrorDefault = Result.CreateErrorResult(Lang.NotAuthorized);
 
         public MyWatchlistAccountsController(IMediator mediator)
             : base(mediator)
@@ -39,51 +38,51 @@
         {
             if (!message.IsValid())
             {
-                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
             }
 
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> AddPersonalThreshold(AddPersonalThresholdCommand message)
         {
             if (!message.IsValid())
             {
-                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
             }
 
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> UpdateMultiplePersonalThreshold(UpdateMultiplePersonalThresholdCommand message)
         {
             if (!message.IsValid())
             {
-                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
             }
 
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> DeleteMultiplePersonalThreshold(DeleteMultiplePersonalThresholdCommand message)
         {
             if (!message.IsValid())
             {
-                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
             }
 
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> UpdateGlobalThreshold(UpdateGlobalThresholdCommand message)
         {
             if (!message.IsValid())
             {
-                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
             }
 
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
@@ -94,40 +93,40 @@
         {
             if (!message.IsValid())
             {
-                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
             }
 
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> AddMultiplePersonalPreset(AddMultiplePersonalPresetCommand message)
         {
             if (!message.IsValid())
             {
-                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
             }
 
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> UpdatePersonalPreset(UpdatePersonalPresetCommand message)
         {
             if (!message.IsValid())
             {
-                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
             }
 
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> DeletePersonalPreset(DeletePersonalPresetCommand message)
         {
             if (!message.IsValid())
             {
-                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
             }
 
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);

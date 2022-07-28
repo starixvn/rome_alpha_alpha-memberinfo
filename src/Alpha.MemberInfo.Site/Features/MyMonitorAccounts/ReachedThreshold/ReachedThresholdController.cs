@@ -13,8 +13,6 @@
         private const string IndexPath = "~/Features/MyMonitorAccounts/ReachedThreshold/Views/Index.cshtml";
         private const string ReachHistoryPath = "~/Features/MyMonitorAccounts/ReachedThreshold/Views/ReachHistory.cshtml";
 
-        private readonly Result ErrorDefault = Result.CreateErrorResult(Lang.NotAuthorized);
-
         public ReachedThresholdController(IMediator mediator)
             : base(mediator)
         {
@@ -30,7 +28,7 @@
         {
             if (!message.IsValid())
             {
-                return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
             }
 
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);

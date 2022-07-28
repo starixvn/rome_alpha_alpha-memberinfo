@@ -45,7 +45,7 @@
                 <button class="btn-default btn-global-threshold" id="btn-global-threshold">@Resources.GlobalThreshold</button>
             </div>
         }
-        </div>
+    </div>
 
     <div>
         <span class="red">*</span> @Resources.SupportsSportsbookDataOnly
@@ -184,6 +184,8 @@
             </div>
         </div>
     </div>
+
+    @Html.AntiForgeryToken()
 
     <input type="hidden" id="search-account-id" value="@Model.SearchAccountId">
     <input type="hidden" id="is-mobile" value='@(Model.IsMobile ? "true" : "false")'>
