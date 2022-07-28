@@ -13,5 +13,8 @@
         }
 
         public PresetInfo[] Presets { get; set; }
+
+        public override bool IsValid()
+            => base.IsValid() && !IsInternal;
     }
 }

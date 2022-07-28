@@ -11,5 +11,8 @@
         }
 
         public int ID { get; set; }
+
+        public override bool IsValid()
+            => base.IsValid() && !IsInternal;
     }
 }

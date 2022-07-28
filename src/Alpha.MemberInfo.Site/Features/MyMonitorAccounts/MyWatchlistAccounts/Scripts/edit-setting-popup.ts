@@ -154,6 +154,11 @@ class EditSettingPopup {
             null,
             () => {
                 this.service.deleteMultiplePersonalThreshold({ users }, result => {
+                    if (result && result.IsFailed) {
+                        this.topWindow.bootboxAlert(result.Message);
+                        return;
+                    }
+
                     if (result && result.length > 0) {
                         WatchlistHelper.reloadPage();
                     }

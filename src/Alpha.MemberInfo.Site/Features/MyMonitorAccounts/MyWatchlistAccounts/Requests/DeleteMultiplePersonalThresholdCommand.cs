@@ -13,5 +13,8 @@
         }
 
         public UserInfo[] Users { get; set; }
+
+        public override bool IsValid()
+            => base.IsValid() && !IsInternal;
     }
 }

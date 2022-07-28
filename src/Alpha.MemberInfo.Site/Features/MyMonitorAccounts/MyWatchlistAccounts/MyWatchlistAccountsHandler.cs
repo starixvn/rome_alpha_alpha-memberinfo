@@ -40,6 +40,7 @@
         public async Task<MyWatchlistAccountsViewModel> Handle(MyWatchlistAccountsQuery message)
         {
             var isMobile = browserHelper.IsMobile(isOnlyTablet: false);
+            var canUpdateAccount = message.CanUpdateAccount;
             var query = new WatchlistAccountsQuery(message.Viewer)
             {
                 Username = message.Username,
@@ -57,6 +58,7 @@
                 message, 
                 globalThreshold,
                 isMobile,
+                canUpdateAccount,
                 pagingViewModel);
         }
 

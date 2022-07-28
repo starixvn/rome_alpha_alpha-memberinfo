@@ -79,7 +79,7 @@ $(function () {
     const service = new ReachedThresholdService($);
     const dateRangePickerComponent = new DateRangePickerComponent($);
     const iframePopup = new IframePopup($, window.top);
-    const dataTable = new ReachedThresholdDataTable($, service, viewModel, iframePopup, window.top);
+    const dataTable = new ReachedThresholdDataTable($, service, viewModel, iframePopup);
 
     const reachedThreshold = new ReachedThreshold($, dataTable, viewModel, dateRangePickerComponent);
 

@@ -9,10 +9,12 @@
             MyWatchlistAccountsQuery request,
             GlobalThresholdModel globalThresholdModel,
             bool isMobile,
+            bool canUpdateAccount,
             MyWatchlistAccountsPagingViewModel myWatchListAccountPagingViewModel = null)
         {
             SearchAccountId = request.CustId;
             IsMobile = isMobile;
+            CanUpdateAccount = canUpdateAccount;
             GlobalThresholdModel = globalThresholdModel;
             MyWatchListAccountPagingViewModel = myWatchListAccountPagingViewModel;
             LimitedDateToShowInfo = request.LimitedDateToShowInfo;
@@ -30,5 +32,7 @@
         public bool LimitedDateToShowInfo { get; }
 
         public string CustLevel { get; }
+
+        public bool CanUpdateAccount { get; }
     }
 }

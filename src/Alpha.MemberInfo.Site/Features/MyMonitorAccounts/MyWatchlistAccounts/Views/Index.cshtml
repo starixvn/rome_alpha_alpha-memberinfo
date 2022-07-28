@@ -35,14 +35,17 @@
             <input type="submit" value="@Resources.Submit" class="btn-submit" id="btn-submit" />
         </div>
 
-        <div class="form-group btn-box">
-            <button class="btn-default btn-manage-preset" id="btn-manage-preset">@Resources.ManagePersonalThresholdPreset</button>
-        </div>
+        @if (Model.CanUpdateAccount)
+        {
+            <div class="form-group btn-box">
+                <button class="btn-default btn-manage-preset" id="btn-manage-preset">@Resources.ManagePersonalThresholdPreset</button>
+            </div>
 
-        <div class="form-group  btn-box" ">
-            <button class="btn-default btn-global-threshold" id="btn-global-threshold">@Resources.GlobalThreshold</button>
+            <div class="form-group btn-box">
+                <button class="btn-default btn-global-threshold" id="btn-global-threshold">@Resources.GlobalThreshold</button>
+            </div>
+        }
         </div>
-    </div>
 
     <div>
         <span class="red">*</span> @Resources.SupportsSportsbookDataOnly
@@ -82,9 +85,13 @@
             <div class="title">
                 @Resources.MyWatchlistAccounts
             </div>
-            <div class="btn-box">
-                <button class="btn-submit" id="btn-add-members">@Resources.AddMembers</button>
-            </div>
+
+            @if (Model.CanUpdateAccount)
+            {
+                <div class="btn-box">
+                    <button class="btn-submit" id="btn-add-members">@Resources.AddMembers</button>
+                </div>
+            }
         </div>
 
         <table id="tbl-my-watchlist-accounts" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%">
@@ -94,8 +101,11 @@
                     {
                         <th></th>
                     }
-                    <th></th>
-                    <th></th>
+                    @if (Model.CanUpdateAccount)
+                    {
+                        <th></th>
+                        <th></th>
+                    }
                     <th></th>
                     @if (!Model.LimitedDateToShowInfo)
                     {
@@ -113,12 +123,15 @@
                             @Resources.No
                         </th>
                     }
-                    <th class="header all padding-icon">
-                        <input type="checkbox" class="select-all" />
-                    </th>
-                    <th class="header all padding-icon">
-                        <div class="edit-multiple icon-table-edit" data-url="" title="Edit Multiple Setting"></div>
-                    </th>
+                    @if (Model.CanUpdateAccount)
+                    {
+                        <th class="header all padding-icon">
+                            <input type="checkbox" class="select-all" />
+                        </th>
+                        <th class="header all padding-icon">
+                            <div class="edit-multiple icon-table-edit" data-url="" title="Edit Multiple Setting"></div>
+                        </th>
+                    }
                     <th class="header all username">@Resources.Username</th>
                     @if (!Model.LimitedDateToShowInfo)
                     {
@@ -174,6 +187,7 @@
 
     <input type="hidden" id="search-account-id" value="@Model.SearchAccountId">
     <input type="hidden" id="is-mobile" value='@(Model.IsMobile ? "true" : "false")'>
+    <input type="hidden" id="can-update-account" value="@(Model.CanUpdateAccount ? "true" : "false")" />
     <input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
     <input type="hidden" id="global-threshold-popup-title" value="@Resources.GlobalThresholdSetting" />
     <input type="hidden" id="add-new-account-popup-title" value="@Resources.AddNewWatchlistAccount" />

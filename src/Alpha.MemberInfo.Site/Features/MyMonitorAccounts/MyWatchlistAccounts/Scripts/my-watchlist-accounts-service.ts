@@ -1,10 +1,12 @@
 ﻿class MyWatchlistAccountService {
     private $: JQueryStatic;
     private url: string;
+    private alert: MyWatchlistAccountsAlert;
 
     constructor($: JQueryStatic) {
         this.$ = $;
         this.url = this.$("#member-info-url").val() + "MyWatchlistAccounts";
+        this.alert = new MyWatchlistAccountsAlert(this.$);
     }
 
     public callAjax = (url, type, params, onSuccess) => {
@@ -50,6 +52,12 @@
             params,
             data => {
                 this.$.unblockUI();
+
+                if (data && data.IsFailed) {
+                    this.alert.showError(data.Message);
+                    return;
+                }
+
                 callback(data);
             });
     }
@@ -61,6 +69,12 @@
             params,
             data => {
                 this.$.unblockUI();
+
+                if (data && data.IsFailed) {
+                    this.alert.showError(data.Message);
+                    return;
+                }
+
                 callback(data);
             }
         );
@@ -73,6 +87,12 @@
             params,
             data => {
                 this.$.unblockUI();
+
+                if (data && data.IsFailed) {
+                    this.alert.showError(data.Message);
+                    return;
+                }
+
                 callback(data);
             }
         );
@@ -108,6 +128,12 @@
             params,
             data => {
                 this.$.unblockUI();
+
+                if (data && data.IsFailed) {
+                    this.alert.showError(data.Message);
+                    return;
+                }
+
                 callback(data);
             }
         );
@@ -120,6 +146,12 @@
             params,
             data => {
                 this.$.unblockUI();
+
+                if (data && data.IsFailed) {
+                    this.alert.showError(data.Message);
+                    return;
+                }
+
                 callback(data);
             }
         )
@@ -132,6 +164,12 @@
             params,
             data => {
                 this.$.unblockUI();
+
+                if (data && data.IsFailed) {
+                    this.alert.showError(data.Message);
+                    return;
+                }
+
                 callback(data);
             }
         )
@@ -144,6 +182,12 @@
             params,
             data => {
                 this.$.unblockUI();
+
+                if (data && data.IsFailed) {
+                    this.alert.showError(data.Message);
+                    return;
+                }
+
                 callback(data);
             }
         )

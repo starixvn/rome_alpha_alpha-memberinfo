@@ -95,6 +95,8 @@
     <Setting Key="Acc_WLMonitored_Player_WatchList_Sel" SpName="Acc_WLMonitored_Player_WatchList_Sel" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Acc_WLMonitored_Personal_Multiple_Ins" SpName="Acc_WLMonitored_Personal_Multiple_Ins" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0">
       <Mapping DataField="Username" ObjectProperty="Name" />
+      <Mapping DataField="ErrCode" ObjectProperty="Code" />
+      <Mapping DataField="ErrMsg" ObjectProperty="Message" />
     </Setting>
     <Setting Key="Acc_WLMonitored_Personal_Upd" SpName="Acc_WLMonitored_Personal_Upd" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
     <Setting Key="Acc_WLMonitored_Personal_Del" SpName="Acc_WLMonitored_Personal_Del" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />

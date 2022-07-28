@@ -84,6 +84,7 @@ $(function () {
         parseInt($('#search-account-id').val()),
         $('#member-info-url').val(),
         JSON.parse($('#is-mobile').val()),
+        JSON.parse($('#can-update-account').val()),
         JSON.parse($('#limited-date').val()),
         window.watchlistAccountData
     );

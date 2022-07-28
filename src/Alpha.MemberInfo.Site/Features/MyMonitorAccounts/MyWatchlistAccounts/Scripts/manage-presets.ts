@@ -167,22 +167,20 @@ class ManagePresets {
 
         this.service.addMultiplePersonalPreset(params, result => {
             if (result && result.length > 0) {
-                let isError = false;
                 result.forEach(res => {
-                    switch (res.ErrCode) {
+                    switch (res.Code) {
                         case 0:
                             this.alert.showMultipleSuccess(res.Name, this.$("#add-successfully").val());
                             break;
                         case 103:
                             this.alert.showMultipleError(res.Name, this.$("#preset-is-duplicated").val());
-                            isError = true;
                             break;
                         default:
                             break;
                     }
                 });
 
-                if (isError)  return;
+                if (result.find(r => r.IsFailed)) return;
                
                 this.reloadAfterSuccess(3000);
             }

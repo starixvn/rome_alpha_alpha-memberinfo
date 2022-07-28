@@ -2,9 +2,11 @@
 
 class MyWatchlistAccountsDataTable {
     private $: JQueryStatic;
+
     private service: MyWatchlistAccountService;
     private viewModel: MyWatchlistAccountsViewModel;
     private editSettingPopup: EditSettingPopup;
+
     private username: string;
     private $table: JQuery;
 
@@ -95,7 +97,7 @@ class MyWatchlistAccountsDataTable {
             createdRow: (row, data) => {
                 this.$(row).addClass(this.getRowClass(data));
             },
-            order: [[this.viewModel.IsMobile ? 2 : 3, 'asc']],
+            order: [[this.getDefaultOrderColumn(), 'asc']],
             stripeClasses: [],
             ordering: true,
             paging: true,
@@ -119,6 +121,22 @@ class MyWatchlistAccountsDataTable {
         this.$("#tbl-my-watchlist-accounts").find('tbody').on('click', 'td.control', event => this.doAdjustHeader(event));
 
         this.$("thead tr th.control").off().click(event => this.collapseExpandAll(event));
+    }
+
+    private getDefaultOrderColumn = () => {
+        if (this.viewModel.IsMobile) {
+            if (!this.viewModel.CanUpdateAccount) {
+                return 0;
+            }
+
+            return 2;
+        } else {
+            if (!this.viewModel.CanUpdateAccount) {
+                return 1;
+            }
+
+            return 3;
+        }
     }
 
     private getRowClass = (data) => {
@@ -145,26 +163,33 @@ class MyWatchlistAccountsDataTable {
         let columns = [];
 
         if (!this.viewModel.IsMobile) {
-            columns.push({
+            columns.push(
+                {
                 "className": 'center',
                 "data": "RowNumber",
                 "orderable": false,
-            });
+                }
+            );
+        }
+
+        if (this.viewModel.CanUpdateAccount) {
+            columns.push(
+                {
+                    "className": 'center',
+                    "data": null,
+                    "render": item => this.renderCheckboxColumn(item),
+                    "orderable": false,
+                },
+                {
+                    "className": 'center',
+                    "data": null,
+                    "render": item => this.renderEditColumn(item),
+                    "orderable": false,
+                }
+            );
         }
 
         columns.push(
-            {
-                "className": 'center',
-                "data": null,
-                "render": item => this.renderCheckboxColumn(item),
-                "orderable": false,
-            },
-            {
-                "className": 'center',
-                "data": null,
-                "render": item => this.renderEditColumn(item),
-                "orderable": false,
-            },
             {
                 "className": 'left',
                 "data": "Username",
@@ -178,7 +203,8 @@ class MyWatchlistAccountsDataTable {
                     "className": 'center',
                     "data": "LastLoggedString",
                     "name": "LastLogin"
-                });
+                }
+            );
         }
 
         columns.push(
@@ -225,7 +251,6 @@ class MyWatchlistAccountsDataTable {
             'data-username': item.Username,
             'data-winningthreshold': item.WinningThreshold,
             'data-losingthreshold': item.LosingThreshold
-            //'title': this.$('#editSettingText').val()
         };
 
         return `<div ${this.buildAttributes(attrs)}/>`;
@@ -241,7 +266,7 @@ class MyWatchlistAccountsDataTable {
         this.$("#tbl-my-watchlist-accounts").removeClass("hidden");
 
         this.$('#btn-submit').off().on('click', () => {
-            this.username = this.$('#txt-username').val();
+            this.username = this.$('#txt-username').val().trim();
             this.$('.select-all').prop("checked", false);
             this.$table.ajax.reload();
         });

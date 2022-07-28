@@ -6,7 +6,6 @@ class ReachedThresholdDataTable {
     private service: ReachedThresholdService;
     private viewModel: ReachedThresholdViewModel;
     private iframePopup: IframePopup;
-    private topWindow: any;
 
     private $divTable: JQuery;
     private $txtUsername: JQuery;
@@ -24,12 +23,10 @@ class ReachedThresholdDataTable {
         service: ReachedThresholdService,
         viewModel: ReachedThresholdViewModel,
         iframePopup: IframePopup,
-        topWindow: any
     ) {
         this.$ = $;
         this.service = service;
         this.viewModel = viewModel;
-        this.topWindow = topWindow;
         this.iframePopup = iframePopup;
         this.cacheDom();
     }
@@ -93,7 +90,7 @@ class ReachedThresholdDataTable {
                     const columnName = data.columns[data.order[0].column].name;
                     const sortType = sortDefinitions[columnName];
                     const params = {
-                        username: this.$txtUsername.val(),
+                        username: this.$txtUsername.val().trim(),
                         fromDate: this.$fromDate.val(),
                         toDate: this.$toDate.val(),
                         status: this.$selStatus.val(),

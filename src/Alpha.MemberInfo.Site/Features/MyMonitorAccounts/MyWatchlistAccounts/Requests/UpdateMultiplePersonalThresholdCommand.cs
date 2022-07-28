@@ -17,5 +17,8 @@
         public decimal? WinningThreshold { get; set; }
 
         public decimal? LosingThreshold { get; set; }
+
+        public override bool IsValid()
+            => base.IsValid() && !IsInternal;
     }
 }

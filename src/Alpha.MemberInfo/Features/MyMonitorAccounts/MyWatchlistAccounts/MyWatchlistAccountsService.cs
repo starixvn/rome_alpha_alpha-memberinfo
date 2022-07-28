@@ -79,7 +79,7 @@
 
             await dynamicRepository.ExecuteAsync(criteria);
 
-            return new NamedResult(param.Username, criteria.ErrCode, criteria.ErrMsg);
+            return new NamedResult { Name = param.Username, Code = criteria.ErrCode, Message = criteria.ErrMsg };
         }
 
         public async Task<NamedResult> DeletePersonalThreshold(DeletePersonalThresholdParam param)
@@ -92,7 +92,7 @@
 
             await dynamicRepository.ExecuteAsync(command);
 
-            return new NamedResult(param.Username, command.ErrCode, command.ErrMsg);
+            return new NamedResult { Name = param.Username, Code = command.ErrCode, Message = command.ErrMsg };
         }
 
         public async Task<GlobalThresholdModel> GetGlobalThreshold(SelectGlobalThresholdParam param)
@@ -127,7 +127,7 @@
 
             await dynamicRepository.ExecuteAsync(command);
 
-            return new NamedResult(param.PresetTitle, command.ErrCode, command.ErrMsg);
+            return new NamedResult { Name = param.PresetTitle, Code = command.ErrCode, Message = command.ErrMsg };
         }
 
         public async Task<Result> UpdatePersonalPreset(UpdatePersonalPresetParam param)

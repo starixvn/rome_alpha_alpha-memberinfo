@@ -71,7 +71,7 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
             this.$.unblockUI();
             if (result && result.length > 0) {
                 result.forEach(res => {
-                    switch (res.ErrCode) {
+                    switch (res.Code) {
                         case 0:
                             this.alert.showMultipleSuccess(res.Name, this.$("#add-successfully").val());
                             break;
@@ -86,12 +86,12 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
                     }
                 });
 
-                if (result.find(r => r.ErrCode === 0) && result.find(r => r.ErrCode !== 0)) {
+                if (result.find(r => r.IsFailed) && result.find(r => r.IsSuccessful)) {
                     this.topWindow.reloadDataTable();
                     return;
                 }
 
-                if (result.filter(r => r.ErrCode === 0).length === result.length) {
+                if (!result.find(r => r.IsFailed)) {
                     WatchlistHelper.reloadMainFrameAfterSuccess(this.reloadTimeout);
                     return;
                 }
@@ -127,7 +127,7 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
         this.service.updateMultiplePersonalThreshold(params, result => {
             if (result && result.length > 0) {
                 result.forEach(res => {
-                    switch (res.ErrCode) {
+                    switch (res.Code) {
                         case 0:
                             this.alert.showMultipleSuccess(res.Name, this.$("#update-successfully").val());
                             break;
@@ -142,12 +142,12 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
                     }
                 });
 
-                if (result.find(r => r.ErrCode === 0) && result.find(r => r.ErrCode !== 0)) {
+                if (result.find(r => r.IsFailed) && result.find(r => r.IsSuccessful)) {
                     this.topWindow.reloadDataTable();
                     return;
                 }
 
-                if (result.filter(r => r.ErrCode === 0).length === result.length) {
+                if (!result.find(r => r.IsFailed)) {
                     WatchlistHelper.reloadMainFrameAfterSuccess(this.reloadTimeout);
                     return;
                 }
