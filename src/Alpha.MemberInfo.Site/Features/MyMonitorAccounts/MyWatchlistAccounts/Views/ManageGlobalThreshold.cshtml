@@ -2,7 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Global Threshold Setting";
+    ViewBag.Title = "Global Threshold Settings";
 }
 
 @section Styles {
@@ -23,7 +23,7 @@
 <input type="hidden" id="old-winning-threshold" value="@Model.Threshold.WinningThreshold" />
 <input type="hidden" id="old-losing-threshold" value="@Model.Threshold.LosingThreshold" />
 <input type="hidden" id="no-change-to-update-error" value="@Resources.NoChangeToUpdateError" />
-<input type="hidden" id="update-successfully" value="@Resources.UpdateSuccessfully" />
+<input type="hidden" id="update-successfully" value="@Resources.WatchlistUpdateSuccessfully" />
 
 @section Scripts {
     @StaticResources.RenderScripts("~/Features/MyMonitorAccounts/MyWatchlistAccounts/Bundles/manage-global-threshold")

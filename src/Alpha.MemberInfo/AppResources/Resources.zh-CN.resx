@@ -633,4 +633,7 @@
   <data name="CreditBalanceNote" xml:space="preserve">
     <value>报告上显示的余额和投注额度与左侧的“用户资料”功能中显示的相比可能不是最新的。您可以在 “信用额度/馀额” 页面点击投注额度查看最新的额度。</value>
   </data>
+  <data name="WatchlistUpdateSuccessfully" xml:space="preserve">
+    <value>修改成功</value>
+  </data>
 </root>

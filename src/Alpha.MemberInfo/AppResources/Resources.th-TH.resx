@@ -633,4 +633,7 @@
   <data name="CreditBalanceNote" xml:space="preserve">
     <value>ยอดเงินคงเหลือและเครดิตเดิมพันที่แสดงในรายงานอาจไม่ใช่ข้อมูลล่าสุดเมื่อเปรียบเทียบกับยอดที่แสดงใน "ข้อมูลบัญชี" ทางด้านซ้าย คุณสามารถเช็คได้จาก "เครดิต / บัญชีคงเหลือ" คลิกที่จำนวนเครดิตสำหรับการวางเดิมพันเพื่อดูยอดล่าสุด</value>
   </data>
+  <data name="WatchlistUpdateSuccessfully" xml:space="preserve">
+    <value>อัพเดทเสร็จสมบูรณ์</value>
+  </data>
 </root>

@@ -20,7 +20,7 @@
                 @Html.ActionLink(Resources.ReachedThreshold, "Index", "ReachedThreshold")
             </li>
             <li role="presentation" class="active">
-                <a href="#" aria-controls="home" role="tab" data-toggle="tab">@Resources.MyWatchlistAccounts</a>
+                <a href="#" aria-controls="home" role="tab" data-toggle="tab">@Resources.MyWatchlist</a>
             </li>
         </ul>
     </div>
@@ -38,11 +38,11 @@
         @if (Model.CanUpdateAccount)
         {
             <div class="form-group btn-box">
-                <button class="btn-default btn-manage-preset" id="btn-manage-preset">@Resources.ManagePersonalThresholdPreset</button>
+                <button class="btn-default btn-manage-preset" id="btn-manage-preset">@Resources.PersonalThresholdPresets</button>
             </div>
 
             <div class="form-group btn-box">
-                <button class="btn-default btn-global-threshold" id="btn-global-threshold">@Resources.GlobalThreshold</button>
+                <button class="btn-default btn-global-threshold" id="btn-global-threshold">@Resources.GlobalThresholds</button>
             </div>
         }
     </div>
@@ -83,13 +83,13 @@
     <div class="table-container">
         <div class="table-title">
             <div class="title">
-                @Resources.MyWatchlistAccounts
+                @Resources.MyWatchlist
             </div>
 
             @if (Model.CanUpdateAccount)
             {
                 <div class="btn-box">
-                    <button class="btn-submit" id="btn-add-members">@Resources.AddMembers</button>
+                    <button class="btn-submit" id="btn-add-members">@Resources.AddMember</button>
                 </div>
             }
         </div>
@@ -191,15 +191,14 @@
     <input type="hidden" id="is-mobile" value='@(Model.IsMobile ? "true" : "false")'>
     <input type="hidden" id="can-update-account" value="@(Model.CanUpdateAccount ? "true" : "false")" />
     <input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
-    <input type="hidden" id="global-threshold-popup-title" value="@Resources.GlobalThresholdSetting" />
+    <input type="hidden" id="global-threshold-popup-title" value="@Resources.GlobalThresholdSettings" />
     <input type="hidden" id="add-new-account-popup-title" value="@Resources.AddNewWatchlistAccount" />
     <input type="hidden" id="edit-account-popup-title" value="@Resources.EditWatchlistAccount" />
-    <input type="hidden" id="remove-account-popup-title" value="@Resources.RemoveAccounts" />
-    <input type="hidden" id="manage-preset-popup-title" value="@Resources.ManagePersonalThresholdPreset" />
+    <input type="hidden" id="manage-preset-popup-title" value="@Resources.PersonalThresholdPresetSettings" />
     <input type="hidden" id="are-you-sure-to-remove-accounts" value="@Resources.AreYouSureToRemoveAccounts" />
     <input type="hidden" id="edit-personal-threshold" value="@Resources.EditPersonalThreshold" />
-    <input type="hidden" id="remove-accounts" value="@Resources.RemoveAccounts" />
-    <input type="hidden" id="edit-multiple-personal-threshold" value="@Resources.EditMultiplePersonalThreshold" />
+    <input type="hidden" id="remove-account" value="@Resources.RemoveAccount" />
+    <input type="hidden" id="edit-multiple-personal-threshold" value="@Resources.EditMultiplePersonalThresholds" />
     <input type="hidden" id="remove-multiple-accounts" value="@Resources.RemoveMultipleAccounts" />
     <input type="hidden" id="page-size" value="@Resources.PageSize" />
     <input type="hidden" id="page" value="@Resources.Page" />

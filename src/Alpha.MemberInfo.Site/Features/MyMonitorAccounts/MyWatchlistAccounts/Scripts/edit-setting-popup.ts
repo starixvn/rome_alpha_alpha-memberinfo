@@ -35,7 +35,7 @@ class EditSettingPopup {
         var content =
             `<ul>
                 <li class="edit-popup icon-edit">${this.$("#edit-personal-threshold").val()}</li>
-                <li class="remove-popup icon-bin">${this.$("#remove-accounts").val()}</li>
+                <li class="remove-popup icon-bin">${this.$("#remove-account").val()}</li>
              </ul>`;
         this.openEditSettingPopup(
             element,

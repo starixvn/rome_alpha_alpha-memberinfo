@@ -22,7 +22,7 @@
                 <a href="#" aria-controls="home" role="tab" data-toggle="tab">@Resources.ReachedThreshold</a>
             </li>
             <li role="presentation">
-                @Html.ActionLink(Resources.MyWatchlistAccounts, "Index", "MyWatchlistAccounts")
+                @Html.ActionLink(Resources.MyWatchlist, "Index", "MyWatchlistAccounts")
             </li>
         </ul>
     </div>
@@ -93,7 +93,7 @@
         </div>
 
         <div class="form-group">
-            <label for="limit-type-dropdown">@Resources.LimitType</label>
+            <label for="limit-type-dropdown">@Resources.ThresholdType</label>
             <select id="limit-type-dropdown">
                 @foreach (var status in Model.LimitTypeOptions)
                 {
@@ -180,10 +180,10 @@
                 }
                 <th class="header">@Resources.Status</th>
                 <th class="header all last-reach">@Resources.LastReach</th>
-                <th class="header">@Resources.LastLimitTypeReach</th>
+                <th class="header">@Resources.LastThresholdType</th>
                 <th class="header all winning-losing">@Resources.WinningLosingAmount</th>
-                <th class="header">@Resources.LastReachWinningThreshold</th>
-                <th class="header">@Resources.LastReachLosingThreshold</th>
+                <th class="header">@Resources.LastWinningThreshold</th>
+                <th class="header">@Resources.LastLosingThreshold</th>
                 <th class="header">@Resources.ReachCount</th>
                 <th class="header" style="width: 100px !important;"></th>
             </tr>

@@ -29,7 +29,7 @@
 
     <p style="margin-top: 10px;">@Resources.SelectThresholdPreset</p>
     <div class="form-group">
-        <label class="lbl-threshold">@Resources.PersonalThresholdPreset</label>
+        <label class="lbl-threshold">@Resources.Preset</label>
         <select id="preset-dropdown" name="presetFilter" class="sel-preset">
             <option value="">@Resources.SelectPreset</option>
             @foreach (var preset in Model.PresetSelectionViewModel.Presets)
@@ -71,7 +71,7 @@
 <input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
 <input type="hidden" id="no-change-to-update-error" value="@Resources.NoChangeToUpdateError" />
 <input type="hidden" id="add-successfully" value="@Resources.AddSuccessfully" />
-<input type="hidden" id="update-successfully" value="@Resources.UpdateSuccessfully" />
+<input type="hidden" id="update-successfully" value="@Resources.WatchlistUpdateSuccessfully" />
 <input type="hidden" id="is-not-member-error" value="@Resources.IsNotMemberError" />
 <input type="hidden" id="invalid-account-error" value="@Resources.InvalidAccountError" />
 <input type="hidden" id="was-added-watchlist-already-error" value="@Resources.WasAddedWatchlistAlreadyError" />

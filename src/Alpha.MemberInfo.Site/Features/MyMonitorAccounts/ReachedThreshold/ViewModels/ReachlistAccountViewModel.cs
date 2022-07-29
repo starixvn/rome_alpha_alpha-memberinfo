@@ -25,8 +25,8 @@
 
             LastLoggedString = limitedDateToShowInfo ? string.Empty : account.LastLogged.ToLongDateTime12hWithHyphen();
             LastReachedDateString = account.LastReachedDate.ToLongDateTime12hWithHyphen();
-            WinningThresholdString = ToMoneyFormat(account.WinningThreshold);
-            LosingThresholdString = ToMoneyFormat(account.LosingThreshold);
+            WinningThresholdString = account.WinningThreshold.ToMoneyFormatWithUnlimited();
+            LosingThresholdString = account.LosingThreshold.ToMoneyFormatWithUnlimited();
             WinLossAmountString = account.WinLossAmount.ToMoneyFormat();
             TranslatedStatus = Resources.ResourceManager.GetString(account.Status);
         }
@@ -66,10 +66,5 @@
         public string LosingThresholdString { get; }
 
         public string WinLossAmountString { get; }
-
-        private static string ToMoneyFormat(decimal? number)
-            => number.HasValue
-            ? number.Value.ToMoneyFormat()
-            : "Unlimited";
     }
 }

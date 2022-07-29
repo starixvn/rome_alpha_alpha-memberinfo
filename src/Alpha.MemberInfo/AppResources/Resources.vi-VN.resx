@@ -624,4 +624,7 @@
   <data name="CreditBalanceNote" xml:space="preserve">
     <value>Các giá trị Số Dư Tài Khoản và Hạn Mức Khả Dụng hiển thị trong báo cáo này có thể chưa được cập nhật so với giá trị hiển thị trong tính năng Thông Tin Tài Khoản ở bảng điều khiển bên trái. Bạn có thể nhấn vào giá trị Hạn Mức Khả Dụng để xem giá trị mới nhất.</value>
   </data>
+  <data name="WatchlistUpdateSuccessfully" xml:space="preserve">
+    <value>Cập nhật thành công</value>
+  </data>
 </root>
