@@ -45,7 +45,7 @@
             var fileContent = workbook
                .SetData(reachlistAccountDTO.ReachlistAccounts)
                .SetRowMappers(GetBodyRowMapper(message))
-               .UseTemplate(GetTemplateInfo())
+               .UseTemplate(GetTemplateInfo(message))
                .Sheet("Sheet 1")
                .Title(GetReportTitle(message))
                .Header(Resources.ResourceManager.GetString)
@@ -90,11 +90,11 @@
         }
 
         private static string GetExcelFileName(ReachedThresholdExcelQuery message)
-            => $"Reached Threshold {message.FromDate.ToShortDateWithHyphen()} -- {message.ToDate.ToShortDateWithHyphen()}";
+            => $"{Resources.ReachedThreshold} {message.FromDate.ToShortDateWithHyphen()} -- {message.ToDate.ToShortDateWithHyphen()}";
 
-        private TemplateInfo GetTemplateInfo()
+        private TemplateInfo GetTemplateInfo(ReachedThresholdExcelQuery message)
             => new TemplateInfo(
-                   GetExcelTemplatePath("ReachedThreshold"),
+                   GetExcelTemplatePath(!message.LimitedDateToShowInfo ? "ReachedThreshold" : "ReachedThresholdHideDateTime"),
                    noInfomationText: Resources.NoInformationIsAvailable,
                    titleStartIndex: 1,
                    headerStartIndex: 2,
@@ -112,7 +112,7 @@
             title.Append($"{Resources.To}: {message.ToDate.ToShortDateWithSlash()} - ");
             title.Append($"{Resources.Status}: " +
                 $"{Resources.ResourceManager.GetString(ReachedThresholdStatusConstants.GetReachedThresholdStatus(message.Status))} - ");
-            title.Append($"{Resources.LimitType}: " +
+            title.Append($"{Resources.ThresholdType}: " +
                 $"{Resources.ResourceManager.GetString(ReachedThresholdLimitTypeConstants.GetReachedThresholdLimitType(message.LimitType))} - ");
             title.Append($"{Resources.Username}: {message.Username}");
 
