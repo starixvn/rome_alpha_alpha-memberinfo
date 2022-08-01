@@ -1,0 +1,218 @@
+﻿@using Newtonsoft.Json
+@model MyWatchlistAccountsViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "My Watchlist Accounts";
+}
+
+@section Styles {
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
+    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/site-memberinfo/tab-{Model.CustLevel.ToLowerInvariant()}")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/my-watchlist-accounts")
+    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/my-watchlist-accounts-media")
+}
+
+<div class="my-watchlist-accounts">
+    <div class="page-title">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation">
+                @Html.ActionLink(Resources.ReachedThreshold, "Index", "ReachedThreshold")
+            </li>
+            <li role="presentation" class="active">
+                <a href="#" aria-controls="home" role="tab" data-toggle="tab">@Resources.MyWatchlist</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="form-inline filter form-report">
+        <div class="form-group username-box">
+            <label>@Resources.Username</label>
+            <input type="text" class="txt-search" id="txt-username" placeholder="@Resources.Username" />
+        </div>
+
+        <div class="form-group btn-box">
+            <input type="submit" value="@Resources.Submit" class="btn-submit" id="btn-submit" />
+        </div>
+
+        @if (Model.CanUpdateAccount)
+        {
+            <div class="form-group btn-box">
+                <button class="btn-default btn-manage-preset" id="btn-manage-preset">@Resources.PersonalThresholdPresets</button>
+            </div>
+
+            <div class="form-group btn-box">
+                <button class="btn-default btn-global-threshold" id="btn-global-threshold">@Resources.GlobalThresholds</button>
+            </div>
+        }
+    </div>
+
+    <div>
+        <span class="red">*</span> @Resources.SupportsSportsbookDataOnly
+    </div>
+
+    <div>
+        <span class="red">*</span> @Resources.AccumulatedMemberWinLossNote
+    </div>
+
+    <div>
+        <span class="red">*</span>
+        @Resources.GlobalWinningThreshold:
+        <span class="red">
+            @if (Model.GlobalThresholdModel != null)
+            {
+                @HtmlHelpers.FormatThreshold(Model.GlobalThresholdModel.WinningThreshold)
+            }
+            else
+            {
+                @Resources.Unlimited;
+            }
+        </span>; @Resources.GlobalLosingThreshold:
+        <span class="red">
+            @if (Model.GlobalThresholdModel != null)
+            {
+                @HtmlHelpers.FormatThreshold(Model.GlobalThresholdModel.LosingThreshold)
+            }
+            else
+            {
+                @Resources.Unlimited;
+            }
+        </span>
+    </div>
+
+    <div class="table-container">
+        <div class="table-title">
+            <div class="title">
+                @Resources.MyWatchlist
+            </div>
+
+            @if (Model.CanUpdateAccount)
+            {
+                <div class="btn-box">
+                    <button class="btn-submit" id="btn-add-members">@Resources.AddMember</button>
+                </div>
+            }
+        </div>
+
+        <table id="tbl-my-watchlist-accounts" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%">
+            <thead>
+                <tr>
+                    @if (!Model.IsMobile)
+                    {
+                        <th></th>
+                    }
+                    @if (Model.CanUpdateAccount)
+                    {
+                        <th></th>
+                        <th></th>
+                    }
+                    <th></th>
+                    @if (!Model.LimitedDateToShowInfo)
+                    {
+                        <th></th>
+                    }
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    @if (!Model.IsMobile)
+                    {
+                        <th class="header padding-icon">
+                            @Resources.No
+                        </th>
+                    }
+                    @if (Model.CanUpdateAccount)
+                    {
+                        <th class="header all padding-icon">
+                            <input type="checkbox" class="select-all" />
+                        </th>
+                        <th class="header all padding-icon">
+                            <div class="edit-multiple icon-table-edit" data-url="" title="Edit Multiple Setting"></div>
+                        </th>
+                    }
+                    <th class="header all username">@Resources.Username</th>
+                    @if (!Model.LimitedDateToShowInfo)
+                    {
+                        <th class="header desktop">@Resources.LastLogin</th>
+                    }
+                    <th class="header desktop">@Resources.Status</th>
+                    <th class="header all winning">@Resources.WinningThreshold</th>
+                    <th class="header all losing">@Resources.LosingThreshold</th>
+                    <th class="header" style="width: 100px !important;"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div class="modal modal-sm fade" id="edit-popup" tabindex="-2" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                @if (Model.IsMobile)
+                {
+                    <div class="modal-header">
+                        <h5 class="modal-title"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-edit-popup">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form target="iframePopup" action="" id="iframe-popup-form">
+        <input type="hidden" value="" />
+        <input type="submit" class="hidden">
+    </form>
+
+    <div class="modal modal-iframe modal-sm fade" id="iframe-popup-container" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-popup">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body-iframe">
+                    <iFrame src="" name="iframePopup" id="iframe-popup" style="width:100%; height:95%;"></iFrame>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" id="search-account-id" value="@Model.SearchAccountId">
+    <input type="hidden" id="is-mobile" value='@(Model.IsMobile ? "true" : "false")'>
+    <input type="hidden" id="can-update-account" value="@(Model.CanUpdateAccount ? "true" : "false")" />
+    <input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
+    <input type="hidden" id="global-threshold-popup-title" value="@Resources.GlobalThresholdSettings" />
+    <input type="hidden" id="add-new-account-popup-title" value="@Resources.AddMembersToWatchlist" />
+    <input type="hidden" id="edit-account-popup-title" value="@Resources.EditWatchlistAccount" />
+    <input type="hidden" id="manage-preset-popup-title" value="@Resources.PersonalThresholdPresetSettings" />
+    <input type="hidden" id="are-you-sure-to-remove-accounts" value="@Resources.AreYouSureToRemoveAccounts" />
+    <input type="hidden" id="edit-personal-threshold" value="@Resources.EditPersonalThreshold" />
+    <input type="hidden" id="remove-account" value="@Resources.RemoveAccount" />
+    <input type="hidden" id="edit-multiple-personal-threshold" value="@Resources.EditMultiplePersonalThresholds" />
+    <input type="hidden" id="remove-multiple-accounts" value="@Resources.RemoveMultipleAccounts" />
+    <input type="hidden" id="page-size" value="@Resources.PageSize" />
+    <input type="hidden" id="page" value="@Resources.Page" />
+    <input type="hidden" id="of" value="@Resources.Of" />
+    <input type="hidden" id="no-info" value="@Resources.NoInformationIsAvailable" />
+    <input type="hidden" id="limited-date" value="@(Model.LimitedDateToShowInfo ? "true" : "false")" />
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        var watchlistAccountData = @Html.Raw(JsonConvert.SerializeObject(Model.MyWatchListAccountPagingViewModel, Formatting.None));
+    </script>
+
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
+    @StaticResources.RenderScripts("~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/my-watchlist-accounts")
+}

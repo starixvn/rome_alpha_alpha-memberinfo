@@ -642,8 +642,8 @@
   <data name="AddMember" xml:space="preserve">
     <value>Add Member</value>
   </data>
-  <data name="AddNewWatchlistAccount" xml:space="preserve">
-    <value>Add New Watchlist Account</value>
+  <data name="AddMembersToWatchlist" xml:space="preserve">
+    <value>Add Member(s) To Watchlist</value>
   </data>
   <data name="AddRow" xml:space="preserve">
     <value>Add Row</value>

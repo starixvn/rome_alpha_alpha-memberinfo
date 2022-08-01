@@ -106,11 +106,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Watchlist Account.
+        ///   Looks up a localized string similar to Add Member(s) To Watchlist.
         /// </summary>
-        public static string AddNewWatchlistAccount {
+        public static string AddMembersToWatchlist {
             get {
-                return ResourceManager.GetString("AddNewWatchlistAccount", resourceCulture);
+                return ResourceManager.GetString("AddMembersToWatchlist", resourceCulture);
             }
         }
         

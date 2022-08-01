@@ -4,14 +4,14 @@
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
     using Alpha.MemberInfo.Features.DormantAccountList;
-    using Alpha.MemberInfo.Features.MyMonitorAccounts.MyWatchlistAccounts;
-    using Alpha.MemberInfo.Features.MyMonitorAccounts.ReachedThreshold;
+    using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
+    using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Features.ParlayMaxPayout;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
-    using Alpha.MemberInfo.Site.Features.MyMonitorAccounts.ReachedThreshold;
+    using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.Shared.Helpers;

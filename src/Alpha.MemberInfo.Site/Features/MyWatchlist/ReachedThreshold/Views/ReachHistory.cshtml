@@ -1,0 +1,49 @@
+﻿@model ReachHistoryViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/ReachedThreshold/Bundles/reach-history-media")
+}
+
+<table id="tbl-reach-history" class="tblRpt tblRpt-bordered tblRpt-hover hide" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>@Resources.No</th>
+            <th>@Resources.DateTime</th>
+            <th>@Resources.ThresholdType</th>
+            <th>@Resources.WinningLosingAmount</th>
+            <th>@Resources.WinningThreshold</th>
+            <th>@Resources.LosingThreshold</th>
+        </tr>
+    </thead>
+    <tbody>
+        @RenderTable()
+    </tbody>
+</table>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $("#tbl-reach-history").removeClass("hide").stickyTableHeaders();
+        });
+    </script>
+}
+
+@helper RenderTable()
+{
+    var index = 1;
+    foreach (var row in Model.ReachHistories)
+    {
+        <tr>
+            <td class="text-center">@(index++)</td>
+            <td class="text-center">@row.CreatedDate.ToLongDateTime12hWithHyphen()</td>
+            <td class="text-center">@Resources.ResourceManager.GetString(row.LimitTypeReach)</td>
+            <td class="text-right">@row.WinLossAmount.ToMoneyFormat()</td>
+            <td class="text-right">@HtmlHelpers.FormatThreshold(row.WinningThreshold)</td>
+            <td class="text-right">@HtmlHelpers.FormatThreshold(row.LosingThreshold)</td>
+        </tr>
+    }
+}
