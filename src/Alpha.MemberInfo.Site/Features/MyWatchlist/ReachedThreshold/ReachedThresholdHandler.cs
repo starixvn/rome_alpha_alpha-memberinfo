@@ -66,7 +66,8 @@
                 message.SortType,
                 message.IsDesc,
                 message.PageSize,
-                message.PageIndex);
+                message.PageIndex,
+                message.LimitedDateToShowInfo);
 
             var reachlistAccountDTO = await reachedThresholdService.GetReachlistAccounts(param);
 
@@ -79,7 +80,8 @@
                 message.SelectedCustId,
                 message.FromDate,
                 message.ToDate,
-                message.LimitType);
+                message.LimitType,
+                message.LimitedDateToShowInfo);
 
             var reachHistories = await reachedThresholdService.GetReachDetail(param);
 

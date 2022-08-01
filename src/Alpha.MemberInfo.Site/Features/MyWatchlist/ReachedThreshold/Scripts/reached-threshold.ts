@@ -73,7 +73,7 @@ $(function () {
         parseInt($('#search-account-id').val()),
         $('#member-info-url').val(),
         JSON.parse($('#is-mobile').val()),
-        JSON.parse($('#limited-date').val()),
+        JSON.parse($('#is-show-last-login').val()),
         window.reachlistAccountData
     );
     const service = new ReachedThresholdService($);

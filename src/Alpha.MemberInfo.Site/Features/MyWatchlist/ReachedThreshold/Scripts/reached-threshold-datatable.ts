@@ -190,7 +190,7 @@ class ReachedThresholdDataTable {
             },
         );
 
-        if (!this.viewModel.LimitedDateToShowInfo) {
+        if (this.viewModel.IsShowLastLoginColumn) {
             columns.push({
                 "className": 'center',
                 "data": "LastLoggedString",

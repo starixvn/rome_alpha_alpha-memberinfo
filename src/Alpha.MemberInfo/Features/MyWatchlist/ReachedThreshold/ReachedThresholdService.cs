@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold
 {
+    using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Criteria;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Params;
@@ -27,7 +28,7 @@
             var criteria = new SelectReachListCriteria(
                 param.AgentId,
                 param.Username,
-                param.FromDate,
+                param.FromDate.GetGreaterDate(param.LimitedDateToShowInfo),
                 param.ToDate,
                 param.Status,
                 param.LimitType,
@@ -45,7 +46,7 @@
         {
             var criteria = new SelectReachDetailCriteria(
                 param.CustId,
-                param.FromDate,
+                param.FromDate.GetGreaterDate(param.LimitedDateToShowInfo),
                 param.ToDate,
                 param.LimitType);
 

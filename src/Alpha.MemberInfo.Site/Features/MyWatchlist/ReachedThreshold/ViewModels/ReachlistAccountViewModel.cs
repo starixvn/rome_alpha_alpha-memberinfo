@@ -8,7 +8,7 @@
 
     public class ReachlistAccountViewModel
     {
-        public ReachlistAccountViewModel(ReachlistAccountModel account, bool limitedDateToShowInfo)
+        public ReachlistAccountViewModel(ReachlistAccountModel account, bool isShowLastLoginColumn)
         {
             RowNumber = account.RowNumber;
             CustId = account.CustId;
@@ -23,7 +23,7 @@
             ClosedReason = account.ClosedReason;
             Locked = account.Locked;
 
-            LastLoggedString = limitedDateToShowInfo ? string.Empty : account.LastLogged.ToLongDateTime12hWithHyphen();
+            LastLoggedString = isShowLastLoginColumn ? account.LastLogged.ToLongDateTime12hWithHyphen() : string.Empty;
             LastReachedDateString = account.LastReachedDate.ToLongDateTime12hWithHyphen();
             WinningThresholdString = account.WinningThreshold.ToMoneyFormatWithUnlimited();
             LosingThresholdString = account.LosingThreshold.ToMoneyFormatWithUnlimited();

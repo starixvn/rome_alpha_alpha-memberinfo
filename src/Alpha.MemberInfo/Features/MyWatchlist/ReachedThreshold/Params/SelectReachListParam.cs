@@ -14,7 +14,8 @@
            byte sortType,
            bool isDesc,
            int pageSize,
-           int pageIndex)
+           int pageIndex,
+           DateTime limitedDateToShowInfo)
         {
             AgentId = agentId;
             Username = username;
@@ -26,6 +27,7 @@
             IsDesc = isDesc;
             PageSize = pageSize;
             PageIndex = pageIndex;
+            LimitedDateToShowInfo = limitedDateToShowInfo;
         }
 
         public int AgentId { get; }
@@ -47,5 +49,7 @@
         public int PageIndex { get; }
 
         public int PageSize { get; }
+
+        public DateTime LimitedDateToShowInfo { get; }
     }
 }

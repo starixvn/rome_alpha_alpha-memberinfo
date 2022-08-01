@@ -3,20 +3,20 @@
     MemberInfoUrl: string;
     IsMobile: boolean;
     ReachlistAccountData: any;
-    LimitedDateToShowInfo: boolean;
+    IsShowLastLoginColumn: boolean;
     URL: string;
 
     constructor(
         searchAccountId: number,
         memberInfoUrl: string,
         isMobile: boolean,
-        limitDateToShowInfo: boolean,
+        isShowLastLoginColumn: boolean,
         reachlistAccountData: any
     ) {
         this.SearchAccountId = searchAccountId;
         this.MemberInfoUrl = memberInfoUrl;
         this.IsMobile = isMobile;
-        this.LimitedDateToShowInfo = limitDateToShowInfo;
+        this.IsShowLastLoginColumn = isShowLastLoginColumn;
         this.ReachlistAccountData = reachlistAccountData;
         this.URL = this.MemberInfoUrl + "ReachedThreshold";
     }

@@ -42,7 +42,7 @@
             ReachedThresholdPagingViewModel = reachedThresholdPagingViewModel;
             GlobalThresholdModel = globalThresholdModel;
             IsMobile = isMobile;
-            LimitedDateToShowInfo = request.LimitedDateToShowInfo;
+            IsShowLastLoginColumn = request.LimitedDateToShowInfo == default(DateTime);
             CustLevel = request.CustLevel.DisplayName;
         }
 
@@ -60,7 +60,7 @@
 
         public bool IsMobile { get; }
 
-        public bool LimitedDateToShowInfo { get; }
+        public bool IsShowLastLoginColumn { get; }
 
         public string CustLevel { get; }
     }

@@ -27,5 +27,8 @@ namespace Alpha.MemberInfo.Extensions
 
         public static string ToLongDateTime12hWithHyphen(this DateTime dateTime)
             => dateTime.ToString(LongDateTime12hWithHyphen);
+
+        public static DateTime GetGreaterDate(this DateTime fromDate, DateTime limitedDate)
+         => fromDate < limitedDate ? limitedDate : fromDate;
     }
 }

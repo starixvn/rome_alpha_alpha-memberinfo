@@ -11,6 +11,7 @@
     using Alpha.MemberInfo.Site.ViewModels;
     using MediatR;
     using ONEbook.SpreadSheets;
+    using System;
     using System.Text;
     using System.Threading.Tasks;
     using static ONEbook.SpreadSheets.Column;
@@ -38,14 +39,16 @@
                  message.SortType,
                  message.IsDesc,
                  int.MaxValue - 1,
-                 1);
+                 1,
+                 message.LimitedDateToShowInfo);
 
             var reachlistAccountDTO = await service.GetReachlistAccounts(param);
 
+            var isShowLastLoginColumn = message.LimitedDateToShowInfo == default(DateTime);
             var fileContent = workbook
                .SetData(reachlistAccountDTO.ReachlistAccounts)
-               .SetRowMappers(GetBodyRowMapper(message))
-               .UseTemplate(GetTemplateInfo(message))
+               .SetRowMappers(GetBodyRowMapper(message, isShowLastLoginColumn))
+               .UseTemplate(GetTemplateInfo(isShowLastLoginColumn))
                .Sheet("Sheet 1")
                .Title(GetReportTitle(message))
                .Header(Resources.ResourceManager.GetString)
@@ -56,13 +59,13 @@
 
         protected override string GetExcelTemplateDir() => "~/App_Data/ExcelTemplates/ReachedThreshold";
 
-        internal Mapper<ReachlistAccountModel> GetBodyRowMapper(ReachedThresholdExcelQuery message)
+        internal Mapper<ReachlistAccountModel> GetBodyRowMapper(ReachedThresholdExcelQuery message, bool isShowLastLoginColumn)
         {
             var mapper = new Mapper<ReachlistAccountModel>()
                 .Map(A, data => data.RowNumber)
                 .Map(B, data => data.Username);
 
-            if (!message.LimitedDateToShowInfo)
+            if (isShowLastLoginColumn)
             {
                 mapper
                     .Map(C, data => data.LastLogged.ToLongDateTime12hWithHyphen())
@@ -92,9 +95,9 @@
         private static string GetExcelFileName(ReachedThresholdExcelQuery message)
             => $"{Resources.ReachedThreshold} {message.FromDate.ToShortDateWithHyphen()} -- {message.ToDate.ToShortDateWithHyphen()}";
 
-        private TemplateInfo GetTemplateInfo(ReachedThresholdExcelQuery message)
+        private TemplateInfo GetTemplateInfo(bool isShowLastLoginColumn)
             => new TemplateInfo(
-                   GetExcelTemplatePath(!message.LimitedDateToShowInfo ? "ReachedThreshold" : "ReachedThresholdHideDateTime"),
+                   GetExcelTemplatePath(isShowLastLoginColumn ? "ReachedThreshold" : "ReachedThresholdHideDateTime"),
                    noInfomationText: Resources.NoInformationIsAvailable,
                    titleStartIndex: 1,
                    headerStartIndex: 2,

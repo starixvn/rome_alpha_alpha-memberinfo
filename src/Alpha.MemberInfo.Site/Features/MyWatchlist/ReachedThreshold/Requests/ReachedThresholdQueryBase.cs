@@ -10,7 +10,7 @@
     {
         public ReachedThresholdQueryBase(IUser viewer) : base(viewer)
         {
-            LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
+            LimitedDateToShowInfo = viewer.LimitedDateToShowInfo;
         }
 
         [AllowHtml]
@@ -32,7 +32,7 @@
 
         public int PageSize { get; set; } = 100;
 
-        public bool LimitedDateToShowInfo { get; }
+        public DateTime LimitedDateToShowInfo { get; }
 
         public DateTime MinDate => DateTime.Today.AddMonths(-3).FirstDayOfMonth();
 
