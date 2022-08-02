@@ -26,6 +26,6 @@
 
         public override string GetSettingKey() => "Acc_WLMonitored_Player_ReachDetail_Sel";
 
-        public override bool IsValid() => CustId > 0 && FromDate < ToDate;
+        public override bool IsValid() => CustId > 0 && FromDate <= ToDate;
     }
 }
