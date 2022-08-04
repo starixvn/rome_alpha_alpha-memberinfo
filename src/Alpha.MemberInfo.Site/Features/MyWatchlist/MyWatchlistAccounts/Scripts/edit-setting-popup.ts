@@ -53,10 +53,10 @@ class EditSettingPopup {
 
     public bindingEditMultipleEvent = () => {
         var self = this;
-        const tblRpt = this.$(".tblRpt");
-        tblRpt.undelegate();
-        tblRpt.delegate(".edit-multiple", "click", event => this.openMultiplePopup(event.currentTarget));
-        tblRpt.delegate(".select-all", "click", function () {
+        const body = this.$("body");
+        body.undelegate();
+        body.delegate(".edit-multiple", "click", event => this.openMultiplePopup(event.currentTarget));
+        body.delegate(".select-all", "click", function () {
             const checked = this.checked;
             self.$('tbody .checkbox').prop('checked', checked);
             self.$(".select-all").prop('checked', checked);

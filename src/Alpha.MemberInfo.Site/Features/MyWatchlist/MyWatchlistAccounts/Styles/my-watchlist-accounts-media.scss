@@ -140,12 +140,27 @@ body {
     font-size: calculateScale(18px);
 }
 
+.dataTables_length {
+    margin-top: 0 !important;
+
+    label {
+        font-size: calculateScale(11px) !important;
+    }
+
+    select {
+        height: calculateScale(27px);
+    }
+}
+
 .dataTables_paginate {
+    font-size: calculateScale(11px) !important;
     left: 20% !important;
 }
+
 table.dataTable tbody td {
     height: 40px;
 }
+
 table.dataTable.nowrap th, table.dataTable.nowrap td {
     white-space: inherit;
 }

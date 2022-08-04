@@ -52,13 +52,13 @@
     }
 
     .easy-autocomplete-container {
-        z-index: 10;
+        z-index: 9999;
     }
 }
 
 .dataTable {
     .header {
-        height: 50px;
+        height: 56px;
     }
 
     .locked-falsePassword {
@@ -87,6 +87,14 @@
 
     .RowBgDisabled {
         background-color: #a0a97a !important;
+    }
+}
+
+table {
+    &.fixedHeader-floating {
+        position: fixed !important;
+        margin-top: 0px !important;
+        z-index: 10;
     }
 }
 
@@ -130,61 +138,6 @@
     }
 }
 
-.fixedHeader-floating {
-    border: none !important;
-
-    th {
-        position: fixed !important;
-    }
-
-    .control, .username, .last-reach, .winning-losing {
-        background: transparent;
-        position: fixed;
-        top: 0;
-        z-index: 9;
-        display: block;
-        font-size: 0;
-        border: none !important;
-        cursor: pointer;
-    }
-
-    .control {
-        right: -4px;
-        height: 79px;
-
-        &:before {
-            display: none !important;
-        }
-    }
-
-    .username {
-        left: 7px;
-        height: 42px;
-
-        &:after {
-            display: none !important;
-        }
-    }
-
-    .last-reach {
-        left: 94px;
-        height: 38px;
-
-        &:after {
-            display: none !important;
-        }
-    }
-
-    .winning-losing {
-        right: 86px;
-        height: 44px;
-
-        &:after {
-            display: none !important;
-        }
-    }
-}
-
 #tbl-reached-threshold thead {
     position: -webkit-sticky;
     position: sticky;
@@ -199,6 +152,7 @@
 .fixedHeader-floating.dtr-column > thead > tr.parent th.control:before {
     display: none;
 }
+
 table.dataTable {
     box-sizing: border-box;
 }

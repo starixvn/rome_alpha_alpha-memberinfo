@@ -62,71 +62,19 @@
             color: #EDEDED;
         }
     }
-
-    .easy-autocomplete-container {
-        z-index: 10;
-    }
 }
 
 .dataTable {
     .header {
-        height: 50px;
+        height: 56px;
     }
 }
 
- 
-.fixedHeader-floating {
-    border: none !important;
-
-    th {
+table {
+    &.fixedHeader-floating {
         position: fixed !important;
-    }
-
-    .control, .username, .last-reach, .winning-losing {
-        background: transparent;
-        position: fixed;
-        top: 0;
-        z-index: 9;
-        display: block;
-        font-size: 0;
-        border: none !important;
-        cursor: pointer;
-    }
-
-    .control {
-        right: -4px;
-        height: 79px;
-
-        &:before {
-            display: none !important;
-        }
-    }
-
-    .username {
-        left: 7px;
-        height: 42px;
-
-        &:after {
-            display: none !important;
-        }
-    }
-
-    .last-reach {
-        left: 94px;
-        height: 38px;
-
-        &:after {
-            display: none !important;
-        }
-    }
-
-    .winning-losing {
-        right: 86px;
-        height: 44px;
-
-        &:after {
-            display: none !important;
-        }
+        margin-top: 0px !important;
+        z-index: 10;
     }
 }
 
@@ -145,94 +93,6 @@
     display: none;
 }
 
-// Data Table
-.table-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #D9D9D9;
-    height: 35px;
-    margin-top: 15px;
-
-    .title {
-        padding-left: 5px;
-        font-weight: bold;
-        font-size: 14px;
-    }
-}
-
-.dataTable {
-    .header {
-        height: 56px;
-    }
-
-    .icon-table-edit {
-        cursor: pointer;
-        position: relative;
-        top: 1px;
-        font-size: 16px;
-
-        &:hover {
-            color: #F60;
-        }
-    }
-}
-
-.fixedHeader-floating {
-    border: none !important;
-
-    th {
-        position: fixed !important;
-    }
-
-    .control, .username, .winning, .losing {
-        background: transparent;
-        position: fixed;
-        top: 0;
-        z-index: 9;
-        display: block;
-        font-size: 0;
-        border: none !important;
-        cursor: pointer;
-    }
-
-    .control {
-        right: -14px;
-        height: 58px;
-
-        &:before {
-            display: none !important;
-        }
-    }
-
-    .username {
-        left: 92px;
-        height: 58px;
-
-        &:after {
-            display: none !important;
-        }
-    }
-
-    .winning {
-        left: 214px;
-        height: 58px;
-
-        &:after {
-            display: none !important;
-        }
-    }
-
-    .losing {
-        right: 96px;
-        height: 58px;
-
-        &:after {
-            display: none !important;
-        }
-    }
-}
-
 #tbl-my-watchlist-accounts thead {
     position: -webkit-sticky;
     position: sticky;
@@ -242,14 +102,6 @@
 
 .fixedHeader-floating.dtr-column > thead > tr.parent th.control:before {
     display: none;
-}
-
-#tbl-my-watchlist-accounts_length {
-    label {
-        font-weight: bold;
-    }
-
-    margin-top: 10px;
 }
 
 // Modal
@@ -273,68 +125,6 @@
     }
 }
 
-#edit-popup {
-    box-shadow: 0px 0px 6px rgba(0,0,0,0.19);
-
-    .modal-dialog {
-        position: relative;
-        display: table;
-        overflow: auto;
-        width: auto;
-        min-width: 150px;
-        margin: 0px;
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
-    }
-
-    .modal-content .modal-body {
-        padding: 0;
-    }
-
-    ul,
-    ol {
-        margin-top: 0;
-        margin-bottom: 0;
-
-        li {
-            display: block !important;
-            padding: 2px 8px;
-            cursor: pointer;
-
-            &.edit-status-popup {
-                padding: 4px 8px;
-            }
-
-            &:hover {
-                background-color: #3C3C3C;
-            }
-
-            input[type="checkbox"] {
-                display: inline-block;
-            }
-
-            &.Disable_edit:before {
-                color: #bbb !important;
-            }
-
-            &.icon-edit, &.icon-bin {
-                font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
-                font-size: 13px;
-                line-height: 24px;
-                margin-right: 0;
-
-                &:before {
-                    margin-right: 5px;
-                    font-family: 'Iconalpha';
-                }
-            }
-
-            &.icon-edit:after, &.icon-bin {
-                content: none;
-            }
-        }
-    }
-}
-
 #iframe-popup-container {
     top: 8px !important;
     padding-right: 0 !important;
@@ -354,7 +144,6 @@
         }
     }
 }
-
 
 table.dataTable {
     border: 1px solid #5F626B;
@@ -494,9 +283,11 @@ table.dataTable {
         background-color: #6E654E !important;
     }
 }
+
 .input-group.date .icon-calendar {
     color: $color-text;
 }
+
 // custom ease-autocomplete //
 .easy-autocomplete-container {
     z-index: 9999;
@@ -514,10 +305,12 @@ table.dataTable {
         }
     }
 }
+
 // arrow date picker
 .bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
     border-bottom-color: #292929;
 }
+
 .bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
     border-bottom-color: #171717;
 }

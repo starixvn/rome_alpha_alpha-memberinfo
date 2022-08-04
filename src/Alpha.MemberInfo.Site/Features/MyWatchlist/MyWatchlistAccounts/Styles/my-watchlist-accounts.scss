@@ -38,7 +38,7 @@
     }
 
     .easy-autocomplete-container {
-        z-index: 10;
+        z-index: 9999;
     }
 }
 
@@ -103,58 +103,11 @@
     }
 }
 
-.fixedHeader-floating {
-    border: none !important;
-
-    th {
+table {
+    &.fixedHeader-floating {
         position: fixed !important;
-    }
-
-    .control, .username, .winning, .losing {
-        background: transparent;
-        position: fixed;
-        top: 0;
-        z-index: 9;
-        display: block;
-        font-size: 0;
-        border: none !important;
-        cursor: pointer;
-    }
-
-    .control {
-        right: -14px;
-        height: 58px;
-
-        &:before {
-            display: none !important;
-        }
-    }
-
-    .username {
-        left: 92px;
-        height: 58px;
-
-        &:after {
-            display: none !important;
-        }
-    }
-
-    .winning {
-        left: 214px;
-        height: 58px;
-
-        &:after {
-            display: none !important;
-        }
-    }
-
-    .losing {
-        right: 96px;
-        height: 58px;
-
-        &:after {
-            display: none !important;
-        }
+        margin-top: 0px !important;
+        z-index: 10;
     }
 }
 
@@ -272,10 +225,6 @@
             width: 100%;
             height: calc(100% - 40px);
             padding: 10px;
-
-            iframe {
-                height: 100% !important;
-            }
         }
     }
 }
