@@ -22,7 +22,7 @@
         border: 1px solid #292929;
         color: #EDEDED;
         padding: 5px 10px;
-        resize: none; 
+        resize: none;
     }
 
     .lbl-threshold {
@@ -35,7 +35,7 @@
 
     .ckb-unlimited {
         display: inline-block;
-        margin-left: 40px; 
+        margin-left: 40px;
     }
 
     .btn-submit {
@@ -47,6 +47,6 @@
     }
 
     .red {
-        color: #E54748;
+        color: $color-red;
     }
 }
