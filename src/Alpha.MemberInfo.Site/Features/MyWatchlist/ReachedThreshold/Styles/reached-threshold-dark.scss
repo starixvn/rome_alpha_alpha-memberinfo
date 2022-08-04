@@ -72,76 +72,9 @@
     .header {
         height: 50px;
     }
-
-    .locked-falsePassword {
-        background-color: #ccc7ba !important;
-    }
-
-    .closed-byAdmin {
-        background-color: #b3a2c7 !important;
-    }
-
-    .closed-byUpline {
-        background-color: #f79646 !important;
-    }
-
-    .locked-falseOTPSC {
-        background-color: #86c5e4 !important;
-    }
-
-    .closed-byArchive {
-        background-color: #969696 !important;
-    }
-
-    .RowBgSuspended {
-        background-color: #f8ded7 !important;
-    }
-
-    .RowBgDisabled {
-        background-color: #a0a97a !important;
-    }
 }
 
-.modal-content .modal-header {
-    border-bottom: 1px solid #e5e5e5;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 0;
-
-    &:after, &:before {
-        content: none;
-    }
-
-    .modal-title {
-        border-bottom: none;
-    }
-
-    button {
-        padding: 0 16px;
-        opacity: 0.7;
-    }
-}
-
-#iframe-popup-container {
-    top: 8px !important;
-    padding-right: 0 !important;
-
-    .modal-dialog {
-        width: 100%;
-        height: 100%;
-
-        .modal-body-iframe {
-            width: 100%;
-            height: calc(100% - 40px);
-            padding: 10px;
-
-            iframe {
-                height: 100% !important;
-            }
-        }
-    }
-}
-
+ 
 .fixedHeader-floating {
     border: none !important;
 
@@ -242,34 +175,6 @@
         &:hover {
             color: #F60;
         }
-    }
-
-    .locked-falsePassword {
-        background-color: #ccc7ba !important;
-    }
-
-    .closed-byAdmin {
-        background-color: #b3a2c7 !important;
-    }
-
-    .closed-byUpline {
-        background-color: #f79646 !important;
-    }
-
-    .locked-falseOTPSC {
-        background-color: #86c5e4 !important;
-    }
-
-    .closed-byArchive {
-        background-color: #969696 !important;
-    }
-
-    .RowBgSuspended {
-        background-color: #f8ded7 !important;
-    }
-
-    .RowBgDisabled {
-        background-color: #a0a97a !important;
     }
 }
 
