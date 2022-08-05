@@ -25,7 +25,7 @@
             => await ViewAsync(message, IndexPath);
 
         public async Task<ActionResult> ManageWatchlistAccounts(ManageWatchlistAccountsQuery message)
-         => await ViewAsync(message, ManageWatchlistAccountsPath);
+            => await ViewAsync(message, ManageWatchlistAccountsPath);
 
         public async Task<ActionResult> ManageGlobalThreshold(ManageGlobalThresholdQuery message)
             => await ViewAsync(message, ManageGlobalThresholdPath);

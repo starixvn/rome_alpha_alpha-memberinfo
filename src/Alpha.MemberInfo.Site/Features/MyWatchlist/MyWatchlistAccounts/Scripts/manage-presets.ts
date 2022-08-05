@@ -36,7 +36,7 @@ class ManagePresets {
         this.$tableBody.off().on("input", ".threshold-input", this.handleInputThresholdChange);
     }
 
-    private escapeHtml = (str) => str.replace(/&/g, '&amp;')
+    private escapeHtml = (str) => str.toString().replace(/&/g, '&amp;')
         .replace(/>/g, '&gt;')
         .replace(/</g, '&lt;')
         .replace(/\//g, '&#x2F')
@@ -170,7 +170,7 @@ class ManagePresets {
                 result.forEach(res => {
                     switch (res.Code) {
                         case 0:
-                            this.alert.showMultipleSuccess(res.Name, this.$("#add-successfully").val());
+                            this.alert.showMultipleSuccess(res.Name, this.$("#update-successfully").val());
                             break;
                         case 103:
                             this.alert.showMultipleError(res.Name, this.$("#preset-is-duplicated").val());

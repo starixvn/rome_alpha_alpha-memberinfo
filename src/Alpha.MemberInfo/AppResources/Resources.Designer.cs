@@ -124,7 +124,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add successfully.
+        ///   Looks up a localized string similar to Added successfully.
         /// </summary>
         public static string AddSuccessfully {
             get {
@@ -934,7 +934,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is not a Member.
+        ///   Looks up a localized string similar to is not a Member.
         /// </summary>
         public static string IsNotMemberError {
             get {
@@ -1321,7 +1321,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is no longer in the watchlist.
+        ///   Looks up a localized string similar to is no longer in the watchlist.
         /// </summary>
         public static string NotInWatchlistAnyLongerError {
             get {
@@ -1672,7 +1672,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Preset removed.
+        ///   Looks up a localized string similar to Removed successfully.
         /// </summary>
         public static string RemoveSuccessfully {
             get {
@@ -2122,7 +2122,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is already in the watchlist.
+        ///   Looks up a localized string similar to is already in the watchlist.
         /// </summary>
         public static string WasAddedWatchlistAlreadyError {
             get {
@@ -2131,7 +2131,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update successfully.
+        ///   Looks up a localized string similar to Updated successfully.
         /// </summary>
         public static string WatchlistUpdateSuccessfully {
             get {

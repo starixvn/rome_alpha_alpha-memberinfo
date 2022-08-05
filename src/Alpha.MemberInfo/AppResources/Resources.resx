@@ -649,7 +649,7 @@
     <value>Add Row</value>
   </data>
   <data name="AddSuccessfully" xml:space="preserve">
-    <value>Add successfully</value>
+    <value>Added successfully</value>
   </data>
   <data name="AreYouSureToRemoveAccounts" xml:space="preserve">
     <value>Are you sure you want to remove the selected account(s)?</value>
@@ -697,7 +697,7 @@
     <value>Invalid Account</value>
   </data>
   <data name="IsNotMemberError" xml:space="preserve">
-    <value>Is not a Member</value>
+    <value>is not a Member</value>
   </data>
   <data name="LastThresholdType" xml:space="preserve">
     <value>Last Threshold Type</value>
@@ -751,7 +751,7 @@
     <value>Reach History</value>
   </data>
   <data name="NotInWatchlistAnyLongerError" xml:space="preserve">
-    <value>Is no longer in the watchlist</value>
+    <value>is no longer in the watchlist</value>
   </data>
   <data name="PageSize" xml:space="preserve">
     <value>Page Size</value>
@@ -778,7 +778,7 @@
     <value>Remove Multiple Accounts</value>
   </data>
   <data name="RemoveSuccessfully" xml:space="preserve">
-    <value>Preset removed</value>
+    <value>Removed successfully</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
@@ -802,7 +802,7 @@
     <value>Update</value>
   </data>
   <data name="WasAddedWatchlistAlreadyError" xml:space="preserve">
-    <value>Is already in the watchlist</value>
+    <value>is already in the watchlist</value>
   </data>
   <data name="WinningLosingAmount" xml:space="preserve">
     <value>Winning/Losing Amount</value>
@@ -826,6 +826,6 @@
     <value>Personal Threshold Preset Settings</value>
   </data>
   <data name="WatchlistUpdateSuccessfully" xml:space="preserve">
-    <value>Update successfully</value>
+    <value>Updated successfully</value>
   </data>
 </root>
