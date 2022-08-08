@@ -267,7 +267,7 @@ class ReachedThresholdDataTable {
     }
 
     private handleExportExcel = () => {
-        this.$("#Username").val(this.$txtUsername.val());
+        this.$("#Username").val(this.$txtUsername.val().trim());
         this.$("#FromDate").val(this.$fromDate.val());
         this.$("#ToDate").val(this.$toDate.val());
         this.$("#Status").val(this.$selStatus.val());
