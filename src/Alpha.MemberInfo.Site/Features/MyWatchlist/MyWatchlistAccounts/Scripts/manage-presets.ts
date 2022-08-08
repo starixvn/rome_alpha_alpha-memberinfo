@@ -46,7 +46,7 @@ class ManagePresets {
     private handleOpenEdit = event => {
         const $presetHtml = this.$(event.currentTarget).parents(".preset");
 
-        $presetHtml.find(".preset-title").html(`<input type="text" name="presetTitle" value="${this.escapeHtml($presetHtml.data("title"))}" />`);
+        $presetHtml.find(".preset-title").html(`<input type="text" name="presetTitle" value="${this.escapeHtml($presetHtml.data("title"))}"  maxlength="50" />`);
         $presetHtml.find(".winning-threshold").html(
             `<input type="text" class="threshold-input text-right" name="winningThreshold" value="${$presetHtml.data("winningthresholdstring")}" maxlength="18" />`);
         $presetHtml.find(".losing-threshold").html(
@@ -129,7 +129,7 @@ class ManagePresets {
                              class="preset newRow"
                              data-index="${index}">
                                 <td class="text-center">${index + 1}</td>
-                                <td class="preset-title"><input type="text" name="presetTitle" value="" /></td>
+                                <td class="preset-title"><input type="text" name="presetTitle" value=""  maxlength="50" /></td>
                                 <td class="winning-threshold"><input type="text" class="threshold-input text-right" name="winningThreshold" value="" maxlength="18"/></td>
                                 <td class="losing-threshold"><input type="text" class="threshold-input text-right" name="losingThreshold" value="" maxlength="18" /></td>
                                 <td class="action">

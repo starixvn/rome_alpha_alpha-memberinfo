@@ -10,7 +10,7 @@
 
     public interface ReachedThresholdService
     {
-        Task<ReachlistAccountDTO> GetReachlistAccounts(SelectReachListParam param);
+        Task<ReachlistAccountReport> GetReachlistAccounts(SelectReachListParam param);
         Task<IEnumerable<ReachHistoryModel>> GetReachDetail(SelectReachDetailParam param);
     }
 
@@ -23,7 +23,7 @@
             this.dynamicRepository = dynamicRepository;
         }
 
-        public async Task<ReachlistAccountDTO> GetReachlistAccounts(SelectReachListParam param)
+        public async Task<ReachlistAccountReport> GetReachlistAccounts(SelectReachListParam param)
         {
             var criteria = new SelectReachListCriteria(
                 param.AgentId,
@@ -39,7 +39,7 @@
 
             var reachlistAccounts = await dynamicRepository.FetchAsync<ReachlistAccountModel>(criteria);
 
-            return new ReachlistAccountDTO(reachlistAccounts, criteria.TotalItems);
+            return new ReachlistAccountReport(reachlistAccounts, criteria.TotalItems);
         }
 
         public async Task<IEnumerable<ReachHistoryModel>> GetReachDetail(SelectReachDetailParam param)
@@ -48,7 +48,9 @@
                 param.CustId,
                 param.FromDate.GetGreaterDate(param.LimitedDateToShowInfo),
                 param.ToDate,
-                param.LimitType);
+                param.LimitType,
+                param.SortType,
+                param.IsDesc);
 
             return await dynamicRepository.FetchAsync<ReachHistoryModel>(criteria);
         }

@@ -262,7 +262,7 @@ class ReachedThresholdDataTable {
             limitType: this.$selLimitType.val()
         }
 
-        const url = this.viewModel.URL + "/GetReachHistory";
+        const url = this.viewModel.URL + "/ReachHistoryIndex";
         this.iframePopup.open("900px", "600px", username + " - " + this.$("#reach-history-popup-title").val(), url, params);
     }
 

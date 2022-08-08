@@ -44,4 +44,18 @@ class ReachedThresholdService {
             }
         )
     }
+
+    public getReachHistoryList = (params, callback) => {
+        this.callAjax(
+            this.url + "/GetReachHistoryList",
+            "POST",
+            params,
+            data => {
+                this.$.unblockUI();
+                callback({
+                    data,
+                })
+            }
+        )
+    }
 }

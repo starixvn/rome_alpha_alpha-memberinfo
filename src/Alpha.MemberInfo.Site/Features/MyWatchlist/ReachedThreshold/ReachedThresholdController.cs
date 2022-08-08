@@ -4,6 +4,7 @@
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Controllers;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.Requests;
+    using Alpha.Web.Filters;
     using MediatR;
     using System.Threading.Tasks;
     using System.Web.Mvc;
@@ -21,10 +22,22 @@
         public async Task<ActionResult> Index(ReachedThresholdQuery message)
             => await ViewAsync(message, IndexPath);
 
-        public async Task<ActionResult> GetReachHistory(ReachHistoryQuery message)
+        public async Task<ActionResult> ReachHistoryIndex(ReachHistoryQuery message)
             => await ViewAsync(message, ReachHistoryPath);
 
+        [HttpPost]
         public async Task<ActionResult> GetReachlistThreshold(ReachlistAccountsQuery message)
+        {
+            if (!message.IsValid())
+            {
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> GetReachHistoryList(ReachHistoryListQuery message)
         {
             if (!message.IsValid())
             {

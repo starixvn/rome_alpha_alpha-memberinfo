@@ -335,6 +335,20 @@
       "Features/MyWatchlist/ReachedThreshold/Styles/reach-history-media.css"
     ]
   },
+  {
+    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reach-history.js",
+    "inputFiles": [
+      "Features/MyWatchlist/ReachedThreshold/Scripts/reached-threshold-service.js",
+      "Features/MyWatchlist/ReachedThreshold/Scripts/reached-threshold-datatable.js",
+      "Features/MyWatchlist/ReachedThreshold/Scripts/reach-history.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reach-history.css",
+    "inputFiles": [
+      "Features/MyWatchlist/ReachedThreshold/Styles/reach-history.css"
+    ]
+  },
   /************************** Dark Mode ************************/
   {
     "outputFileName": "assets/bundles/default-dark.css",
@@ -413,7 +427,7 @@
     "inputFiles": [
       "assets/styles/common-dark.css",
       "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert-dark.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts-dark.css" 
+      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts-dark.css"
     ]
   },
   {
@@ -438,6 +452,12 @@
       "assets/styles/common-dark.css",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
       "Features/MyWatchlist/ReachedThreshold/Styles/reached-threshold-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reach-history-dark.css",
+    "inputFiles": [
+      "Features/MyWatchlist/ReachedThreshold/Styles/reach-history-dark.css"
     ]
   }
 ]

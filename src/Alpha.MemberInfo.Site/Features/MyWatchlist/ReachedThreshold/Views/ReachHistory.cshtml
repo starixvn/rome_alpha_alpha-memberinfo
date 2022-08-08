@@ -1,49 +1,49 @@
-﻿@model ReachHistoryViewModel
+﻿@using Newtonsoft.Json
+@model ReachHistoryViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @section Styles {
+    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyWatchlist/ReachedThreshold/Bundles/reach-history")
     @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/ReachedThreshold/Bundles/reach-history-media")
 }
 
-<table id="tbl-reach-history" class="tblRpt tblRpt-bordered tblRpt-hover hide" style="width: 100%;">
+<table id="tbl-reach-history" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 99%;">
     <thead>
         <tr>
-            <th>@Resources.No</th>
-            <th>@Resources.DateTime</th>
-            <th>@Resources.ThresholdType</th>
-            <th>@Resources.WinningLosingAmount</th>
-            <th>@Resources.WinningThreshold</th>
-            <th>@Resources.LosingThreshold</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th class="header">@Resources.No</th>
+            <th class="header">@Resources.DateTime</th>
+            <th class="header">@Resources.ThresholdType</th>
+            <th class="header">@Resources.WinningLosingAmount</th>
+            <th class="header">@Resources.WinningThreshold</th>
+            <th class="header">@Resources.LosingThreshold</th>
         </tr>
     </thead>
-    <tbody>
-        @RenderTable()
-    </tbody>
 </table>
+
+<input type="hidden" id="selected-cust-id" value="@Model.ReachHistoryQuery.SelectedCustId" />
+<input type="hidden" id="from-date" value="@Model.ReachHistoryQuery.FromDate" />
+<input type="hidden" id="to-date" value="@Model.ReachHistoryQuery.ToDate" />
+<input type="hidden" id="limit-type" value="@Model.ReachHistoryQuery.LimitType" />
+<input type="hidden" id="no-info" value="@Resources.NoInformationIsAvailable" />
+<input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
 
 @section Scripts {
     <script type="text/javascript">
-        $(function () {
-            $("#tbl-reach-history").removeClass("hide").stickyTableHeaders();
-        });
+        var reachHistoryData = @Html.Raw(JsonConvert.SerializeObject(Model.ReachHistories, Formatting.None));
     </script>
-}
 
-@helper RenderTable()
-{
-    var index = 1;
-    foreach (var row in Model.ReachHistories)
-    {
-        <tr>
-            <td class="text-center">@(index++)</td>
-            <td class="text-center">@row.CreatedDate.ToLongDateTime12hWithHyphen()</td>
-            <td class="text-center">@Resources.ResourceManager.GetString(row.LimitTypeReach)</td>
-            <td class="text-right">@row.WinLossAmount.ToMoneyFormat()</td>
-            <td class="text-right">@HtmlHelpers.FormatThreshold(row.WinningThreshold)</td>
-            <td class="text-right">@HtmlHelpers.FormatThreshold(row.LosingThreshold)</td>
-        </tr>
-    }
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
+    @StaticResources.RenderScripts("~/Features/MyWatchlist/ReachedThreshold/Bundles/reach-history")
 }

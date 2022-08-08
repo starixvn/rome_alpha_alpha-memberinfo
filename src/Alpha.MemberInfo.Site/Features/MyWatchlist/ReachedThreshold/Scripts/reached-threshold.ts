@@ -1,4 +1,6 @@
-﻿interface Window {
+﻿"use strict";
+
+interface Window {
     reachlistAccountData: any;
 }
 
@@ -24,7 +26,7 @@ class ReachedThreshold {
         this.limitTypeDropdown = new SingleSelectionDropdownComponent($);
     }
 
-    public init() {
+    public init = () => {
         this.bindingTxtUsername();
 
         this.dateRangePickerComponent.render(

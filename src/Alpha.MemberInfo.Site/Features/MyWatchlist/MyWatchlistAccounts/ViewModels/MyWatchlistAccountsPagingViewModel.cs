@@ -7,14 +7,14 @@
 
     public class MyWatchlistAccountsPagingViewModel
     {
-        public MyWatchlistAccountsPagingViewModel(WatchlistAccountDTO watchlistAccountDTO, WatchlistAccountsQuery request)
+        public MyWatchlistAccountsPagingViewModel(WatchlistAccountReport watchlistAccountReport, WatchlistAccountsQuery request)
         {
-            WatchlistAccounts = watchlistAccountDTO.WatchlistAccounts
-                                    .Select(account => new WatchlistAccountViewModel(account, request.LimitedDateToShowInfo));
-            TotalItems = watchlistAccountDTO.TotalItems;
+            WatchlistAccounts = watchlistAccountReport.WatchlistAccounts
+                                    .Select(account => new WatchlistAccountDTO(account, request.LimitedDateToShowInfo));
+            TotalItems = watchlistAccountReport.TotalItems;
         }
 
-        public IEnumerable<WatchlistAccountViewModel> WatchlistAccounts { get; }
+        public IEnumerable<WatchlistAccountDTO> WatchlistAccounts { get; }
 
         public int TotalItems { get; }
     }

@@ -4,17 +4,21 @@
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Params;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold;
+    using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Params;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.Requests;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.ViewModels;
     using Alpha.Web.Helpers;
     using MediatR;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     public class ReachedThresholdHandler : 
         IAsyncRequestHandler<ReachedThresholdQuery, ReachedThresholdViewModel>,
         IAsyncRequestHandler<ReachlistAccountsQuery, ReachedThresholdPagingViewModel>,
-        IAsyncRequestHandler<ReachHistoryQuery, ReachHistoryViewModel>
+        IAsyncRequestHandler<ReachHistoryQuery, ReachHistoryViewModel>,
+        IAsyncRequestHandler<ReachHistoryListQuery, IEnumerable<ReachHistoryDTO>>
     {
         private readonly ReachedThresholdService reachedThresholdService;
         private readonly MyWatchlistAccountsService myWatchlistAccountsService;
@@ -69,23 +73,45 @@
                 message.PageIndex,
                 message.LimitedDateToShowInfo);
 
-            var reachlistAccountDTO = await reachedThresholdService.GetReachlistAccounts(param);
+            var reachlistAccountReport = await reachedThresholdService.GetReachlistAccounts(param);
 
-            return new ReachedThresholdPagingViewModel(reachlistAccountDTO, message);
+            return new ReachedThresholdPagingViewModel(reachlistAccountReport, message);
         }
 
         public async Task<ReachHistoryViewModel> Handle(ReachHistoryQuery message)
         {
+            var query = new ReachHistoryListQuery(message.Viewer)
+            {
+                SelectedCustId = message.SelectedCustId,
+                FromDate = message.FromDate,
+                ToDate = message.ToDate,
+                LimitType = message.LimitType,
+                SortType = message.SortType,
+                IsDesc = message.IsDesc,
+            };
+
+            var reachHistoryDTOs = await Handle(query);
+
+            return new ReachHistoryViewModel(message, reachHistoryDTOs);
+        }
+
+        public async Task<IEnumerable<ReachHistoryDTO>> Handle(ReachHistoryListQuery message)
+        {
             var param = new SelectReachDetailParam(
-                message.SelectedCustId,
-                message.FromDate,
-                message.ToDate,
-                message.LimitType,
-                message.LimitedDateToShowInfo);
+             message.SelectedCustId,
+             message.FromDate,
+             message.ToDate,
+             message.LimitType,
+             message.SortType,
+             message.IsDesc,
+             message.LimitedDateToShowInfo);
 
             var reachHistories = await reachedThresholdService.GetReachDetail(param);
 
-            return new ReachHistoryViewModel(reachHistories);
+            int rowNumber = 0;
+            var reachHistoryDTOs = reachHistories.Select(reachHistory => new ReachHistoryDTO(reachHistory, ++rowNumber));
+
+            return reachHistoryDTOs;
         }
     }
 }

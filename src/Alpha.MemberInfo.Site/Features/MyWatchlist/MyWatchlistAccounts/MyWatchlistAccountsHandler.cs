@@ -72,9 +72,9 @@
                message.PageIndex,
                message.PageSize);
 
-            var watchlistAccountDTO = await service.GetWatchlistAccounts(param);
+            var watchlistAccountReport = await service.GetWatchlistAccounts(param);
 
-            return new MyWatchlistAccountsPagingViewModel(watchlistAccountDTO, message);
+            return new MyWatchlistAccountsPagingViewModel(watchlistAccountReport, message);
         }
 
         public async Task<IEnumerable<PersonalPresetModel>> Handle(PersonalPresetQuery message)

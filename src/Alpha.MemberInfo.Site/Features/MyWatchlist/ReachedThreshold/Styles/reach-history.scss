@@ -1,0 +1,18 @@
+﻿.left {
+    text-align: left;
+}
+
+#tbl-reach-history thead {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    z-index: 9;
+}
+
+table {
+    &.fixedHeader-floating {
+        position: fixed !important;
+        margin-top: 0px !important;
+        z-index: 10;
+    }
+}

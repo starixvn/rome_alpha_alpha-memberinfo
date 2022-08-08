@@ -759,6 +759,18 @@
     <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts-dark.min.css">
       <DependentUpon>my-watchlist-accounts-dark.css</DependentUpon>
     </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history-dark.css" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history-dark.min.css">
+      <DependentUpon>reach-history-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history.css" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history.js" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history.min.css">
+      <DependentUpon>reach-history.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history.min.js">
+      <DependentUpon>reach-history.js</DependentUpon>
+    </Content>
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-dark.css" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-dark.min.css">
       <DependentUpon>reached-threshold-dark.css</DependentUpon>
@@ -928,8 +940,20 @@
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold.min.js">
       <DependentUpon>reached-threshold.js</DependentUpon>
     </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-dark.css">
+      <DependentUpon>reach-history-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-dark.min.css">
+      <DependentUpon>reach-history-dark.css</DependentUpon>
+    </Content>
     <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-media.css">
       <DependentUpon>reach-history-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history.css">
+      <DependentUpon>reach-history.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history.min.css">
+      <DependentUpon>reach-history.css</DependentUpon>
     </Content>
     <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold-dark.min.css">
       <DependentUpon>reached-threshold-dark.css</DependentUpon>
@@ -995,6 +1019,8 @@
     <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold-media.scss" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-media.scss" />
     <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert-dark.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-dark.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history.scss" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
@@ -1188,20 +1214,20 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\MyWatchlistAccountsViewModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\PresetSelectionViewModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ThresholdViewModel.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\WatchlistAccountViewModel.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdController.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdExcelHandler.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdHandler.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachedThresholdExcelQuery.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachHistoryListQuery.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachHistoryQuery.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachlistAccountsQuery.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachedThresholdQuery.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachedThresholdQueryBase.cs" />
-    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachHistoryQuery.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachHistoryQueryBase.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\LimitTypeSelectionViewModel.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\ReachedThresholdPagingViewModel.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\ReachedThresholdViewModel.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\ReachHistoryViewModel.cs" />
-    <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\ReachlistAccountViewModel.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\StatusSelectionViewModel.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdWorkbook.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutController.cs" />
@@ -1545,6 +1571,7 @@
     <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-accounts-datatable.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-accounts-viewmodel.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-accounts.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\ReachedThreshold\Scripts\reach-history.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\ReachedThreshold\Scripts\reached-threshold-datatable.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\ReachedThreshold\Scripts\reached-threshold-service.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\ReachedThreshold\Scripts\reached-threshold-viewmodel.ts" />

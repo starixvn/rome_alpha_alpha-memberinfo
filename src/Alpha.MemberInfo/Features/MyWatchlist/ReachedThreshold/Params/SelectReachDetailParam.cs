@@ -9,12 +9,16 @@
             DateTime fromDate, 
             DateTime toDate, 
             byte limitType,
+            byte sortType,
+            bool isDesc,
             DateTime limitedDateToShowInfo)
         {
             CustId = custId;
             FromDate = fromDate;
             ToDate = toDate;
             LimitType = limitType;
+            SortType = sortType;
+            IsDesc = isDesc;
             LimitedDateToShowInfo = limitedDateToShowInfo;
         }
 
@@ -25,6 +29,10 @@
         public DateTime ToDate { get; }
 
         public byte LimitType { get; }
+
+        public byte SortType { get; }
+
+        public bool IsDesc { get; }
 
         public DateTime LimitedDateToShowInfo { get; }
     }

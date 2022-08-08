@@ -8,14 +8,14 @@
 
     public class ReachedThresholdPagingViewModel
     {
-        public ReachedThresholdPagingViewModel(ReachlistAccountDTO reachlistAccountDTO, ReachlistAccountsQuery request)
+        public ReachedThresholdPagingViewModel(ReachlistAccountReport reachlistAccountReport, ReachlistAccountsQuery request)
         {
-            ReachlistAccounts = reachlistAccountDTO.ReachlistAccounts
-                                    .Select(account => new ReachlistAccountViewModel(account, request.LimitedDateToShowInfo == default(DateTime)));
-            TotalItems = reachlistAccountDTO.TotalItems;
+            ReachlistAccounts = reachlistAccountReport.ReachlistAccounts
+                                    .Select(account => new ReachlistAccountDTO(account, request.LimitedDateToShowInfo == default(DateTime)));
+            TotalItems = reachlistAccountReport.TotalItems;
         }
 
-        public IEnumerable<ReachlistAccountViewModel> ReachlistAccounts { get; }
+        public IEnumerable<ReachlistAccountDTO> ReachlistAccounts { get; }
 
         public int TotalItems { get; }
     }

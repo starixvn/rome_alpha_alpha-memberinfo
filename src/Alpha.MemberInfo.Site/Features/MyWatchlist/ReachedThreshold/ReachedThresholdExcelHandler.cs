@@ -42,11 +42,11 @@
                  1,
                  message.LimitedDateToShowInfo);
 
-            var reachlistAccountDTO = await service.GetReachlistAccounts(param);
+            var reachlistAccountReport = await service.GetReachlistAccounts(param);
 
             var isShowLastLoginColumn = message.LimitedDateToShowInfo == default(DateTime);
             var fileContent = workbook
-               .SetData(reachlistAccountDTO.ReachlistAccounts)
+               .SetData(reachlistAccountReport.ReachlistAccounts)
                .SetRowMappers(GetBodyRowMapper(message, isShowLastLoginColumn))
                .UseTemplate(GetTemplateInfo(isShowLastLoginColumn))
                .Sheet("Sheet 1")

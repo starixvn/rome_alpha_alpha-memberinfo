@@ -5,12 +5,21 @@
 
     public class SelectReachDetailCriteria : CriteriaBase
     {
-        public SelectReachDetailCriteria(int custId, DateTime fromDate, DateTime toDate, byte limitType, int sporttype = 0)
+        public SelectReachDetailCriteria(
+            int custId, 
+            DateTime fromDate, 
+            DateTime toDate, 
+            byte limitType,
+            byte sortType,
+            bool isDesc,
+            int sporttype = 0)
         {
             CustId = custId;
             FromDate = fromDate;
             ToDate = toDate;
             LimitType = limitType;
+            SortType = sortType;
+            IsDesc = isDesc;
             Sporttype = sporttype;
         }
 
@@ -23,6 +32,10 @@
         public byte LimitType { get; }
 
         public int Sporttype { get; }
+
+        public byte SortType { get; }
+
+        public bool IsDesc { get; }
 
         public override string GetSettingKey() => "Acc_WLMonitored_Player_ReachDetail_Sel";
 

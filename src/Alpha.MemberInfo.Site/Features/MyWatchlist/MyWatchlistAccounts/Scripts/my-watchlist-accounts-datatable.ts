@@ -264,6 +264,7 @@ class MyWatchlistAccountsDataTable {
         this.editSettingPopup.bindingModalEvent();
 
         this.$("#tbl-my-watchlist-accounts").removeClass("hidden");
+        this.$('.select-all').prop("checked", false);
 
         this.$('#btn-submit').off().on('click', () => {
             this.username = this.$('#txt-username').val().trim();

@@ -10,7 +10,7 @@
 
     public interface MyWatchlistAccountsService
     {
-        Task<WatchlistAccountDTO> GetWatchlistAccounts(SelectWatchlistAccountsParam param);
+        Task<WatchlistAccountReport> GetWatchlistAccounts(SelectWatchlistAccountsParam param);
         Task<IEnumerable<PersonalPresetModel>> GetPresets(SelectPresetsParam param);
         Task<IEnumerable<NamedResult>> AddPersonalThreshold(AddPersonalThresholdParam param);
         Task<NamedResult> UpdatePersonalThreshold(UpdatePersonalThresholdParam param);
@@ -31,7 +31,7 @@
             this.dynamicRepository = dynamicRepository;
         }
 
-        public async Task<WatchlistAccountDTO> GetWatchlistAccounts(SelectWatchlistAccountsParam param)
+        public async Task<WatchlistAccountReport> GetWatchlistAccounts(SelectWatchlistAccountsParam param)
         {
             var criteria = new SelectWatchlistAccountsCriteria(
                 param.AgentId, 
@@ -43,7 +43,7 @@
 
             var watchlistAccounts = await dynamicRepository.FetchAsync<WatchlistAccountModel>(criteria);
 
-            return new WatchlistAccountDTO(watchlistAccounts, criteria.TotalItems);
+            return new WatchlistAccountReport(watchlistAccounts, criteria.TotalItems);
         }
 
         public async Task<IEnumerable<PersonalPresetModel>> GetPresets(SelectPresetsParam param)
