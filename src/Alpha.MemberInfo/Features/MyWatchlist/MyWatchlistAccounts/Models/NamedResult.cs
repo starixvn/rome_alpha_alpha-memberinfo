@@ -8,6 +8,13 @@
         {
         }
 
+        public NamedResult(string name, int code, string message)
+        {
+            Name = name;
+            Code = code;
+            Message = message;
+        }
+
         public string Name { get; set; }
     }
 }

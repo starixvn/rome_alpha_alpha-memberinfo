@@ -201,7 +201,7 @@ class ReachedThresholdDataTable {
         columns.push(
             {
                 "className": 'center',
-                "data": "Status",
+                "data": "TranslatedStatus",
                 "name": "Status"
             },
             {
@@ -211,7 +211,7 @@ class ReachedThresholdDataTable {
             },
             {
                 "className": 'center',
-                "data": "LastLimitTypeReach",
+                "data": "TranslatedLastLimitTypeReach",
                 "name": "LastLimitTypeReach"
             },
             {

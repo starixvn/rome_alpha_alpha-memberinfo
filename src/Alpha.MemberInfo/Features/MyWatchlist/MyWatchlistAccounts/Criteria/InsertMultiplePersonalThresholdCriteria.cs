@@ -8,8 +8,8 @@
             string usernames, 
             int agentId, 
             decimal? winningThreshold, 
-            decimal? losingThreshold, 
-            int userId, 
+            decimal? losingThreshold,
+            int userId,
             int subAccId, 
             string ip,
             int sporttype = 0)

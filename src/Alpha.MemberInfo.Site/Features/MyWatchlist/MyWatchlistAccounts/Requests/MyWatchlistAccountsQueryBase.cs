@@ -9,7 +9,7 @@
     {
         public MyWatchlistAccountsQueryBase(IUser viewer) : base(viewer)
         {
-            LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
+            IsShowLastLoginColumn = viewer.LimitedDateToShowInfo == default(DateTime);
         }
 
         [AllowHtml]
@@ -23,6 +23,6 @@
 
         public int PageSize { get; set; } = 100;
 
-        public bool LimitedDateToShowInfo { get; }
+        public bool IsShowLastLoginColumn { get; }
     }
 }

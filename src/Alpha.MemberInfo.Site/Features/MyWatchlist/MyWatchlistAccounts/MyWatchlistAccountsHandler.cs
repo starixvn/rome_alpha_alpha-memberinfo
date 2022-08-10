@@ -187,7 +187,7 @@
                 message.ID,
                 message.CustId);
 
-            return await service.DeletePersonalPresetParam(param);
+            return await service.DeletePersonalPreset(param);
         }
 
         public async Task<ManageWatchlistAccountsViewModel> Handle(ManageWatchlistAccountsQuery message)

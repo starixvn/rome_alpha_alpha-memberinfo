@@ -5,7 +5,7 @@
     using MediatR;
     using System.Collections.Generic;
 
-    public class ReachHistoryListQuery : ReachHistoryQueryBase, IAsyncRequest<IEnumerable<ReachHistoryDTO>>
+    public class ReachHistoryListQuery : ReachHistoryQueryBase, IAsyncRequest<IEnumerable<ReachHistoryModel>>
     {
         public ReachHistoryListQuery(IUser viewer) : base(viewer)
         {

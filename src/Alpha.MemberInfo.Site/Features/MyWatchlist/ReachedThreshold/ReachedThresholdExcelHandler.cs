@@ -47,7 +47,7 @@
             var isShowLastLoginColumn = message.LimitedDateToShowInfo == default(DateTime);
             var fileContent = workbook
                .SetData(reachlistAccountReport.ReachlistAccounts)
-               .SetRowMappers(GetBodyRowMapper(message, isShowLastLoginColumn))
+               .SetRowMappers(GetBodyRowMapper(isShowLastLoginColumn))
                .UseTemplate(GetTemplateInfo(isShowLastLoginColumn))
                .Sheet("Sheet 1")
                .Title(GetReportTitle(message))
@@ -59,7 +59,7 @@
 
         protected override string GetExcelTemplateDir() => "~/App_Data/ExcelTemplates/ReachedThreshold";
 
-        internal Mapper<ReachlistAccountModel> GetBodyRowMapper(ReachedThresholdExcelQuery message, bool isShowLastLoginColumn)
+        internal Mapper<ReachlistAccountModel> GetBodyRowMapper(bool isShowLastLoginColumn)
         {
             var mapper = new Mapper<ReachlistAccountModel>()
                 .Map(A, data => data.RowNumber)
@@ -68,24 +68,24 @@
             if (isShowLastLoginColumn)
             {
                 mapper
-                    .Map(C, data => data.LastLogged.ToLongDateTime12hWithHyphen())
-                    .Map(D, data => Resources.ResourceManager.GetString(data.Status))
-                    .Map(E, data => data.LastReachedDate.ToLongDateTime12hWithHyphen())
-                    .Map(F, data => Resources.ResourceManager.GetString(data.LastLimitTypeReach))
-                    .Map(G, data => data.WinLossAmount.ToMoneyFormat())
-                    .Map(H, data => data.WinningThreshold.ToMoneyFormatWithUnlimited())
-                    .Map(I, data => data.LosingThreshold.ToMoneyFormatWithUnlimited())
+                    .Map(C, data => data.LastLoggedString)
+                    .Map(D, data => data.TranslatedStatus)
+                    .Map(E, data => data.LastReachedDateString)
+                    .Map(F, data => data.TranslatedLastLimitTypeReach)
+                    .Map(G, data => data.WinLossAmountString)
+                    .Map(H, data => data.WinningThresholdString)
+                    .Map(I, data => data.LosingThresholdString)
                     .Map(J, data => data.ReachedCnt);
             }
             else
             {
                 mapper
-                    .Map(C, data => Resources.ResourceManager.GetString(data.Status))
-                    .Map(D, data => data.LastReachedDate.ToLongDateTime12hWithHyphen())
-                    .Map(E, data => Resources.ResourceManager.GetString(data.LastLimitTypeReach))
-                    .Map(F, data => data.WinLossAmount.ToMoneyFormat())
-                    .Map(G, data => data.WinningThreshold.ToMoneyFormatWithUnlimited())
-                    .Map(H, data => data.LosingThreshold.ToMoneyFormatWithUnlimited())
+                    .Map(C, data => data.TranslatedStatus)
+                    .Map(D, data => data.LastReachedDateString)
+                    .Map(E, data => data.TranslatedLastLimitTypeReach)
+                    .Map(F, data => data.WinLossAmountString)
+                    .Map(G, data => data.WinningThresholdString)
+                    .Map(H, data => data.LosingThresholdString)
                     .Map(I, data => data.ReachedCnt);
             }
 

@@ -16,6 +16,6 @@
         };
 
         public static string GetReachedThresholdLimitType(byte key)
-        => Items.ContainsKey(key) ? Items[key] : string.Empty;
+            => Items.ContainsKey(key) ? Items[key] : string.Empty;
     }
 }

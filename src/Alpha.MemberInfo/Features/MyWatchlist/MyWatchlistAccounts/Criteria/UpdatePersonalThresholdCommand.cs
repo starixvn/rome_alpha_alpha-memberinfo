@@ -10,7 +10,7 @@
             decimal? losingThreshold, 
             int userId, 
             int subAccId, 
-            string iP,
+            string ip,
             int sporttype = 0)
         {
             CustId = custId;
@@ -18,7 +18,7 @@
             LosingThreshold = losingThreshold;
             UserId = userId;
             SubAccId = subAccId;
-            IP = iP;
+            IP = ip;
             Sporttype = sporttype;
         }
 

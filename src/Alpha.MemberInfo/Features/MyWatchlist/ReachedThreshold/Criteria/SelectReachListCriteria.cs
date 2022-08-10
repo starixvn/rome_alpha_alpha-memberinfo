@@ -6,7 +6,7 @@
     public class SelectReachListCriteria : CriteriaBase
     {
         public SelectReachListCriteria(
-            int agentId, 
+            int agentId,
             string username, 
             DateTime fromDate, 
             DateTime toDate, 

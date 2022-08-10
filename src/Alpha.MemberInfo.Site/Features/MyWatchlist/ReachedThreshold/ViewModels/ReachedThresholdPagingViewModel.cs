@@ -2,20 +2,17 @@
 {
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Models;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.Requests;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     public class ReachedThresholdPagingViewModel
     {
         public ReachedThresholdPagingViewModel(ReachlistAccountReport reachlistAccountReport, ReachlistAccountsQuery request)
         {
-            ReachlistAccounts = reachlistAccountReport.ReachlistAccounts
-                                    .Select(account => new ReachlistAccountDTO(account, request.LimitedDateToShowInfo == default(DateTime)));
+            ReachlistAccounts = reachlistAccountReport.ReachlistAccounts;
             TotalItems = reachlistAccountReport.TotalItems;
         }
 
-        public IEnumerable<ReachlistAccountDTO> ReachlistAccounts { get; }
+        public IEnumerable<ReachlistAccountModel> ReachlistAccounts { get; }
 
         public int TotalItems { get; }
     }

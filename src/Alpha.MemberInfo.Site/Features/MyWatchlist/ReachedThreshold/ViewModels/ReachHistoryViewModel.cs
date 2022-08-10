@@ -6,13 +6,13 @@
 
     public class ReachHistoryViewModel
     {
-        public ReachHistoryViewModel(ReachHistoryQuery message, IEnumerable<ReachHistoryDTO> reachHistoryDTOs)
+        public ReachHistoryViewModel(ReachHistoryQuery message, IEnumerable<ReachHistoryModel> reachHistories)
         {
-            ReachHistories = reachHistoryDTOs;
+            ReachHistories = reachHistories;
             ReachHistoryQuery = message;
         }
 
-        public IEnumerable<ReachHistoryDTO> ReachHistories { get; }
+        public IEnumerable<ReachHistoryModel> ReachHistories { get; }
 
         public ReachHistoryQuery ReachHistoryQuery { get; }
     }

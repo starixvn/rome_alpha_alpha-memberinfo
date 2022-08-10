@@ -5,7 +5,7 @@ class MyWatchlistAccountsViewModel {
     MemberInfoUrl: string;
     IsMobile: boolean;
     CanUpdateAccount: boolean;
-    LimitedDateToShowInfo: boolean
+    IsShowLastLoginColumn: boolean
     WatchlistAccountData: any;
     URL: string;
 
@@ -14,14 +14,14 @@ class MyWatchlistAccountsViewModel {
         memberInfoUrl: string,
         isMobile: boolean,
         canUpdateAccount: boolean,
-        limitedDateToShowInfo: boolean,
+        isShowLastLoginColumn: boolean,
         watchlistAccountData: any
     ) {
         this.SearchAccountId = searchAccountId;
         this.MemberInfoUrl = memberInfoUrl;
         this.IsMobile = isMobile;
         this.CanUpdateAccount = canUpdateAccount;
-        this.LimitedDateToShowInfo = limitedDateToShowInfo;
+        this.IsShowLastLoginColumn = isShowLastLoginColumn;
         this.WatchlistAccountData = watchlistAccountData;
         this.URL = this.MemberInfoUrl + "MyWatchlistAccounts";
     }

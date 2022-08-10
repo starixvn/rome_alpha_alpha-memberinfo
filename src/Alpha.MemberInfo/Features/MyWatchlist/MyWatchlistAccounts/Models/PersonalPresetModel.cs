@@ -6,6 +6,15 @@
         {
         }
 
+        public PersonalPresetModel(int id, int sporttype, string presetTitle, decimal winningThreshold, decimal losingThreshold)
+        {
+            ID = id;
+            Sporttype = sporttype;
+            PresetTitle = presetTitle;
+            WinningThreshold = winningThreshold;
+            LosingThreshold = losingThreshold;
+        }
+
         public int ID { get; }
 
         public int Sporttype { get; }

@@ -804,4 +804,7 @@
   <data name="PageSize" xml:space="preserve">
     <value>Số dòng</value>
   </data>
+  <data name="AddSuccessfully" xml:space="preserve">
+    <value>Đã thêm vào thành công</value>
+  </data>
 </root>

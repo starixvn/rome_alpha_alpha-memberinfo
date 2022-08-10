@@ -6,6 +6,12 @@
         {
         }
 
+        public GlobalThresholdModel(decimal? winningThreshold, decimal? losingThreshold)
+        {
+            WinningThreshold = winningThreshold;
+            LosingThreshold = losingThreshold;
+        }
+
         public decimal? WinningThreshold { get; }
 
         public decimal? LosingThreshold { get; }

@@ -98,12 +98,12 @@ class ReachHistory {
             },
             {
                 "className": 'left',
-                "data": "LimitTypeReach",
+                "data": "TranslatedLimitTypeReach",
                 "name": "ThresholdType"
             },
             {
                 "className": 'right',
-                "data": "WinLossAmount",
+                "data": "WinLossAmountString",
                 "name": "WinningLosingAmount"
             },
             {

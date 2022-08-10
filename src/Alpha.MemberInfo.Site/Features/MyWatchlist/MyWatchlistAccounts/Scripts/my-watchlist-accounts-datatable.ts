@@ -197,7 +197,7 @@ class MyWatchlistAccountsDataTable {
             }
         );
 
-        if (!this.viewModel.LimitedDateToShowInfo) {
+        if (this.viewModel.IsShowLastLoginColumn) {
             columns.push(
                 {
                     "className": 'center',
@@ -210,7 +210,7 @@ class MyWatchlistAccountsDataTable {
         columns.push(
             {
                 "className": 'center',
-                "data": "Status",
+                "data": "TranslatedStatus",
                 "name": "Status"
             },
             {

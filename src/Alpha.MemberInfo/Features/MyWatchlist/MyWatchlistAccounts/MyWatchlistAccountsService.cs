@@ -19,7 +19,7 @@
         Task<Result> UpdateGlobalThreshold(UpdateGlobalThresholdParam param);
         Task<NamedResult> AddPersonalPreset(AddPersonalPresetParam param);
         Task<Result> UpdatePersonalPreset(UpdatePersonalPresetParam param);
-        Task<Result> DeletePersonalPresetParam(DeletePersonalPresetParam param);
+        Task<Result> DeletePersonalPreset(DeletePersonalPresetParam param);
     }
 
     public class MyWatchlistAccountsServiceImpl : MyWatchlistAccountsService
@@ -144,7 +144,7 @@
             return new Result { Code = command.ErrCode, Message = command.ErrMsg };
         }
 
-        public async Task<Result> DeletePersonalPresetParam(DeletePersonalPresetParam param)
+        public async Task<Result> DeletePersonalPreset(DeletePersonalPresetParam param)
         {
             var command = new DeletePersonalPresetCommand(
                 param.AgentId,

@@ -344,12 +344,9 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\UpdateGlobalThresholdCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\UpdatePersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\UpdatePersonalThresholdCommand.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\ManageWatchlistAccountsModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\NamedResult.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\GlobalThresholdModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\PersonalPresetModel.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\PersonalPresetResultModel.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\WatchlistAccountDTO.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\WatchlistAccountReport.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\WatchlistAccountModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\MyWatchlistAccountsService.cs" />
@@ -365,9 +362,7 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\SelectWatchlistAccountsParam.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Criteria\SelectReachDetailCriteria.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Criteria\SelectReachListCriteria.cs" />
-    <Compile Include="Features\MyWatchlist\ReachedThreshold\Models\ReachHistoryDTO.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Models\ReachHistoryModel.cs" />
-    <Compile Include="Features\MyWatchlist\ReachedThreshold\Models\ReachlistAccountDTO.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Models\ReachlistAccountReport.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Models\ReachlistAccountModel.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Params\SelectReachDetailParam.cs" />

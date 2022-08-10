@@ -17,7 +17,7 @@
             CanUpdateAccount = canUpdateAccount;
             GlobalThresholdModel = globalThresholdModel;
             MyWatchListAccountPagingViewModel = myWatchListAccountPagingViewModel;
-            LimitedDateToShowInfo = request.LimitedDateToShowInfo;
+            IsShowLastLoginColumn = request.IsShowLastLoginColumn;
             CustLevel = request.CustLevel.DisplayName;
         }
 
@@ -29,7 +29,7 @@
 
         public MyWatchlistAccountsPagingViewModel MyWatchListAccountPagingViewModel { get; }
 
-        public bool LimitedDateToShowInfo { get; }
+        public bool IsShowLastLoginColumn { get; }
 
         public string CustLevel { get; }
 

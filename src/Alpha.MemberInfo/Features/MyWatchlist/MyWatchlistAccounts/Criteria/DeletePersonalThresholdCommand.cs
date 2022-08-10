@@ -8,13 +8,13 @@
             int custId,
             int userId,
             int subAccId,
-            string iP,
+            string ip,
             int sporttype = 0)
         {
             CustId = custId;
             UserId = userId;
             SubAccId = subAccId;
-            IP = iP;
+            IP = ip;
             Sporttype = sporttype;
         }
 
