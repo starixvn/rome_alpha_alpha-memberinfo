@@ -139,7 +139,7 @@ class EditSettingPopup {
     }
 
     private openRemoveWatchlistAccountPopup = data => {
-        const usernames = data.usernames.join(", ") + " <br />";
+        const usernames = '<div style="max-height: 245px; overflow-y: auto;"> ' + data.usernames.join(", ") + "</div>" + " <br />";
 
         const users = [];
         for (let i = 0; i < data.custIds.length; i++) {
