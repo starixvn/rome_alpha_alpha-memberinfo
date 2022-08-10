@@ -636,4 +636,19 @@
   <data name="WatchlistUpdateSuccessfully" xml:space="preserve">
     <value>修改成功</value>
   </data>
+  <data name="Locked" xml:space="preserve">
+    <value>已锁定</value>
+  </data>
+  <data name="Unlimited" xml:space="preserve">
+    <value>无限</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>从</value>
+  </data>
+  <data name="CanViewReportData" xml:space="preserve">
+    <value>您可查看报表数据从 {0}.</value>
+  </data>
+  <data name="PageSize" xml:space="preserve">
+    <value>页面范围</value>
+  </data>
 </root>

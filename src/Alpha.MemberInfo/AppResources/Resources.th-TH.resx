@@ -636,4 +636,19 @@
   <data name="WatchlistUpdateSuccessfully" xml:space="preserve">
     <value>อัพเดทเสร็จสมบูรณ์</value>
   </data>
+  <data name="Locked" xml:space="preserve">
+    <value>ถูกล็อก</value>
+  </data>
+  <data name="Unlimited" xml:space="preserve">
+    <value>ไม่จำกัด</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>จาก</value>
+  </data>
+  <data name="CanViewReportData" xml:space="preserve">
+    <value>ท่านสามารถดูรายงานข้อมูลได้จาก {0}.</value>
+  </data>
+  <data name="PageSize" xml:space="preserve">
+    <value>ขนาดหน้า</value>
+  </data>
 </root>
