@@ -651,4 +651,172 @@
   <data name="PageSize" xml:space="preserve">
     <value>頁面範圍</value>
   </data>
+  <data name="ReachedThreshold" xml:space="preserve">
+    <value>已達限額</value>
+  </data>
+  <data name="MyWatchlist" xml:space="preserve">
+    <value>我的監控列表</value>
+  </data>
+  <data name="ThresholdType" xml:space="preserve">
+    <value>限額類别</value>
+  </data>
+  <data name="SupportsSportsbookDataOnly" xml:space="preserve">
+    <value>此功能僅適用於體育博彩</value>
+  </data>
+  <data name="GlobalWinningThreshold" xml:space="preserve">
+    <value>總體赢限額</value>
+  </data>
+  <data name="GlobalLosingThreshold" xml:space="preserve">
+    <value>總體輸限額</value>
+  </data>
+  <data name="LastReach" xml:space="preserve">
+    <value>已達最後限值</value>
+  </data>
+  <data name="LastThresholdType" xml:space="preserve">
+    <value>最後限額類型</value>
+  </data>
+  <data name="WinningLosingAmount" xml:space="preserve">
+    <value>赢/輸金額</value>
+  </data>
+  <data name="LastWinningThreshold" xml:space="preserve">
+    <value>最後赢限額</value>
+  </data>
+  <data name="LastLosingThreshold" xml:space="preserve">
+    <value>最後輸限額</value>
+  </data>
+  <data name="ReachCount" xml:space="preserve">
+    <value>已達限值的次數</value>
+  </data>
+  <data name="EditWatchlistAccount" xml:space="preserve">
+    <value>修改限額</value>
+  </data>
+  <data name="SelectThresholdPreset" xml:space="preserve">
+    <value>選擇預設限額或設置限額予以上會員：</value>
+  </data>
+  <data name="Preset" xml:space="preserve">
+    <value>預設</value>
+  </data>
+  <data name="PersonalThresholdPresets" xml:space="preserve">
+    <value>預設個人限額</value>
+  </data>
+  <data name="PersonalThresholdPresetSettings" xml:space="preserve">
+    <value>預設設置個人限額</value>
+  </data>
+  <data name="SelectPreset" xml:space="preserve">
+    <value>選擇預設</value>
+  </data>
+  <data name="WinningThreshold" xml:space="preserve">
+    <value>赢限額</value>
+  </data>
+  <data name="LosingThreshold" xml:space="preserve">
+    <value>輸限額</value>
+  </data>
+  <data name="GlobalThresholds" xml:space="preserve">
+    <value>總體限額</value>
+  </data>
+  <data name="GlobalThresholdSettings" xml:space="preserve">
+    <value>總體限額設置</value>
+  </data>
+  <data name="GlobalThresholdWillBeAppliedForMembers" xml:space="preserve">
+    <value>總體限額的設置適用於不在監控列表中的會員。</value>
+  </data>
+  <data name="AreYouSureToRemoveAccounts" xml:space="preserve">
+    <value>您確定要移除所選賬號嗎？</value>
+  </data>
+  <data name="ThresholdPresetName" xml:space="preserve">
+    <value>限額預設名稱</value>
+  </data>
+  <data name="AddMember" xml:space="preserve">
+    <value>添加會員</value>
+  </data>
+  <data name="EditMultiplePersonalThresholds" xml:space="preserve">
+    <value>修改多重個人限額</value>
+  </data>
+  <data name="RemoveMultipleAccounts" xml:space="preserve">
+    <value>移除多重賬號</value>
+  </data>
+  <data name="EditPersonalThreshold" xml:space="preserve">
+    <value>修改個人限額</value>
+  </data>
+  <data name="RemoveAccount" xml:space="preserve">
+    <value>移除賬號</value>
+  </data>
+  <data name="MustEnterThresholdOrCheckError" xml:space="preserve">
+    <value>請輸入限額 ，或選擇無限</value>
+  </data>
+  <data name="MustEnterThresholdError" xml:space="preserve">
+    <value>請輸入限額</value>
+  </data>
+  <data name="NoChangeToUpdateError" xml:space="preserve">
+    <value>此更新沒有任何變化</value>
+  </data>
+  <data name="MoreThan50UsernamesError" xml:space="preserve">
+    <value>會員人數不可超過 50</value>
+  </data>
+  <data name="IsNotMemberError" xml:space="preserve">
+    <value>不是會員</value>
+  </data>
+  <data name="NotInWatchlistAnyLongerError" xml:space="preserve">
+    <value>已不在監控列表</value>
+  </data>
+  <data name="WasAddedWatchlistAlreadyError" xml:space="preserve">
+    <value>已在監控列表</value>
+  </data>
+  <data name="MustEnterUsernameError" xml:space="preserve">
+    <value>請輸入會員用戶名</value>
+  </data>
+  <data name="PresetIsNotAvailable" xml:space="preserve">
+    <value>此預設不再存在</value>
+  </data>
+  <data name="PresetNameIsDuplicated" xml:space="preserve">
+    <value>預設名稱已存在</value>
+  </data>
+  <data name="MustEnterPresetNameError" xml:space="preserve">
+    <value>請輸入預設名稱</value>
+  </data>
+  <data name="EnterListOfMemberUsernames" xml:space="preserve">
+    <value>輸入會員用戶名</value>
+  </data>
+  <data name="MaximumMembers" xml:space="preserve">
+    <value>（最多 50 個會員，以逗號 ',' 分隔）</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>日期時間</value>
+  </data>
+  <data name="Global" xml:space="preserve">
+    <value>總體</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>個人</value>
+  </data>
+  <data name="AddRow" xml:space="preserve">
+    <value>添加行列</value>
+  </data>
+  <data name="RemoveSuccessfully" xml:space="preserve">
+    <value>成功移除</value>
+  </data>
+  <data name="ReachHistory" xml:space="preserve">
+    <value>已達歷史記錄</value>
+  </data>
+  <data name="AreYouSureToRemovePreset" xml:space="preserve">
+    <value>您確定要移除此預設嗎？</value>
+  </data>
+  <data name="AccumulatedMemberWinLossNote" xml:space="preserve">
+    <value>會員的累積輸贏僅在設置輸/贏限額 時開始計算。它將每天或在該功能關閉時重置。</value>
+  </data>
+  <data name="AddMembersToWatchlist" xml:space="preserve">
+    <value>添加會員在監控列表</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="AddSuccessfully" xml:space="preserve">
+    <value>添加成功</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>更改</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>增加</value>
+  </data>
 </root>

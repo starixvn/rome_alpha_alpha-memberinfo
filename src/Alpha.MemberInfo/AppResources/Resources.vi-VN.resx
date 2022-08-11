@@ -693,9 +693,6 @@
   <data name="LastWinningThreshold" xml:space="preserve">
     <value>Giới Hạn Thắng Gần Nhất</value>
   </data>
-  <data name="LimitTypeReach" xml:space="preserve">
-    <value>Loại Giới Hạn</value>
-  </data>
   <data name="LosingThreshold" xml:space="preserve">
     <value>Giới Hạn Thua</value>
   </data>
@@ -806,5 +803,11 @@
   </data>
   <data name="AddSuccessfully" xml:space="preserve">
     <value>Đã thêm vào thành công</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Thêm</value>
   </data>
 </root>

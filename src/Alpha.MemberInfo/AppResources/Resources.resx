@@ -817,7 +817,7 @@
     <value>Date Time</value>
   </data>
   <data name="LimitTypeReach" xml:space="preserve">
-    <value>Threshold Type</value>
+    <value></value>
   </data>
   <data name="AccumulatedMemberWinLossNote" xml:space="preserve">
     <value>Accumulated Member Win Loss only starts counting when a winning/losing threshold is set. It will be reset daily or when the function is off.</value>

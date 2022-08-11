@@ -189,12 +189,12 @@ class ManagePresets {
 
     private validateThresholdInputs = (presetTitle, winningThreshold, losingThreshold) => {
         if (presetTitle === "" && (winningThreshold !== "" || losingThreshold !== "")) {
-            this.alert.showError("Must enter preset name");
+            this.alert.showError(this.$("#must-enter-preset-name-error").val());
             return false;
         }
 
         if (presetTitle !== "" && (winningThreshold === "" || losingThreshold === "")) {
-            this.alert.showError("Must enter threshold");
+            this.alert.showError(this.$("#must-enter-threshold-error").val());
             return false;
         }
 

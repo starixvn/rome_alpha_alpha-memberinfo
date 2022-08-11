@@ -651,4 +651,172 @@
   <data name="PageSize" xml:space="preserve">
     <value>ขนาดหน้า</value>
   </data>
+  <data name="ReachedThreshold" xml:space="preserve">
+    <value>ถึงขีดกำจัดเกณฑ์การชนะ/แพ้</value>
+  </data>
+  <data name="MyWatchlist" xml:space="preserve">
+    <value>รายการเฝ้าดูของฉัน</value>
+  </data>
+  <data name="ThresholdType" xml:space="preserve">
+    <value>ประเภทเกณฑ์การชนะ/แพ้</value>
+  </data>
+  <data name="SupportsSportsbookDataOnly" xml:space="preserve">
+    <value>ฟังก์ชันนี้ใช้ได้เฉพาะกับ กีฬา</value>
+  </data>
+  <data name="GlobalWinningThreshold" xml:space="preserve">
+    <value>เกณฑ์การชนะสากล</value>
+  </data>
+  <data name="GlobalLosingThreshold" xml:space="preserve">
+    <value>เกณฑ์การแพ้สากล</value>
+  </data>
+  <data name="LastReach" xml:space="preserve">
+    <value>ขีดจำกัดครั้งล่าสุด</value>
+  </data>
+  <data name="LastThresholdType" xml:space="preserve">
+    <value>ประเภทเกณฑ์การชนะ/แพ้ครั้งล่าสุด</value>
+  </data>
+  <data name="WinningLosingAmount" xml:space="preserve">
+    <value>จำนวนเงินที่ชนะ/แพ้</value>
+  </data>
+  <data name="LastWinningThreshold" xml:space="preserve">
+    <value>เกณฑ์การชนะครั้งล่าสุด</value>
+  </data>
+  <data name="LastLosingThreshold" xml:space="preserve">
+    <value>เกณฑ์การแพ้ครั้งล่าสุด</value>
+  </data>
+  <data name="ReachCount" xml:space="preserve">
+    <value>จำนวนครั้งที่สมาชิกถึงขีดจำกัด</value>
+  </data>
+  <data name="EditWatchlistAccount" xml:space="preserve">
+    <value>แก้ไขเกณฑ์การชนะ/แพ้</value>
+  </data>
+  <data name="SelectThresholdPreset" xml:space="preserve">
+    <value>เลือกเกณฑ์การชนะ/แพ้ที่ตั้งค่าไว้หรือกำหนดค่าเกณฑ์การชนะ/แพ้สำหรับสมาชิกด้านบน:</value>
+  </data>
+  <data name="Preset" xml:space="preserve">
+    <value>ที่ตั้งไว้</value>
+  </data>
+  <data name="PersonalThresholdPresets" xml:space="preserve">
+    <value>ค่าที่ตั้งไว้สำหรับรายบุคคล</value>
+  </data>
+  <data name="PersonalThresholdPresetSettings" xml:space="preserve">
+    <value>การตั้งค่าสำหรับรายบุคคล</value>
+  </data>
+  <data name="SelectPreset" xml:space="preserve">
+    <value>เลือกที่ตั้งไว้</value>
+  </data>
+  <data name="WinningThreshold" xml:space="preserve">
+    <value>เกณฑ์การชนะ</value>
+  </data>
+  <data name="LosingThreshold" xml:space="preserve">
+    <value>เกณฑ์การแพ้</value>
+  </data>
+  <data name="GlobalThresholds" xml:space="preserve">
+    <value>เกณฑ์การชนะ/แพ้สากล</value>
+  </data>
+  <data name="GlobalThresholdSettings" xml:space="preserve">
+    <value>การตั้งค่าเกณฑ์การชนะ/แพ้สากล</value>
+  </data>
+  <data name="GlobalThresholdWillBeAppliedForMembers" xml:space="preserve">
+    <value>การตั้งค่าเกณฑ์การชนะ/แพ้สากลสำหรับสมาชิกที่ไม่ได้อยู่ในรายการเฝ้าดู</value>
+  </data>
+  <data name="AreYouSureToRemoveAccounts" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการลบบัญชีที่เลือก</value>
+  </data>
+  <data name="ThresholdPresetName" xml:space="preserve">
+    <value>ขีดจำกัดชื่อที่ตั้งไว้</value>
+  </data>
+  <data name="AddMember" xml:space="preserve">
+    <value>เพิ่มสมาชิก</value>
+  </data>
+  <data name="EditMultiplePersonalThresholds" xml:space="preserve">
+    <value>แก้ไขเกณฑ์การชนะ/แพ้รายบุคคลหลายรายการ</value>
+  </data>
+  <data name="RemoveMultipleAccounts" xml:space="preserve">
+    <value>ลบบัญชีหลายรายการ</value>
+  </data>
+  <data name="EditPersonalThreshold" xml:space="preserve">
+    <value>แก้ไขเกณฑ์การชนะ/แพ้รายบุคคล</value>
+  </data>
+  <data name="RemoveAccount" xml:space="preserve">
+    <value>ลบบัญชี</value>
+  </data>
+  <data name="MustEnterThresholdOrCheckError" xml:space="preserve">
+    <value>โปรดป้อนเกณฑ์การชนะ/แพ้ หรือเลือกไม่จำกัดค่า</value>
+  </data>
+  <data name="MustEnterThresholdError" xml:space="preserve">
+    <value>โปรดป้อนเกณฑ์การชนะ/แพ้</value>
+  </data>
+  <data name="NoChangeToUpdateError" xml:space="preserve">
+    <value>ไม่มีการเปลี่ยนแปลงในการอัปเดตนี้</value>
+  </data>
+  <data name="MoreThan50UsernamesError" xml:space="preserve">
+    <value>จำนวนสมาชิกต้องไม่เกิน 50</value>
+  </data>
+  <data name="IsNotMemberError" xml:space="preserve">
+    <value>ไม่ใช่สมาชิก</value>
+  </data>
+  <data name="NotInWatchlistAnyLongerError" xml:space="preserve">
+    <value>ไม่อยู่ในรายการเฝ้าดูอีกต่อไป</value>
+  </data>
+  <data name="WasAddedWatchlistAlreadyError" xml:space="preserve">
+    <value>อยู่ในรายการเฝ้าดูแล้ว</value>
+  </data>
+  <data name="MustEnterUsernameError" xml:space="preserve">
+    <value>โปรดป้อนชื่อผู้ใช้งานสมาชิก</value>
+  </data>
+  <data name="PresetIsNotAvailable" xml:space="preserve">
+    <value>ไม่มีค่าที่ตั้งไว้อีกต่อไป</value>
+  </data>
+  <data name="PresetNameIsDuplicated" xml:space="preserve">
+    <value>ชื่อที่ตั้งไวได้ถูกใช้งานแล้ว</value>
+  </data>
+  <data name="MustEnterPresetNameError" xml:space="preserve">
+    <value>โปรดป้อนชื่อที่ตั้งไว้</value>
+  </data>
+  <data name="EnterListOfMemberUsernames" xml:space="preserve">
+    <value>ป้อนชื่อผู้ใช้ของสมาชิก</value>
+  </data>
+  <data name="MaximumMembers" xml:space="preserve">
+    <value>(สมาชิกสูงสุด 50 รายการ คั่นด้วยเครื่องหมายจุลภาค ',')</value>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>วันเวลา</value>
+  </data>
+  <data name="Global" xml:space="preserve">
+    <value>สากล</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>รายบุคคล</value>
+  </data>
+  <data name="AddRow" xml:space="preserve">
+    <value>เพิ่มแถว</value>
+  </data>
+  <data name="RemoveSuccessfully" xml:space="preserve">
+    <value>ถูกลบเรียบร้อยแล้ว</value>
+  </data>
+  <data name="ReachHistory" xml:space="preserve">
+    <value>ประวัติรายการสมาชิกที่ถึงขีดจำกัด</value>
+  </data>
+  <data name="AreYouSureToRemovePreset" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการลบค่าที่ตั้งไว้นี้</value>
+  </data>
+  <data name="AccumulatedMemberWinLossNote" xml:space="preserve">
+    <value>การชนะ/แพ้สะสมของสมาชิกจะเริ่มนับเมื่อมีการกำหนดเกณฑ์การแพ้/ชนะเท่านั้น ซึ่งจะรีเซ็ตทุกวันหรือเมื่อปิดฟังก์ชันนี้</value>
+  </data>
+  <data name="AddMembersToWatchlist" xml:space="preserve">
+    <value>เพิ่มสมาชิกในรายการเฝ้าดู</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>บันทึก</value>
+  </data>
+  <data name="AddSuccessfully" xml:space="preserve">
+    <value>เพิ่มเรียบร้อยแล้ว</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>ล่าสุด</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>เพิ่ม</value>
+  </data>
 </root>
