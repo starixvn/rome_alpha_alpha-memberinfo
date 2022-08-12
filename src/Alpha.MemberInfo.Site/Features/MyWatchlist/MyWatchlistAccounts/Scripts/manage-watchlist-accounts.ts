@@ -135,7 +135,7 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
                             this.alert.showMultipleError(res.Name, this.$("#invalid-account-error").val());
                             break;
                         case 103:
-                            this.alert.showMultipleError(res.Name, this.$("#is-not-member-error").val());
+                            this.alert.showMultipleError(res.Name, this.$("#not-in-watchlist-any-longer-error").val());
                             break;
                         default:
                             break;
