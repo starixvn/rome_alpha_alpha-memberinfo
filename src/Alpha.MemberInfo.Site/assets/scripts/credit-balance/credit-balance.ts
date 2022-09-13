@@ -113,6 +113,11 @@ class CreditBalance {
         });
 
         this.$iconInformation.on("click", this.showLegend);
+
+        this.$(".betcreditlink").click(function (e) {
+            e.preventDefault();
+            self.topWindow.popupManager.open(self.$(this).attr("href"), undefined, 380, 280);
+        });
     };
 
     showLegend = () => {

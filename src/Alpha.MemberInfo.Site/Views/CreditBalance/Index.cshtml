@@ -12,7 +12,6 @@
         @Resources.CreditBalance
         <span id="icon-information" class="icon icon-information-outline"></span>
     </span>
-
 </div>
 @using (Html.BeginForm("Index", "CreditBalance", FormMethod.Get, new { id = "creditBalanceForm", @class = "form-inline filter", role = "form" }))
 {
@@ -39,6 +38,10 @@
 @if (Model.ActorIsAgent)
 {
     <p class="star">@Model.TransferCondition</p>
+}
+@if (Model.IsViewingMemberList)
+{
+    <p class="star"><span class="note">@Resources.CreditBalanceNote</span></p>
 }
 <div id="tbl-container">
     @{ Html.RenderPartial("~/Views/CreditBalance/_ColumnsControl.cshtml"); }
@@ -87,7 +90,7 @@
                         <td class="text-right column-cd">@RenderCreditColumn(item)</td>
                         <td class="text-right column-bl">@RenderBalanceColumn(item)</td>
                         <td class="text-right column-yb">@RenderYesterdayBalanceColumn(item)</td>
-                        <td class="text-right column-bc">@HtmlHelpers.FormatDecimal(item.BetCredit)</td>
+                        <td class="text-right column-bc">@RenderBetCreditColumn(item)</td>
                         <td class="text-right column-ot">@renderOutstandingColumn(item)</td>
                         @if (Model.IsShowDateTimeColumn)
                         {
@@ -179,6 +182,18 @@
     else
     {
         @HtmlHelpers.FormatDecimal(item.Yesterday_Balance, true)
+    }
+}
+
+@helper RenderBetCreditColumn(CreditBalanceItem item)
+{
+    if (Model.IsViewingMemberList)
+    {
+        <a href="@Model.GetMemberBalanceInfoLink(item.UserName)" class="link betcreditlink">@HtmlHelpers.FormatDecimal(item.BetCredit)</a>
+    }
+    else
+    {
+        @HtmlHelpers.FormatDecimal(item.BetCredit)
     }
 }
 

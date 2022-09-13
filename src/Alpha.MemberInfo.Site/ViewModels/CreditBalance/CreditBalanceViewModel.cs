@@ -105,5 +105,8 @@
         public string OldMainRootPath => MicroSites.OldMainUrl();
 
         public string GivenCreditLink => MicroSites.AccountInfoUrl($"~/SearchAccount/GivenCredit");
+
+        public string GetMemberBalanceInfoLink(string custName)
+            => MicroSites.AccountInfoUrl($"~/SearchAccount/GetMemberBalanceInfo?custname={custName}");
     }
 }

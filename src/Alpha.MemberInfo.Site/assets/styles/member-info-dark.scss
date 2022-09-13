@@ -181,8 +181,11 @@ input[type="button"][disabled] {
 }
 
 .star {
-    background: url(../styles/images/star.gif) no-repeat 0 6px;
-    padding-left: 10px;
+    &:before {
+        color: #e54748;
+        content: '*';
+        padding-right: 8px;
+    }
 }
 
 #txt-username, #txt-player-id {

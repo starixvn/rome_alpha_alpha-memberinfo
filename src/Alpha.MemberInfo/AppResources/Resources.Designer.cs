@@ -358,6 +358,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Balance and Bet Credit values displayed on the report may not be up to date comparing with the values displayed on Account lnfo feature at the left panel. You can click on Bet Credit amount to view the latest value..
+        /// </summary>
+        public static string CreditBalanceNote {
+            get {
+                return ResourceManager.GetString("CreditBalanceNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current Loss Limit (%).
         /// </summary>
         public static string CurrentLossLimit {
