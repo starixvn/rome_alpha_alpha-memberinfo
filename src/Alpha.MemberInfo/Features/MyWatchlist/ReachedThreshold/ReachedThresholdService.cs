@@ -25,21 +25,25 @@
 
         public async Task<ReachlistAccountReport> GetReachlistAccounts(SelectReachListParam param)
         {
-            var criteria = new SelectReachListCriteria(
+            var selectReachListByAgCriteria = new SelectReachListByAgCriteria(
                 param.AgentId,
-                param.Username,
                 param.FromDate.GetGreaterDate(param.LimitedDateToShowInfo),
                 param.ToDate,
+                param.LimitType);
+            await dynamicRepository.ExecuteAsync(selectReachListByAgCriteria);
+
+            var selectReachListCriteria = new SelectReachListCriteria(
+                param.AgentId,
+                param.Username,
                 param.Status,
-                param.LimitType,
                 param.SortType,
                 param.IsDesc,
                 param.PageSize,
-                param.PageIndex);
+                param.PageIndex,
+                selectReachListByAgCriteria.XMLReachList ?? string.Empty);
+            var reachlistAccounts = await dynamicRepository.FetchAsync<ReachlistAccountModel>(selectReachListCriteria);
 
-            var reachlistAccounts = await dynamicRepository.FetchAsync<ReachlistAccountModel>(criteria);
-
-            return new ReachlistAccountReport(reachlistAccounts, criteria.TotalItems);
+            return new ReachlistAccountReport(reachlistAccounts, selectReachListCriteria.TotalItems);
         }
 
         public async Task<IEnumerable<ReachHistoryModel>> GetReachDetail(SelectReachDetailParam param)

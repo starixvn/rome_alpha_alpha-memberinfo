@@ -45,23 +45,6 @@
         )
     }
 
-    public getPersonalPresets = (params, callback) => {
-        this.callAjax(
-            this.url + "/GetPersonalPresets",
-            "POST",
-            params,
-            data => {
-                this.$.unblockUI();
-
-                if (data && data.IsFailed) {
-                    this.alert.showError(data.Message);
-                    return;
-                }
-
-                callback(data);
-            });
-    }
-
     public addPersonalThreshold = (params, callback) => {
         this.callAjax(
             this.url + "/AddPersonalThreshold",
@@ -69,12 +52,6 @@
             params,
             data => {
                 this.$.unblockUI();
-
-                if (data && data.IsFailed) {
-                    this.alert.showError(data.Message);
-                    return;
-                }
-
                 callback(data);
             }
         );
@@ -87,12 +64,6 @@
             params,
             data => {
                 this.$.unblockUI();
-
-                if (data && data.IsFailed) {
-                    this.alert.showError(data.Message);
-                    return;
-                }
-
                 callback(data);
             }
         );
@@ -128,12 +99,6 @@
             params,
             data => {
                 this.$.unblockUI();
-
-                if (data && data.IsFailed) {
-                    this.alert.showError(data.Message);
-                    return;
-                }
-
                 callback(data);
             }
         );
@@ -146,12 +111,6 @@
             params,
             data => {
                 this.$.unblockUI();
-
-                if (data && data.IsFailed) {
-                    this.alert.showError(data.Message);
-                    return;
-                }
-
                 callback(data);
             }
         )
@@ -164,12 +123,6 @@
             params,
             data => {
                 this.$.unblockUI();
-
-                if (data && data.IsFailed) {
-                    this.alert.showError(data.Message);
-                    return;
-                }
-
                 callback(data);
             }
         )
@@ -182,12 +135,6 @@
             params,
             data => {
                 this.$.unblockUI();
-
-                if (data && data.IsFailed) {
-                    this.alert.showError(data.Message);
-                    return;
-                }
-
                 callback(data);
             }
         )

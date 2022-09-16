@@ -361,6 +361,7 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\UpdatePersonalThresholdParam.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\SelectWatchlistAccountsParam.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Criteria\SelectReachDetailCriteria.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Criteria\SelectReachListByAgCriteria.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Criteria\SelectReachListCriteria.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Models\ReachHistoryModel.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Models\ReachlistAccountReport.cs" />

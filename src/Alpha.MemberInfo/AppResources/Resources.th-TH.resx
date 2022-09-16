@@ -765,7 +765,7 @@
   <data name="MustEnterUsernameError" xml:space="preserve">
     <value>โปรดป้อนชื่อผู้ใช้งานสมาชิก</value>
   </data>
-  <data name="PresetIsNotAvailable" xml:space="preserve">
+  <data name="PresetIsNoLongerExists" xml:space="preserve">
     <value>ไม่มีค่าที่ตั้งไว้อีกต่อไป</value>
   </data>
   <data name="PresetNameIsDuplicated" xml:space="preserve">

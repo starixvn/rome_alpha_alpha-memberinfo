@@ -1530,9 +1530,9 @@ namespace Alpha.MemberInfo.AppResources {
         /// <summary>
         ///   Looks up a localized string similar to This preset no longer exists.
         /// </summary>
-        public static string PresetIsNotAvailable {
+        public static string PresetIsNoLongerExists {
             get {
-                return ResourceManager.GetString("PresetIsNotAvailable", resourceCulture);
+                return ResourceManager.GetString("PresetIsNoLongerExists", resourceCulture);
             }
         }
         

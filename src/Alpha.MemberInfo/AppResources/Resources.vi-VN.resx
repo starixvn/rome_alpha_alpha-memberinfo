@@ -735,7 +735,7 @@
   <data name="Preset" xml:space="preserve">
     <value>Giới Hạn Đặt Sẵn</value>
   </data>
-  <data name="PresetIsNotAvailable" xml:space="preserve">
+  <data name="PresetIsNoLongerExists" xml:space="preserve">
     <value>Giới hạn đặt sẵn này không còn tồn tại</value>
   </data>
   <data name="PresetNameIsDuplicated" xml:space="preserve">

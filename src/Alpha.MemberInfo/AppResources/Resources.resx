@@ -762,7 +762,7 @@
   <data name="Preset" xml:space="preserve">
     <value>Preset</value>
   </data>
-  <data name="PresetIsNotAvailable" xml:space="preserve">
+  <data name="PresetIsNoLongerExists" xml:space="preserve">
     <value>This preset no longer exists</value>
   </data>
   <data name="PresetNameIsDuplicated" xml:space="preserve">

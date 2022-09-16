@@ -82,7 +82,9 @@ class ManagePresets {
                 this.alert.showSuccess(this.$("#update-successfully").val());
                 this.reloadAfterSuccess(this.reloadTimeout);
             } else if (result.Code === 103) {
-                this.alert.showError(this.$("#preset-is-duplicated").val());
+                this.alert.showError(this.$("#preset-is-no-longer-exists").val());
+            } else if (result.Code === 104) {
+                this.alert.showError(this.$("#preset-is-duplicated").val())
             }
         });
     }
@@ -114,7 +116,7 @@ class ManagePresets {
                         this.alert.showSuccess(this.$("#remove-successfully").val());
                         this.reloadAfterSuccess(this.removeReloadTimeout);
                     } else {
-                        this.alert.showError(result.ErrMsg);
+                        this.alert.showError(result.Message);
                     }
                 });
             }

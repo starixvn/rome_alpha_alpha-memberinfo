@@ -220,19 +220,6 @@
         }
 
         [Fact]
-        public async Task GetPersonalPresets_IsValid_CallsMediatorPersonalPresetQuery()
-        {
-            // Arrange
-            var message = new PersonalPresetQuery(user);
-
-            // Act
-            await controller.GetPersonalPresets(message);
-
-            // Assert
-            await mediator.Received().SendAsync(message);
-        }
-
-        [Fact]
         public async Task AddMultiplePersonalPreset_IsValid_CallsMediatorAddMultiplePersonalPresetCommand()
         {
             // Arrange

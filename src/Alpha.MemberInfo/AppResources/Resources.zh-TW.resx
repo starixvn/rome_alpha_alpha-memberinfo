@@ -765,7 +765,7 @@
   <data name="MustEnterUsernameError" xml:space="preserve">
     <value>請輸入會員用戶名</value>
   </data>
-  <data name="PresetIsNotAvailable" xml:space="preserve">
+  <data name="PresetIsNoLongerExists" xml:space="preserve">
     <value>此預設不再存在</value>
   </data>
   <data name="PresetNameIsDuplicated" xml:space="preserve">

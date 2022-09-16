@@ -25,5 +25,6 @@
   </Function>
   <Function Name="My Monitor Accounts">
     <Setting Key="Acc_WLMonitored_Player_ReachDetail_Sel" SpName="Acc_WLMonitored_Player_ReachDetail_Sel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_WLMonitored_Player_ReachList_ByAg" SpName="Acc_WLMonitored_Player_ReachList_ByAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0"/>
   </Function>
 </Functions>

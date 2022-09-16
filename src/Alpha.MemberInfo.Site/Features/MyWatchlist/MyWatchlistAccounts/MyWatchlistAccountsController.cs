@@ -88,17 +88,6 @@
             return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public async Task<ActionResult> GetPersonalPresets(PersonalPresetQuery message)
-        {
-            if (!message.IsValid())
-            {
-                return Json(Result.CreateErrorResult(Lang.NotAuthorized), JsonRequestBehavior.AllowGet);
-            }
-
-            return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
-        }
-
         [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> AddMultiplePersonalPreset(AddMultiplePersonalPresetCommand message)
         {
