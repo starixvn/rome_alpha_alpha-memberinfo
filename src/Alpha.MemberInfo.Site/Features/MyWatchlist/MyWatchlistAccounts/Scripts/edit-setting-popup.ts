@@ -108,7 +108,7 @@ class EditSettingPopup {
         }
         else {
             this.$editPopupContainer
-                .css({ height: '70px', width: '310px' })
+                .css({ height: '70px', width: 'fit-content' })
                 .modal({ show: true, backdrop: false });
 
             $modalDialog.css({ width: '100%' });

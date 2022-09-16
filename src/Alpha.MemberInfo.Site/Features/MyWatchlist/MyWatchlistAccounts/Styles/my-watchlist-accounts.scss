@@ -153,6 +153,7 @@ table {
 
 #edit-popup {
     box-shadow: 0px 0px 6px rgba(0,0,0,0.19);
+    padding-right: 0px !important;
 
     .modal-dialog {
         position: relative;
@@ -175,7 +176,7 @@ table {
 
         li {
             display: block !important;
-            padding: 2px 8px;
+            padding: 2px 20px 2px 8px;
             cursor: pointer;
 
             &.edit-status-popup {
