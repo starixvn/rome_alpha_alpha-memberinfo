@@ -810,4 +810,7 @@
   <data name="Add" xml:space="preserve">
     <value>Thêm</value>
   </data>
+  <data name="EditMultiple" xml:space="preserve">
+    <value>Tuỳ chỉnh đồng loạt</value>
+  </data>
 </root>

@@ -819,4 +819,7 @@
   <data name="Add" xml:space="preserve">
     <value>增加</value>
   </data>
+  <data name="EditMultiple" xml:space="preserve">
+    <value>多項編輯</value>
+  </data>
 </root>

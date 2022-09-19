@@ -7,6 +7,8 @@ class EditSettingPopup {
     private service: MyWatchlistAccountService;
     private iframePopup: IframePopup;
     private $editPopupContainer: JQuery;
+    private editText: string;
+    private editMultipleText: string;
 
     constructor(
         $: JQueryStatic,
@@ -25,6 +27,8 @@ class EditSettingPopup {
 
     private cacheDom = () => {
         this.$editPopupContainer = this.$('#edit-popup');
+        this.editText = this.$('#edit-text').val();
+        this.editMultipleText = this.$('#edit-multiple-text').val();
     }
 
     public bindingModalEvent = () => this.$editPopupContainer.off().on('mouseleave ', () => this.$editPopupContainer.modal('hide'));
@@ -40,7 +44,7 @@ class EditSettingPopup {
         this.openEditSettingPopup(
             element,
             content,
-            "Edit",
+            this.editText,
             {
                 usernames: [this.$(element).data("username")],
                 custIds: [this.$(element).data("custid")],
@@ -82,7 +86,7 @@ class EditSettingPopup {
             this.openEditSettingPopup(
                 element,
                 content,
-                "Edit Multiple",
+                this.editMultipleText,
                 {
                     custIds,
                     usernames,

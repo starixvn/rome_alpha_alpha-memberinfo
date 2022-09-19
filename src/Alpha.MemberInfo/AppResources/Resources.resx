@@ -817,7 +817,7 @@
     <value>Date Time</value>
   </data>
   <data name="LimitTypeReach" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="AccumulatedMemberWinLossNote" xml:space="preserve">
     <value>Accumulated Member Win Loss only starts counting when a winning/losing threshold is set. It will be reset daily or when the function is off.</value>
@@ -827,5 +827,8 @@
   </data>
   <data name="WatchlistUpdateSuccessfully" xml:space="preserve">
     <value>Updated successfully</value>
+  </data>
+  <data name="EditMultiple" xml:space="preserve">
+    <value>Edit Multiple</value>
   </data>
 </root>

@@ -43,6 +43,10 @@ body {
             width: calculateScale(75px);
         }
 
+        label.limit-type-dropdown {
+            width: calculateScale(140px);
+        }
+
         [class*="btn-"] {
             font-size: calculateScale(11px);
         }
