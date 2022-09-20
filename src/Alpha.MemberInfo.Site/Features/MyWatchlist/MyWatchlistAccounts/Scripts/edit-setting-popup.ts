@@ -158,7 +158,7 @@ class EditSettingPopup {
             null,
             () => {
                 this.service.deleteMultiplePersonalThreshold({ users }, result => {
-                    if (result && result.IsFailed) {
+                    if (result && result.Code === 1) {
                         this.topWindow.bootboxAlert(result.Message);
                         return;
                     }

@@ -78,13 +78,20 @@ class ManagePresets {
         }
 
         this.service.updatePersonalPreset(params, result => {
-            if (result.IsSuccessful) {
-                this.alert.showSuccess(this.$("#update-successfully").val());
-                this.reloadAfterSuccess(this.reloadTimeout);
-            } else if (result.Code === 103) {
-                this.alert.showError(this.$("#preset-is-no-longer-exists").val());
-            } else if (result.Code === 104) {
-                this.alert.showError(this.$("#preset-is-duplicated").val())
+            switch (result.Code) {
+                case 0:
+                    this.alert.showSuccess(this.$("#update-successfully").val());
+                    this.reloadAfterSuccess(this.reloadTimeout);
+                    break;
+                case 1:
+                    this.alert.showError(result.Message);
+                    break;
+                case 103:
+                    this.alert.showError(this.$("#preset-is-no-longer-exists").val());
+                    break;
+                case 104:
+                    this.alert.showError(this.$("#preset-is-duplicated").val());
+                    break;
             }
         });
     }
@@ -115,7 +122,7 @@ class ManagePresets {
                     if (result.IsSuccessful) {
                         this.alert.showSuccess(this.$("#remove-successfully").val());
                         this.reloadAfterSuccess(this.removeReloadTimeout);
-                    } else {
+                    } else if (result.Code === 1) {
                         this.alert.showError(result.Message);
                     }
                 });
@@ -168,7 +175,14 @@ class ManagePresets {
         }
 
         this.service.addMultiplePersonalPreset(params, result => {
-            if (result && result.length > 0) {
+            if (!result) return;
+
+            if (result && result.Code === 1) {
+                this.alert.showError(result.Message);
+                return;
+            }
+
+            if (result.length > 0) {
                 result.forEach(res => {
                     switch (res.Code) {
                         case 0:

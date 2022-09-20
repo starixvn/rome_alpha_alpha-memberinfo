@@ -68,8 +68,14 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
         }
 
         this.service.addPersonalThreshold(params, result => {
-            this.$.unblockUI();
-            if (result && result.length > 0) {
+            if (!result) return;
+
+            if (result.Code === 1) {
+                this.alert.showError(result.Message);
+                return;
+            }
+
+            if (result.length > 0) {
                 result.forEach(res => {
                     switch (res.Code) {
                         case 0:
@@ -125,7 +131,14 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
         }
 
         this.service.updateMultiplePersonalThreshold(params, result => {
-            if (result && result.length > 0) {
+            if (!result) return;
+
+            if (result.Code === 1) {
+                this.alert.showError(result.Message);
+                return;
+            }
+
+            if (result.length > 0) {
                 result.forEach(res => {
                     switch (res.Code) {
                         case 0:

@@ -30,6 +30,8 @@ class ManageGlobalThreshold extends ThresholdInputsBase {
             if (result.IsSuccessful) {
                 this.alert.showSuccess(this.$("#update-successfully").val());
                 WatchlistHelper.reloadMainFrameAfterSuccess(this.reloadTimeout);
+            } else if (result.Code === 1) {
+                this.alert.showError(result.Message);
             }
         });
     }
