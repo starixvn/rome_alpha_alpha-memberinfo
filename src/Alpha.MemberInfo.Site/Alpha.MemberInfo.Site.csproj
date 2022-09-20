@@ -586,6 +586,9 @@
     <Content Include="assets\styles\credit-balance-dark.min.css">
       <DependentUpon>credit-balance-dark.css</DependentUpon>
     </Content>
+    <Content Include="assets\styles\credit-balance.min.css">
+      <DependentUpon>credit-balance.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\images\arrow.png" />
     <Content Include="assets\styles\images\Slide2.en-US.png" />
     <Content Include="assets\styles\images\Slide2.th-TH.png" />
