@@ -48,8 +48,8 @@
            => new ReachlistAccountReport(
                   new List<ReachlistAccountModel>()
                   {
-                        new ReachlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0),
-                        new ReachlistAccountModel(2, 2345, 0, "agent0102", new DateTime(), new DateTime(), "Personal", "Open", 1000, 1000, 2000, 1, 0, 0),
+                        new ReachlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0, 1, 1),
+                        new ReachlistAccountModel(2, 2345, 0, "agent0102", new DateTime(), new DateTime(), "Personal", "Open", 1000, 1000, 2000, 1, 0, 0, 1, 1),
                   },
               2);
 
@@ -109,8 +109,8 @@
             var message = new ReachHistoryQuery(user);
             IEnumerable<ReachHistoryModel> reachHistories = new List<ReachHistoryModel>()
             {
-                new ReachHistoryModel(DateTime.Today, "Global", 1000, 1000, 2000),
-                new ReachHistoryModel(DateTime.Today, "Global", 2000, 3000, 4000),
+                new ReachHistoryModel(DateTime.Today, "Global", 1000, 1000, 2000, 1),
+                new ReachHistoryModel(DateTime.Today, "Global", 2000, 3000, 4000, 2),
             };
             reachedThresholdService.GetReachDetail(Arg.Any<SelectReachDetailParam>()).Returns(Task.FromResult(reachHistories));
 

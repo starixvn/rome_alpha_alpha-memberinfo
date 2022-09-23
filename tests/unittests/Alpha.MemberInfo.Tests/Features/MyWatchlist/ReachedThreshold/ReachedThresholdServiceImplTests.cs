@@ -42,8 +42,8 @@
                 new DateTime());
             IEnumerable<ReachlistAccountModel> reachlistAccounts = new List<ReachlistAccountModel>()
             {
-                new ReachlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0),
-                new ReachlistAccountModel(2, 1234, 0, "agent0102", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0)
+                new ReachlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0, 1, 1),
+                new ReachlistAccountModel(2, 1234, 0, "agent0102", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0, 1, 1)
             };
             var expectedResults = new ReachlistAccountReport(reachlistAccounts, 0);
             dynamicRepository.FetchAsync<ReachlistAccountModel>(Arg.Any<SelectReachListCriteria>())
@@ -63,8 +63,8 @@
             var param = new SelectReachDetailParam(1234, DateTime.Today.AddDays(-1), DateTime.Today, 0, 0, false, new DateTime());
             IEnumerable<ReachHistoryModel> expectedResults = new List<ReachHistoryModel>()
             {
-                new ReachHistoryModel(DateTime.Today, "Global", 1000, 1000, 2000),
-                new ReachHistoryModel(DateTime.Today, "Global", 2000, 3000, 4000),
+                new ReachHistoryModel(DateTime.Today, "Global", 1000, 1000, 2000, 1),
+                new ReachHistoryModel(DateTime.Today, "Global", 2000, 3000, 4000, 2),
             };
 
             dynamicRepository.FetchAsync<ReachHistoryModel>(Arg.Any<SelectReachDetailCriteria>())

@@ -70,7 +70,13 @@
             var actualViewModel = await handler.Handle(myWatchlistAccountsMessage);
 
             // Assert
-            AssertExtension.Equal(expectedViewModel, actualViewModel);
+            AssertExtension.Equal(expectedViewModel.GlobalThresholdModel, actualViewModel.GlobalThresholdModel);
+            AssertExtension.Equal(expectedViewModel.MyWatchListAccountPagingViewModel, actualViewModel.MyWatchListAccountPagingViewModel);
+            Assert.Equal(expectedViewModel.SearchAccountId, actualViewModel.SearchAccountId);
+            Assert.Equal(expectedViewModel.IsMobile, actualViewModel.IsMobile);
+            Assert.Equal(expectedViewModel.IsShowLastLoginColumn, actualViewModel.IsShowLastLoginColumn);
+            Assert.Equal(expectedViewModel.CustLevel, actualViewModel.CustLevel);
+            Assert.Equal(expectedViewModel.CanUpdateAccount, actualViewModel.CanUpdateAccount);
         }
 
         [Fact]
