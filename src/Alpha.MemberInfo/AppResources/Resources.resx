@@ -658,7 +658,7 @@
     <value>Are you sure you want to remove this preset?</value>
   </data>
   <data name="CanViewReportData" xml:space="preserve">
-    <value>You can view the report data from {0}</value>
+    <value>You can view the report data from {0}.</value>
   </data>
   <data name="EditMultiplePersonalThresholds" xml:space="preserve">
     <value>Edit Multiple Personal Thresholds</value>
@@ -790,7 +790,7 @@
     <value>Select threshold preset or set threshold for the Members above:</value>
   </data>
   <data name="SupportsSportsbookDataOnly" xml:space="preserve">
-    <value>This function is only available for Sportsbook</value>
+    <value>This function is only available for Sportsbook.</value>
   </data>
   <data name="ThresholdPresetName" xml:space="preserve">
     <value>Threshold Preset Name</value>
@@ -819,7 +819,7 @@
   <data name="LimitTypeReach" xml:space="preserve">
     <value />
   </data>
-  <data name="AccumulatedMemberWinLossNote" xml:space="preserve">
+  <data name="AccumulatedMemberWinLossOnlyStartsCountingNote" xml:space="preserve">
     <value>Accumulated Member Win Loss only starts counting when a winning/losing threshold is set. It will be reset daily or when the function is off.</value>
   </data>
   <data name="PersonalThresholdPresetSettings" xml:space="preserve">
@@ -830,5 +830,11 @@
   </data>
   <data name="EditMultiple" xml:space="preserve">
     <value>Edit Multiple</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="AccumulatedMemberWinLossWillBeCountedNote" xml:space="preserve">
+    <value>Accumulated Member Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday event to the next business day won’t change the accumulation.</value>
   </data>
 </root>

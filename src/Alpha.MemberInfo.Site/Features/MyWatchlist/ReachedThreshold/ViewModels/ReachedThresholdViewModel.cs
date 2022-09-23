@@ -4,6 +4,8 @@
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.Requests;
     using Alpha.MemberInfo.Site.ViewModels.Components;
+    using Alpha.Web.Helpers;
+    using Sunplus.Agent.Model.Entities;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -63,5 +65,9 @@
         public bool IsShowLastLoginColumn { get; }
 
         public string CustLevel { get; }
+
+        public string UserGuideLink => UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
+            MicroSites.MessageUrl("~/StaticMessage/Guide?id=170467") :
+            MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=170467");
     }
 }

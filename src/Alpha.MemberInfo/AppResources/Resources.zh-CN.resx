@@ -801,7 +801,7 @@
   <data name="AreYouSureToRemovePreset" xml:space="preserve">
     <value>您确定要移除此预设吗？</value>
   </data>
-  <data name="AccumulatedMemberWinLossNote" xml:space="preserve">
+  <data name="AccumulatedMemberWinLossOnlyStartsCountingNote" xml:space="preserve">
     <value>会员的累积输赢仅在设置输/赢限額时开始计算。它将每天或在该功能关闭时重置。</value>
   </data>
   <data name="AddMembersToWatchlist" xml:space="preserve">
@@ -821,5 +821,8 @@
   </data>
   <data name="EditMultiple" xml:space="preserve">
     <value>多项编辑</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>资料</value>
   </data>
 </root>

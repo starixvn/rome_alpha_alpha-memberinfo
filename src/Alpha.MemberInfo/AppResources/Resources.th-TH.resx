@@ -801,7 +801,7 @@
   <data name="AreYouSureToRemovePreset" xml:space="preserve">
     <value>คุณแน่ใจหรือไม่ว่าต้องการลบค่าที่ตั้งไว้นี้</value>
   </data>
-  <data name="AccumulatedMemberWinLossNote" xml:space="preserve">
+  <data name="AccumulatedMemberWinLossOnlyStartsCountingNote" xml:space="preserve">
     <value>การชนะ/แพ้สะสมของสมาชิกจะเริ่มนับเมื่อมีการกำหนดเกณฑ์การแพ้/ชนะเท่านั้น ซึ่งจะรีเซ็ตทุกวันหรือเมื่อปิดฟังก์ชันนี้</value>
   </data>
   <data name="AddMembersToWatchlist" xml:space="preserve">
@@ -821,5 +821,8 @@
   </data>
   <data name="EditMultiple" xml:space="preserve">
     <value>แก้ไขหลายรายการ</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>ข้อมูล</value>
   </data>
 </root>

@@ -1,0 +1,28 @@
+﻿@model string
+<div class="modal modal-sm fade" id="report-legend" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@Resources.Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-popup">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="msg-content">
+                    <div>
+                        <span class="red">*</span> @String.Format(Resources.CanViewReportData, @Model)
+                    </div>
+                    <div>
+                        <span class="red">*</span> @Resources.SupportsSportsbookDataOnly
+                    </div>
+                    <div>
+                        <span class="red">*</span> @Resources.AccumulatedMemberWinLossOnlyStartsCountingNote
+                    </div>
+                    <div>
+                        <span class="red">*</span> @Resources.AccumulatedMemberWinLossWillBeCountedNote
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

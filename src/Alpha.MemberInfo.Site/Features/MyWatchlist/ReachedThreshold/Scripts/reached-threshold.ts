@@ -12,11 +12,14 @@ class ReachedThreshold {
     private statusDropdown: SingleSelectionDropdownComponent;
     private limitTypeDropdown: SingleSelectionDropdownComponent;
 
+    private $reportLegend: JQuery;
+    private $iconInformation: JQuery;
+
     constructor(
         $: JQueryStatic,
         dataTable: ReachedThresholdDataTable,
         viewModel: ReachedThresholdViewModel,
-        dateRangePickerComponent: DateRangePickerComponent,
+        dateRangePickerComponent: DateRangePickerComponent
     ) {
         this.$ = $;
         this.dataTable = dataTable;
@@ -27,6 +30,8 @@ class ReachedThreshold {
     }
 
     public init = () => {
+        this.cacheDOMElements();
+        this.$iconInformation.off().on("click", this.showLegend);
         this.bindingTxtUsername();
 
         this.dateRangePickerComponent.render(
@@ -40,6 +45,22 @@ class ReachedThreshold {
 
         this.dataTable.bindingEvent();
     }
+
+    private cacheDOMElements = () => {
+        this.$reportLegend = this.$("#report-legend");
+        this.$iconInformation = this.$("#icon-information");
+    };
+
+    private showLegend = () => {
+        this.$reportLegend.modal({ show: true, backdrop: false });
+
+        var iconHelpPosition = this.$iconInformation.position();
+        this.$reportLegend.css({
+            bottom: "auto",
+            top: iconHelpPosition.top + 40,
+            left: 0
+        });
+    };
 
     private bindingTxtUsername = () => {
         const options = {

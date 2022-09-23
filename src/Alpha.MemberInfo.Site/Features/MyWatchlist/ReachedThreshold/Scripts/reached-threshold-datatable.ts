@@ -232,7 +232,19 @@ class ReachedThresholdDataTable {
             {
                 "className": 'right',
                 "data": null,
-                "render": item => `<a class="reach-count" href="#" data-custid="${item.CustId}" data-username="${item.Username}">${item.ReachedCnt}</a>`,
+                "render": item => {
+                    var reachCount = `${item.ReachedCnt} `;
+
+                    if (item.WinningReachedCnt > 0 && item.LosingReachedCnt > 0) {
+                        reachCount += `(${item.WinningReachedCnt}W, ${item.LosingReachedCnt}L)`;
+                    } else if (item.WinningReachedCnt > 0) {
+                        reachCount += `(${item.WinningReachedCnt}W)`;
+                    } else if (item.LosingReachedCnt > 0) {
+                        reachCount += `(${item.LosingReachedCnt}L)`;
+                    }
+
+                    return `<a class="reach-count" href="#" data-custid="${item.CustId}" data-username="${item.Username}">${reachCount}</a>`;
+                },
                 "name": "NoOfReach"
             },
             {

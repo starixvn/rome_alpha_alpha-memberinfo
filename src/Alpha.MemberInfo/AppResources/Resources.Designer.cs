@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -72,9 +72,18 @@ namespace Alpha.MemberInfo.AppResources {
         /// <summary>
         ///   Looks up a localized string similar to Accumulated Member Win Loss only starts counting when a winning/losing threshold is set. It will be reset daily or when the function is off..
         /// </summary>
-        public static string AccumulatedMemberWinLossNote {
+        public static string AccumulatedMemberWinLossOnlyStartsCountingNote {
             get {
-                return ResourceManager.GetString("AccumulatedMemberWinLossNote", resourceCulture);
+                return ResourceManager.GetString("AccumulatedMemberWinLossOnlyStartsCountingNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accumulated Member Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday event to the next business day won’t change the accumulation..
+        /// </summary>
+        public static string AccumulatedMemberWinLossWillBeCountedNote {
+            get {
+                return ResourceManager.GetString("AccumulatedMemberWinLossWillBeCountedNote", resourceCulture);
             }
         }
         
@@ -277,7 +286,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can view the report data from {0}.
+        ///   Looks up a localized string similar to You can view the report data from {0}..
         /// </summary>
         public static string CanViewReportData {
             get {
@@ -912,6 +921,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string IndirectLoginAccountPasswordUpdated {
             get {
                 return ResourceManager.GetString("IndirectLoginAccountPasswordUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string Information {
+            get {
+                return ResourceManager.GetString("Information", resourceCulture);
             }
         }
         
@@ -1942,7 +1960,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This function is only available for Sportsbook.
+        ///   Looks up a localized string similar to This function is only available for Sportsbook..
         /// </summary>
         public static string SupportsSportsbookDataOnly {
             get {

@@ -24,7 +24,9 @@
             decimal? losingThreshold,
             int reachedCnt,
             byte closedReason,
-            byte locked)
+            byte locked,
+            int winningReachedCnt,
+            int losingReachedCnt)
         {
             RowNumber = rowNumber;
             CustId = custId;
@@ -40,6 +42,8 @@
             ReachedCnt = reachedCnt;
             ClosedReason = closedReason;
             Locked = locked;
+            WinningReachedCnt = winningReachedCnt;
+            LosingReachedCnt = losingReachedCnt;
         }
 
         public int RowNumber { get; }
@@ -83,5 +87,9 @@
         public byte ClosedReason { get; }
 
         public byte Locked { get; }
+
+        public int WinningReachedCnt { get; }
+
+        public int LosingReachedCnt { get; }
     }
 }

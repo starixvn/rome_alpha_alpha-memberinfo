@@ -9,6 +9,10 @@ body {
     font-size: calculateScale(13px);
 }
 
+.icon-information-outline {
+    top: -5px !important;
+}
+
 .filter {
     display: block;
     grid-template-columns: 1fr 1fr 1fr;

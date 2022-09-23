@@ -14,13 +14,15 @@
             string limitTypeReach,
             decimal winLossAmount,
             decimal? winningThreshold,
-            decimal? losingThreshold)
+            decimal? losingThreshold,
+            byte reachType)
         {
             CreatedDate = createdDate;
             LimitTypeReach = limitTypeReach;
             WinLossAmount = winLossAmount;
             WinningThreshold = winningThreshold;
             LosingThreshold = losingThreshold;
+            ReachType = reachType;
         }
 
         public int RowNumber { get; }
@@ -45,5 +47,6 @@
 
         public string LosingThresholdString => LosingThreshold.ToMoneyFormatWithUnlimited();
 
+        public byte ReachType { get; }
     }
 }

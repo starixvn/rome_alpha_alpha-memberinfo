@@ -12,6 +12,31 @@
     }
 }
 
+.icon-tab {
+    margin-right: 0 !important;
+
+    &.active:after,
+    &:hover:after {
+        width: 0% !important;
+        background: none !important;
+    }
+
+    & > a {
+        background: none !important;
+        padding-right: 0 !important;
+    }
+
+    & > a.user-guide {
+        padding-top: 12px !important;
+        padding-bottom: 5px !important;
+
+        .icon-book {
+            font-size: 15px !important;
+            color: #0b599c !important;
+        }
+    }
+}
+
 // Filter
 .form-report {
     .form-group {
@@ -243,5 +268,45 @@ table.dataTable {
 @media only screen and (min-width: 1280px) {
     .table-container {
         width: 70%;
+    }
+}
+
+// report-legend
+#report-legend {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -khtml-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+
+    .modal-dialog {
+        width: 700px;
+        margin: 0;
+        padding: 10px 0;
+
+        @media only screen and (max-device-width : 767px) {
+            width: 90%;
+        }
+
+        @media only screen and (max-device-width : 767px) and (orientation: landscape) {
+            width: 70%;
+        }
+
+        .modal-body {
+            padding-bottom: 0;
+        }
+
+        #msg-content {
+            padding: 12px 0;
+        }
+
+        .list-msg {
+            line-height: 28px;
+            margin-bottom: 0;
+        }
     }
 }

@@ -24,6 +24,14 @@
             <li role="presentation">
                 @Html.ActionLink(Resources.MyWatchlist, "Index", "MyWatchlistAccounts")
             </li>
+            <li class="icon-tab">
+                <a href="#">
+                    <span id="icon-information" class="icon icon-information-outline"></span>
+                </a>
+            </li>
+            <li class="icon-tab">
+                <a href="@Model.UserGuideLink" target="_blank" class="user-guide"><span class="icon icon-book"></span></a>
+            </li>
         </ul>
     </div>
 
@@ -111,14 +119,6 @@
         <div class="form-group">
             <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
         </div>
-    </div>
-
-    <div>
-        <span class="red">*</span> @String.Format(Resources.CanViewReportData, @Model.DateRangePickerViewModel.MinDate.ToShortDateWithSlash())
-    </div>
-
-    <div>
-        <span class="red">*</span> @Resources.SupportsSportsbookDataOnly
     </div>
 
     <div>
@@ -218,6 +218,8 @@
             </div>
         </div>
     </div>
+
+    @Html.Partial("~/Features/MyWatchlist/ReachedThreshold/Views/InformationLegend.cshtml", @Model.DateRangePickerViewModel.MinDate.ToShortDateWithSlash())
 
     <input type="hidden" id="search-account-id" value="@Model.SearchAccountId" />
     <input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()' />

@@ -10,6 +10,9 @@ class MyWatchlistAccounts {
     private dataTable: MyWatchlistAccountsDataTable;
     private iframePopup: IframePopup;
 
+    private $reportLegend: JQuery;
+    private $iconInformation: JQuery;
+
     constructor(
         $: JQueryStatic,
         topWindow: any,
@@ -25,7 +28,10 @@ class MyWatchlistAccounts {
     }
 
     public init = () => {
+        this.cacheDOMElements();
+        this.$iconInformation.off().on("click", this.showLegend);
         this.bindingTxtUsername();
+
         this.$("#btn-global-threshold").off().click(_ =>
             this.iframePopup.open(
                 "700px",
@@ -47,8 +53,25 @@ class MyWatchlistAccounts {
                 this.$("#add-new-account-popup-title").val(),
                 this.viewModel.URL + "/ManageWatchlistAccounts")
         );
+
         this.dataTable.bindingEvent();
     }
+
+    private cacheDOMElements = () => {
+        this.$reportLegend = this.$("#report-legend");
+        this.$iconInformation = this.$("#icon-information");
+    };
+
+    private showLegend = () => {
+        this.$reportLegend.modal({ show: true, backdrop: false });
+
+        var iconHelpPosition = this.$iconInformation.position();
+        this.$reportLegend.css({
+            bottom: "auto",
+            top: iconHelpPosition.top + 40,
+            left: 0
+        });
+    };
 
     private bindingTxtUsername = () => {
         const options = {

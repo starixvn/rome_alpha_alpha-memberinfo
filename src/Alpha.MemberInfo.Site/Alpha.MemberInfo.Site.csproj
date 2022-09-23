@@ -964,11 +964,11 @@
     <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold-media.min.css">
       <DependentUpon>reached-threshold-media.css</DependentUpon>
     </Content>
-    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold.css">
-      <DependentUpon>reached-threshold.scss</DependentUpon>
-    </Content>
     <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold-dark.css">
       <DependentUpon>reached-threshold-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold.css">
+      <DependentUpon>reached-threshold.scss</DependentUpon>
     </Content>
     <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold.min.css">
       <DependentUpon>reached-threshold.css</DependentUpon>
@@ -1021,6 +1021,7 @@
     <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert-dark.scss" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-dark.scss" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Views\InformationLegend.cshtml" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />

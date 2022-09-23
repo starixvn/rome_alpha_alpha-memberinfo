@@ -22,6 +22,14 @@
             <li role="presentation" class="active">
                 <a href="#" aria-controls="home" role="tab" data-toggle="tab">@Resources.MyWatchlist</a>
             </li>
+            <li class="icon-tab">
+                <a href="#">
+                    <span id="icon-information" class="icon icon-information-outline"></span>
+                </a>
+            </li>
+            <li class="icon-tab">
+                <a href="@Model.UserGuideLink" target="_blank" class="user-guide"><span class="icon icon-book"></span></a>
+            </li>
         </ul>
     </div>
 
@@ -45,14 +53,6 @@
                 <button class="btn-default btn-global-threshold" id="btn-global-threshold">@Resources.GlobalThresholds</button>
             </div>
         }
-    </div>
-
-    <div>
-        <span class="red">*</span> @Resources.SupportsSportsbookDataOnly
-    </div>
-
-    <div>
-        <span class="red">*</span> @Resources.AccumulatedMemberWinLossNote
     </div>
 
     <div>
@@ -184,6 +184,8 @@
             </div>
         </div>
     </div>
+
+    @Html.Partial("~/Features/MyWatchlist/ReachedThreshold/Views/InformationLegend.cshtml", Model.MinDate.ToShortDateWithSlash())
 
     @Html.AntiForgeryToken()
 

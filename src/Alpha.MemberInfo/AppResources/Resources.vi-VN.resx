@@ -627,7 +627,7 @@
   <data name="WatchlistUpdateSuccessfully" xml:space="preserve">
     <value>Cập nhật thành công</value>
   </data>
-  <data name="AccumulatedMemberWinLossNote" xml:space="preserve">
+  <data name="AccumulatedMemberWinLossOnlyStartsCountingNote" xml:space="preserve">
     <value>Thắng Thua Tích Lũy Của Member chỉ bắt đầu tính khi giới hạn thắng/thua được đặt, và sẽ được đặt lại về 0 mỗi ngày, hoặc khi tắt chức năng này.</value>
   </data>
   <data name="AddMember" xml:space="preserve">
@@ -812,5 +812,8 @@
   </data>
   <data name="EditMultiple" xml:space="preserve">
     <value>Tuỳ chỉnh đồng loạt</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Thông tin</value>
   </data>
 </root>

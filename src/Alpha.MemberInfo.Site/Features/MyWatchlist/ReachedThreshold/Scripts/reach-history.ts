@@ -103,18 +103,18 @@ class ReachHistory {
             },
             {
                 "className": 'right',
-                "data": "WinLossAmountString",
-                "name": "WinningLosingAmount"
+                "name": "WinningLosingAmount",
+                "data": item => `<div class="${item.ReachType === 1 ? 'winning-reach' : 'losing-reach'}">${item.WinLossAmountString}</div>`,
             },
             {
                 "className": 'right',
-                "data": "WinningThresholdString",
-                "name": "WinningThreshold"
+                "name": "WinningThreshold",
+                "data": item => `<div class="${item.ReachType === 1 ? 'winning-reach' : ''}">${item.WinningThresholdString}</div>`
             },
             {
                 "className": 'right',
-                "data": "LosingThresholdString",
-                "name": "LosingThreshold"
+                "name": "LosingThreshold",
+                "data": item => `<div class="${item.ReachType === 2 ? 'losing-reach' : ''}">${item.LosingThresholdString}</div>`
             },
         );
 
