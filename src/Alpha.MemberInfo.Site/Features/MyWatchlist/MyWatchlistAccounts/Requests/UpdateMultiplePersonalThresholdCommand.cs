@@ -12,7 +12,9 @@
         {
         }
         
-        public UserInfo[] Users { get; set; }
+        public string CustIds { get; set; }
+
+        public string Usernames { get; set; }
 
         public decimal? WinningThreshold { get; set; }
 

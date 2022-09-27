@@ -143,21 +143,16 @@ class EditSettingPopup {
     }
 
     private openRemoveWatchlistAccountPopup = data => {
-        const usernames = '<div style="max-height: 245px; overflow-y: auto;"> ' + data.usernames.join(", ") + "</div>" + " <br />";
+        const usernames = data.usernames.join(", ");
+        const custIds = data.custIds.join(",");
 
-        const users = [];
-        for (let i = 0; i < data.custIds.length; i++) {
-            users.push({
-                custId: data.custIds[i],
-                username: data.usernames[i].trim()
-            })
-        }
+        const divUsernames = '<div style="max-height: 245px; overflow-y: auto;"> ' + usernames + "</div>" + " <br />";
 
         this.topWindow.bootboxConfirm(
-            usernames + this.$("#are-you-sure-to-remove-accounts").val(),
+            divUsernames + this.$("#are-you-sure-to-remove-accounts").val(),
             null,
             () => {
-                this.service.deleteMultiplePersonalThreshold({ users }, result => {
+                this.service.deleteMultiplePersonalThreshold({ usernames, custIds }, result => {
                     if (result && result.Code === 1) {
                         this.topWindow.bootboxAlert(result.Message);
                         return;

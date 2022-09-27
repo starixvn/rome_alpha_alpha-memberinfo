@@ -25,7 +25,12 @@
             dataType: "json",
             type: type,
             data: params,
-            success: onSuccess
+            success: onSuccess,
+            error: function (jqXHR) {
+                if (jqXHR && jqXHR.status === 401) {
+                    top.window["age"].SignOut();
+                }
+            }
         });
     }
 

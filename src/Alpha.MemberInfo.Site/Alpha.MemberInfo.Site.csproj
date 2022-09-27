@@ -1206,7 +1206,6 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\UpdateGlobalThresholdCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\UpdateMultiplePersonalThresholdCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\UpdatePersonalPresetCommand.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\UserInfo.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\WatchlistAccountsQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ManageGlobalThresholdViewModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ManagePersonalThresholdPresetViewModel.cs" />

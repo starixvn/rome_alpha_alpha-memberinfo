@@ -108,24 +108,17 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
     private handleUpdate = () => {
         this.alert.hide();
 
-        const users = [];
-        const custIds = this.$("#custids").val().split(",");
-        const usernames = this.$("#usernames").val().split(",");
+        const custIds = this.$("#custids").val();
+        const usernames = this.$("#usernames").val();
 
         if (!this.validateThresholdInput() || (custIds.length === 1 && !this.validateEditThresholdNoChangeUpdate()))
             return;
 
-        for (let i = 0; i < custIds.length; i++) {
-            users.push({
-                custId: custIds[i],
-                username: usernames[i].trim()
-            })
-        }
-
         const thresholdInputs = this.getThresholdInputs();
 
         const params = {
-            users,
+            custIds,
+            usernames,
             winningThreshold: thresholdInputs.winningThreshold,
             losingThreshold: thresholdInputs.losingThreshold
         }

@@ -140,14 +140,8 @@
             // Arrange
             var message = new UpdateMultiplePersonalThresholdCommand(user)
             {
-                Users = new UserInfo[]
-                {
-                    new UserInfo()
-                    {
-                        CustId = 1234,
-                        Username = "agent0101"
-                    }
-                }
+                Usernames = "agent0101",
+                CustIds = "1234"
             };
             var namedResult = new NamedResult("agent0101", 0, "Add successfully");
             service.UpdatePersonalThreshold(Arg.Any<UpdatePersonalThresholdParam>()).Returns(Task.FromResult(namedResult));
@@ -169,14 +163,8 @@
             // Arrange
             var message = new DeleteMultiplePersonalThresholdCommand(user)
             {
-                Users = new UserInfo[]
-                {
-                    new UserInfo()
-                    {
-                        CustId = 1234,
-                        Username = "agent0101"
-                    }
-                }
+                Usernames = "agent0101",
+                CustIds = "1234"
             };
             var namedResult = new NamedResult("agent0101", 0, "Remove successfully");
             service.DeletePersonalThreshold(Arg.Any<DeletePersonalThresholdParam>()).Returns(Task.FromResult(namedResult));

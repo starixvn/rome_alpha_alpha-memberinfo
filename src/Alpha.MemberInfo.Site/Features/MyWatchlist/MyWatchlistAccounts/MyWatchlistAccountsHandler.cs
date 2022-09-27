@@ -101,12 +101,14 @@
         public async Task<IEnumerable<NamedResult>> Handle(UpdateMultiplePersonalThresholdCommand message)
         {
             var tasks = new List<Task<NamedResult>>();
+            var custIdArr = message.CustIds.Split(',');
+            var usernameArr = message.Usernames.Split(',');
 
-            foreach (var user in message.Users)
+            for (int i = 0; i < custIdArr.Length; i++)
             {
                 var param = new UpdatePersonalThresholdParam(
-                            user.CustId,
-                            user.Username,
+                            int.Parse(custIdArr[i]),
+                            usernameArr[i],
                             message.WinningThreshold,
                             message.LosingThreshold,
                             message.UserId,
@@ -122,12 +124,14 @@
         public async Task<IEnumerable<NamedResult>> Handle(DeleteMultiplePersonalThresholdCommand message)
         {
             var tasks = new List<Task<NamedResult>>();
+            var custIdArr = message.CustIds.Split(',');
+            var usernameArr = message.Usernames.Split(',');
 
-            foreach (var user in message.Users)
+            for (int i = 0; i < custIdArr.Length; i++)
             {
                 var param = new DeletePersonalThresholdParam(
-                            user.CustId,
-                            user.Username,
+                            int.Parse(custIdArr[i]),
+                            usernameArr[i],
                             message.UserId,
                             message.SubAccId,
                             message.IP);
