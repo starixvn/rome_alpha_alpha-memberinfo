@@ -79,7 +79,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accumulated Member Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday event to the next business day won’t change the accumulation..
+        ///   Looks up a localized string similar to Accumulated Member Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday un-settled event to the next business day won’t change the accumulation..
         /// </summary>
         public static string AccumulatedMemberWinLossWillBeCountedNote {
             get {

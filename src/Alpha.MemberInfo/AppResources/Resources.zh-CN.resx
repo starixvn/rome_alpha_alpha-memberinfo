@@ -825,4 +825,7 @@
   <data name="Information" xml:space="preserve">
     <value>资料</value>
   </data>
+  <data name="AccumulatedMemberWinLossWillBeCountedNote" xml:space="preserve">
+    <value>会员的累积输赢将在注单结算后立即计算。一旦注单已经结算并积累，诺昨日的未结算赛事并移到下一个工作日也将不会改变积累。</value>
+  </data>
 </root>

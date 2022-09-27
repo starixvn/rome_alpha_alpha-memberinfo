@@ -835,6 +835,6 @@
     <value>Information</value>
   </data>
   <data name="AccumulatedMemberWinLossWillBeCountedNote" xml:space="preserve">
-    <value>Accumulated Member Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday event to the next business day won’t change the accumulation.</value>
+    <value>Accumulated Member Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday un-settled event to the next business day won’t change the accumulation.</value>
   </data>
 </root>
