@@ -75,7 +75,7 @@
                     .Map(G, data => data.WinLossAmountString)
                     .Map(H, data => data.WinningThresholdString)
                     .Map(I, data => data.LosingThresholdString)
-                    .Map(J, data => data.ReachedCnt);
+                    .Map(J, data => data.ReachedCountString);
             }
             else
             {
@@ -86,7 +86,7 @@
                     .Map(F, data => data.WinLossAmountString)
                     .Map(G, data => data.WinningThresholdString)
                     .Map(H, data => data.LosingThresholdString)
-                    .Map(I, data => data.ReachedCnt);
+                    .Map(I, data => data.ReachedCountString);
             }
 
             return mapper;

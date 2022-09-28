@@ -91,5 +91,28 @@
         public int WinningReachedCnt { get; }
 
         public int LosingReachedCnt { get; }
+
+        public string ReachedCountString
+        {
+            get
+            {
+                var winOrLoseText = string.Empty;
+
+                if (WinningReachedCnt > 0 && LosingReachedCnt > 0)
+                {
+                    winOrLoseText = $"({WinningReachedCnt}W, {LosingReachedCnt}L)";
+                }
+                else if (WinningReachedCnt > 0)
+                {
+                    winOrLoseText = $"({WinningReachedCnt}W)";
+                }
+                else if (LosingReachedCnt > 0)
+                {
+                    winOrLoseText = $"({ LosingReachedCnt}L)";
+                }
+
+                return $"{ReachedCnt} {winOrLoseText}";
+            }
+        }
     }
 }
