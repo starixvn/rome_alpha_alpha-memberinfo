@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -70,11 +70,74 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accumulated Member Win Loss only starts counting when a winning/losing threshold is set. It will be reset daily or when the function is off..
+        /// </summary>
+        public static string AccumulatedMemberWinLossOnlyStartsCountingNote {
+            get {
+                return ResourceManager.GetString("AccumulatedMemberWinLossOnlyStartsCountingNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accumulated Member Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday un-settled event to the next business day won’t change the accumulation..
+        /// </summary>
+        public static string AccumulatedMemberWinLossWillBeCountedNote {
+            get {
+                return ResourceManager.GetString("AccumulatedMemberWinLossWillBeCountedNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action.
         /// </summary>
         public static string Action {
             get {
                 return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Member.
+        /// </summary>
+        public static string AddMember {
+            get {
+                return ResourceManager.GetString("AddMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Member(s) To Watchlist.
+        /// </summary>
+        public static string AddMembersToWatchlist {
+            get {
+                return ResourceManager.GetString("AddMembersToWatchlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Row.
+        /// </summary>
+        public static string AddRow {
+            get {
+                return ResourceManager.GetString("AddRow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Added successfully.
+        /// </summary>
+        public static string AddSuccessfully {
+            get {
+                return ResourceManager.GetString("AddSuccessfully", resourceCulture);
             }
         }
         
@@ -129,6 +192,24 @@ namespace Alpha.MemberInfo.AppResources {
         public static string ArchiveStage {
             get {
                 return ResourceManager.GetString("ArchiveStage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to remove the selected account(s)?.
+        /// </summary>
+        public static string AreYouSureToRemoveAccounts {
+            get {
+                return ResourceManager.GetString("AreYouSureToRemoveAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to remove this preset?.
+        /// </summary>
+        public static string AreYouSureToRemovePreset {
+            get {
+                return ResourceManager.GetString("AreYouSureToRemovePreset", resourceCulture);
             }
         }
         
@@ -201,6 +282,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string CannotGenerateMessage {
             get {
                 return ResourceManager.GetString("CannotGenerateMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can view the report data from {0}..
+        /// </summary>
+        public static string CanViewReportData {
+            get {
+                return ResourceManager.GetString("CanViewReportData", resourceCulture);
             }
         }
         
@@ -412,6 +502,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date Time.
+        /// </summary>
+        public static string DateTime {
+            get {
+                return ResourceManager.GetString("DateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Account.
         /// </summary>
         public static string DeleteAccount {
@@ -556,11 +655,56 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple.
+        /// </summary>
+        public static string EditMultiple {
+            get {
+                return ResourceManager.GetString("EditMultiple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Personal Thresholds.
+        /// </summary>
+        public static string EditMultiplePersonalThresholds {
+            get {
+                return ResourceManager.GetString("EditMultiplePersonalThresholds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Personal Threshold.
+        /// </summary>
+        public static string EditPersonalThreshold {
+            get {
+                return ResourceManager.GetString("EditPersonalThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Threshold(s).
+        /// </summary>
+        public static string EditWatchlistAccount {
+            get {
+                return ResourceManager.GetString("EditWatchlistAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string EnterAccount {
             get {
                 return ResourceManager.GetString("EnterAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Member username(s).
+        /// </summary>
+        public static string EnterListOfMemberUsernames {
+            get {
+                return ResourceManager.GetString("EnterListOfMemberUsernames", resourceCulture);
             }
         }
         
@@ -619,6 +763,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to From.
+        /// </summary>
+        public static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Given Credit must be between {0} and {1}..
         /// </summary>
         public static string GivenCreditMustBeBetweenMinMax {
@@ -633,6 +786,60 @@ namespace Alpha.MemberInfo.AppResources {
         public static string GivenCreditPopupTitle {
             get {
                 return ResourceManager.GetString("GivenCreditPopupTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global.
+        /// </summary>
+        public static string Global {
+            get {
+                return ResourceManager.GetString("Global", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global Losing Threshold.
+        /// </summary>
+        public static string GlobalLosingThreshold {
+            get {
+                return ResourceManager.GetString("GlobalLosingThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global Thresholds.
+        /// </summary>
+        public static string GlobalThresholds {
+            get {
+                return ResourceManager.GetString("GlobalThresholds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global Threshold Settings.
+        /// </summary>
+        public static string GlobalThresholdSettings {
+            get {
+                return ResourceManager.GetString("GlobalThresholdSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global Threshold Settings apply to Members who are not in the watchlist..
+        /// </summary>
+        public static string GlobalThresholdWillBeAppliedForMembers {
+            get {
+                return ResourceManager.GetString("GlobalThresholdWillBeAppliedForMembers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global Winning Threshold.
+        /// </summary>
+        public static string GlobalWinningThreshold {
+            get {
+                return ResourceManager.GetString("GlobalWinningThreshold", resourceCulture);
             }
         }
         
@@ -718,6 +925,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string Information {
+            get {
+                return ResourceManager.GetString("Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input Existing Member account (that you want to copy the settings).
         /// </summary>
         public static string InputExistingMemberAccount {
@@ -727,11 +943,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid Account.
+        /// </summary>
+        public static string InvalidAccountError {
+            get {
+                return ResourceManager.GetString("InvalidAccountError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The value must be a positive amount..
         /// </summary>
         public static string InvalidMaxPayoutValueText {
             get {
                 return ResourceManager.GetString("InvalidMaxPayoutValueText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to is not a Member.
+        /// </summary>
+        public static string IsNotMemberError {
+            get {
+                return ResourceManager.GetString("IsNotMemberError", resourceCulture);
             }
         }
         
@@ -763,6 +997,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Losing Threshold.
+        /// </summary>
+        public static string LastLosingThreshold {
+            get {
+                return ResourceManager.GetString("LastLosingThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string LastName {
@@ -772,11 +1015,56 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Reach.
+        /// </summary>
+        public static string LastReach {
+            get {
+                return ResourceManager.GetString("LastReach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Threshold Type.
+        /// </summary>
+        public static string LastThresholdType {
+            get {
+                return ResourceManager.GetString("LastThresholdType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Winning Threshold.
+        /// </summary>
+        public static string LastWinningThreshold {
+            get {
+                return ResourceManager.GetString("LastWinningThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Level.
         /// </summary>
         public static string Level {
             get {
                 return ResourceManager.GetString("Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LimitTypeReach {
+            get {
+                return ResourceManager.GetString("LimitTypeReach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locked.
+        /// </summary>
+        public static string Locked {
+            get {
+                return ResourceManager.GetString("Locked", resourceCulture);
             }
         }
         
@@ -808,6 +1096,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Losing Threshold.
+        /// </summary>
+        public static string LosingThreshold {
+            get {
+                return ResourceManager.GetString("LosingThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Master.
         /// </summary>
         public static string Master {
@@ -822,6 +1119,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string MaximumLoss {
             get {
                 return ResourceManager.GetString("MaximumLoss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (Maximum 50 Members, separated by comma &apos;,&apos;).
+        /// </summary>
+        public static string MaximumMembers {
+            get {
+                return ResourceManager.GetString("MaximumMembers", resourceCulture);
             }
         }
         
@@ -876,6 +1182,60 @@ namespace Alpha.MemberInfo.AppResources {
         public static string mixsports {
             get {
                 return ResourceManager.GetString("mixsports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The number of Members must not exceed 50.
+        /// </summary>
+        public static string MoreThan50UsernamesError {
+            get {
+                return ResourceManager.GetString("MoreThan50UsernamesError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter preset name.
+        /// </summary>
+        public static string MustEnterPresetNameError {
+            get {
+                return ResourceManager.GetString("MustEnterPresetNameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter threshold.
+        /// </summary>
+        public static string MustEnterThresholdError {
+            get {
+                return ResourceManager.GetString("MustEnterThresholdError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter threshold, or select Unlimited.
+        /// </summary>
+        public static string MustEnterThresholdOrCheckError {
+            get {
+                return ResourceManager.GetString("MustEnterThresholdOrCheckError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter Member username.
+        /// </summary>
+        public static string MustEnterUsernameError {
+            get {
+                return ResourceManager.GetString("MustEnterUsernameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Watchlist.
+        /// </summary>
+        public static string MyWatchlist {
+            get {
+                return ResourceManager.GetString("MyWatchlist", resourceCulture);
             }
         }
         
@@ -943,6 +1303,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is no change to update..
+        /// </summary>
+        public static string NoChangeToUpdateError {
+            get {
+                return ResourceManager.GetString("NoChangeToUpdateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No information is available.
         /// </summary>
         public static string NoDataFound {
@@ -975,6 +1344,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string NoSettingWarning {
             get {
                 return ResourceManager.GetString("NoSettingWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to is no longer in the watchlist.
+        /// </summary>
+        public static string NotInWatchlistAnyLongerError {
+            get {
+                return ResourceManager.GetString("NotInWatchlistAnyLongerError", resourceCulture);
             }
         }
         
@@ -1033,6 +1411,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Page Size.
+        /// </summary>
+        public static string PageSize {
+            get {
+                return ResourceManager.GetString("PageSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parlay Max Payout.
         /// </summary>
         public static string ParlayMaxPayoutMultipleSubText {
@@ -1074,6 +1461,33 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal.
+        /// </summary>
+        public static string Personal {
+            get {
+                return ResourceManager.GetString("Personal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal Threshold Presets.
+        /// </summary>
+        public static string PersonalThresholdPresets {
+            get {
+                return ResourceManager.GetString("PersonalThresholdPresets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal Threshold Preset Settings.
+        /// </summary>
+        public static string PersonalThresholdPresetSettings {
+            get {
+                return ResourceManager.GetString("PersonalThresholdPresetSettings", resourceCulture);
             }
         }
         
@@ -1132,6 +1546,33 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Preset.
+        /// </summary>
+        public static string Preset {
+            get {
+                return ResourceManager.GetString("Preset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This preset no longer exists.
+        /// </summary>
+        public static string PresetIsNoLongerExists {
+            get {
+                return ResourceManager.GetString("PresetIsNoLongerExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preset name already exists.
+        /// </summary>
+        public static string PresetNameIsDuplicated {
+            get {
+                return ResourceManager.GetString("PresetNameIsDuplicated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Problem Account List.
         /// </summary>
         public static string ProblemAccountList {
@@ -1186,6 +1627,33 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reach Count.
+        /// </summary>
+        public static string ReachCount {
+            get {
+                return ResourceManager.GetString("ReachCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reached Threshold.
+        /// </summary>
+        public static string ReachedThreshold {
+            get {
+                return ResourceManager.GetString("ReachedThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reach History.
+        /// </summary>
+        public static string ReachHistory {
+            get {
+                return ResourceManager.GetString("ReachHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh.
         /// </summary>
         public static string Refresh {
@@ -1209,6 +1677,33 @@ namespace Alpha.MemberInfo.AppResources {
         public static string RemainingTransferInAmount {
             get {
                 return ResourceManager.GetString("RemainingTransferInAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Account.
+        /// </summary>
+        public static string RemoveAccount {
+            get {
+                return ResourceManager.GetString("RemoveAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Multiple Accounts.
+        /// </summary>
+        public static string RemoveMultipleAccounts {
+            get {
+                return ResourceManager.GetString("RemoveMultipleAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Removed successfully.
+        /// </summary>
+        public static string RemoveSuccessfully {
+            get {
+                return ResourceManager.GetString("RemoveSuccessfully", resourceCulture);
             }
         }
         
@@ -1267,6 +1762,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select.
         /// </summary>
         public static string Select {
@@ -1312,11 +1816,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select preset.
+        /// </summary>
+        public static string SelectPreset {
+            get {
+                return ResourceManager.GetString("SelectPreset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Products.
         /// </summary>
         public static string SelectProducts {
             get {
                 return ResourceManager.GetString("SelectProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select threshold preset or set threshold for the Members above:.
+        /// </summary>
+        public static string SelectThresholdPreset {
+            get {
+                return ResourceManager.GetString("SelectThresholdPreset", resourceCulture);
             }
         }
         
@@ -1438,6 +1960,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This function is only available for Sportsbook..
+        /// </summary>
+        public static string SupportsSportsbookDataOnly {
+            get {
+                return ResourceManager.GetString("SupportsSportsbookDataOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Suspended.
         /// </summary>
         public static string Suspended {
@@ -1474,6 +2005,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Threshold Preset Name.
+        /// </summary>
+        public static string ThresholdPresetName {
+            get {
+                return ResourceManager.GetString("ThresholdPresetName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Threshold Type.
+        /// </summary>
+        public static string ThresholdType {
+            get {
+                return ResourceManager.GetString("ThresholdType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To.
         /// </summary>
         public static string To {
@@ -1506,6 +2055,24 @@ namespace Alpha.MemberInfo.AppResources {
         public static string TotalContributionRate {
             get {
                 return ResourceManager.GetString("TotalContributionRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unlimited.
+        /// </summary>
+        public static string Unlimited {
+            get {
+                return ResourceManager.GetString("Unlimited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        public static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
             }
         }
         
@@ -1578,6 +2145,42 @@ namespace Alpha.MemberInfo.AppResources {
         public static string UserNamePlaceHolder1 {
             get {
                 return ResourceManager.GetString("UserNamePlaceHolder1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to is already in the watchlist.
+        /// </summary>
+        public static string WasAddedWatchlistAlreadyError {
+            get {
+                return ResourceManager.GetString("WasAddedWatchlistAlreadyError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updated successfully.
+        /// </summary>
+        public static string WatchlistUpdateSuccessfully {
+            get {
+                return ResourceManager.GetString("WatchlistUpdateSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winning/Losing Amount.
+        /// </summary>
+        public static string WinningLosingAmount {
+            get {
+                return ResourceManager.GetString("WinningLosingAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winning Threshold.
+        /// </summary>
+        public static string WinningThreshold {
+            get {
+                return ResourceManager.GetString("WinningThreshold", resourceCulture);
             }
         }
         

@@ -1,0 +1,36 @@
+﻿#manage-global-threshold {
+    .form-group {
+        margin: 10px 0 20px 0;
+        padding-bottom: 3px;
+
+        label {
+            font-size: 13px;
+            color: #333;
+        }
+    }
+
+    .sel-preset {
+        width: 260px;
+    }
+
+    .txt-usernames {
+        width: 100%;
+    }
+
+    .lbl-threshold {
+        width: 160px;
+    }
+
+    .txt-threshold {
+        width: 160px;
+    }
+
+    .ckb-unlimited {
+        display: inline-block;
+        margin-left: 40px;  
+    }
+
+    .btn-submit {
+        width: 90px;
+    }
+}

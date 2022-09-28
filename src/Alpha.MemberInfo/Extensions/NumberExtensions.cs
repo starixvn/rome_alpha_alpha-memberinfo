@@ -12,5 +12,10 @@
 
         public static string ToMoneyFormatWithZeroTail(this decimal number)
             => number.ToString(moneyWithZeroTailFormat, CultureInfo.InvariantCulture);
+
+        public static string ToMoneyFormatWithUnlimited(this decimal? number)
+           => number.HasValue
+           ? number.Value.ToMoneyFormat()
+           : AppResources.Resources.Unlimited;
     }
 }

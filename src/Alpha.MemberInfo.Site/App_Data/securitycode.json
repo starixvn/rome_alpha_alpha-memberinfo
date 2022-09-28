@@ -11,7 +11,8 @@
     "ParlayMaxPayout/EditSingle",
     "ParlayMaxPayout/EditMultiple",
     "ParlayMaxPayout/UpdateSingle",
-    "ParlayMaxPayout/UpdateMultiple"
+    "ParlayMaxPayout/UpdateMultiple",
+    "MyWatchlistAccounts"
   ],
   "sites": [
   ],

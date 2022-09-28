@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -743,6 +743,236 @@
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list.min.css">
       <DependentUpon>dormant-account-list.css</DependentUpon>
     </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-global-threshold-dark.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-global-threshold-dark.min.css">
+      <DependentUpon>manage-global-threshold-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-presets-dark.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-presets-dark.min.css">
+      <DependentUpon>manage-presets-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-dark.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-dark.min.css">
+      <DependentUpon>manage-watchlist-accounts-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts-dark.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts-dark.min.css">
+      <DependentUpon>my-watchlist-accounts-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history-dark.css" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history-dark.min.css">
+      <DependentUpon>reach-history-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history.css" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history.js" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history.min.css">
+      <DependentUpon>reach-history.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history.min.js">
+      <DependentUpon>reach-history.js</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-dark.css" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-dark.min.css">
+      <DependentUpon>reached-threshold-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-global-threshold-dark.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-global-threshold-dark.min.css">
+      <DependentUpon>manage-global-threshold-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-global-threshold-media.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-global-threshold-media.min.css">
+      <DependentUpon>manage-global-threshold-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-global-threshold.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-global-threshold.js" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-global-threshold.min.css">
+      <DependentUpon>manage-global-threshold.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-global-threshold.min.js">
+      <DependentUpon>manage-global-threshold.js</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-presets-dark.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-presets-dark.min.css">
+      <DependentUpon>manage-presets-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-presets-media.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-presets-media.min.css">
+      <DependentUpon>manage-presets-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-presets.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-presets.js" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-presets.min.css">
+      <DependentUpon>manage-presets.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-presets.min.js">
+      <DependentUpon>manage-presets.js</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-dark.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-dark.min.css">
+      <DependentUpon>manage-watchlist-accounts-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-media.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-watchlist-accounts-media.min.css">
+      <DependentUpon>manage-watchlist-accounts-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-watchlist-accounts.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-watchlist-accounts.js" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-watchlist-accounts.min.css">
+      <DependentUpon>manage-watchlist-accounts.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\manage-watchlist-accounts.min.js">
+      <DependentUpon>manage-watchlist-accounts.js</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts-dark.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts-dark.min.css">
+      <DependentUpon>my-watchlist-accounts-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts-media.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts-media.min.css">
+      <DependentUpon>my-watchlist-accounts-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts.css" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts.js" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts.min.css">
+      <DependentUpon>my-watchlist-accounts.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\my-watchlist-accounts.min.js">
+      <DependentUpon>my-watchlist-accounts.js</DependentUpon>
+    </Content>
+    <Content Include="App_Data\ExcelTemplates\ReachedThreshold\ReachedThreshold.xls" />
+    <Content Include="App_Data\ExcelTemplates\ReachedThreshold\ReachedThresholdHideDateTime.xls" />
+    <None Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-global-threshold-media.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-global-threshold-dark.min.css">
+      <DependentUpon>manage-global-threshold-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-global-threshold-media.css">
+      <DependentUpon>manage-global-threshold-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-global-threshold-media.min.css">
+      <DependentUpon>manage-global-threshold-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-global-threshold.css">
+      <DependentUpon>manage-global-threshold.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-global-threshold-dark.css">
+      <DependentUpon>manage-global-threshold-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-global-threshold.min.css">
+      <DependentUpon>manage-global-threshold.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-presets-media.css">
+      <DependentUpon>manage-presets-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-presets-media.min.css">
+      <DependentUpon>manage-presets-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-presets.css">
+      <DependentUpon>manage-presets.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-presets.min.css">
+      <DependentUpon>manage-presets.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-watchlist-accounts-dark.min.css">
+      <DependentUpon>manage-watchlist-accounts-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-watchlist-accounts-media.css">
+      <DependentUpon>manage-watchlist-accounts-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-watchlist-accounts-media.min.css">
+      <DependentUpon>manage-watchlist-accounts-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-watchlist-accounts.css">
+      <DependentUpon>manage-watchlist-accounts.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-watchlist-accounts-dark.css">
+      <DependentUpon>manage-watchlist-accounts-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-watchlist-accounts.min.css">
+      <DependentUpon>manage-watchlist-accounts.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert-dark.css">
+      <DependentUpon>my-watchlist-accounts-alert-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert-dark.min.css">
+      <DependentUpon>my-watchlist-accounts-alert-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert.css">
+      <DependentUpon>my-watchlist-accounts-alert.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert.min.css">
+      <DependentUpon>my-watchlist-accounts-alert.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-dark.min.css">
+      <DependentUpon>my-watchlist-accounts-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-media.css">
+      <DependentUpon>my-watchlist-accounts-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-media.min.css">
+      <DependentUpon>my-watchlist-accounts-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts.css">
+      <DependentUpon>my-watchlist-accounts.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-dark.css">
+      <DependentUpon>my-watchlist-accounts-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts.min.css">
+      <DependentUpon>my-watchlist-accounts.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history-media.css" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reach-history-media.min.css">
+      <DependentUpon>reach-history-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-dark.css" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-dark.min.css">
+      <DependentUpon>reached-threshold-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-media.css" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-media.min.css">
+      <DependentUpon>reached-threshold-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold.css" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold.js" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold.min.css">
+      <DependentUpon>reached-threshold.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold.min.js">
+      <DependentUpon>reached-threshold.js</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-dark.css">
+      <DependentUpon>reach-history-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-dark.min.css">
+      <DependentUpon>reach-history-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-media.css">
+      <DependentUpon>reach-history-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history.css">
+      <DependentUpon>reach-history.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history.min.css">
+      <DependentUpon>reach-history.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold-dark.min.css">
+      <DependentUpon>reached-threshold-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold-media.css">
+      <DependentUpon>reached-threshold-media.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold-media.min.css">
+      <DependentUpon>reached-threshold-media.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold-dark.css">
+      <DependentUpon>reached-threshold-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold.css">
+      <DependentUpon>reached-threshold.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold.min.css">
+      <DependentUpon>reached-threshold.css</DependentUpon>
+    </Content>
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout-dark.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout-dark.min.css">
       <DependentUpon>parlay-max-payout-dark.css</DependentUpon>
@@ -756,11 +986,42 @@
     <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.css">
       <DependentUpon>parlay-max-payout.scss</DependentUpon>
     </Content>
+    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.min.css">
+      <DependentUpon>parlay-max-payout.css</DependentUpon>
+    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in-dark.css" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in-dark.min.css">
       <DependentUpon>qr-code-member-sign-in-dark.css</DependentUpon>
     </Content>
     <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout-dark.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Views\Index.cshtml" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Views\web.config" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-dark.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Views\ManageGlobalThreshold.cshtml" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Views\ManageWatchlistAccounts.cshtml" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Views\ManagePersonalThresholdPreset.cshtml" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Views\web.config" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Views\Index.cshtml" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold-dark.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-watchlist-accounts.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-watchlist-accounts-dark.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-global-threshold.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-global-threshold-dark.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Views\ThresholdInputGroup.cshtml" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-presets.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Views\ReachHistory.cshtml" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-media.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-watchlist-accounts-media.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\manage-presets-media.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reached-threshold-media.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-media.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\my-watchlist-accounts-alert-dark.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history-dark.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\reach-history.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Views\InformationLegend.cshtml" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
@@ -928,6 +1189,47 @@
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountExcelQuery.cs" />
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountQuery.cs" />
     <Compile Include="Features\DormantAccountList\ViewModels\DormantAccountViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\MyWatchlistAccountsController.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\MyWatchlistAccountsHandler.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\AddMultiplePersonalPresetCommand.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\AddPersonalThresholdCommand.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\DeleteMultiplePersonalThresholdCommand.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\DeletePersonalPresetCommand.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\GlobalThresholdQuery.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageGlobalThresholdQuery.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManagePersonalThresholdPresetQuery.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageWatchlistAccountsQuery.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\MyWatchlistAccountsQuery.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\MyWatchlistAccountsQueryBase.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\PersonalPresetQuery.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\PresetInfo.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\UpdateGlobalThresholdCommand.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\UpdateMultiplePersonalThresholdCommand.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\UpdatePersonalPresetCommand.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\WatchlistAccountsQuery.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ManageGlobalThresholdViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ManagePersonalThresholdPresetViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ManageWatchlistAccountsViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\MyWatchlistAccountsPagingViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\MyWatchlistAccountsViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\PresetSelectionViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ThresholdViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdController.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdExcelHandler.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdHandler.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachedThresholdExcelQuery.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachHistoryListQuery.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachHistoryQuery.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachlistAccountsQuery.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachedThresholdQuery.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachedThresholdQueryBase.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\Requests\ReachHistoryQueryBase.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\LimitTypeSelectionViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\ReachedThresholdPagingViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\ReachedThresholdViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\ReachHistoryViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\StatusSelectionViewModel.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdWorkbook.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutController.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutHandler.cs" />
     <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutCheckDownlineQuery.cs" />
@@ -1055,6 +1357,8 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
     <Content Include="assets\styles\abstracts\_variables.scss" />
+    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Styles\abstracts\_variables.scss" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Styles\abstracts\_variables.scss" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountList.xls" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountListHideDateTime.xls" />
     <Content Include="assets\styles\problem-account\index-dark.scss" />
@@ -1255,6 +1559,23 @@
     <TypeScriptCompile Include="Features\CustomerList\Scripts\muliple-double-comm.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\unlock.ts" />
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\iframe-popup.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\threshold-inputs-base.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-accounts-alert.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-accounts-helper.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\manage-global-threshold.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\manage-presets.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-accounts-service.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\manage-watchlist-accounts.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\edit-setting-popup.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-accounts-datatable.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-accounts-viewmodel.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-accounts.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\ReachedThreshold\Scripts\reach-history.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\ReachedThreshold\Scripts\reached-threshold-datatable.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\ReachedThreshold\Scripts\reached-threshold-service.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\ReachedThreshold\Scripts\reached-threshold-viewmodel.ts" />
+    <TypeScriptCompile Include="Features\MyWatchlist\ReachedThreshold\Scripts\reached-threshold.ts" />
     <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-alert.ts" />
     <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-helper.ts" />
     <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-service.ts" />
@@ -1321,9 +1642,9 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <PropertyGroup>

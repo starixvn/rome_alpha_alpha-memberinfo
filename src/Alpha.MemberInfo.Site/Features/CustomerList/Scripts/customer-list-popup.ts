@@ -182,11 +182,11 @@ class CustomerListPopup {
         }
         else {
             this.$editPopupContainer
-                .css({ height: 'auto' })
                 .modal({ show: true, backdrop: false });
 
             $bootstrapModalDialog.css({ width: 'inherit' });
             const width = $bootstrapModalDialog.outerWidth();
+            const height = $bootstrapModalDialog.outerHeight()
 
             let top = this.$(element).offset().top - this.$(document).scrollTop(),
                 left = this.$(element).offset().left + this.$(element).width();
@@ -195,7 +195,7 @@ class CustomerListPopup {
                 left = left - width;
             }
 
-            this.$editPopupContainer.css({ top: 0, left });
+            this.$editPopupContainer.css({ top: height > 300 ? 0 : top, left, height: height > 300 ? 'auto' : height });
         }
     }
 

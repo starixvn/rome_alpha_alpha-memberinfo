@@ -1,0 +1,170 @@
+﻿@import "../../../../assets/styles/abstracts/_mixins.scss";
+
+body {
+    font-size: calculateScale(13px) !important;
+    background-color: #fff;
+}
+.page-title .nav.nav-tabs > li > a {
+    padding: calculateScale(10px) calculateScale(10px) calculateScale(8px);
+    font-size: calculateScale(13px);
+}
+
+.icon-information-outline {
+    top: -5px !important;
+}
+
+.filter {
+    display: block;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+    align-items: flex-end;
+
+    .form-group {
+        margin-right: calculateScale(5px);
+        vertical-align: bottom;
+        margin-bottom: calculateScale(8px);
+
+        .txt-search {
+            font-size: calculateScale(13px);
+        }
+
+        label {
+            font-size: calculateScale(13px);
+        }
+
+        [class*="btn-"] {
+            font-size: calculateScale(11px);
+        }
+
+        .txt-search, [class*="btn-"] {
+            height: calculateScale(28px);
+            width: 100% !important;
+        }
+    }
+
+    .username-box {
+        grid-column: 1/4;
+
+        .easy-autocomplete {
+            width: 100% !important;
+
+            .easy-autocomplete-container {
+                font-size: calculateScale(10px);
+            }
+        }
+    }
+}
+
+.table-title {
+    height: calculateScale(35px);
+    .title {
+        font-size: calculateScale(13px);
+    }
+}
+
+.dtr-column {
+    input[type=checkbox] {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .icon-table-edit, .icon-view-grid {
+        font-size: calculateScale(18px) !important;
+    }
+}
+
+.dataTables_length {
+    label {
+        font-size: calculateScale(13px) !important;
+    }
+
+    select {
+        height: calculateScale(27px);
+    }
+}
+
+.dataTable {
+    font-size: calculateScale(12px) !important;
+}
+
+.modal-header {
+    .modal-title {
+        font-size: calculateScale(14px) !important;
+    }
+
+    .close {
+        font-size: calculateScale(21px) !important;
+    }
+}
+
+#edit-popup {
+    li {
+        font-size: calculateScale(14px) !important;
+        margin: 20px auto;
+    }
+}
+
+#iframe-popup {
+    padding-right: 0px !important;
+    padding-left: 0 !important;
+    width: calc(100% + 24px) !important;
+    height: calc(100% + 8px) !important;
+    left: -12px !important;
+    top: 0 !important;
+
+    .modal-dialog {
+        display: block;
+        overflow: hidden;
+    }
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+
+        .modal-body {
+            flex-grow: 1;
+            padding: 8px 16px;
+            height: calc(100% - 55px);
+            overflow: auto;
+
+            input[type="checkbox"] {
+                width: calculateScale(16px);
+                height: calculateScale(16px);
+            }
+        }
+
+        .modal-footer {
+            text-align: center;
+        }
+    }
+
+}
+
+.icon-table-edit {
+    font-size: calculateScale(18px);
+}
+
+.dataTables_length {
+    margin-top: 0 !important;
+
+    label {
+        font-size: calculateScale(11px) !important;
+    }
+
+    select {
+        height: calculateScale(27px);
+    }
+}
+
+.dataTables_paginate {
+    font-size: calculateScale(11px) !important;
+    left: 20% !important;
+}
+
+table.dataTable tbody td {
+    height: 40px;
+}
+
+table.dataTable.nowrap th, table.dataTable.nowrap td {
+    white-space: inherit;
+}

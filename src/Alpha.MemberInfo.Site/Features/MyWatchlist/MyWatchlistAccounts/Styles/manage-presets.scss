@@ -1,0 +1,27 @@
+﻿#manage-preset {
+    input {
+        width: 90% !important;
+        height: 100%;
+    }
+
+    .icon-check {
+        color: #52a220;
+    }
+
+    .icon-close {
+        color: #fe0000;
+    }
+
+    .icon-edit, .icon-bin, .icon-check, .icon-close {
+        cursor: pointer;
+    }
+
+    .icon-check, .icon-close {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .action {
+        text-align: center;
+    }
+}

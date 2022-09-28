@@ -28,7 +28,7 @@
                              memberList.PlayerDiscountMyanmarOdds = 0;
                              memberList.AdiscountMyanmarOdds = 0;
                          }
-                         else if (message.CustLevel.IsMasterLevel())
+                         else if (message.CustLevel.IsMasterLevel())    
                          {
                              (downline as AgentListModel).DiscountMyanmarOdds = 0;
                          }

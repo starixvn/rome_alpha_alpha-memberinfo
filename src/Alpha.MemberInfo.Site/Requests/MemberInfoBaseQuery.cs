@@ -15,6 +15,7 @@
             this.viewer = viewer;
 
             // Default data, if query string had data, then get from query string.
+            UserId = viewer.LoggedInUserId;
             CustId = viewer.Id;
             CustName = viewer.Name;
             CustLevelId = viewer.LevelId;
@@ -22,6 +23,8 @@
             SubUsername = viewer.SubAccName;
             BreadcrumbLevel = Enumerable.Empty<CustInfo>();
         }
+
+        public int UserId { get; set; }
 
         public string SubUsername { get; set; }
 

@@ -267,6 +267,13 @@
     <Compile Include="Features\DormantAccountList\DormantAccountHandlerTests.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountWorkbookImplForTesting.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountWorkbookImplTests.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\MyWatchlistAccountsControllerTests.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\MyWatchlistAccountsHandlerTests.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdControllerTests.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdExcelHandlerTests.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdHandlerTests.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdWorkbookImplForTesting.cs" />
+    <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdWorkbookImplTests.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutControllerTests.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutHandlerTests.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInHandlerTests.cs" />
@@ -314,6 +321,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
