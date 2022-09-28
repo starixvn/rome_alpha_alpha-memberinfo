@@ -5,6 +5,7 @@
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Params;
     using Alpha.MemberInfo.Tests.Extensions;
+    using Alpha.Web.Helpers;
     using Fanex.Data.Repository;
     using NSubstitute;
     using System;
@@ -16,12 +17,14 @@
     public class ReachedThresholdServiceImplTests
     {
         private readonly IDynamicRepository dynamicRepository;
+        private readonly PartialUMService partialUMService;
         private readonly ReachedThresholdService service;
 
         public ReachedThresholdServiceImplTests()
         {
             dynamicRepository = Substitute.For<IDynamicRepository>();
-            service = new ReachedThresholdServiceImpl(dynamicRepository);
+            partialUMService = Substitute.For<PartialUMService>();
+            service = new ReachedThresholdServiceImpl(dynamicRepository, partialUMService);
         }
 
         [Fact]

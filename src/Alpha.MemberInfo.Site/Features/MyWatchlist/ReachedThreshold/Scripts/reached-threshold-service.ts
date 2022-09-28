@@ -25,7 +25,17 @@ class ReachedThresholdService {
             dataType: "json",
             type: type,
             data: params,
-            success: onSuccess
+            success: onSuccess,
+            error: function (jqXHR) {
+                if (jqXHR && jqXHR.status === 500 && jqXHR.responseText) {
+                    const jsonData = JSON.parse(jqXHR.responseText);
+                    if (jsonData.UMFrom && jsonData.UMTo) {
+                        location.href = top["alpha"].urls.mainRootPath
+                            + "PartialUM/Index?umfrom=" + jsonData.UMFrom
+                            + "&umto=" + jsonData.UMTo;
+                    }
+                }
+            }
         });
     }
 
