@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -769,7 +769,7 @@
     <value>Chọn giới hạn đặt sẵn hoặc đặt giới hạn mới cho các Member trên:</value>
   </data>
   <data name="SupportsSportsbookDataOnly" xml:space="preserve">
-    <value>Chức năng này chỉ áp dụng cho Cược Thể Thao</value>
+    <value>Chức năng này chỉ áp dụng cho Sportsbook</value>
   </data>
   <data name="ThresholdPresetName" xml:space="preserve">
     <value>Tên Giới Hạn Đặt Sẵn</value>
