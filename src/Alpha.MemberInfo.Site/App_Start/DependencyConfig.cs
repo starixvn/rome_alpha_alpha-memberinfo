@@ -23,6 +23,8 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.Shared.Helpers;
     using Alpha.MemberInfo.Site.Handlers;
+    using Alpha.PartialUM.DataAccess;
+    using Alpha.PartialUM.Services;
     using Alpha.Products.AccountInfo;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting;
@@ -112,6 +114,7 @@
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
             container.Register<WinLossLimitDataAccess, WinLossLimitDataAccessImpl>(Lifestyle.Singleton);
             container.Register<CustomerListDataAccess, CustomerListDataAccessImpl>(Lifestyle.Singleton);
+            container.Register<IPartialUMDataAccess, PartialUMDataAccess>(Lifestyle.Singleton);
         }
 
         private static void RegisterServices(Container container)
@@ -160,7 +163,7 @@
             container.RegisterPerWebRequest<MyWatchlistAccountsService, MyWatchlistAccountsServiceImpl>();
             container.RegisterPerWebRequest<ReachedThresholdService, ReachedThresholdServiceImpl>();
             container.RegisterPerWebRequest<ReachedThresholdWorkbook, ReachedThresholdWorkbookImpl>();
-            container.RegisterSingleton<PartialUMService, PartialUMServiceImpl>();
+            container.RegisterSingleton<IPartialUMService, PartialUMService>();
         }
 
         private static void StartConfiguration(Container container)

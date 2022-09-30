@@ -1,29 +1,29 @@
 ﻿namespace Alpha.MemberInfo.Tests.Features.MyWatchlist.ReachedThreshold
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Criteria;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Params;
     using Alpha.MemberInfo.Tests.Extensions;
-    using Alpha.Web.Helpers;
+    using Alpha.PartialUM.Services;
     using Fanex.Data.Repository;
     using NSubstitute;
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
     using Xunit;
 
     [Trait("Category", "ReachedThreshold")]
     public class ReachedThresholdServiceImplTests
     {
         private readonly IDynamicRepository dynamicRepository;
-        private readonly PartialUMService partialUMService;
+        private readonly IPartialUMService partialUMService;
         private readonly ReachedThresholdService service;
 
         public ReachedThresholdServiceImplTests()
         {
             dynamicRepository = Substitute.For<IDynamicRepository>();
-            partialUMService = Substitute.For<PartialUMService>();
+            partialUMService = Substitute.For<IPartialUMService>();
             service = new ReachedThresholdServiceImpl(dynamicRepository, partialUMService);
         }
 

@@ -1,13 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Criteria;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Params;
-    using Alpha.Web.Helpers;
+    using Alpha.PartialUM.Services;
     using Fanex.Data.Repository;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
 
     public interface ReachedThresholdService
     {
@@ -19,11 +19,11 @@
     public class ReachedThresholdServiceImpl : ReachedThresholdService
     {
         private readonly IDynamicRepository dynamicRepository;
-        private readonly PartialUMService partialUMService;
+        private readonly IPartialUMService partialUMService;
 
         public ReachedThresholdServiceImpl(
             IDynamicRepository dynamicRepository,
-            PartialUMService partialUMService)
+            IPartialUMService partialUMService)
         {
             this.dynamicRepository = dynamicRepository;
             this.partialUMService = partialUMService;
@@ -36,7 +36,7 @@
                 param.FromDate.GetGreaterDate(param.LimitedDateToShowInfo),
                 param.ToDate,
                 param.LimitType);
-            partialUMService.CheckPartialUM(selectReachListByAgCriteria.GetSettingKey());
+            partialUMService.ThrowIfUM(selectReachListByAgCriteria.GetSettingKey());
 
             await dynamicRepository.ExecuteAsync(selectReachListByAgCriteria);
 
@@ -63,7 +63,7 @@
                 param.LimitType,
                 param.SortType,
                 param.IsDesc);
-            partialUMService.CheckPartialUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey());
 
             return await dynamicRepository.FetchAsync<ReachHistoryModel>(criteria);
         }

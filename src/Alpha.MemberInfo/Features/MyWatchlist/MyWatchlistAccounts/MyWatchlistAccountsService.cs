@@ -6,7 +6,7 @@
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Params;
     using Alpha.MemberInfo.Models;
-    using Alpha.Web.Helpers;
+    using Alpha.PartialUM.Services;
     using Fanex.Data.Repository;
 
     public interface MyWatchlistAccountsService
@@ -35,11 +35,11 @@
     public class MyWatchlistAccountsServiceImpl : MyWatchlistAccountsService
     {
         private readonly IDynamicRepository dynamicRepository;
-        private readonly PartialUMService partialUMService;
+        private readonly IPartialUMService partialUMService;
 
         public MyWatchlistAccountsServiceImpl(
             IDynamicRepository dynamicRepository,
-            PartialUMService partialUMService)
+            IPartialUMService partialUMService)
         {
             this.dynamicRepository = dynamicRepository;
             this.partialUMService = partialUMService;
@@ -54,7 +54,7 @@
                 param.IsDesc,
                 param.PageIndex,
                 param.PageSize);
-            partialUMService.CheckPartialUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey());
 
             var watchlistAccounts = await dynamicRepository.FetchAsync<WatchlistAccountModel>(criteria);
 
@@ -64,7 +64,7 @@
         public async Task<IEnumerable<PersonalPresetModel>> GetPresets(SelectPresetsParam param)
         {
             var criteria = new SelectPresetsCriteria(param.AgentId);
-            partialUMService.CheckPartialUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey());
 
             return await dynamicRepository.FetchAsync<PersonalPresetModel>(criteria);
         }
@@ -79,7 +79,7 @@
                 param.UserId,
                 param.SubAccId,
                 param.IP);
-            partialUMService.CheckPartialUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey());
 
             return await dynamicRepository.FetchAsync<NamedResult>(criteria);
         }
@@ -93,7 +93,7 @@
                 param.UserId,
                 param.SubAccId,
                 param.IP);
-            partialUMService.CheckPartialUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey());
 
             await dynamicRepository.ExecuteAsync(criteria);
 
@@ -107,7 +107,7 @@
                param.UserId,
                param.SubAccId,
                param.IP);
-            partialUMService.CheckPartialUM(command.GetSettingKey());
+            partialUMService.ThrowIfUM(command.GetSettingKey());
 
             await dynamicRepository.ExecuteAsync(command);
 
@@ -117,7 +117,7 @@
         public async Task<GlobalThresholdModel> GetGlobalThreshold(SelectGlobalThresholdParam param)
         {
             var criteria = new SelectGlobalThresholdCriteria(param.AgentId);
-            partialUMService.CheckPartialUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey());
 
             return await dynamicRepository.GetAsync<GlobalThresholdModel>(criteria);
         }
@@ -131,7 +131,7 @@
                 param.UserId,
                 param.SubAccId,
                 param.IP);
-            partialUMService.CheckPartialUM(command.GetSettingKey());
+            partialUMService.ThrowIfUM(command.GetSettingKey());
 
             await dynamicRepository.ExecuteAsync(command);
 
@@ -145,7 +145,7 @@
                 param.PresetTitle,
                 param.WinningThreshold,
                 param.LosingThreshold);
-            partialUMService.CheckPartialUM(command.GetSettingKey());
+            partialUMService.ThrowIfUM(command.GetSettingKey());
 
             await dynamicRepository.ExecuteAsync(command);
 
@@ -171,7 +171,7 @@
             var command = new DeletePersonalPresetCommand(
                 param.AgentId,
                 param.ID);
-            partialUMService.CheckPartialUM(command.GetSettingKey());
+            partialUMService.ThrowIfUM(command.GetSettingKey());
 
             await dynamicRepository.ExecuteAsync(command);
 
