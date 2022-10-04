@@ -27,8 +27,15 @@
             data: params,
             success: onSuccess,
             error: function (jqXHR) {
-                if (jqXHR && jqXHR.status === 401) {
-                    top.window["age"].SignOut();
+                if (jqXHR) {
+                    if (jqXHR.status === 401) {
+                        top.window["age"].SignOut();
+                    } else if (jqXHR.status === 500 && jqXHR.responseText) {
+                        const jsonData = JSON.parse(jqXHR.responseText);
+                        location.href = top["alpha"].urls.mainRootPath
+                            + "PartialUM/Index?umfrom=" + jsonData.UMFrom
+                            + "&umto=" + jsonData.UMTo;
+                    }
                 }
             }
         });

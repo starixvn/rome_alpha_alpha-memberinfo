@@ -1,5 +1,12 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Reflection;
+    using System.Resources;
+    using System.Web;
+    using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
@@ -48,15 +55,7 @@
     using SimpleInjector.Integration.Web.Mvc;
     using Sunplus.Agent.Model.Base;
     using Sunplus.Agent.Model.Entities;
-    using Sunplus.Agent.Model.Entities.Permission;
     using Sunplus.Agent.Utilities;
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
-    using System.Resources;
-    using System.Web;
-    using System.Web.Mvc;
     using Utilities.IP;
 
     public static class DependencyConfig
@@ -161,6 +160,7 @@
             container.RegisterPerWebRequest<MyWatchlistAccountsService, MyWatchlistAccountsServiceImpl>();
             container.RegisterPerWebRequest<ReachedThresholdService, ReachedThresholdServiceImpl>();
             container.RegisterPerWebRequest<ReachedThresholdWorkbook, ReachedThresholdWorkbookImpl>();
+            container.RegisterSingleton<PartialUMService, PartialUMServiceImpl>();
         }
 
         private static void StartConfiguration(Container container)

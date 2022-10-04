@@ -5,6 +5,7 @@
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Params;
     using Alpha.MemberInfo.Tests.Extensions;
+    using Alpha.Web.Helpers;
     using Fanex.Data.Repository;
     using NSubstitute;
     using System;
@@ -16,12 +17,14 @@
     public class MyWatchlistAccountsServiceImplTests
     {
         private readonly IDynamicRepository dynamicRepository;
+        private readonly PartialUMService partialUMService;
         private readonly MyWatchlistAccountsService service;
 
         public MyWatchlistAccountsServiceImplTests()
         {
             dynamicRepository = Substitute.For<IDynamicRepository>();
-            service = new MyWatchlistAccountsServiceImpl(dynamicRepository);
+            partialUMService = Substitute.For<PartialUMService>();
+            service = new MyWatchlistAccountsServiceImpl(dynamicRepository, partialUMService);
         }
 
         [Fact]
