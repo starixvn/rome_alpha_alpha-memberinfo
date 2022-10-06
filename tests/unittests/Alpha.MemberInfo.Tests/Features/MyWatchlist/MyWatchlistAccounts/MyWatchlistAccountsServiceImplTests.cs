@@ -1,29 +1,29 @@
 ﻿namespace Alpha.MemberInfo.Tests.Features.MyWatchlist.MyWatchlistAccounts
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Criteria;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Params;
     using Alpha.MemberInfo.Tests.Extensions;
-    using Alpha.Web.Helpers;
+    using Alpha.PartialUM.Services;
     using Fanex.Data.Repository;
     using NSubstitute;
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
     using Xunit;
 
     [Trait("Category", "MyWatchlistAccounts")]
     public class MyWatchlistAccountsServiceImplTests
     {
         private readonly IDynamicRepository dynamicRepository;
-        private readonly PartialUMService partialUMService;
+        private readonly IPartialUMService partialUMService;
         private readonly MyWatchlistAccountsService service;
 
         public MyWatchlistAccountsServiceImplTests()
         {
             dynamicRepository = Substitute.For<IDynamicRepository>();
-            partialUMService = Substitute.For<PartialUMService>();
+            partialUMService = Substitute.For<IPartialUMService>();
             service = new MyWatchlistAccountsServiceImpl(dynamicRepository, partialUMService);
         }
 
