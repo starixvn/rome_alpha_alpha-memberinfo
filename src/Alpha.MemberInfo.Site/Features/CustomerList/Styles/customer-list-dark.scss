@@ -514,7 +514,9 @@ table.dataTable tbody tr {
 }
 
 .fixedHeader-floating th {
-    position : fixed !important;
+    position: fixed !important;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .fixedHeader-floating .header.control.sorting_disabled {
@@ -526,8 +528,8 @@ table.dataTable tbody tr {
     height: 79px;
     display: block;
     border: none !important;
-    cursor : pointer;
-
+    cursor: pointer;
+    visibility: visible;
     &:before {
         display: none !important;
     }
