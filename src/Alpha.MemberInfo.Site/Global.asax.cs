@@ -102,7 +102,7 @@
             Assembly assembly = Assembly.GetCallingAssembly();
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
 
-            return versionInfo.FileVersion;
+            return $"{versionInfo.FileVersion}.{AppSettings.JsVersion}";
         }
     }
 }

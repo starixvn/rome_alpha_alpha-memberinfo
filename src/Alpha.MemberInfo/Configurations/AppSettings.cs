@@ -75,5 +75,7 @@
         public static IEnumerable<string> NewCaptchaLogCurrencies => string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["NewCaptcha:LogCurrencies"])
             ? Enumerable.Empty<string>()
             : ConfigurationManager.AppSettings["NewCaptcha:LogCurrencies"].Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
+
+        public static string JsVersion => GetConfigValue("JsVersion");
     }
 }
