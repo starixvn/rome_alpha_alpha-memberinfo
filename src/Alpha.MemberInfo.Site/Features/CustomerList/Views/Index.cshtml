@@ -11,11 +11,6 @@
     var userguideLink = UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
         MicroSites.MessageUrl("~/StaticMessage/Guide?id=137130") :
         MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=137130");
-
-    var reportDomainConfig = System.Web.Configuration.WebConfigurationManager.AppSettings["Report:Domain"] ?? string.Empty;
-    var reportDomainValue = reportDomainConfig.IndexOf("{0}") != -1 ?
-        string.Format(reportDomainConfig, Request.Headers["Host"]) : reportDomainConfig;
-    var reportUrl = string.IsNullOrWhiteSpace(reportDomainConfig) ? MicroSites.ReportsUrl() : $"{reportDomainValue}/";
 }
 
 @section Styles {
@@ -241,7 +236,7 @@
     <input type="hidden" id="isMobileView" value='@(Model.IsMobileView ? "true" : "false")'>
     <input type="hidden" id="breadcrumbLevelJson" value='@Model.BreadcrumbLevelJson'>
     <input type="hidden" id="oldMainUrl" value='@MicroSites.OldMainUrl()'>
-    <input type="hidden" id="reportsUrl" value='@reportUrl'>
+    <input type="hidden" id="reportsUrl" value='@MicroSites.ReportsUrl()'>
     <input type="hidden" id="memberInfoUrl" value='@MicroSites.MemberInfoUrl()'>
     <input type="hidden" id="limitedDateToShowInfo" value='@(Model.LimitedDateToShowInfo ? "true" : "false")'>
     <input type="hidden" id="isShowMyanmarOdds" value='@(Model.IsShowMyanmarOdds ? "true" : "false")'>
