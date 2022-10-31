@@ -127,7 +127,7 @@
                         message.Language,
                         message.SubAccId,
                         message.Credit,
-                        passwordModel.EncodePassword,
+                        passwordModel.RawPassword,
                         message.UsernameCopyFrom,
                         message.CreditMax,
                         message.SubUsername)).ConfigureAwait(false);
