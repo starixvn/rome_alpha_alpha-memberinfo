@@ -50,6 +50,10 @@
     }
 }
 
+.form-group select {
+    appearance: auto !important;
+}
+
 @media only screen and (max-device-width: 767px) {
     * {
         font-size: calculateScale(13px) !important;
@@ -58,6 +62,7 @@
     .icon-link {
         font-size: calculateScale(19px) !important;
     }
+
     #show-qr-code {
         width: 100% !important;
     }
