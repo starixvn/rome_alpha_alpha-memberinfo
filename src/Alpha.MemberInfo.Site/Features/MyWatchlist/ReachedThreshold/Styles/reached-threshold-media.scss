@@ -9,6 +9,11 @@ body {
     font-size: calculateScale(13px); 
 }
 
+.page-title .icon-information-outline {
+    font-size: 26px !important;
+    top: -2px !important;
+}
+
 .filter {
     display: block;
     grid-template-columns: 1fr 1fr 1fr;

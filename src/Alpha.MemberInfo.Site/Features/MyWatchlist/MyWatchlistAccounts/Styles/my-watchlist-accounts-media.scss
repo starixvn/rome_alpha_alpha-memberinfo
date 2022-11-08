@@ -9,8 +9,13 @@ body {
     font-size: calculateScale(13px);
 }
 
-.icon-information-outline {
-    top: -5px !important;
+.page-title .icon-information-outline {
+    font-size: 26px !important;
+    top: -2px !important;
+}
+
+.icon-tab .icon-book {
+    top: 2px;
 }
 
 .filter {
