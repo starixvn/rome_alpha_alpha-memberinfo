@@ -413,7 +413,8 @@ class CustomerListDataTable {
             CustLevelId: item.RoleId
         }, actionName = item.RoleId === CustomerLevel.Member ? 'MemberStatement' : 'SMAStatement';
 
-        const viewStatementLink = `${this.topWindow.menuBar.domElements.reportDomain}${this.topWindow.menuBar.domElements.cookieless}/Statement/${actionName}?${this.$.param(queryString)}`;
+        const reportDomain = this.topWindow.menuBar.domElements.reportDomain || this.viewModel.ReportsUrl.substr(0, this.viewModel.ReportsUrl.length - 1);
+        const viewStatementLink = `${reportDomain}${this.topWindow.menuBar.domElements.cookieless}/Statement/${actionName}?${this.$.param(queryString)}`;
         return `<a data-url='${viewStatementLink}' title='${this.$('#statementTooltipText').val()}' class='icon-statement' />`;
     }
 
