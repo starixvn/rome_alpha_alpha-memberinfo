@@ -204,117 +204,17 @@
     ]
   },
   {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/my-watchlist-accounts.css",
+    "outputFileName": "Features/MyWatchlist/Shared/Bundles/my-watchlist.css",
     "inputFiles": [
       "assets/styles/common.css",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts.css"
+      "Features/MyWatchlist/Shared/Styles/my-watchlist.css"
     ]
   },
   {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/my-watchlist-accounts-media.css",
+    "outputFileName": "Features/MyWatchlist/Shared/Bundles/my-watchlist-media.css",
     "inputFiles": [
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-media.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/my-watchlist-accounts.js",
-    "inputFiles": [
-      "assets/scripts/components/single-selection-dropdown.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-helper.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/iframe-popup.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-alert.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-service.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/edit-setting-popup.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-datatable.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-viewmodel.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts.js"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-watchlist-accounts.css",
-    "inputFiles": [
-      "assets/styles/common.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-watchlist-accounts-media.css",
-    "inputFiles": [
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts-media.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-watchlist-accounts.js",
-    "inputFiles": [
-      "assets/scripts/components/single-selection-dropdown.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-helper.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/threshold-inputs-base.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-alert.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-service.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/manage-watchlist-accounts.js"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-global-threshold.css",
-    "inputFiles": [
-      "assets/styles/common.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-global-threshold.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-global-threshold-media.css",
-    "inputFiles": [
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-global-threshold-media.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-global-threshold.js",
-    "inputFiles": [
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-helper.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/threshold-inputs-base.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-alert.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-service.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/manage-global-threshold.js"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-presets.css",
-    "inputFiles": [
-      "assets/styles/common.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-presets.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-presets-media.css",
-    "inputFiles": [
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-presets-media.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-presets.js",
-    "inputFiles": [
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-helper.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-alert.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-service.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/manage-presets.js"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reached-threshold.css",
-    "inputFiles": [
-      "assets/styles/common.css",
-      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
-      "Features/MyWatchlist/ReachedThreshold/Styles/reached-threshold.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reached-threshold-media.css",
-    "inputFiles": [
-      "Features/MyWatchlist/ReachedThreshold/Styles/reached-threshold-media.css"
+      "Features/MyWatchlist/Shared/Styles/my-watchlist-media.css"
     ]
   },
   {
@@ -322,31 +222,95 @@
     "inputFiles": [
       "assets/scripts/components/daterangepicker.js",
       "assets/scripts/components/single-selection-dropdown.js",
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/iframe-popup.js",
-      "Features/MyWatchlist/ReachedThreshold/Scripts/reached-threshold-viewmodel.js",
-      "Features/MyWatchlist/ReachedThreshold/Scripts/reached-threshold-service.js",
+      "assets/scripts/shared/datatable-helper.js",
+      "assets/scripts/shared/ajax-helper.js",
+      "assets/scripts/shared/customer-status-helper.js",
+      "Features/MyWatchlist/Shared/Scripts/my-watchlist-base.js",
       "Features/MyWatchlist/ReachedThreshold/Scripts/reached-threshold-datatable.js",
       "Features/MyWatchlist/ReachedThreshold/Scripts/reached-threshold.js"
     ]
   },
   {
-    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reach-history-media.css",
-    "inputFiles": [
-      "Features/MyWatchlist/ReachedThreshold/Styles/reach-history-media.css"
-    ]
-  },
-  {
     "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reach-history.js",
     "inputFiles": [
-      "Features/MyWatchlist/ReachedThreshold/Scripts/reached-threshold-service.js",
-      "Features/MyWatchlist/ReachedThreshold/Scripts/reached-threshold-datatable.js",
+      "assets/scripts/shared/datatable-helper.js",
+      "assets/scripts/shared/ajax-helper.js",
       "Features/MyWatchlist/ReachedThreshold/Scripts/reach-history.js"
     ]
   },
   {
-    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reach-history.css",
+    "outputFileName": "Features/MyWatchlist/Shared/Bundles/my-watchlist-settings.css",
     "inputFiles": [
-      "Features/MyWatchlist/ReachedThreshold/Styles/reach-history.css"
+      "assets/styles/common.css",
+      "Features/MyWatchlist/Shared/Styles/my-watchlist-settings.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyWatchlist/Shared/Bundles/my-watchlist-settings-media.css",
+    "inputFiles": [
+      "Features/MyWatchlist/Shared/Styles/my-watchlist-settings-media.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/my-watchlist-accounts.js",
+    "inputFiles": [
+      "assets/scripts/shared/datatable-helper.js",
+      "assets/scripts/shared/ajax-helper.js",
+      "assets/scripts/shared/customer-status-helper.js",
+      "Features/MyWatchlist/Shared/Scripts/my-watchlist-base.js",
+      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/edit-setting-popup.js",
+      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-datatable.js",
+      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-presets.js",
+    "inputFiles": [
+      "assets/scripts/shared/site-helper.js",
+      "assets/scripts/shared/ajax-helper.js",
+      "Features/MyWatchlist/Shared/Scripts/my-watchlist-alert.js",
+      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/manage-presets.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-global-threshold.js",
+    "inputFiles": [
+      "assets/scripts/shared/site-helper.js",
+      "assets/scripts/shared/ajax-helper.js",
+      "Features/MyWatchlist/Shared/Scripts/my-watchlist-alert.js",
+      "Features/MyWatchlist/Shared/Scripts/threshold-inputs-base.js",
+      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/manage-global-threshold.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-watchlist-accounts.js",
+    "inputFiles": [
+      "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/shared/site-helper.js",
+      "assets/scripts/shared/ajax-helper.js",
+      "Features/MyWatchlist/Shared/Scripts/my-watchlist-alert.js",
+      "Features/MyWatchlist/Shared/Scripts/threshold-inputs-base.js",
+      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/manage-watchlist-accounts.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyWatchlist/MyThresholds/Bundles/my-thresholds.js",
+    "inputFiles": [
+      "assets/scripts/components/daterangepicker.js",
+      "assets/scripts/shared/datatable-helper.js",
+      "assets/scripts/shared/ajax-helper.js",
+      "Features/MyWatchlist/Shared/Scripts/my-watchlist-base.js",
+      "Features/MyWatchlist/MyThresholds/Scripts/my-thresholds.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/MyWatchlist/MyThresholds/Bundles/my-thresholds-settings.js",
+    "inputFiles": [
+      "assets/scripts/shared/site-helper.js",
+      "assets/scripts/shared/ajax-helper.js",
+      "Features/MyWatchlist/Shared/Scripts/my-watchlist-alert.js",
+      "Features/MyWatchlist/Shared/Scripts/threshold-inputs-base.js",
+      "Features/MyWatchlist/MyThresholds/Scripts/my-thresholds-settings.js"
     ]
   },
   /************************** Dark Mode ************************/
@@ -415,49 +379,18 @@
     ]
   },
   {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/my-watchlist-accounts-dark.css",
+    "outputFileName": "Features/MyWatchlist/Shared/Bundles/my-watchlist-dark.css",
     "inputFiles": [
       "assets/styles/common-dark.css",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-dark.css"
+      "Features/MyWatchlist/Shared/Styles/my-watchlist-dark.css"
     ]
   },
   {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-watchlist-accounts-dark.css",
+    "outputFileName": "Features/MyWatchlist/Shared/Bundles/my-watchlist-settings-dark.css",
     "inputFiles": [
       "assets/styles/common-dark.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert-dark.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts-dark.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-global-threshold-dark.css",
-    "inputFiles": [
-      "assets/styles/common-dark.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-global-threshold-dark.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-presets-dark.css",
-    "inputFiles": [
-      "assets/styles/common-dark.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert-dark.css",
-      "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-presets.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reached-threshold-dark.css",
-    "inputFiles": [
-      "assets/styles/common-dark.css",
-      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
-      "Features/MyWatchlist/ReachedThreshold/Styles/reached-threshold-dark.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reach-history-dark.css",
-    "inputFiles": [
-      "Features/MyWatchlist/ReachedThreshold/Styles/reach-history-dark.css"
+      "Features/MyWatchlist/Shared/Styles/my-watchlist-settings-dark.css"
     ]
   }
 ]

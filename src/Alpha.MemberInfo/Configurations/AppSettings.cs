@@ -79,5 +79,9 @@
         public static string JsVersion => GetConfigValue("JsVersion");
 
         public static bool LocalTest => GetConfigValue("LocalTest") == "1";
+        
+        public static string SiteGroup => GetConfigValue("SiteGroup") ?? string.Empty;
+
+        public static bool IsMBCSite => !SiteGroup.Equals("789y", StringComparison.OrdinalIgnoreCase);
     }
 }

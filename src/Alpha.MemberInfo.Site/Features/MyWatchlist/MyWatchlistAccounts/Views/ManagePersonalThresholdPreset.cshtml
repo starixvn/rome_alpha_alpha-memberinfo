@@ -2,22 +2,26 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Manage Personal Threshold Preset";
+    ViewBag.Title = Resources.PersonalThresholdPresetSettings;
 }
 
 @section Styles {
-    @StaticResources.RenderStylesWithDarkMode("~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-presets")
-    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-presets-media")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyWatchlist/Shared/Bundles/my-watchlist-settings")
+    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/Shared/Bundles/my-watchlist-settings-media")
 }
 
-<div id="manage-preset">
-    <div class="alert-message"></div>
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-presets")
+}
+
+<div class="box-settings">
+    <div id="alert-message"></div>
     <table id="tbl-report" class="tblRpt tblRpt-bordered alternative-row-table tblRpt-hover" style="width: 100%">
         <thead>
             <tr>
                 <th style="width: 55px;">@Resources.No</th>
-                <th style="width: 195px;">@Resources.ThresholdPresetName</th>
-                <th style="width: 210px;">@Resources.WinningThreshold</th>
+                <th>@Resources.ThresholdPresetName</th>
+                <th style="width: 195px;">@Resources.WinningThreshold</th>
                 <th style="width: 195px;">@Resources.LosingThreshold</th>
                 <th style="width: 90px;">@Resources.Action</th>
             </tr>
@@ -67,8 +71,7 @@
 }
 
 @Html.AntiForgeryToken()
-
-<input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
+<input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()">
 <input type="hidden" id="no-change-to-update-error" value="@Resources.NoChangeToUpdateError" />
 <input type="hidden" id="are-you-sure-to-remove-preset" value="@Resources.AreYouSureToRemovePreset" />
 <input type="hidden" id="add-successfully" value="@Resources.AddSuccessfully" />
@@ -76,9 +79,5 @@
 <input type="hidden" id="update-successfully" value="@Resources.WatchlistUpdateSuccessfully" />
 <input type="hidden" id="preset-is-duplicated" value="@Resources.PresetNameIsDuplicated" />
 <input type="hidden" id="preset-is-no-longer-exists" value="@Resources.PresetIsNoLongerExists" />
-<input type="hidden" id="must-enter-threshold-error" value="@Resources.MustEnterThresholdError"/>
-<input type="hidden" id="must-enter-preset-name-error"  value="@Resources.MustEnterPresetNameError"/>
-
-@section Scripts {
-    @StaticResources.RenderScripts("~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-presets")
-}
+<input type="hidden" id="must-enter-threshold-error" value="@Resources.MustEnterThresholdError" />
+<input type="hidden" id="must-enter-preset-name-error" value="@Resources.MustEnterPresetNameError" />

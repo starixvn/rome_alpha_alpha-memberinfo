@@ -1,4 +1,6 @@
-﻿body {
+﻿@import "./abstracts/_variables-dark.scss";
+
+body {
     background-color: transparent !important;
 }
 
@@ -7,15 +9,15 @@
     width: 100%;
     position: relative;
 
-    &.title-Super{
+    &.title-Super {
         color: #E52C3E;
     }
 
-    &.title-Master{
+    &.title-Master {
         color: #4DE590;
     }
 
-    &.title-Agent{
+    &.title-Agent {
         color: #63A2E5;
     }
 }
@@ -75,7 +77,7 @@ input[type="button"][disabled] {
     }
 
     .multiselect-container label {
-        font-size: 13px;
+        font-size: $font-size;
 
         input[type="checkbox"] {
             display: inline-block;
@@ -182,17 +184,19 @@ input[type="button"][disabled] {
 
 .star {
     &:before {
-        color: #e54748;
+        color: $red-color;
         content: '*';
         padding-right: 8px;
     }
 }
 
+.red {
+    color: $red-color;
+}
+
 #txt-username, #txt-player-id {
     width: 210px;
 }
-
-
 
 html {
     height: unset !important;
@@ -207,9 +211,9 @@ html {
     label {
         font-size: inherit;
         color: inherit;
+
         @media (max-width: 768px) {
             font-size: 16px;
         }
     }
 }
-

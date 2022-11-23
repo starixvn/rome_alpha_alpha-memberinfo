@@ -358,6 +358,10 @@
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInServiceTests.cs" />
     <Compile Include="Features\Shared\Criteria\SelectAutoSuggestionCriteriaTest.cs" />
     <Compile Include="Features\Shared\UsernameSuggestionServiceTests.cs" />
+    <Compile Include="Feature\MyWatchlist\MyThresholds\Criteria\SelectMyThresholdCriteriaTests.cs" />
+    <Compile Include="Feature\MyWatchlist\MyThresholds\Criteria\SelectMyThresholdHistoryCriteriaTests.cs" />
+    <Compile Include="Feature\MyWatchlist\MyThresholds\Criteria\SyncUpdateMyThresholdCommandTests.cs" />
+    <Compile Include="Feature\MyWatchlist\MyThresholds\Criteria\UpdateMyThresholdCommandTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\ExceptionRecorder.cs" />

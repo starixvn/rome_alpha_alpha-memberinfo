@@ -347,6 +347,13 @@
     <Compile Include="Features\DormantAccountList\Models\DormantAccountReport.cs" />
     <Compile Include="Features\DormantAccountList\Models\YesterdayBalanceEntity.cs" />
     <Compile Include="Features\DormantAccountList\Params\DormantAccountParam.cs" />
+    <Compile Include="Features\MyWatchlist\MyThresholds\Criteria\SelectMyThresholdCriteria.cs" />
+    <Compile Include="Features\MyWatchlist\MyThresholds\Criteria\SelectMyThresholdHistoryCriteria.cs" />
+    <Compile Include="Features\MyWatchlist\MyThresholds\Criteria\SyncUpdateMyThresholdCommand.cs" />
+    <Compile Include="Features\MyWatchlist\MyThresholds\Criteria\UpdateMyThresholdCommand.cs" />
+    <Compile Include="Features\MyWatchlist\MyThresholds\MyThresholdsService.cs" />
+    <Compile Include="Features\MyWatchlist\MyThresholds\Params\SelectMyThresholdHistoryParam.cs" />
+    <Compile Include="Features\MyWatchlist\MyThresholds\Params\UpdateMyThresholdParam.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\AddPersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\DeletePersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\DeletePersonalThresholdCommand.cs" />

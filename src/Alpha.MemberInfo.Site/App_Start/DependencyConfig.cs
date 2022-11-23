@@ -11,6 +11,7 @@
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
     using Alpha.MemberInfo.Features.DormantAccountList;
+    using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Features.ParlayMaxPayout;
@@ -164,6 +165,7 @@
             container.RegisterPerWebRequest<MyWatchlistAccountsService, MyWatchlistAccountsServiceImpl>();
             container.RegisterPerWebRequest<ReachedThresholdService, ReachedThresholdServiceImpl>();
             container.RegisterPerWebRequest<ReachedThresholdWorkbook, ReachedThresholdWorkbookImpl>();
+            container.RegisterPerWebRequest<MyThresholdsService, MyThresholdsServiceImpl>();
             container.RegisterSingleton<IPartialUMService, PartialUMService>();
 
             container.RegisterSingleton<ICacheService>(new CacheService());

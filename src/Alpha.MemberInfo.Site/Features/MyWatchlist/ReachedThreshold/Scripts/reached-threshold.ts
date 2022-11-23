@@ -4,35 +4,28 @@ interface Window {
     reachlistAccountData: any;
 }
 
-class ReachedThreshold {
-    private $: JQueryStatic;
-    private dataTable: ReachedThresholdDataTable;
-    private viewModel: ReachedThresholdViewModel;
+class ReachedThreshold extends MyWatchlistBase {
     private dateRangePickerComponent: DateRangePickerComponent;
+    private dataTable: ReachedThresholdDataTable;
     private statusDropdown: SingleSelectionDropdownComponent;
     private limitTypeDropdown: SingleSelectionDropdownComponent;
 
-    private $reportLegend: JQuery;
-    private $iconInformation: JQuery;
-
     constructor(
         $: JQueryStatic,
-        dataTable: ReachedThresholdDataTable,
-        viewModel: ReachedThresholdViewModel,
-        dateRangePickerComponent: DateRangePickerComponent
-    ) {
-        this.$ = $;
-        this.dataTable = dataTable;
-        this.viewModel = viewModel;
+        dateRangePickerComponent: DateRangePickerComponent,
+        dataTable: ReachedThresholdDataTable) {
+        super($);
         this.dateRangePickerComponent = dateRangePickerComponent;
+        this.dataTable = dataTable;
         this.statusDropdown = new SingleSelectionDropdownComponent($);
         this.limitTypeDropdown = new SingleSelectionDropdownComponent($);
     }
 
-    public init = () => {
-        this.cacheDOMElements();
-        this.$iconInformation.off().on("click", this.showLegend);
-        this.bindingTxtUsername();
+    public init() {
+        this.initInfoLegend();
+
+        const baseUrl = this.$('#member-info-url').val();
+        this.initUsernameAutoSuggestion(baseUrl, this.$('#search-account-id').val());
 
         this.dateRangePickerComponent.render(
             new DateRangePickerOption());
@@ -43,28 +36,12 @@ class ReachedThreshold {
         this.limitTypeDropdown.render(
             new SingleSelectionDropdownOption("limit-type-dropdown", "", () => { }, true, true));
 
-        this.dataTable.bindingEvent();
+        this.dataTable.init(baseUrl);
     }
 
-    private cacheDOMElements = () => {
-        this.$reportLegend = this.$("#report-legend");
-        this.$iconInformation = this.$("#icon-information");
-    };
-
-    private showLegend = () => {
-        this.$reportLegend.modal({ show: true, backdrop: false });
-
-        var iconHelpPosition = this.$iconInformation.position();
-        this.$reportLegend.css({
-            bottom: "auto",
-            top: iconHelpPosition.top + 40,
-            left: 0
-        });
-    };
-
-    private bindingTxtUsername = () => {
-        const options = {
-            url: phrase => `${this.viewModel.MemberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&CustId=${this.viewModel.SearchAccountId}&DirectDownlines=true&IsAccInfo=false`,
+    private initUsernameAutoSuggestion(baseUrl: string, searchAccountId: string) {
+        this.$('#txt-username').easyAutocomplete({
+            url: phrase => `${baseUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&CustId=${searchAccountId}&DirectDownlines=true&IsAccInfo=false`,
             getValue: 'UserName',
             requestDelay: 200,
             minCharNumber: 2,
@@ -78,33 +55,13 @@ class ReachedThreshold {
             list: {
                 maxNumberOfElements: 10
             }
-        };
-
-        const $txtUsername = this.$('#txt-username');
-        $txtUsername.easyAutocomplete(options);
-
-        $txtUsername.bind('keypress', event => {
-            if (event.which == 13) {
-                this.$('#btn-submit').click();
-            }
         });
     }
 }
 
 $(function () {
-    const viewModel = new ReachedThresholdViewModel(
-        parseInt($('#search-account-id').val()),
-        $('#member-info-url').val(),
-        JSON.parse($('#is-mobile').val()),
-        JSON.parse($('#is-show-last-login').val()),
-        window.reachlistAccountData
-    );
-    const service = new ReachedThresholdService($);
     const dateRangePickerComponent = new DateRangePickerComponent($);
-    const iframePopup = new IframePopup($, window.top);
-    const dataTable = new ReachedThresholdDataTable($, service, viewModel, iframePopup);
+    const dataTable = new ReachedThresholdDataTable($, window.top, window.reachlistAccountData);
 
-    const reachedThreshold = new ReachedThreshold($, dataTable, viewModel, dateRangePickerComponent);
-
-    reachedThreshold.init();
+    new ReachedThreshold($, dateRangePickerComponent, dataTable).init();
 })

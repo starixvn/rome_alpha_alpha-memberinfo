@@ -1,81 +1,54 @@
 ﻿interface Window {
     watchlistAccountData: any;
-    reloadDataTable: Function;
+    reloadMyWatchlistDataTable: Function;
 }
 
-class MyWatchlistAccounts {
-    private $: JQueryStatic;
+class MyWatchlistAccounts extends MyWatchlistBase {
     private topWindow: any;
-    private viewModel: MyWatchlistAccountsViewModel;
     private dataTable: MyWatchlistAccountsDataTable;
-    private iframePopup: IframePopup;
-
-    private $reportLegend: JQuery;
-    private $iconInformation: JQuery;
 
     constructor(
         $: JQueryStatic,
         topWindow: any,
-        viewModel: MyWatchlistAccountsViewModel,
-        dataTable: MyWatchlistAccountsDataTable,
-        iframePopup: IframePopup
-    ) {
-        this.$ = $;
-        this.topWindow = topWindow,
-        this.viewModel = viewModel;
+        dataTable: MyWatchlistAccountsDataTable) {
+        super($);
+        this.topWindow = topWindow;
         this.dataTable = dataTable;
-        this.iframePopup = iframePopup;
     }
 
-    public init = () => {
-        this.cacheDOMElements();
-        this.$iconInformation.off().on("click", this.showLegend);
-        this.bindingTxtUsername();
+    public init() {
+        this.initInfoLegend();
+        const baseUrl = this.$('#member-info-url').val();
 
-        this.$("#btn-global-threshold").off().click(_ =>
-            this.iframePopup.open(
-                "700px",
-                "330px",
-                this.$("#global-threshold-popup-title").val(),
-                this.viewModel.URL + "/ManageGlobalThreshold")
-        );
-        this.$("#btn-manage-preset").off().click(_ =>
-            this.iframePopup.open(
-                "795px",
-                "100%",
-                this.$("#manage-preset-popup-title").val(),
-                this.viewModel.URL + "/ManagePersonalThresholdPreset")
-        );
-        this.$("#btn-add-members").off().click(_ => 
-            this.iframePopup.open(
-                "820px",
-                "520px",
-                this.$("#add-new-account-popup-title").val(),
-                this.viewModel.URL + "/ManageWatchlistAccounts")
-        );
+        this.initUsernameAutoSuggestion(baseUrl, this.$('#search-account-id').val());
+        this.$("#btn-global-threshold").click(_ =>
+            this.topWindow.popupManager.open(
+                `${baseUrl}MyWatchlistAccounts/ManageGlobalThreshold`,
+                undefined,
+                600,
+                350,
+                "modal-mobile-friendly"));
+        this.$("#btn-manage-preset").click(_ =>
+            this.topWindow.popupManager.open(
+                `${baseUrl}MyWatchlistAccounts/ManagePersonalThresholdPreset`,
+                undefined,
+                795,
+                520,
+                "modal-mobile-friendly"));
+        this.$("#btn-add-members").click(_ =>
+            this.topWindow.popupManager.open(
+                `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts`,
+                undefined,
+                820,
+                550,
+                "modal-mobile-friendly"));
 
-        this.dataTable.bindingEvent();
+        this.dataTable.init(baseUrl);
     }
 
-    private cacheDOMElements = () => {
-        this.$reportLegend = this.$("#report-legend");
-        this.$iconInformation = this.$("#icon-information");
-    };
-
-    private showLegend = () => {
-        this.$reportLegend.modal({ show: true, backdrop: false });
-
-        var iconHelpPosition = this.$iconInformation.position();
-        this.$reportLegend.css({
-            bottom: "auto",
-            top: iconHelpPosition.top + 40,
-            left: 0
-        });
-    };
-
-    private bindingTxtUsername = () => {
-        const options = {
-            url: phrase => `${this.viewModel.MemberInfoUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&CustId=${this.viewModel.SearchAccountId}&DirectDownlines=true&IsAccInfo=false`,
+    private initUsernameAutoSuggestion(baseUrl: string, searchAccountId: string) {
+        this.$('#txt-username').easyAutocomplete({
+            url: phrase => `${baseUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&CustId=${searchAccountId}&DirectDownlines=true&IsAccInfo=false`,
             getValue: 'UserName',
             requestDelay: 200,
             minCharNumber: 2,
@@ -89,44 +62,14 @@ class MyWatchlistAccounts {
             list: {
                 maxNumberOfElements: 10
             }
-        };
-
-        const $txtUsername = this.$('#txt-username');
-        $txtUsername.easyAutocomplete(options);
-
-        $txtUsername.bind('keypress', event => {
-            if (event.which == 13) {
-                this.$('#btn-submit').click();
-            }
         });
     }
 }
 
 $(function () {
-    const viewModel = new MyWatchlistAccountsViewModel(
-        parseInt($('#search-account-id').val()),
-        $('#member-info-url').val(),
-        JSON.parse($('#is-mobile').val()),
-        JSON.parse($('#can-update-account').val()),
-        JSON.parse($('#is-show-last-login').val()),
-        window.watchlistAccountData
-    );
-    const service = new MyWatchlistAccountService($);
-    const iframePopup = new IframePopup($, window.top);
-    const editSettingPopup = new EditSettingPopup($, window.top, viewModel, service, iframePopup);
-    const dataTable = new MyWatchlistAccountsDataTable($, service, viewModel, editSettingPopup);
+    const editSettingPopup = new EditSettingPopup($, window.top);
+    const dataTable = new MyWatchlistAccountsDataTable($, editSettingPopup, window.watchlistAccountData);
+    window.top.reloadMyWatchlistDataTable = () => dataTable.reloadData();
 
-    const myWatchlistAccounts = new MyWatchlistAccounts(
-        $,
-        window.top,
-        viewModel,
-        dataTable,
-        iframePopup
-    );
-
-    window.top.reloadDataTable = () => {
-        dataTable.reloadData();
-    }
-
-    myWatchlistAccounts.init();
+    new MyWatchlistAccounts($, window.top, dataTable).init();
 });

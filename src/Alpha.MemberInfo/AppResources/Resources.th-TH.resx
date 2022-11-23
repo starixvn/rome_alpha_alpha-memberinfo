@@ -802,7 +802,7 @@
     <value>คุณแน่ใจหรือไม่ว่าต้องการลบค่าที่ตั้งไว้นี้</value>
   </data>
   <data name="AccumulatedMemberWinLossOnlyStartsCountingNote" xml:space="preserve">
-    <value>การชนะ/แพ้สะสมของสมาชิกจะเริ่มนับเมื่อมีการกำหนดเกณฑ์การแพ้/ชนะเท่านั้น ซึ่งจะรีเซ็ตทุกวันหรือเมื่อปิดฟังก์ชันนี้</value>
+    <value>ยอดแพ้/ชนะสะสม จะเริ่มนับเมื่อมีการตั้งค่า เกณฑ์การแพ้/ชนะ แล้ว โดยระบบจะเคลียร์ยอดสะสมทุกวันหรือเมื่อปิดการใช้งานฟังก์ชันนี้</value>
   </data>
   <data name="AddMembersToWatchlist" xml:space="preserve">
     <value>เพิ่มสมาชิกในรายการเฝ้าดู</value>
@@ -826,7 +826,28 @@
     <value>ข้อมูล</value>
   </data>
   <data name="AccumulatedMemberWinLossWillBeCountedNote" xml:space="preserve">
-    <value>การชนะหรือแพ้สะสมของสมาชิกจะถูกคำนวณทันทีหลังจากตัดสินตั๋วเดิมพัน เมื่อตั๋วเดิมพันได้รับการตัดสินและสะสมแล้ว การย้ายกิจกรรมที่ยังไม่ได้ตัดสินเมื่อวานนี้ไปยังวันทำการถัดไปยอดสะสมจะไม่เปลี่ยนแปลง</value>
+    <value>ยอดแพ้/ชนะสะสม จะถูกนับทันทีหลังจากตั๋วเดิมพันได้รับการคำนวณผล เมื่อตั๋วเดิมพันทำการนับยอดสะสมแล้วและมีการย้ายคู่แข่งขันที่ยังไม่ได้ตัดสินไปยังวันถัดไปจะไม่ทำให้ยอดสะสมเปลี่ยนแปลง</value>
+  </data>
+  <data name="MyThresholds" xml:space="preserve">
+    <value>ขีดจำกัดของฉัน</value>
+  </data>
+  <data name="MyThresholdsSettings" xml:space="preserve">
+    <value>การตั้งค่าขีดจำกัดของฉัน</value>
+  </data>
+  <data name="GlobalThresholdSettingsNote" xml:space="preserve">
+    <value>รับการแจ้งเตือนเมื่อการแพ้ ชนะ ของสมาชิกแต่ละรายถึงขีดจำกัดที่คุณกำหนดไว้ด้านล่าง:</value>
+  </data>
+  <data name="MyLosingThreshold" xml:space="preserve">
+    <value>ขีดจำกัดการแพ้ของฉัน</value>
+  </data>
+  <data name="MyThresholdSettingsNote" xml:space="preserve">
+    <value>รับการแจ้งเตือนเมื่อการชนะ/แพ้ของคุณ (ขึ้นอยู่กับเปอร์เซ็นต์ที่รับความเสี่ยงของคุณจากสมาชิกทั้งหมด) ถึงขีดจำกัดการชนะ/แพ้ ที่คุณกำหนดไว้ด้านล่าง:</value>
+  </data>
+  <data name="MyWinningThreshold" xml:space="preserve">
+    <value>ขีดจำกัดการชนะของฉัน</value>
+  </data>
+  <data name="ThresholdSettingsNote" xml:space="preserve">
+    <value>หากต้องการปิดใช้งานขีดจำกัด ให้คลิกทำเครื่องหมายที่ช่องไม่จำกัดสำหรับทั้งเกณฑ์การชนะ/แพ้</value>
   </data>
   <data name="Entered" xml:space="preserve">
     <value>เข้า</value>

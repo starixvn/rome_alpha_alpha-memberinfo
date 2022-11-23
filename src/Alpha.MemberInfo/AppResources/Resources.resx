@@ -820,7 +820,7 @@
     <value />
   </data>
   <data name="AccumulatedMemberWinLossOnlyStartsCountingNote" xml:space="preserve">
-    <value>Accumulated Member Win Loss only starts counting when a winning/losing threshold is set. It will be reset daily or when the function is off.</value>
+    <value>Accumulated Win Loss only starts counting when a winning/losing threshold is set. It will be reset daily or when the function is off.</value>
   </data>
   <data name="PersonalThresholdPresetSettings" xml:space="preserve">
     <value>Personal Threshold Preset Settings</value>
@@ -835,7 +835,28 @@
     <value>Information</value>
   </data>
   <data name="AccumulatedMemberWinLossWillBeCountedNote" xml:space="preserve">
-    <value>Accumulated Member Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday un-settled event to the next business day won’t change the accumulation.</value>
+    <value>Accumulated Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday un-settled event to the next business day won’t change the accumulation.</value>
+  </data>
+  <data name="MyThresholds" xml:space="preserve">
+    <value>My Thresholds</value>
+  </data>
+  <data name="MyThresholdsSettings" xml:space="preserve">
+    <value>My Thresholds Settings</value>
+  </data>
+  <data name="GlobalThresholdSettingsNote" xml:space="preserve">
+    <value>Get notified when an individual Member win/loss reaches your desired winning/losing thresholds below:</value>
+  </data>
+  <data name="MyLosingThreshold" xml:space="preserve">
+    <value>My Losing Threshold</value>
+  </data>
+  <data name="MyThresholdSettingsNote" xml:space="preserve">
+    <value>Get notified when your win/loss (based on your own position taking on all members) reaches your desired winning/losing thresholds below:</value>
+  </data>
+  <data name="MyWinningThreshold" xml:space="preserve">
+    <value>My Winning Threshold</value>
+  </data>
+  <data name="ThresholdSettingsNote" xml:space="preserve">
+    <value>To disable thresholds, select the Unlimited checkbox for both Winning/Losing Thresholds.</value>
   </data>
   <data name="Entered" xml:space="preserve">
     <value>Entered</value>
