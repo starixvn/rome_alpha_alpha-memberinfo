@@ -72,7 +72,7 @@
 
         internal bool IsShowProduct(int productId)
         {
-            return productId != ProductId.FishingWorld || !user.GetHideProduct(productId);
+            return !user.GetHideProduct(productId);
         }
     }
 }
