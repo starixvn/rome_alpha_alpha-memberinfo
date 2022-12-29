@@ -23,6 +23,12 @@
 
         public static string StoreProcedurePath => GetConfigValue("StoredProcedurePath");
 
+        public static string SiteLabel => GetConfigValue("SiteLabel");
+
+        public static string SiteLabel789y => GetConfigValue("SiteLabel789y");
+
+        public static bool IsSiteLabel789y => SiteLabel.Equals(SiteLabel789y);
+
         public static string GetConfigValue(string configName) => AppSettingValues[configName];
 
         public static void Verify()

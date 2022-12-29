@@ -1,6 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.ViewModels
 {
+    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Constants;
+    using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.Requests;
     using Alpha.MemberInfo.Site.ViewModels.Components;
@@ -66,7 +68,7 @@
 
         public string CustLevel { get; }
 
-        public string UserGuideLink => UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
+        public string UserGuideLink => AppSettings.IsSiteLabel789y ?
             MicroSites.MessageUrl("~/StaticMessage/Guide?id=179067") :
             MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179067");
     }

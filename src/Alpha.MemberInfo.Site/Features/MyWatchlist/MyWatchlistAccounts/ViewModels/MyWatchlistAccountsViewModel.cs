@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.ViewModels
 {
+    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Requests;
     using Alpha.Web.Helpers;
@@ -41,7 +42,7 @@
 
         public DateTime MinDate => DateTime.Today.AddMonths(-3).FirstDayOfMonth();
 
-        public string UserGuideLink => UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
+        public string UserGuideLink => AppSettings.IsSiteLabel789y ?
             MicroSites.MessageUrl("~/StaticMessage/Guide?id=179067") :
             MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179067");
     }
