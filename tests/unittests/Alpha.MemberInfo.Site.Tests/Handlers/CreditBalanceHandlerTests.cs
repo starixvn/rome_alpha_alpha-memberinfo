@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Alpha.MemberInfo.Services;
     using MemberInfo.Models;
     using MemberInfo.Models.CreditBalance;
     using NSubstitute;
@@ -21,6 +22,7 @@
         private readonly CreditBalanceService creditBalanceService;
         private readonly TransferService transferService;
         private readonly CreditBalanceHandler handler;
+        private readonly IWinlossService winlossService;
 
         public CreditBalanceHandlerTests()
         {
@@ -38,7 +40,8 @@
 
             creditBalanceService = Substitute.For<CreditBalanceService>();
             transferService = Substitute.For<TransferService>();
-            handler = new CreditBalanceHandler(creditBalanceService, transferService);
+            winlossService = Substitute.For<IWinlossService>();
+            handler = new CreditBalanceHandler(creditBalanceService, transferService, winlossService);
         }
 
         [Fact]

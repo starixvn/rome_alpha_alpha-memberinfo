@@ -819,4 +819,10 @@
   <data name="AccumulatedMemberWinLossWillBeCountedNote" xml:space="preserve">
     <value>Thắng Thua Tích Lũy Của Member sẽ được tính ngay sau khi vé cược được kết toán. Một khi vé cược đã được kết toán và tích lũy, việc chuyển sự kiện đang xử lý ngày hôm qua sang ngày tiếp theo sẽ không làm thay đổi khoản tích lũy.</value>
   </data>
+  <data name="Entered" xml:space="preserve">
+    <value>Kết thúc</value>
+  </data>
+  <data name="NonEntered" xml:space="preserve">
+    <value>Chưa có kết quả</value>
+  </data>
 </root>

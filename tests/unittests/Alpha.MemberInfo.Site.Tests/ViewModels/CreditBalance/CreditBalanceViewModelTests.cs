@@ -57,7 +57,7 @@
         public void Constructor_InvalidQuery_AssignsEmptyViewModel()
         {
             // Arrange
-            var viewModel = new CreditBalanceViewModel(message);
+            var viewModel = new CreditBalanceViewModel(message, new MemberInfo.Models.Winloss.EnteredSportResult());
 
             // Act & Assert
             Assert.True(

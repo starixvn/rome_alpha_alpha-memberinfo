@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Handlers
 {
     using System.Threading.Tasks;
+    using Alpha.MemberInfo.Services;
     using MediatR;
     using Params;
     using Requests.CreditBalance;
@@ -13,13 +14,16 @@
     {
         private readonly CreditBalanceService creditBalanceService;
         private readonly TransferService transferService;
+        private readonly IWinlossService winlossService;
 
         public CreditBalanceHandler(
             CreditBalanceService creditBalanceService,
-            TransferService transferService)
+            TransferService transferService,
+            IWinlossService winlossService)
         {
             this.creditBalanceService = creditBalanceService;
             this.transferService = transferService;
+            this.winlossService = winlossService;
         }
 
         public async Task<CreditBalanceViewModel> Handle(CreditBalanceQuery message)
@@ -39,7 +43,9 @@
                 ? await transferService.GetAllowTransfer(message.ActorId)
                 : null;
 
-            return new CreditBalanceViewModel(pagedCreditBalances, transferCondition, message);
+            var reportEntered = winlossService.GetEnteredSportResults();
+
+            return new CreditBalanceViewModel(pagedCreditBalances, transferCondition, message, reportEntered);
         }
     }
 }

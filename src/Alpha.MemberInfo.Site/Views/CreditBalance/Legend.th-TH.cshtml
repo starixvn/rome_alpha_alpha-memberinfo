@@ -16,6 +16,14 @@
                 <div id="msg-content">
                     @if (Model.CustLevel.IsAgentLevel())
                     {
+                        if (!string.IsNullOrWhiteSpace(Model.TransferCondition))
+                        {
+                            <p>- @Model.TransferCondition</p>
+                        }
+                        if (Model.IsViewingMemberList)
+                        {
+                            <p>- @Resources.CreditBalanceNote</p>
+                        }
                         <p>- สมาชิกใดก็ตามที่ไม่ได้ลงชื่อเข้าใช้งานมากกว่า 14 วันหลังจากที่เอเจนต์ได้สร้างบัญชีให้</p>
                     }
                     else
@@ -23,6 +31,10 @@
                         <span>เครดิตที่ได้รับสำหรับดาวน์ไลน์จะถูกล้างโดยอัตโนมัติ หากตรงตามเงื่อนไขดังต่อไปนี้</span>
                         if (Model.CustLevel.IsSuperLevel())
                         {
+                            if (Model.IsViewingMemberList)
+                            {
+                                <p>- @Resources.CreditBalanceNote</p>
+                            }
                             <ul class="list-msg">
                                 <li>
                                     สำหรับระดับมาสเตอร์/เอเจนต์ที่ไม่มีดาวน์ไลน์:
@@ -36,6 +48,10 @@
                         }
                         else
                         {
+                            if (Model.IsViewingMemberList)
+                            {
+                                <p>- @Resources.CreditBalanceNote</p>
+                            }
                             <ul class="list-msg">
                                 <li>
                                     สำหรับเอเจนต์ที่ไม่มีดาวน์ไลน์：

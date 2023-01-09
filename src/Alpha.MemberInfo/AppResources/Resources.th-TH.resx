@@ -828,4 +828,10 @@
   <data name="AccumulatedMemberWinLossWillBeCountedNote" xml:space="preserve">
     <value>การชนะหรือแพ้สะสมของสมาชิกจะถูกคำนวณทันทีหลังจากตัดสินตั๋วเดิมพัน เมื่อตั๋วเดิมพันได้รับการตัดสินและสะสมแล้ว การย้ายกิจกรรมที่ยังไม่ได้ตัดสินเมื่อวานนี้ไปยังวันทำการถัดไปยอดสะสมจะไม่เปลี่ยนแปลง</value>
   </data>
+  <data name="Entered" xml:space="preserve">
+    <value>เข้า</value>
+  </data>
+  <data name="NonEntered" xml:space="preserve">
+    <value>ไม่สามารถเข้าได้</value>
+  </data>
 </root>

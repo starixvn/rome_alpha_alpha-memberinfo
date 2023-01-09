@@ -77,5 +77,7 @@
             : ConfigurationManager.AppSettings["NewCaptcha:LogCurrencies"].Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
 
         public static string JsVersion => GetConfigValue("JsVersion");
+
+        public static bool LocalTest => GetConfigValue("LocalTest") == "1";
     }
 }

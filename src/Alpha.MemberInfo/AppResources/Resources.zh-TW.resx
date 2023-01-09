@@ -828,4 +828,10 @@
   <data name="AccumulatedMemberWinLossWillBeCountedNote" xml:space="preserve">
     <value>會員的累積輸贏將在註單結算後立即計算。一旦注單已經結算並積累，諾昨日的未結算賽事並移到下一個工作日也將不會改變積累。</value>
   </data>
+  <data name="Entered" xml:space="preserve">
+    <value>已完成</value>
+  </data>
+  <data name="NonEntered" xml:space="preserve">
+    <value>未完成</value>
+  </data>
 </root>
