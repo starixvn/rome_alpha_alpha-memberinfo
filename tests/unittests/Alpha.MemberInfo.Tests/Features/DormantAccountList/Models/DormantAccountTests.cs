@@ -1,4 +1,4 @@
-﻿namespace Alpha.MemberInfo.Tests.Feature.DormantAccountList.Models
+﻿namespace Alpha.MemberInfo.Tests.Features.DormantAccountList.Models
 {
     using System;
     using Alpha.MemberInfo.Features.DormantAccountList.Models;

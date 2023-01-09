@@ -60,7 +60,7 @@ class MyThresholds extends MyWatchlistBase {
                 `${this.myThresholdsUrl}/Settings`,
                 undefined,
                 600,
-                350,
+                310,
                 "modal-mobile-friendly"));
     }
 

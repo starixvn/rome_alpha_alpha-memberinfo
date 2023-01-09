@@ -1,4 +1,4 @@
-﻿namespace Alpha.MemberInfo.Tests.Feature.DormantAccountList.Criteria
+﻿namespace Alpha.MemberInfo.Tests.Features.DormantAccountList.Criteria
 {
     using Alpha.MemberInfo.Features.DormantAccountList.Criteria;
     using Alpha.MemberInfo.Features.DormantAccountList.Params;

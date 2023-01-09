@@ -26,7 +26,7 @@ class MyWatchlistAccounts extends MyWatchlistBase {
                 `${baseUrl}MyWatchlistAccounts/ManageGlobalThreshold`,
                 undefined,
                 600,
-                350,
+                310,
                 "modal-mobile-friendly"));
         this.$("#btn-manage-preset").click(_ =>
             this.topWindow.popupManager.open(

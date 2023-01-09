@@ -1,4 +1,4 @@
-﻿namespace Alpha.MemberInfo.Tests.Feature.DormantAccountList
+﻿namespace Alpha.MemberInfo.Tests.Features.DormantAccountList
 {
     using System;
     using System.Collections.Generic;
