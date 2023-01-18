@@ -63,7 +63,7 @@
         </div>
     }
 
-    @Html.Partial("~/Features/MyWatchlist/Shared/Views/GlobalThresholdsNote.cshtml", Model.GlobalThresholdModel)
+    @Html.Partial("~/Features/MyWatchlist/Shared/Views/GlobalThresholdsNote.cshtml", Model.GlobalThresholdModel, new ViewDataDictionary())
 
     <table id="tblRpt" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%">
         <thead>
