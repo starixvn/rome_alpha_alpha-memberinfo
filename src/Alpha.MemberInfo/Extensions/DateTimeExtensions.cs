@@ -9,6 +9,7 @@ namespace Alpha.MemberInfo.Extensions
         private const string ShortDateWithHyphen = "yyyy-MM-dd";
         private const string LongDateTime12h = "MM/dd/yyyy hh:mm tt";
         private const string LongDateTime12hWithHyphen = "MM-dd-yyyy HH:mm:ss tt";
+        private const string MMDDWithSlash = "MM/dd";
 
         public static string ToShortDateWithHyphen(this DateTime dateTime)
             => dateTime.ToString(ShortDateWithHyphen);
@@ -30,5 +31,8 @@ namespace Alpha.MemberInfo.Extensions
 
         public static DateTime GetGreaterDate(this DateTime fromDate, DateTime limitedDate)
          => fromDate < limitedDate ? limitedDate : fromDate;
+
+        public static string ToMMDDWithSlash(this DateTime dateTime)
+            => dateTime.ToString(MMDDWithSlash);
     }
 }

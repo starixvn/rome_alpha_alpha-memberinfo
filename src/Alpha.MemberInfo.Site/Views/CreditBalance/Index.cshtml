@@ -6,12 +6,35 @@
 @{
     ViewBag.Title = Resources.CreditBalance;
     var pagedCreditBalances = Model.PagedCreditBalances;
+    var enteredSportResult = Model.EnteredSportResult;
 }
 <div class="page-title">
-    <span>
+    <div class="entered-non-entered">
+        @if (enteredSportResult.EnteredSportYesterday.NonEntered > 0)
+        {
+            <div class="icon-non-entered">
+                <div class="text">@DateTime.Now.AddDays(-1).ToMMDDWithSlash(): @Resources.NonEntered</div>
+                <div class="number">@enteredSportResult.EnteredSportYesterday.NonEntered</div>
+                <div class="icon-clock"></div>
+            </div>
+        }
+        else
+        {
+            <div class="icon-entered">
+                <div class="text">@DateTime.Now.AddDays(-1).ToMMDDWithSlash(): @Resources.Entered</div>
+                <div class="icon-check-circle"></div>
+            </div>
+        }
+        <div class="icon-non-entered">
+            <div class="text">@DateTime.Now.ToMMDDWithSlash(): @Resources.NonEntered</div>
+            <div class="number">@enteredSportResult.EnteredSportToday.NonEntered</div>
+            <div class="icon-clock"></div>
+        </div>
+    </div>
+    <div style="clear: both">
         @Resources.CreditBalance
         <span id="icon-information" class="icon icon-information-outline"></span>
-    </span>
+    </div>
 </div>
 @using (Html.BeginForm("Index", "CreditBalance", FormMethod.Get, new { id = "creditBalanceForm", @class = "form-inline filter", role = "form" }))
 {
@@ -34,14 +57,6 @@
     </div>
     <input type="hidden" value="@Model.CustId" name="@nameof(Model.CustId)" id="autoSuggestionCustId" />
     <input type="hidden" value="@Model.CustLevelId" name="@nameof(Model.CustLevelId)" />
-}
-@if (Model.ActorIsAgent)
-{
-    <p class="star">@Model.TransferCondition</p>
-}
-@if (Model.IsViewingMemberList)
-{
-    <p class="star"><span class="note">@Resources.CreditBalanceNote</span></p>
 }
 <div id="tbl-container">
     @{ Html.RenderPartial("~/Views/CreditBalance/_ColumnsControl.cshtml"); }

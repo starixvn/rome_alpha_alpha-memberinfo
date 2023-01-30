@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Alpha.MemberInfo.Models.Winloss;
     using AppResources;
     using Constants;
     using MemberInfo.Models;
@@ -14,17 +15,19 @@
 
     public class CreditBalanceViewModel
     {
-        public CreditBalanceViewModel(CreditBalanceQuery message)
+        public CreditBalanceViewModel(CreditBalanceQuery message, EnteredSportResult enteredSportResult)
             : this(new PagedCreditBalance(message.PageIndex, message.PageSize, 0, Enumerable.Empty<CreditBalanceItem>()),
                   null,
-                  message)
+                  message,
+                  enteredSportResult)
         {
         }
 
         public CreditBalanceViewModel(
             PagedCreditBalance pagedCreditBalances,
             string transferCondition,
-            CreditBalanceQuery message)
+            CreditBalanceQuery message,
+            EnteredSportResult enteredSportResult)
         {
             LegendView = $"Legend.{message.Language}";
             PagedCreditBalances = pagedCreditBalances;
@@ -48,6 +51,7 @@
             CanViewBetListsFromOutstanding = IsViewingMemberList && message.CanViewBetLists;
             IsShowDateTimeColumn = message.LimitedDateToShowInfo == default(DateTime);
             CookiePrefix = Encryption.PearsonEncode(string.Concat(message.LoggedInUserId, message.ActorId, message.SubAccId, "CreditBalance"));
+            EnteredSportResult = enteredSportResult;
         }
 
         public string LegendView { get; }
@@ -108,5 +112,7 @@
 
         public string GetMemberBalanceInfoLink(string custName)
             => MicroSites.AccountInfoUrl($"~/SearchAccount/GetMemberBalanceInfo?custname={custName}");
+
+        public EnteredSportResult EnteredSportResult { get; }
     }
 }

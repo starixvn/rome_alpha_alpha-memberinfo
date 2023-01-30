@@ -39,6 +39,7 @@
     using Alpha.Web.Helpers.Impl;
     using Controllers;
     using DataAccesses;
+    using Fanex.Caching;
     using Fanex.Cryptography.Aes;
     using Fanex.Data.Repository;
     using Fanex.RemotingRef;
@@ -164,6 +165,9 @@
             container.RegisterPerWebRequest<ReachedThresholdService, ReachedThresholdServiceImpl>();
             container.RegisterPerWebRequest<ReachedThresholdWorkbook, ReachedThresholdWorkbookImpl>();
             container.RegisterSingleton<IPartialUMService, PartialUMService>();
+
+            container.RegisterSingleton<ICacheService>(new CacheService());
+            container.Register<IWinlossService, WinlossService>(Lifestyle.Scoped);
         }
 
         private static void StartConfiguration(Container container)

@@ -16,6 +16,14 @@
                 <div id="msg-content">
                     @if (Model.CustLevel.IsAgentLevel())
                     {
+                        if (!string.IsNullOrWhiteSpace(Model.TransferCondition))
+                        {
+                            <p>- @Model.TransferCondition</p>
+                        }
+                        if (Model.IsViewingMemberList)
+                        {
+                            <p>- @Resources.CreditBalanceNote</p>
+                        }
                         <p>- 任何會員在代理創建後超過14天未登錄。</p>
                     }
                     else
@@ -23,6 +31,10 @@
                         <span>如果符合以下任何條件，下線的信用將被自動清除。</span>
                         if (Model.CustLevel.IsSuperLevel())
                         {
+                            if (Model.IsViewingMemberList)
+                            {
+                                <p>- @Resources.CreditBalanceNote</p>
+                            }
                             <ul class="list-msg">
                                 <li>
                                     對於沒有任何下線的总代理/代理：
@@ -36,6 +48,10 @@
                         }
                         else
                         {
+                            if (Model.IsViewingMemberList)
+                            {
+                                <p>- @Resources.CreditBalanceNote</p>
+                            }
                             <ul class="list-msg">
                                 <li>
                                     對於沒有任何下線的代理：
