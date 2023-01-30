@@ -111,7 +111,7 @@ class MyThresholds extends MyWatchlistBase {
                 name: "WinningLosingAmount",
                 render: function (data, type, row) {
                     return type === "display"
-                        ? `<span class="${row.WinLossAmount >= 0 ? "winning-reach" : "losing-reach"}">${data}</span>`
+                        ? `<span class="${row.ReachType === 1 ? "winning-reach" : "losing-reach"}">${data}</span>`
                         : data;
                 }
             },
@@ -121,7 +121,7 @@ class MyThresholds extends MyWatchlistBase {
                 name: "WinningThreshold",
                 render: function (data, type, row) {
                     return type === "display"
-                        ? `<span class="${row.WinLossAmount >= 0 ? "winning-reach" : ""}">${data}</span>`
+                        ? `<span class="${row.ReachType === 1 ? "winning-reach" : ""}">${data}</span>`
                         : data;
                 }
             },
@@ -131,7 +131,7 @@ class MyThresholds extends MyWatchlistBase {
                 name: "LosingThreshold",
                 render: function (data, type, row) {
                     return type === "display"
-                        ? `<span class="${row.WinLossAmount < 0 ? "losing-reach" : ""}">${data}</span>`
+                        ? `<span class="${row.ReachType === 2 ? "losing-reach" : ""}">${data}</span>`
                         : data;
                 }
             },
