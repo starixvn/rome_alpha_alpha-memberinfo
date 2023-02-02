@@ -820,10 +820,10 @@
     <value>Thắng Thua Tích Lũy sẽ được tính ngay sau khi vé cược được kết toán. Một khi vé cược đã được kết toán và tích lũy, việc chuyển sự kiện đang xử lý ngày hôm qua sang ngày tiếp theo sẽ không làm thay đổi khoản tích lũy.</value>
   </data>
   <data name="MyThresholds" xml:space="preserve">
-    <value>Giới Hạn Của Tôi</value>
+    <value>Mức Thắng Thua</value>
   </data>
   <data name="MyThresholdsSettings" xml:space="preserve">
-    <value>Cài Đặt Giới Hạn Của Tôi</value>
+    <value>Cài Đặt Mức Thắng Thua</value>
   </data>
   <data name="GlobalThresholdSettingsNote" xml:space="preserve">
     <value>Nhận thông báo khi tiền thắng/thua của Member đạt giới hạn thắng/thua mong muốn của bạn dưới đây:</value>
