@@ -118,7 +118,7 @@
 </div>
 @{
     Html.RenderPartial("~/Features/MyWatchlist/Shared/Views/InformationLegend.cshtml");
-    @Html.Hidden("my-thresholds-url", Url.Content("~/MyThresholds"));
+    @Html.Hidden("my-thresholds-url", MicroSites.MemberInfoUrl("~/MyThresholds"));
     @Html.Hidden("is-mobile", Model.IsMobile ? 1 : 0);
     @Html.Hidden("no-info", Resources.NoInformationIsAvailable);
 }
