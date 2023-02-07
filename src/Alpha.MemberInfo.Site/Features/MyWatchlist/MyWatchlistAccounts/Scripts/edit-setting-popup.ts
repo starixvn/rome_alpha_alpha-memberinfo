@@ -3,39 +3,39 @@
 class EditSettingPopup {
     private $: JQueryStatic;
     private topWindow: any;
-    private viewModel: MyWatchlistAccountsViewModel;
-    private service: MyWatchlistAccountService;
-    private iframePopup: IframePopup;
+
+    private $ckbSelectAll: JQuery;
     private $editPopupContainer: JQuery;
     private editText: string;
     private editMultipleText: string;
+    private baseUrl: string;
 
-    constructor(
-        $: JQueryStatic,
-        topWindow: any,
-        viewModel: MyWatchlistAccountsViewModel,
-        service: MyWatchlistAccountService,
-        iframePopup: IframePopup
-    ) {
+    constructor($: JQueryStatic, topWindow: any) {
         this.$ = $;
         this.topWindow = topWindow;
-        this.viewModel = viewModel;
-        this.service = service;
-        this.iframePopup = iframePopup;
-        this.cacheDom();
     }
 
-    private cacheDom = () => {
+    public init(tableReport: JQuery, baseUrl: string) {
+        this.$ckbSelectAll = this.$("#select-all");
         this.$editPopupContainer = this.$('#edit-popup');
         this.editText = this.$('#edit-text').val();
         this.editMultipleText = this.$('#edit-multiple-text').val();
+        this.baseUrl = baseUrl;
+
+        this.$ckbSelectAll.click(_ => tableReport.find(".checkbox").prop("checked", this.$ckbSelectAll.is(":checked")));
+        this.$("#edit-multiple").click(event => this.openMultiplePopup(event.currentTarget));
+        this.$editPopupContainer.on("mouseleave", _ => this.$editPopupContainer.modal("hide"));
     }
 
-    public bindingModalEvent = () => this.$editPopupContainer.off().on('mouseleave ', () => this.$editPopupContainer.modal('hide'));
-    
-    public bindingEditEvent = () => this.$('.edit').off().click(event => this.openSinglePopup(this.$(event.currentTarget)));
+    public bindEvents(tableReport: JQuery) {
+        this.$ckbSelectAll.prop("checked", false);
+        tableReport.find(".checkbox").off().on("click", _ =>
+            this.$ckbSelectAll.prop("checked", tableReport.find(".checkbox").length === tableReport.find(".checkbox:checked").length));
 
-    private openSinglePopup = element => {
+        this.$(".edit").off().click(event => this.openSinglePopup(this.$(event.currentTarget)));
+    }
+
+    private openSinglePopup(element) {
         var content =
             `<ul>
                 <li class="edit-popup icon-edit">${this.$("#edit-personal-threshold").val()}</li>
@@ -55,24 +55,12 @@ class EditSettingPopup {
         );
     }
 
-    public bindingEditMultipleEvent = () => {
-        var self = this;
-        const body = this.$("body");
-        body.undelegate();
-        body.delegate(".edit-multiple", "click", event => this.openMultiplePopup(event.currentTarget));
-        body.delegate(".select-all", "click", function () {
-            const checked = this.checked;
-            self.$('tbody .checkbox').prop('checked', checked);
-            self.$(".select-all").prop('checked', checked);
-        });
-    }
-
-    private openMultiplePopup = element => {
+    private openMultiplePopup(element) {
         var content =
-                    `<ul>
-                        <li class="edit-popup icon-edit">${this.$("#edit-multiple-personal-threshold").val()}</li>
-                        <li class="remove-popup icon-bin">${this.$("#remove-multiple-accounts").val()}</li>
-                    </ul>`;
+            `<ul>
+                <li class="edit-popup icon-edit">${this.$("#edit-multiple-personal-threshold").val()}</li>
+                <li class="remove-popup icon-bin">${this.$("#remove-multiple-accounts").val()}</li>
+            </ul>`;
 
         const checkboxs = this.$('input.checkbox:checkbox:checked');
         const custIds = [];
@@ -98,7 +86,7 @@ class EditSettingPopup {
         }
     }
 
-    private openEditSettingPopup = (element, content, title, data) => {
+    private openEditSettingPopup(element, content, title, data) {
         this.$editPopupContainer.find('.modal-body').empty().append(content);
 
         const $modalDialog = this.$editPopupContainer.find('.modal-dialog');
@@ -128,7 +116,7 @@ class EditSettingPopup {
             this.$editPopupContainer.css({ top, left });
         }
 
-        this.$('.edit-popup').click(event => {
+        this.$('.edit-popup').click(() => {
             const title = data.usernames.length === 1
                 ? data.usernames + " - " + this.$("#edit-account-popup-title").val()
                 : this.$("#edit-account-popup-title").val();
@@ -136,32 +124,41 @@ class EditSettingPopup {
             data.usernames = data.usernames.join(", ");
             data.custIds = data.custIds.join(",");
 
-            const url = this.viewModel.URL + "/ManageWatchlistAccounts";
-            this.iframePopup.open("820px", "520px", title, url, data);
+            const url = `${this.baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?${this.$.param(data)}`;
+            this.topWindow.popupManager.open(
+                url,
+                title,
+                820,
+                520,
+                "modal-mobile-friendly");
         });
+
         this.$('.remove-popup').click(() => this.openRemoveWatchlistAccountPopup(data));
     }
 
-    private openRemoveWatchlistAccountPopup = data => {
+    private openRemoveWatchlistAccountPopup(data) {
         const usernames = data.usernames.join(", ");
         const custIds = data.custIds.join(",");
 
-        const divUsernames = '<div style="max-height: 245px; overflow-y: auto;"> ' + usernames + "</div>" + " <br />";
+        const divUsernames = `<div style="max-height: 245px; overflow-y: auto;">${usernames}</div><br/>`;
 
         this.topWindow.bootboxConfirm(
             divUsernames + this.$("#are-you-sure-to-remove-accounts").val(),
             null,
             () => {
-                this.service.deleteMultiplePersonalThreshold({ usernames, custIds }, result => {
-                    if (result && result.Code === 1) {
-                        this.topWindow.bootboxAlert(result.Message);
-                        return;
-                    }
+                AJAXHelper.postForm(
+                    `${this.baseUrl}MyWatchlistAccounts/DeleteMultiplePersonalThreshold`,
+                    { usernames, custIds },
+                    result => {
+                        if (result && result.Code === 1) {
+                            this.topWindow.bootboxAlert(result.Message);
+                            return;
+                        }
 
-                    if (result && result.length > 0) {
-                        WatchlistHelper.reloadPage();
-                    }
-                });
+                        if (result && result.length > 0) {
+                            this.topWindow.reloadMyWatchlistDataTable();
+                        }
+                    });
             });
     }
 }

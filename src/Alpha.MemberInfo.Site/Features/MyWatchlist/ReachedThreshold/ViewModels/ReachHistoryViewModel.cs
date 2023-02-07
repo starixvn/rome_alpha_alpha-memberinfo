@@ -1,8 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.ViewModels
 {
+    using System.Collections.Generic;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Models;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.Requests;
-    using System.Collections.Generic;
 
     public class ReachHistoryViewModel
     {

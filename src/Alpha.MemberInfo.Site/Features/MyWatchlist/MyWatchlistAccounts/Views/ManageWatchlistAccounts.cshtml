@@ -2,16 +2,20 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = Model.IsEditWatchlistAccountsPopup ? "Edit Watchlist Account" : "Add New Watchlist Account";
+    ViewBag.Title = Model.IsEditWatchlistAccountsPopup ? "Edit Watchlist Account" : Resources.AddMembersToWatchlist;
 }
 
 @section Styles {
-    @StaticResources.RenderStylesWithDarkMode("~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-watchlist-accounts")
-    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-watchlist-accounts-media")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyWatchlist/Shared/Bundles/my-watchlist-settings")
+    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/Shared/Bundles/my-watchlist-settings-media")
 }
 
-<div id="manage-watchlist-accounts">
-    <div class="alert-message"></div>
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-watchlist-accounts")
+}
+
+<div class="box-settings">
+    <div id="alert-message"></div>
     @if (Model.IsEditWatchlistAccountsPopup)
     {
         if (Model.Usernames.Split(',').Length > 1)
@@ -22,8 +26,9 @@
     else
     {
         <div>
+            <p class="note">@Resources.GlobalThresholdSettingsNote</p>
             <p>@Resources.EnterListOfMemberUsernames <span class="red">*</span> @Resources.MaximumMembers</p>
-            <textarea rows="3" class="txt-usernames" name="usernames"></textarea>
+            <textarea rows="3" class="txt-usernames" name="usernames" id="txt-usernames"></textarea>
         </div>
     }
 
@@ -43,39 +48,37 @@
 
     @if (Model.IsEditWatchlistAccountsPopup)
     {
-        @Html.Partial("~/Features/MyWatchlist/MyWatchlistAccounts/Views/ThresholdInputGroup.cshtml", Model.Threshold)
+        @Html.Partial("~/Features/MyWatchlist/Shared/Views/ThresholdInputGroup.cshtml", Model.Threshold)
         <button class="btn-submit" id="btn-update">@Resources.Update</button>
     }
     else
     {
         <div class="form-group">
-            <label class="lbl-threshold">@Resources.WinningThreshold</label>
-            <input class="txt-threshold text-right" type="text" name="winningThreshold" value="" maxlength="18" />
-            <input id="winning-unlimited" class="ckb-unlimited" type="checkbox" name="winningUnlimited" value="" />
+            <label class="lbl-threshold" for="winningThreshold">@Resources.WinningThreshold</label>
+            <input type="text" class="txt-threshold text-right" id="winningThreshold" maxlength="18" autocomplete="off" />
+            <input type="checkbox" class="ckb-unlimited" id="winning-unlimited" />
             <label for="winning-unlimited" class="lbl-unlimited">@Resources.Unlimited</label>
         </div>
 
         <div class="form-group">
-            <label class="lbl-threshold">@Resources.LosingThreshold</label>
-            <input class="txt-threshold text-right" type="text" name="losingThreshold" value="" maxlength="18" />
-            <input id="losing-unlimited" class="ckb-unlimited" type="checkbox" name="losingUnlimited" value="" />
+            <label class="lbl-threshold" for="losingThreshold">@Resources.LosingThreshold</label>
+            <input type="text" class="txt-threshold text-right" id="losingThreshold" maxlength="18" autocomplete="off" />
+            <input type="checkbox" class="ckb-unlimited" id="losing-unlimited" />
             <label for="losing-unlimited" class="lbl-unlimited">@Resources.Unlimited</label>
         </div>
-
         <button class="btn-submit" id="btn-add">@Resources.Add</button>
     }
 </div>
 
 @Html.AntiForgeryToken()
-
-<input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()'>
+<input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()">
 <input type="hidden" id="no-change-to-update-error" value="@Resources.NoChangeToUpdateError" />
 <input type="hidden" id="add-successfully" value="@Resources.AddSuccessfully" />
 <input type="hidden" id="update-successfully" value="@Resources.WatchlistUpdateSuccessfully" />
 <input type="hidden" id="is-not-member-error" value="@Resources.IsNotMemberError" />
 <input type="hidden" id="invalid-account-error" value="@Resources.InvalidAccountError" />
 <input type="hidden" id="was-added-watchlist-already-error" value="@Resources.WasAddedWatchlistAlreadyError" />
-<input type="hidden" id="not-in-watchlist-any-longer-error" value="@Resources.NotInWatchlistAnyLongerError"/>
+<input type="hidden" id="not-in-watchlist-any-longer-error" value="@Resources.NotInWatchlistAnyLongerError" />
 <input type="hidden" id="must-enter-username-error" value="@Resources.MustEnterUsernameError" />
 <input type="hidden" id="more-usernames-error" value="@Resources.MoreThan50UsernamesError" />
 
@@ -89,8 +92,4 @@
 else
 {
     <input type="hidden" id="must-enter-threshold-or-check-error" value="@Resources.MustEnterThresholdOrCheckError" />
-}
-
-@section Scripts {
-    @StaticResources.RenderScripts("~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/manage-watchlist-accounts")
 }

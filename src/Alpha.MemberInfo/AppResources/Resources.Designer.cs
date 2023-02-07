@@ -70,7 +70,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accumulated Member Win Loss only starts counting when a winning/losing threshold is set. It will be reset daily or when the function is off..
+        ///   Looks up a localized string similar to Accumulated Win Loss only starts counting when a winning/losing threshold is set. It will be reset daily or when the function is off..
         /// </summary>
         public static string AccumulatedMemberWinLossOnlyStartsCountingNote {
             get {
@@ -79,7 +79,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accumulated Member Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday un-settled event to the next business day won’t change the accumulation..
+        ///   Looks up a localized string similar to Accumulated Win Loss will be counted right after the ticket is settled. Once a ticket is already settled and accumulated, moving a yesterday un-settled event to the next business day won’t change the accumulation..
         /// </summary>
         public static string AccumulatedMemberWinLossWillBeCountedNote {
             get {
@@ -835,6 +835,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Get notified when an individual Member win/loss reaches your desired winning/losing thresholds below:.
+        /// </summary>
+        public static string GlobalThresholdSettingsNote {
+            get {
+                return ResourceManager.GetString("GlobalThresholdSettingsNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Global Threshold Settings apply to Members who are not in the watchlist..
         /// </summary>
         public static string GlobalThresholdWillBeAppliedForMembers {
@@ -1240,11 +1249,56 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My Losing Threshold.
+        /// </summary>
+        public static string MyLosingThreshold {
+            get {
+                return ResourceManager.GetString("MyLosingThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Thresholds.
+        /// </summary>
+        public static string MyThresholds {
+            get {
+                return ResourceManager.GetString("MyThresholds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get notified when your win/loss (based on your own position taking on all members) reaches your desired winning/losing thresholds below:.
+        /// </summary>
+        public static string MyThresholdSettingsNote {
+            get {
+                return ResourceManager.GetString("MyThresholdSettingsNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Thresholds Settings.
+        /// </summary>
+        public static string MyThresholdsSettings {
+            get {
+                return ResourceManager.GetString("MyThresholdsSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My Watchlist.
         /// </summary>
         public static string MyWatchlist {
             get {
                 return ResourceManager.GetString("MyWatchlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Winning Threshold.
+        /// </summary>
+        public static string MyWinningThreshold {
+            get {
+                return ResourceManager.GetString("MyWinningThreshold", resourceCulture);
             }
         }
         
@@ -2028,6 +2082,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string ThresholdPresetName {
             get {
                 return ResourceManager.GetString("ThresholdPresetName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To disable thresholds, select the Unlimited checkbox for both Winning/Losing Thresholds..
+        /// </summary>
+        public static string ThresholdSettingsNote {
+            get {
+                return ResourceManager.GetString("ThresholdSettingsNote", resourceCulture);
             }
         }
         

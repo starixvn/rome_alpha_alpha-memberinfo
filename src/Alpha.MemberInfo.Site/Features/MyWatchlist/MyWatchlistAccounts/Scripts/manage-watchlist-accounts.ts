@@ -2,30 +2,21 @@
 
 class ManageWatchlistAccounts extends ThresholdInputsBase {
     private topWindow: any;
-    private service: MyWatchlistAccountService;
     private presetDropdown: SingleSelectionDropdownComponent;
-
     private $txtAreaUsernames: JQuery;
+    private baseUrl: string;
 
-    private reloadTimeout = 3000;
-
-    constructor(
-        $: JQueryStatic,
-        topWindow: any,
-        service: MyWatchlistAccountService
-    ) {
+    constructor($: JQueryStatic, topWindow: any) {
         super($);
         this.topWindow = topWindow;
-        this.service = service;
-        this.presetDropdown = new SingleSelectionDropdownComponent($)
-        this.cacheManageWatchlistAccountsDom();
     }
 
-    private cacheManageWatchlistAccountsDom = () => {
-        this.$txtAreaUsernames = this.$('textarea[name="usernames"]');
-    }
+    public init() {
+        this.initThresholdControls();
+        this.$txtAreaUsernames = this.$('#txt-usernames');
+        this.baseUrl = this.$("#member-info-url").val();
 
-    public init = () => {
+        this.presetDropdown = new SingleSelectionDropdownComponent(this.$)
         this.presetDropdown.render(
             new SingleSelectionDropdownOption(
                 "preset-dropdown",
@@ -43,66 +34,51 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
                 true,
                 true));
 
-        this.bindingThresholdTxtInput();
-        this.bindingThresholdCheckboxs();
-        this.$("#btn-add").off().click(this.handleAdd);
-        this.$("#btn-update").off().click(this.handleUpdate);
+        this.$("#btn-add").click(this.handleAdd);
+        this.$("#btn-update").click(this.handleUpdate);
     }
 
     private handleAdd = () => {
         this.alert.hide();
 
-        const usernameArr = this.$txtAreaUsernames.val()
+        let usernameValue = this.$txtAreaUsernames.val();
+        if (usernameValue.indexOf("\n") > -1) {
+            usernameValue = usernameValue.replace(/\n/g, ",");
+        }
+
+        if (usernameValue.indexOf("\r") > -1) {
+            usernameValue = usernameValue.replace(/\r/g, ",");
+        }
+
+        const usernameArr = usernameValue
             .split(",")
             .map(u => u.trim())
             .filter(u => u !== "");
 
-        if (!this.validateUsernamesInput(usernameArr) || !this.validateThresholdInput()) return;
+        if (this.validateUsernamesInput(usernameArr)) {
+            const thresholdInputs = this.getThresholdInputs(false);
 
-        const thresholdInputs = this.getThresholdInputs();
+            if (thresholdInputs) {
+                const formData = {
+                    usernames: usernameArr.join(","),
+                    winningThreshold: thresholdInputs.winningThreshold,
+                    losingThreshold: thresholdInputs.losingThreshold
+                };
 
-        const params = {
-            usernames: usernameArr.join(","),
-            winningThreshold: thresholdInputs.winningThreshold,
-            losingThreshold: thresholdInputs.losingThreshold
+                AJAXHelper.postForm(
+                    `${this.baseUrl}MyWatchlistAccounts/AddPersonalThreshold`,
+                    formData,
+                    result => {
+                        const codeMessageMap = {
+                            0: this.$("#add-successfully").val(),
+                            101: this.$("#is-not-member-error").val(),
+                            103: this.$("#was-added-watchlist-already-error").val()
+                        };
+
+                        this.showResultMessages(result, codeMessageMap);
+                    });
+            }
         }
-
-        this.service.addPersonalThreshold(params, result => {
-            if (!result) return;
-
-            if (result.Code === 1) {
-                this.alert.showError(result.Message);
-                return;
-            }
-
-            if (result.length > 0) {
-                result.forEach(res => {
-                    switch (res.Code) {
-                        case 0:
-                            this.alert.showMultipleSuccess(res.Name, this.$("#add-successfully").val());
-                            break;
-                        case 101:
-                            this.alert.showMultipleError(res.Name, this.$("#is-not-member-error").val());
-                            break;
-                        case 103:
-                            this.alert.showMultipleError(res.Name, this.$("#was-added-watchlist-already-error").val());
-                            break;
-                        default:
-                            break;
-                    }
-                });
-
-                if (result.find(r => r.IsFailed) && result.find(r => r.IsSuccessful)) {
-                    this.topWindow.reloadDataTable();
-                    return;
-                }
-
-                if (!result.find(r => r.IsFailed)) {
-                    WatchlistHelper.reloadMainFrameAfterSuccess(this.reloadTimeout);
-                    return;
-                }
-            }
-        });
     }
 
     private handleUpdate = () => {
@@ -110,65 +86,39 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
 
         const custIds = this.$("#custids").val();
         const usernames = this.$("#usernames").val();
+        const thresholdInputs = this.getThresholdInputs(custIds.split(",").length === 1);
 
-        if (!this.validateThresholdInput() || (custIds.length === 1 && !this.validateEditThresholdNoChangeUpdate()))
-            return;
+        if (thresholdInputs) {
+            const formData = {
+                custIds,
+                usernames,
+                winningThreshold: thresholdInputs.winningThreshold,
+                losingThreshold: thresholdInputs.losingThreshold
+            };
 
-        const thresholdInputs = this.getThresholdInputs();
+            AJAXHelper.postForm(
+                `${this.baseUrl}MyWatchlistAccounts/UpdateMultiplePersonalThreshold`,
+                formData,
+                result => {
+                    const codeMessageMap = {
+                        0: this.$("#update-successfully").val(),
+                        102: this.$("#invalid-account-error").val(),
+                        103: this.$("#not-in-watchlist-any-longer-error").val()
+                    };
 
-        const params = {
-            custIds,
-            usernames,
-            winningThreshold: thresholdInputs.winningThreshold,
-            losingThreshold: thresholdInputs.losingThreshold
-        }
-
-        this.service.updateMultiplePersonalThreshold(params, result => {
-            if (!result) return;
-
-            if (result.Code === 1) {
-                this.alert.showError(result.Message);
-                return;
-            }
-
-            if (result.length > 0) {
-                result.forEach(res => {
-                    switch (res.Code) {
-                        case 0:
-                            this.alert.showMultipleSuccess(res.Name, this.$("#update-successfully").val());
-                            break;
-                        case 102:
-                            this.alert.showMultipleError(res.Name, this.$("#invalid-account-error").val());
-                            break;
-                        case 103:
-                            this.alert.showMultipleError(res.Name, this.$("#not-in-watchlist-any-longer-error").val());
-                            break;
-                        default:
-                            break;
-                    }
+                    this.showResultMessages(result, codeMessageMap);
                 });
-
-                if (result.find(r => r.IsFailed) && result.find(r => r.IsSuccessful)) {
-                    this.topWindow.reloadDataTable();
-                    return;
-                }
-
-                if (!result.find(r => r.IsFailed)) {
-                    WatchlistHelper.reloadMainFrameAfterSuccess(this.reloadTimeout);
-                    return;
-                }
-            }
-        });
+        }
     }
 
-    private resetInputs = () => {
+    private resetInputs() {
         this.$txtWinningThreshold.prop("disabled", false).val("");
-        this.$txtLosingThreshold.prop("disabled", false).val("");
         this.$ckbWinningUnlimited.prop("checked", false);
+        this.$txtLosingThreshold.prop("disabled", false).val("");
         this.$ckbLosingUnlimited.prop("checked", false);
     }
 
-    private validateUsernamesInput = usernameArr => {
+    private validateUsernamesInput(usernameArr) {
         if (usernameArr.length === 0) {
             this.alert.showError(this.$("#must-enter-username-error").val());
             return false;
@@ -181,10 +131,44 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
 
         return true;
     }
+
+    private showResultMessages(result, codeMessageMap) {
+        if (!result) {
+            return;
+        }
+
+        if (result.Code === 1) {
+            this.alert.showError(result.Message);
+            return;
+        }
+
+        if (result.length > 0) {
+            let resultAlerts = [];
+            let isSuccessful = false;
+            let isFailed = false;
+
+            result.forEach(function (item) {
+                resultAlerts.push({ Code: item.Code, Name: item.Name, Message: codeMessageMap[item.Code] });
+
+                if (item.Code === 0) {
+                    isSuccessful = true;
+                } else {
+                    isFailed = true;
+                }
+            });
+
+            this.alert.showMultiple(resultAlerts);
+
+            if (isFailed && isSuccessful) {
+                this.topWindow.reloadMyWatchlistDataTable();
+                return;
+            }
+
+            isFailed || SiteHelper.closePopupAndReloadMainFrame();
+        }
+    }
 }
 
 $(function () {
-    const service = new MyWatchlistAccountService($);
-    const manageWatchlistAccounts = new ManageWatchlistAccounts($, window.top, service);
-    manageWatchlistAccounts.init();
+    new ManageWatchlistAccounts($, window.top).init();
 })

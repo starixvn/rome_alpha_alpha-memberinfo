@@ -67,7 +67,7 @@
         public string CustLevel { get; }
 
         public string UserGuideLink => UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
-            MicroSites.MessageUrl("~/StaticMessage/Guide?id=170467") :
-            MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=170467");
+            MicroSites.MessageUrl("~/StaticMessage/Guide?id=179067") :
+            MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179067");
     }
 }

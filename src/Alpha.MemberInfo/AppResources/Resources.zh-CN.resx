@@ -802,7 +802,7 @@
     <value>您确定要移除此预设吗？</value>
   </data>
   <data name="AccumulatedMemberWinLossOnlyStartsCountingNote" xml:space="preserve">
-    <value>会员的累积输赢仅在设置输/赢限額时开始计算。它将每天或在该功能关闭时重置。</value>
+    <value>累积输赢仅在设置输/赢限额 时开始计算。它将每天或在该功能关闭时重置。</value>
   </data>
   <data name="AddMembersToWatchlist" xml:space="preserve">
     <value>添加会员在在监控列表</value>
@@ -826,7 +826,28 @@
     <value>资料</value>
   </data>
   <data name="AccumulatedMemberWinLossWillBeCountedNote" xml:space="preserve">
-    <value>会员的累积输赢将在注单结算后立即计算。一旦注单已经结算并积累，诺昨日的未结算赛事并移到下一个工作日也将不会改变积累。</value>
+    <value>累积输赢将在注单结算后立即计算。一旦注单已经结算并积累，即使昨日未结算的赛事移到下一个工作日也将不会改变积累计算。</value>
+  </data>
+  <data name="MyThresholds" xml:space="preserve">
+    <value>我的限額</value>
+  </data>
+  <data name="MyThresholdsSettings" xml:space="preserve">
+    <value>我的限额设定</value>
+  </data>
+  <data name="GlobalThresholdSettingsNote" xml:space="preserve">
+    <value>当个别的会员赢/输达到您想要的赢/输限额时，您将收到以下通知：</value>
+  </data>
+  <data name="MyLosingThreshold" xml:space="preserve">
+    <value>我输的限額</value>
+  </data>
+  <data name="MyThresholdSettingsNote" xml:space="preserve">
+    <value>当您的赢/输（根据您自己在所有会员的占成数）达到您想要的赢/输限额时，您会收到以下的通知：</value>
+  </data>
+  <data name="MyWinningThreshold" xml:space="preserve">
+    <value>我赢的限額</value>
+  </data>
+  <data name="ThresholdSettingsNote" xml:space="preserve">
+    <value>如要禁用限额，请在赢/输限额旁的无限格子打勾。</value>
   </data>
   <data name="Entered" xml:space="preserve">
     <value>已完成</value>

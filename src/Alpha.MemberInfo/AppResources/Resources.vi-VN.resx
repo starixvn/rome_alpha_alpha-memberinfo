@@ -628,7 +628,7 @@
     <value>Cập nhật thành công</value>
   </data>
   <data name="AccumulatedMemberWinLossOnlyStartsCountingNote" xml:space="preserve">
-    <value>Thắng Thua Tích Lũy Của Member chỉ bắt đầu tính khi giới hạn thắng/thua được đặt, và sẽ được đặt lại về 0 mỗi ngày, hoặc khi tắt chức năng này.</value>
+    <value>Thắng Thua Tích Lũy chỉ bắt đầu tính khi giới hạn thắng/thua được đặt, và sẽ được đặt lại về 0 mỗi ngày, hoặc khi tắt chức năng này.</value>
   </data>
   <data name="AddMember" xml:space="preserve">
     <value>Thêm Member</value>
@@ -817,7 +817,28 @@
     <value>Thông tin</value>
   </data>
   <data name="AccumulatedMemberWinLossWillBeCountedNote" xml:space="preserve">
-    <value>Thắng Thua Tích Lũy Của Member sẽ được tính ngay sau khi vé cược được kết toán. Một khi vé cược đã được kết toán và tích lũy, việc chuyển sự kiện đang xử lý ngày hôm qua sang ngày tiếp theo sẽ không làm thay đổi khoản tích lũy.</value>
+    <value>Thắng Thua Tích Lũy sẽ được tính ngay sau khi vé cược được kết toán. Một khi vé cược đã được kết toán và tích lũy, việc chuyển sự kiện đang xử lý ngày hôm qua sang ngày tiếp theo sẽ không làm thay đổi khoản tích lũy.</value>
+  </data>
+  <data name="MyThresholds" xml:space="preserve">
+    <value>Mức Thắng Thua</value>
+  </data>
+  <data name="MyThresholdsSettings" xml:space="preserve">
+    <value>Cài Đặt Mức Thắng Thua</value>
+  </data>
+  <data name="GlobalThresholdSettingsNote" xml:space="preserve">
+    <value>Nhận thông báo khi tiền thắng/thua của Member đạt giới hạn thắng/thua mong muốn của bạn dưới đây:</value>
+  </data>
+  <data name="MyLosingThreshold" xml:space="preserve">
+    <value>Giới Hạn Thua Của Tôi</value>
+  </data>
+  <data name="MyThresholdSettingsNote" xml:space="preserve">
+    <value>Nhận thông báo khi tiền thắng/thua của bạn (tính theo Position Taking của bạn trên tất cả Member) đạt giới hạn thắng/thua mong muốn của bạn dưới đây:</value>
+  </data>
+  <data name="MyWinningThreshold" xml:space="preserve">
+    <value>Giới Hạn Thắng Của Tôi</value>
+  </data>
+  <data name="ThresholdSettingsNote" xml:space="preserve">
+    <value>Để tắt giới hạn, đánh dấu ô "Không giới hạn" cho cả giới hạn thắng và thua.</value>
   </data>
   <data name="Entered" xml:space="preserve">
     <value>Kết thúc</value>

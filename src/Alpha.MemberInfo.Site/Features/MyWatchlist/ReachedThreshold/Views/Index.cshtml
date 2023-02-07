@@ -3,150 +3,69 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Reached Threshold";
+    ViewBag.Title = Resources.ReachedThreshold;
 }
 
 @section Styles {
-    @StaticResources.AssetStyles.RenderWithDarkMode("/bundles/common/common")
-    @StaticResources.AssetStyles.RenderWithDarkMode("/bundles/site-memberinfo/reached-threshold")
-    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/site-memberinfo/tab-{Model.CustLevel.ToLowerInvariant()}")
-    @StaticResources.AssetStyles.RenderCommonWithDarkMode("/bundles/site-asset/data-table")
-    @StaticResources.RenderStylesWithDarkMode("~/Features/MyWatchlist/ReachedThreshold/Bundles/reached-threshold")
-    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/ReachedThreshold/Bundles/reached-threshold-media")
+    @StaticResources.AssetStyles.RenderWithDarkMode(
+        $"/bundles/site-memberinfo/tab-{Model.CustLevel.ToLowerInvariant()}",
+        "/bundles/site-memberinfo/daterangepicker",
+        "/bundles/site-asset/data-table")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyWatchlist/Shared/Bundles/my-watchlist")
+    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/Shared/Bundles/my-watchlist-media")
 }
 
-<div class="my-watchlist-accounts">
-    <div class="page-title">
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active">
-                <a href="#" aria-controls="home" role="tab" data-toggle="tab">@Resources.ReachedThreshold</a>
-            </li>
-            <li role="presentation">
-                @Html.ActionLink(Resources.MyWatchlist, "Index", "MyWatchlistAccounts")
-            </li>
-            <li class="icon-tab">
-                <a href="#">
-                    <span id="icon-information" class="icon icon-information-outline"></span>
-                </a>
-            </li>
-            <li class="icon-tab">
-                <a href="@Model.UserGuideLink" target="_blank" class="user-guide"><span class="icon icon-book"></span></a>
-            </li>
-        </ul>
-    </div>
+@section Scripts {
+    <script type="text/javascript">
+        var reachlistAccountData = @Html.Raw(JsonConvert.SerializeObject(Model.ReachedThresholdPagingViewModel, Formatting.None));
+    </script>
 
-    <div class="form-inline filter form-report" id="report-form">
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-asset/data-table")
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/daterangepicker")
+    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
+    @StaticResources.RenderScripts("~/Features/MyWatchlist/ReachedThreshold/Bundles/reached-threshold")
+}
+
+<div class="reached-threshold">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="javascript:;" aria-controls="home" role="tab" data-toggle="tab">@Resources.ReachedThreshold</a>
+        </li>
+        <li role="presentation">
+            @Html.ActionLink(Resources.MyWatchlist, "Index", "MyWatchlistAccounts")
+        </li>
+        <li role="presentation">
+            @Html.ActionLink(Resources.MyThresholds, "Index", "MyThresholds")
+        </li>
+        @Html.Partial("~/Features/MyWatchlist/Shared/Views/InfoUserGuideTabs.cshtml", Model.UserGuideLink)
+    </ul>
+
+    @using (Html.BeginForm("GetReachlistThreshold", "ReachedThreshold", FormMethod.Post, new { @class = "form-inline filter form-report", id = "report-form" }))
+    {
         <div class="form-group username-box">
             <label>@Resources.Username</label>
             <input type="text" class="txt-search" id="txt-username" placeholder="@Resources.Username" />
         </div>
-
-        <div id="daterange-picker"
-             class="daterange-picker"
-             data-currentdate="@DateTime.Now"
-             data-mindate="@Model.DateRangePickerViewModel.MinDate.ToShortDateWithSlash()"
-             data-maxdate="@Model.DateRangePickerViewModel.MaxDate.ToShortDateWithSlash()">
-        </div>
-
-        <div class="form-group  from-date-box">
-            <label>@Resources.From</label>
-
-            <div class="control date">
-                <div id="from-date-container"
-                     class="input-group date fromdate">
-                    <input type="text"
-                           id="from-date"
-                           name="FromDate"
-                           readonly="readonly"
-                           autocomplete="off"
-                           class="ui_nexdatepicker_datetextbox ui_nexdatepicker_fromdate form-control"
-                           value="@Model.DateRangePickerViewModel.FromDate.ToShortDateWithSlash()" />
-                    <span class="input-group-addon">
-                        <span class="icon-calendar" id="fdate_trigger"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>@Resources.To</label>
-
-            <div class="control date">
-                <div id="to-date-container"
-                     class="input-group date todate">
-                    <input type="text"
-                           id="to-date"
-                           name="ToDate"
-                           readonly="readonly"
-                           autocomplete="off"
-                           class="ui_nexdatepicker_datetextbox ui_nexdatepicker_todate form-control"
-                           value="@Model.DateRangePickerViewModel.ToDate.ToShortDateWithSlash()" />
-                    <span class="input-group-addon">
-                        <span class="icon-calendar" id="tdate_trigger"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-
+        @DateRangePicker.Render(Model.DateRangePickerViewModel)
         <div class="form-group">
             <label for="status-dropdown">@Resources.Status</label>
-            <select id="status-dropdown">
-                @foreach (var status in Model.StatusOptions)
-                {
-                    <option value="@status.Value" @(status.Selected ? " selected=\"selected\"" : string.Empty)>
-                        @status.Text
-                    </option>
-                }
-            </select>
+            @Html.DropDownList("status-dropdown", Model.StatusOptions, new { id = "status-dropdown" })
         </div>
-
         <div class="form-group">
             <label for="limit-type-dropdown" class="limit-type-dropdown">@Resources.ThresholdType</label>
-            <select id="limit-type-dropdown">
-                @foreach (var status in Model.LimitTypeOptions)
-                {
-                    <option value="@status.Value" @(status.Selected ? " selected=\"selected\"" : string.Empty)>
-                        @status.Text
-                    </option>
-                }
-            </select>
+            @Html.DropDownList("limit-type-dropdown", Model.LimitTypeOptions, new { id = "limit-type-dropdown" })
         </div>
-
-        <div class="form-group btn-box">
+        <div class="form-group">
             <input type="submit" value="@Resources.Submit" class="btn-submit" id="btn-submit" />
         </div>
-
         <div class="form-group">
             <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
         </div>
-    </div>
+    }
 
-    <div>
-        <span class="red">*</span>
-        @Resources.GlobalWinningThreshold:
-        <span class="red">
-            @if (Model.GlobalThresholdModel != null)
-            {
-                @HtmlHelpers.FormatThreshold(Model.GlobalThresholdModel.WinningThreshold)
-            }
-            else
-            {
-                @Resources.Unlimited
-            }
-        </span>; @Resources.GlobalLosingThreshold:
-        <span class="red">
-            @if (Model.GlobalThresholdModel != null)
-            {
-                @HtmlHelpers.FormatThreshold(Model.GlobalThresholdModel.LosingThreshold)
-            }
-            else
-            {
-                @Resources.Unlimited
-            }
-        </span>
-    </div>
+    @Html.Partial("~/Features/MyWatchlist/Shared/Views/GlobalThresholdsNote.cshtml", Model.GlobalThresholdModel, new ViewDataDictionary())
 
-    <table id="tbl-reached-threshold" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%; margin-top: 15px;">
+    <table id="tblRpt" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%">
         <thead>
             <tr>
                 @if (!Model.IsMobile)
@@ -189,56 +108,24 @@
             </tr>
         </thead>
     </table>
-
-    <form class="form-inline hide" role="form" id="export-excel-form" action="@Url.Action("Excel")">
-        @Html.Hidden("Username")
-        @Html.Hidden("FromDate")
-        @Html.Hidden("ToDate")
-        @Html.Hidden("Status")
-        @Html.Hidden("LimitType")
-    </form>
-
-    <form target="iframePopup" action="" id="iframe-popup-form">
-        <input type="hidden" value="" />
-        <input type="submit" class="hidden">
-    </form>
-
-    <div class="modal modal-iframe modal-sm fade" id="iframe-popup-container" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-popup">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body-iframe">
-                    <iFrame src="" name="iframePopup" id="iframe-popup" style="width:100%; height:95%;"></iFrame>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    @Html.Partial("~/Features/MyWatchlist/ReachedThreshold/Views/InformationLegend.cshtml", @Model.DateRangePickerViewModel.MinDate.ToShortDateWithSlash())
-
-    <input type="hidden" id="search-account-id" value="@Model.SearchAccountId" />
-    <input type="hidden" id="member-info-url" value='@MicroSites.MemberInfoUrl()' />
-    <input type="hidden" id="reach-history-popup-title" value="@Resources.ReachHistory" />
-    <input type="hidden" id="is-mobile" value='@(Model.IsMobile ? "true" : "false")' />
-    <input type="hidden" id="page-size" value="@Resources.PageSize" />
-    <input type="hidden" id="page" value="@Resources.Page" />
-    <input type="hidden" id="of" value="@Resources.Of" />
-    <input type="hidden" id="no-info" value="@Resources.NoInformationIsAvailable" />
-    <input type="hidden" id="is-show-last-login" value="@(Model.IsShowLastLoginColumn ? "true" : "false")" />
 </div>
 
-@section Scripts {
-    <script type="text/javascript">
-        var reachlistAccountData = @Html.Raw(JsonConvert.SerializeObject(Model.ReachedThresholdPagingViewModel, Formatting.None));
-    </script>
+<form class="form-inline hide" role="form" id="export-excel-form" action="@Url.Action("Excel")">
+    @Html.Hidden("Username")
+    @Html.Hidden("FromDate")
+    @Html.Hidden("ToDate")
+    @Html.Hidden("Status")
+    @Html.Hidden("LimitType")
+</form>
 
-    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/data-table")
-    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/reached-threshold")
-    @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
-    @StaticResources.RenderScripts("~/Features/MyWatchlist/ReachedThreshold/Bundles/reached-threshold")
-}
+@Html.Partial("~/Features/MyWatchlist/Shared/Views/InformationLegend.cshtml")
+
+<input type="hidden" id="search-account-id" value="@Model.SearchAccountId" />
+<input type="hidden" id="member-info-url" value="@Url.Content("~/")" />
+<input type="hidden" id="reach-history-popup-title" value="@Resources.ReachHistory" />
+<input type="hidden" id="is-mobile" value='@(Model.IsMobile ? "true" : "false")' />
+<input type="hidden" id="page-size" value="@Resources.PageSize" />
+<input type="hidden" id="page" value="@Resources.Page" />
+<input type="hidden" id="of" value="@Resources.Of" />
+<input type="hidden" id="no-info" value="@Resources.NoInformationIsAvailable" />
+<input type="hidden" id="is-show-last-login" value="@(Model.IsShowLastLoginColumn ? "true" : "false")" />

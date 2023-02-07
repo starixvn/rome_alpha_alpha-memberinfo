@@ -56,10 +56,6 @@
     "inputFile": "assets/styles/common-07.scss"
   },
   {
-    "outputFile": "assets/styles/member-info-07.css",
-    "inputFile": "assets/styles/member-info-07.scss"
-  },
-  {
     "outputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout.css",
     "inputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout.scss"
   },
@@ -108,79 +104,27 @@
     "inputFile": "Features/ParlayMaxPayout/Styles/parlay-max-payout-dark.scss"
   },
   {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts.scss"
+    "outputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist.css",
+    "inputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist.scss"
   },
   {
-    "outputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reached-threshold.css",
-    "inputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reached-threshold.scss"
+    "outputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-dark.css",
+    "inputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-dark.scss"
   },
   {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts.scss"
+    "outputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-media.css",
+    "inputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-media.scss"
   },
   {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert.scss"
+    "outputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-settings.css",
+    "inputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-settings.scss"
   },
   {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-global-threshold.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-global-threshold.scss"
+    "outputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-settings-dark.css",
+    "inputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-settings-dark.scss"
   },
   {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-global-threshold-dark.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-global-threshold-dark.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-presets.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-presets.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-media.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-media.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-global-threshold-media.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-global-threshold-media.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts-media.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts-media.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-presets-media.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-presets-media.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reached-threshold-media.css",
-    "inputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reached-threshold-media.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reach-history-media.css",
-    "inputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reach-history-media.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-dark.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-dark.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts-dark.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/manage-watchlist-accounts-dark.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reached-threshold-dark.css",
-    "inputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reached-threshold-dark.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert-dark.css",
-    "inputFile": "Features/MyWatchlist/MyWatchlistAccounts/Styles/my-watchlist-accounts-alert-dark.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reach-history-dark.css",
-    "inputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reach-history-dark.scss"
-  },
-  {
-    "outputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reach-history.css",
-    "inputFile": "Features/MyWatchlist/ReachedThreshold/Styles/reach-history.scss"
+    "outputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-settings-media.css",
+    "inputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-settings-media.scss"
   }
 ]

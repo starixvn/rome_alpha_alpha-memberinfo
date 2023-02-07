@@ -27,5 +27,8 @@
   <Function Name="My Monitor Accounts">
     <Setting Key="Acc_WLMonitored_Player_ReachDetail_Sel" SpName="Acc_WLMonitored_Player_ReachDetail_Sel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_WLMonitored_Player_ReachList_ByAg" SpName="Acc_WLMonitored_Player_ReachList_ByAg" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0"/>
+    <Setting Key="Acc_WLMonitored_SMA_ReachDetail_Sel" SpName="Acc_WLMonitored_SMA_ReachDetail_Sel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0"/>
+    <Setting Key="Acc_CustWLMonitored_Setting_Adjust_DB052" SpName="Acc_CustWLMonitored_Setting_Adjust" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0"/>
+    <Setting Key="Acc_CustWLMonitored_Setting_Adjust_DB053" SpName="Acc_CustWLMonitored_Setting_Adjust" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0"/>
   </Function>
 </Functions>

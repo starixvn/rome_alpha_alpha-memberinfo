@@ -33,7 +33,10 @@
 
         public string LimitTypeReach { get; internal set; }
 
-        public string TranslatedLimitTypeReach => Resources.ResourceManager.GetString(LimitTypeReach);
+        public string TranslatedLimitTypeReach
+            => string.IsNullOrWhiteSpace(LimitTypeReach)
+            ? string.Empty
+            : Resources.ResourceManager.GetString(LimitTypeReach);
 
         public decimal WinLossAmount { get; internal set; }
 
