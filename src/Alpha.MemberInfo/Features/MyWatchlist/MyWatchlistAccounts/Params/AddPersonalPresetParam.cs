@@ -2,12 +2,13 @@
 {
     public class AddPersonalPresetParam
     {
-        public AddPersonalPresetParam(int agentId, string presetTitle, decimal winningThreshold, decimal losingThreshold)
+        public AddPersonalPresetParam(int agentId, string presetTitle, decimal winningThreshold, decimal losingThreshold, string siteName)
         {
             AgentId = agentId;
             PresetTitle = presetTitle;
             WinningThreshold = winningThreshold;
             LosingThreshold = losingThreshold;
+            SiteName = siteName;
         }
 
         public int AgentId { get; }
@@ -17,5 +18,7 @@
         public decimal WinningThreshold { get; }
 
         public decimal LosingThreshold { get; }
+
+        public string SiteName { get; }
     }
 }

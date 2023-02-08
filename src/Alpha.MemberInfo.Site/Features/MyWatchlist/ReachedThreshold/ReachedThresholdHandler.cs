@@ -51,7 +51,7 @@
 
             var pagingViewModel = await Handle(query);
 
-            var param = new SelectGlobalThresholdParam(message.CustId);
+            var param = new SelectGlobalThresholdParam(message.CustId, message.Site);
             var globalThreshold = await myWatchlistAccountsService.GetGlobalThreshold(param);
 
             return new ReachedThresholdViewModel(message, globalThreshold, isMobile, pagingViewModel);
@@ -70,7 +70,8 @@
                 message.IsDesc,
                 message.PageSize,
                 message.PageIndex,
-                message.LimitedDateToShowInfo);
+                message.LimitedDateToShowInfo,
+                message.Site);
 
             var reachlistAccountReport = await reachedThresholdService.GetReachlistAccounts(param);
 
@@ -103,7 +104,8 @@
              message.LimitType,
              message.SortType,
              message.IsDesc,
-             message.LimitedDateToShowInfo);
+             message.LimitedDateToShowInfo,
+             message.Site);
 
             return await reachedThresholdService.GetReachDetail(param);
         }

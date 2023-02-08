@@ -15,7 +15,8 @@
            bool isDesc,
            int pageSize,
            int pageIndex,
-           DateTime limitedDateToShowInfo)
+           DateTime limitedDateToShowInfo,
+           string siteName)
         {
             AgentId = agentId;
             Username = username;
@@ -28,6 +29,7 @@
             PageSize = pageSize;
             PageIndex = pageIndex;
             LimitedDateToShowInfo = limitedDateToShowInfo;
+            SiteName = siteName;
         }
 
         public int AgentId { get; }
@@ -51,5 +53,7 @@
         public int PageSize { get; }
 
         public DateTime LimitedDateToShowInfo { get; }
+
+        public string SiteName { get; }
     }
 }

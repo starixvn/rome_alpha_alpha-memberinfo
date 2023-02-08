@@ -14,7 +14,7 @@
             // Arrange
             var today = DateTime.Now;
             var criteria = new SelectMyThresholdHistoryCriteria(new SelectMyThresholdHistoryParam(
-                1176083, today.AddDays(-1), today, 1, true, DateTime.MinValue));
+                1176083, today.AddDays(-1), today, 1, true, DateTime.MinValue, string.Empty));
 
             // Act & Assert
             Assert.Equal("Acc_WLMonitored_SMA_ReachDetail_Sel", criteria.GetSettingKey());
@@ -29,7 +29,7 @@
             // Arrange
             var today = DateTime.Now;
             var criteria = new SelectMyThresholdHistoryCriteria(new SelectMyThresholdHistoryParam(
-                custId, today.AddDays(-1), today, 1, true, DateTime.MinValue));
+                custId, today.AddDays(-1), today, 1, true, DateTime.MinValue, string.Empty));
 
             // Act & Assert
             Assert.Equal(expectedValue, criteria.IsValid());
@@ -44,7 +44,7 @@
             // Arrange
             var today = DateTime.Now;
             var criteria = new SelectMyThresholdHistoryCriteria(new SelectMyThresholdHistoryParam(
-                1176083, DateTime.Parse(from), DateTime.Parse(to), 1, true, DateTime.MinValue));
+                1176083, DateTime.Parse(from), DateTime.Parse(to), 1, true, DateTime.MinValue, string.Empty));
 
             // Act & Assert
             Assert.Equal(expectedValue, criteria.IsValid());

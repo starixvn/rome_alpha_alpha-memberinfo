@@ -28,6 +28,8 @@
 
         public string Name => userSession.UserName;
 
+        public string Site => userSession.Site;
+
         public string Language => userSession.Language;
 
         public string LanguageKey => userSession.LangKey;

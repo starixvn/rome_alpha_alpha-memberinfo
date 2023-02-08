@@ -2,11 +2,14 @@
 {
     public class SelectPresetsParam
     {
-        public SelectPresetsParam(int agentId)
+        public SelectPresetsParam(int agentId, string siteName)
         {
             AgentId = agentId;
+            SiteName = siteName;
         }
 
         public int AgentId { get; }
+
+        public string SiteName { get; }
     }
 }

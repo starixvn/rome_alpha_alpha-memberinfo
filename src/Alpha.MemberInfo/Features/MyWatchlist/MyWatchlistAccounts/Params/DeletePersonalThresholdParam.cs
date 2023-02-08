@@ -7,13 +7,15 @@
            string username,
            int userId,
            int subAccId,
-           string ip)
+           string ip,
+           string siteName)
         {
             CustId = custId;
             Username = username;
             UserId = userId;
             SubAccId = subAccId;
             IP = ip;
+            SiteName = siteName;
         }
 
         public int CustId { get; }
@@ -25,5 +27,7 @@
         public int SubAccId { get; }
 
         public string IP { get; }
+
+        public string SiteName { get; }
     }
 }

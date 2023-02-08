@@ -33,7 +33,7 @@
         {
             var isMobile = browserHelper.IsMobile(isOnlyTablet: false);
             var canUpdateAccount = message.CanUpdateAccount;
-            var myThresholdTask = myThresholdsService.GetMyThreshold(message.ViewerId);
+            var myThresholdTask = myThresholdsService.GetMyThreshold(message.ViewerId, message.Site);
             var myThresholdHistoryTask = Handle((MyThresholdHistoryQuery)message);
 
             await Task.WhenAll(myThresholdTask, myThresholdHistoryTask);
@@ -54,14 +54,15 @@
                 message.ToDate,
                 message.SortType,
                 message.IsDesc,
-                message.LimitedDateToShowInfo);
+                message.LimitedDateToShowInfo,
+                message.Site);
 
             return myThresholdsService.GetMyThresholdHistory(param);
         }
 
         public async Task<ThresholdViewModel> Handle(MyThresholdQuery message)
         {
-            var myThreshold = await myThresholdsService.GetMyThreshold(message.ViewerId);
+            var myThreshold = await myThresholdsService.GetMyThreshold(message.ViewerId, message.Site);
 
             return myThreshold == null
                 ? new ThresholdViewModel(null, null)
@@ -75,6 +76,7 @@
                 message.LosingThreshold,
                 message.ViewerId,
                 message.SubAccId,
-                message.IP));
+                message.IP,
+                message.Site));
     }
 }

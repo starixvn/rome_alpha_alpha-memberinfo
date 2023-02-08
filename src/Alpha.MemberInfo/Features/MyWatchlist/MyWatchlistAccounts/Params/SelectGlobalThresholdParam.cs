@@ -2,11 +2,14 @@
 {
     public class SelectGlobalThresholdParam
     {
-        public SelectGlobalThresholdParam(int agentId)
+        public SelectGlobalThresholdParam(int agentId, string siteName)
         {
             AgentId = agentId;
+            SiteName = siteName;
         }
 
         public int AgentId { get; }
+
+        public string SiteName { get; }
     }
 }

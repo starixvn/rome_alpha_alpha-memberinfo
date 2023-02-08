@@ -42,7 +42,8 @@
                 false, 
                 100, 
                 1, 
-                new DateTime());
+                new DateTime(),
+                string.Empty);
             IEnumerable<ReachlistAccountModel> reachlistAccounts = new List<ReachlistAccountModel>()
             {
                 new ReachlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0, 1, 1),
@@ -63,7 +64,7 @@
         public async Task GetReachDetail_HasData_ReturnCorrectResults()
         {
             // Arrange
-            var param = new SelectReachDetailParam(1234, DateTime.Today.AddDays(-1), DateTime.Today, 0, 0, false, new DateTime());
+            var param = new SelectReachDetailParam(1234, DateTime.Today.AddDays(-1), DateTime.Today, 0, 0, false, new DateTime(), string.Empty);
             IEnumerable<ReachHistoryModel> expectedResults = new List<ReachHistoryModel>()
             {
                 new ReachHistoryModel(DateTime.Today, "Global", 1000, 1000, 2000, 1),

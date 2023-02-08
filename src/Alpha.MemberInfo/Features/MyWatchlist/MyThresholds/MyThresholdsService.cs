@@ -17,7 +17,7 @@
     {
         Task<IEnumerable<ReachHistoryModel>> GetMyThresholdHistory(SelectMyThresholdHistoryParam param);
 
-        Task<GlobalThresholdModel> GetMyThreshold(int custId, short sportType = 0);
+        Task<GlobalThresholdModel> GetMyThreshold(int custId, string siteName, short sportType = 0);
 
         Task<Result> UpdateMyThreshold(UpdateMyThresholdParam param);
     }
@@ -38,15 +38,15 @@
         public Task<IEnumerable<ReachHistoryModel>> GetMyThresholdHistory(SelectMyThresholdHistoryParam param)
         {
             var criteria = new SelectMyThresholdHistoryCriteria(param);
-            partialUMService.ThrowIfUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), param.SiteName);
 
             return dynamicRepository.FetchAsync<ReachHistoryModel>(criteria);
         }
 
-        public Task<GlobalThresholdModel> GetMyThreshold(int custId, short sportType = 0)
+        public Task<GlobalThresholdModel> GetMyThreshold(int custId, string siteName, short sportType = 0)
         {
             var criteria = new SelectMyThresholdCriteria(custId, sportType);
-            partialUMService.ThrowIfUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), siteName);
 
             return dynamicRepository.GetAsync<GlobalThresholdModel>(criteria);
         }
@@ -54,7 +54,7 @@
         public async Task<Result> UpdateMyThreshold(UpdateMyThresholdParam param)
         {
             var command = new UpdateMyThresholdCommand(param);
-            partialUMService.ThrowIfUM(command.GetSettingKey());
+            partialUMService.ThrowIfUM(command.GetSettingKey(), param.SiteName);
 
             await dynamicRepository.ExecuteAsync(command);
             var result = new Result { Code = command.ErrCode, Message = command.ErrMsg };

@@ -9,7 +9,8 @@
             decimal? losingThreshold, 
             int userId, 
             int subAccId, 
-            string ip)
+            string ip,
+            string siteName)
         {
             Usernames = usernames;
             AgentId = agentId;
@@ -18,6 +19,7 @@
             UserId = userId;
             SubAccId = subAccId;
             IP = ip;
+            SiteName = siteName;
         }
 
         public string Usernames { get; }
@@ -33,5 +35,7 @@
         public int SubAccId { get; }
 
         public string IP { get; }
+
+        public string SiteName { get; }
     }
 }

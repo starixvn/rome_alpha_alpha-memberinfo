@@ -32,7 +32,7 @@
             // Arrange
             var today = DateTime.Now;
             var param = new SelectMyThresholdHistoryParam(
-                1234, today.AddDays(-1), today, 1, true, DateTime.MinValue);
+                1234, today.AddDays(-1), today, 1, true, DateTime.MinValue, string.Empty);
 
             // Act
             await service.GetMyThresholdHistory(param);
@@ -45,7 +45,7 @@
         public async Task GetMyThreshold_Always_CallGetAsync()
         {
             // Arrange && Act
-            await service.GetMyThreshold(1234);
+            await service.GetMyThreshold(1234, string.Empty);
 
             // Assert
             await dynamicRepository.Received().GetAsync<GlobalThresholdModel>(Arg.Any<SelectMyThresholdCriteria>());
@@ -55,7 +55,7 @@
         public async Task UpdateMyThreshold_Always_CallExecuteAsync()
         {
             // Arrange
-            var param = new UpdateMyThresholdParam(1234, null, 100, 5678, 0, "::1");
+            var param = new UpdateMyThresholdParam(1234, null, 100, 5678, 0, "::1", string.Empty);
 
             // Act
             await service.UpdateMyThreshold(param);
