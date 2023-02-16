@@ -565,6 +565,9 @@
     </Content>
     <Content Include="assets\scripts\aes.js" />
     <Content Include="assets\scripts\indirect-login-account\quick-introduction.js" />
+    <Content Include="IbcKeys\ibckey.snk" />
+    <Content Include="IbcKeys\ibckeydec.snk" />
+    <Content Include="IbcKeys\Web.config" />
     <TypeScriptCompile Include="assets\scripts\shared\customer-status-helper.ts" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />
@@ -888,6 +891,11 @@
     <Content Include="App_Code\Components\DateRangePicker.cshtml" />
     <Content Include="Features\MyWatchlist\MyThresholds\Views\Settings.cshtml" />
     <Content Include="Features\MyWatchlist\Shared\Views\GlobalThresholdsNote.cshtml" />
+    <Content Include="deployment.napinternal.ignore" />
+    <Content Include="deployment.napinternal2.ignore" />
+    <Content Include="deployment.pro.ignore" />
+    <Content Include="deployment.pro2.ignore" />
+    <Content Include="deployment.pro3.ignore" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
