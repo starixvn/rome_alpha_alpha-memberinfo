@@ -5,6 +5,7 @@
         public SelectWatchlistAccountsParam(
             int agentId, 
             string username,
+            string siteName,
             byte sortType,
             bool isDesc,
             int pageIndex,
@@ -16,7 +17,10 @@
             IsDesc = isDesc;
             PageIndex = pageIndex;
             PageSize = pageSize;
+            SiteName = siteName;
         }
+
+        public string SiteName { get; }
 
         public int AgentId { get; }
 

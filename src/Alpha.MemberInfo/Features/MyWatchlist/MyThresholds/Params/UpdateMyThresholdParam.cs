@@ -9,6 +9,7 @@
             int userId,
             int subAccId,
             string ip,
+            string siteName,
             short sportType = 0)
         {
             CustId = custId;
@@ -18,7 +19,9 @@
             UserId = userId;
             SubAccId = subAccId;
             IP = ip;
+            SiteName = siteName;
         }
+        public string SiteName { get; }
 
         public int CustId { get; }
 

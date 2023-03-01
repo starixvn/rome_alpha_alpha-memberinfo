@@ -33,7 +33,8 @@
             // Arrange
             var param = new SelectWatchlistAccountsParam(
                 1234,
-                "agent0101",
+                "agent0101", 
+                string.Empty,
                 1,
                 false,
                 1,
@@ -58,7 +59,7 @@
         public async Task GetPresets_HasData_ReturnsCorrectResults()
         {
             // Arrange
-            var param = new SelectPresetsParam(1234);
+            var param = new SelectPresetsParam(1234, string.Empty);
             IEnumerable<PersonalPresetModel> expectedResults = new List<PersonalPresetModel>()
             {
                 new PersonalPresetModel(),
@@ -84,8 +85,8 @@
                 2000,
                 1,
                 12,
-                "192.0.0.1"
-                );
+                "192.0.0.1",
+                string.Empty);
             IEnumerable<NamedResult> expectedResults = new List<NamedResult>()
             {
                 new NamedResult(),
@@ -110,8 +111,8 @@
                 2000,
                 1,
                 12,
-                "192.0.0.1"
-                );
+                "192.0.0.1",
+                string.Empty);
 
             // Act
             await service.UpdatePersonalThreshold(param);
@@ -136,8 +137,8 @@
                 "agent0101",
                 1,
                 12,
-                "192.0.0.1"
-                );
+                "192.0.0.1",
+                string.Empty);
 
             // Act
             await service.DeletePersonalThreshold(param);
@@ -155,7 +156,7 @@
         public async Task GetGlobalThreshold_HasData_ReturnsCorrectResults()
         {
             // Arrange
-            var param = new SelectGlobalThresholdParam(1234);
+            var param = new SelectGlobalThresholdParam(1234, string.Empty);
             var expectedResult = new GlobalThresholdModel();
             dynamicRepository.GetAsync<GlobalThresholdModel>(Arg.Any<SelectGlobalThresholdCriteria>()).Returns(Task.FromResult(expectedResult));
 
@@ -176,8 +177,8 @@
                 2000,
                 1,
                 12,
-                "192.0.0.1"
-                );
+                "192.0.0.1",
+                string.Empty);
 
             // Act
             await service.UpdateGlobalThreshold(param);
@@ -201,8 +202,8 @@
                 1234,
                 "preset1",
                 1000,
-                2000
-                );
+                2000,
+                string.Empty);
 
             // Act
             await service.AddPersonalPreset(param);
@@ -245,7 +246,7 @@
         public async Task DeletePersonalPreset_Always_CallsExecuteAsynce()
         {
             // Arrange
-            var param = new DeletePersonalPresetParam(1, 1234);
+            var param = new DeletePersonalPresetParam(1, 1234, string.Empty);
 
             // Act
             await service.DeletePersonalPreset(param);

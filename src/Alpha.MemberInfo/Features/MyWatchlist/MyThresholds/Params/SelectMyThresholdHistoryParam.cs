@@ -11,6 +11,7 @@
             byte sortType,
             bool isDesc,
             DateTime limitedDateToShowInfo,
+            string siteName,
             short sportType = 0)
         {
             CustId = custId;
@@ -20,7 +21,10 @@
             SortType = sortType;
             IsDesc = isDesc;
             LimitedDateToShowInfo = limitedDateToShowInfo;
+            SiteName = siteName;
         }
+
+        public string SiteName { get; }
 
         public int CustId { get; }
 

@@ -11,7 +11,8 @@
             byte limitType,
             byte sortType,
             bool isDesc,
-            DateTime limitedDateToShowInfo)
+            DateTime limitedDateToShowInfo,
+            string siteName)
         {
             CustId = custId;
             FromDate = fromDate;
@@ -20,6 +21,7 @@
             SortType = sortType;
             IsDesc = isDesc;
             LimitedDateToShowInfo = limitedDateToShowInfo;
+            SiteName = siteName;
         }
 
         public int CustId { get; }
@@ -35,5 +37,7 @@
         public bool IsDesc { get; }
 
         public DateTime LimitedDateToShowInfo { get; }
+
+        public string SiteName { get; }
     }
 }

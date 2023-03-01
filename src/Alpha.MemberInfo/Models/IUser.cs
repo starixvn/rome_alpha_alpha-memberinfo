@@ -11,6 +11,8 @@
 
         string Name { get; }
 
+        string Site { get; }
+
         string Language { get; }
 
         string LanguageKey { get; }

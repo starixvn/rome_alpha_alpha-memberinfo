@@ -18,6 +18,7 @@
             UserId = viewer.LoggedInUserId;
             CustId = viewer.Id;
             CustName = viewer.Name;
+            Site = viewer.Site;
             CustLevelId = viewer.LevelId;
             SubAccId = viewer.SubAccId;
             SubUsername = viewer.SubAccName;
@@ -33,6 +34,8 @@
         public int SubAccId { get; set; }
 
         public string CustName { get; set; }
+
+        public string Site { get; set; }
 
         public byte CustLevelId { get; set; }
 

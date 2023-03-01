@@ -12,7 +12,7 @@
         {
             // Arrange
             var criteria = new UpdateMyThresholdCommand(new UpdateMyThresholdParam(
-                1234, null, 100, 5678, 0, "::1"));
+                1234, null, 100, 5678, 0, "::1", string.Empty));
 
             // Act & Assert
             Assert.Equal("Acc_WLMonitored_SMA_Adjust", criteria.GetSettingKey());
@@ -26,7 +26,7 @@
         {
             // Arrange
             var criteria = new UpdateMyThresholdCommand(new UpdateMyThresholdParam(
-                custId, null, 100, 5678, 0, "::1"));
+                custId, null, 100, 5678, 0, "::1", string.Empty));
 
             // Act & Assert
             Assert.Equal(expectedValue, criteria.IsValid());

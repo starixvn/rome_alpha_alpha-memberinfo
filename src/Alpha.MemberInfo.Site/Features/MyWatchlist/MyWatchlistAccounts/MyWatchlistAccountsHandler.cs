@@ -51,7 +51,7 @@
             };
             var pagingViewModel = await Handle(query);
 
-            var param = new SelectGlobalThresholdParam(message.CustId);
+            var param = new SelectGlobalThresholdParam(message.CustId, message.Site);
             var globalThreshold = await service.GetGlobalThreshold(param);            
 
             return new MyWatchlistAccountsViewModel(
@@ -67,6 +67,7 @@
             var param = new SelectWatchlistAccountsParam(
                message.CustId,
                message.Username,
+               message.Site,
                message.SortType,
                message.IsDesc,
                message.PageIndex,
@@ -79,7 +80,7 @@
 
         public async Task<IEnumerable<PersonalPresetModel>> Handle(PersonalPresetQuery message)
         {
-            var param = new SelectPresetsParam(message.CustId);
+            var param = new SelectPresetsParam(message.CustId, message.Site);
 
             return await service.GetPresets(param);
         }
@@ -93,7 +94,8 @@
                 message.LosingThreshold,
                 message.UserId,
                 message.SubAccId,
-                message.IP);
+                message.IP,
+                message.Site);
 
             return await service.AddPersonalThreshold(param);
         }
@@ -113,7 +115,8 @@
                             message.LosingThreshold,
                             message.UserId,
                             message.SubAccId,
-                            message.IP);
+                            message.IP,
+                            message.Site);
 
                 tasks.Add(service.UpdatePersonalThreshold(param));
             }
@@ -134,7 +137,8 @@
                             usernameArr[i],
                             message.UserId,
                             message.SubAccId,
-                            message.IP);
+                            message.IP,
+                            message.Site);
 
                 tasks.Add(service.DeletePersonalThreshold(param));
             }
@@ -150,7 +154,8 @@
                 message.LosingThreshold,
                 message.UserId,
                 message.SubAccId,
-                message.IP);
+                message.IP,
+                message.Site);
 
             return await service.UpdateGlobalThreshold(param);
         }
@@ -165,7 +170,8 @@
                     message.CustId,
                     preset.PresetTitle,
                     preset.WinningThreshold,
-                    preset.LosingThreshold);
+                    preset.LosingThreshold,
+                    message.Site);
 
                 results.Add(await service.AddPersonalPreset(param));
             }
@@ -189,20 +195,21 @@
         {
             var param = new DeletePersonalPresetParam(
                 message.ID,
-                message.CustId);
+                message.CustId,
+                message.Site);
 
             return await service.DeletePersonalPreset(param);
         }
 
         public async Task<ManageWatchlistAccountsViewModel> Handle(ManageWatchlistAccountsQuery message)
         {
-            var personalPresets = await service.GetPresets(new SelectPresetsParam(message.CustId));
+            var personalPresets = await service.GetPresets(new SelectPresetsParam(message.CustId, message.Site));
             return new ManageWatchlistAccountsViewModel(message, personalPresets);
         }
 
         public async Task<ManageGlobalThresholdViewModel> Handle(ManageGlobalThresholdQuery message)
         {
-            var param = new SelectGlobalThresholdParam(message.CustId);
+            var param = new SelectGlobalThresholdParam(message.CustId, message.Site);
             var globalThreshold = await service.GetGlobalThreshold(param);
 
             return new ManageGlobalThresholdViewModel(globalThreshold);
@@ -210,7 +217,7 @@
 
         public async Task<ManagePersonalThresholdPresetViewModel> Handle(ManagePersonalThresholdPresetQuery message)
         {
-            var param = new SelectPresetsParam(message.CustId);
+            var param = new SelectPresetsParam(message.CustId, message.Site);
             var personalPresets = await service.GetPresets(param);
 
             return new ManagePersonalThresholdPresetViewModel(personalPresets);

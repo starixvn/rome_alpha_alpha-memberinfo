@@ -54,7 +54,7 @@
                 param.IsDesc,
                 param.PageIndex,
                 param.PageSize);
-            partialUMService.ThrowIfUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), param.SiteName);
 
             var watchlistAccounts = await dynamicRepository.FetchAsync<WatchlistAccountModel>(criteria);
 
@@ -64,7 +64,7 @@
         public async Task<IEnumerable<PersonalPresetModel>> GetPresets(SelectPresetsParam param)
         {
             var criteria = new SelectPresetsCriteria(param.AgentId);
-            partialUMService.ThrowIfUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), param.SiteName);
 
             return await dynamicRepository.FetchAsync<PersonalPresetModel>(criteria);
         }
@@ -79,7 +79,7 @@
                 param.UserId,
                 param.SubAccId,
                 param.IP);
-            partialUMService.ThrowIfUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), param.SiteName);
 
             return await dynamicRepository.FetchAsync<NamedResult>(criteria);
         }
@@ -93,7 +93,7 @@
                 param.UserId,
                 param.SubAccId,
                 param.IP);
-            partialUMService.ThrowIfUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), param.SiteName);
 
             await dynamicRepository.ExecuteAsync(criteria);
 
@@ -107,7 +107,7 @@
                param.UserId,
                param.SubAccId,
                param.IP);
-            partialUMService.ThrowIfUM(command.GetSettingKey());
+            partialUMService.ThrowIfUM(command.GetSettingKey(), param.SiteName);
 
             await dynamicRepository.ExecuteAsync(command);
 
@@ -117,7 +117,7 @@
         public async Task<GlobalThresholdModel> GetGlobalThreshold(SelectGlobalThresholdParam param)
         {
             var criteria = new SelectGlobalThresholdCriteria(param.AgentId);
-            partialUMService.ThrowIfUM(criteria.GetSettingKey());
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), param.SiteName);
 
             return await dynamicRepository.GetAsync<GlobalThresholdModel>(criteria);
         }
@@ -131,7 +131,7 @@
                 param.UserId,
                 param.SubAccId,
                 param.IP);
-            partialUMService.ThrowIfUM(command.GetSettingKey());
+            partialUMService.ThrowIfUM(command.GetSettingKey(), param.SiteName);
 
             await dynamicRepository.ExecuteAsync(command);
 
@@ -145,7 +145,7 @@
                 param.PresetTitle,
                 param.WinningThreshold,
                 param.LosingThreshold);
-            partialUMService.ThrowIfUM(command.GetSettingKey());
+            partialUMService.ThrowIfUM(command.GetSettingKey(), param.SiteName);
 
             await dynamicRepository.ExecuteAsync(command);
 
@@ -171,7 +171,7 @@
             var command = new DeletePersonalPresetCommand(
                 param.AgentId,
                 param.ID);
-            partialUMService.ThrowIfUM(command.GetSettingKey());
+            partialUMService.ThrowIfUM(command.GetSettingKey(), param.SiteName);
 
             await dynamicRepository.ExecuteAsync(command);
 
