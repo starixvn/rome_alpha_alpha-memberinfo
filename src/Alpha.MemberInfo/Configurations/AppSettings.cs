@@ -89,5 +89,7 @@
         public static string SiteGroup => GetConfigValue("SiteGroup") ?? string.Empty;
 
         public static bool IsMBCSite => !SiteGroup.Equals("789y", StringComparison.OrdinalIgnoreCase);
+
+        public static int MaxAccountsCreatePerRequest => Convert.ToInt32(GetConfigValue("CreateNewAccount:MaxAccountPerRequest"));
     }
 }

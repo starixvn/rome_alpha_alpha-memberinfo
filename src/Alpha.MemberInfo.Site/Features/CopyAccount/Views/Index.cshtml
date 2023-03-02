@@ -1,0 +1,98 @@
+﻿@model CopyAccountViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Resources.SearchAndCopy;
+    var errorMessageClass = string.IsNullOrEmpty(Model.ErrorMessage) ? "hidden" : "msg msg-error";
+}
+
+@section Styles {
+    @StaticResources.RenderStylesWithDarkMode("~/Features/CopyAccount/Bundles/copy-account")
+}
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/CopyAccount/Bundles/copy-account")
+}
+@if (Model.IsLimitNewDownline)
+{
+    <div class="@errorMessageClass">
+        <span className="col-xs-12">@Model.ErrorMessage</span>
+    </div>
+}
+else
+{
+    <form id="copyAccountForm" class="form-inline">
+        <div id="message" class="@errorMessageClass">
+            <span id="message-content" className="col-xs-12">@Model.ErrorMessage</span>
+        </div>
+        <div id="create-form">
+            <div>
+                <span>@Resources.CopyAccountNote</span>
+            </div>
+            <ul>
+                <li>
+                    <h2>@Resources.CopySettings</h2>
+                    <div class="form-group">
+                        <label>@Resources.CopySettingsNote</label>
+                        <input type="text" name="SourceUsername" id="SourceUsername" placeholder="@Resources.UsernamePlaceHolder" value="@Model.SourceUsername" />
+                        <span id="icon-message-SourceUsername" />
+                    </div>
+                </li>
+                <li>
+                    <h2>@Resources.NoOfAccounts</h2>
+                    <div class="form-group">
+                        <label>@string.Format(Resources.NoOfAccountsNote,AppSettings.MaxAccountsCreatePerRequest)</label>
+                        <input type="text" name="NoOfAccounts" id="NoOfAccounts" value="" />
+                        <span id="icon-message-SourceUsername" />
+                    </div>
+                </li>
+                <li>
+                    <h2>@Resources.AccountDetails</h2>
+                    <span>@Resources.AccountDetailsNote</span>
+                    <div class="form-group" id="username-group">
+                        <label>@Resources.Username</label>
+                        <span id="actor-name">@Model.ActorUsername</span>
+                        <select id="FirstSuffix" name="FirstSuffix">
+                            @foreach (var item in Model.NameSuffix)
+                            {
+                                <option value="@item" @(Model.FirstChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                            }
+                        </select>
+                        <select id="SecondSuffix" name="SecondSuffix">
+                            @foreach (var item in Model.NameSuffix)
+                            {
+                                <option value="@item" @(Model.SecondChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                            }
+                        </select>
+                        <select id="ThirdSuffix" name="ThirdSuffix">
+                            @foreach (var item in Model.NameSuffix)
+                            {
+                                <option value="@item" @(Model.ThirdChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                            }
+                        </select>
+                        <span id="icon-message-username" class="icon-check" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>@Resources.Credit</label>
+                        <input type="text" name="Credit" id="Credit" value="" />
+                        <span id="icon-message-credit"> </span>
+                        <div id="credit-range">
+                            <span id="credit-min-label"></span> <=  @Resources.NewGivenCredit <= <span id="credit-max-label"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>@Resources.Password</label>
+                        <input type="password" name="Password" id="Password" value="" maxlength="50" />
+                    </div>
+                </li>
+            </ul>
+
+            <div class="form-group">
+                <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateAccount</button>
+            </div>
+        </div>
+        @Html.AntiForgeryToken()
+    </form>
+}
+

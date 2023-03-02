@@ -864,4 +864,34 @@
   <data name="NonEntered" xml:space="preserve">
     <value>Non-Entered</value>
   </data>
+  <data name="SearchAndCopy" xml:space="preserve">
+    <value>Search And Copy</value>
+  </data>
+  <data name="FullMode" xml:space="preserve">
+    <value>Full Mode</value>
+  </data>
+  <data name="QRCode" xml:space="preserve">
+    <value>QR Code</value>
+  </data>
+  <data name="CopyAccountNote" xml:space="preserve">
+    <value>* Note: Settings will remain the same as the Source account settings for all accounts</value>
+  </data>
+  <data name="CopySettings" xml:space="preserve">
+    <value>Copy Settings</value>
+  </data>
+  <data name="NoOfAccounts" xml:space="preserve">
+    <value>No. of Accounts</value>
+  </data>
+  <data name="CopySettingsNote" xml:space="preserve">
+    <value>Search existing account to copy the same settings</value>
+  </data>
+  <data name="NoOfAccountsNote" xml:space="preserve">
+    <value>Choose the number of accounts you want to create (Max={0})</value>
+  </data>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>Account Details</value>
+  </data>
+  <data name="AccountDetailsNote" xml:space="preserve">
+    <value>Choose a first available username and the remaining accounts will follow the suggestion of system.</value>
+  </data>
 </root>

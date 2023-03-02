@@ -565,6 +565,18 @@
     </Content>
     <Content Include="assets\scripts\aes.js" />
     <Content Include="assets\scripts\indirect-login-account\quick-introduction.js" />
+    <Content Include="Features\CopyAccount\bundles\copy-account-dark.css" />
+    <Content Include="Features\CopyAccount\bundles\copy-account-dark.min.css">
+      <DependentUpon>copy-account-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\CopyAccount\bundles\copy-account.css" />
+    <Content Include="Features\CopyAccount\bundles\copy-account.js" />
+    <Content Include="Features\CopyAccount\bundles\copy-account.min.css">
+      <DependentUpon>copy-account.css</DependentUpon>
+    </Content>
+    <Content Include="Features\CopyAccount\bundles\copy-account.min.js">
+      <DependentUpon>copy-account.js</DependentUpon>
+    </Content>
     <Content Include="IbcKeys\ibckey.snk" />
     <Content Include="IbcKeys\ibckeydec.snk" />
     <Content Include="IbcKeys\Web.config" />
@@ -896,6 +908,10 @@
     <Content Include="deployment.pro.ignore" />
     <Content Include="deployment.pro2.ignore" />
     <Content Include="deployment.pro3.ignore" />
+    <Content Include="Features\CopyAccount\Views\Index.cshtml" />
+    <Content Include="Features\CopyAccount\Views\web.config" />
+    <Content Include="Features\CopyAccount\Assets\Styles\copy-account.scss" />
+    <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.scss" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
@@ -1041,6 +1057,10 @@
     <Compile Include="Controllers\MemberRequestsController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
+    <Compile Include="Features\CopyAccount\CopyAccountController.cs" />
+    <Compile Include="Features\CopyAccount\CopyCustomerHandler.cs" />
+    <Compile Include="Features\CopyAccount\Request\CopyAccountQuery.cs" />
+    <Compile Include="Features\CopyAccount\ViewModels\CopyAccountViewModel.cs" />
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
     <Compile Include="Features\CustomerList\CustomerListController.cs" />
     <Compile Include="Features\CustomerList\Requests\MultipleDoubleCommRequest.cs" />
@@ -1430,6 +1450,7 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\member-requests\member-requests-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\tests\apps\win-loss-limit\win-loss-limit-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\win-loss-limit\win-loss-limit.ts" />
+    <TypeScriptCompile Include="Features\CopyAccount\Assets\Scripts\copy-account.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-viewmodel.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-popup.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-services.ts" />
@@ -1484,12 +1505,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Shared\Assets\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.22.0.31243\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.22.0.31243\analyzers\SonarAnalyzer.CFG.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.22.0.31243\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.22.0.31243\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -57,6 +57,24 @@ namespace Alpha.MemberInfo.AppResources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account Details.
+        /// </summary>
+        public static string AccountDetails {
+            get {
+                return ResourceManager.GetString("AccountDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a first available username and the remaining accounts will follow the suggestion of system..
+        /// </summary>
+        public static string AccountDetailsNote {
+            get {
+                return ResourceManager.GetString("AccountDetailsNote", resourceCulture);
             }
         }
         
@@ -394,11 +412,38 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to * Note: Settings will remain the same as the Source account settings for all accounts.
+        /// </summary>
+        public static string CopyAccountNote {
+            get {
+                return ResourceManager.GetString("CopyAccountNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy Link.
         /// </summary>
         public static string CopyLink {
             get {
                 return ResourceManager.GetString("CopyLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Settings.
+        /// </summary>
+        public static string CopySettings {
+            get {
+                return ResourceManager.GetString("CopySettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search existing account to copy the same settings.
+        /// </summary>
+        public static string CopySettingsNote {
+            get {
+                return ResourceManager.GetString("CopySettingsNote", resourceCulture);
             }
         }
         
@@ -777,6 +822,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string From {
             get {
                 return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full Mode.
+        /// </summary>
+        public static string FullMode {
+            get {
+                return ResourceManager.GetString("FullMode", resourceCulture);
             }
         }
         
@@ -1411,6 +1465,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No. of Accounts.
+        /// </summary>
+        public static string NoOfAccounts {
+            get {
+                return ResourceManager.GetString("NoOfAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the number of accounts you want to create (Max={0}).
+        /// </summary>
+        public static string NoOfAccountsNote {
+            get {
+                return ResourceManager.GetString("NoOfAccountsNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Product settings have not been configured for your account yet, please contact your upline..
         /// </summary>
         public static string NoSettingWarning {
@@ -1699,6 +1771,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to QR Code.
+        /// </summary>
+        public static string QRCode {
+            get {
+                return ResourceManager.GetString("QRCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reach Count.
         /// </summary>
         public static string ReachCount {
@@ -1839,6 +1920,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search And Copy.
+        /// </summary>
+        public static string SearchAndCopy {
+            get {
+                return ResourceManager.GetString("SearchAndCopy", resourceCulture);
             }
         }
         
