@@ -1070,7 +1070,9 @@
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountController.cs" />
-    <Compile Include="Features\CopyAccount\CopyCustomerHandler.cs" />
+    <Compile Include="Features\CopyAccount\ViewModels\CopyAccountResponse.cs" />
+    <Compile Include="Features\CopyAccount\CopyAccountHandler.cs" />
+    <Compile Include="Features\CopyAccount\Request\CopyAccountCommand.cs" />
     <Compile Include="Features\CopyAccount\Request\CopyAccountQuery.cs" />
     <Compile Include="Features\CopyAccount\ViewModels\CopyAccountViewModel.cs" />
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />

@@ -1,5 +1,6 @@
 ﻿using Alpha.MemberInfo.Site.Controllers;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Request;
+using Alpha.Web.Filters;
 using MediatR;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -17,5 +18,9 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
         public async Task<ActionResult> Index(CopyAccountQuery query)
             => await ViewAsync(query, IndexPath);
+
+        [HttpPost, AntiXsrfFilter]
+        public async Task<ActionResult> Index(CopyAccountCommand command)
+            => await JsonAsync(command);
     }
 }
