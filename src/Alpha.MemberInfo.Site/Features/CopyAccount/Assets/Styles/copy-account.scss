@@ -10,6 +10,7 @@
         padding: 0;
         background: none;
         text-align: left;
+        font-weight: 400;
     }
 
     .sub-label {
@@ -27,12 +28,14 @@
         display: block;
         padding: 0;
         margin: 0 0 16px 0;
-        &#username-group{
-            > *{
+
+        &#username-group {
+            > * {
                 margin-right: 16px;
             }
         }
-        input[type='text'] {
+
+        input[type='text'], input[type='password'] {
             width: 336px;
             background: #FFFFFF;
             border: 1px solid #D1D1D1;
@@ -46,7 +49,8 @@
             padding-top: 5px;
 
             span {
-                font-weight: bold;
+                font-weight: 700;
+                color: #333;
             }
         }
 
@@ -65,7 +69,12 @@
         }
 
         .icon-check {
-            color: #52a220;
+            color: #fff;
+            background: #18965B;
+            font-size: 12px !important;
+            padding: 2px;
+            margin-left: 10px;
+            border-radius: 50px;
         }
 
         .icon-close {
@@ -83,7 +92,7 @@
         font-size: 14px;
         line-height: 22px;
         color: #444;
-        margin-bottom: 9px;
+        margin: 20px 0 10px 0;
     }
 
     .title {
@@ -91,5 +100,22 @@
         font-size: 16px;
         line-height: 24px;
         margin: 0 0 2px 0;
+    }
+}
+
+.form-group {
+    select {
+        appearance: revert !important;
+        padding: 4px 9px;
+        height: 30px;
+    }
+    label{
+        display : block;
+        color : #333;
+        font-size : 14px;
+    }
+
+    #ThirdSuffix{
+        margin-right : 0 !important;
     }
 }
