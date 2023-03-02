@@ -3,11 +3,15 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Net;
+    using System.Net.Http;
     using System.Reflection;
     using System.Resources;
+    using System.Threading;
     using System.Web;
     using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
+    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
     using Alpha.MemberInfo.Features.DormantAccountList;
@@ -18,6 +22,7 @@
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
+    using Alpha.MemberInfo.Site.Features.CopyAccount;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
@@ -170,6 +175,22 @@
 
             container.RegisterSingleton<ICacheService>(new CacheService());
             container.Register<IWinlossService, WinlossService>(Lifestyle.Scoped);
+            container.RegisterPerWebRequest<ICopyAccountService>(() => new CopyAccountService(CreateCustomerApiHttpClient()));
+
+
+        }
+
+        private static HttpClient CreateCustomerApiHttpClient()
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+            var httpClient= new HttpClient()
+            {
+                BaseAddress = AppSettings.CustomerApiUri
+            };
+            httpClient.DefaultRequestHeaders.Add("Accept-Language", Thread.CurrentThread.CurrentCulture.Name);
+
+            return httpClient;
         }
 
         private static void StartConfiguration(Container container)

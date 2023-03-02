@@ -11,10 +11,12 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
     public class CopyAccountHandler : IAsyncRequestHandler<CopyAccountQuery, CopyAccountViewModel>, IAsyncRequestHandler<CopyAccountCommand, CopyAccountResponse>
     {
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
+        private readonly ICopyAccountService copyAccountService;
 
-        public CopyAccountHandler(QRCodeMemberSignInService qrCodeMemberSignInService)
+        public CopyAccountHandler(QRCodeMemberSignInService qrCodeMemberSignInService, ICopyAccountService copyAccountService)
         {
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
+            this.copyAccountService = copyAccountService;
         }
 
         public Task<CopyAccountViewModel> Handle(CopyAccountQuery message)
@@ -71,31 +73,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
             if (sourceCustId > 0 && qrCodeMemberSignInService.IsEnableCustomer(sourceCustId))
             {
-                //var passwordModel = passwordService.CreateMemberPasswordRandom();
-
-                //var result = await qrCodeMemberSignInService.CreateMemberByQRCode(
-                //    new InsertMemberCommand(
-                //        message.Username,
-                //        message.FirstName ?? string.Empty,
-                //        message.CustId,
-                //        sourceCustId,
-                //        message.IP,
-                //        message.Language,
-                //        message.SubAccId,
-                //        message.Credit,
-                //        passwordModel.RawPassword,
-                //        message.UsernameCopyFrom,
-                //        message.CreditMax,
-                //        message.SubUsername)).ConfigureAwait(false);
-
-                //result.CustIdCopyFrom = sourceCustId;
-
-                //if (result.Success)
-                //{
-                //    result.RawPassword = passwordModel.RawPassword;
-                //}
-
-                //return result;
+                return await copyAccountService.CreateAccount(message, sourceCustId);
             }
 
             return new CopyAccountResponse

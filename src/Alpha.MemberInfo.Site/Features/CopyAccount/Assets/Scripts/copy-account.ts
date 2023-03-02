@@ -143,27 +143,27 @@ class CopyAccount {
             c_f: this.$("input[name=c_f]").val()
         };
 
-        //this.$.ajax({
-        //    method: "POST",
-        //    headers: this.getHeadersForPostRequest(),
-        //    data: data,
-        //    dataType: 'json',
-        //    url: "QRCodeMemberSignIn/CreateAccount",
-        //    success: (result, status, xqr) => {
-        //        if (result.ErrCode === 0 || status === "302" || xqr.status === 302) {
-        //            localStorage.setItem("memberNameCopyFrom", data.UsernameCopyFrom);
-        //            setTimeout(() => {
-        //                this.reloadFrame(result);
-        //            }, 1000);
-        //        }
-        //        else {
-        //            this.$('.captcha-icon-refresh').click();
-        //            this.showErrorMessage(result.ErrMsg);
-        //            this.$.unblockUI();
-        //        }
-        //    },
-        //    error: () => { this.$.unblockUI(); }
-        //});
+        this.$.ajax({
+            method: "POST",
+            headers: this.getHeadersForPostRequest(),
+            data: data,
+            dataType: 'json',
+            url: "CopyAccount/Index",
+            success: (result, status, xqr) => {
+                //if (result.ErrCode === 0 || status === "302" || xqr.status === 302) {
+                //    localStorage.setItem("memberNameCopyFrom", data.UsernameCopyFrom);
+                //    setTimeout(() => {
+                //        this.reloadFrame(result);
+                //    }, 1000);
+                //}
+                //else {
+                //    this.$('.captcha-icon-refresh').click();
+                //    this.showErrorMessage(result.ErrMsg);
+                //    this.$.unblockUI();
+                //}
+            },
+            error: () => { this.$.unblockUI(); }
+        });
     }
 
     checkExistedUsernameByChangeSuffix = () => {
