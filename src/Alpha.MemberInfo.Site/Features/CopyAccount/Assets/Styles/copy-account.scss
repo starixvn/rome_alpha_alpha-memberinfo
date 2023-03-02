@@ -1,19 +1,45 @@
-﻿* {
-    font-size: 13px !important;
-}
+﻿
 
 #copyAccountForm {
+    .label {
+        font-size: 13px;
+        line-height: 22px;
+        color: #444;
+        display: block;
+        margin-bottom: 6px;
+        padding: 0;
+        background: none;
+        text-align: left;
+    }
+
+    .sub-label {
+        font-size: 14px;
+        line-height: 22px;
+        color: #333;
+        display: block;
+    }
+
+    .require {
+        color: #A11515;
+    }
+
     .form-group {
         display: block;
-        padding-top: 15px;
-
-        label {
-            color: black !important;
-            display: block;
+        padding: 0;
+        margin: 0 0 16px 0;
+        &#username-group{
+            > *{
+                margin-right: 16px;
+            }
         }
-
         input[type='text'] {
-            width: 200px !important;
+            width: 336px;
+            background: #FFFFFF;
+            border: 1px solid #D1D1D1;
+            appearance: none;
+            border-radius: 0;
+            box-shadow: none;
+            height: 30px;
         }
 
         #credit-range {
@@ -49,5 +75,21 @@
         .easy-autocomplete {
             display: inline-block;
         }
+    }
+
+    .note {
+        font-style: italic;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #444;
+        margin-bottom: 9px;
+    }
+
+    .title {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0 0 2px 0;
     }
 }

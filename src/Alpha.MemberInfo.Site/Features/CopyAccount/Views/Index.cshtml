@@ -27,26 +27,26 @@
                     <span id="message-content" className="col-xs-12">@Model.ErrorMessage</span>
                 </div>
                 <div id="create-form">
-                    <p>@Resources.CopyAccountNote</p>
+                    <p class="note">@Resources.CopyAccountNote</p>
 
-                    <h4>@Resources.CopySettings</h4>
+                    <h4 class="title">@Resources.CopySettings</h4>
                     <div class="form-group">
-                        <label>@Resources.CopySettingsNote</label>
+                        <label class="label">@Resources.CopySettingsNote</label>
                         <input type="text" name="SourceUsername" id="SourceUsername" placeholder="@Resources.UsernamePlaceHolder" value="@Model.SourceUsername" />
                         <span id="icon-message-SourceUsername" />
                     </div>
 
-                    <h4>@Resources.NoOfAccounts</h4>
+                    <h4 class="title">@Resources.NoOfAccounts</h4>
                     <div class="form-group">
-                        <label>@string.Format(Resources.NoOfAccountsNote, AppSettings.MaxAccountsCreatePerRequest)</label>
+                        <label class="label">@string.Format(Resources.NoOfAccountsNote, AppSettings.MaxAccountsCreatePerRequest)</label>
                         <input type="text" name="NoOfAccounts" id="NoOfAccounts" value="" />
                         <span id="icon-message-SourceUsername" />
                     </div>
 
-                    <h4>@Resources.AccountDetails</h4>
-                    <span>@Resources.AccountDetailsNote</span>
+                    <h4 class="title">@Resources.AccountDetails</h4>
+                    <label class="label">@Resources.AccountDetailsNote</label>
                     <div class="form-group" id="username-group">
-                        <label>@Resources.Username</label>
+                        <label class="sub-label">@Resources.Username <span class="require">*</span></label>
                         <span id="actor-name">@Model.ActorUsername</span>
                         <select id="FirstSuffix" name="FirstSuffix">
                             @foreach (var item in Model.NameSuffix)
@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>@Resources.Credit</label>
+                        <label class="sub-label">@Resources.Credit <span class="require">*</span></label>
                         <input type="text" name="Credit" id="Credit" value="" />
                         <span id="icon-message-credit"> </span>
                         <div id="credit-range">
