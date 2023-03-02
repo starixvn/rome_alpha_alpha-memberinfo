@@ -565,6 +565,18 @@
     </Content>
     <Content Include="assets\scripts\aes.js" />
     <Content Include="assets\scripts\indirect-login-account\quick-introduction.js" />
+    <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.css">
+      <DependentUpon>copy-account-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.min.css">
+      <DependentUpon>copy-account-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\CopyAccount\Assets\Styles\copy-account.css">
+      <DependentUpon>copy-account.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\CopyAccount\Assets\Styles\copy-account.min.css">
+      <DependentUpon>copy-account.css</DependentUpon>
+    </Content>
     <Content Include="Features\CopyAccount\bundles\copy-account-dark.css" />
     <Content Include="Features\CopyAccount\bundles\copy-account-dark.min.css">
       <DependentUpon>copy-account-dark.css</DependentUpon>

@@ -12,41 +12,38 @@
 @section Scripts {
     @StaticResources.RenderScripts("~/Features/CopyAccount/Bundles/copy-account")
 }
-@if (Model.IsLimitNewDownline)
-{
-    <div class="@errorMessageClass">
-        <span className="col-xs-12">@Model.ErrorMessage</span>
-    </div>
-}
-else
-{
-    <form id="copyAccountForm" class="form-inline">
-        <div id="message" class="@errorMessageClass">
-            <span id="message-content" className="col-xs-12">@Model.ErrorMessage</span>
-        </div>
-        <div id="create-form">
-            <div>
-                <span>@Resources.CopyAccountNote</span>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active">
+        @if (Model.IsLimitNewDownline)
+        {
+            <div class="@errorMessageClass">
+                <span className="col-xs-12">@Model.ErrorMessage</span>
             </div>
-            <ul>
-                <li>
-                    <h2>@Resources.CopySettings</h2>
+        }
+        else
+        {
+            <form id="copyAccountForm" class="form-validation">
+                <div id="message" class="@errorMessageClass">
+                    <span id="message-content" className="col-xs-12">@Model.ErrorMessage</span>
+                </div>
+                <div id="create-form">
+                    <p>@Resources.CopyAccountNote</p>
+
+                    <h4>@Resources.CopySettings</h4>
                     <div class="form-group">
                         <label>@Resources.CopySettingsNote</label>
                         <input type="text" name="SourceUsername" id="SourceUsername" placeholder="@Resources.UsernamePlaceHolder" value="@Model.SourceUsername" />
                         <span id="icon-message-SourceUsername" />
                     </div>
-                </li>
-                <li>
-                    <h2>@Resources.NoOfAccounts</h2>
+
+                    <h4>@Resources.NoOfAccounts</h4>
                     <div class="form-group">
-                        <label>@string.Format(Resources.NoOfAccountsNote,AppSettings.MaxAccountsCreatePerRequest)</label>
+                        <label>@string.Format(Resources.NoOfAccountsNote, AppSettings.MaxAccountsCreatePerRequest)</label>
                         <input type="text" name="NoOfAccounts" id="NoOfAccounts" value="" />
                         <span id="icon-message-SourceUsername" />
                     </div>
-                </li>
-                <li>
-                    <h2>@Resources.AccountDetails</h2>
+
+                    <h4>@Resources.AccountDetails</h4>
                     <span>@Resources.AccountDetailsNote</span>
                     <div class="form-group" id="username-group">
                         <label>@Resources.Username</label>
@@ -85,14 +82,17 @@ else
                         <label>@Resources.Password</label>
                         <input type="password" name="Password" id="Password" value="" maxlength="50" />
                     </div>
-                </li>
-            </ul>
 
-            <div class="form-group">
-                <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateAccount</button>
-            </div>
-        </div>
-        @Html.AntiForgeryToken()
-    </form>
-}
+                    <div class="form-group">
+                        <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateAccount</button>
+                    </div>
+                </div>
+                @Html.Hidden("SourceUsernameHidden", Model.SourceUsername)
+                <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
+                @Html.AntiForgeryToken()
+            </form>
+        }
+    </div>
+</div>
+
 

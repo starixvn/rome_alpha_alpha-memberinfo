@@ -323,7 +323,8 @@
   {
     "outputFileName": "Features/CopyAccount/Bundles/copy-account.js",
     "inputFiles": [
-      "Features/CopyAccount/Assets/Scripts/copy-account.js"
+      "Features/CopyAccount/Assets/Scripts/copy-account.js",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
     ]
   },
   /************************** Dark Mode ************************/
