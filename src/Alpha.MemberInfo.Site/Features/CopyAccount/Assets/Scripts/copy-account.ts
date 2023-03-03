@@ -83,6 +83,7 @@ class CopyAccount {
         this.$firstSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
         this.$secondSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
         this.$thirdSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
+        this.$password.keyup(() => this.validatePassword());
 
         this.$('#Credit').keyup(() => {
             this.validateCredit();
@@ -292,6 +293,30 @@ class CopyAccount {
         this.$messageContainer.addClass('hidden');
         this.$messageContent.html('');
         return false;
+    }
+
+    validatePassword = () => {
+        var validPassword = this.isValidPassword(this.$password.val());
+        console.log(validPassword);
+        const iconClass = validPassword ? 'icon-check' : 'icon-close';
+        this.$('#icon-message-password').removeClass().addClass(iconClass);
+    }
+
+    isValidPassword = (password) => {
+        var whiteSpace = /^\S*$/;
+        var whiteSpaceCase = password.search(whiteSpace) != -1;
+
+        var regex1 = /^(?=.{8,100}$).*\d/i;
+        var regex2 = /^(?=.{8,100}$).*[a-z]/;
+        var regex3 = /^(?=.{8,100}$).*[A-Z]/;
+        var regex4 = /^(?=.{8,100}$).*[\[\]\^\$\.\|\?\*\+\(\)\\~`\!@#%&\-_+={}'""<>:;,]/i;
+
+        var case1 = password.search(regex1) != -1 ? 1 : 0;
+        var case2 = password.search(regex2) != -1 ? 1 : 0;
+        var case3 = password.search(regex3) != -1 ? 1 : 0;
+        var case4 = password.search(regex4) != -1 ? 1 : 0;
+
+        return (case1 + case2 + case3 + case4 >= 3) && whiteSpaceCase;
     }
 }
 
