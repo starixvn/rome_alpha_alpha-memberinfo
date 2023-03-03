@@ -36,7 +36,7 @@
             }
         }
 
-        input[type='text'], input[type='password'] {
+        input{
             width: 336px;
             background: #FFFFFF;
             border: 1px solid #D1D1D1;
@@ -44,6 +44,12 @@
             border-radius: 0;
             box-shadow: none;
             height: 30px;
+        }
+
+        input[type='number'] {
+            width: 50px;
+            font-size: 13px;
+            font-family: inherit;
         }
 
         #credit-range {
