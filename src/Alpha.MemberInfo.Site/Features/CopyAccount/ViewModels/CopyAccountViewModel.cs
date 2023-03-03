@@ -7,9 +7,13 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
     {
         public CopyAccountViewModel(CopyAccountQuery request, string sourceUsername, string usernameSuffix)
         {
+            ActorLevel = request.ActorLevel;
             ActorUsername = request.ViewerUsername;
             SourceUsername = sourceUsername;
             UsernameSuffix = usernameSuffix;
+            FirstChar = UsernameSuffix.Substring(0, 1).ToUpper();
+            SecondChar = UsernameSuffix.Substring(1, 1).ToUpper();
+            ThirdChar = request.ActorLevel.IsAgentLevel() ? UsernameSuffix.Substring(2, 1).ToUpper() : string.Empty;
         }
 
         public CopyAccountViewModel(bool isLimitNewDownline, string errorMessage)
@@ -17,6 +21,8 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
             IsLimitNewDownline = isLimitNewDownline;
             ErrorMessage = errorMessage;
         }
+
+        public UserLevel ActorLevel { get; }
 
         public string ActorUsername { get; }
 
@@ -30,11 +36,11 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
             "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
             "U", "V", "W", "X", "Y", "Z" };
 
-        public string ThirdChar => UsernameSuffix.Substring(2, 1).ToUpper();
+        public string ThirdChar { get; }
 
-        public string SecondChar => UsernameSuffix.Substring(1, 1).ToUpper();
+        public string SecondChar { get; }
 
-        public string FirstChar => UsernameSuffix.Substring(0, 1).ToUpper();
+        public string FirstChar { get; }
 
         public string ErrorMessage { get; }
 

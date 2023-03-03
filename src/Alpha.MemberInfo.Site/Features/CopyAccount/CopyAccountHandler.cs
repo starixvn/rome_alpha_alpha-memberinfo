@@ -35,7 +35,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
             return Task.FromResult(new CopyAccountViewModel(
                 message,
                 message.SourceUsername, 
-                qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId)));
+                qrCodeMemberSignInService.GetSuggestUsername(message.ViewerUsername, message.ViewerId, message.ViewerLevelId)));
         }
 
         public async Task<CopyAccountResponse> Handle(CopyAccountCommand message)

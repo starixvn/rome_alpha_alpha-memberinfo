@@ -20,7 +20,7 @@
 
         bool IsEnableCustomer(int custId);
 
-        string GetSuggestUsername(string prefix, int custId);
+        string GetSuggestUsername(string prefix, int custId, byte custLevel);
 
         SelectRnGStatusModel GetRnGStatus(string username);
 
@@ -100,9 +100,9 @@
             return criteria.ErrCode.Equals(0);
         }
 
-        public string GetSuggestUsername(string prefix, int custId)
+        public string GetSuggestUsername(string prefix, int custId, byte custLevel)
         {
-            var criteria = new SelectSuggestUsernameCriteria(prefix, custId);
+            var criteria = new SelectSuggestUsernameCriteria(prefix, custId, custLevel);
             dynamicRepository.Execute(criteria);
             return criteria.SeqName;
         }

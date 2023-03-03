@@ -31,7 +31,7 @@
                             Switch to old version
                         </a>
                     </div>
-                    
+
 
                     <h4 class="title">@Resources.CopySettings</h4>
                     <div class="form-group">
@@ -43,7 +43,7 @@
                     <h4 class="title">@Resources.NoOfAccounts</h4>
                     <div class="form-group">
                         <label class="label">@string.Format(Resources.NoOfAccountsNote, AppSettings.MaxAccountsCreatePerRequest)</label>
-                        <input type="text" name="NoOfAccounts" id="NoOfAccounts" value="" />
+                        <input type="number" name="NoOfAccounts" id="NoOfAccounts" min="1" max="@AppSettings.MaxAccountsCreatePerRequest"  />
                         <span id="icon-message-SourceUsername" />
                     </div>
 
@@ -64,12 +64,15 @@
                                 <option value="@item" @(Model.SecondChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
                             }
                         </select>
-                        <select id="ThirdSuffix" name="ThirdSuffix">
-                            @foreach (var item in Model.NameSuffix)
-                            {
-                                <option value="@item" @(Model.ThirdChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
-                            }
-                        </select>
+                        @if (Model.ActorLevel.IsAgentLevel())
+                        {
+                            <select id="ThirdSuffix" name="ThirdSuffix">
+                                @foreach (var item in Model.NameSuffix)
+                                {
+                                    <option value="@item" @(Model.ThirdChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                                }
+                            </select>
+                        }
                         <span id="icon-message-username" class="icon-check" />
                     </div>
 

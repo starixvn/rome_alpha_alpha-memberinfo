@@ -62,7 +62,7 @@
             };
 
             service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
-            service.GetSuggestUsername(Arg.Any<string>(), Arg.Any<int>()).Returns("Suggestion Name");
+            service.GetSuggestUsername(Arg.Any<string>(), Arg.Any<int>(), Arg.Any<byte>()).Returns("Suggestion Name");
 
             var expectedViewModel = new QRCodeMemberSignInViewModel(
                 message.MemberName,
@@ -123,7 +123,7 @@
 
             var custIdCopyFrom = 999;
 
-            service.CheckLimitNewDownline(message.ViewerId,message.ViewerLevelId,message.Language).Returns(new Result());
+            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
 
             service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
 

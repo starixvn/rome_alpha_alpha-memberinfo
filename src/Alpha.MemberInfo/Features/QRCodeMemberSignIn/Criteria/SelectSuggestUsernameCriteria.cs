@@ -5,13 +5,12 @@
 
     public class SelectSuggestUsernameCriteria : NonQueryCommand
     {
-        private readonly byte agentRoleId = 2;
 
-        public SelectSuggestUsernameCriteria(string actorName, int custId)
+        public SelectSuggestUsernameCriteria(string actorName, int custId, byte roleId)
         {
             ActorName = actorName;
             CustId = custId;
-            RoleId = agentRoleId;
+            RoleId = roleId;
         }
 
         [SpParam(SqlParamName = "Prefix")]

@@ -143,7 +143,7 @@
                      criteria.SeqName = result;
                  });
 
-            var actualResult = serviceImpl.GetSuggestUsername("AA", 1);
+            var actualResult = serviceImpl.GetSuggestUsername("AA", 1, 2);
 
             AssertExtension.Equal(actualResult, result);
         }

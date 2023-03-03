@@ -72,7 +72,7 @@
                    message.MemberName,
                    message.CustName,
                    message.Credit,
-                   qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId),
+                   qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId, message.CustLevelId),
                    message.ShowPageTitle,
                    message.ErrorMessage,
                    onlyShowErrorMessage);
