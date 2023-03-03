@@ -24,7 +24,14 @@
                     <span id="message-content" className="col-xs-12">@Model.ErrorMessage</span>
                 </div>
                 <div id="create-form">
-                    <p class="note">@Resources.CopyAccountNote</p>
+                    <div class="switch-old-version">
+                        <p class="note">@Resources.CopyAccountNote</p>
+                        <a href="#" class="btn-switch-version">
+                            <span class="icon-refresh2"></span>
+                            Switch to old version
+                        </a>
+                    </div>
+                    
 
                     <h4 class="title">@Resources.CopySettings</h4>
                     <div class="form-group">
