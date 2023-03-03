@@ -9,6 +9,11 @@ class CopyAccount {
     $creditMinLabel: JQuery;
     $creditMaxLabel: JQuery;
     $submitBtn: JQuery;
+    $firstSuffix: JQuery;
+    $secondSuffix: JQuery;
+    $thirdSuffix: JQuery;
+    $noOfAccounts: JQuery;
+    $password: JQuery;
 
     $creditInput: JQuery;
     credit: number;
@@ -64,15 +69,20 @@ class CopyAccount {
 
         this.$messageContainer = this.$('#message');
         this.$messageContent = this.$('#message-content');
+        this.$firstSuffix = this.$("#FirstSuffix");
+        this.$secondSuffix = this.$("#SecondSuffix");
+        this.$thirdSuffix = this.$("#ThirdSuffix");
+        this.$noOfAccounts = this.$("#NoOfAccounts");
+        this.$password = this.$("#Password");
     }
 
     bindingEvent = () => {
         this.bidingEasyAutoComplete();
-        this.$('#qrCodeMemberSignInForm').submit(event => this.submitEvent(event));
+        this.$form.submit(event => this.submitEvent(event));
 
-        this.$('#FirstSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
-        this.$('#SecondSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
-        this.$('#ThirdSuffix').change(() => this.checkExistedUsernameByChangeSuffix());
+        this.$firstSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
+        this.$secondSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
+        this.$thirdSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
 
         this.$('#Credit').keyup(() => {
             this.validateCredit();
@@ -130,17 +140,15 @@ class CopyAccount {
         this.$.blockUI();
 
         const data = {
-            UsernameCopyFrom: this.$sourceUsername.val(),
-            FirstName: this.$('#FirstName').val(),
-            FirstSuffix: this.$('#FirstSuffix').val(),
-            SecondSuffix: this.$('#SecondSuffix').val(),
-            ThirdSuffix: this.$('#ThirdSuffix').val(),
+            SourceUsername: this.$sourceUsername.val(),
+            FirstSuffix: this.$firstSuffix.val(),
+            SecondSuffix: this.$secondSuffix.val(),
+            ThirdSuffix: this.$thirdSuffix.val(),
             Credit: this.credit,
             CreditMin: this.creditMin,
             CreditMax: this.creditMax,
-            ShowPageTitle: this.$('#ShowPageTitle').val(),
-            c_v: this.$("input[name=c_v]").val(),
-            c_f: this.$("input[name=c_f]").val()
+            NumberOfAccounts: this.$noOfAccounts.val(),
+            Password: this.$password.val()
         };
 
         this.$.ajax({

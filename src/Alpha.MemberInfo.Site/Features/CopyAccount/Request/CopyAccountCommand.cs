@@ -18,8 +18,6 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.Request
 
         public string Username => $"{CustName}{FirstSuffix}{SecondSuffix}{ThirdSuffix}";
 
-        public string FirstName { get; set; }
-
         public string FirstSuffix { get; set; }
 
         public string SecondSuffix { get; set; }
@@ -42,6 +40,6 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.Request
             Credit <= CreditMax &&
             Credit >= CreditMin &&
             NumberOfAccounts > 0 &&
-            NumberOfAccounts < AppSettings.MaxAccountsCreatePerRequest;
+            NumberOfAccounts <= AppSettings.MaxAccountsCreatePerRequest;
     }
 }
