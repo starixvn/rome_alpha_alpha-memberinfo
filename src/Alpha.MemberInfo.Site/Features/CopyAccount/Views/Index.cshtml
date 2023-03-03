@@ -76,6 +76,7 @@
                     <div class="form-group">
                         <label class="sub-label">@Resources.Credit <span class="require">*</span></label>
                         <input type="text" name="Credit" id="Credit" value="" />
+                        <span class="per-account">(per account)</span>
                         <span id="icon-message-credit"> </span>
                         <div id="credit-range" class="hidden">
                             <span id="credit-min-label"></span> <=  @Resources.NewGivenCredit <= <span id="credit-max-label"></span>
@@ -95,6 +96,21 @@
                 @Html.Hidden("SourceUsernameHidden", Model.SourceUsername)
                 <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
                 @Html.AntiForgeryToken()
+            </form>
+
+            <form class="old-version">
+                <div class="switch-old-version">
+                    <p class="old-version-text">The list of accounts been created successfully: </p>
+                    <a href="#" class="btn-switch-version">
+                        <span class="icon-refresh2"></span>
+                        Switch to old version
+                    </a>
+                </div>
+                <p class="old-version-text">Usernames: <span class="txt-bold"> Master01001, Master01002, Master01003, Master01004 </span>  <span class="icon icon-content-copy"></span></p>
+                <p class="old-version-text">Credit: <span class="txt-bold">1,000.00</span> (per account)</p>
+                <div class="form-group">
+                    <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateAccount</button>
+                </div>
             </form>
         }
     </div>
