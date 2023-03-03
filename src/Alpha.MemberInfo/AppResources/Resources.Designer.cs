@@ -1114,6 +1114,23 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password must be at least 8 characters without white-space and contain at least 3 of the following:
+        ///
+        ///  • Uppercase letter [A-Z] 
+        ///  • Lowercase letter [a-z] 
+        ///  • Numeric [0-9] 
+        ///  • Special character (!,@,#,etc..)
+        ///
+        ///For example: 59D7!4$h, 493abcDE
+        ///Notes: your password is cAsE sEnSiTiVe.
+        /// </summary>
+        public static string lblPasswordRequire {
+            get {
+                return ResourceManager.GetString("lblPasswordRequire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Level.
         /// </summary>
         public static string Level {

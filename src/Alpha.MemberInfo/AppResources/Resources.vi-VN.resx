@@ -846,4 +846,15 @@
   <data name="NonEntered" xml:space="preserve">
     <value>Chưa có kết quả</value>
   </data>
+  <data name="lblPasswordRequire" xml:space="preserve">
+    <value>Mật khẩu phải gồm ít nhất 8 ký tự, không có khoảng trắng và phải có ít nhất 3 ký tự sau đây:
+
+ - Ký tự viết hoa [A-Z]
+ - Ký tự viết thường [a-z]
+ - Ký tự số [0-9]
+ - Ký tự đặc biệt (!,@,#,...)
+Ví dụ : 59D7!4$h, 493abcDE
+
+Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
+  </data>
 </root>

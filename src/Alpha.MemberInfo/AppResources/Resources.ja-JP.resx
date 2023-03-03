@@ -405,4 +405,15 @@
   <data name="From" xml:space="preserve">
     <value>From</value>
   </data>
+  <data name="lblPasswordRequire" xml:space="preserve">
+    <value>Password must be at least 8 characters without white-space and contain at least 3 of the following:
+
+  • Uppercase letter [A-Z] 
+  • Lowercase letter [a-z] 
+  • Numeric [0-9] 
+  • Special character (!,@,#,etc..)
+
+For example: 59D7!4$h, 493abcDE
+Notes: your password is cAsE sEnSiTiVe</value>
+  </data>
 </root>

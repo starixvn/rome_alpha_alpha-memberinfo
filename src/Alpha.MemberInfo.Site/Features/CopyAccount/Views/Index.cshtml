@@ -70,13 +70,13 @@
                         <label class="sub-label">@Resources.Credit <span class="require">*</span></label>
                         <input type="text" name="Credit" id="Credit" value="" />
                         <span id="icon-message-credit"> </span>
-                        <div id="credit-range">
+                        <div id="credit-range" class="hidden">
                             <span id="credit-min-label"></span> <=  @Resources.NewGivenCredit <= <span id="credit-max-label"></span>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>@Resources.Password <span class="require">*</span></label>
+                        <label>@Resources.Password <span class="require">*</span> <span class="icon-information-outline" title="@Resources.lblPasswordRequire"></span></label>
                         <input type="password" name="Password" id="Password" autocomplete="off" maxlength="16" />
                         <span id="icon-message-password"> </span>
                     </div>
