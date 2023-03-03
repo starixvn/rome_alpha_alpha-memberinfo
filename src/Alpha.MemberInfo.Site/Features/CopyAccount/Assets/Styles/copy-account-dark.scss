@@ -188,6 +188,11 @@ select:-webkit-autofill:focus {
     }
 }
 
+.per-account {
+    font-style: italic;
+    margin-left: 8px;
+}
+
 @media (max-width : 767px) {
     .switch-old-version .note {
         width: 100%;
