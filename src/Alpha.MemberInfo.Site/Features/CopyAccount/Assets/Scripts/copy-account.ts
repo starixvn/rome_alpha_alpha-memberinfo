@@ -40,6 +40,8 @@ class CopyAccount {
     cannotCreateClosedMemberQRCodeMessage: string;
     givenCreditMustBeBetweenMinMaxMessage: string;
 
+    maxAccountsCreatePerRequest: number;
+
     constructor(
         $: JQueryStatic,
         topWindow: any) {
@@ -74,6 +76,8 @@ class CopyAccount {
         this.$thirdSuffix = this.$("#ThirdSuffix");
         this.$noOfAccounts = this.$("#NoOfAccounts");
         this.$password = this.$("#Password");
+
+        this.maxAccountsCreatePerRequest = parseInt(this.$("#MaxAccountsCreatePerRequest").val());
     }
 
     bindingEvent = () => {
@@ -84,6 +88,7 @@ class CopyAccount {
         this.$secondSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
         this.$thirdSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
         this.$password.keyup(() => this.validatePassword());
+        this.$noOfAccounts.keyup(() => this.validateNoOfAccount());
 
         this.$('#Credit').keyup(() => {
             this.validateCredit();
@@ -94,6 +99,17 @@ class CopyAccount {
             numeralDecimalMark: '.',
             delimiter: ','
         });
+    }
+
+    validateNoOfAccount = () => {
+        var noOfAccount = parseInt(this.$noOfAccounts.val());
+        var isValid = this.isValidNoOfAccount(noOfAccount);
+        const iconClass = isValid ? 'icon-check' : 'icon-close';
+        this.$('#icon-message-NoOfAccounts').removeClass().addClass(iconClass);
+    }
+
+    isValidNoOfAccount = (noOfAccount: number) => {
+        return noOfAccount > 0 && noOfAccount <= this.maxAccountsCreatePerRequest;
     }
 
     bidingEasyAutoComplete = () => {
@@ -125,10 +141,14 @@ class CopyAccount {
 
         const validateInputs = () => {
             const username = this.$.trim(this.$sourceUsername.val());
-            this.$submitBtn.prop('disabled', !username);
+            const noOfAccount = parseInt(this.$noOfAccounts.val());
+            const password = this.$.trim(this.$password.val());
+            this.$submitBtn.prop('disabled', !username || !this.isValidNoOfAccount(noOfAccount) || !this.isValidPassword(password));
         }
 
         this.$sourceUsername.on('input', validateInputs);
+        this.$noOfAccounts.on('input', validateInputs);
+        this.$password.on('input', validateInputs);
     }
 
     submitEvent = (event) => {
@@ -297,7 +317,6 @@ class CopyAccount {
 
     validatePassword = () => {
         var validPassword = this.isValidPassword(this.$password.val());
-        console.log(validPassword);
         const iconClass = validPassword ? 'icon-check' : 'icon-close';
         this.$('#icon-message-password').removeClass().addClass(iconClass);
     }

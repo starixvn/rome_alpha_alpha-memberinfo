@@ -43,8 +43,8 @@
                     <h4 class="title">@Resources.NoOfAccounts</h4>
                     <div class="form-group">
                         <label class="label">@string.Format(Resources.NoOfAccountsNote, AppSettings.MaxAccountsCreatePerRequest)</label>
-                        <input type="number" name="NoOfAccounts" id="NoOfAccounts" min="1" max="@AppSettings.MaxAccountsCreatePerRequest"  />
-                        <span id="icon-message-SourceUsername" />
+                        <input type="number" name="NoOfAccounts" id="NoOfAccounts" min="1" max="@AppSettings.MaxAccountsCreatePerRequest" />
+                        <span id="icon-message-NoOfAccounts" />
                     </div>
 
                     <h4 class="title">@Resources.AccountDetails</h4>
@@ -97,6 +97,7 @@
                     </div>
                 </div>
                 @Html.Hidden("SourceUsernameHidden", Model.SourceUsername)
+                @Html.Hidden("MaxAccountsCreatePerRequest", AppSettings.MaxAccountsCreatePerRequest)
                 <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
                 @Html.AntiForgeryToken()
             </form>
