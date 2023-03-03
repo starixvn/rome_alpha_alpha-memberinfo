@@ -183,7 +183,8 @@ select:-webkit-autofill:focus {
 }
 
 @media (max-width : 767px) {
-    .btn-switch-version {
-        width: 240px;
+    .switch-old-version .note {
+        width: 100%;
+        max-width: 350px;
     }
 }
