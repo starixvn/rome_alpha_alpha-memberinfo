@@ -25,14 +25,7 @@
                 </div>
                 <div id="create-form">
                     <p class="note">@Resources.CopyAccountNote</p>
-                    <div class="switch-old-version">
-                        <a href="#" class="btn-switch-version">
-                            <span class="icon-refresh2"></span>
-                            Switch to old version
-                        </a>
-                    </div>
-
-
+                    @Html.Partial("~/Features/CopyAccount/Views/_SwitchToOldVersion.cshtml")
                     <h4 class="title">@Resources.CopySettings</h4>
                     <div class="form-group">
                         <label class="label">@Resources.CopySettingsNote</label>
@@ -79,12 +72,25 @@
                     <div class="form-group">
                         <label class="sub-label">@Resources.Credit <span class="require">*</span></label>
                         <input type="text" name="Credit" id="Credit" value="" />
-                        <span class="per-account">(per account)</span>
+                        <span class="per-account">(@Resources.PerAccount)</span>
                         <span id="icon-message-credit"> </span>
                         <div id="credit-range" class="hidden">
                             <span id="credit-min-label"></span> <=  @Resources.NewGivenCredit <= <span id="credit-max-label"></span>
                         </div>
                     </div>
+
+                    @if (Model.ActorLevel.IsMasterLevel())
+                    {
+                        <div class="form-group">
+                            <label class="sub-label">@Resources.MemberMaxCredit <span class="require">*</span></label>
+                            <input type="text" name="MemberMaxCredit" id="MemberMaxCredit" value="" />
+                            <span class="per-account">(@Resources.PerAccount)</span>
+                            <span id="icon-message-member-max-credit"> </span>
+                            <div id="member-max-credit-range" class="hidden">
+                                <span id="member-credit-min-label"></span> <=  @Resources.MemberMaxCredit <= <span id="member-credit-max-label"></span>
+                            </div>
+                        </div>
+                    }
 
                     <div class="form-group">
                         <label>@Resources.Password <span class="require">*</span> <span class="icon-information-outline" title="@Resources.lblPasswordRequire"></span></label>
@@ -98,24 +104,20 @@
                 </div>
                 @Html.Hidden("SourceUsernameHidden", Model.SourceUsername)
                 @Html.Hidden("MaxAccountsCreatePerRequest", AppSettings.MaxAccountsCreatePerRequest)
+                @Html.Hidden("IsCreateAgent", Model.ActorLevel.IsMasterLevel())
                 <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
                 @Html.AntiForgeryToken()
             </form>
 
-            <form class="old-version">
-                <p class="old-version-text">The list of accounts been created successfully: </p>
-                <div class="switch-old-version">
-                    <a href="#" class="btn-switch-version">
-                        <span class="icon-refresh2"></span>
-                        Switch to old version
-                    </a>
-                </div>
-                <p class="old-version-text">Usernames: <span class="txt-bold"> Master01001, Master01002, Master01003, Master01004 </span>  <span class="icon icon-content-copy"></span></p>
-                <p class="old-version-text">Credit: <span class="txt-bold">1,000.00</span> (per account)</p>
+            <div id="result"  class="result hidden">
+                <p class="result-text">@Resources.CreateCustomerSuccessMessage: </p>
+                @Html.Partial("~/Features/CopyAccount/Views/_SwitchToOldVersion.cshtml")
+                <p class="result-text">@Resources.Usernames: <span class="txt-bold" id="usernames"></span>  <span class="icon icon-content-copy"></span></p>
+                <p class="result-text">@Resources.Credit: <span class="txt-bold" id="txtClonedCredit"></span> @Resources.PerAccount</p>
                 <div class="form-group">
-                    <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateAccount</button>
+                    <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateMore</button>
                 </div>
-            </form>
+            </div>
         }
     </div>
 </div>

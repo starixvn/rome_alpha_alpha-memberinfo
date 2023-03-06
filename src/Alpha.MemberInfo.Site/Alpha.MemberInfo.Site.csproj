@@ -924,6 +924,7 @@
     <Content Include="Features\CopyAccount\Views\web.config" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account.scss" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.scss" />
+    <Content Include="Features\CopyAccount\Views\_SwitchToOldVersion.cshtml" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
@@ -1071,6 +1072,9 @@
     <Compile Include="Controllers\WinLossLimitController.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountController.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountService.cs" />
+    <Compile Include="Features\CopyAccount\Models\CreditInfo.cs" />
+    <Compile Include="Features\CopyAccount\Request\CheckUsernameQuery.cs" />
+    <Compile Include="Features\CopyAccount\Request\CreditQuery.cs" />
     <Compile Include="Features\CopyAccount\ViewModels\CopyAccountResponse.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountHandler.cs" />
     <Compile Include="Features\CopyAccount\Request\CopyAccountCommand.cs" />

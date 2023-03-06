@@ -1,13 +1,17 @@
-﻿namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
+﻿using System.Collections.Generic;
+
+namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
 {
     public class CopyAccountResponse
     {
-        public string[] Usernames { get; set; }
+        public IEnumerable<string> Usernames { get; set; }
 
         public bool Success { get; set; }
 
-        public int ErrCode { get; set; }
+        public int Code { get; set; }
 
-        public string ErrMsg { get; set; }
+        public string Message { get; set; }
+
+        public bool IsSuccessful => Code == 0;
     }
 }

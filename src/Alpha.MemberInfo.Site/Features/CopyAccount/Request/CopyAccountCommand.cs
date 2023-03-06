@@ -30,6 +30,8 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.Request
 
         public decimal CreditMax { get; set; }
 
+        public decimal MemberMaxCredit { get; set; }
+
         public string Password { get; set; }
 
         public override bool IsValid() =>

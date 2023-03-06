@@ -4,6 +4,7 @@ declare var numeral: any;
 class CopyAccount {
     $: JQueryStatic;
     $form: JQuery;
+    $result: JQuery;
     $sourceUsername: JQuery;
     $creditRange: JQuery;
     $creditMinLabel: JQuery;
@@ -19,28 +20,32 @@ class CopyAccount {
     credit: number;
     creditMin: number;
     creditMax: number;
+    memberMaxCredit: number;
+
+    $memberMaxCreditInput: JQuery;
 
     $messageContainer: JQuery;
     $messageContent: JQuery;
 
     topWindow: any;
     cleave: any;
+    memberMaxCreditCleave: any;
 
-    srouceUsernameInQueryRequest: string;
-    iconMessageSourceUsername = "icon-message-SourceUsername";
-
+    isCreateAgent: boolean;
     inValidSourceAccount: boolean;
     inValidUsername: boolean;
     invalidCredit: boolean;
     memberAccountInvalidMessage: string;
     usernameIsInvalid: string;
-    iconMessageUsernameCopyFrom: string;
 
     showCreateFromUnopenedMemberMessage: boolean;
-    cannotCreateClosedMemberQRCodeMessage: string;
     givenCreditMustBeBetweenMinMaxMessage: string;
 
     maxAccountsCreatePerRequest: number;
+
+    $btnSwitchVersion: JQuery;
+    oldVersionUrl: string;
+    numberFormat = '0,0.##';
 
     constructor(
         $: JQueryStatic,
@@ -60,14 +65,15 @@ class CopyAccount {
 
     cacheDOMElement = () => {
         this.$form = this.$('#copyAccountForm');
+        this.$result = this.$("#result");
         this.$sourceUsername = this.$('#SourceUsername');
-        this.srouceUsernameInQueryRequest = this.$('#SourceUsernameHidden').val();
         this.$submitBtn = this.$('#btn-submit');
 
         this.$creditRange = this.$('#credit-range');
         this.$creditMinLabel = this.$("#credit-min-label");
         this.$creditMaxLabel = this.$("#credit-max-label");
         this.$creditInput = this.$("#Credit");
+        this.$memberMaxCreditInput = this.$("#MemberMaxCredit");
 
         this.$messageContainer = this.$('#message');
         this.$messageContent = this.$('#message-content');
@@ -78,6 +84,9 @@ class CopyAccount {
         this.$password = this.$("#Password");
 
         this.maxAccountsCreatePerRequest = parseInt(this.$("#MaxAccountsCreatePerRequest").val());
+        this.isCreateAgent = this.$("#IsCreateAgent").val() == "True";
+        this.$btnSwitchVersion = this.$(".btn-switch-version");
+        this.oldVersionUrl = this.$("#old-version-url").val();
     }
 
     bindingEvent = () => {
@@ -90,7 +99,7 @@ class CopyAccount {
         this.$password.keyup(() => this.validatePassword());
         this.$noOfAccounts.keyup(() => this.validateNoOfAccount());
 
-        this.$('#Credit').keyup(() => {
+        this.$creditInput.keyup(() => {
             this.validateCredit();
             this.checkErrorAndShowMessage();
         });
@@ -99,6 +108,25 @@ class CopyAccount {
             numeralDecimalMark: '.',
             delimiter: ','
         });
+
+        this.$btnSwitchVersion.click(() => {
+            this.topWindow.indexManager.changeMenu(this.oldVersionUrl);
+        })
+
+        if (this.isCreateAgent) {
+            this.memberMaxCreditCleave = new Cleave("#MemberMaxCredit", {
+                numeral: true,
+                numeralDecimalMark: '.',
+                delimiter: ','
+            });
+
+            this.$memberMaxCreditInput.keyup(() => {
+                this.memberMaxCredit = parseFloat(this.memberMaxCreditCleave.getRawValue());
+                this.invalidCredit = isNaN(this.memberMaxCredit) || this.memberMaxCredit < this.creditMin || this.memberMaxCredit > this.credit;
+                const errorClass = this.invalidCredit ? 'icon-close' : 'icon-check';
+                this.$('#icon-message-member-max-credit').removeClass().addClass(errorClass);
+            });
+        }
     }
 
     validateNoOfAccount = () => {
@@ -115,7 +143,7 @@ class CopyAccount {
     bidingEasyAutoComplete = () => {
         const options = {
             url: phrase => {
-                return `${this.$('#member-info-url').val()}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}`;
+                return `${this.$('#member-info-url').val()}UserNameSuggestion/GetUsernamesSuggestion?IsAccInfo=false&DirectDownlines=true&SuggestionQuery=${phrase}`;
             },
             getValue: 'UserName',
             requestDelay: 200,
@@ -172,24 +200,26 @@ class CopyAccount {
             Password: this.$password.val()
         };
 
+        if (this.isCreateAgent) {
+            data["MemberMaxCredit"] = this.$memberMaxCreditInput.val();
+        }
+
         this.$.ajax({
             method: "POST",
             headers: this.getHeadersForPostRequest(),
             data: data,
             dataType: 'json',
             url: "CopyAccount/Index",
-            success: (result, status, xqr) => {
-                //if (result.ErrCode === 0 || status === "302" || xqr.status === 302) {
-                //    localStorage.setItem("memberNameCopyFrom", data.UsernameCopyFrom);
-                //    setTimeout(() => {
-                //        this.reloadFrame(result);
-                //    }, 1000);
-                //}
-                //else {
-                //    this.$('.captcha-icon-refresh').click();
-                //    this.showErrorMessage(result.ErrMsg);
-                //    this.$.unblockUI();
-                //}
+            success: (result) => {
+                if (result.Code > 0) {
+                    this.showErrorMessage(result.Message);
+                } else {
+                    this.$("#usernames").html(result.Usernames.join(", "));
+                    this.$("#txtClonedCredit").html(numeral(this.credit).format(this.numberFormat));
+                    this.$result.removeClass("hidden");
+                    this.$form.addClass("hidden");
+                }
+                this.$.unblockUI();
             },
             error: () => { this.$.unblockUI(); }
         });
@@ -197,40 +227,46 @@ class CopyAccount {
 
     checkExistedUsernameByChangeSuffix = () => {
         const username = `${this.$('#actor-name').text()}${this.$('#FirstSuffix').val()}${this.$('#SecondSuffix').val()}${this.$('#ThirdSuffix').val()}`;
-        this.checkExistedCustomer(username, 'icon-message-username', false);
+        const onSuccess = (result: number) => {
+            const iconClass = result > 0 ? 'icon-close' : 'icon-check';
+            this.$("#icon-message-username").removeClass().addClass(iconClass);
+        };
+
+        this.checkExistedCustomer(username, onSuccess);
     }
 
     blurEventSourceAccount = () => {
-        this.checkExistedCustomer(this.$sourceUsername.val(), this.iconMessageSourceUsername);
-        this.getCustomerCredit();
+        const onSucess = (result: number) => {
+            const iconClass = result > 0 ? 'icon-check' : 'icon-close';
+            this.$("#icon-message-SourceUsername").removeClass().addClass(iconClass);
+            if (result > 0) {
+                this.getCustomerCredit(this.$sourceUsername.val());
+            }
+        };
+
+        this.checkExistedCustomer(this.$sourceUsername.val(), onSucess);
     }
 
-    getCustomerCredit = () => {
+    getCustomerCredit = (username: string) => {
         this.$.blockUI();
 
         this.$.ajax({
             method: "POST",
             headers: this.getHeadersForPostRequest(),
-            data: { SearchAccountName: this.$sourceUsername.val() },
+            data: { custName: username },
             dataType: 'json',
-            url: "QRCodeMemberSignIn/GetMemberCreditAndStatus",
+            url: "CopyAccount/GetCredit",
             success: result => {
                 this.$.unblockUI();
-                this.showCreateFromUnopenedMemberMessage = result.Status !== null && result.Status.toUpperCase() !== 'OPEN';
 
-                this.showCreateFromUnopenedMemberMessage ?
-                    this.$(`#${this.iconMessageSourceUsername}`).removeClass().addClass('icon-close') :
-                    this.$messageContainer.removeClass('msg msg-error').addClass('hidden');
 
-                const numberFormat = '0,0.##';
-                this.creditMin = result.CreditMin;
-                this.creditMax = result.CreditMax;
+                this.creditMin = 0;
+                this.creditMax = result.MaxCredit;
                 this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
 
                 this.$creditRange.removeClass('hidden');
-                this.$creditMinLabel.html(numeral(result.CreditMin).format(numberFormat));
-                this.$creditMaxLabel.html(numeral(result.CreditMax).format(numberFormat));
-                this.$creditInput.val(numeral(result.Credit).format(numberFormat));
+                this.$creditMinLabel.html(numeral(this.creditMin).format(this.numberFormat));
+                this.$creditMaxLabel.html(numeral(this.creditMax).format(this.numberFormat));
 
                 this.validateCredit();
                 this.checkErrorAndShowMessage();
@@ -247,15 +283,15 @@ class CopyAccount {
         this.$('#icon-message-credit').removeClass().addClass(errorClass);
     }
 
-    checkExistedCustomer = (username, iconId: string, checkCustomerCopyFrom: boolean = true) => {
+    checkExistedCustomer = (username: string, onSuccess: (result: number) => void) => {
         this.$.ajax({
             method: "POST",
             headers: this.getHeadersForPostRequest(),
             data: { username: username },
             dataType: 'json',
-            url: "QRCodeMemberSignIn/CheckExistedCustomer",
+            url: "CopyAccount/CheckUsername",
             success: (result) => {
-                this.showMessageIcon(iconId, result, checkCustomerCopyFrom);
+                onSuccess(result);
             }
         });
     }
@@ -272,29 +308,7 @@ class CopyAccount {
         this.$messageContent.html(message);
     }
 
-    showMessageIcon = (iconId: string, existedCustomer: boolean, checkCustomerCopyFrom: boolean = true) => {
-        this.$(`#${iconId}`).removeClass();
-
-        let iconClass = '';
-        if (checkCustomerCopyFrom) {
-            this.inValidSourceAccount = !existedCustomer;
-            iconClass = existedCustomer ? 'icon-check' : 'icon-close';
-        }
-        else {
-            this.inValidUsername = existedCustomer;
-            iconClass = existedCustomer ? 'icon-close' : 'icon-check';
-        }
-
-        this.$(`#${iconId}`).addClass(iconClass);
-        this.checkErrorAndShowMessage();
-    }
-
     checkErrorAndShowMessage = () => {
-        if (this.showCreateFromUnopenedMemberMessage) {
-            this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
-            return true;
-        }
-
         if (this.inValidSourceAccount) {
             this.showErrorMessage(this.memberAccountInvalidMessage);
             return true;

@@ -457,6 +457,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The list of accounts been created successfully.
+        /// </summary>
+        public static string CreateCustomerSuccessMessage {
+            get {
+                return ResourceManager.GetString("CreateCustomerSuccessMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Created Date.
         /// </summary>
         public static string CreatedDate {
@@ -471,6 +480,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string CreateMemberWithQRCode {
             get {
                 return ResourceManager.GetString("CreateMemberWithQRCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create more.
+        /// </summary>
+        public static string CreateMore {
+            get {
+                return ResourceManager.GetString("CreateMore", resourceCulture);
             }
         }
         
@@ -1257,6 +1275,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Member Max Credit.
+        /// </summary>
+        public static string MemberMaxCredit {
+            get {
+                return ResourceManager.GetString("MemberMaxCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Member Win/Loss Limit.
         /// </summary>
         public static string MemberWinLossLimit {
@@ -1622,6 +1649,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to per account.
+        /// </summary>
+        public static string PerAccount {
+            get {
+                return ResourceManager.GetString("PerAccount", resourceCulture);
             }
         }
         
@@ -2157,6 +2193,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Switch to old version.
+        /// </summary>
+        public static string SwitchToOldVersion {
+            get {
+                return ResourceManager.GetString("SwitchToOldVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sync.
         /// </summary>
         public static string Sync {
@@ -2328,11 +2373,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username or First/Last Name.
+        ///   Looks up a localized string similar to Usernames.
         /// </summary>
-        public static string UserNamePlaceHolder1 {
+        public static string Usernames {
             get {
-                return ResourceManager.GetString("UserNamePlaceHolder1", resourceCulture);
+                return ResourceManager.GetString("Usernames", resourceCulture);
             }
         }
         

@@ -22,5 +22,11 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> Index(CopyAccountCommand command)
             => await JsonAsync(command);
+
+        public async Task<ActionResult> GetCredit(CreditQuery query)
+            => await JsonAsync(query);
+
+        public async Task<ActionResult> CheckUsername(CheckUsernameQuery query)
+            => await JsonAsync(query);
     }
 }

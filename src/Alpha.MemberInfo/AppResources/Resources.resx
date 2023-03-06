@@ -462,9 +462,6 @@
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>Please input Member credit</value>
   </data>
-  <data name="UserNamePlaceHolder1" xml:space="preserve">
-    <value>Username or First/Last Name</value>
-  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -904,5 +901,23 @@
 
 For example: 59D7!4$h, 493abcDE
 Notes: your password is cAsE sEnSiTiVe</value>
+  </data>
+  <data name="MemberMaxCredit" xml:space="preserve">
+    <value>Member Max Credit</value>
+  </data>
+  <data name="PerAccount" xml:space="preserve">
+    <value>per account</value>
+  </data>
+  <data name="SwitchToOldVersion" xml:space="preserve">
+    <value>Switch to old version</value>
+  </data>
+  <data name="CreateMore" xml:space="preserve">
+    <value>Create more</value>
+  </data>
+  <data name="Usernames" xml:space="preserve">
+    <value>Usernames</value>
+  </data>
+  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
+    <value>The list of accounts been created successfully</value>
   </data>
 </root>
