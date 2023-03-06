@@ -6,6 +6,7 @@
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
@@ -39,13 +40,15 @@
         private readonly SecurityCodeChecker securityCodeChecker;
         private readonly BrowserHelper browserHelper;
         private readonly IPService ipService;
+        private readonly TransferService transferService;
 
         public CustomerListHandler(
             CustomerListService customerListService,
             SecurityCodeChecker securityCodeChecker,
             IPService ipService,
-            BrowserHelper browserHelper)
-            : this(customerListService, null, null, null, ipService, securityCodeChecker, browserHelper)
+            BrowserHelper browserHelper,
+            TransferService transferService)
+            : this(customerListService, null, null, null, ipService, securityCodeChecker, browserHelper, transferService)
         {
         }
 
@@ -56,7 +59,8 @@
             GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel> statusViewModelFactory,
             IPService ipService,
             SecurityCodeChecker securityCodeChecker,
-            BrowserHelper browserHelper)
+            BrowserHelper browserHelper,
+            TransferService transferService)
         {
             this.customerListService = customerListService;
 
@@ -72,6 +76,7 @@
             this.ipService = ipService;
             this.securityCodeChecker = securityCodeChecker;
             this.browserHelper = browserHelper;
+            this.transferService = transferService;
         }
 
         public CustomerListViewModel Handle(CustomerListRequest message)
@@ -181,6 +186,7 @@
         internal CustomerStatusViewModel BuildCustomerStatus(CustomerStatusQuery message)
         {
             var customerStatusModel = customerListService.GetCustomerStatus(message.SearchAccountId);
+            var isAllDayBalTransfer = transferService.IsAllDayBalanceTransfer(message.ActorId);
 
             var actor = new Customer(
                message.ActorId,
@@ -205,7 +211,7 @@
                upline);
 
             return new CustomerStatusViewModel(
-                BuildCustomerProductStatus(actor, searchAccount, message, customerStatusModel),
+                BuildCustomerProductStatus(actor, searchAccount, message, customerStatusModel, isAllDayBalTransfer),
                 BuildCustomerProductSettings(actor, searchAccount, message, customerStatusModel));
         }
 
@@ -310,7 +316,8 @@
             Customer actor,
             Customer searchAccount,
             CustomerStatusQueryBase message,
-            CustomerStatusModel model)
+            CustomerStatusModel model,
+            bool allowedAllDayBalTransfer)
         {
             var request = new StatusSearchAccountRequest(actor, searchAccount);
 
@@ -338,7 +345,7 @@
                 .AddData(DataKey.SearchAccount.IsSuspended, model.NonProduct.Suspended)
                 .AddData(DataKey.SearchAccount.IsDirectSuspend, model.NonProduct.IsDirectSuspend)
 
-                .AddData(DataKey.SearchAccount.AllowedAllDayBalTransfer, message.AllowedAllDayBalTransfer)
+                .AddData(DataKey.SearchAccount.AllowedAllDayBalTransfer, allowedAllDayBalTransfer)
                 .AddData(DataKey.SearchAccount.IsAllDayBalTransfer, model.NonProduct.IsAllDayBalTransfer);
 
 

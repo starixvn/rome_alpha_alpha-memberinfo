@@ -44,8 +44,9 @@
                 : null;
 
             var reportEntered = winlossService.GetEnteredSportResults();
+            var isAllDayBalTransfer = await transferService.IsAllDayBalanceTransferAsync(message.ActorId);
 
-            return new CreditBalanceViewModel(pagedCreditBalances, transferCondition, message, reportEntered);
+            return new CreditBalanceViewModel(pagedCreditBalances, transferCondition, message, reportEntered, isAllDayBalTransfer);
         }
     }
 }

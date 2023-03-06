@@ -29,7 +29,6 @@
             user.Id.Returns(1176070);
             user.LevelId.Returns((byte)4);
             user.CanUpdateAccount.Returns(true);
-            user.IsAllDayBalTransfer.Returns(true);
             user.IsAllowedTotalBalanceTransfer.Returns(true);
             user.CanTransfer.Returns(true);
             user.CanViewBetLists.Returns(true);

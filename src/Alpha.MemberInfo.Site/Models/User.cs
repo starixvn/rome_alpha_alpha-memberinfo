@@ -1,13 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Site.Models
 {
-    using Alpha.MemberInfo.Configurations;
-    using MemberInfo.Models;
-    using Sunplus.Agent.Model.Entities;
-    using Sunplus.Agent.Model.Entities.Permission;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
+    using Alpha.MemberInfo.Configurations;
+    using MemberInfo.Models;
+    using Sunplus.Agent.Model.Entities;
+    using Sunplus.Agent.Model.Entities.Permission;
 
     public class User : IUser
     {
@@ -59,8 +59,6 @@
 
         public bool CanViewBetLists => userSession.SubPageAccess.GetPermission(PageAccessType.ViewBetLists);
 
-        public bool IsAllDayBalTransfer => userSession.IsAllDayBalTransfer;
-
         public bool IsAllowedTotalBalanceTransfer => userSession.IsAllowedTotalBalanceTransfer;
 
         public bool CanTransfer => userSession.SubPageAccess.Transfer;
@@ -82,8 +80,6 @@
         public bool IsDisabledESports => userSession.IsDisabledESports;
 
         public bool IsNumberGameDisabled => userSession.IsNumberGameDisabled;      
-
-        public bool AllowedAllDayBalTransfer => userSession.IsAllDayBalTransfer;
 
         public bool AllowedTotalBalanceTransfer => userSession.IsAllowedTotalBalanceTransfer;
 

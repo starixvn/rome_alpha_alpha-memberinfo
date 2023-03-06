@@ -15,11 +15,12 @@
 
     public class CreditBalanceViewModel
     {
-        public CreditBalanceViewModel(CreditBalanceQuery message, EnteredSportResult enteredSportResult)
+        public CreditBalanceViewModel(CreditBalanceQuery message, EnteredSportResult enteredSportResult, bool isAllDayBalTransfer)
             : this(new PagedCreditBalance(message.PageIndex, message.PageSize, 0, Enumerable.Empty<CreditBalanceItem>()),
                   null,
                   message,
-                  enteredSportResult)
+                  enteredSportResult,
+                  isAllDayBalTransfer)
         {
         }
 
@@ -27,7 +28,8 @@
             PagedCreditBalance pagedCreditBalances,
             string transferCondition,
             CreditBalanceQuery message,
-            EnteredSportResult enteredSportResult)
+            EnteredSportResult enteredSportResult,
+            bool isAllDayBalTransfer)
         {
             LegendView = $"Legend.{message.Language}";
             PagedCreditBalances = pagedCreditBalances;
@@ -43,7 +45,7 @@
             IsViewingMemberList = DownlineLevel.IsMemberLevel();
             ActorIsAgent = message.ActorLevel.IsAgentLevel();
             CanUpdateAccount = message.CanUpdateAccount;
-            var showTransferPopup = !message.IsAllDayBalTransfer
+            var showTransferPopup = !isAllDayBalTransfer
                 && ActorIsAgent
                 && message.CanTransfer;
             CanTransferOnBalanceColumn = showTransferPopup && message.IsAllowedTotalBalanceTransfer;

@@ -2,6 +2,7 @@
 {
     using System.Text;
     using System.Threading.Tasks;
+    using Alpha.MemberInfo.Models;
     using AppResources;
     using Criteria.Transfer;
     using Fanex.Data.Repository;
@@ -9,6 +10,10 @@
     public interface TransferService
     {
         Task<string> GetAllowTransfer(int custId);
+
+        Task<bool> IsAllDayBalanceTransferAsync(int custId);
+
+        bool IsAllDayBalanceTransfer(int custId);
     }
 
     public class TransferServiceImpl : TransferService
@@ -78,6 +83,22 @@
             await repository.ExecuteAsync(criteria);
 
             return criteria.TransferOption;
+        }
+
+        public async Task<bool> IsAllDayBalanceTransferAsync(int custId)
+        {
+            var customerTransferStatus = await repository.GetAsync<CustomerTransferStatus>(
+                new GetIsAllDayBalTransferCriteria(custId));
+
+            return customerTransferStatus != null && customerTransferStatus.IsAllDayBalTransfer;
+        }
+
+        public bool IsAllDayBalanceTransfer(int custId)
+        {
+            var customerTransferStatus = repository.Get<CustomerTransferStatus>(
+                new GetIsAllDayBalTransferCriteria(custId));
+
+            return customerTransferStatus != null && customerTransferStatus.IsAllDayBalTransfer;
         }
     }
 }

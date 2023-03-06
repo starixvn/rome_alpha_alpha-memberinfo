@@ -8,6 +8,7 @@
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Services;
+    using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
@@ -53,6 +54,7 @@
         private readonly Customer actor = new Customer(1, 0, "username1", 4, CustomerHelper.CreateCustomerProductStatus());
         private readonly Customer searchAccount = new Customer(2, 0, "username2", 3, CustomerHelper.CreateCustomerProductStatus());
         private readonly CompareLogic compareLogic = new CompareLogic();
+        private readonly TransferService transferService;
 
         public CustomerListHandlerTests(UserFixture userFixture)
         {
@@ -79,8 +81,9 @@
             browserHelper = Substitute.For<BrowserHelper>();
             cacheRefService = Substitute.For<CacheRefService>();
             ipService = Substitute.For<IPService>();
+            transferService = Substitute.For<TransferService>();
 
-            handler = new CustomerListHandler(service, null, null, null, ipService, securityCodeChecker, browserHelper);
+            handler = new CustomerListHandler(service, null, null, null, ipService, securityCodeChecker, browserHelper, transferService);
         }
 
         [Fact]
@@ -202,8 +205,7 @@
             };
 
             var expectedStatus = StubStatusViewModel();
-
-            var actualStatus = handler.BuildCustomerProductStatus(actor, searchAccount, message, CreateCustomerStatusModelStub());
+            var actualStatus = handler.BuildCustomerProductStatus(actor, searchAccount, message, CreateCustomerStatusModelStub(), false);
             Assert.True(compareLogic.Compare(actualStatus, expectedStatus).AreEqual);
         }
 

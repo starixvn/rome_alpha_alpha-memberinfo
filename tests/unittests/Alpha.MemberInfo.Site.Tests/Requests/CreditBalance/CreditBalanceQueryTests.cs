@@ -20,7 +20,6 @@
             user.Id.Returns(1176070);
             user.LevelId.Returns((byte)4);
             user.CanUpdateAccount.Returns(true);
-            user.IsAllDayBalTransfer.Returns(true);
             user.IsAllowedTotalBalanceTransfer.Returns(true);
             user.CanTransfer.Returns(true);
             user.CanViewBetLists.Returns(true);
@@ -40,7 +39,6 @@
                 && message.ActorId == user.Id
                 && message.ActorLevel.Value == user.LevelId
                 && message.CanUpdateAccount == user.CanUpdateAccount
-                && message.IsAllDayBalTransfer == user.IsAllDayBalTransfer
                 && message.IsAllowedTotalBalanceTransfer == user.IsAllowedTotalBalanceTransfer
                 && message.CanTransfer == user.CanTransfer
                 && message.CanViewBetLists == user.CanViewBetLists

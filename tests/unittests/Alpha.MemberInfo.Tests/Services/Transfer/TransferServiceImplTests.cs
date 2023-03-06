@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Tests.Services.Transfer
 {
     using System.Threading.Tasks;
+    using Alpha.MemberInfo.Models;
     using AppResources;
     using Fanex.Data.Repository;
     using Fixtures;
@@ -79,6 +80,32 @@
 
             //// Assert
             Assert.Equal(expected, act);
+        }
+
+        [Fact]
+        public async Task IsAllDayBalanceTransferAsync_Always_CallsGetAsync()
+        {
+            // Arrange
+            var custId = 1176086;
+
+            // Act
+            await serviceImpl.IsAllDayBalanceTransferAsync(custId);
+
+            // Assert
+            await dynamicRepository.Received().GetAsync<CustomerTransferStatus>(Arg.Is<GetIsAllDayBalTransferCriteria>(c => c.CustId == custId));
+        }
+
+        [Fact]
+        public void IsAllDayBalanceTransfer_Always_CallsGet()
+        {
+            // Arrange
+            var custId = 1176086;
+
+            // Act
+            serviceImpl.IsAllDayBalanceTransfer(custId);
+
+            // Assert
+            dynamicRepository.Received().Get<CustomerTransferStatus>(Arg.Is<GetIsAllDayBalTransferCriteria>(c => c.CustId == custId));
         }
     }
 }
