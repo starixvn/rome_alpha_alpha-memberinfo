@@ -26,23 +26,22 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
             this.copyAccountService = copyAccountService;
         }
 
-        public Task<CopyAccountViewModel> Handle(CopyAccountQuery message)
+        public async Task<CopyAccountViewModel> Handle(CopyAccountQuery message)
         {
-            var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
+            var limitNewDownlineResult = await copyAccountService.CheckLimitNewDownline(
                    message.ViewerId,
                    message.ViewerLevelId,
                    message.Language);
 
             if (limitNewDownlineResult.IsFailed)
             {
-                return Task.FromResult(new CopyAccountViewModel(true, limitNewDownlineResult.Message));
+                return new CopyAccountViewModel(true, limitNewDownlineResult.Message);
             }
 
-
-            return Task.FromResult(new CopyAccountViewModel(
+            return new CopyAccountViewModel(
                 message,
                 message.SourceUsername,
-                qrCodeMemberSignInService.GetSuggestUsername(message.ViewerUsername, message.ViewerId, message.ViewerLevelId)));
+                qrCodeMemberSignInService.GetSuggestUsername(message.ViewerUsername, message.ViewerId, message.ViewerLevelId));
         }
 
         public async Task<CopyAccountResponse> Handle(CopyAccountCommand message)

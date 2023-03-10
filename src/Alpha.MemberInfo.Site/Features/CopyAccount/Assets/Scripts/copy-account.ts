@@ -67,7 +67,6 @@ class CopyAccount {
         if (this.$sourceUsername.val() !== '') {
             this.blurEventSourceAccount();
         }
-        this.validateNoOfAccount();
     };
 
     cacheDOMElement = () => {
@@ -129,7 +128,6 @@ class CopyAccount {
         this.$secondSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
         this.$thirdSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
         this.$password.keyup(() => this.validatePassword());
-        this.$noOfAccounts.change(() => this.validateNoOfAccount());
         this.$showPass.click(this.showPass);
 
         this.$creditInput.keyup(() => {
@@ -177,13 +175,6 @@ class CopyAccount {
                     window.console.error("Trigger:", e.trigger);
                 });
         }
-    }
-
-    validateNoOfAccount = () => {
-        var noOfAccount = parseInt(this.$noOfAccounts.val());
-        var isValid = this.isValidNoOfAccount(noOfAccount);
-        const iconClass = isValid ? 'icon-check' : 'icon-close';
-        this.$('#icon-message-NoOfAccounts').removeClass().addClass(iconClass);
     }
 
     isValidNoOfAccount = (noOfAccount: number) => {

@@ -1,4 +1,5 @@
-﻿using Alpha.MemberInfo.Site.Features.CopyAccount.Models;
+﻿using Alpha.MemberInfo.Models;
+using Alpha.MemberInfo.Site.Features.CopyAccount.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Request;
 using Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels;
 using Newtonsoft.Json;
@@ -13,6 +14,8 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         Task<CopyAccountResponse> CreateAccount(CopyAccountCommand command, int sourceCustId);
 
         Task<CreditInfo> GetCreditInfo(string username);
+
+        Task<Result> CheckLimitNewDownline(int custId, byte custLevel, string language);
     }
 
     public class CopyAccountService : ICopyAccountService
@@ -73,6 +76,11 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<T>(content);
             }
+        }
+
+        public Task<Result> CheckLimitNewDownline(int custId, byte custLevel, string language)
+        {
+            return PostAsJsonAsync<Result>("api/customer/CheckLimitNewDownline", new { custId, custLevel, language });
         }
     }
 }
