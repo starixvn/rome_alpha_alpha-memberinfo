@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount.Request
 {
-    public class CheckUsernameQuery : MemberInfoBaseQuery, IAsyncRequest<int>
+    public class CheckUsernameQuery : MemberInfoBaseQuery, IAsyncRequest<bool>
     {
         public CheckUsernameQuery(IUser viewer) 
             : base(viewer)

@@ -866,4 +866,7 @@
 例如： 59D7!4$h, 493abcDE
 注意： 您的密码需有大小写</value>
   </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>此账号不存在</value>
+  </data>
 </root>

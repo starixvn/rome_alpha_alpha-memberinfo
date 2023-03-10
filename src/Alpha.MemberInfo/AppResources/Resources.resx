@@ -920,4 +920,7 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="CreateCustomerSuccessMessage" xml:space="preserve">
     <value>The list of accounts been created successfully</value>
   </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>This user does not exist</value>
+  </data>
 </root>

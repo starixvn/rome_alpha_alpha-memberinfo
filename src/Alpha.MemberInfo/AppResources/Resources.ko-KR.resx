@@ -425,4 +425,7 @@
 예시 : 59D7!4$h, 493abcDE
 참고 : 비밀번호는 대소 문자를 구분합니다</value>
   </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>존재하지 않는 유저</value>
+  </data>
 </root>

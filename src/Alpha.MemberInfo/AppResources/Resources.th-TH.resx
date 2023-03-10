@@ -866,4 +866,7 @@
 ยกตัวอย่างเช่น: 59D7!4$h, 493abcDE
 หมายเหตุ รหัสผ่านของคุณเป็นสิ่งที่สำคัญ</value>
   </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>ไม่มียูเซอร์นี้</value>
+  </data>
 </root>

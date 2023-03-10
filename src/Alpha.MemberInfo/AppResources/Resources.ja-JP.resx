@@ -395,4 +395,7 @@
 For example: 59D7!4$h, 493abcDE
 Notes: your password is cAsE sEnSiTiVe</value>
   </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>This user does not exist</value>
+  </data>
 </root>

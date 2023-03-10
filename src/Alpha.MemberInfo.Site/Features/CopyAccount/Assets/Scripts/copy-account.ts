@@ -1,5 +1,6 @@
 ﻿declare var Cleave: any;
 declare var numeral: any;
+declare var Clipboard: any;
 
 class CopyAccount {
     $: JQueryStatic;
@@ -15,6 +16,7 @@ class CopyAccount {
     $thirdSuffix: JQuery;
     $noOfAccounts: JQuery;
     $password: JQuery;
+    $showPass: JQuery;
 
     $creditInput: JQuery;
     credit: number;
@@ -33,12 +35,11 @@ class CopyAccount {
 
     isCreateAgent: boolean;
     inValidSourceAccount: boolean;
-    inValidUsername: boolean;
     invalidCredit: boolean;
-    memberAccountInvalidMessage: string;
+    invalidMemberMaxCredit: boolean = false;
+    invalidUsername: boolean;
     usernameIsInvalid: string;
 
-    showCreateFromUnopenedMemberMessage: boolean;
     givenCreditMustBeBetweenMinMaxMessage: string;
 
     maxAccountsCreatePerRequest: number;
@@ -47,11 +48,16 @@ class CopyAccount {
     oldVersionUrl: string;
     numberFormat = '0,0.##';
 
+    userNotExistMessage: string;
+    clipboardUsernames: any;
+
     constructor(
         $: JQueryStatic,
-        topWindow: any) {
+        topWindow: any,
+        clipboardUsernames: any) {
         this.$ = $;
         this.topWindow = topWindow;
+        this.clipboardUsernames = clipboardUsernames;
     }
 
     init = () => {
@@ -61,6 +67,7 @@ class CopyAccount {
         if (this.$sourceUsername.val() !== '') {
             this.blurEventSourceAccount();
         }
+        this.validateNoOfAccount();
     };
 
     cacheDOMElement = () => {
@@ -87,6 +94,31 @@ class CopyAccount {
         this.isCreateAgent = this.$("#IsCreateAgent").val() == "True";
         this.$btnSwitchVersion = this.$(".btn-switch-version");
         this.oldVersionUrl = this.$("#old-version-url").val();
+
+        this.userNotExistMessage = this.$("#UserNotExistMessage").val();
+
+        this.$showPass = this.$(".show-pass");
+    }
+
+    showPass = () => {
+        this.changeEyeIcon(this.$showPass);
+        if (this.$password.hasClass("input-pass")) {
+            this.$password.removeClass("input-pass")
+        }
+        else {
+            this.$password.addClass("input-pass")
+        }
+    }
+
+    changeEyeIcon = (eyeElm) => {
+        if (eyeElm.hasClass("icon-eye-close")) {
+            eyeElm.removeClass("icon-eye-close");
+            eyeElm.addClass("icon-eye");
+        }
+        else {
+            eyeElm.removeClass("icon-eye");
+            eyeElm.addClass("icon-eye-close");
+        }
     }
 
     bindingEvent = () => {
@@ -97,11 +129,11 @@ class CopyAccount {
         this.$secondSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
         this.$thirdSuffix.change(() => this.checkExistedUsernameByChangeSuffix());
         this.$password.keyup(() => this.validatePassword());
-        this.$noOfAccounts.keyup(() => this.validateNoOfAccount());
+        this.$noOfAccounts.change(() => this.validateNoOfAccount());
+        this.$showPass.click(this.showPass);
 
         this.$creditInput.keyup(() => {
             this.validateCredit();
-            this.checkErrorAndShowMessage();
         });
         this.cleave = new Cleave('#Credit', {
             numeral: true,
@@ -122,10 +154,28 @@ class CopyAccount {
 
             this.$memberMaxCreditInput.keyup(() => {
                 this.memberMaxCredit = parseFloat(this.memberMaxCreditCleave.getRawValue());
-                this.invalidCredit = isNaN(this.memberMaxCredit) || this.memberMaxCredit < this.creditMin || this.memberMaxCredit > this.credit;
-                const errorClass = this.invalidCredit ? 'icon-close' : 'icon-check';
+                this.invalidMemberMaxCredit = this.isInValidCredit(this.memberMaxCredit, this.credit);
+                const errorClass = this.invalidMemberMaxCredit ? 'icon-close' : 'icon-check';
                 this.$('#icon-message-member-max-credit').removeClass().addClass(errorClass);
             });
+        }
+
+        this.$("#btnCreateMore").click(() => {
+            setTimeout(() => window.location.reload(), 1000)
+        });
+
+        const self = this;
+        if (window.document.queryCommandSupported
+            && window.document.queryCommandSupported("copy")) {
+            this.clipboardUsernames
+                .on("success", function (e) {
+                    self.$(e.trigger).tooltip("show");
+                })
+                .on("error", function (e) {
+                    self.$(e.trigger).remove();
+                    window.console.error("Action:", e.action);
+                    window.console.error("Trigger:", e.trigger);
+                });
         }
     }
 
@@ -168,23 +218,20 @@ class CopyAccount {
         });
 
         const validateInputs = () => {
-            const username = this.$.trim(this.$sourceUsername.val());
             const noOfAccount = parseInt(this.$noOfAccounts.val());
             const password = this.$.trim(this.$password.val());
-            this.$submitBtn.prop('disabled', !username || !this.isValidNoOfAccount(noOfAccount) || !this.isValidPassword(password));
+            this.$submitBtn.prop('disabled', this.inValidSourceAccount || this.invalidCredit || this.invalidMemberMaxCredit || !this.isValidNoOfAccount(noOfAccount) || !this.isValidPassword(password));
         }
 
         this.$sourceUsername.on('input', validateInputs);
         this.$noOfAccounts.on('input', validateInputs);
         this.$password.on('input', validateInputs);
+        this.$creditInput.on('input', validateInputs);
+        this.$memberMaxCreditInput.on('input', validateInputs);
     }
 
     submitEvent = (event) => {
         event.preventDefault();
-
-        if (this.checkErrorAndShowMessage()) {
-            return;
-        }
 
         this.$.blockUI();
 
@@ -227,8 +274,8 @@ class CopyAccount {
 
     checkExistedUsernameByChangeSuffix = () => {
         const username = `${this.$('#actor-name').text()}${this.$('#FirstSuffix').val()}${this.$('#SecondSuffix').val()}${this.$('#ThirdSuffix').val()}`;
-        const onSuccess = (result: number) => {
-            const iconClass = result > 0 ? 'icon-close' : 'icon-check';
+        const onSuccess = (result: boolean) => {
+            const iconClass = result ? 'icon-close' : 'icon-check';
             this.$("#icon-message-username").removeClass().addClass(iconClass);
         };
 
@@ -236,15 +283,22 @@ class CopyAccount {
     }
 
     blurEventSourceAccount = () => {
-        const onSucess = (result: number) => {
-            const iconClass = result > 0 ? 'icon-check' : 'icon-close';
+        const onSucess = (result: boolean) => {
+            const iconClass = result ? 'icon-check' : 'icon-close';
             this.$("#icon-message-SourceUsername").removeClass().addClass(iconClass);
-            if (result > 0) {
+            this.inValidSourceAccount = !result;
+            if (result) {
                 this.getCustomerCredit(this.$sourceUsername.val());
+            } else {
+                this.showErrorMessage(this.userNotExistMessage);
+                this.$creditRange.addClass("hidden");
             }
         };
 
-        this.checkExistedCustomer(this.$sourceUsername.val(), onSucess);
+        var sourceUsername: string = this.$sourceUsername.val();
+        if (sourceUsername && sourceUsername.length) {
+            this.checkExistedCustomer(sourceUsername, onSucess);
+        }
     }
 
     getCustomerCredit = (username: string) => {
@@ -259,7 +313,6 @@ class CopyAccount {
             success: result => {
                 this.$.unblockUI();
 
-
                 this.creditMin = 0;
                 this.creditMax = result.MaxCredit;
                 this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
@@ -268,8 +321,6 @@ class CopyAccount {
                 this.$creditMinLabel.html(numeral(this.creditMin).format(this.numberFormat));
                 this.$creditMaxLabel.html(numeral(this.creditMax).format(this.numberFormat));
 
-                this.validateCredit();
-                this.checkErrorAndShowMessage();
                 this.$.unblockUI();
             },
             error: () => { this.$.unblockUI(); }
@@ -278,16 +329,23 @@ class CopyAccount {
 
     validateCredit = () => {
         this.credit = parseFloat(this.cleave.getRawValue());
-        this.invalidCredit = isNaN(this.credit) || this.credit < this.creditMin || this.credit > this.creditMax;
+        this.invalidCredit = this.isInValidCredit(this.credit, this.creditMax);
+        if (this.invalidCredit) {
+            this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage);
+        }
         const errorClass = this.invalidCredit ? 'icon-close' : 'icon-check';
         this.$('#icon-message-credit').removeClass().addClass(errorClass);
     }
 
-    checkExistedCustomer = (username: string, onSuccess: (result: number) => void) => {
+    isInValidCredit = (credit: number, max: number) => {
+        return isNaN(credit) || credit < this.creditMin || credit > max;
+    }
+
+    checkExistedCustomer = (username: string, onSuccess: (result: boolean) => void) => {
         this.$.ajax({
             method: "POST",
             headers: this.getHeadersForPostRequest(),
-            data: { username: username },
+            data: { custName: username },
             dataType: 'json',
             url: "CopyAccount/CheckUsername",
             success: (result) => {
@@ -306,27 +364,6 @@ class CopyAccount {
     showErrorMessage = (message) => {
         this.$messageContainer.removeClass('hidden').addClass('msg msg-error');
         this.$messageContent.html(message);
-    }
-
-    checkErrorAndShowMessage = () => {
-        if (this.inValidSourceAccount) {
-            this.showErrorMessage(this.memberAccountInvalidMessage);
-            return true;
-        }
-
-        if (this.invalidCredit) {
-            this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage);
-            return true;
-        }
-
-        if (this.inValidUsername) {
-            this.showErrorMessage(this.usernameIsInvalid);
-            return true;
-        }
-
-        this.$messageContainer.addClass('hidden');
-        this.$messageContent.html('');
-        return false;
     }
 
     validatePassword = () => {
@@ -353,7 +390,7 @@ class CopyAccount {
     }
 }
 
-const copyAccount = new CopyAccount($, window.top);
+const copyAccount = new CopyAccount($, window.top, new Clipboard(".icon-content-copy"));
 
 $(() => {
     copyAccount.init();

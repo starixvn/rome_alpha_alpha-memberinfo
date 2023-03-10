@@ -857,4 +857,7 @@ Ví dụ : 59D7!4$h, 493abcDE
 
 Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>Người chơi này không có thực </value>
+  </data>
 </root>

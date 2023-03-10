@@ -36,7 +36,12 @@
                     <h4 class="title">@Resources.NoOfAccounts</h4>
                     <div class="form-group">
                         <label class="label">@string.Format(Resources.NoOfAccountsNote, AppSettings.MaxAccountsCreatePerRequest)</label>
-                        <input type="number" name="NoOfAccounts" id="NoOfAccounts" min="1" max="@AppSettings.MaxAccountsCreatePerRequest" />
+                        <select id="NoOfAccounts" name="NoOfAccounts">
+                            @for (var index = 1; index <= AppSettings.MaxAccountsCreatePerRequest; index++)
+                            {
+                                <option value="@index"> @index</option>
+                            }
+                        </select>
                         <span id="icon-message-NoOfAccounts" />
                     </div>
 
@@ -94,7 +99,10 @@
 
                     <div class="form-group">
                         <label>@Resources.Password <span class="require">*</span> <span class="icon-information-outline" title="@Resources.lblPasswordRequire"></span></label>
-                        <input type="password" name="Password" id="Password" autocomplete="off" maxlength="16" />
+                        <div class="relative">
+                            <input type="text" name="Password" class="input-pass" id="Password" autocomplete="off" maxlength="16" />
+                            <span class="icon-eye-close icon show-pass"></span>
+                        </div>
                         <span id="icon-message-password"> </span>
                     </div>
 
@@ -106,16 +114,17 @@
                 @Html.Hidden("MaxAccountsCreatePerRequest", AppSettings.MaxAccountsCreatePerRequest)
                 @Html.Hidden("IsCreateAgent", Model.ActorLevel.IsMasterLevel())
                 <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
+                @Html.Hidden("UserNotExistMessage", Resources.UserNotExist)
                 @Html.AntiForgeryToken()
             </form>
 
-            <div id="result"  class="result hidden">
+            <div id="result" class="result hidden">
                 <p class="result-text">@Resources.CreateCustomerSuccessMessage: </p>
                 @Html.Partial("~/Features/CopyAccount/Views/_SwitchToOldVersion.cshtml")
-                <p class="result-text">@Resources.Usernames: <span class="txt-bold" id="usernames"></span>  <span class="icon icon-content-copy"></span></p>
-                <p class="result-text">@Resources.Credit: <span class="txt-bold" id="txtClonedCredit"></span> @Resources.PerAccount</p>
+                <p class="result-text">@Resources.Usernames: <span class="txt-bold" id="usernames"></span>  <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span></p>
+                <p class="result-text">@Resources.Credit: <span class="txt-bold" id="txtClonedCredit"></span> <span class="per-account">(@Resources.PerAccount)</span></p>
                 <div class="form-group">
-                    <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateMore</button>
+                    <button class="btn-submit" id="btnCreateMore">@Resources.CreateMore</button>
                 </div>
             </div>
         }
@@ -124,5 +133,6 @@
 
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-asset/numeral")
+    @StaticResources.AssetScripts.RenderCommon("/bundles/site-memberinfo/copy-account")
     @StaticResources.RenderScripts("~/Features/CopyAccount/Bundles/copy-account")
 }

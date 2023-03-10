@@ -1,10 +1,11 @@
 ﻿using Alpha.MemberInfo.AppResources;
+using Alpha.MemberInfo.Enumerations;
 using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
+using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Request;
 using Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels;
 using MediatR;
-using System;
 using System.Threading.Tasks;
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount
@@ -13,7 +14,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         IAsyncRequestHandler<CopyAccountQuery, CopyAccountViewModel>,
         IAsyncRequestHandler<CopyAccountCommand, CopyAccountResponse>,
         IAsyncRequestHandler<CreditQuery, CreditInfo>,
-        IAsyncRequestHandler<CheckUsernameQuery, int>
+        IAsyncRequestHandler<CheckUsernameQuery, bool>
     {
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
         private readonly ICopyAccountService copyAccountService;
@@ -26,15 +27,15 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
         public Task<CopyAccountViewModel> Handle(CopyAccountQuery message)
         {
-            //var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
-            //       message.ViewerId,
-            //       message.ViewerLevelId,
-            //       message.Language);
+            var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
+                   message.ViewerId,
+                   message.ViewerLevelId,
+                   message.Language);
 
-            //if (limitNewDownlineResult.IsFailed)
-            //{
-            //    return Task.FromResult(new CopyAccountViewModel(true, limitNewDownlineResult.Message));
-            //}
+            if (limitNewDownlineResult.IsFailed)
+            {
+                return Task.FromResult(new CopyAccountViewModel(true, limitNewDownlineResult.Message));
+            }
 
 
             return Task.FromResult(new CopyAccountViewModel(
@@ -45,34 +46,6 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
         public async Task<CopyAccountResponse> Handle(CopyAccountCommand message)
         {
-            //var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
-            //    message.ViewerId,
-            //    message.ViewerLevelId,
-            //    message.Language);
-
-            //if (limitNewDownlineResult.IsFailed)
-            //{
-            //    return new CopyAccountResponse
-            //    {
-            //        Success = false,
-            //        Code = limitNewDownlineResult.Code,
-            //        Message = limitNewDownlineResult.Message
-            //    };
-            //}
-
-            //var creditAndStatusModel = qrCodeMemberSignInService.GetCreditAndStatus(message.SourceUsername);
-
-            //if (creditAndStatusModel.Status != null &&
-            //  !creditAndStatusModel.Status.Equals("OPEN", StringComparison.OrdinalIgnoreCase))
-            //{
-            //    return new CopyAccountResponse
-            //    {
-            //        Success = false,
-            //        Code = 100,
-            //        Message = Resources.CannotCreateClosedMemberQRCode
-            //    };
-            //}
-
             var model = qrCodeMemberSignInService.CheckBelongingByUsername(message.CustId, message.SourceUsername, message.SubAccId);
             var sourceCustId = model.CustId;
 
@@ -92,10 +65,11 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         public Task<CreditInfo> Handle(CreditQuery message)
             => copyAccountService.GetCreditInfo(message.CustName);
 
-        public Task<int> Handle(CheckUsernameQuery message)
+        public Task<bool> Handle(CheckUsernameQuery message)
         {
             var result = qrCodeMemberSignInService.CheckBelongingByUsername(message.ViewerId, message.CustName, message.SubAccId);
-            return Task.FromResult(result.CustId);
+            var isValid = result.CustId > 0 && Enumeration.FromValue<UserLevel>((byte)result.RoleId).IsDirectDownlineOf(message.ActorLevel);
+            return Task.FromResult(isValid);
         }
     }
 }
