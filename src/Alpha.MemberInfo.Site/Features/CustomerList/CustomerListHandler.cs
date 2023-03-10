@@ -251,9 +251,7 @@
             var customerProductStatus = new List<CustomerProductStatus>
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
-                new CustomerProductStatus(ProductConstants.NumberGame, nonDCSProduct.DisableNumber),
                 new CustomerProductStatus(ProductConstants.ESport, nonDCSProduct.DisableEsports),
-                new CustomerProductStatus(ProductConstants.Keno, disabled: nonDCSProduct.DisableKeno, hidden: nonDCSProduct.HideKeno)
             };
 
             dcsProducts.ToList().ForEach(product =>
@@ -272,9 +270,7 @@
             var customerProductStatus = new List<CustomerProductStatus>
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
-                new CustomerProductStatus(ProductConstants.NumberGame, nonDCSProduct.UplineDisableNumber),
                 new CustomerProductStatus(ProductConstants.ESport, nonDCSProduct.UplineDisableEsports),
-                new CustomerProductStatus(ProductConstants.Keno, hidden: nonDCSProduct.HideKeno)
             };
 
             dcsProducts.ToList().ForEach(product =>
@@ -293,9 +289,7 @@
             var customerProductStatus = new List<CustomerProductStatus>
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
-                new CustomerProductStatus(ProductConstants.NumberGame, message.IsNumberGameDisabled),
-                new CustomerProductStatus(ProductConstants.ESport, message.IsDisabledESports),
-                new CustomerProductStatus(ProductConstants.Keno, hidden:message.IsHideKeno)
+                new CustomerProductStatus(ProductConstants.ESport, message.IsDisabledESports)
             };
 
             dcsProducts.ToList().ForEach(product =>

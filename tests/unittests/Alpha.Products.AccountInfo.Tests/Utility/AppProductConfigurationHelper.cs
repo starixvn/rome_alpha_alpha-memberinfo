@@ -9,9 +9,7 @@
         => new List<IConfigurationItem>()
         {
                 new ConfigurationItem(1, "Sportsbook", extendProductProperty: new SearchAccountProperties(true, true, true)),
-                new ConfigurationItem(3, "Number Game", extendProductProperty: new SearchAccountProperties(true, true, true)),
                 new ConfigurationItem(5, "Virtual Sports", extendProductProperty: new SearchAccountProperties(true, true, true)),              
-                new ConfigurationItem(8, "Keno", extendProductProperty: new SearchAccountProperties(true, true, true)),            
                 new ConfigurationItem(16, "Sportsbook2", extendProductProperty: new SearchAccountProperties(true, true, true)),
                 new ConfigurationItem(41, "Live Casino", extendProductProperty: new SearchAccountProperties(true, true, true)),
                 new ConfigurationItem(22, "Macau Games", extendProductProperty: new SearchAccountProperties(true, true, true)),

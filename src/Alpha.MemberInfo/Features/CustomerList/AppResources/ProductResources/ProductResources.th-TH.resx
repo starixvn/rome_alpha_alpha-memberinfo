@@ -429,9 +429,6 @@
   <data name="YesterdayCash" xml:space="preserve">
     <value>เงินสดเมื่อวาน</value>
   </data>
-  <data name="EditMultipleRNGKenoText" xml:space="preserve">
-    <value>แก้ไขคีโน่หลายทาง</value>
-  </data>
   <data name="EditMultipleSportsbook2" xml:space="preserve">
     <value>แก้ไข หน้ากีฬาแบบหลายบัญชี 2</value>
   </data>

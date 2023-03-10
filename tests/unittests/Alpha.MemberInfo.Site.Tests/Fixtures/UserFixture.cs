@@ -22,10 +22,8 @@
             User.GetDisabledProduct(Arg.Any<int>()).Returns(true);
             User.GetHideProduct(Arg.Any<int>()).Returns(true);
             User.GetSyncedProduct(Arg.Any<int>()).Returns(true);
-            User.IsHideKeno.Returns(true);
             User.CanUpdateAccount.Returns(true);            
             User.IsDisabledESports.Returns(true);
-            User.IsNumberGameDisabled.Returns(true);
             User.LimitedDateToShowInfo.Returns(new DateTime(2020, 11, 19));
         }
 

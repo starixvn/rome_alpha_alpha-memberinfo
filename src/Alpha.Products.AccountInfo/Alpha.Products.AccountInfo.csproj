@@ -34,8 +34,8 @@
     <CodeAnalysisRuleSet>Alpha.Products.AccountInfo.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.Products.Core, Version=1.0.1.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Products.Core.1.0.1.3\lib\net461\Alpha.Products.Core.dll</HintPath>
+    <Reference Include="Alpha.Products.Core, Version=1.0.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Products.Core.1.0.1.5-MigrateNGKeno001\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
@@ -81,11 +81,11 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.4.5.6.1\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.6.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.6.8\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.6.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.6.7-removeNG003\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.5\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.7-removeNG004\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Utilities.3.0.2\lib\net461\Sunplus.Agent.Utilities.dll</HintPath>
@@ -142,13 +142,11 @@
     <Compile Include="Setting\ViewModels\Multiple\SuspendedMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\ParlayMaxPayoutViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductMultipleViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Products\Keno\KenoMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\NG2\Ng2ProductMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\NG2\Ng2ProductViewModel.cs" />
     <Compile Include="Setting\ViewModels\Base\ProductSettingItemViewModel.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
-    <Compile Include="Setting\ViewModels\Products\Keno\KenoViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook2\Sportsbook2MultipeViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook2\Sportsbook2ViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookMultipleViewModel.cs" />

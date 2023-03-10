@@ -11,11 +11,6 @@
         private readonly IConfigurationItem productItem;
         private const int DisplayOrderStep = 10;
 
-        private readonly static List<int> productsAllowedSuperViewAgent = new List<int>
-        {
-            ProductConstants.Keno
-        };
-
         public ProductStatusItemViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request)
         {
@@ -37,18 +32,10 @@
 
         public override bool Disabled
             => base.Disabled || 
-            IsSuperCanViewAgentOnThisProduct(ProductId) || 
             Actor.IsNotDirectUplineOf(SearchAccount) || 
             SearchAccount.Upline.ProductStatusOf(productItem.ProductId).Disabled;
 
-        public override bool Visible => IsSuperCanViewAgentOnThisProduct(ProductId)
-            ? SearchAccount.CanSeeProduct(productItem.ProductId)
-            : Actor.IsDirectUplineOf(SearchAccount) && SearchAccount.CanSeeProduct(productItem.ProductId);
-
-        private bool IsSuperCanViewAgentOnThisProduct(int productId)
-            => Actor.IsSuper
-            && SearchAccount.IsAgent
-            && productsAllowedSuperViewAgent.Contains(productId);
+        public override bool Visible => Actor.IsDirectUplineOf(SearchAccount) && SearchAccount.CanSeeProduct(productItem.ProductId);
 
         public bool IsEditOnProductLevel
 #pragma warning disable S3215 // "interface" instances should not be cast to concrete types

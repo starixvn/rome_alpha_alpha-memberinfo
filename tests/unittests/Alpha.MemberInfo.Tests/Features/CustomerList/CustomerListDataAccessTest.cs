@@ -118,12 +118,8 @@
 
         private static NonDCSProductStatusModel StubNonDCSProduct()
             => new NonDCSProductStatusModel(
-                             disableNumber: true,
-                             uplineDisableNumber: true,
                              disableEsports: true,
-                             uplineDisableEsports: true,
-                             hideKeno: true,
-                             disableKeno: false
+                             uplineDisableEsports: true
                             );
 
         private static NonProductStatusModel StubNonProductStatus()

@@ -432,9 +432,6 @@
   <data name="YesterdayCash" xml:space="preserve">
     <value>昨天馀額</value>
   </data>
-  <data name="EditMultipleRNGKenoText" xml:space="preserve">
-    <value>修改多重快樂彩</value>
-  </data>
   <data name="EditMultipleSportsbook2" xml:space="preserve">
     <value>修改多重體育博彩2</value>
   </data>
