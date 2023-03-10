@@ -198,6 +198,38 @@ select:-webkit-autofill:focus {
     margin-left: 8px;
 }
 
+
+
+.relative-input {
+    position: relative;
+    width: 336px;
+
+    .icon-eye, .icon-eye-close {
+        color: #727272;
+        position: absolute;
+        z-index: 10;
+        top: 7px;
+        right: 3px;
+    }
+
+    #icon-message-password {
+        position: absolute;
+        z-index: 10;
+        top: 7px;
+        right: -30px;
+    }
+}
+
+
+.input-pass {
+    font-family: 'password';
+}
+
+.input-pass::placeholder {
+    font-family: 'Roboto';
+}
+
+
 @media (max-width : 767px) {
     .switch-old-version {
         position: unset;

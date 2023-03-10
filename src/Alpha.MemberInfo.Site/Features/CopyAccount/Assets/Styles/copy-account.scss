@@ -192,9 +192,27 @@ select:-webkit-autofill:focus {
     margin-left: 8px;
 }
 
-.relative {
+
+.relative-input {
     position: relative;
+    width: 336px;
+
+    .icon-eye, .icon-eye-close {
+        color: #888888;
+        position: absolute;
+        z-index: 10;
+        top: 7px;
+        right: 3px;
+    }
+
+    #icon-message-password {
+        position: absolute;
+        z-index: 10;
+        top: 7px;
+        right: -30px;
+    }
 }
+
 
 .input-pass {
     font-family: 'password';
@@ -204,21 +222,13 @@ select:-webkit-autofill:focus {
     font-family: 'Roboto';
 }
 
-.icon-eye, .icon-eye-close {
-    color: #727272;
-    position: absolute;
-    z-index: 10;
-}
-
-.icon-eye, .icon-eye-close {
-    top: 7px;
-    right: 3px;
-}
-
 @media (max-width : 767px) {
     .result {
         position: unset;
         width: 180px;
         margin-bottom: 10px;
+    }
+    .icon{
+        font-size : 16px;
     }
 }
