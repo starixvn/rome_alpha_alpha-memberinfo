@@ -28,5 +28,8 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
         public async Task<ActionResult> CheckUsername(CheckUsernameQuery query)
             => await JsonAsync(query);
+
+        public async Task<ActionResult> CheckExistedCustomer(CheckExistedCustomerQuery query)
+            => await JsonAsync(query);
     }
 }

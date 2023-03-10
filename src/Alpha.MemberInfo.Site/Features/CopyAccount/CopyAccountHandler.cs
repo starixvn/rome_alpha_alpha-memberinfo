@@ -14,7 +14,8 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         IAsyncRequestHandler<CopyAccountQuery, CopyAccountViewModel>,
         IAsyncRequestHandler<CopyAccountCommand, CopyAccountResponse>,
         IAsyncRequestHandler<CreditQuery, CreditInfo>,
-        IAsyncRequestHandler<CheckUsernameQuery, bool>
+        IAsyncRequestHandler<CheckUsernameQuery, bool>,
+        IAsyncRequestHandler<CheckExistedCustomerQuery, bool>
     {
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
         private readonly ICopyAccountService copyAccountService;
@@ -70,6 +71,11 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
             var result = qrCodeMemberSignInService.CheckBelongingByUsername(message.ViewerId, message.CustName, message.SubAccId);
             var isValid = result.CustId > 0 && Enumeration.FromValue<UserLevel>((byte)result.RoleId).IsDirectDownlineOf(message.ActorLevel);
             return Task.FromResult(isValid);
+        }
+
+        public Task<bool> Handle(CheckExistedCustomerQuery message)
+        {
+            return Task.FromResult(qrCodeMemberSignInService.CheckExistedCustomer(message.CustName));
         }
     }
 }

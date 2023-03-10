@@ -274,30 +274,42 @@ class CopyAccount {
 
     checkExistedUsernameByChangeSuffix = () => {
         const username = `${this.$('#actor-name').text()}${this.$('#FirstSuffix').val()}${this.$('#SecondSuffix').val()}${this.$('#ThirdSuffix').val()}`;
-        const onSuccess = (result: boolean) => {
-            const iconClass = result ? 'icon-close' : 'icon-check';
-            this.$("#icon-message-username").removeClass().addClass(iconClass);
-        };
 
-        this.checkExistedCustomer(username, onSuccess);
+        this.$.ajax({
+            method: "POST",
+            headers: this.getHeadersForPostRequest(),
+            data: { custName: username },
+            dataType: 'json',
+            url: "CopyAccount/CheckExistedCustomer",
+            success: (result) => {
+                this.invalidUsername = result;
+                const iconClass = result ? 'icon-close' : 'icon-check';
+                this.$("#icon-message-username").removeClass().addClass(iconClass);
+            }
+        });
     }
 
     blurEventSourceAccount = () => {
-        const onSucess = (result: boolean) => {
-            const iconClass = result ? 'icon-check' : 'icon-close';
-            this.$("#icon-message-SourceUsername").removeClass().addClass(iconClass);
-            this.inValidSourceAccount = !result;
-            if (result) {
-                this.getCustomerCredit(this.$sourceUsername.val());
-            } else {
-                this.showErrorMessage(this.userNotExistMessage);
-                this.$creditRange.addClass("hidden");
-            }
-        };
-
         var sourceUsername: string = this.$sourceUsername.val();
         if (sourceUsername && sourceUsername.length) {
-            this.checkExistedCustomer(sourceUsername, onSucess);
+            this.$.ajax({
+                method: "POST",
+                headers: this.getHeadersForPostRequest(),
+                data: { custName: sourceUsername },
+                dataType: 'json',
+                url: "CopyAccount/CheckUsername",
+                success: (result) => {
+                    const iconClass = result ? 'icon-check' : 'icon-close';
+                    this.$("#icon-message-SourceUsername").removeClass().addClass(iconClass);
+                    this.inValidSourceAccount = !result;
+                    if (result) {
+                        this.getCustomerCredit(this.$sourceUsername.val());
+                    } else {
+                        this.showErrorMessage(this.userNotExistMessage);
+                        this.$creditRange.addClass("hidden");
+                    }
+                }
+            });
         }
     }
 
@@ -339,19 +351,6 @@ class CopyAccount {
 
     isInValidCredit = (credit: number, max: number) => {
         return isNaN(credit) || credit < this.creditMin || credit > max;
-    }
-
-    checkExistedCustomer = (username: string, onSuccess: (result: boolean) => void) => {
-        this.$.ajax({
-            method: "POST",
-            headers: this.getHeadersForPostRequest(),
-            data: { custName: username },
-            dataType: 'json',
-            url: "CopyAccount/CheckUsername",
-            success: (result) => {
-                onSuccess(result);
-            }
-        });
     }
 
     getHeadersForPostRequest = () => {
