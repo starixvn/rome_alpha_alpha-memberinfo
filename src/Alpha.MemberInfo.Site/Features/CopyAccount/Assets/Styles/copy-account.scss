@@ -1,7 +1,8 @@
 ﻿
 
 #copyAccountForm {
-    position : relative;
+    position: relative;
+
     .label {
         font-size: 13px;
         line-height: 22px;
@@ -37,7 +38,7 @@
             }
         }
 
-        input{
+        input {
             width: 336px;
             background: #FFFFFF;
             border: 1px solid #D1D1D1;
@@ -99,6 +100,10 @@
         font-size: 16px;
         line-height: 24px;
         margin: 0 0 2px 0;
+    }
+
+    .msg-error {
+        width: 500px;
     }
 }
 

@@ -2,6 +2,7 @@
 
 #copyAccountForm {
     position: relative;
+
     .label {
         font-size: 13px;
         line-height: 22px;
@@ -45,6 +46,7 @@
             border-radius: 0;
             box-shadow: none;
             height: 30px;
+            color: #EDEDED;
         }
 
         input[type='number'] {
@@ -100,6 +102,10 @@
         line-height: 24px;
         margin: 0 0 2px 0;
         color: #EDEDED;
+    }
+
+    .msg-error {
+        width: 500px;
     }
 }
 
