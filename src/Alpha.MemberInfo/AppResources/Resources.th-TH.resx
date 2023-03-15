@@ -869,4 +869,46 @@
   <data name="UserNotExist" xml:space="preserve">
     <value>ไม่มียูเซอร์นี้</value>
   </data>
+  <data name="NoAccountCreatedFailed" xml:space="preserve">
+    <value>สร้างไม่สำเร็จ {0} บัญชี</value>
+  </data>
+  <data name="FailureReason" xml:space="preserve">
+    <value>สาเหตุที่ไม่สำเร็จ</value>
+  </data>
+  <data name="CreateMore" xml:space="preserve">
+    <value>สร้างเพิ่ม</value>
+  </data>
+  <data name="CopySettings" xml:space="preserve">
+    <value>*หมายเหตุ : การตั้งค่าต่างๆ จะใช้ค่าเดียวกันกับบัญชีต้นทาง</value>
+  </data>
+  <data name="CopySettingsNote" xml:space="preserve">
+    <value>ค้นหาบัญชีที่มีอยู่เพื่อใช้เป็นบัญชีต้นทางสำหรับคัดลอกการตั้งค่า</value>
+  </data>
+  <data name="CopyAccountNote" xml:space="preserve">
+    <value>*หมายเหตุ : การตั้งค่าต่างๆ จะใช้ค่าเดียวกันกับบัญชีต้นทาง</value>
+  </data>
+  <data name="NoOfAccounts" xml:space="preserve">
+    <value>จำนวนบัญชี</value>
+  </data>
+  <data name="NoOfAccountsNote" xml:space="preserve">
+    <value>เลือกจำนวนบัญชีลูกค้าใหม่ที่ต้องการสร้าง(สูงสุด = {0})</value>
+  </data>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>รายละเอียดของบัญชี</value>
+  </data>
+  <data name="AccountDetailsNote" xml:space="preserve">
+    <value>เลือกชื่อบัญชีลำดับแรกที่ว่างอยู่ สำหรับบัญชีถัดไป ระบบจะเลือกให้โดยอัตโนมัติ</value>
+  </data>
+  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
+    <value>บัญชีต่อไปนี้ ได้สร้างขึ้นสำเร็จแล้ว</value>
+  </data>
+  <data name="SwitchToOldVersion" xml:space="preserve">
+    <value>เปลี่ยนกลับไปเวอร์ชั่นเก่า</value>
+  </data>
+  <data name="Usernames" xml:space="preserve">
+    <value>เครดิต</value>
+  </data>
+  <data name="MemberMaxCredit" xml:space="preserve">
+    <value>เครดิตโอนเงินสูงสุดของสมาชิก</value>
+  </data>
 </root>

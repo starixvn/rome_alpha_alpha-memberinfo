@@ -871,7 +871,7 @@
     <value>QR Code</value>
   </data>
   <data name="CopyAccountNote" xml:space="preserve">
-    <value>* Note: Settings will remain the same as the Source account settings for all accounts</value>
+    <value>*Note: Settings will be the same as the Source account</value>
   </data>
   <data name="CopySettings" xml:space="preserve">
     <value>Copy Settings</value>
@@ -880,16 +880,16 @@
     <value>No. of Accounts</value>
   </data>
   <data name="CopySettingsNote" xml:space="preserve">
-    <value>Search existing account to copy the same settings</value>
+    <value>Search for an existing account to copy settings</value>
   </data>
   <data name="NoOfAccountsNote" xml:space="preserve">
-    <value>Choose the number of accounts you want to create (Max={0})</value>
+    <value>Choose the number of accounts you want to create (Max = {0})</value>
   </data>
   <data name="AccountDetails" xml:space="preserve">
     <value>Account Details</value>
   </data>
   <data name="AccountDetailsNote" xml:space="preserve">
-    <value>Choose a first available username and the remaining accounts will follow the suggestion of system.</value>
+    <value>Choose the first available username and the remaining accounts will follow the system's suggestion.</value>
   </data>
   <data name="lblPasswordRequire" xml:space="preserve">
     <value>Password must be at least 8 characters without white-space and contain at least 3 of the following:
@@ -918,9 +918,15 @@ Notes: your password is cAsE sEnSiTiVe</value>
     <value>Usernames</value>
   </data>
   <data name="CreateCustomerSuccessMessage" xml:space="preserve">
-    <value>The list of accounts been created successfully</value>
+    <value>The following accounts have been created successfully</value>
   </data>
   <data name="UserNotExist" xml:space="preserve">
     <value>This user does not exist</value>
+  </data>
+  <data name="NoAccountCreatedFailed" xml:space="preserve">
+    <value>{0} failed account creations</value>
+  </data>
+  <data name="FailureReason" xml:space="preserve">
+    <value>Failure Reason</value>
   </data>
 </root>

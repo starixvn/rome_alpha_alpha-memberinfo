@@ -70,7 +70,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose a first available username and the remaining accounts will follow the suggestion of system..
+        ///   Looks up a localized string similar to Choose the first available username and the remaining accounts will follow the system&apos;s suggestion..
         /// </summary>
         public static string AccountDetailsNote {
             get {
@@ -412,7 +412,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to * Note: Settings will remain the same as the Source account settings for all accounts.
+        ///   Looks up a localized string similar to *Note: Settings will be the same as the Source account.
         /// </summary>
         public static string CopyAccountNote {
             get {
@@ -439,7 +439,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search existing account to copy the same settings.
+        ///   Looks up a localized string similar to Search for an existing account to copy settings.
         /// </summary>
         public static string CopySettingsNote {
             get {
@@ -457,7 +457,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The list of accounts been created successfully.
+        ///   Looks up a localized string similar to The following accounts have been created successfully.
         /// </summary>
         public static string CreateCustomerSuccessMessage {
             get {
@@ -804,6 +804,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string ExportToExcel {
             get {
                 return ResourceManager.GetString("ExportToExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failure Reason.
+        /// </summary>
+        public static string FailureReason {
+            get {
+                return ResourceManager.GetString("FailureReason", resourceCulture);
             }
         }
         
@@ -1464,6 +1473,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} failed account creations.
+        /// </summary>
+        public static string NoAccountCreatedFailed {
+            get {
+                return ResourceManager.GetString("NoAccountCreatedFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There is no change to update..
         /// </summary>
         public static string NoChangeToUpdateError {
@@ -1518,7 +1536,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose the number of accounts you want to create (Max={0}).
+        ///   Looks up a localized string similar to Choose the number of accounts you want to create (Max = {0}).
         /// </summary>
         public static string NoOfAccountsNote {
             get {

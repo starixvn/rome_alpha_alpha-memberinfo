@@ -29,7 +29,7 @@
                     <h4 class="title">@Resources.CopySettings</h4>
                     <div class="form-group">
                         <label class="label">@Resources.CopySettingsNote</label>
-                        <input type="text" name="SourceUsername" id="SourceUsername" placeholder="@Resources.UsernamePlaceHolder" value="@Model.SourceUsername" />
+                        <input type="text" name="SourceUsername" id="SourceUsername" placeholder="@Resources.UsernamePlaceHolder" />
                         <span id="icon-message-SourceUsername" />
                     </div>
 
@@ -109,7 +109,7 @@
                         <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateAccount</button>
                     </div>
                 </div>
-                @Html.Hidden("SourceUsernameHidden", Model.SourceUsername)
+                @Html.Hidden("HashKey", Model.HashKey)
                 @Html.Hidden("MaxAccountsCreatePerRequest", AppSettings.MaxAccountsCreatePerRequest)
                 @Html.Hidden("IsCreateAgent", Model.ActorLevel.IsMasterLevel())
                 <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
@@ -118,13 +118,6 @@
             </form>
 
             <div id="result" class="result hidden">
-                <p class="result-text">@Resources.CreateCustomerSuccessMessage: </p>
-                @Html.Partial("~/Features/CopyAccount/Views/_SwitchToOldVersion.cshtml")
-                <p class="result-text">@Resources.Usernames: <span class="txt-bold" id="usernames"></span>  <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span></p>
-                <p class="result-text">@Resources.Credit: <span class="txt-bold" id="txtClonedCredit"></span> <span class="per-account">(@Resources.PerAccount)</span></p>
-                <div class="form-group">
-                    <button class="btn-submit" id="btnCreateMore">@Resources.CreateMore</button>
-                </div>
             </div>
         }
     </div>

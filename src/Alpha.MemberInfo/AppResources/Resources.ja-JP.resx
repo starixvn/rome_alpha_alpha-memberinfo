@@ -213,9 +213,6 @@
   <data name="Disabled" xml:space="preserve">
     <value>Disabled</value>
   </data>
-  <data name="Closed_Duplicate[1]" xml:space="preserve">
-    <value>閉鎖</value>
-  </data>
   <data name="Suspended" xml:space="preserve">
     <value>Suspended</value>
   </data>

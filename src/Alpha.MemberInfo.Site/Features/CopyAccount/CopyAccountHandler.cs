@@ -5,7 +5,10 @@ using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Request;
 using Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels;
+using Alpha.Web.Helpers;
+using Fanex.Cryptography.Aes;
 using MediatR;
+using Sunplus.Agent.Utilities;
 using System.Threading.Tasks;
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount
@@ -17,11 +20,24 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         IAsyncRequestHandler<CheckUsernameQuery, bool>,
         IAsyncRequestHandler<CheckExistedCustomerQuery, bool>
     {
+        private const string HashKeySessionKey = "Alpha.MemberInfo.Site.Features.CopyAccount.CopyAccountHandler.PasswordHash";
+
+        private readonly Encryptor encryptor;
+        private readonly IAesService aes;
+        private readonly SessionManager sessionManager;
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
         private readonly ICopyAccountService copyAccountService;
 
-        public CopyAccountHandler(QRCodeMemberSignInService qrCodeMemberSignInService, ICopyAccountService copyAccountService)
+        public CopyAccountHandler(
+            Encryptor encryptor,
+            IAesService aes,
+            SessionManager sessionManager,
+            QRCodeMemberSignInService qrCodeMemberSignInService,
+            ICopyAccountService copyAccountService)
         {
+            this.encryptor = encryptor;
+            this.aes = aes;
+            this.sessionManager = sessionManager;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
             this.copyAccountService = copyAccountService;
         }
@@ -40,8 +56,17 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
             return new CopyAccountViewModel(
                 message,
-                message.SourceUsername,
-                qrCodeMemberSignInService.GetSuggestUsername(message.ViewerUsername, message.ViewerId, message.ViewerLevelId));
+                qrCodeMemberSignInService.GetSuggestUsername(message.ViewerUsername, message.ViewerId, message.ViewerLevelId),
+                GetHasKey());
+        }
+
+        private string GetHasKey()
+        {
+            var hashKey = encryptor.RandomString(4);
+
+            sessionManager.Add(HashKeySessionKey, hashKey);
+
+            return hashKey;
         }
 
         public async Task<CopyAccountResponse> Handle(CopyAccountCommand message)
@@ -51,6 +76,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
             if (sourceCustId > 0 && qrCodeMemberSignInService.IsEnableCustomer(sourceCustId))
             {
+                message.Password = aes.Decrypt(message.Password, sessionManager.Get<string>(HashKeySessionKey));
                 return await copyAccountService.CreateAccount(message, sourceCustId);
             }
 

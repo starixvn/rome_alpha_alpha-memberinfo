@@ -11,7 +11,5 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.Request
             : base(viewer)
         {
         }
-
-        public string SourceUsername { get; set; }
     }
 }

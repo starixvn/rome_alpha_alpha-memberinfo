@@ -1,10 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
 {
     public class CopyAccountResponse
     {
         public IEnumerable<string> Usernames { get; set; }
+
+        public decimal Credit { get; set; }
+
+        public int NoOfAccount { get; set; }
+
+        public int NoOfFailedAccount => (NoOfAccount - Usernames.Count());
 
         public bool Success { get; set; }
 

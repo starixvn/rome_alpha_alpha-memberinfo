@@ -1,7 +1,9 @@
-﻿using Alpha.MemberInfo.Site.Controllers;
+﻿using Alpha.MemberInfo.Models;
+using Alpha.MemberInfo.Site.Controllers;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Request;
 using Alpha.Web.Filters;
 using MediatR;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -10,8 +12,9 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
     public class CopyAccountController : SiteBaseController
     {
         private const string IndexPath = "~/Features/CopyAccount/Views/Index.cshtml";
+        private const string ResultPath = "~/Features/CopyAccount/Views/_CopyResult.cshtml";
 
-        public CopyAccountController(IMediator mediator) 
+        public CopyAccountController(IMediator mediator)
             : base(mediator)
         {
         }
@@ -21,7 +24,19 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
         [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> Index(CopyAccountCommand command)
-            => await JsonAsync(command);
+        {
+            var result = await mediator.SendAsync(command);
+            if (result.Usernames.Any())
+            {
+                result.Credit = command.Credit;
+                result.NoOfAccount = command.NumberOfAccounts;
+                return PartialView(ResultPath, result);
+            }
+            else
+            {
+                return Json(Result.CreateErrorResult(result.Message, result.Code));
+            }
+        }
 
         public async Task<ActionResult> GetCredit(CreditQuery query)
             => await JsonAsync(query);

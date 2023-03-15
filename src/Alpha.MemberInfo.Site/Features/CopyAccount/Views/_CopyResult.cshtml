@@ -1,0 +1,13 @@
+﻿@model CopyAccountResponse
+<p class="result-text">@Resources.CreateCustomerSuccessMessage: </p>
+@Html.Partial("~/Features/CopyAccount/Views/_SwitchToOldVersion.cshtml")
+<p class="result-text">@Resources.Usernames: <span class="txt-bold" id="usernames">@string.Join(", ", Model.Usernames)</span>  <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span></p>
+<p class="result-text">@Resources.Credit: <span class="txt-bold" id="txtClonedCredit">@Model.Credit.ToString("0,0.##")</span> <span class="per-account">(@Resources.PerAccount)</span></p>
+@if (Model.NoOfFailedAccount > 0)
+{
+    <p class="result-text">@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</p>
+    <p>@Resources.FailureReason: <span class="msg msg-error">@Model.Message</span></p>
+}
+<div class="form-group">
+    <button class="btn-submit" id="btnCreateMore">@Resources.CreateMore</button>
+</div>

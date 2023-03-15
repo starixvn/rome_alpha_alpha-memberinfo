@@ -5,12 +5,12 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
 {
     public class CopyAccountViewModel
     {
-        public CopyAccountViewModel(CopyAccountQuery request, string sourceUsername, string usernameSuffix)
+        public CopyAccountViewModel(CopyAccountQuery request, string usernameSuffix, string hashKey)
         {
             ActorLevel = request.ActorLevel;
             ActorUsername = request.ViewerUsername;
-            SourceUsername = sourceUsername;
             UsernameSuffix = usernameSuffix;
+            HashKey = hashKey;
             FirstChar = UsernameSuffix.Substring(0, 1).ToUpper();
             SecondChar = UsernameSuffix.Substring(1, 1).ToUpper();
             ThirdChar = request.ActorLevel.IsAgentLevel() ? UsernameSuffix.Substring(2, 1).ToUpper() : string.Empty;
@@ -25,8 +25,6 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
         public UserLevel ActorLevel { get; }
 
         public string ActorUsername { get; }
-
-        public string SourceUsername { get; }
 
         public string UsernameSuffix { get; }
 
@@ -45,5 +43,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
         public string ErrorMessage { get; }
 
         public bool IsLimitNewDownline { get; }
+
+        public string HashKey { get; }
     }
 }

@@ -4,6 +4,7 @@ declare var Clipboard: any;
 
 class CopyAccount {
     $: JQueryStatic;
+    encryptor: Encryptor;
     $form: JQuery;
     $result: JQuery;
     $sourceUsername: JQuery;
@@ -50,14 +51,17 @@ class CopyAccount {
 
     userNotExistMessage: string;
     clipboardUsernames: any;
+    hashKey: string;
 
     constructor(
         $: JQueryStatic,
+        encryptor: Encryptor,
         topWindow: any,
         clipboardUsernames: any) {
         this.$ = $;
         this.topWindow = topWindow;
         this.clipboardUsernames = clipboardUsernames;
+        this.encryptor = encryptor;
     }
 
     init = () => {
@@ -97,6 +101,7 @@ class CopyAccount {
         this.userNotExistMessage = this.$("#UserNotExistMessage").val();
 
         this.$showPass = this.$(".show-pass");
+        this.hashKey = this.$("#HashKey").val();
     }
 
     showPass = () => {
@@ -235,7 +240,7 @@ class CopyAccount {
             CreditMin: this.creditMin,
             CreditMax: this.creditMax,
             NumberOfAccounts: this.$noOfAccounts.val(),
-            Password: this.$password.val()
+            Password: this.encryptor.encrypt(this.$password.val(), this.hashKey)
         };
 
         if (this.isCreateAgent) {
@@ -246,14 +251,14 @@ class CopyAccount {
             method: "POST",
             headers: this.getHeadersForPostRequest(),
             data: data,
-            dataType: 'json',
+            dataType: 'text',
             url: "CopyAccount/Index",
-            success: (result) => {
-                if (result.Code > 0) {
+            success: (data) => {
+                var result = this.safelyParseJSON(data);
+                if (result && result.IsNotOk) {
                     this.showErrorMessage(result.Message);
                 } else {
-                    this.$("#usernames").html(result.Usernames.join(", "));
-                    this.$("#txtClonedCredit").html(numeral(this.credit).format(this.numberFormat));
+                    this.$result.append(data);
                     this.$result.removeClass("hidden");
                     this.$form.addClass("hidden");
                 }
@@ -261,6 +266,15 @@ class CopyAccount {
             },
             error: () => { this.$.unblockUI(); }
         });
+    }
+
+    safelyParseJSON = (json) => {
+        var parsed;
+        try {
+            parsed = JSON.parse(json);
+        } catch (e) { }
+
+        return parsed;
     }
 
     checkExistedUsernameByChangeSuffix = () => {
@@ -380,7 +394,7 @@ class CopyAccount {
     }
 }
 
-const copyAccount = new CopyAccount($, window.top, new Clipboard(".icon-content-copy"));
+const copyAccount = new CopyAccount($, new Encryptor(), window.top, new Clipboard(".icon-content-copy"));
 
 $(() => {
     copyAccount.init();

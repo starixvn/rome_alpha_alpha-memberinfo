@@ -323,6 +323,8 @@
   {
     "outputFileName": "Features/CopyAccount/Bundles/copy-account.js",
     "inputFiles": [
+      "assets/scripts/aes.js",
+      "assets/scripts/encryptor.js",
       "Features/CopyAccount/Assets/Scripts/copy-account.js",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
     ]

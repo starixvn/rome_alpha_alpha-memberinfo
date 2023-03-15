@@ -860,4 +860,46 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="UserNotExist" xml:space="preserve">
     <value>Người chơi này không có thực </value>
   </data>
+  <data name="NoAccountCreatedFailed" xml:space="preserve">
+    <value>{0} tài khoản tạo không thành công</value>
+  </data>
+  <data name="FailureReason" xml:space="preserve">
+    <value>Lý do thất bại</value>
+  </data>
+  <data name="CreateMore" xml:space="preserve">
+    <value>Tạo thêm</value>
+  </data>
+  <data name="CopySettings" xml:space="preserve">
+    <value>*Lưu ý: Cài đặt sẽ giống như của tài khoản nguồn</value>
+  </data>
+  <data name="CopySettingsNote" xml:space="preserve">
+    <value>Tìm tài khoản có sẵn để sao chép cài đặt</value>
+  </data>
+  <data name="CopyAccountNote" xml:space="preserve">
+    <value>*Lưu ý: Cài đặt sẽ giống như của tài khoản nguồn</value>
+  </data>
+  <data name="NoOfAccounts" xml:space="preserve">
+    <value>Số tài khoản</value>
+  </data>
+  <data name="NoOfAccountsNote" xml:space="preserve">
+    <value>Chọn số lượng tài khoản mà bạn muốn tạo (Tối đa = {0})</value>
+  </data>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>Chi Tiết Tài Khoản</value>
+  </data>
+  <data name="AccountDetailsNote" xml:space="preserve">
+    <value>Hãy chọn tên người dùng khả dụng trước và hệ thống sẽ đề xuất tên cho các tài khoản còn lại.</value>
+  </data>
+  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
+    <value>Các tài khoản sau đây đã được tạo thành công</value>
+  </data>
+  <data name="SwitchToOldVersion" xml:space="preserve">
+    <value>Chuyển sang phiên bản cũ</value>
+  </data>
+  <data name="Usernames" xml:space="preserve">
+    <value>Hạn mức</value>
+  </data>
+  <data name="MemberMaxCredit" xml:space="preserve">
+    <value>Hạn mức tín dụng tối đa của Member</value>
+  </data>
 </root>
