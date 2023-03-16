@@ -37,18 +37,6 @@
                 margin-right: 16px;
             }
         }
-
-        input {
-            width: 336px;
-            background: #313131;
-            border: 1px solid #474747;
-            appearance: none;
-            border-radius: 0;
-            box-shadow: none;
-            height: 30px;
-            color: #EDEDED;
-        }
-
         input[type='number'] {
             width: 50px;
             font-size: 13px;
@@ -199,6 +187,17 @@ select:-webkit-autofill:focus {
 }
 
 
+input {
+    width: 336px;
+    background: #313131;
+    border: 1px solid #474747;
+    appearance: none;
+    border-radius: 0;
+    box-shadow: none;
+    height: 30px;
+    color: #EDEDED;
+}
+
 
 .relative-input {
     position: relative;
@@ -215,7 +214,7 @@ select:-webkit-autofill:focus {
     }
 
     .icon-content-copy {
-        color: #0B599C;
+        color: #22A2FF;
     }
 
     #icon-message-password {
@@ -231,6 +230,7 @@ select:-webkit-autofill:focus {
 
     .per-account {
         width: 105px;
+        color: #999999;
     }
 }
 
