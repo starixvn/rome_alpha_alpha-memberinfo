@@ -174,18 +174,7 @@ select:-webkit-autofill:focus {
     font-weight : bold;
 }
 
-.result {
-    position: relative;
 
-    .result-text {
-        display: flex;
-        align-items: center;
-
-        span {
-            margin: 0 4px;
-        }
-    }
-}
 
 .per-account {
     font-style: italic;
@@ -197,7 +186,7 @@ select:-webkit-autofill:focus {
     position: relative;
     width: 336px;
 
-    .icon-eye, .icon-eye-close {
+    .icon-eye, .icon-eye-close, .icon-content-copy {
         color: #888888;
         position: absolute;
         z-index: 10;
@@ -211,6 +200,14 @@ select:-webkit-autofill:focus {
         top: 7px;
         right: -30px;
     }
+
+    input {
+        width: 100%;
+    }
+
+    .form-group {
+        margin: 12px 0 0 0;
+    }
 }
 
 
@@ -221,6 +218,25 @@ select:-webkit-autofill:focus {
 .input-pass::placeholder {
     font-family: 'Roboto';
 }
+
+.result {
+    position: relative;
+    margin-top: 20px;
+
+    .result-text {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin: 0 4px;
+        }
+    }
+
+    .result-submit {
+        margin-top: 12px;
+    }
+}
+
 
 @media (max-width : 767px) {
     .result {

@@ -1,13 +1,25 @@
 ﻿@model CopyAccountResponse
-<p class="result-text">@Resources.CreateCustomerSuccessMessage: </p>
+
+<div class="form-group relative-input">
+    <label>@Resources.Usernames:</label>
+    <input type="text" name="member" id="usernames" value="@string.Join(", ", Model.Usernames)" />
+    <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span>
+</div>
+<div class="form-group relative-input">
+    <label class="sub-label">@Resources.Credit <span class="require">*</span></label>
+    <input type="text" name="Credit" id="txtClonedCredit" value="@Model.Credit.ToString("0,0.##")" />
+    <span class="per-account">(@Resources.PerAccount)</span>
+</div>
+
+@*<p class="result-text">@Resources.CreateCustomerSuccessMessage: </p>
 @Html.Partial("~/Features/CopyAccount/Views/_SwitchToOldVersion.cshtml")
 <p class="result-text">@Resources.Usernames: <span class="txt-bold" id="usernames">@string.Join(", ", Model.Usernames)</span>  <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span></p>
-<p class="result-text">@Resources.Credit: <span class="txt-bold" id="txtClonedCredit">@Model.Credit.ToString("0,0.##")</span> <span class="per-account">(@Resources.PerAccount)</span></p>
+<p class="result-text">@Resources.Credit: <span class="txt-bold" id="txtClonedCredit">@Model.Credit.ToString("0,0.##")</span> <span class="per-account">(@Resources.PerAccount)</span></p>*@
 @if (Model.NoOfFailedAccount > 0)
 {
     <p class="result-text">@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</p>
     <p>@Resources.FailureReason: <span class="msg msg-error">@Model.Message</span></p>
 }
-<div class="form-group">
+<div class="form-group result-submit">
     <button class="btn-submit" id="btnCreateMore">@Resources.CreateMore</button>
 </div>
