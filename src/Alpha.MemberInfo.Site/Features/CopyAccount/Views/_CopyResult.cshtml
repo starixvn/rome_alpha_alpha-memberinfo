@@ -1,14 +1,18 @@
 ﻿@model CopyAccountResponse
 
-<div class="form-group relative-input">
+<div class="form-group">
     <label>@Resources.Usernames:</label>
-    <input type="text" name="member" id="usernames" value="@string.Join(", ", Model.Usernames)" />
-    <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span>
+    <div class="relative-input">
+        <input type="text" name="member" id="usernames" value="@string.Join(", ", Model.Usernames)" />
+        <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span>
+    </div>
 </div>
-<div class="form-group relative-input">
+<div class="form-group">
     <label class="sub-label">@Resources.Credit <span class="require">*</span></label>
-    <input type="text" name="Credit" id="txtClonedCredit" value="@Model.Credit.ToString("0,0.##")" />
-    <span class="per-account">(@Resources.PerAccount)</span>
+    <div class="relative-input">    
+        <input type="text" name="Credit" id="txtClonedCredit" value="@Model.Credit.ToString("0,0.##")" />
+        <span class="per-account">(@Resources.PerAccount)</span>
+    </div>
 </div>
 
 @*<p class="result-text">@Resources.CreateCustomerSuccessMessage: </p>
@@ -17,8 +21,10 @@
 <p class="result-text">@Resources.Credit: <span class="txt-bold" id="txtClonedCredit">@Model.Credit.ToString("0,0.##")</span> <span class="per-account">(@Resources.PerAccount)</span></p>*@
 @if (Model.NoOfFailedAccount > 0)
 {
-    <p class="result-text">@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</p>
-    <p>@Resources.FailureReason: <span class="msg msg-error">@Model.Message</span></p>
+    <div class="failed-account-created">
+        <p class="msg msg-error">@Model.Message</p>
+        <p class="result-text">@Resources.FailureReason: <span>@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</span></p>
+    </div>
 }
 <div class="form-group result-submit">
     <button class="btn-submit" id="btnCreateMore">@Resources.CreateMore</button>

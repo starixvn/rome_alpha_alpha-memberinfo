@@ -203,8 +203,10 @@ select:-webkit-autofill:focus {
 .relative-input {
     position: relative;
     width: 336px;
+    display: flex;
+    align-items: center;
 
-    .icon-eye, .icon-eye-close {
+    .icon-eye, .icon-eye-close, .icon-content-copy {
         color: #727272;
         position: absolute;
         z-index: 10;
@@ -212,11 +214,65 @@ select:-webkit-autofill:focus {
         right: 3px;
     }
 
+    .icon-content-copy {
+        color: #0B599C;
+    }
+
     #icon-message-password {
         position: absolute;
         z-index: 10;
         top: 7px;
         right: -30px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .per-account {
+        width: 105px;
+    }
+}
+
+.failed-account-created {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #313334;
+    max-width: 336px;
+
+    .msg-error {
+        margin: 0 0 12px 0;
+    }
+
+    .result-text {
+        span {
+            color: #A11515;
+            font-weight: 500;
+        }
+    }
+}
+
+
+.result {
+    position: relative;
+    margin-top: 20px;
+
+    .result-text {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin: 0 4px;
+        }
+    }
+
+    .result-submit {
+        margin-top: 12px;
+    }
+
+    .form-group {
+        margin: 12px 0 0 0;
+        padding-bottom: 0;
     }
 }
 
@@ -229,11 +285,31 @@ select:-webkit-autofill:focus {
     font-family: 'Roboto';
 }
 
+.easy-autocomplete-container {
+    ul {
+        border: 1px solid #292929 !important;
+
+        li {
+            background-color: #171717 !important;
+            border-bottom: 1px solid #292929 !important;
+            color: #EDEDED;
+            border-right: none !important;
+            border-left: none !important;
+            &:last-child{
+                border-bottom : none !important;
+            }
+            &.selected {
+                background-color: #3c3c3c !important;
+            }
+        }
+    }
+}
+
 
 @media (max-width : 767px) {
     .switch-old-version {
         position: unset;
-        width : 180px;
-        margin-bottom : 10px;
+        width: 180px;
+        margin-bottom: 10px;
     }
 }

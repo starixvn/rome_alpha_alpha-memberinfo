@@ -185,6 +185,8 @@ select:-webkit-autofill:focus {
 .relative-input {
     position: relative;
     width: 336px;
+    display: flex;
+    align-items: center;
 
     .icon-eye, .icon-eye-close, .icon-content-copy {
         color: #888888;
@@ -192,6 +194,10 @@ select:-webkit-autofill:focus {
         z-index: 10;
         top: 7px;
         right: 3px;
+    }
+
+    .icon-content-copy {
+        color: #0B599C;
     }
 
     #icon-message-password {
@@ -203,10 +209,32 @@ select:-webkit-autofill:focus {
 
     input {
         width: 100%;
+        border: 1px solid #D1D1D1;
+        box-shadow: none;
+        background: #ECECEC;
     }
 
-    .form-group {
-        margin: 12px 0 0 0;
+    .per-account {
+        width: 105px;
+        color: #727272;
+    }
+}
+
+.failed-account-created {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #E3E3E3;
+    max-width: 336px;
+
+    .msg-error {
+        margin: 0 0 12px 0;
+    }
+
+    .result-text {
+        span {
+            color: #A11515;
+            font-weight : 500;
+        }
     }
 }
 
@@ -234,6 +262,11 @@ select:-webkit-autofill:focus {
 
     .result-submit {
         margin-top: 12px;
+    }
+
+    .form-group {
+        margin: 12px 0 0 0;
+        padding-bottom: 0;
     }
 }
 
