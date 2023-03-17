@@ -192,6 +192,9 @@ select:-webkit-autofill:focus {
 
     &.result-input {
         width: 456px;
+        input {
+            padding-right: 30px;
+        }
     }
 
     .icon-eye, .icon-eye-close, .icon-content-copy {

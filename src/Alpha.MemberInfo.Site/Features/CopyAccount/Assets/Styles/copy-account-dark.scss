@@ -208,8 +208,12 @@ select:-webkit-autofill:focus {
     display: flex;
     align-items: center;
 
+
     &.result-input {
         width: 456px;
+        input {
+            padding-right: 30px;
+        }
     }
 
     .icon-eye, .icon-eye-close, .icon-content-copy {
