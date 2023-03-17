@@ -188,6 +188,10 @@ select:-webkit-autofill:focus {
     display: flex;
     align-items: center;
 
+    &.result-input {
+        width: 456px;
+    }
+
     .icon-eye, .icon-eye-close, .icon-content-copy {
         color: #888888;
         position: absolute;
@@ -224,7 +228,7 @@ select:-webkit-autofill:focus {
     margin-top: 12px;
     padding-top: 12px;
     border-top: 1px solid #E3E3E3;
-    max-width: 336px;
+    max-width: 456px;
 
     .msg-error {
         margin: 0 0 12px 0;

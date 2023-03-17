@@ -1,15 +1,17 @@
 ﻿@model CopyAccountResponse
-
+<div class="failed-account-created">
+    <p class="msg msg-success">The list of accounts has been created successfully</p>
+</div>
 <div class="form-group">
     <label>@Resources.Usernames:</label>
-    <div class="relative-input">
+    <div class="relative-input result-input">
         <input type="text" name="member" id="usernames" value="@string.Join(", ", Model.Usernames)" />
         <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span>
     </div>
 </div>
 <div class="form-group">
     <label class="sub-label">@Resources.Credit <span class="require">*</span></label>
-    <div class="relative-input">    
+    <div class="relative-input result-input">    
         <input type="text" name="Credit" id="txtClonedCredit" value="@Model.Credit.ToString("0,0.##")" />
         <span class="per-account">(@Resources.PerAccount)</span>
     </div>
