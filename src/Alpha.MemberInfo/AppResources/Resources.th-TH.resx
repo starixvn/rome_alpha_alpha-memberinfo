@@ -911,4 +911,7 @@
   <data name="MemberMaxCredit" xml:space="preserve">
     <value>เครดิตโอนเงินสูงสุดของสมาชิก</value>
   </data>
+  <data name="PerAccount" xml:space="preserve">
+    <value>ต่อบัญชี</value>
+  </data>
 </root>

@@ -911,4 +911,7 @@
   <data name="MemberMaxCredit" xml:space="preserve">
     <value>会员最高信用额</value>
   </data>
+  <data name="PerAccount" xml:space="preserve">
+    <value>每个账号</value>
+  </data>
 </root>
