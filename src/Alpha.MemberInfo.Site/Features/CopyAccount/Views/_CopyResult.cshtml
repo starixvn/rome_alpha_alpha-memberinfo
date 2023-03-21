@@ -1,17 +1,19 @@
 ﻿@model CopyAccountResponse
-<p class="msg msg-success msg-result">The list of accounts has been created successfully</p>
-<div class="form-group">
-    <label>@Resources.Usernames:</label>
-    <div class="relative-input result-input">
-        <input type="text" name="member" id="usernames" value="@string.Join(", ", Model.Usernames)" />
-        <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span>
+<div class="created-success msg msg-success">
+    <p class="msg-result">The list of accounts has been created successfully</p>
+    <div class="form-group">
+        <label>@Resources.Usernames:</label>
+        <div class="relative-input result-input">
+            <input type="text" name="member" id="usernames" value="@string.Join(", ", Model.Usernames)" />
+            <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span>
+        </div>
     </div>
-</div>
-<div class="form-group">
-    <label class="sub-label">@Resources.Credit <span class="require">*</span></label>
-    <div class="relative-input result-input">    
-        <input type="text" name="Credit" id="txtClonedCredit" value="@Model.Credit.ToString("0,0.##")" />
-        <span class="per-account">(@Resources.PerAccount)</span>
+    <div class="form-group">
+        <label class="sub-label">@Resources.Credit</label>
+        <div class="relative-input result-input">
+            <input type="text" name="Credit" id="txtClonedCredit" value="@Model.Credit.ToString("0,0.##")" />
+            <span class="per-account">(@Resources.PerAccount)</span>
+        </div>
     </div>
 </div>
 
@@ -21,9 +23,9 @@
 <p class="result-text">@Resources.Credit: <span class="txt-bold" id="txtClonedCredit">@Model.Credit.ToString("0,0.##")</span> <span class="per-account">(@Resources.PerAccount)</span></p>*@
 @if (Model.NoOfFailedAccount > 0)
 {
-    <div class="failed-account-created">
-        <p class="msg msg-error">@Model.Message</p>
-        <p class="result-text">@Resources.FailureReason: <span>@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</span></p>
+    <div class="failed-account-created msg msg-error">
+        <p class="result-text">@Model.Message</p>
+        <p class="result-text"><span>@Resources.FailureReason:</span> <span>@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</span></p>
     </div>
 }
 <div class="form-group result-submit">

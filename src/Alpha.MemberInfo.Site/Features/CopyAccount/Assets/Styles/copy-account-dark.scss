@@ -211,8 +211,12 @@ select:-webkit-autofill:focus {
 
     &.result-input {
         width: 456px;
+
         input {
             padding-right: 30px;
+            box-shadow: none;
+            background: #4A663E;
+            border: 1px solid #69944F;
         }
     }
 
@@ -225,7 +229,7 @@ select:-webkit-autofill:focus {
     }
 
     .icon-content-copy {
-        color: #0B599C;
+        color: #FFFFFF;
     }
 
     #icon-message-password {
@@ -244,28 +248,56 @@ select:-webkit-autofill:focus {
 
     .per-account {
         width: 105px;
-        color: #999999;
+        color: #EDEDED;
     }
 }
 
 .failed-account-created {
     margin-top: 12px;
     padding-top: 12px;
-    border-top: 1px solid #3E3F41;
-    max-width: 456px;
+    max-width: 480px;
 
     .msg-error {
         margin: 0 0 12px 0;
     }
 
     .result-text {
+        color: #CC7070 !important;
+        font-weight: 500;
+
         span {
-            color: #CC7070;
-            font-weight: 500;
-            text-transform: capitalize;
+            &:nth-child(1) {
+                color: #EDEDED !important;
+            }
+        }
+    }
+
+    &:before {
+        top: 10px !important;
+    }
+}
+
+
+.failed-account-created {
+    margin-top: 12px;
+    max-width: 480px;
+
+    .msg-error {
+        margin: 0 0 12px 0;
+    }
+
+    .result-text {
+        color: #FE0000;
+        font-weight: 500;
+
+        span {
+            &:nth-child(1) {
+                color: #333333;
+            }
         }
     }
 }
+
 
 
 .result {
@@ -281,13 +313,22 @@ select:-webkit-autofill:focus {
         }
     }
 
-    .result-submit {
-        margin-top: 12px;
+    .form-group {
+        margin: 12px 0 0 -24px;
+        padding-bottom: 0;
     }
 
-    .form-group {
+    .result-submit {
         margin: 12px 0 0 0;
-        padding-bottom: 0;
+    }
+
+    .created-success {
+        padding: 12px 12px 12px 36px;
+        max-width: 480px;
+
+        &:before {
+            top: 10px !important;
+        }
     }
 }
 

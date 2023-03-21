@@ -163,9 +163,7 @@ class CopyAccount {
             });
         }
 
-        this.$("#btnCreateMore").click(() => {
-            setTimeout(() => window.location.reload(), 1000)
-        });
+       
 
         const self = this;
         if (window.document.queryCommandSupported
@@ -261,6 +259,9 @@ class CopyAccount {
                     this.$result.append(data);
                     this.$result.removeClass("hidden");
                     this.$form.addClass("hidden");
+                    this.$("#btnCreateMore").click(() => {
+                        setTimeout(() => window.location.reload(), 1000)
+                    });
                 }
                 this.$.unblockUI();
             },

@@ -192,6 +192,7 @@ select:-webkit-autofill:focus {
 
     &.result-input {
         width: 456px;
+
         input {
             padding-right: 30px;
         }
@@ -218,9 +219,10 @@ select:-webkit-autofill:focus {
 
     input {
         width: 100%;
-        border: 1px solid #D1D1D1;
+        border: 1px solid #BDC8C3;
         box-shadow: none;
-        background: #ECECEC;
+        background: #F5FFFB;
+        color: #444444;
     }
 
     .per-account {
@@ -231,19 +233,25 @@ select:-webkit-autofill:focus {
 
 .failed-account-created {
     margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid #E3E3E3;
-    max-width: 456px;
+    max-width: 480px;
 
     .msg-error {
         margin: 0 0 12px 0;
     }
 
     .result-text {
+        color: #FE0000;
+        font-weight: 500;
+
         span {
-            color: #A11515;
-            font-weight : 500;
+            &:nth-child(1) {
+                color: #333333;
+            }
         }
+    }
+
+    &:before {
+        top: 10px !important;
     }
 }
 
@@ -269,13 +277,22 @@ select:-webkit-autofill:focus {
         }
     }
 
-    .result-submit {
-        margin-top: 12px;
+    .form-group {
+        margin: 12px 0 0 -24px;
+        padding-bottom: 0;
     }
 
-    .form-group {
+    .result-submit {
         margin: 12px 0 0 0;
-        padding-bottom: 0;
+    }
+
+    .created-success {
+        padding: 12px 12px 12px 36px;
+        max-width: 480px;
+
+        &:before {
+            top: 10px !important;
+        }
     }
 }
 
@@ -283,7 +300,6 @@ select:-webkit-autofill:focus {
 @media (max-width : 767px) {
     .result {
         position: unset;
-        width: 180px;
         margin-bottom: 10px;
     }
     .icon{
