@@ -282,7 +282,10 @@ class CopyAccount {
     }
 
     checkExistedUsernameByChangeSuffix = () => {
-        const username = `${this.$('#actor-name').text()}${this.$('#FirstSuffix').val()}${this.$('#SecondSuffix').val()}${this.$('#ThirdSuffix').val()}`;
+        let username = `${this.$('#actor-name').text()}${this.$firstSuffix.val()}${this.$secondSuffix.val()}`;
+        if (this.$thirdSuffix.val()) {
+            username = `${username}${this.$thirdSuffix.val()}`;
+        }
 
         this.$.ajax({
             method: "POST",
