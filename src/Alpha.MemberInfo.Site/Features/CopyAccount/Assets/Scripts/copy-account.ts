@@ -157,7 +157,7 @@ class CopyAccount {
 
             this.$memberMaxCreditInput.keyup(() => {
                 var memberMaxCredit = parseFloat(this.memberMaxCreditCleave.getRawValue());
-                this.invalidMemberMaxCredit = this.isInValidCredit(memberMaxCredit, this.credit);
+                this.invalidMemberMaxCredit = this.invalidCredit || this.isInValidCredit(memberMaxCredit, this.credit);
                 if (!this.invalidMemberMaxCredit) {
                     this.memberMaxCredit = memberMaxCredit;
                 }
@@ -214,17 +214,17 @@ class CopyAccount {
             }, 300);
         });
 
-        const validateInputs = () => {
-            const noOfAccount = parseInt(this.$noOfAccounts.val());
-            const password = this.$.trim(this.$password.val());
-            this.$submitBtn.prop('disabled', this.inValidSourceAccount || this.invalidCredit || this.invalidMemberMaxCredit || !this.isValidNoOfAccount(noOfAccount) || !this.isValidPassword(password));
-        }
+        this.$sourceUsername.on('input', this.validateInputs);
+        this.$noOfAccounts.on('input', this.validateInputs);
+        this.$password.on('input', this.validateInputs);
+        this.$creditInput.on('input', this.validateInputs);
+        this.$memberMaxCreditInput.on('input', this.validateInputs);
+    }
 
-        this.$sourceUsername.on('input', validateInputs);
-        this.$noOfAccounts.on('input', validateInputs);
-        this.$password.on('input', validateInputs);
-        this.$creditInput.on('input', validateInputs);
-        this.$memberMaxCreditInput.on('input', validateInputs);
+    validateInputs = () => {
+        const noOfAccount = parseInt(this.$noOfAccounts.val());
+        const password = this.$.trim(this.$password.val());
+        this.$submitBtn.prop('disabled', this.inValidSourceAccount || this.invalidUsername || this.invalidCredit || this.invalidMemberMaxCredit || !this.isValidNoOfAccount(noOfAccount) || !this.isValidPassword(password));
     }
 
     submitEvent = (event) => {
@@ -297,6 +297,7 @@ class CopyAccount {
                 this.invalidUsername = result;
                 const iconClass = result ? 'icon-close' : 'icon-check';
                 this.$("#icon-message-username").removeClass().addClass(iconClass);
+                this.validateInputs();
             }
         });
     }
