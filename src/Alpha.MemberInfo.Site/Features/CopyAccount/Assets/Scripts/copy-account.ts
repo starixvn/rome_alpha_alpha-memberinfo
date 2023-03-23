@@ -346,6 +346,8 @@ class CopyAccount {
                 this.$creditMinLabel.html(numeral(this.creditMin).format(this.numberFormat));
                 this.$creditMaxLabel.html(numeral(this.creditMax).format(this.numberFormat));
 
+                this.validateCredit();
+
                 this.$.unblockUI();
             },
             error: () => { this.$.unblockUI(); }
