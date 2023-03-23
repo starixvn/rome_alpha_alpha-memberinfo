@@ -20,9 +20,9 @@ class CopyAccount {
     $showPass: JQuery;
 
     $creditInput: JQuery;
-    credit: number;
-    creditMin: number;
-    creditMax: number;
+    credit: number = 0;
+    creditMin: number = 0;
+    creditMax: number = 0;
     memberMaxCredit: number;
 
     $memberMaxCreditInput: JQuery;
@@ -156,14 +156,17 @@ class CopyAccount {
             });
 
             this.$memberMaxCreditInput.keyup(() => {
-                this.memberMaxCredit = parseFloat(this.memberMaxCreditCleave.getRawValue());
-                this.invalidMemberMaxCredit = this.isInValidCredit(this.memberMaxCredit, this.credit);
+                var memberMaxCredit = parseFloat(this.memberMaxCreditCleave.getRawValue());
+                this.invalidMemberMaxCredit = this.isInValidCredit(memberMaxCredit, this.credit);
+                if (!this.invalidMemberMaxCredit) {
+                    this.memberMaxCredit = memberMaxCredit;
+                }
                 const errorClass = this.invalidMemberMaxCredit ? 'icon-close' : 'icon-check';
                 this.$('#icon-message-member-max-credit').removeClass().addClass(errorClass);
             });
         }
 
-       
+
 
         const self = this;
         if (window.document.queryCommandSupported
@@ -346,11 +349,14 @@ class CopyAccount {
     }
 
     validateCredit = () => {
-        this.credit = parseFloat(this.cleave.getRawValue());
-        this.invalidCredit = this.isInValidCredit(this.credit, this.creditMax);
+        var credit = parseFloat(this.cleave.getRawValue());
+        this.invalidCredit = this.isInValidCredit(credit, this.creditMax);
         if (this.invalidCredit) {
-            this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage);
+            this.givenCreditMustBeBetweenMinMaxMessage && this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage);
+        } else {
+            this.credit = credit;
         }
+
         const errorClass = this.invalidCredit ? 'icon-close' : 'icon-check';
         this.$('#icon-message-credit').removeClass().addClass(errorClass);
     }
