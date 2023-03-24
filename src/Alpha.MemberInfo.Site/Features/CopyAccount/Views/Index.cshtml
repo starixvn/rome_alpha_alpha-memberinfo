@@ -4,14 +4,36 @@
     ViewBag.Title = Resources.SearchAndCopy;
     var errorMessageClass = string.IsNullOrEmpty(Model.ErrorMessage) ? "hidden" : "msg msg-error";
 }
-
 @section Styles {
+    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/common/common-{Model.ActorLevel.DisplayName.ToLowerInvariant()}")
     @StaticResources.RenderStylesWithDarkMode("~/Features/CopyAccount/Bundles/copy-account")
 }
 
+<div class="page-title">@Model.PageTitle</div>
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+        <a href="javascript:;" aria-controls="home" role="tab" data-toggle="tab">@Resources.SearchAndCopy</a>
+    </li>
+    <li role="presentation">
+        <a href="@MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx")" role="tab" data-toggle="tab">@Resources.FullMode</a>
+    </li>
+    @if (Model.IsCreateMember)
+    {
+        <li class="has-icon" role="presentation">
+            @Html.ActionLink(Resources.QRCode, "Index", "QRCodeMemberSignIn")
+            <a id="qr-info" href="/site-messages/StaticMessage/File?id=129373" target="_blank" class="icon-information-outline"></a>
+        </li>
+    }
+    @if (Model.IsOfferLiteMode)
+    {
+        <li role="presentation" class="new-function">
+            @Html.ActionLink(Resources.LiteMode, "Index", "CreateAccount", new { lng = Model.Language, isDarkMode = Model.IsDarkMode.ToString().ToLowerInvariant() }, null)
+            <span class="bage-new">@Resources.lblNew</span>
+        </li>
+    }
+</ul>
+
 <div class="tab-content">
-
-
     <div role="tabpanel" class="tab-pane active">
         @if (Model.IsLimitNewDownline)
         {

@@ -537,9 +537,6 @@
   <data name="DormantAccountList" xml:space="preserve">
     <value>Danh Sách Tài Khoản Không Hoạt Động</value>
   </data>
-  <data name="LastActionDate" xml:space="preserve">
-    <value>Last Action Date</value>
-  </data>
   <data name="DeletedSettings" xml:space="preserve">
     <value>Đã Xoá Thiết Lập</value>
   </data>
@@ -977,5 +974,56 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="BBINNote" xml:space="preserve">
     <value>Lưu ý: Phần trăm Thắng (%) của BBIN hiển thị là &lt;b&gt;"N/A"&lt;/b&gt; nghĩa là không áp dụng Giới Hạn Thắng Tối Đa cho sản phẩm này.</value>
+  </data>
+  <data name="QuickIntro_Title_NotNow" xml:space="preserve">
+    <value>Không phải bây giờ</value>
+  </data>
+  <data name="AddNewMaster" xml:space="preserve">
+    <value>Tạo thành viên Master mới</value>
+  </data>
+  <data name="AddNewAgent" xml:space="preserve">
+    <value>Tạo thành viên Agent mới</value>
+  </data>
+  <data name="AddNewMember" xml:space="preserve">
+    <value>Tạo Member mới</value>
+  </data>
+  <data name="SearchAndCopy" xml:space="preserve">
+    <value>Tìm và sao chép</value>
+  </data>
+  <data name="FullMode" xml:space="preserve">
+    <value>Thiết lập đầy đủ</value>
+  </data>
+  <data name="QRCode" xml:space="preserve">
+    <value>Mã QR</value>
+  </data>
+  <data name="lblNew" xml:space="preserve">
+    <value>Mới</value>
+  </data>
+  <data name="PTTemplate" xml:space="preserve">
+    <value>Mẫu Position Taking</value>
+  </data>
+  <data name="QuickIntro_Title" xml:space="preserve">
+    <value>Hãy cùng trải nghiệm nhanh Thiết Lập Rút Gọn</value>
+  </data>
+  <data name="LiteMode" xml:space="preserve">
+    <value>Thiết lập rút gọn</value>
+  </data>
+  <data name="QuickIntro_Popup_1" xml:space="preserve">
+    <value>Hãy cùng khám phá tất cả những điều thú vị về tính năng này!</value>
+  </data>
+  <data name="QuickIntro_Note" xml:space="preserve">
+    <value>* Xin lưu ý, Thiết Lập Rút Gọn chỉ áp dụng Position Taking giống nhau cho tất cả sản phẩm/môn thể thao trong cùng một nhóm. Nếu bạn muốn các giá trị khác nhau cho từng sản phẩm/môn thể thao, hãy chuyển sang Thiết Lập Đầy Đủ.</value>
+  </data>
+  <data name="QuickIntro_Popup_2" xml:space="preserve">
+    <value>Mọi thứ bắt đầu với một menu mới và trực quan.</value>
+  </data>
+  <data name="QuickIntro_Title_Content" xml:space="preserve">
+    <value>Trải nghiệm các bước tạo tài khoản nhanh nhất và tập trung nhất.</value>
+  </data>
+  <data name="QuickIntro_Popup_3" xml:space="preserve">
+    <value>Cải tiến quá trình cài đặt Position Taking, tập trung và nhanh hơn thông qua việc chọn và áp dụng các giá trị Position Taking mẫu cho các nhóm sản phẩm. </value>
+  </data>
+  <data name="QuickIntro_Title_Confirm" xml:space="preserve">
+    <value>Bắt đầu nào</value>
   </data>
 </root>

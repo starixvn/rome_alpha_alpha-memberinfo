@@ -462,9 +462,6 @@
   <data name="ConfirmUnlockAccessViewModelText" xml:space="preserve">
     <value>Locked Access</value>
   </data>
-  <data name="ConfirmUnlockAccessViewModelInCaseNone" xml:space="preserve">
-    <value>None</value>
-  </data>
   <data name="EditMultipleClosedStatusText" xml:space="preserve">
     <value>Edit Multiple Closed Status</value>
   </data>

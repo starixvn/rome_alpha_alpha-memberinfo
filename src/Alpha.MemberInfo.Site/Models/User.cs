@@ -93,6 +93,7 @@
         public string Currency => userSession.Currency;
 
         public bool IsSubAcc => userSession.IsSubAcc;
+        public  int CurrencyId => userSession.CurrencyId;
         public PageAccess SubPageAccess => userSession.SubPageAccess;
     }
 }

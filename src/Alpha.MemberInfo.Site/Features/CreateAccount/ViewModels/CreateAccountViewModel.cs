@@ -1,0 +1,32 @@
+﻿using Alpha.MemberInfo.AppResources;
+using Alpha.MemberInfo.Enumerations;
+using Alpha.MemberInfo.Models;
+using Sentry.Protocol;
+
+namespace Alpha.MemberInfo.Site.Features.CreateAccount.ViewModels
+{
+    public class CreateAccountViewModel
+    {
+        public CreateAccountViewModel(bool isLimitNewDownline = false, string errorMessage = "", byte levelId = 0)
+        {
+            IsLimitNewDownline = isLimitNewDownline;
+            ErrorMessage = errorMessage;
+            IsCreateMember = levelId == UserLevel.Agent.Value;
+            var userLevel = Enumeration.FromValue<UserLevel>(levelId);
+            CustLevel = userLevel.DisplayName;
+            PageTitle = userLevel.IsSuperLevel()
+                ? Resources.AddNewMaster
+                : (userLevel.IsMasterLevel() ? Resources.AddNewAgent : Resources.AddNewMember);
+        }
+
+        public string ErrorMessage { get; }
+
+        public bool IsLimitNewDownline { get; }
+
+        public bool IsCreateMember { get; }
+
+        public string CustLevel { get; }
+
+        public string PageTitle { get; }
+    }
+}

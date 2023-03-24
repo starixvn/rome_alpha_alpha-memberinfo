@@ -72,8 +72,11 @@
 
         string SiteDBGroupIp { get; }
         string Currency { get; }
-
+        
+        int CurrencyId { get; }
+        
         bool IsSubAcc { get; }
+        
         PageAccess SubPageAccess { get; }
     }
 }

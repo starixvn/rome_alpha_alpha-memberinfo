@@ -546,9 +546,6 @@
   <data name="DormantAccountList" xml:space="preserve">
     <value>不活跃账号名单</value>
   </data>
-  <data name="LastActionDate" xml:space="preserve">
-    <value>Last Action Date</value>
-  </data>
   <data name="DeletedSettings" xml:space="preserve">
     <value>删除设定</value>
   </data>
@@ -989,6 +986,57 @@
   </data>
   <data name="BBINNote" xml:space="preserve">
     <value>注意：BBIN"赢数额巴仙"的栏位显示&lt;b&gt;"N/A"&lt;/b&gt; 的意思是最高的赢数额不适用于BBIN的产品。</value>
+  </data>
+  <data name="AddNewMaster" xml:space="preserve">
+    <value>新增总代理</value>
+  </data>
+  <data name="AddNewAgent" xml:space="preserve">
+    <value>新增代理</value>
+  </data>
+  <data name="AddNewMember" xml:space="preserve">
+    <value>增加会员</value>
+  </data>
+  <data name="SearchAndCopy" xml:space="preserve">
+    <value>搜索与复制</value>
+  </data>
+  <data name="FullMode" xml:space="preserve">
+    <value>完全版</value>
+  </data>
+  <data name="QRCode" xml:space="preserve">
+    <value>二维码</value>
+  </data>
+  <data name="lblNew" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="QuickIntro_Title_Confirm" xml:space="preserve">
+    <value>现在开始</value>
+  </data>
+  <data name="QuickIntro_Title_NotNow" xml:space="preserve">
+    <value>不是现在</value>
+  </data>
+  <data name="QuickIntro_Note" xml:space="preserve">
+    <value>*请注意，精简模式将相同的占成数应用于指定组内的所有产品/体育。 如果您只要每种产品/体育有不同的占成数，请切换到完全版。</value>
+  </data>
+  <data name="QuickIntro_Popup_3" xml:space="preserve">
+    <value>优化占成数配置使流程更快、更集中的通过选择设置占成数模板数值到产品群组。</value>
+  </data>
+  <data name="QuickIntro_Title" xml:space="preserve">
+    <value>让我们快速浏览精简模式</value>
+  </data>
+  <data name="QuickIntro_Title_Content" xml:space="preserve">
+    <value>体验最快、最集中的创建账号过程。</value>
+  </data>
+  <data name="PTTemplate" xml:space="preserve">
+    <value>占成数模板</value>
+  </data>
+  <data name="QuickIntro_Popup_1" xml:space="preserve">
+    <value>让我们通过浏览来发现有关此功能所有令人兴奋的事情！</value>
+  </data>
+  <data name="QuickIntro_Popup_2" xml:space="preserve">
+    <value>它从一个新的、直观的目录开始。</value>
+  </data>
+  <data name="LiteMode" xml:space="preserve">
+    <value>精简模式</value>
   </data>
   <data name="ADBTOnError" xml:space="preserve">
     <value>由于上线已为您启用全天余额转账，所以您无法使用自动转账。 页面将会自动刷新。</value>

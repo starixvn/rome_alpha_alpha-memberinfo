@@ -351,6 +351,18 @@
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
     ]
   },
+  {
+    "outputFileName": "Features/CreateAccount/bundles/quick-introduction.js",
+    "inputFiles": [
+      "Features/CreateAccount/Scripts/quick-introduction.js"
+    ]
+  },
+  {
+    "outputFileName": "Features/CreateAccount/bundles/quick-introduction.css",
+    "inputFiles": [
+      "Features/CreateAccount/Styles/quick-introduction.css"
+    ]
+  },
   /************************** Dark Mode ************************/
   {
     "outputFileName": "assets/bundles/default-dark.css",

@@ -179,7 +179,6 @@ class QRCodeMemberSignIn {
             Credit: this.credit,
             CreditMin: this.creditMin,
             CreditMax: this.creditMax,
-            ShowPageTitle: this.$('#ShowPageTitle').val(),
             c_v: this.$("input[name=c_v]").val(),
             c_f: this.$("input[name=c_f]").val()
         };
@@ -313,7 +312,7 @@ class QRCodeMemberSignIn {
         }
 
         this.$messageContainer.addClass('hidden');
-        this.$messageContent.html('');      
+        this.$messageContent.html('');
         return false;
     }
 }

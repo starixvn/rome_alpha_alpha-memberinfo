@@ -19,10 +19,12 @@
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Features.ParlayMaxPayout;
+    using Alpha.MemberInfo.Features.CreateAccount;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Features.CopyAccount;
+    using Alpha.MemberInfo.Site.Features.CreateAccount;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
@@ -177,6 +179,8 @@
             container.RegisterSingleton<ICacheService>(new CacheService());
             container.Register<IWinlossService, WinlossService>(Lifestyle.Scoped);
             container.RegisterPerWebRequest<ICopyAccountService>(() => new CopyAccountService(CreateCustomerApiHttpClient()));
+            container.RegisterPerWebRequest<ICreateAccountService>(() => new CreateAccountService(CreateCustomerApiHttpClient()));
+            container.RegisterPerWebRequest<IProductSettingInfoService,ProductSettingInfoService>();
         }
 
         private static HttpClient CreateCustomerApiHttpClient()

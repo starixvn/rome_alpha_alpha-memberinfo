@@ -80,6 +80,15 @@
             }
         }
 
+        public static byte CreationStatus
+        {
+            get
+            {
+                byte.TryParse(ConfigurationManager.AppSettings["CreationStatus"], out byte creationStatus);
+                return creationStatus;
+            }
+        }
+
         private static int ValueOfNotNullOrWhiteSpace(string value)
             => value.Equals("*", StringComparison.OrdinalIgnoreCase) ? int.MaxValue : Convert.ToInt32(value);
 
@@ -91,15 +100,17 @@
 
         public static bool LocalTest => GetConfigValue("LocalTest") == "1";
 
-        public static string SiteGroup => GetConfigValue("SiteLabel") ?? string.Empty;
-
-        public static bool IsMBCSite => !SiteGroup.Equals("789y", StringComparison.OrdinalIgnoreCase);
+        public static bool IsMBCSite => !IsSiteLabel789y;
 
         public static int MaxAccountsCreatePerRequest => Convert.ToInt32(GetConfigValue("CreateNewAccount:MaxAccountPerRequest"));
 
         public static Uri CustomerApiUri => new Uri(GetConfigValue("CustomerApi:Uri"));
 
         public static bool IsStandaloneBetlist => !string.IsNullOrWhiteSpace(GetConfigValue("Betlist:Domain"));
+
+        public static bool DevelopmentEnvironment => GetConfigValue("Env:Development") == "1";
+
+        public static int SystemId => Convert.ToInt32(GetConfigValue("SystemId"));
 
         public static string BetlistDomain
         {
@@ -118,5 +129,7 @@
                     : betlistDomain;
             }
         }
+
+        public static bool IsOfferCreateAccountLiteMode => GetConfigValue("CreateNewAccount:OfferLiteMode") == "1";
     }
 }

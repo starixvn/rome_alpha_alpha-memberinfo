@@ -2,7 +2,6 @@
     @return $num / $scale;
 }
 
-
 .tooltip {
     background-color: transparent;
     border-color: transparent;
@@ -22,16 +21,13 @@
     }
 }
 
-
-
-
-
 .panel {
     box-sizing: border-box;
     max-width: 930px;
-    border: 1px solid #E0E0E0;
     margin: 12px 0 0 0;
     overflow: unset;
+    background-color: transparent;
+    box-shadow: none;
 
     .fixed-width {
         width: 333px;
@@ -42,8 +38,10 @@
         justify-content: space-between;
         align-items: center;
         background-color: #FAFAFA;
-        border-bottom: 1px solid #E0E0E0;
+        border: 1px solid #E0E0E0;
+        border-bottom: 0;
         padding: 6px 6px 6px 16px;
+        border-radius: 3px 3px 0 0;
 
         .note {
             font-style: italic;
@@ -76,6 +74,8 @@
         padding: 16px;
         border: none;
         overflow: unset;
+        border-radius: 0 0 3px 3px;
+        border: 1px solid #E0E0E0;
     }
 
     form {
@@ -116,7 +116,7 @@
                 height: 32px;
                 padding: 5px 8px;
                 box-shadow: none;
-                border-radius: 0;
+                border-radius: 3px;
 
                 &:focus {
                     box-shadow: 0px 0px 0px 2.5px rgba(95, 160, 255, 0.5);
@@ -185,7 +185,6 @@
             }
         }
 
-
         label {
             font-weight: 400;
             font-size: 14px;
@@ -205,7 +204,7 @@
             background: #fff;
             border: 1px solid #D1D1D1;
             appearance: none;
-            border-radius: 0;
+            border-radius: 3px;
             box-shadow: none;
             font-size: 14px;
 
@@ -234,8 +233,6 @@
         }
     }
 
-
-
     .relative-input {
         position: relative;
         display: flex;
@@ -261,9 +258,15 @@
             line-height: 30px;
             padding: 0 9px;
             background: #E6E6E6;
+            border-radius: 3px 0 0 3px;
+        }
+
+        select {
+            &:nth-last-child(2) {
+                border-radius: 0 3px 3px 0;
+            }
         }
     }
-
 
     .require {
         color: #A11515;
@@ -309,6 +312,7 @@
 
 #NoOfAccounts {
     width: 100px;
+    border-radius: 3px;
 }
 
 #credit-range {
@@ -345,7 +349,6 @@
     }
 }
 
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -374,7 +377,6 @@ select:-webkit-autofill:focus {
     margin-top: 0;
 }
 
-
 .failed-account-created {
     padding-top: 12px;
     border-top: 1px solid #E0E0E0;
@@ -401,7 +403,6 @@ select:-webkit-autofill:focus {
     }
 }
 
-
 .input-pass {
     font-family: 'password';
 }
@@ -409,9 +410,6 @@ select:-webkit-autofill:focus {
 .input-pass::placeholder {
     font-family: 'Roboto';
 }
-
-
-
 
 .result {
     position: relative;
@@ -478,9 +476,6 @@ select:-webkit-autofill:focus {
     }
 }
 
-
-
-
 .form-submit {
     button {
         margin-top: 10px;
@@ -488,8 +483,6 @@ select:-webkit-autofill:focus {
         font-size: 13px;
     }
 }
-
-
 
 .easy-autocomplete-container {
     ul {
@@ -538,9 +531,18 @@ select:-webkit-autofill:focus {
         z-index: 9;
         color: #FE0000;
         width: 100%;
+        border-radius: 0 0 3px 3px;
     }
 }
 
+.btn-submit {
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+.msg {
+    border-radius: 3px;
+}
 
 @media (max-width : 767px) {
     .result {
@@ -572,8 +574,6 @@ select:-webkit-autofill:focus {
     .easy-autocomplete, .fixed-width, .form-select {
         width: 100% !important;
     }
-
-
 
     .form-column {
         width: 100% !important;
@@ -607,7 +607,6 @@ select:-webkit-autofill:focus {
         padding: calculateScale(4px) calculateScale(8px) !important;
         font-size: calculateScale(13px) !important;
     }
-
 
     .panel-heading {
         align-items: flex-start !important;
@@ -708,7 +707,6 @@ select:-webkit-autofill:focus {
         font-size: calculateScale(12px) !important;
         line-height: calculateScale(20px) !important;
     }
-
 
     .result {
         .relative-input {

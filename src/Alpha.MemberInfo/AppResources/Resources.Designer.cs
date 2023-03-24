@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -201,6 +201,33 @@ namespace Alpha.MemberInfo.AppResources {
         public static string AddMultipleToWatchlistExceedMessage {
             get {
                 return ResourceManager.GetString("AddMultipleToWatchlistExceedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Agent.
+        /// </summary>
+        public static string AddNewAgent {
+            get {
+                return ResourceManager.GetString("AddNewAgent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Master.
+        /// </summary>
+        public static string AddNewMaster {
+            get {
+                return ResourceManager.GetString("AddNewMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Member.
+        /// </summary>
+        public static string AddNewMember {
+            get {
+                return ResourceManager.GetString("AddNewMember", resourceCulture);
             }
         }
         
@@ -1294,6 +1321,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        public static string lblNew {
+            get {
+                return ResourceManager.GetString("lblNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password must be 6-10 characters without white-space and contain at least 1 uppercase letter, 1 lowercase letter, 1 numeric digit. (e.g. 493abcDE, 59D7!4$h)
         ///Notes: your password is cAsE sEnSiTiVe..
         /// </summary>
@@ -1339,11 +1375,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Lite Mode.
         /// </summary>
-        public static string LimitTypeReach {
+        public static string LiteMode {
             get {
-                return ResourceManager.GetString("LimitTypeReach", resourceCulture);
+                return ResourceManager.GetString("LiteMode", resourceCulture);
             }
         }
         
@@ -2050,11 +2086,93 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Position Taking Template.
+        /// </summary>
+        public static string PTTemplate {
+            get {
+                return ResourceManager.GetString("PTTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to QR Code.
         /// </summary>
         public static string QRCode {
             get {
                 return ResourceManager.GetString("QRCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *Please note that Lite Mode applies the same PT to all products/sports within the assigned group. If you want different values for each product/sport, switch to Full Mode instead..
+        /// </summary>
+        public static string QuickIntro_Note {
+            get {
+                return ResourceManager.GetString("QuickIntro_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let&apos;s take a tour to discover all exciting things about this feature!.
+        /// </summary>
+        public static string QuickIntro_Popup_1 {
+            get {
+                return ResourceManager.GetString("QuickIntro_Popup_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It starts with a new and intuitive menu..
+        /// </summary>
+        public static string QuickIntro_Popup_2 {
+            get {
+                return ResourceManager.GetString("QuickIntro_Popup_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enhance Position Taking configuration process with faster and centralized setup by selecting and applying PT template values to product groups..
+        /// </summary>
+        public static string QuickIntro_Popup_3 {
+            get {
+                return ResourceManager.GetString("QuickIntro_Popup_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let&apos;s take a quick tour of Lite Mode.
+        /// </summary>
+        public static string QuickIntro_Title {
+            get {
+                return ResourceManager.GetString("QuickIntro_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let’s go.
+        /// </summary>
+        public static string QuickIntro_Title_Confirm {
+            get {
+                return ResourceManager.GetString("QuickIntro_Title_Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Experience the fastest and most centralized account creation process..
+        /// </summary>
+        public static string QuickIntro_Title_Content {
+            get {
+                return ResourceManager.GetString("QuickIntro_Title_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not now
+        ///.
+        /// </summary>
+        public static string QuickIntro_Title_NotNow {
+            get {
+                return ResourceManager.GetString("QuickIntro_Title_NotNow", resourceCulture);
             }
         }
         
@@ -2406,15 +2524,6 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Submit {
             get {
                 return ResourceManager.GetString("Submit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Supended.
-        /// </summary>
-        public static string Supended {
-            get {
-                return ResourceManager.GetString("Supended", resourceCulture);
             }
         }
         

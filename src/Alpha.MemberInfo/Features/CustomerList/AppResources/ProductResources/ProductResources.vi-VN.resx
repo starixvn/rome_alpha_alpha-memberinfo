@@ -381,9 +381,6 @@
   <data name="SuspendedByUplineTooltip" xml:space="preserve">
     <value>Tài khoản này bị gián tiếp đình chỉ bởi cấp trên</value>
   </data>
-  <data name="SyncRNGCasinoViewModelText" xml:space="preserve">
-    <value>Đồng bộ hóa Casino</value>
-  </data>
   <data name="ThisAccountWasDisabled" xml:space="preserve">
     <value>Tài khoản bị vô hiệu hóa.</value>
   </data>

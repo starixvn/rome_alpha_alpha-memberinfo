@@ -417,12 +417,6 @@
   <data name="YesterdayCash" xml:space="preserve">
     <value>어제의 현금</value>
   </data>
-  <data name="Update1" xml:space="preserve">
-    <value>업데이트</value>
-  </data>
-  <data name="EditMultipleSportsbook2Text" xml:space="preserve">
-    <value>Edit Multiple Sportsbook 2</value>
-  </data>
   <data name="EditMultipleSportsbookText" xml:space="preserve">
     <value>멀티플 스포츠 북 수정하기</value>
   </data>

@@ -12,24 +12,19 @@
     using Alpha.MemberInfo.Site.Controllers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.Web.Filters;
-    using Fanex.Logging.Extensions.Web;
     using MediatR;
-    using Sunplus.Agent.Model.Entities;
 
     public class QRCodeMemberSignInController : SiteBaseController
     {
         private const string IndexPath = "~/Features/QRCodeMemberSignIn/Views/Index.cshtml";
         private const string ShowQRCodePath = "~/Features/QRCodeMemberSignIn/Views/ShowQRCode.cshtml";
         private const string NotAuthorizedPath = "~/Features/QRCodeMemberSignIn/Views/_NotAuthorized.cshtml";
-        private const string Separator = "; ";
 
-        private readonly IUserSession userSession;
         private readonly int ErrorCodeDefault = 998;
 
-        public QRCodeMemberSignInController(IMediator mediator, IUserSession userSession)
+        public QRCodeMemberSignInController(IMediator mediator)
             : base(mediator)
         {
-            this.userSession = userSession;
         }
 
         [HttpGet]

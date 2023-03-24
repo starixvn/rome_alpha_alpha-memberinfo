@@ -8,7 +8,7 @@
 
     public class MemberInfoBaseQuery
     {
-        private readonly IUser viewer;
+        protected readonly IUser viewer;
 
         protected MemberInfoBaseQuery(IUser viewer)
         {
@@ -68,6 +68,8 @@
         public bool IsAdminCanViewVNIP => viewer.IsAdminCanViewVNIP;
 
         public IEnumerable<CustInfo> BreadcrumbLevel { get; set; }
+
+        public bool IsDarkMode => !string.IsNullOrWhiteSpace(viewer.DarkModeName);
 
         public virtual bool IsValid()
             => CustId > 0

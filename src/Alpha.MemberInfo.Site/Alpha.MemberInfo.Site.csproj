@@ -577,11 +577,43 @@
     </Content>
     <Content Include="assets\scripts\aes.js" />
     <Content Include="assets\scripts\indirect-login-account\quick-introduction.js" />
+    <Content Include="assets\styles\images\createAccount\en-Us\dark\lv2.img1.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\dark\lv2.img2.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\dark\lv2.img3.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\dark\lv3.img1.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\dark\lv3.img2.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\dark\lv3.img3.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\dark\lv4.img1.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\dark\lv4.img2.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\dark\lv4.img3.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\light\lv2.img1.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\light\lv2.img2.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\light\lv2.img3.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\light\lv3.img1.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\light\lv3.img2.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\light\lv3.img3.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\light\lv4.img1.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\light\lv4.img2.png" />
+    <Content Include="assets\styles\images\createAccount\en-Us\light\lv4.img3.png" />
     <Content Include="assets\styles\images\open.png" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.min.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
+    <Content Include="ClientApp\dist\assets\createAccount-522575ff.css" />
+    <Content Include="ClientApp\dist\assets\createAccount-81d0560f.js" />
+    <Content Include="ClientApp\dist\assets\index-4f67724b.js" />
+    <Content Include="ClientApp\dist\assets\index-939a3d43.css" />
+    <Content Include="ClientApp\dist\assets\index-b725744d.js" />
+    <Content Include="ClientApp\dist\assets\productSettingInfo-04cf0f6d.js" />
+    <Content Include="ClientApp\dist\assets\productSettingInfo-19dc73f6.css" />
+    <Content Include="ClientApp\dist\assets\PTSelect-07858f5e.css" />
+    <Content Include="ClientApp\dist\assets\PTSelect-e69561a1.js" />
+    <Content Include="ClientApp\dist\assets\ptTemplate-16074ece.js" />
+    <Content Include="ClientApp\dist\assets\ptTemplate-b3fae5d3.css" />
+    <Content Include="ClientApp\dist\images\daily.png" />
+    <Content Include="ClientApp\dist\images\icon-select.svg" />
+    <Content Include="ClientApp\dist\images\weekly.png" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.css">
       <DependentUpon>copy-account-dark.scss</DependentUpon>
     </Content>
@@ -606,6 +638,22 @@
     <Content Include="Features\CopyAccount\bundles\copy-account.min.js">
       <DependentUpon>copy-account.js</DependentUpon>
     </Content>
+    <Content Include="Features\CreateAccount\bundles\quick-introduction.css" />
+    <Content Include="Features\CreateAccount\bundles\quick-introduction.js" />
+    <Content Include="Features\CreateAccount\bundles\quick-introduction.min.css">
+      <DependentUpon>quick-introduction.css</DependentUpon>
+    </Content>
+    <Content Include="Features\CreateAccount\bundles\quick-introduction.min.js">
+      <DependentUpon>quick-introduction.js</DependentUpon>
+    </Content>
+    <Content Include="Features\CreateAccount\Styles\quick-introduction.css">
+      <DependentUpon>quick-introduction.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\CreateAccount\Styles\quick-introduction.min.css">
+      <DependentUpon>quick-introduction.css</DependentUpon>
+    </Content>
+    <Content Include="Features\CreateAccount\Styles\quick-introduction.scss" />
+    <Content Include="Features\CreateAccount\Views\ProductSettingInfo.cshtml" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.js" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.min.js">
       <DependentUpon>reached-threshold-datatable.js</DependentUpon>
@@ -950,6 +998,11 @@
     <Content Include="Features\CopyAccount\Views\_CopyResult.cshtml" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.scss" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.scss" />
+    <Content Include="Features\CreateAccount\Views\Index.cshtml" />
+    <Content Include="Features\CreateAccount\Views\PTTemplate.cshtml" />
+    <Content Include="Features\CreateAccount\Views\web.config" />
+    <Content Include="Features\CreateAccount\Views\_Layout.cshtml" />
+    <Content Include="Features\CreateAccount\Views\QuickIntroduction.cshtml" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
@@ -1089,6 +1142,7 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Constants\LanguageCode.cs" />
+    <Compile Include="Features\CreateAccount\CreateAccountController.cs" />
     <Compile Include="Controllers\CreditBalanceController.cs" />
     <Compile Include="Controllers\IndirectLoginAccountController.cs" />
     <Compile Include="Controllers\ProblemAccountController.cs" />
@@ -1107,6 +1161,19 @@
     <Compile Include="Features\CopyAccount\Request\CopyAccountCommand.cs" />
     <Compile Include="Features\CopyAccount\Request\CopyAccountQuery.cs" />
     <Compile Include="Features\CopyAccount\ViewModels\CopyAccountViewModel.cs" />
+    <Compile Include="Features\CreateAccount\CreateAccountService.cs" />
+    <Compile Include="Features\CreateAccount\IntroductionController.cs" />
+    <Compile Include="Features\CreateAccount\Models\GeneralInfo.cs" />
+    <Compile Include="Features\CreateAccount\Models\ProductSetting.cs" />
+    <Compile Include="Features\CreateAccount\Models\PTTemplateSetting.cs" />
+    <Compile Include="Features\CreateAccount\ProductSettingInfoController.cs" />
+    <Compile Include="Features\CreateAccount\PTTemplateController.cs" />
+    <Compile Include="Features\CreateAccount\Requests\CreateAccountRequest.cs" />
+    <Compile Include="Features\CreateAccount\Requests\CreatePTTemplateRequest.cs" />
+    <Compile Include="Features\CreateAccount\Requests\EditPTTemplateRequest.cs" />
+    <Compile Include="Features\CreateAccount\ViewModels\CreateAccountViewModel.cs" />
+    <Compile Include="Features\CreateAccount\ViewModels\PTTemplateViewModel.cs" />
+    <Compile Include="Features\CreateAccount\ViewModels\QuickIntroductionViewModel.cs" />
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
     <Compile Include="Features\CustomerList\CustomerListController.cs" />
     <Compile Include="Features\CustomerList\Requests\MultipleDoubleCommRequest.cs" />
@@ -1502,6 +1569,7 @@
     <TypeScriptCompile Include="assets\scripts\tests\apps\win-loss-limit\win-loss-limit-tests.ts" />
     <TypeScriptCompile Include="assets\scripts\win-loss-limit\win-loss-limit.ts" />
     <TypeScriptCompile Include="Features\CopyAccount\Assets\Scripts\copy-account.ts" />
+    <TypeScriptCompile Include="Features\CreateAccount\Scripts\quick-introduction.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-viewmodel.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-popup.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\customer-list-services.ts" />

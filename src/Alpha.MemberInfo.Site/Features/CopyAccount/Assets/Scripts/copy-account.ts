@@ -26,7 +26,6 @@ class CopyAccount {
     memberMaxCredit: number;
     $memberMaxCreditInput: JQuery;
 
-
     $messageContainer: JQuery;
     $messageContent: JQuery;
 
@@ -149,8 +148,6 @@ class CopyAccount {
             numeralDecimalMark: '.',
             delimiter: ','
         });
-
-
 
         this.$btnSwitchVersion.click(() => {
             this.topWindow.indexManager.changeMenu(this.oldVersionUrl);
@@ -419,7 +416,6 @@ class CopyAccount {
                         this.getCustomerCredit(this.$sourceUsername.val());
                         this.removeTooltipError(this.$sourceAccountErrMsg);
                         this.inValidSourceAccount = false;
-
                     } else {
                         this.addTooltipError(this.$sourceAccountErrMsg, result.Message);
                         this.$creditRange.addClass("hidden");

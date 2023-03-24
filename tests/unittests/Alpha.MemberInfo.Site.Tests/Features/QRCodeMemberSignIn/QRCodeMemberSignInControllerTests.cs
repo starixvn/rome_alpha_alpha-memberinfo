@@ -17,14 +17,12 @@
     public class QRCodeMemberSignInControllerTests
     {
         private readonly IMediator mediator;
-        private readonly IUserSession userSession;
         private readonly IUser user;
         private readonly QRCodeMemberSignInController controller;
 
         public QRCodeMemberSignInControllerTests()
         {
             mediator = Substitute.For<IMediator>();
-            userSession = Substitute.For<IUserSession>();
 
             user = Substitute.For<IUser>();
             user.LoggedInUserId.Returns(1176070);
@@ -35,7 +33,7 @@
             user.Language.Returns("En");
             user.IsInternal.Returns(false);
 
-            controller = new QRCodeMemberSignInController(mediator, userSession);
+            controller = new QRCodeMemberSignInController(mediator);
         }
 
         [Fact]
@@ -65,7 +63,6 @@
             // Assert
             Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);
         }
-
 
         [Fact]
         public void CreateAccount_Success_ReturnCorrectDataWithRawPassword()
