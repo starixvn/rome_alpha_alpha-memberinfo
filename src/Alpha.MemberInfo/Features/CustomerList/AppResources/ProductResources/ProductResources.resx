@@ -501,4 +501,16 @@
   <data name="EditMultipleProtectedStatusText" xml:space="preserve">
     <value>Edit Multiple Protection Status</value>
   </data>
+  <data name="EditMultipleAutoTransferText" xml:space="preserve">
+    <value>Edit Multiple Auto Transfer</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelText" xml:space="preserve">
+    <value>Auto Transfer</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage" xml:space="preserve">
+    <value>Are you sure you want to turn off Auto Transfer process for this customer?</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage" xml:space="preserve">
+    <value>Are you sure you want to turn on Auto Transfer process for this customer?</value>
+  </data>
 </root>

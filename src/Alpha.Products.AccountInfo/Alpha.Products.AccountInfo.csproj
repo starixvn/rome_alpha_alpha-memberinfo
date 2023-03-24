@@ -137,6 +137,7 @@
     <Compile Include="Setting\ViewModels\Base\ISettingItemViewModel.cs" />
     <Compile Include="Setting\ViewModels\BetSettingViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\ClosedMultipleViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Multiple\AutoTransferMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\ParlayMaxPayoutMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\ProtectedMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\SuspendedMultipleViewModel.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Status\ViewModels\ConfirmAllowAutoMasterPTViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmAllowOutrightViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmClosedViewModel.cs" />
+    <Compile Include="Status\ViewModels\ConfirmAllowAutoTransferViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmProtectedViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmTransferBalanceDailyViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmDoubleCommViewModel.cs" />

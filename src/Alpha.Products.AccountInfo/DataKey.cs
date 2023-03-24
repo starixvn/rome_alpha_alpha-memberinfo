@@ -17,6 +17,7 @@
             public const string IsEnableSecurityCode = "SearchAccount.IsEnableSecurityCode";
             public const string IsAllDayBalTransfer = "SearchAccount.IsAllDayBalTransfer";
             public const string AllowedAllDayBalTransfer = "SearchAccount.AllowedAllDayBalTransfer";
+            public const string IsAllowAutoTransfer = "SearchAccount.IsAllowAutoTransfer";
 
             public static class Upline
             {
@@ -47,6 +48,7 @@
             public const string DisableOutright = "DisableOutright";
             public const string Suspended = "Suspended";
             public const string IsAllDayBalTransfer = "IsAllDayBalTransfer";
+            public const string AutoTransfer = "AutoTransfer";
         }
 
         public static class Method

@@ -29,6 +29,12 @@ namespace Alpha.Products.AccountInfo.Setting
             yield return new ClosedMultipleViewModel(request);
             yield return new ProtectedMultipleViewModel(request);
             yield return new ParlayMaxPayoutMultipleViewModel(request);
+
+            if ((!request.IsSubAcc || request.SubPageAccess.Transfer)
+                && request.SupportAutoTransfer)
+            {
+                yield return new AutoTransferMultipleViewModel(request);
+            }
         }
 
         protected override ISettingItemMultipleViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)
@@ -36,10 +42,10 @@ namespace Alpha.Products.AccountInfo.Setting
             switch (productItem.ProductId)
             {
                 case Sportsbook:
-                    return new SportsbookMultipleViewModel(request, productItem);            
+                    return new SportsbookMultipleViewModel(request, productItem);
 
                 case Keno:
-                    return new KenoMultipleViewModel(request, productItem);              
+                    return new KenoMultipleViewModel(request, productItem);
 
                 case Sportsbook2:
                     return new Sportsbook2MultipeViewModel(request, productItem);

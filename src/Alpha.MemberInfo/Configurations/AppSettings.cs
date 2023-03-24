@@ -50,9 +50,11 @@
 
         public static string RemoteRefURL => GetConfigValue("RemoteRefURL");
 
-        public static string IndirectLoginURL 
-            => !string.IsNullOrWhiteSpace(GetConfigValue("IndirectLoginURL")) ? 
-                $"{GetConfigValue("IndirectLoginURL")}_Authorization/IndirectLogin.aspx" : 
+        public static string TransferAppPath => GetConfigValue("TransferAppPath");
+
+        public static string IndirectLoginURL
+            => !string.IsNullOrWhiteSpace(GetConfigValue("IndirectLoginURL")) ?
+                $"{GetConfigValue("IndirectLoginURL")}_Authorization/IndirectLogin.aspx" :
                 $"//{HttpContext.Current.Request.Headers["Host"].Replace("mb.", "mb2.")}/ex-main/_Authorization/IndirectLogin.aspx";
 
         public static IEnumerable<int> IndirectLoginSuperIds
@@ -85,7 +87,7 @@
         public static string JsVersion => GetConfigValue("JsVersion");
 
         public static bool LocalTest => GetConfigValue("LocalTest") == "1";
-        
+
         public static string SiteGroup => GetConfigValue("SiteGroup") ?? string.Empty;
 
         public static bool IsMBCSite => !SiteGroup.Equals("789y", StringComparison.OrdinalIgnoreCase);
@@ -93,5 +95,14 @@
         public static int MaxAccountsCreatePerRequest => Convert.ToInt32(GetConfigValue("CreateNewAccount:MaxAccountPerRequest"));
 
         public static Uri CustomerApiUri => new Uri(GetConfigValue("CustomerApi:Uri"));
+        
+        public static DateTime? EnableSupportAutoTransferDate()
+        {
+            DateTime enableSupportAutoTransferDate;
+
+            return DateTime.TryParse(ConfigurationManager.AppSettings["EnableSupportAutoTransferDate"], out enableSupportAutoTransferDate)
+              ? enableSupportAutoTransferDate
+              : (DateTime?)null;
+        }
     }
 }

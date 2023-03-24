@@ -7,16 +7,19 @@
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.Web.Filters;
     using MediatR;
+    using Sunplus.Agent.Model.Entities;
 
     public class CustomerListController : SiteBaseController
     {
         private const string IndexPath = "~/Features/CustomerList/Views/Index.cshtml";
         private const string MultipleDoubleCommPath = "~/Features/CustomerList/Views/MultipeDoubleComm.cshtml";
         private readonly Result ErrorDefault = Result.CreateErrorResult(Lang.NotAuthorized);
+        private readonly IUserSession userSession;
 
-        public CustomerListController(IMediator mediator)
+        public CustomerListController(IMediator mediator, IUserSession userSession)
             : base(mediator)
         {
+            this.userSession = userSession;
         }
 
         [Route("CustomerList/master")]
@@ -50,6 +53,8 @@
         [HttpPost]
         public ActionResult MultipleEditPopup(CustomerStatusMultipleQuery message)
         {
+            message.SubPageAccess = userSession.SubPageAccess;
+
             if (!message.IsValid())
             {
                 return Json(ErrorDefault, JsonRequestBehavior.AllowGet);

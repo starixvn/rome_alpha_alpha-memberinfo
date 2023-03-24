@@ -312,4 +312,16 @@
   <data name="UnlockTooltip" xml:space="preserve">
     <value>Click to unlock</value>
   </data>
+  <data name="AutoTransfer" xml:space="preserve">
+    <value>Auto Transfer</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
 </root>

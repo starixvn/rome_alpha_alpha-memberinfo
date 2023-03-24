@@ -3,6 +3,7 @@
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Shared;
+    using Alpha.Web.Configurations;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -73,5 +74,7 @@
         public virtual bool Enabled => true;
 
         public virtual bool ShowGuideLine => false;
+
+        protected virtual string TransferUrl => AppSettings.TransferAppPath;
     }
 }

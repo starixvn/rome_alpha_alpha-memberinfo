@@ -67,6 +67,7 @@
             var ConvertResourcesJson = convertResourcesJson ?? SimpleServiceLocator.GetService<Func<string, ResourceManager, string>>();
             Resources = ConvertResourcesJson(request.Language, CustomerListResources.ResourceManager);
             CustomerListPagingViewModel = customerListPagingViewModel;
+            AllowAutoTransfer = request.AllowAutoTransfer;
         }
 
         public bool HideEditMultiple { get; }
@@ -117,6 +118,8 @@
 
         public string Language { get; }
 
+        public int AllowAutoTransfer { get; }
+
         public IEnumerable<CustomerListOption> StatusOptions
              => new List<CustomerListOption>
                 {
@@ -134,6 +137,14 @@
                     new CustomerListOption(2 , CustomerListResources.All),
                     new CustomerListOption(1 , CustomerListResources.Allowed),
                     new CustomerListOption(0 , CustomerListResources.Disallowed)
+                };
+
+        public IEnumerable<CustomerListOption> AllowAutoTransferOptions
+             => new List<CustomerListOption>
+                {
+                    new CustomerListOption(2 , CustomerListResources.All),
+                    new CustomerListOption(1 , CustomerListResources.Enabled),
+                    new CustomerListOption(0 , CustomerListResources.Disabled)
                 };
 
         public CustomerListPagingViewModel CustomerListPagingViewModel { get; }

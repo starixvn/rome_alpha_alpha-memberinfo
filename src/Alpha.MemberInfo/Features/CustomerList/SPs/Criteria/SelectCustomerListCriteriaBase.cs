@@ -11,6 +11,7 @@
             bool? suspended,
             bool locked,
             byte doubleCommLosing,
+            int autoTransfer,
             int pageSize,
             int pageIndex)
         {
@@ -20,6 +21,8 @@
             Suspended = suspended;
             Locked = locked;
             DoubleCommLosing = doubleCommLosing;
+            AutoTransfer = autoTransfer;
+
             PageIndex = pageIndex;
             PageSize = pageSize;
         }
@@ -35,6 +38,8 @@
         public bool Locked { get; }
 
         public byte DoubleCommLosing { get; }
+
+        public int AutoTransfer { get; set; }
 
         public int PageSize { get; }
 

@@ -8,5 +8,6 @@
         public const string DisableOutright = "DisableOutright";
         public const string Suspended = "Suspended";
         public const string Unlock = "Unlock";
+        public const string AllowAutoTransfer = "AllowAutoTransfer";
     }
 }

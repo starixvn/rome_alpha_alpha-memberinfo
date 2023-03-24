@@ -53,7 +53,7 @@ class CustomerListServices {
             reloadcustomerlist = JSON.parse($target.data("reloadcustomerlist"));
 
         this.callAjax(
-            this.viewModel.MemberInfoUrl + 'CustomerList/' + action,
+            params.UseDifferentSite ? action : this.viewModel.MemberInfoUrl + 'CustomerList/' + action,
             'POST',
             params,
             data => {

@@ -16,7 +16,7 @@
         CustomerStatusModel GetCustomerStatus(int custId);
 
         Result UpdateCustomerStatus(UpdateCustomerStatusParam param);
-     
+
     }
 
     public class CustomerListServiceImpl : CustomerListService
@@ -62,7 +62,7 @@
                 param.Language,
                 param.IP,
                 param.StatusName,
-                param.StatusValue));      
+                param.StatusValue));
 
         internal CustomerListDTO FectchMasterList(CustomerListParam param)
         {
@@ -74,6 +74,7 @@
               param.Suspended,
               param.Locked,
               param.DoubleCommLosing,
+              param.AllowAutoTransfer,
               param.PageSize,
               param.PageIndex);
 
@@ -93,6 +94,7 @@
                 param.Suspended,
                 param.Locked,
                 param.DoubleCommLosing,
+                param.AllowAutoTransfer,
                 param.PageSize,
                 param.PageIndex);
 
@@ -112,6 +114,7 @@
                 param.Suspended,
                 param.Locked,
                 param.DoubleCommLosing,
+                param.AllowAutoTransfer,
                 param.PageSize,
                 param.PageIndex);
 
