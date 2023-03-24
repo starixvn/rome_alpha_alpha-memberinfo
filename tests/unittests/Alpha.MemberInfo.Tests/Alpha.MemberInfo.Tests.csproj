@@ -308,6 +308,7 @@
     <Compile Include="Criteria\WinLossLimit\GetOutstandingCriteriaTests.cs" />
     <Compile Include="Criteria\WinLossLimit\GetWinLossLimitProductCriteriaTests.cs" />
     <Compile Include="Criteria\WinLossLimit\MapPlayerId3rdToCustIdCriteriaTests.cs" />
+    <Compile Include="Criteria\Winloss\DailyEnteredSportCriteriaTests.cs" />
     <Compile Include="DataAccesses\WinLossLimitDataAccessImplTests.cs" />
     <Compile Include="Database\WinLossLimit\CustWinLossLimitDatabase.cs" />
     <Compile Include="Enumerations\EnumerationTests.cs" />
@@ -365,7 +366,9 @@
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckEnableCustomerCritieriaTests.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckBelongingByUsernameCritieriaTests.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInServiceTests.cs" />
-    <Compile Include="Features\Shared\Criteria\SelectAutoSuggestionCriteriaTest.cs" />
+    <Compile Include="Features\Shared\Criteria\CheckBelongingInDBCustCommandTests.cs" />
+    <Compile Include="Features\Shared\Criteria\SelectAutoSuggestionCriteriaTests.cs" />
+    <Compile Include="Features\Shared\CheckBelongingServiceTests.cs" />
     <Compile Include="Features\Shared\UsernameSuggestionServiceTests.cs" />
     <Compile Include="Fixtures\AnyValueCreatorFixture.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -373,6 +376,7 @@
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Helpers\ProductHelperTests.cs" />
     <Compile Include="ModelsForTesting\UserLevelForTesting.cs" />
+    <Compile Include="Models\CustomerTransferStatusTest.cs" />
     <Compile Include="Models\CustomerInfoTests.cs" />
     <Compile Include="Models\CreditBalance\AgentNetPositionTests.cs" />
     <Compile Include="Models\CreditBalance\CreditBalanceItemTests.cs" />
@@ -382,9 +386,11 @@
     <Compile Include="Models\ProblemAccount\ProblemAccountModelTests.cs" />
     <Compile Include="Models\ResultTests.cs" />
     <Compile Include="Models\UserLevelTests.cs" />
-    <Compile Include="Params\CreditBalanceParamTests.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitDetailTests.cs" />
     <Compile Include="Models\WinLossLimit\WinLossLimitProductModelTests.cs" />
+    <Compile Include="Params\CreditBalanceParamTests.cs" />
+    <Compile Include="Models\WinLoss\DailyEnteredSportModelTests.cs" />
+    <Compile Include="Models\WinLoss\EnteredSportResultModelTests.cs" />
     <Compile Include="Params\ProductSettingParamTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CacheRefServiceImplTests.cs" />
@@ -392,6 +398,7 @@
     <Compile Include="Services\CreditBalance\CreditBalanceServiceImplTests.cs" />
     <Compile Include="Services\IndirectLoginAccount\IndirectLoginAccountServiceImplTests.cs" />
     <Compile Include="Services\MemberRequest\MemberRequestServiceImplTests.cs" />
+    <Compile Include="Services\WinlossServiceTests.cs" />
     <Compile Include="Services\ProblemAccountServiceTests.cs" />
     <Compile Include="Services\Transfer\TransferServiceImplTests.cs" />
     <Compile Include="Services\WinLossLimit\WinLossLimitServiceImplTests.cs" />

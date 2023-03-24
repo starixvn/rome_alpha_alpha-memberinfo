@@ -5,6 +5,7 @@
     using MediatR;
     using MemberInfo.Models;
     using NSubstitute;
+    using Sunplus.Agent.Model.Entities;
     using Xunit;
 
     [Trait("Category", "CustomerList")]
@@ -13,10 +14,12 @@
         private readonly IMediator mediator;
         private readonly IUser user;
         private readonly CustomerListController controller;
+        private readonly IUserSession userSession;
 
         public CustomerListControllerTests()
         {
             mediator = Substitute.For<IMediator>();
+            userSession = Substitute.For<IUserSession>();
 
             user = Substitute.For<IUser>();
             user.LoggedInUserId.Returns(1176070);
@@ -28,7 +31,7 @@
             user.IsInternal.Returns(false);
             user.CanUpdateAccount.Returns(true);
 
-            controller = new CustomerListController(mediator);
+            controller = new CustomerListController(mediator, userSession);
         }
 
         [Fact]

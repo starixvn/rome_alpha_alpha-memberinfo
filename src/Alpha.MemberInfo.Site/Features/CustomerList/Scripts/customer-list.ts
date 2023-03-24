@@ -7,9 +7,10 @@ interface Window {
     actionAfterUpdatedLiveCasinoSettingMultiple: Function,
     actionAfterUpdatedLiveCasinoSettingSingle: Function,
     successfulUpdatingCallbackAndReloadMainFrame: Function,
+    reloadMainFrame: Function,
     customerListPopup: any;
     jquery: JQueryStatic;
-    customerListData: any
+    customerListData: any;
 }
 
 class CustomerList {
@@ -19,6 +20,7 @@ class CustomerList {
     private viewModel: CustomerListViewModel;
     private statusDropdown: SingleSelectionDropdownComponent;
     private doubleCommDropdown: SingleSelectionDropdownComponent;
+    private allowAutoTransferDropdown: SingleSelectionDropdownComponent;
 
     constructor(
         $: JQueryStatic,
@@ -26,7 +28,8 @@ class CustomerList {
         customerListPopup: CustomerListPopup,
         customerListDataTable: CustomerListDataTable,
         statusDropdown: SingleSelectionDropdownComponent,
-        doubleCommDropdown: SingleSelectionDropdownComponent) {
+        doubleCommDropdown: SingleSelectionDropdownComponent,
+        allowAutoTransferDropdown: SingleSelectionDropdownComponent) {
         this.$ = $;
         this.viewModel = viewModel;
         this.customerListDataTable = customerListDataTable;
@@ -34,6 +37,7 @@ class CustomerList {
 
         this.statusDropdown = statusDropdown;
         this.doubleCommDropdown = doubleCommDropdown;
+        this.allowAutoTransferDropdown = allowAutoTransferDropdown;
     }
 
     public init = () => {
@@ -42,6 +46,9 @@ class CustomerList {
 
         this.doubleCommDropdown.render(
             new SingleSelectionDropdownOption("dcommFilter", "DoubleCommId", () => { }, true, true));
+
+        this.allowAutoTransferDropdown.render(
+            new SingleSelectionDropdownOption("dautoTransferFilter", "AllowAutoTransfer", () => { }, true, true));
 
         this.bindingTxtUsername();
         this.customerListDataTable.bindingEvent();
@@ -100,7 +107,7 @@ $(function () {
     );
 
     const customerListPopup = new CustomerListPopup($, window.top, viewModel.IsMobileView),
-        customerListServices = new CustomerListServices($, viewModel),
+        customerListServices = new CustomerListServices($, window.top, viewModel),
         editSingleSetting = new EditSingleSetting($, customerListPopup, customerListServices),
         editMultipleSetting = new EditMultipleSetting($, viewModel, customerListPopup, customerListServices, editSingleSetting),
         editStatus = new EditStatus($, window.top, viewModel.IsMobileView, customerListServices, customerListPopup),
@@ -111,6 +118,7 @@ $(function () {
             viewModel,
             customerListPopup,
             customerListDataTable,
+            new SingleSelectionDropdownComponent($),
             new SingleSelectionDropdownComponent($),
             new SingleSelectionDropdownComponent($));
 
@@ -129,6 +137,10 @@ $(function () {
             customerListPopup.reloadFrame();
         }, reloadAfterThreeSecond ? 3000 : 1500);
     }
+
+    window.top.reloadMainFrame = (reloadAfterThreeSecond = false) => {
+        customerListDataTable.reloadData();
+    };
 
     customerList.init();
 });

@@ -3,6 +3,7 @@
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.Shared.Requests;
     using Alpha.Web.Configurations;
+    using Sunplus.Agent.Model.Entities;
 
     public class CustomerStatusQueryBase : BaseRequest
     {
@@ -60,7 +61,11 @@
         internal bool IsValidName(string name) => !string.IsNullOrEmpty(name);
 
         public bool IsOfferProtectedMode => viewer.IsOfferProtectedMode;
-        
+
         public string DarkModeName => AppSettings.IsOfferDarkMode ? viewer.DarkModeName : string.Empty;
+
+        public PageAccess SubPageAccess => viewer.SubPageAccess;
+
+        public bool SupportAutoTransfer => Alpha.MemberInfo.Configurations.AppSettings.IsEnableAutoTransfer(viewer);
     }
 }

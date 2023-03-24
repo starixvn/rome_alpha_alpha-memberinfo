@@ -4,9 +4,11 @@ class CustomerListServices {
     private $: JQueryStatic;
     public statusSettingArray: any;
     private viewModel: CustomerListViewModel;
+    private topWindow: any;
 
-    constructor($: JQueryStatic, viewModel: CustomerListViewModel) {
+    constructor($: JQueryStatic, topWindow: any, viewModel: CustomerListViewModel) {
         this.$ = $;
+        this.topWindow = topWindow;
         this.viewModel = viewModel;
     }
 
@@ -53,13 +55,15 @@ class CustomerListServices {
             reloadcustomerlist = JSON.parse($target.data("reloadcustomerlist"));
 
         this.callAjax(
-            this.viewModel.MemberInfoUrl + 'CustomerList/' + action,
+            params.UseDifferentSite ? action : this.viewModel.MemberInfoUrl + 'CustomerList/' + action,
             'POST',
             params,
             data => {
                 this.$.unblockUI();
+
+                data.UseDifferentSite = params.UseDifferentSite;
                 updateCustomerStatusSuccess(currentTarget, parentTarget, data, reloadcustomerlist);
-            })
+            });
     }
 
     public getSettings = (url, callback, type = "GET", params = {}) => this.callAjaxWithoutBlocking(

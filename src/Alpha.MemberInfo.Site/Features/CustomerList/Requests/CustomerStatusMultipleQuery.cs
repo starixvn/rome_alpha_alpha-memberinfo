@@ -1,10 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.Requests
 {
+    using System.Collections.Generic;
     using Alpha.MemberInfo.Models;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
     using Fanex.Common;
     using MediatR;
-    using System.Collections.Generic;
 
     public class CustomerStatusMultipleQuery : CustomerStatusQueryBase, IRequest<IEnumerable<ISettingItemMultipleViewModel>>
     {
@@ -36,9 +36,9 @@
             }
         }
 
-        public override bool IsValid() => 
+        public override bool IsValid() =>
             base.IsValid() &&
-            !string.IsNullOrEmpty(CustIds) && 
+            !string.IsNullOrEmpty(CustIds) &&
             !string.IsNullOrEmpty(Usernames);
     }
 }

@@ -7,6 +7,7 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Web;
+    using Alpha.MemberInfo.Models;
 
     public static class AppSettings
     {
@@ -50,9 +51,11 @@
 
         public static string RemoteRefURL => GetConfigValue("RemoteRefURL");
 
-        public static string IndirectLoginURL 
-            => !string.IsNullOrWhiteSpace(GetConfigValue("IndirectLoginURL")) ? 
-                $"{GetConfigValue("IndirectLoginURL")}_Authorization/IndirectLogin.aspx" : 
+        public static string TransferAppPath => GetConfigValue("TransferAppPath");
+
+        public static string IndirectLoginURL
+            => !string.IsNullOrWhiteSpace(GetConfigValue("IndirectLoginURL")) ?
+                $"{GetConfigValue("IndirectLoginURL")}_Authorization/IndirectLogin.aspx" :
                 $"//{HttpContext.Current.Request.Headers["Host"].Replace("mb.", "mb2.")}/ex-main/_Authorization/IndirectLogin.aspx";
 
         public static IEnumerable<int> IndirectLoginSuperIds
@@ -85,8 +88,8 @@
         public static string JsVersion => GetConfigValue("JsVersion");
 
         public static bool LocalTest => GetConfigValue("LocalTest") == "1";
-        
-        public static string SiteGroup => GetConfigValue("SiteGroup") ?? string.Empty;
+
+        public static string SiteGroup => GetConfigValue("SiteLabel") ?? string.Empty;
 
         public static bool IsMBCSite => !SiteGroup.Equals("789y", StringComparison.OrdinalIgnoreCase);
 
@@ -95,6 +98,29 @@
         public static Uri CustomerApiUri => new Uri(GetConfigValue("CustomerApi:Uri"));
 
         public static bool IsStandaloneBetlist => !string.IsNullOrWhiteSpace(GetConfigValue("Betlist:Domain"));
+
+        public static bool IsEnableAutoTransfer(IUser viewer)
+        {
+            if (viewer.IsSubAcc && !viewer.SubPageAccess.Transfer)
+            {
+                return false;
+            }
+
+            var currency = viewer.Currency;
+            var s = GetConfigValue("OfferAutoTransfer.Currencies");
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return false;
+            }
+
+            if (s == "*")
+            {
+                return true;
+            }
+
+            return s.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
+                .Any(c => string.Equals(currency, c.Trim(), StringComparison.OrdinalIgnoreCase));
+        }
 
         public static string BetlistDomain
         {

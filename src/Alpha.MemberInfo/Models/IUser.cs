@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using Sunplus.Agent.Model.Entities;
 
     public interface IUser
     {
@@ -64,11 +65,15 @@
         bool CanViewReports { get; }
 
         bool IsOfferProtectedMode { get; }
-        
+
         string DarkModeName { get; }
 
         string AssetAppPath { get; }
 
-        string SiteDBGroupIp { get; }             
+        string SiteDBGroupIp { get; }
+        string Currency { get; }
+
+        bool IsSubAcc { get; }
+        PageAccess SubPageAccess { get; }
     }
 }

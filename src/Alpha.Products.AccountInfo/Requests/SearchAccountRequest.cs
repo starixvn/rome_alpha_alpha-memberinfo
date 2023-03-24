@@ -4,6 +4,7 @@ namespace Alpha.Products.AccountInfo.Requests
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Services;
+    using Sunplus.Agent.Model.Entities;
     using System;
 
     /// <summary>
@@ -23,6 +24,8 @@ namespace Alpha.Products.AccountInfo.Requests
             GetResource = getResource ?? SimpleServiceLocator.GetService<Func<string, string>>();
             GetProductName = getProductName ?? SimpleServiceLocator.GetService<Func<int, string>>();
             GetMicroSiteUrl = getMicroSiteUrl ?? SimpleServiceLocator.GetService<Func<string, string, string>>();
+
+            IsSubAcc = actor.IsSubAccount;
         }
 
         public ICustomer Actor { get; }
@@ -45,6 +48,12 @@ namespace Alpha.Products.AccountInfo.Requests
         public Func<string, string, string> GetMicroSiteUrl { get; }
 
         public abstract Func<IConfigurationItem, bool> Predicate { get; }
+
+        public bool IsSubAcc { get; }
+
+        public PageAccess SubPageAccess { get; set; }
+
+        public bool SupportAutoTransfer { get; set; }
     }
 
     public class SettingSearchAccountRequest : SearchAccountRequest

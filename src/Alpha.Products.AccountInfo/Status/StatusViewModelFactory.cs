@@ -26,6 +26,12 @@ namespace Alpha.Products.AccountInfo.Status
             yield return new ConfirmAllowAutoMasterPTViewModel(request);
             yield return new ConfirmDoubleCommViewModel(request);
             yield return new ConfirmTransferBalanceDailyViewModel(request);
+
+            if (request.SupportAutoTransfer &&
+                (!request.IsSubAcc || request.SubPageAccess.Transfer))
+            {
+                yield return new ConfirmAllowAutoTransferViewModel(request);
+            }
         }
 
         protected override IStatusItemViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)

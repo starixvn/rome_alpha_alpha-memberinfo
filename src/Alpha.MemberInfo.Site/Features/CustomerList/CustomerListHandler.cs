@@ -108,7 +108,8 @@
                     DoubleComm = message.DoubleComm,
                     UnconfirmSetting = message.UnconfirmSetting,
                     PageIndex = message.PageIndex,
-                    PageSize = message.PageSize
+                    PageSize = message.PageSize,
+                    AllowAutoTransfer = message.AllowAutoTransfer
                 }
              );
 
@@ -136,7 +137,8 @@
                     message.PageIndex,
                     message.LimitedDateToShowInfo,
                     message.ShowNickname,
-                    message.IsShowMyanmarOdds);
+                    message.IsShowMyanmarOdds,
+                    message.AllowAutoTransfer);
 
             return new CustomerListPagingViewModel(customerListService.GetCustomerList(param), message, ipService);
         }
@@ -314,6 +316,7 @@
             bool allowedAllDayBalTransfer)
         {
             var request = new StatusSearchAccountRequest(actor, searchAccount);
+            request.SubPageAccess = message.SubPageAccess;
 
             request
                 .AddData(DataKey.Actor.HasUpdateAccountPermission, message.CanUpdateAccount)
@@ -340,9 +343,10 @@
                 .AddData(DataKey.SearchAccount.IsDirectSuspend, model.NonProduct.IsDirectSuspend)
 
                 .AddData(DataKey.SearchAccount.AllowedAllDayBalTransfer, allowedAllDayBalTransfer)
-                .AddData(DataKey.SearchAccount.IsAllDayBalTransfer, model.NonProduct.IsAllDayBalTransfer);
+                .AddData(DataKey.SearchAccount.IsAllDayBalTransfer, model.NonProduct.IsAllDayBalTransfer)
+                .AddData(DataKey.SearchAccount.IsAllowAutoTransfer, model.NonProduct.IsAllowAutoTransfer);
 
-
+            request.SupportAutoTransfer = message.SupportAutoTransfer;
             return statusViewModelFactory.GetViewModels(request).Where(status => status.Visible).OrderBy(status => status.DisplayOrder);
         }
 
@@ -353,6 +357,7 @@
             CustomerStatusModel model)
         {
             var request = new SettingSearchAccountRequest(actor, searchAccount);
+            request.SubPageAccess = message.SubPageAccess;
             request
                  .AddData(DataKey.Actor.CanEditDailyTransferOption, model.NonProduct.TransferDaily)
                  .AddData(DataKey.Actor.HasUpdateAccountPermission, message.CanUpdateAccount)
@@ -367,16 +372,19 @@
            Customer searchAccount,
            CustomerStatusMultipleQuery message,
            CustomerStatusModel model)
-        {           
+        {
 
             var request = new SettingSearchAccountRequest(actor, searchAccount);
+            request.SubPageAccess = message.SubPageAccess;
+            request.SupportAutoTransfer = message.SupportAutoTransfer;
+
             request
                  .AddData(DataKey.Actor.CanEditDailyTransferOption, model.NonProduct.TransferDaily)
                  .AddData(DataKey.Actor.HasUpdateAccountPermission, message.CanUpdateAccount)
                  .AddData(DataKey.SearchAccount.IsEnableSecurityCode, securityCodeChecker.IsEnableSecurityCode())
                  .AddData("customerIds", message.CustIds)
                  .AddData("usernames", message.Usernames)
-                 .AddData("customerNames", message.Usernames)                
+                 .AddData("customerNames", message.Usernames)
                  .AddData("language", message.Language)
                  .AddData(DataKey.SearchAccount.IsOfferProtectedMode, message.IsOfferProtectedMode)
                  .AddData(DataKey.Theme.IsDarkMode, !string.IsNullOrWhiteSpace(message.DarkModeName));

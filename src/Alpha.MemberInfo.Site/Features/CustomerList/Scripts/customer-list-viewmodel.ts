@@ -18,7 +18,7 @@ class CustomerListViewModel {
     IsShowMyanmarOdds: boolean;
     CanViewReport: boolean;
     CanUpdateAccount: boolean;
-    CustomerListData: any
+    CustomerListData: any;
 
     constructor(
         uplineRoleId: number,

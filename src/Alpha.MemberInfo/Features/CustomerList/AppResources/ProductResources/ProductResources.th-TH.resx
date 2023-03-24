@@ -498,4 +498,16 @@
   <data name="EditMultipleProtectedStatusText" xml:space="preserve">
     <value>แก้ไขสถานะการป้องกันหลายรายการ</value>
   </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage" xml:space="preserve">
+    <value>คุณต้องการปิดใช้งานระบบโอนอัตโนมัติสำหรับบัญชีนี้หรือไม่</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage" xml:space="preserve">
+    <value>คุณต้องการเปิดใช้งานระบบโอนอัตโนมัติสำหรับบัญชีนี้หรือไม่</value>
+  </data>
+  <data name="EditMultipleAutoTransferText" xml:space="preserve">
+    <value>แก้ไขการโอนอัตโนมัติหลายรายการ</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelText" xml:space="preserve">
+    <value>โอนอัตโนมัติ</value>
+  </data>
 </root>

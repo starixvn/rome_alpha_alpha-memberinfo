@@ -14,6 +14,7 @@ class CustomerListDataTable {
     private username: string;
     private status: string;
     private doubleComm: string;
+    private allowAutoTransfer: string;
 
     constructor(
         $: JQueryStatic,
@@ -105,7 +106,8 @@ class CustomerListDataTable {
                             PageSize: data.length,
                             Username: this.username,
                             Status: this.status,
-                            DoubleComm: this.doubleComm
+                            DoubleComm: this.doubleComm,
+                            AllowAutoTransfer: this.allowAutoTransfer
                         };
 
                         this.customerListServices.getCutomerList(params, callback);
@@ -349,6 +351,7 @@ class CustomerListDataTable {
             CustName: item.Username,
             Status: this.$('#statusFilter').val(),
             DoubleComm: this.$('#dcommFilter').val(),
+            AllowAutoTransfer: this.$('#dautoTransferFilter').val(),
             UnconfirmSetting: this.$('#unconfirmSettingFilter').val()
         };
 
@@ -523,6 +526,7 @@ class CustomerListDataTable {
             this.username = this.$('#txt-username').val();
             this.status = this.$('#statusFilter').val();
             this.doubleComm = this.$('#dcommFilter').val();
+            this.allowAutoTransfer = this.$('#dautoTransferFilter').val();
             this.$('.select-all').prop("checked", false);
             this.$table.ajax.reload();
         });

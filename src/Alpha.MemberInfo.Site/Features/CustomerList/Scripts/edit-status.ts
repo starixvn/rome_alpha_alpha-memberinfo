@@ -89,6 +89,10 @@ class EditStatus {
 
     private updateCustomerStatusSuccess = (currentTarget, parentTarget, data, reloadcustomerlist) => {
         if (data.IsSuccessful) {
+            if (data.UseDifferentSite && data.Code == 0) {
+                this.topWindow.bootboxAlert(data.Message, this.isMobile ? currentTarget : parentTarget);
+            }
+
             if (reloadcustomerlist && this.topWindow.customerListNew) {
                 this.topWindow.successfulUpdatingCallbackAndReloadMainFrame(true);
             }
