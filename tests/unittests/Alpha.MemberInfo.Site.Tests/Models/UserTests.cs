@@ -108,23 +108,6 @@
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void IsAllDayBalTransfer_Always_ReturnsExpectedValue(bool expected)
-        {
-            // Arrange
-            var userSession = Substitute.For<IUserSession>();
-            userSession.IsAllDayBalTransfer.Returns(expected);
-            var user = new User(userSession);
-
-            // Act
-            var actual = user.IsAllDayBalTransfer;
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
         public void IsAllowedTotalBalanceTransfer_Always_ReturnsExpectedValue(bool expected)
         {
             // Arrange

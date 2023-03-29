@@ -16,6 +16,6 @@
         public async Task<ActionResult> Index(CreditBalanceQuery message)
             => View(message.IsValid()
                 ? await mediator.SendAsync(message)
-                : new CreditBalanceViewModel(message, new MemberInfo.Models.Winloss.EnteredSportResult()));
+                : new CreditBalanceViewModel(message, new MemberInfo.Models.Winloss.EnteredSportResult(), false));
     }
 }

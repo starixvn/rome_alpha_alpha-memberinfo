@@ -19,7 +19,6 @@
             User.Language.Returns("En");
             User.IsInternal.Returns(false);
             User.AllowedTotalBalanceTransfer.Returns(true);
-            User.AllowedAllDayBalTransfer.Returns(false);
             User.GetDisabledProduct(Arg.Any<int>()).Returns(true);
             User.GetHideProduct(Arg.Any<int>()).Returns(true);
             User.GetSyncedProduct(Arg.Any<int>()).Returns(true);

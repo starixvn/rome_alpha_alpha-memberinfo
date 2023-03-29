@@ -24,7 +24,6 @@
             ActorId = user.Id;
             ActorLevel = Enumeration.FromValue<UserLevel>(user.LevelId);
             CanUpdateAccount = user.CanUpdateAccount;
-            IsAllDayBalTransfer = user.IsAllDayBalTransfer;
             IsAllowedTotalBalanceTransfer = user.IsAllowedTotalBalanceTransfer;
             CanTransfer = user.CanTransfer;
             CanViewBetLists = user.CanViewBetLists;
@@ -119,8 +118,6 @@
         public UserLevel ActorLevel { get; }
 
         public bool CanUpdateAccount { get; }
-
-        public bool IsAllDayBalTransfer { get; }
 
         public bool IsAllowedTotalBalanceTransfer { get; }
 

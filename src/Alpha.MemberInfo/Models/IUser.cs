@@ -37,8 +37,6 @@
 
         bool CanViewBetLists { get; }
 
-        bool IsAllDayBalTransfer { get; }
-
         bool IsAllowedTotalBalanceTransfer { get; }
 
         bool CanTransfer { get; }
@@ -62,8 +60,6 @@
         bool IsDisabledESports { get; }
 
         bool IsNumberGameDisabled { get; }  
-
-        bool AllowedAllDayBalTransfer { get; }
 
         bool AllowedTotalBalanceTransfer { get; }
 

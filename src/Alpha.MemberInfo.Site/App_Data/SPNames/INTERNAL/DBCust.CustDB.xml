@@ -4,6 +4,7 @@
   </Function>
   <Function Name="Transfer">
     <Setting Key="Acc_CustomerSelTransferOption" SpName="Acc_CustomerSelTransferOption" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_GetIsAllDayBalTransfer" SpName="Age_GetIsAllDayBalTransfer" DbName="DBCust.CustDB.BODBDownlineNetView" Plain="0" />
   </Function>
   <Function Name="Credit/Balance">
     <Setting Key="Age_CustomerSelCreditBalClosedReason_Ag" SpName="Age_CustomerSelCreditBalClosedReason_Ag" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />

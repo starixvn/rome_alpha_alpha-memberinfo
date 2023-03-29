@@ -167,8 +167,8 @@
       <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.6.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.6.5\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.6.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.6.8\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.2\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
@@ -282,6 +282,7 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Criteria\ProblemAccount\GetProblemAccountCriteria.cs" />
+    <Compile Include="Criteria\Transfer\GetIsAllDayBalTransferCriteria.cs" />
     <Compile Include="Criteria\Transfer\GetTransferOptionCriteria.cs" />
     <Compile Include="Criteria\WinLossLimit\MapPlayerId3rdToCustIdCriteria.cs" />
     <Compile Include="Constants\StatusIdentity.cs" />
@@ -436,6 +437,7 @@
     <Compile Include="Models\CreditBalance\CustomerClosedReason.cs" />
     <Compile Include="Models\CreditBalance\CreditBalanceItem.cs" />
     <Compile Include="Models\CreditBalance\PagedCreditBalance.cs" />
+    <Compile Include="Models\CustomerTransferStatus.cs" />
     <Compile Include="Models\IndirectLoginAccount\IndirectLoginAccountItem.cs" />
     <Compile Include="Models\IndirectLoginAccount\RequestInfo.cs" />
     <Compile Include="Models\IUser.cs" />
