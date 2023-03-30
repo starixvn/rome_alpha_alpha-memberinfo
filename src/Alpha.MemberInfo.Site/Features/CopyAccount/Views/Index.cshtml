@@ -99,11 +99,10 @@
                                     <div class="form-input">
                                         <input type="text" name="Credit" id="Credit" value="" />
                                         <span id="icon-message-credit"> </span>
-                                        <div id="credit-range" class="hidden">
-                                            @Resources.AvailableGivenCredit: <span id="credit-max-label"></span>
-                                        </div>
                                     </div>
-                                    <p class="sub-input">Available Given Credit: <span>150,000,000</span></p>
+                                    <div id="credit-range" class="hidden sub-input">
+                                        @Resources.AvailableGivenCredit: <span id="credit-max-label"></span>
+                                    </div>
                                 </div>
 
                                 @if (Model.ActorLevel.IsMasterLevel())
