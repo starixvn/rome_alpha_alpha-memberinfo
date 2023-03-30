@@ -118,6 +118,12 @@
                 span {
                     margin-left: 10px;
                 }
+
+                &.form-select{
+                    select{
+                        border-left : none !important;
+                    }
+                }
             }
         }
 
@@ -129,9 +135,6 @@
             box-shadow: none;
         }
 
-        #FirstSuffix, #SecondSuffix {
-            border-left: none;
-        }
 
         label {
             font-weight: 400;
