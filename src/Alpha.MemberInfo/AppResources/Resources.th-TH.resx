@@ -885,7 +885,7 @@
     <value>ค้นหาบัญชีที่มีอยู่เพื่อใช้เป็นบัญชีต้นทางสำหรับคัดลอกการตั้งค่า</value>
   </data>
   <data name="CopyAccountNote" xml:space="preserve">
-    <value>*หมายเหตุ : การตั้งค่าต่างๆ จะใช้ค่าเดียวกันกับบัญชีต้นทาง</value>
+    <value>หมายเหตุ : การตั้งค่าต่างๆ จะใช้ค่าเดียวกันกับบัญชีต้นทาง</value>
   </data>
   <data name="NoOfAccounts" xml:space="preserve">
     <value>จำนวนบัญชี</value>
@@ -913,5 +913,14 @@
   </data>
   <data name="PerAccount" xml:space="preserve">
     <value>ต่อบัญชี</value>
+  </data>
+  <data name="GivenCreditPerAccount" xml:space="preserve">
+    <value>เครดิตที่ให้แต่ละบัญชี</value>
+  </data>
+  <data name="ClassicView" xml:space="preserve">
+    <value>กลับเป็นมุมมองคลาสสิก</value>
+  </data>
+  <data name="AvailableGivenCredit" xml:space="preserve">
+    <value>เครดิตที่มีอยู่</value>
   </data>
 </root>

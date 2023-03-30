@@ -885,7 +885,7 @@
     <value>搜索現有賬號以復制設定</value>
   </data>
   <data name="CopyAccountNote" xml:space="preserve">
-    <value>*注意：設定將與原始賬號保持相同</value>
+    <value>注意：設定將與原始賬號保持相同</value>
   </data>
   <data name="NoOfAccounts" xml:space="preserve">
     <value>賬號數量</value>
@@ -913,5 +913,14 @@
   </data>
   <data name="PerAccount" xml:space="preserve">
     <value>每個賬號</value>
+  </data>
+  <data name="GivenCreditPerAccount" xml:space="preserve">
+    <value>每個賬號的信用額度</value>
+  </data>
+  <data name="ClassicView" xml:space="preserve">
+    <value>經典版</value>
+  </data>
+  <data name="AvailableGivenCredit" xml:space="preserve">
+    <value>可用信用額度</value>
   </data>
 </root>

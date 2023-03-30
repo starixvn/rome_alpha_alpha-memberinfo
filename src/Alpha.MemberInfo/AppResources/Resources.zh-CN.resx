@@ -885,7 +885,7 @@
     <value>搜索现有账号以复制设定</value>
   </data>
   <data name="CopyAccountNote" xml:space="preserve">
-    <value>*注意：设定将与原始账号保持相同</value>
+    <value>注意：设定将与原始账号保持相同</value>
   </data>
   <data name="NoOfAccounts" xml:space="preserve">
     <value>账号数量</value>
@@ -913,5 +913,14 @@
   </data>
   <data name="PerAccount" xml:space="preserve">
     <value>每个账号</value>
+  </data>
+  <data name="GivenCreditPerAccount" xml:space="preserve">
+    <value>每个账号的信用额度</value>
+  </data>
+  <data name="ClassicView" xml:space="preserve">
+    <value>经典版</value>
+  </data>
+  <data name="AvailableGivenCredit" xml:space="preserve">
+    <value>可用信用额度</value>
   </data>
 </root>

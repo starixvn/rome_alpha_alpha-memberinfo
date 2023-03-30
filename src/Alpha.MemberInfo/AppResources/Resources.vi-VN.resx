@@ -876,7 +876,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Tìm tài khoản có sẵn để sao chép cài đặt</value>
   </data>
   <data name="CopyAccountNote" xml:space="preserve">
-    <value>*Lưu ý: Cài đặt sẽ giống như của tài khoản nguồn</value>
+    <value>Lưu ý: Cài đặt sẽ giống như của tài khoản nguồn</value>
   </data>
   <data name="NoOfAccounts" xml:space="preserve">
     <value>Số tài khoản</value>
@@ -904,5 +904,14 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="PerAccount" xml:space="preserve">
     <value>mỗi tài khoản</value>
+  </data>
+  <data name="GivenCreditPerAccount" xml:space="preserve">
+    <value>Hạn mức tín dụng cho mỗi tài khoản</value>
+  </data>
+  <data name="ClassicView" xml:space="preserve">
+    <value>Giao diện thường</value>
+  </data>
+  <data name="AvailableGivenCredit" xml:space="preserve">
+    <value>Hạn mức tín dụng còn lại</value>
   </data>
 </root>

@@ -250,6 +250,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Available Given Credit.
+        /// </summary>
+        public static string AvailableGivenCredit {
+            get {
+                return ResourceManager.GetString("AvailableGivenCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Balance.
         /// </summary>
         public static string Balance {
@@ -318,6 +327,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Cash {
             get {
                 return ResourceManager.GetString("Cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classic view.
+        /// </summary>
+        public static string ClassicView {
+            get {
+                return ResourceManager.GetString("ClassicView", resourceCulture);
             }
         }
         
@@ -412,7 +430,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to *Note: Settings will be the same as the Source account.
+        ///   Looks up a localized string similar to Note: Settings will be the same as the Source account.
         /// </summary>
         public static string CopyAccountNote {
             get {
@@ -871,6 +889,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Given Credit per Account.
+        /// </summary>
+        public static string GivenCreditPerAccount {
+            get {
+                return ResourceManager.GetString("GivenCreditPerAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Given Credit.
         /// </summary>
         public static string GivenCreditPopupTitle {
@@ -1226,6 +1253,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Master {
             get {
                 return ResourceManager.GetString("Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max Credit per Member.
+        /// </summary>
+        public static string MaxCreditPerMember {
+            get {
+                return ResourceManager.GetString("MaxCreditPerMember", resourceCulture);
             }
         }
         
@@ -2153,6 +2189,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string soccerParlay {
             get {
                 return ResourceManager.GetString("soccerParlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source Account.
+        /// </summary>
+        public static string SourceAccount {
+            get {
+                return ResourceManager.GetString("SourceAccount", resourceCulture);
             }
         }
         

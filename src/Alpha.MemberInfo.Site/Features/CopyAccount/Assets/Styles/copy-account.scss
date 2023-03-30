@@ -1,125 +1,202 @@
-﻿
+﻿.panel {
+    box-sizing: border-box;
+    max-width: 970px;
+    border: 1px solid #E0E0E0;
+    margin: 15px 0;
 
-#copyAccountForm {
-    position: relative;
+    .panel-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #FAFAFA;
+        border-bottom: 1px solid #E0E0E0;
 
-    .label {
-        font-size: 13px;
-        line-height: 22px;
-        color: #444;
-        display: block;
-        margin-bottom: 6px;
-        padding: 0;
-        background: none;
-        text-align: left;
-        font-weight: 400;
-        white-space: break-spaces;
+        .note {
+            font-style: italic;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            margin: 0;
+        }
+
+        .btn-switch-view {
+            width: 120px;
+            height: 28px;
+            background: #F2F2F2;
+            border: 1px solid #A5A5A5;
+            color: #5A5A5A;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            font-size: 13px;
+
+            .icon-refresh2 {
+                font-size: 20px;
+                margin-right: 4px;
+            }
+        }
     }
 
-    .sub-label {
-        font-size: 14px;
-        line-height: 22px;
-        color: #333;
+    .panel-body {
+        padding: 16px 0;
+        border: none;
+    }
+
+    form {
+        position: relative;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .form-section {
+        .section-title {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            text-transform: capitalize;
+            color: #094980;
+        }
+
+        .note {
+            font-size: 13px;
+        }
+    }
+
+    .line {
+        height: 1px;
+        background: #E0E0E0;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
         display: block;
+        margin: 0 0 16px 0;
+
+        select {
+            appearance: revert !important;
+            padding: 4px 9px;
+            height: 30px;
+            border: 1px solid #D1D1D1;
+            box-shadow: none;
+        }
+
+        label {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            color: #333333;
+            display: block;
+            margin-bottom: 6px;
+            padding: 0;
+            background: none;
+            text-align: left;
+            white-space: break-spaces;
+        }
+
+        input {
+            width: 212px;
+            height: 32px;
+            background: #FFFFFF;
+            border: 1px solid #D1D1D1;
+            appearance: none;
+            border-radius: 0;
+            box-shadow: none;
+
+            &.source-username {
+                width: 333px;
+            }
+        }
+
+        &.username {
+            input {
+                width: 230px;
+                background: #E6E6E6;
+                border: 1px solid #D1D1D1;
+                color: #333333;
+                margin: 0;
+                text-align: right;
+            }
+        }
+
+        .relative-input {
+            position: relative;
+            width: 212px;
+            display: flex;
+            align-items: center;
+
+            #icon-message-password {
+                position: absolute;
+                z-index: 10;
+                top: 7px;
+                right: -30px;
+            }
+        }
+
+        #ThirdSuffix {
+            margin-right: 0 !important;
+        }
     }
 
     .require {
         color: #A11515;
     }
 
-    .form-group {
-        display: block;
-        padding: 0;
-        margin: 0 0 16px 0;
-
-        &#username-group {
-            > * {
-                margin-right: 16px;
-            }
-        }
-
-        input {
-            width: 336px;
-            background: #FFFFFF;
-            border: 1px solid #D1D1D1;
-            appearance: none;
-            border-radius: 0;
-            box-shadow: none;
-            height: 30px;
-        }
-
-        input[type='number'] {
-            width: 50px;
-            font-size: 13px;
-            font-family: inherit;
-        }
-
-        #credit-range {
-            padding-top: 5px;
-
-            span {
-                font-weight: 700;
-                color: #333;
-            }
-        }
-
-        .suggestion {
-            padding: 8px 10px;
-        }
-
-        button {
-            height: 30px;
-        }
-
-        .icon-check, .icon-close {
-            font-size: 18px !important;
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .icon-check {
-            color: #fff;
-            background: #18965B;
-            font-size: 12px !important;
-            padding: 2px;
-            margin-left: 10px;
-            border-radius: 50px;
-        }
-
-        .icon-close {
-            color: #fe0000;
-        }
-
-        .easy-autocomplete {
-            display: inline-block;
-        }
+    .icon-eye, .icon-eye-close, .icon-content-copy {
+        color: #888888;
+        position: absolute;
+        z-index: 1;
+        top: 7px;
+        right: 3px;
     }
 
-    .title {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        margin: 0 0 2px 0;
+    .icon-content-copy {
+        color: #0B599C;
     }
 
-    .msg-error {
-        width: 500px;
+    .icon-check, .icon-close {
+        font-size: 18px !important;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .icon-check {
+        color: #fff;
+        background: #18965B;
+        font-size: 12px !important;
+        padding: 2px;
+        margin-left: 10px;
+        border-radius: 50px;
+    }
+
+    .icon-close {
+        color: #fe0000;
+    }
+
+    .easy-autocomplete {
+        display: inline-block;
     }
 }
 
-.note {
-    font-style: italic;
+#NoOfAccounts {
+    width: 332px;
+}
+
+#credit-range {
     font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    color: #444;
-    margin: 20px 0 10px 0;
+    font-size: 12px;
+    line-height: 20px;
+    color: #666666;
+}
+
+#credit-max-label {
+    font-weight: bold;
 }
 
 .switch-old-version {
     position: absolute;
     right: 12px;
     top: 0px;
+
     .btn-switch-version {
         text-decoration: none;
         background: #D3DFEC;
@@ -138,23 +215,6 @@
     }
 }
 
-.form-group {
-    select {
-        appearance: revert !important;
-        padding: 4px 9px;
-        height: 30px;
-    }
-    label{
-        display : block;
-        color : #333;
-        font-size : 14px;
-    }
-
-    #ThirdSuffix{
-        margin-right : 0 !important;
-    }
-}
-
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -170,66 +230,16 @@ select:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px #000 inset;
     transition: background-color 5000s ease-in-out 0s;
 }
+
 .txt-bold {
-    font-weight : bold;
+    font-weight: bold;
 }
 
 
-
-.per-account {
-    font-style: italic;
-    margin-left: 8px;
-}
 .msg-result {
     width: 456px;
 }
 
-.relative-input {
-    position: relative;
-    width: 336px;
-    display: flex;
-    align-items: center;
-
-    &.result-input {
-        width: 456px;
-
-        input {
-            padding-right: 30px;
-        }
-    }
-
-    .icon-eye, .icon-eye-close, .icon-content-copy {
-        color: #888888;
-        position: absolute;
-        z-index: 1;
-        top: 7px;
-        right: 3px;
-    }
-
-    .icon-content-copy {
-        color: #0B599C;
-    }
-
-    #icon-message-password {
-        position: absolute;
-        z-index: 10;
-        top: 7px;
-        right: -30px;
-    }
-
-    input {
-        width: 100%;
-        border: 1px solid #BDC8C3;
-        box-shadow: none;
-        background: #F5FFFB;
-        color: #444444;
-    }
-
-    .per-account {
-        width: 105px;
-        color: #727272;
-    }
-}
 
 .failed-account-created {
     margin-top: 12px;
@@ -302,7 +312,8 @@ select:-webkit-autofill:focus {
         position: unset;
         margin-bottom: 10px;
     }
-    .icon{
-        font-size : 16px;
+
+    .icon {
+        font-size: 16px;
     }
 }

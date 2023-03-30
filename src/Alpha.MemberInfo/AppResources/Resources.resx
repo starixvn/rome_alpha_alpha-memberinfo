@@ -871,7 +871,7 @@
     <value>QR Code</value>
   </data>
   <data name="CopyAccountNote" xml:space="preserve">
-    <value>*Note: Settings will be the same as the Source account</value>
+    <value>Note: Settings will be the same as the Source account</value>
   </data>
   <data name="CopySettings" xml:space="preserve">
     <value>Copy Settings</value>
@@ -928,5 +928,20 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="FailureReason" xml:space="preserve">
     <value>Failure Reason</value>
+  </data>
+  <data name="SourceAccount" xml:space="preserve">
+    <value>Source Account</value>
+  </data>
+  <data name="GivenCreditPerAccount" xml:space="preserve">
+    <value>Given Credit per Account</value>
+  </data>
+  <data name="ClassicView" xml:space="preserve">
+    <value>Classic view</value>
+  </data>
+  <data name="AvailableGivenCredit" xml:space="preserve">
+    <value>Available Given Credit</value>
+  </data>
+  <data name="MaxCreditPerMember" xml:space="preserve">
+    <value>Max Credit per Member</value>
   </data>
 </root>

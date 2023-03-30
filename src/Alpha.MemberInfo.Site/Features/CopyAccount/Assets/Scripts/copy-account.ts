@@ -282,7 +282,7 @@ class CopyAccount {
     }
 
     checkExistedUsernameByChangeSuffix = () => {
-        let username = `${this.$('#actor-name').text()}${this.$firstSuffix.val()}${this.$secondSuffix.val()}`;
+        let username = `${this.$('#actor-name').val()}${this.$firstSuffix.val()}${this.$secondSuffix.val()}`;
         if (this.$thirdSuffix.val()) {
             username = `${username}${this.$thirdSuffix.val()}`;
         }
@@ -346,7 +346,7 @@ class CopyAccount {
                 this.$creditMinLabel.html(numeral(this.creditMin).format(this.numberFormat));
                 this.$creditMaxLabel.html(numeral(this.creditMax).format(this.numberFormat));
 
-                this.validateCredit();
+                parseFloat(this.cleave.getRawValue()) && this.validateCredit();
 
                 this.$.unblockUI();
             },
