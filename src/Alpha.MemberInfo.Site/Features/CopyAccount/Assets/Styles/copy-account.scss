@@ -2,7 +2,7 @@
     box-sizing: border-box;
     max-width: 970px;
     border: 1px solid #E0E0E0;
-    margin: 15px 0;
+    margin: 20px 0 0 0;
 
     .panel-heading {
         display: flex;
@@ -10,13 +10,14 @@
         align-items: center;
         background-color: #FAFAFA;
         border-bottom: 1px solid #E0E0E0;
+        padding: 6px 16px;
 
         .note {
             font-style: italic;
             font-weight: 400;
             font-size: 14px;
             line-height: 22px;
-            margin: 0;
+            margin-bottom: 12px;
         }
 
         .btn-switch-view {
@@ -29,8 +30,9 @@
             align-items: center;
             font-weight: 500;
             font-size: 13px;
+            justify-content: center;
 
-            .icon-refresh2 {
+            .icon-refresh2, .icon-button {
                 font-size: 20px;
                 margin-right: 4px;
             }
@@ -46,6 +48,10 @@
         position: relative;
         padding-left: 15px;
         padding-right: 15px;
+
+        .msg {
+            margin: 0 0 12px 0 !important;
+        }
     }
 
     .form-section {
@@ -62,22 +68,69 @@
         }
     }
 
+    .form-group {
+        margin: 0 0 12px 0 !important;
+        padding-bottom: 0 !important;
+
+        .easy-autocomplete {
+            width: 333px;
+
+            input {
+                width: 100%;
+                border: 1px solid #D1D1D1;
+                color: #333333;
+                font-size: 14px;
+                line-height: 22px;
+                height: 32px;
+                padding: 5px 8px;
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    }
+
     .line {
         height: 1px;
         background: #E0E0E0;
         margin-bottom: 15px;
     }
 
-    .form-group {
-        display: block;
-        margin: 0 0 16px 0;
+    .form-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+
+        .form-column {
+            margin-right: 30px;
+
+            &.fixed-width {
+                width: 360px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .form-input {
+                display: flex;
+                align-items: center;
+
+                span {
+                    margin-left: 10px;
+                }
+            }
+        }
 
         select {
             appearance: revert !important;
             padding: 4px 9px;
-            height: 30px;
+            height: 32px;
             border: 1px solid #D1D1D1;
             box-shadow: none;
+        }
+
+        #FirstSuffix, #SecondSuffix {
+            border-left: none;
         }
 
         label {
@@ -86,7 +139,7 @@
             line-height: 22px;
             color: #333333;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             padding: 0;
             background: none;
             text-align: left;
@@ -105,16 +158,16 @@
             &.source-username {
                 width: 333px;
             }
-        }
 
-        &.username {
-            input {
+            &:disabled {
                 width: 230px;
                 background: #E6E6E6;
                 border: 1px solid #D1D1D1;
                 color: #333333;
                 margin: 0;
-                text-align: right;
+                text-align: left;
+                font-weight: 600;
+                opacity: 1;
             }
         }
 
@@ -136,6 +189,9 @@
             margin-right: 0 !important;
         }
     }
+
+
+
 
     .require {
         color: #A11515;
@@ -178,7 +234,7 @@
 }
 
 #NoOfAccounts {
-    width: 332px;
+    width: 333px;
 }
 
 #credit-range {
@@ -307,6 +363,14 @@ select:-webkit-autofill:focus {
 }
 
 
+.form-submit {
+    margin-top: 16px;
+    button {
+        padding: 6px 16px;
+    }
+}
+
+
 @media (max-width : 767px) {
     .result {
         position: unset;
@@ -315,5 +379,11 @@ select:-webkit-autofill:focus {
 
     .icon {
         font-size: 16px;
+    }
+    .form-row {
+        flex-wrap: wrap;
+        .form-column{
+            margin-bottom : 16px;
+        }
     }
 }

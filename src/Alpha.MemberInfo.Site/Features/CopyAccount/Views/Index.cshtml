@@ -22,7 +22,7 @@
             <div class="panel">
                 <div class="panel-heading">
                     <div class="note"><span class="require">*</span> @Resources.CopyAccountNote</div>
-                    <button class="btn-switch-view"><span class="icon-refresh2"></span>@Resources.ClassicView</button>
+                    <button class="btn-switch-view"><span class="icon-button icon-swap-horizontal"></span>@Resources.ClassicView</button>
                 </div>
                 <div class="panel-body">
                     <form id="copyAccountForm" class="form-validation">
@@ -40,34 +40,38 @@
                         <div class="form-section">
                             <p class="section-title">@Resources.AccountDetails</p>
                             <p class="note">@Resources.AccountDetailsNote</p>
-                            <div class="row">
-                                <div class="form-group col-xs-12 col-sm-5 username">
+
+                            <div class="form-row">
+                                <div class="form-column">
                                     <label class="sub-label">@Resources.Username <span class="require">*</span></label>
-                                    <input type="text" id="actor-name" value="@Model.ActorUsername" disabled="disabled" />
-                                    <select id="FirstSuffix" name="FirstSuffix">
-                                        @foreach (var item in Model.NameSuffix)
-                                        {
-                                            <option value="@item" @(Model.FirstChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
-                                        }
-                                    </select>
-                                    <select id="SecondSuffix" name="SecondSuffix">
-                                        @foreach (var item in Model.NameSuffix)
-                                        {
-                                            <option value="@item" @(Model.SecondChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
-                                        }
-                                    </select>
-                                    @if (Model.ActorLevel.IsAgentLevel())
-                                    {
-                                        <select id="ThirdSuffix" name="ThirdSuffix">
+                                    <div class="form-input">
+                                        <input type="text" id="actor-name" value="@Model.ActorUsername" disabled="disabled" />
+                                        <select id="FirstSuffix" name="FirstSuffix">
                                             @foreach (var item in Model.NameSuffix)
                                             {
-                                                <option value="@item" @(Model.ThirdChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                                                <option value="@item" @(Model.FirstChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
                                             }
                                         </select>
-                                    }
-                                    <span id="icon-message-username" class="icon-check" />
+                                        <select id="SecondSuffix" name="SecondSuffix">
+                                            @foreach (var item in Model.NameSuffix)
+                                            {
+                                                <option value="@item" @(Model.SecondChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                                            }
+                                        </select>
+
+                                        @if (Model.ActorLevel.IsAgentLevel())
+                                        {
+                                            <select id="ThirdSuffix" name="ThirdSuffix">
+                                                @foreach (var item in Model.NameSuffix)
+                                                {
+                                                    <option value="@item" @(Model.ThirdChar.Equals(item) ? "selected=\"selected\"" : string.Empty)> @item</option>
+                                                }
+                                            </select>
+                                        }
+                                        <span id="icon-message-username" class="icon-check" />
+                                    </div>
                                 </div>
-                                <div class="form-group col-xs-12 col-sm-7">
+                                <div class="form-column">
                                     <label>@Resources.Password <span class="require">*</span> <span class="icon-information-outline" title="@Resources.lblPasswordRequire"></span></label>
                                     <div class="relative-input">
                                         <input type="text" name="Password" class="input-pass" id="Password" autocomplete="off" maxlength="16" />
@@ -76,37 +80,47 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="form-group col-xs-12 col-sm-5">
+
+                            <div class="form-row">
+                                <div class="form-column fixed-width">
                                     <label>@Resources.NoOfAccounts</label>
-                                    <select id="NoOfAccounts" name="NoOfAccounts">
-                                        @for (var index = 1; index <= AppSettings.MaxAccountsCreatePerRequest; index++)
-                                        {
-                                            <option value="@index"> @index</option>
-                                        }
-                                    </select>
-                                </div>
-                                <div class="form-group col-xs-12 col-sm-4">
-                                    <label class="sub-label">@Resources.GivenCreditPerAccount <span class="require">*</span></label>
-                                    <input type="text" name="Credit" id="Credit" value="" />
-                                    <span id="icon-message-credit"> </span>
-                                    <div id="credit-range" class="hidden">
-                                        @Resources.AvailableGivenCredit: <span id="credit-max-label"></span>
+                                    <div class="form-input">
+                                        <select id="NoOfAccounts" name="NoOfAccounts">
+                                            @for (var index = 1; index <= AppSettings.MaxAccountsCreatePerRequest; index++)
+                                            {
+                                                <option value="@index"> @index</option>
+                                            }
+                                        </select>
                                     </div>
                                 </div>
-                                @if (Model.ActorLevel.IsMasterLevel())
-                                {
-                                    <div class="form-group col-xs-12 col-sm-3">
-                                        <label class="sub-label">@Resources.MaxCreditPerMember <span class="require">*</span></label>
-                                        <input type="text" name="MemberMaxCredit" id="MemberMaxCredit" value="" />
-                                        <span id="icon-message-member-max-credit"> </span>
-                                        <div id="member-max-credit-range" class="hidden">
-                                            <span id="member-credit-min-label"></span> <=  @Resources.MemberMaxCredit <= <span id="member-credit-max-label"></span>
+
+                                <div class="form-column">
+                                    <label class="sub-label">@Resources.GivenCreditPerAccount <span class="require">*</span></label>
+                                    <div class="form-input">
+                                        <input type="text" name="Credit" id="Credit" value="" />
+                                        <span id="icon-message-credit"> </span>
+                                        <div id="credit-range" class="hidden">
+                                            @Resources.AvailableGivenCredit: <span id="credit-max-label"></span>
                                         </div>
                                     </div>
+                                </div>
+
+                                @if (Model.ActorLevel.IsMasterLevel())
+                                {
+                                    <div class="form-column">
+                                        <label class="sub-label">@Resources.MaxCreditPerMember <span class="require">*</span></label>
+                                        <div class="form-input">
+                                            <input type="text" name="MemberMaxCredit" id="MemberMaxCredit" value="" />
+                                            <span id="icon-message-member-max-credit"> </span>
+                                            <div id="member-max-credit-range" class="hidden">
+                                                <span id="member-credit-min-label"></span> <=  @Resources.MemberMaxCredit <= <span id="member-credit-max-label"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+    
                                 }
                             </div>
-                            <div class="form-group">
+                            <div class="form-submit">
                                 <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateAccount</button>
                             </div>
                         </div>
