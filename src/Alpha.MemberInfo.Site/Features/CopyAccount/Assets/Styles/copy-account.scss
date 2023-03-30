@@ -97,7 +97,7 @@
 
     .form-row {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         margin-bottom: 16px;
 
         .form-column {
@@ -119,10 +119,20 @@
                     margin-left: 10px;
                 }
 
-                &.form-select{
-                    select{
-                        border-left : none !important;
+                &.form-select {
+                    select {
+                        border-left: none !important;
                     }
+                }
+            }
+
+            .sub-input {
+                margin-top: 4px;
+                color: #666666;
+                font-size: 12px;
+                line-height: 20px;
+                span {
+                    font-weight: 700;
                 }
             }
         }
