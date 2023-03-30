@@ -95,7 +95,7 @@ class CopyAccount {
 
         this.maxAccountsCreatePerRequest = parseInt(this.$("#MaxAccountsCreatePerRequest").val());
         this.isCreateAgent = this.$("#IsCreateAgent").val() == "True";
-        this.$btnSwitchVersion = this.$(".btn-switch-version");
+        this.$btnSwitchVersion = this.$("#btn-switch-view");
         this.oldVersionUrl = this.$("#old-version-url").val();
 
         this.userNotExistMessage = this.$("#UserNotExistMessage").val();
@@ -166,21 +166,7 @@ class CopyAccount {
             });
         }
 
-
-
-        const self = this;
-        if (window.document.queryCommandSupported
-            && window.document.queryCommandSupported("copy")) {
-            this.clipboardUsernames
-                .on("success", function (e) {
-                    self.$(e.trigger).tooltip("show");
-                })
-                .on("error", function (e) {
-                    self.$(e.trigger).remove();
-                    window.console.error("Action:", e.action);
-                    window.console.error("Trigger:", e.trigger);
-                });
-        }
+        
     }
 
     isValidNoOfAccount = (noOfAccount: number) => {
@@ -262,9 +248,19 @@ class CopyAccount {
                     this.$result.append(data);
                     this.$result.removeClass("hidden");
                     this.$form.addClass("hidden");
-                    this.$("#btnCreateMore").click(() => {
-                        setTimeout(() => window.location.reload(), 1000)
-                    });
+                    const self = this;
+                    if (window.document.queryCommandSupported
+                        && window.document.queryCommandSupported("copy")) {
+                        this.clipboardUsernames
+                            .on("success", function (e) {
+                                self.$(e.trigger).tooltip("show");
+                            })
+                            .on("error", function (e) {
+                                self.$(e.trigger).remove();
+                                window.console.error("Action:", e.action);
+                                window.console.error("Trigger:", e.trigger);
+                            });
+                    }
                 }
                 this.$.unblockUI();
             },

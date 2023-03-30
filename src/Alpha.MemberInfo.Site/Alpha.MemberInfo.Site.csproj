@@ -924,7 +924,6 @@
     <Content Include="Features\CopyAccount\Views\web.config" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account.scss" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.scss" />
-    <Content Include="Features\CopyAccount\Views\_SwitchToOldVersion.cshtml" />
     <Content Include="Features\CopyAccount\Views\_CopyResult.cshtml" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
