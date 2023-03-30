@@ -1,4 +1,5 @@
-﻿using Alpha.MemberInfo.Models;
+﻿using Alpha.MemberInfo.AppResources;
+using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Controllers;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Request;
 using Alpha.Web.Filters;
@@ -6,6 +7,7 @@ using MediatR;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount
 {
@@ -25,6 +27,11 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> Index(CopyAccountCommand command)
         {
+            if (!command.IsValid())
+            {
+                return Json(Result.CreateErrorResult(Lang.NotAuthorized, BadRequestErrorCode), JsonRequestBehavior.AllowGet);
+            }
+
             var result = await mediator.SendAsync(command);
             if (result.Usernames.Any())
             {
