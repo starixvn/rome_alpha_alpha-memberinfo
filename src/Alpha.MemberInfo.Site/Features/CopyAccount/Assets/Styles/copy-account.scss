@@ -294,9 +294,9 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    border: 1px solid #333;
-    -webkit-text-fill-color: #333;
-    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    border: 1px solid #D1D1D1;
+    -webkit-text-fill-color: #333333;
+    -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -342,6 +342,9 @@ select:-webkit-autofill:focus {
 .input-pass::placeholder {
     font-family: 'Roboto';
 }
+
+
+
 
 .result {
     position: relative;
