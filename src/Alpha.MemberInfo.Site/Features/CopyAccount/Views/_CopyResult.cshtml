@@ -1,30 +1,27 @@
 ﻿@model CopyAccountResponse
-<div class="created-success msg msg-success">
-    <p class="msg-result">The list of accounts has been created successfully</p>
-    <div class="form-group">
-        <label>@Resources.Usernames:</label>
-        <div class="relative-input result-input">
-            <input type="text" name="member" id="usernames" value="@string.Join(", ", Model.Usernames)" />
-            <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span>
-        </div>
+<p class="msg msg-success msg-result">The list of accounts has been created successfully</p>
+<div class="form-row">
+    <label>@Resources.Usernames:</label>
+    <div class="relative-input result-area">
+        <textarea type="text" name="member" id="usernames">@string.Join(", ", Model.Usernames)</textarea>
+        <span class="icon icon-content-copy" data-clipboard-target="#usernames" data-clipboard-action="copy"></span>
     </div>
-    <div class="form-group">
-        <label class="sub-label">@Resources.Credit</label>
-        <div class="relative-input result-input">
-            <input type="text" name="Credit" id="txtClonedCredit" value="@Model.Credit.ToString("0,0.##")" />
-            <span class="per-account">(@Resources.PerAccount)</span>
-        </div>
+</div>
+<div class="form-row">
+    <label class="sub-label">@Resources.Credit</label>
+    <div class="relative-input result-input">
+        <input type="text" name="Credit" id="txtClonedCredit" value="@Model.Credit.ToString("0,0.##")" />
     </div>
 </div>
 
 @if (Model.NoOfFailedAccount > 0)
 {
-    <div class="failed-account-created msg msg-error">
-        <p class="result-text">@Model.Message</p>
+    <div class="failed-account-created">
+        <p class="msg msg-error result-text">@Model.Message</p>
         <p class="result-text"><span>@Resources.FailureReason:</span> <span>@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</span></p>
     </div>
 }
 
-<div class="form-group result-submit">
+<div class="result-submit">
     <a href="@Url.Action("Index","CopyAccount")" class="btn-submit" id="btnCreateMore">@Resources.CreateMore</a>
 </div>

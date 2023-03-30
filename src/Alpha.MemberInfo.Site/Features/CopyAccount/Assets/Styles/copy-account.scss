@@ -1,6 +1,6 @@
 ﻿.panel {
     box-sizing: border-box;
-    max-width: 970px;
+    max-width: 904px;
     border: 1px solid #E0E0E0;
     margin: 20px 0 0 0;
 
@@ -40,14 +40,12 @@
     }
 
     .panel-body {
-        padding: 16px 0;
+        padding: 16px;
         border: none;
     }
 
     form {
         position: relative;
-        padding-left: 15px;
-        padding-right: 15px;
 
         .msg {
             margin: 0 0 12px 0 !important;
@@ -131,6 +129,7 @@
                 color: #666666;
                 font-size: 12px;
                 line-height: 20px;
+
                 span {
                     font-weight: 700;
                 }
@@ -184,24 +183,26 @@
             }
         }
 
-        .relative-input {
-            position: relative;
-            width: 212px;
-            display: flex;
-            align-items: center;
-
-            #icon-message-password {
-                position: absolute;
-                z-index: 10;
-                top: 7px;
-                right: -30px;
-            }
-        }
-
         #ThirdSuffix {
             margin-right: 0 !important;
         }
     }
+
+
+    .relative-input {
+        position: relative;
+        width: 212px;
+        display: flex;
+        align-items: center;
+
+        #icon-message-password {
+            position: absolute;
+            z-index: 10;
+            top: 7px;
+            right: -30px;
+        }
+    }
+
 
 
 
@@ -304,15 +305,20 @@ select:-webkit-autofill:focus {
     font-weight: bold;
 }
 
+.msg {
+    font-size: 14px;
+}
 
 .msg-result {
-    width: 456px;
+    width: 100%;
+    margin-top: 0;
 }
 
 
 .failed-account-created {
+    padding-top: 12px;
+    border-top: 1px solid #E0E0E0;
     margin-top: 12px;
-    max-width: 480px;
 
     .msg-error {
         margin: 0 0 12px 0;
@@ -348,7 +354,6 @@ select:-webkit-autofill:focus {
 
 .result {
     position: relative;
-    margin-top: 20px;
 
     .result-text {
         display: flex;
@@ -359,32 +364,61 @@ select:-webkit-autofill:focus {
         }
     }
 
-    .form-group {
-        margin: 12px 0 0 -24px;
-        padding-bottom: 0;
+    .form-row {
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+
+        label {
+            width: 100%;
+        }
+    }
+
+    input {
+        background: rgba(0, 0, 0, 0.03);
+        font-weight: 600;
     }
 
     .result-submit {
-        margin: 12px 0 0 0;
+        margin-top: 20px;
+
+        a {
+            text-decoration: none;
+            color: #EDEDED;
+            padding: 6px 16px;
+            font-size: 13px;
+            display: inline-block;
+        }
     }
 
     .created-success {
-        padding: 12px 12px 12px 36px;
-        max-width: 480px;
-
         &:before {
             top: 10px !important;
         }
+    }
+    .result-area{
+        width : 100%;
+    }
+
+    textarea {
+        min-height: 50px;
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid #D1D1D1;
+        padding: 6px 8px;
+        appearance: none;
+        resize: none;
+        width : 100%;
     }
 }
 
 
 .form-submit {
     margin-top: 16px;
+
     button {
         padding: 6px 16px;
     }
 }
+
 
 
 @media (max-width : 767px) {
@@ -396,10 +430,12 @@ select:-webkit-autofill:focus {
     .icon {
         font-size: 16px;
     }
+
     .form-row {
         flex-wrap: wrap;
-        .form-column{
-            margin-bottom : 16px;
+
+        .form-column {
+            margin-bottom: 16px;
         }
     }
 }
