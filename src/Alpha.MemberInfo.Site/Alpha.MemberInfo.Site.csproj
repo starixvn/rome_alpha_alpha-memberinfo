@@ -1074,6 +1074,7 @@
     <Compile Include="Features\CopyAccount\CopyAccountController.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountService.cs" />
     <Compile Include="Features\CopyAccount\Models\CreditInfo.cs" />
+    <Compile Include="Features\CopyAccount\Models\Downline.cs" />
     <Compile Include="Features\CopyAccount\Request\CheckExistedCustomerQuery.cs" />
     <Compile Include="Features\CopyAccount\Request\CheckUsernameQuery.cs" />
     <Compile Include="Features\CopyAccount\Request\CreditQuery.cs" />

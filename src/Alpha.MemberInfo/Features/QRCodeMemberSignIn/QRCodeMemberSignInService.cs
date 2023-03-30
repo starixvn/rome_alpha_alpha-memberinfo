@@ -1,7 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn
 {
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Alpha.CopyAccount.Params;
     using Alpha.CopyAccount.Services;
@@ -20,7 +18,7 @@
 
         bool IsEnableCustomer(int custId);
 
-        string GetSuggestUsername(string prefix, int custId, byte custLevel);
+        string GetSuggestUsername(string prefix, int custId);
 
         SelectRnGStatusModel GetRnGStatus(string username);
 
@@ -100,9 +98,9 @@
             return criteria.ErrCode.Equals(0);
         }
 
-        public string GetSuggestUsername(string prefix, int custId, byte custLevel)
+        public string GetSuggestUsername(string prefix, int custId)
         {
-            var criteria = new SelectSuggestUsernameCriteria(prefix, custId, custLevel);
+            var criteria = new SelectSuggestUsernameCriteria(prefix, custId);
             dynamicRepository.Execute(criteria);
             return criteria.SeqName;
         }

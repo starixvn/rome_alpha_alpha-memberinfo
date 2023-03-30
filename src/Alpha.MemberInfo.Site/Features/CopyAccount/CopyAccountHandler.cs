@@ -1,5 +1,4 @@
-﻿using Alpha.MemberInfo.AppResources;
-using Alpha.MemberInfo.Enumerations;
+﻿using Alpha.MemberInfo.Enumerations;
 using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Models;
@@ -25,20 +24,17 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         private readonly Encryptor encryptor;
         private readonly IAesService aes;
         private readonly SessionManager sessionManager;
-        private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
         private readonly ICopyAccountService copyAccountService;
 
         public CopyAccountHandler(
             Encryptor encryptor,
             IAesService aes,
             SessionManager sessionManager,
-            QRCodeMemberSignInService qrCodeMemberSignInService,
             ICopyAccountService copyAccountService)
         {
             this.encryptor = encryptor;
             this.aes = aes;
             this.sessionManager = sessionManager;
-            this.qrCodeMemberSignInService = qrCodeMemberSignInService;
             this.copyAccountService = copyAccountService;
         }
 
@@ -56,7 +52,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
             return new CopyAccountViewModel(
                 message,
-                qrCodeMemberSignInService.GetSuggestUsername(message.ViewerUsername, message.ViewerId, message.ViewerLevelId),
+                await copyAccountService.GetSuggestUsername(message.ViewerUsername, message.ViewerId, message.ViewerLevelId),
                 GetHasKey());
         }
 
@@ -71,36 +67,25 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
         public async Task<CopyAccountResponse> Handle(CopyAccountCommand message)
         {
-            var model = qrCodeMemberSignInService.CheckBelongingByUsername(message.CustId, message.SourceUsername, message.SubAccId);
+            var model = await copyAccountService.GetDownlineByUsername(message.CustId, message.SubAccId, message.SourceUsername);
             var sourceCustId = model.CustId;
-
-            if (sourceCustId > 0 && qrCodeMemberSignInService.IsEnableCustomer(sourceCustId))
-            {
-                message.Password = aes.Decrypt(message.Password, sessionManager.Get<string>(HashKeySessionKey));
-                return await copyAccountService.CreateAccount(message, sourceCustId);
-            }
-
-            return new CopyAccountResponse
-            {
-                Success = false,
-                Code = 100,
-                Message = Resources.UsernameIsInvalid
-            };
+            message.Password = aes.Decrypt(message.Password, sessionManager.Get<string>(HashKeySessionKey));
+            return await copyAccountService.CreateAccount(message, sourceCustId);
         }
 
         public Task<CreditInfo> Handle(CreditQuery message)
             => copyAccountService.GetCreditInfo(message.CustName);
 
-        public Task<bool> Handle(CheckUsernameQuery message)
+        public async Task<bool> Handle(CheckUsernameQuery message)
         {
-            var result = qrCodeMemberSignInService.CheckBelongingByUsername(message.ViewerId, message.CustName, message.SubAccId);
-            var isValid = result.CustId > 0 && Enumeration.FromValue<UserLevel>((byte)result.RoleId).IsDirectDownlineOf(message.ActorLevel);
-            return Task.FromResult(isValid);
+            var result = await copyAccountService.GetDownlineByUsername(message.ViewerId, message.SubAccId, message.CustName);
+            var isValid = result.CustId > 0 && Enumeration.FromValue<UserLevel>(result.RoleId).IsDirectDownlineOf(message.ActorLevel);
+            return isValid;
         }
 
         public Task<bool> Handle(CheckExistedCustomerQuery message)
         {
-            return Task.FromResult(qrCodeMemberSignInService.CheckExistedCustomer(message.CustName));
+            return copyAccountService.CheckExistedCustomer(message.CustName);
         }
     }
 }

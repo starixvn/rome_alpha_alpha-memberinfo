@@ -13,7 +13,8 @@
     "ParlayMaxPayout/UpdateSingle",
     "ParlayMaxPayout/UpdateMultiple",
     "MyWatchlistAccounts",
-    "MyThresholds"
+    "MyThresholds",
+    "CopyAccount"
   ],
   "sites": [
   ],

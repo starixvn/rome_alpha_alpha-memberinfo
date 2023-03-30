@@ -16,6 +16,12 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         Task<CreditInfo> GetCreditInfo(string username);
 
         Task<Result> CheckLimitNewDownline(int custId, byte custLevel, string language);
+
+        Task<string> GetSuggestUsername(string actorName, int custId, byte roleId);
+
+        Task<bool> CheckExistedCustomer(string username);
+
+        Task<Downline> GetDownlineByUsername(int custId, int subAccountId, string username);
     }
 
     public class CopyAccountService : ICopyAccountService
@@ -81,6 +87,21 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         public Task<Result> CheckLimitNewDownline(int custId, byte custLevel, string language)
         {
             return PostAsJsonAsync<Result>("api/customer/CheckLimitNewDownline", new { custId, custLevel, language });
+        }
+
+        public Task<string> GetSuggestUsername(string actorName, int custId, byte roleId)
+        {
+            return PostAsJsonAsync<string>("api/customer/suggest-username", new { actorName, custId, roleId });
+        }
+
+        public Task<bool> CheckExistedCustomer(string username)
+        {
+            return GetAsJsonAsync<bool>($"api/customer/{username}/exist");
+        }
+
+        public Task<Downline> GetDownlineByUsername(int custId, int subAccountId, string username)
+        {
+            return GetAsJsonAsync<Downline>($"api/customer/{custId}/{subAccountId}/downlines/{username}");
         }
     }
 }
