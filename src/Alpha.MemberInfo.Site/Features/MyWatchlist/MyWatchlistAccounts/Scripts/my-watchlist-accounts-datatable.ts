@@ -49,10 +49,11 @@ class MyWatchlistAccountsDataTable {
     private buildDataTableOptions(myWatchlistUrl: string) {
         const sortDefinitions = {
             Username: 1,
-            LastLogin: 2,
-            Status: 3,
-            WinningThreshold: 4,
-            LosingThreshold: 5
+            FirstLastName: 2,
+            LastLogin: 3,
+            Status: 4,
+            WinningThreshold: 5,
+            LosingThreshold: 6
         };
 
         return {
@@ -124,6 +125,8 @@ class MyWatchlistAccountsDataTable {
         }
 
         columns.push({ className: 'left', data: "Username", name: "Username" });
+
+        columns.push({ className: 'left', data: "FirstLastName", name: "FirstLastName" });
 
         this.isShowLastLoginColumn &&
             columns.push({ className: 'center', data: "LastLoggedString", name: "LastLogin" });

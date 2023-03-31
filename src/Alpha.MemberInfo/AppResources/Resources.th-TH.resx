@@ -855,4 +855,7 @@
   <data name="NonEntered" xml:space="preserve">
     <value>ไม่สามารถเข้าได้</value>
   </data>
+  <data name="FirstLastName" xml:space="preserve">
+    <value>ชื่อ/ นามสุกล</value>
+  </data>
 </root>

@@ -41,8 +41,8 @@
                 100);
             IEnumerable<WatchlistAccountModel> watchlistAccounts = new List<WatchlistAccountModel>()
             {
-                new WatchlistAccountModel(1, 1234, 0, "agent01", DateTime.Today, "Open", 1000, 2000, 0, 0),
-                new WatchlistAccountModel(2, 1234, 0, "agent01", DateTime.Today, "Open", 1000, 2000, 0, 0),
+                new WatchlistAccountModel(1, 1234, 0, "agent01", DateTime.Today, "Open", 1000, 2000, 0, 0, null, null),
+                new WatchlistAccountModel(2, 1234, 0, "agent01", DateTime.Today, "Open", 1000, 2000, 0, 0, null, null),
             };
             var expectedResults = new WatchlistAccountReport(watchlistAccounts, 0);
             dynamicRepository.FetchAsync<WatchlistAccountModel>(Arg.Any<SelectWatchlistAccountsCriteria>())
