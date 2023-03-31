@@ -1,6 +1,6 @@
 ﻿.panel {
     box-sizing: border-box;
-    max-width: 904px;
+    max-width: 930px;
     border: 1px solid #E0E0E0;
     margin: 20px 0 0 0;
 
@@ -99,7 +99,7 @@
         margin-bottom: 16px;
 
         .form-column {
-            margin-right: 30px;
+            margin-right: 58px;
 
             &.fixed-width {
                 width: 360px;
@@ -112,10 +112,6 @@
             .form-input {
                 display: flex;
                 align-items: center;
-
-                span {
-                    margin-left: 10px;
-                }
 
                 &.form-select {
                     select {
@@ -189,17 +185,17 @@
     }
 
 
+
     .relative-input {
         position: relative;
-        width: 212px;
         display: flex;
         align-items: center;
 
-        #icon-message-password {
+        .icon-close {
             position: absolute;
             z-index: 10;
             top: 7px;
-            right: -30px;
+            right: -25px;
         }
     }
 
@@ -236,6 +232,8 @@
         padding: 2px;
         margin-left: 10px;
         border-radius: 50px;
+        position: absolute;
+        right: -25px;
     }
 
     .icon-close {
