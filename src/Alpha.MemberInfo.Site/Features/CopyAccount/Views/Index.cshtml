@@ -44,7 +44,7 @@
                             <div class="form-row">
                                 <div class="form-column">
                                     <label class="sub-label">@Resources.Username <span class="require">*</span></label>
-                                    <div class="form-input form-select">
+                                    <div class="form-input form-select relative-input">
                                         <input type="text" id="actor-name" value="@Model.ActorUsername" disabled="disabled" />
                                         <select id="FirstSuffix" name="FirstSuffix">
                                             @foreach (var item in Model.NameSuffix)
@@ -82,7 +82,7 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="form-column fixed-width">
+                                <div class="form-column">
                                     <label>@Resources.NoOfAccounts</label>
                                     <div class="form-input">
                                         <select id="NoOfAccounts" name="NoOfAccounts">
@@ -96,7 +96,7 @@
 
                                 <div class="form-column">
                                     <label class="sub-label">@Resources.GivenCreditPerAccount <span class="require">*</span></label>
-                                    <div class="form-input">
+                                    <div class="form-input relative-input">
                                         <input type="text" name="Credit" id="Credit" value="0" />
                                         <span id="icon-message-credit"> </span>
                                     </div>
@@ -109,7 +109,7 @@
                                 {
                                     <div class="form-column">
                                         <label class="sub-label">@Resources.MaxCreditPerMember <span class="require">*</span></label>
-                                        <div class="form-input">
+                                        <div class="form-input relative-input">
                                             <input type="text" name="MemberMaxCredit" id="MemberMaxCredit" value="0" />
                                             <span id="icon-message-member-max-credit"> </span>
                                             <div id="member-max-credit-range" class="hidden">
