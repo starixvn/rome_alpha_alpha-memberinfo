@@ -4,6 +4,10 @@
     border: 1px solid #E0E0E0;
     margin: 20px 0 0 0;
 
+    .fixed-width{
+        width : 333px;
+    }
+
     .panel-heading {
         display: flex;
         justify-content: space-between;
@@ -417,6 +421,28 @@ select:-webkit-autofill:focus {
 .error-input {
     input, select {
         border: 1px solid red !important;
+    }
+}
+
+.easy-autocomplete-container {
+    ul {
+        border: 1px solid #D1D1D1 !important;
+
+        li {
+            background-color: #fff !important;
+            border-bottom: 1px solid #D1D1D1 !important;
+            color: #333333;
+            border-right: none !important;
+            border-left: none !important;
+
+            &:last-child {
+                border-bottom: none !important;
+            }
+
+            &.selected {
+                background-color: #D1D1D1 !important;
+            }
+        }
     }
 }
 
