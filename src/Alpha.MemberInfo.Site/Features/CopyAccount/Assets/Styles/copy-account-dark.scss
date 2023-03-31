@@ -10,7 +10,7 @@
         align-items: center;
         background-color: #383838;
         border-bottom: 1px solid #3E3F41;
-        padding: 6px 16px;
+        padding: 6px 6px 6px 16px;
         border-radius: 0;
 
         .note {
@@ -109,6 +109,7 @@
 
         .form-column {
             margin-right: 58px;
+
             &:last-child {
                 margin-right: 0;
             }
@@ -116,6 +117,7 @@
             .form-input {
                 display: flex;
                 align-items: center;
+
                 &.form-select {
                     select {
                         border-left: none !important;
@@ -239,8 +241,8 @@
         padding: 2px;
         margin-left: 10px;
         border-radius: 50px;
-        position : absolute;
-        right : -25px;
+        position: absolute;
+        right: -25px;
     }
 
     .icon-close {
