@@ -283,7 +283,7 @@
     <value>組別</value>
   </data>
   <data name="FirstLastName" xml:space="preserve">
-    <value>名及姓</value>
+    <value>名/ 姓</value>
   </data>
   <data name="StatementTooltip" xml:space="preserve">
     <value>察看賬目</value>
