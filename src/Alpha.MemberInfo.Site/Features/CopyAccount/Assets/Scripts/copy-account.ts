@@ -165,8 +165,6 @@ class CopyAccount {
                 this.$('#icon-message-member-max-credit').removeClass().addClass(errorClass);
             });
         }
-
-        
     }
 
     isValidNoOfAccount = (noOfAccount: number) => {
