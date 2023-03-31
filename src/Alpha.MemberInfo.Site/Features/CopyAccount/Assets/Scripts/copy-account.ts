@@ -35,11 +35,10 @@ class CopyAccount {
     memberMaxCreditCleave: any;
 
     isCreateAgent: boolean;
-    inValidSourceAccount: boolean;
-    invalidCredit: boolean;
+    inValidSourceAccount = true;
+    invalidCredit: boolean = false;
     invalidMemberMaxCredit: boolean = false;
-    invalidUsername: boolean;
-    usernameIsInvalid: string;
+    invalidUsername: boolean = false;
 
     givenCreditMustBeBetweenMinMaxMessage: string;
 
@@ -206,17 +205,12 @@ class CopyAccount {
             }, 300);
         });
 
-        this.$sourceUsername.on('input', this.validateInputs);
         this.$noOfAccounts.on('input', this.validateInputs);
-        this.$password.on('input', this.validateInputs);
-        this.$creditInput.on('input', this.validateInputs);
-        this.$memberMaxCreditInput.on('input', this.validateInputs);
     }
 
     validateInputs = () => {
-        const noOfAccount = parseInt(this.$noOfAccounts.val());
         const password = this.$.trim(this.$password.val());
-        this.$submitBtn.prop('disabled', this.inValidSourceAccount || this.invalidUsername || this.invalidCredit || this.invalidMemberMaxCredit || !this.isValidNoOfAccount(noOfAccount) || !this.isValidPassword(password));
+        this.$submitBtn.prop('disabled', this.inValidSourceAccount || this.invalidUsername || this.invalidCredit || this.invalidMemberMaxCredit || !this.isValidPassword(password));
     }
 
     submitEvent = (event) => {
@@ -323,6 +317,7 @@ class CopyAccount {
                         this.showErrorMessage(this.userNotExistMessage);
                         this.$creditRange.addClass("hidden");
                     }
+                    this.validateInputs();
                 }
             });
         }
@@ -367,6 +362,8 @@ class CopyAccount {
 
         const errorClass = this.invalidCredit ? 'icon-close' : 'icon-check';
         this.$('#icon-message-credit').removeClass().addClass(errorClass);
+
+        this.validateInputs();
     }
 
     isInValidCredit = (credit: number, max: number) => {
@@ -389,6 +386,7 @@ class CopyAccount {
         var validPassword = this.isValidPassword(this.$password.val());
         const iconClass = validPassword ? 'icon-check' : 'icon-close';
         this.$('#icon-message-password').removeClass().addClass(iconClass);
+        this.validateInputs();
     }
 
     isValidPassword = (password) => {
