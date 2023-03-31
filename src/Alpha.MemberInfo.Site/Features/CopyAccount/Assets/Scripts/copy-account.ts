@@ -144,6 +144,8 @@ class CopyAccount {
             delimiter: ','
         });
 
+        this.validateCredit();
+
         this.$btnSwitchVersion.click(() => {
             this.topWindow.indexManager.changeMenu(this.oldVersionUrl);
         })
@@ -156,15 +158,21 @@ class CopyAccount {
             });
 
             this.$memberMaxCreditInput.keyup(() => {
-                var memberMaxCredit = parseFloat(this.memberMaxCreditCleave.getRawValue());
-                this.invalidMemberMaxCredit = this.invalidCredit || this.isInValidCredit(memberMaxCredit, this.credit);
-                if (!this.invalidMemberMaxCredit) {
-                    this.memberMaxCredit = memberMaxCredit;
-                }
-                const errorClass = this.invalidMemberMaxCredit ? 'icon-close' : 'icon-check';
-                this.$('#icon-message-member-max-credit').removeClass().addClass(errorClass);
+                this.validateMemberMaxCredit();
             });
+
+            this.validateMemberMaxCredit();
         }
+    }
+
+    validateMemberMaxCredit = () => {
+        var memberMaxCredit = parseFloat(this.memberMaxCreditCleave.getRawValue());
+        this.invalidMemberMaxCredit = this.invalidCredit || this.isInValidCredit(memberMaxCredit, this.credit);
+        if (!this.invalidMemberMaxCredit) {
+            this.memberMaxCredit = memberMaxCredit;
+        }
+        const errorClass = this.invalidMemberMaxCredit ? 'icon-close' : 'icon-check';
+        this.$('#icon-message-member-max-credit').removeClass().addClass(errorClass);
     }
 
     isValidNoOfAccount = (noOfAccount: number) => {
