@@ -10,7 +10,7 @@
 <div class="form-row">
     <label class="sub-label">@Resources.Credit</label>
     <div class="relative-input result-input">
-        <input type="text" name="Credit" id="txtClonedCredit" value="@Model.Credit.ToString("0,0.##")" />
+        <input type="text" name="Credit" id="txtClonedCredit" value="@string.Format("{0:#,0.##}", Model.Credit)" />
     </div>
 </div>
 
