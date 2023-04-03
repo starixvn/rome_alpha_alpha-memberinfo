@@ -409,6 +409,8 @@ select:-webkit-autofill:focus {
 }
 
 
+
+
 .form-submit {
     margin-top: 16px;
 
@@ -449,6 +451,11 @@ select:-webkit-autofill:focus {
                 background-color: #D1D1D1 !important;
             }
         }
+    }
+}
+.panel-agent {
+    #actor-name {
+        width: 177px;
     }
 }
 
