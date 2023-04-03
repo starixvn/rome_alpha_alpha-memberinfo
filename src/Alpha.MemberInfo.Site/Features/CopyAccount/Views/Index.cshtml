@@ -19,7 +19,7 @@
         }
         else
         {
-            <div class="panel">
+            <div class="panel @(@Model.ActorLevel.IsAgentLevel() ? "panel-agent" : "")">
                 <div class="panel-heading">
                     <div class="note"><span class="require">*</span> @Resources.CopyAccountNote</div>
                     <button id="btn-switch-view" class="btn-switch-view"><span class="icon-button icon-swap-horizontal"></span>@Resources.ClassicView</button>
