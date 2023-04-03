@@ -64,12 +64,24 @@
         {
             var mapper = new Mapper<ReachlistAccountModel>()
                 .Map(A, data => data.RowNumber)
-                .Map(B, data => data.Username);
+                .Map(B, data => data.Username)
+                .Map(C, data => data.FirstLastName);
 
             if (isShowLastLoginColumn)
             {
                 mapper
-                    .Map(C, data => data.LastLoggedString)
+                    .Map(D, data => data.LastLoggedString)
+                    .Map(E, data => data.TranslatedStatus)
+                    .Map(F, data => data.LastReachedDateString)
+                    .Map(G, data => data.TranslatedLastLimitTypeReach)
+                    .Map(H, data => data.WinLossAmountString)
+                    .Map(I, data => data.WinningThresholdString)
+                    .Map(J, data => data.LosingThresholdString)
+                    .Map(K, data => data.ReachedCountString);
+            }
+            else
+            {
+                mapper
                     .Map(D, data => data.TranslatedStatus)
                     .Map(E, data => data.LastReachedDateString)
                     .Map(F, data => data.TranslatedLastLimitTypeReach)
@@ -77,17 +89,6 @@
                     .Map(H, data => data.WinningThresholdString)
                     .Map(I, data => data.LosingThresholdString)
                     .Map(J, data => data.ReachedCountString);
-            }
-            else
-            {
-                mapper
-                    .Map(C, data => data.TranslatedStatus)
-                    .Map(D, data => data.LastReachedDateString)
-                    .Map(E, data => data.TranslatedLastLimitTypeReach)
-                    .Map(F, data => data.WinLossAmountString)
-                    .Map(G, data => data.WinningThresholdString)
-                    .Map(H, data => data.LosingThresholdString)
-                    .Map(I, data => data.ReachedCountString);
             }
 
             return mapper;
