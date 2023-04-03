@@ -224,11 +224,12 @@ class CustomerListDataTable {
 
         columns.push({
             "className": 'left',
+            "width": "200px",
             "data": null,
             "render": item => {
                 var firstLastName = item.FirstName && item.LastName ? item.FirstName + "/ " + item.LastName
                     : !item.FirstName && !item.LastName ? "" : (item.FistName || "") + (item.LastName || "");
-                return `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${firstLastName}</div>`;
+                return `<div class="col-firstlastname ${this.viewModel.IsMobileView ? '' : 'break-long-word'}" title="${firstLastName}">${firstLastName}</div>`;
             }
         });
 
