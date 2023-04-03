@@ -427,6 +427,12 @@ select:-webkit-autofill:focus {
 .easy-autocomplete-container {
     ul {
         border: 1px solid #D1D1D1 !important;
+        max-height: 270px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+        }
 
         li {
             background-color: #fff !important;

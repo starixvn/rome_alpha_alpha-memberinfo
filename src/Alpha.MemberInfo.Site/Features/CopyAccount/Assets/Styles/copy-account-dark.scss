@@ -229,7 +229,7 @@
     }
 
     .icon-content-copy {
-        color: #0B599C;
+        color: #41A4FF;
     }
 
     .icon-check, .icon-close {
@@ -380,7 +380,7 @@ select:-webkit-autofill:focus {
     }
 
     input {
-        background: rgba(0, 0, 0, 0.03) !important;
+        background: #393939 !important;
         font-weight: 600;
     }
 
@@ -408,12 +408,13 @@ select:-webkit-autofill:focus {
 
     textarea {
         min-height: 50px;
-        background: rgba(0, 0, 0, 0.03);
-        border: 1px solid #D1D1D1;
+        background: #393939;
+        border: 1px solid #474747; 
         padding: 6px 8px;
         appearance: none;
         resize: none;
         width: 100%;
+        color: #EDEDED;
     }
 }
 
@@ -436,6 +437,13 @@ select:-webkit-autofill:focus {
 .easy-autocomplete-container {
     ul {
         border: 1px solid #474747 !important;
+        max-height: 270px;
+        overflow-y: scroll;
+        background: #171717 !important;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+        }
 
         li {
             background-color: #171717 !important;
