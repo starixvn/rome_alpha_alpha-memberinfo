@@ -471,12 +471,12 @@ select:-webkit-autofill:focus {
 
 .error-input {
     input, select {
-        background: #361212;
+        background: #361212 !important;
         border: 1px solid #CC7070 !important;
     }
 
     .error-input-text {
-        background: #CC7070;
+        background: #CC7070 !important;
         position: absolute;
         bottom: -43px;
         padding: 4px 8px;
