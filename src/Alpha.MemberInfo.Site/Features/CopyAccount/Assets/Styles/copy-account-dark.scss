@@ -182,7 +182,7 @@
             }
 
             &:disabled {
-                width: 230px;
+                width: 100%;
                 background: #393939;
                 border: 1px solid #474747;
                 color: #EDEDED;
@@ -210,6 +210,10 @@
             top: 7px;
             right: -25px;
         }
+    }
+
+    .form-select {
+        width: 333px;
     }
 
 
@@ -494,7 +498,7 @@ select:-webkit-autofill:focus {
         padding: 10px !important;
     }
 
-    .easy-autocomplete, .fixed-width {
+    .easy-autocomplete, .fixed-width, .form-select {
         width: 100% !important;
     }
 
