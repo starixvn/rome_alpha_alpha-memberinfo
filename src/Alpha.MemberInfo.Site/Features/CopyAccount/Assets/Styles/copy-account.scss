@@ -468,10 +468,11 @@ select:-webkit-autofill:focus {
     .error-input-text {
         background: #FFE3E3;
         position: absolute;
-        bottom: -43px;
+        top: 32px;
         padding: 4px 8px;
         z-index: 9;
         color: #FE0000;
+        width: 100%;
     }
 }
 
@@ -531,6 +532,6 @@ select:-webkit-autofill:focus {
     .error-input-text {
         background: #FFE3E3 !important;
         bottom: -25px !important;
-        width: 95%;
+        width: 95% !important;
     }
 }

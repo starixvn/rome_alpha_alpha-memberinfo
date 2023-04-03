@@ -31,9 +31,12 @@
                         </div>
                         <div class="form-section">
                             <p class="section-title">@Resources.SourceAccount <span class="require">*</span></p>
-                            <div class="form-group relative-input fixed-width">
+                            <div class="form-group relative-input fixed-width error-input">
                                 <input type="text" name="SourceUsername" id="SourceUsername" class="source-username" placeholder="@Resources.UsernamePlaceHolder" />
-                                <span id="icon-message-SourceUsername" />
+                                <span id="icon-message-SourceUsername"></span>
+                                <div class="error-input-text">
+                                    Max Credit per Account must be less than or equal to .
+                                </div>
                             </div>
                             <div class="line"></div>
                         </div>
