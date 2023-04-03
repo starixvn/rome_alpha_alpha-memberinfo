@@ -432,11 +432,7 @@ select:-webkit-autofill:focus {
 }
 
 
-.error-input {
-    input, select {
-        border: 1px solid red !important;
-    }
-}
+
 
 .easy-autocomplete-container {
     ul {
@@ -473,7 +469,21 @@ select:-webkit-autofill:focus {
     }
 }
 
+.error-input {
+    input, select {
+        background: #361212;
+        border: 1px solid #CC7070 !important;
+    }
 
+    .error-input-text {
+        background: #CC7070;
+        position: absolute;
+        bottom: -43px;
+        padding: 4px 8px;
+        z-index: 9;
+        color: #000000;
+    }
+}
 
 @media (max-width : 767px) {
     .result {
@@ -534,5 +544,10 @@ select:-webkit-autofill:focus {
 
     #icon-message-username {
         position: unset !important;
+    }
+    .error-input-text {
+        background: #FFE3E3 !important;
+        bottom: -25px !important;
+        width: 95%;
     }
 }

@@ -73,10 +73,13 @@
                                 </div>
                                 <div class="form-column">
                                     <label>@Resources.Password <span class="require">*</span> <span class="icon-information-outline" title="@Resources.lblPasswordRequire"></span></label>
-                                    <div class="relative-input">
+                                    <div class="relative-input error-input">
                                         <input type="text" name="Password" class="input-pass" id="Password" autocomplete="off" maxlength="16" />
                                         <span class="icon-eye-close icon show-pass" aria-hidden="true"></span>
                                         <span id="icon-message-password"> </span>
+                                        <div class="error-input-text">
+                                            Max Credit per Account must be less than or equal to .
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -96,9 +99,12 @@
 
                                 <div class="form-column">
                                     <label class="sub-label">@Resources.GivenCreditPerAccount <span class="require">*</span></label>
-                                    <div class="form-input relative-input">
+                                    <div class="form-input relative-input error-input">
                                         <input type="text" name="Credit" id="Credit" value="0" />
                                         <span id="icon-message-credit"> </span>
+                                        <div class="error-input-text">
+                                            Max Credit per Account must be less than or equal to .
+                                        </div>
                                     </div>
                                     <div id="credit-range" class="hidden sub-input">
                                         @Resources.AvailableGivenCredit: <span id="credit-max-label"></span>
@@ -109,11 +115,14 @@
                                 {
                                     <div class="form-column">
                                         <label class="sub-label">@Resources.MaxCreditPerMember <span class="require">*</span></label>
-                                        <div class="form-input relative-input">
+                                        <div class="form-input relative-input error-input">
                                             <input type="text" name="MemberMaxCredit" id="MemberMaxCredit" value="0" />
                                             <span id="icon-message-member-max-credit"> </span>
                                             <div id="member-max-credit-range" class="hidden">
                                                 <span id="member-credit-min-label"></span> <=  @Resources.MemberMaxCredit <= <span id="member-credit-max-label"></span>
+                                            </div>
+                                            <div class="error-input-text">
+                                                Max Credit per Account must be less than or equal to .
                                             </div>
                                         </div>
                                     </div>

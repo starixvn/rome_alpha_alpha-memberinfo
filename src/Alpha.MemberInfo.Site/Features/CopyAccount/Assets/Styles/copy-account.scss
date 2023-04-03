@@ -464,6 +464,15 @@ select:-webkit-autofill:focus {
     input, select {
         border: 1px solid #FE0000 !important;
     }
+
+    .error-input-text {
+        background: #FFE3E3;
+        position: absolute;
+        bottom: -43px;
+        padding: 4px 8px;
+        z-index: 9;
+        color: #FE0000;
+    }
 }
 
 
@@ -518,5 +527,10 @@ select:-webkit-autofill:focus {
     }
     #icon-message-username{
         position : unset !important;
+    }
+    .error-input-text {
+        background: #FFE3E3 !important;
+        bottom: -25px !important;
+        width: 95%;
     }
 }
