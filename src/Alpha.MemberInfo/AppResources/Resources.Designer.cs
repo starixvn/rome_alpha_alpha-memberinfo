@@ -1078,11 +1078,38 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max Given Credit per Account limit: {0} or lower..
+        /// </summary>
+        public static string InvalidMaxCreditPerAccount {
+            get {
+                return ResourceManager.GetString("InvalidMaxCreditPerAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The value must be a positive amount..
         /// </summary>
         public static string InvalidMaxPayoutValueText {
             get {
                 return ResourceManager.GetString("InvalidMaxPayoutValueText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member Max Credit must be between 0 and {0}.
+        /// </summary>
+        public static string InvalidMemberMaxCredit {
+            get {
+                return ResourceManager.GetString("InvalidMemberMaxCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Password format!.
+        /// </summary>
+        public static string InvalidPasswordFormat {
+            get {
+                return ResourceManager.GetString("InvalidPasswordFormat", resourceCulture);
             }
         }
         

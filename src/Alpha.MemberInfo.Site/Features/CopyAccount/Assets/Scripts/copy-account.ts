@@ -24,8 +24,8 @@ class CopyAccount {
     creditMin: number = 0;
     creditMax: number = 0;
     memberMaxCredit: number;
-
     $memberMaxCreditInput: JQuery;
+
 
     $messageContainer: JQuery;
     $messageContent: JQuery;
@@ -40,17 +40,16 @@ class CopyAccount {
     invalidMemberMaxCredit: boolean = false;
     invalidUsername: boolean = false;
 
-    givenCreditMustBeBetweenMinMaxMessage: string;
-
-    maxAccountsCreatePerRequest: number;
-
     $btnSwitchVersion: JQuery;
     oldVersionUrl: string;
     numberFormat = '0,0.##';
-
-    userNotExistMessage: string;
     clipboardUsernames: any;
     hashKey: string;
+
+    $sourceAccountErrMsg: JQuery;
+    $passwordErrMsg: JQuery;
+    $creditErrMsg: JQuery;
+    $memberMaxCreditErrMsg: JQuery;
 
     constructor(
         $: JQueryStatic,
@@ -61,6 +60,13 @@ class CopyAccount {
         this.topWindow = topWindow;
         this.clipboardUsernames = clipboardUsernames;
         this.encryptor = encryptor;
+    }
+
+    resource = {
+        userNotExistMessage: (<HTMLInputElement>document.getElementById('UserNotExistMessage')).value,
+        invalidPasswordFormat: (<HTMLInputElement>document.getElementById('InvalidPasswordFormat')).value,
+        invalidMaxCreditPerAccount: (<HTMLInputElement>document.getElementById('InvalidMaxCreditPerAccount')).value,
+        invalidMemberMaxCredit: (<HTMLInputElement>document.getElementById('InvalidMemberMaxCredit')).value,
     }
 
     init = () => {
@@ -75,8 +81,10 @@ class CopyAccount {
     cacheDOMElement = () => {
         this.$form = this.$('#copyAccountForm');
         this.$result = this.$("#result");
-        this.$sourceUsername = this.$('#SourceUsername');
         this.$submitBtn = this.$('#btn-submit');
+
+        this.$sourceUsername = this.$('#SourceUsername');
+        this.$sourceAccountErrMsg = this.$("#sourceAccountErrMsg");
 
         this.$creditRange = this.$('#credit-range');
         this.$creditMinLabel = this.$("#credit-min-label");
@@ -92,15 +100,15 @@ class CopyAccount {
         this.$noOfAccounts = this.$("#NoOfAccounts");
         this.$password = this.$("#Password");
 
-        this.maxAccountsCreatePerRequest = parseInt(this.$("#MaxAccountsCreatePerRequest").val());
         this.isCreateAgent = this.$("#IsCreateAgent").val() == "True";
         this.$btnSwitchVersion = this.$("#btn-switch-view");
         this.oldVersionUrl = this.$("#old-version-url").val();
 
-        this.userNotExistMessage = this.$("#UserNotExistMessage").val();
-
         this.$showPass = this.$(".show-pass");
         this.hashKey = this.$("#HashKey").val();
+        this.$passwordErrMsg = this.$("#passwordErrMsg");
+        this.$creditErrMsg = this.$("#creditErrMsg");
+        this.$memberMaxCreditErrMsg = this.$("#memberMaxCreditErrMsg");
     }
 
     showPass = () => {
@@ -136,12 +144,18 @@ class CopyAccount {
 
         this.$creditInput.keyup(() => {
             this.validateCredit();
+            this.isCreateAgent && this.validateMemberMaxCredit();
         });
         this.cleave = new Cleave('#Credit', {
             numeral: true,
             numeralDecimalMark: '.',
             delimiter: ','
         });
+
+        //this.$noOfAccounts.change(() => {
+        //    this.validateCredit();
+        //    this.isCreateAgent && this.validateMemberMaxCredit();
+        //});
 
         this.validateCredit();
 
@@ -161,7 +175,43 @@ class CopyAccount {
             });
 
             this.validateMemberMaxCredit();
+
+            this.$memberMaxCreditInput.focus(() => this.showTooltipError(this.$memberMaxCreditErrMsg));
         }
+
+        window.addEventListener("click", (e) => {
+            if (this.$(e.target).parent().hasClass("error-input") || this.$(e.target).attr("id") == "NoOfAccounts") {
+                return;
+            }
+
+            this.hideTooltips();
+        });
+
+        this.$sourceUsername.focus(() => this.showTooltipError(this.$sourceAccountErrMsg));
+        this.$password.focus(() => this.showTooltipError(this.$passwordErrMsg));
+        this.$creditInput.focus(() => this.showTooltipError(this.$creditErrMsg));
+    }
+
+    showTooltipError = ($errorContianer: JQuery) => {
+        if ($errorContianer.parent().hasClass("error-input")) {
+            $errorContianer.removeClass("hidden");
+        }
+    }
+
+    addTooltipError = ($errorContainer: JQuery, message: string) => {
+        $errorContainer.parent().addClass("error-input");
+        $errorContainer.html(message);
+        $errorContainer.removeClass("hidden");
+    }
+
+    removeTooltipError = ($errorContainer: JQuery) => {
+        $errorContainer.parent().removeClass("error-input");
+        $errorContainer.html("");
+        $errorContainer.addClass("hidden");
+    }
+
+    hideTooltips = () => {
+        this.$(".error-input-text").addClass("hidden");
     }
 
     validateMemberMaxCredit = () => {
@@ -169,13 +219,12 @@ class CopyAccount {
         this.invalidMemberMaxCredit = this.invalidCredit || this.isInValidCredit(memberMaxCredit, this.credit);
         if (!this.invalidMemberMaxCredit) {
             this.memberMaxCredit = memberMaxCredit;
+            this.removeTooltipError(this.$memberMaxCreditErrMsg);
+        } else {
+            this.addTooltipError(this.$memberMaxCreditErrMsg, this.resource.invalidMemberMaxCredit.replace("{0}", numeral(this.credit).format(this.numberFormat)));
         }
         const errorClass = this.invalidMemberMaxCredit ? 'icon-close' : 'icon-check';
         this.$('#icon-message-member-max-credit').removeClass().addClass(errorClass);
-    }
-
-    isValidNoOfAccount = (noOfAccount: number) => {
-        return noOfAccount > 0 && noOfAccount <= this.maxAccountsCreatePerRequest;
     }
 
     bidingEasyAutoComplete = () => {
@@ -205,7 +254,10 @@ class CopyAccount {
             }, 300);
         });
 
-        this.$noOfAccounts.on('input', this.validateInputs);
+        this.$noOfAccounts.on('input', () => {
+            this.validateCredit();
+            this.validateInputs();
+        });
     }
 
     validateInputs = () => {
@@ -313,8 +365,10 @@ class CopyAccount {
                     this.inValidSourceAccount = !result;
                     if (result) {
                         this.getCustomerCredit(this.$sourceUsername.val());
+                        this.removeTooltipError(this.$sourceAccountErrMsg);
+
                     } else {
-                        this.showErrorMessage(this.userNotExistMessage);
+                        this.addTooltipError(this.$sourceAccountErrMsg, this.resource.userNotExistMessage);
                         this.$creditRange.addClass("hidden");
                     }
                     this.validateInputs();
@@ -337,8 +391,6 @@ class CopyAccount {
 
                 this.creditMin = 0;
                 this.creditMax = result.MaxCredit;
-                this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
-
                 this.$creditRange.removeClass('hidden');
                 this.$creditMinLabel.html(numeral(this.creditMin).format(this.numberFormat));
                 this.$creditMaxLabel.html(numeral(this.creditMax).format(this.numberFormat));
@@ -353,11 +405,14 @@ class CopyAccount {
 
     validateCredit = () => {
         var credit = parseFloat(this.cleave.getRawValue());
-        this.invalidCredit = this.isInValidCredit(credit, this.creditMax);
+        var noOfAccounts = parseInt(this.$noOfAccounts.val());
+        var perAccountMaxCredit = this.creditMax / noOfAccounts;
+        this.invalidCredit = this.isInValidCredit(credit, perAccountMaxCredit);
         if (this.invalidCredit) {
-            this.givenCreditMustBeBetweenMinMaxMessage && this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage);
+            this.addTooltipError(this.$creditErrMsg, this.resource.invalidMaxCreditPerAccount.replace("{0}", numeral(perAccountMaxCredit).format(this.numberFormat)));
         } else {
             this.credit = credit;
+            this.removeTooltipError(this.$creditErrMsg);
         }
 
         const errorClass = this.invalidCredit ? 'icon-close' : 'icon-check';
@@ -387,6 +442,12 @@ class CopyAccount {
         const iconClass = validPassword ? 'icon-check' : 'icon-close';
         this.$('#icon-message-password').removeClass().addClass(iconClass);
         this.validateInputs();
+
+        if (validPassword) {
+            this.removeTooltipError(this.$passwordErrMsg);
+        } else {
+            this.addTooltipError(this.$passwordErrMsg, this.resource.invalidPasswordFormat);
+        }
     }
 
     isValidPassword = (password) => {

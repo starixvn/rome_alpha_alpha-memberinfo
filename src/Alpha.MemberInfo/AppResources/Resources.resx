@@ -944,4 +944,13 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="MaxCreditPerMember" xml:space="preserve">
     <value>Max Credit per Member</value>
   </data>
+  <data name="InvalidPasswordFormat" xml:space="preserve">
+    <value>Invalid Password format!</value>
+  </data>
+  <data name="InvalidMaxCreditPerAccount" xml:space="preserve">
+    <value>Max Given Credit per Account limit: {0} or lower.</value>
+  </data>
+  <data name="InvalidMemberMaxCredit" xml:space="preserve">
+    <value>Member Max Credit must be between 0 and {0}</value>
+  </data>
 </root>

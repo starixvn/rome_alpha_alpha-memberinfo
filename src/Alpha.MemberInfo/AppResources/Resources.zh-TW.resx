@@ -923,4 +923,7 @@
   <data name="AvailableGivenCredit" xml:space="preserve">
     <value>可用信用額度</value>
   </data>
+  <data name="InvalidMemberMaxCredit" xml:space="preserve">
+    <value>會員信用額應在0和{0}之間</value>
+  </data>
 </root>

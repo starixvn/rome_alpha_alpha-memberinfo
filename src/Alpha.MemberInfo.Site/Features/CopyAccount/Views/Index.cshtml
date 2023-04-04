@@ -31,12 +31,10 @@
                         </div>
                         <div class="form-section">
                             <p class="section-title">@Resources.SourceAccount <span class="require">*</span></p>
-                            <div class="form-group relative-input fixed-width error-input">
+                            <div class="form-group relative-input fixed-width">
                                 <input type="text" name="SourceUsername" id="SourceUsername" class="source-username" placeholder="@Resources.UsernamePlaceHolder" />
                                 <span id="icon-message-SourceUsername"></span>
-                                <div class="error-input-text">
-                                    Max Credit per Account must be less than or equal to .
-                                </div>
+                                <div id="sourceAccountErrMsg" class="error-input-text hidden"></div>
                             </div>
                             <div class="line"></div>
                         </div>
@@ -76,12 +74,11 @@
                                 </div>
                                 <div class="form-column">
                                     <label>@Resources.Password <span class="require">*</span> <span class="icon-information-outline" title="@Resources.lblPasswordRequire"></span></label>
-                                    <div class="relative-input error-input">
+                                    <div class="relative-input">
                                         <input type="text" name="Password" class="input-pass" id="Password" autocomplete="off" maxlength="16" />
                                         <span class="icon-eye-close icon show-pass" aria-hidden="true"></span>
                                         <span id="icon-message-password"> </span>
-                                        <div class="error-input-text">
-                                            Max Credit per Account must be less than or equal to .
+                                        <div id="passwordErrMsg" class="error-input-text hidden">
                                         </div>
                                     </div>
                                 </div>
@@ -102,12 +99,10 @@
 
                                 <div class="form-column">
                                     <label class="sub-label">@Resources.GivenCreditPerAccount <span class="require">*</span></label>
-                                    <div class="form-input relative-input error-input">
+                                    <div class="form-input relative-input">
                                         <input type="text" name="Credit" id="Credit" value="0" />
-                                        <span id="icon-message-credit"> </span>
-                                        <div class="error-input-text">
-                                            Max Credit per Account must be less than or equal to .
-                                        </div>
+                                        <span id="icon-message-credit"></span>
+                                        <div id="creditErrMsg" class="error-input-text hidden"></div>
                                     </div>
                                     <div id="credit-range" class="hidden sub-input">
                                         @Resources.AvailableGivenCredit: <span id="credit-max-label"></span>
@@ -118,15 +113,13 @@
                                 {
                                     <div class="form-column">
                                         <label class="sub-label">@Resources.MaxCreditPerMember <span class="require">*</span></label>
-                                        <div class="form-input relative-input error-input">
+                                        <div class="form-input relative-input">
                                             <input type="text" name="MemberMaxCredit" id="MemberMaxCredit" value="0" />
                                             <span id="icon-message-member-max-credit"> </span>
                                             <div id="member-max-credit-range" class="hidden">
                                                 <span id="member-credit-min-label"></span> <=  @Resources.MemberMaxCredit <= <span id="member-credit-max-label"></span>
                                             </div>
-                                            <div class="error-input-text">
-                                                Max Credit per Account must be less than or equal to .
-                                            </div>
+                                            <div id="memberMaxCreditErrMsg" class="error-input-text hidden"></div>
                                         </div>
                                     </div>
 
@@ -137,10 +130,12 @@
                             </div>
                         </div>
                         @Html.Hidden("HashKey", Model.HashKey)
-                        @Html.Hidden("MaxAccountsCreatePerRequest", AppSettings.MaxAccountsCreatePerRequest)
                         @Html.Hidden("IsCreateAgent", Model.ActorLevel.IsMasterLevel())
                         <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
                         @Html.Hidden("UserNotExistMessage", Resources.UserNotExist)
+                        @Html.Hidden("InvalidPasswordFormat", Resources.InvalidPasswordFormat)
+                        @Html.Hidden("InvalidMaxCreditPerAccount", Resources.InvalidMaxCreditPerAccount)
+                        @Html.Hidden("InvalidMemberMaxCredit", Resources.InvalidMemberMaxCredit)
                         @Html.Hidden("old-version-url", MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx?isNew=false"))
                         @Html.AntiForgeryToken()
                     </form>
