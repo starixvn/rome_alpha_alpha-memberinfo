@@ -1536,7 +1536,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} failed account creations.
+        ///   Looks up a localized string similar to {0} accounts failed to be created..
         /// </summary>
         public static string NoAccountCreatedFailed {
             get {

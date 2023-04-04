@@ -924,7 +924,7 @@ Notes: your password is cAsE sEnSiTiVe</value>
     <value>This user does not exist</value>
   </data>
   <data name="NoAccountCreatedFailed" xml:space="preserve">
-    <value>{0} failed account creations</value>
+    <value>{0} accounts failed to be created.</value>
   </data>
   <data name="FailureReason" xml:space="preserve">
     <value>Failure Reason</value>

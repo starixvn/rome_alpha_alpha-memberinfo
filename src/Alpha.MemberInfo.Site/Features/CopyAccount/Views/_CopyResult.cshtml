@@ -1,5 +1,5 @@
 ﻿@model CopyAccountResponse
-<p class="msg msg-success msg-result">The list of accounts has been created successfully</p>
+<p class="msg msg-success msg-result">@Resources.CreateCustomerSuccessMessage</p>
 <div class="form-row">
     <label>@Resources.Usernames:</label>
     <div class="relative-input result-area">
@@ -17,8 +17,8 @@
 @if (Model.NoOfFailedAccount > 0)
 {
     <div class="failed-account-created">
-        <p class="msg msg-error result-text">@Model.Message</p>
-        <p class="result-text"><span>@Resources.FailureReason:</span> <span>@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</span></p>
+        <p class="msg msg-error result-text">@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</p>
+        <p class="result-text"><span>@Resources.FailureReason:</span> <span>@Model.Message</span></p>
     </div>
 }
 
