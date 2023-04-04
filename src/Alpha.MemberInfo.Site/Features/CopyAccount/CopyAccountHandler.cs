@@ -1,4 +1,5 @@
-﻿using Alpha.MemberInfo.Enumerations;
+﻿using Alpha.MemberInfo.AppResources;
+using Alpha.MemberInfo.Enumerations;
 using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Models;
@@ -70,6 +71,15 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
             var model = await copyAccountService.GetDownlineByUsername(message.CustId, message.SubAccId, message.SourceUsername);
             var sourceCustId = model.CustId;
             message.Password = aes.Decrypt(message.Password, sessionManager.Get<string>(HashKeySessionKey));
+            if (string.IsNullOrWhiteSpace(message.Password))
+            {
+                return new CopyAccountResponse
+                {
+                    Code = 1,
+                    Message = Lang.NotAuthorized
+                };
+            }
+
             return await copyAccountService.CreateAccount(message, sourceCustId);
         }
 

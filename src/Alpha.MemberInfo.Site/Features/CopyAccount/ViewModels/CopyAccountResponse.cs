@@ -5,7 +5,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
 {
     public class CopyAccountResponse
     {
-        public IEnumerable<string> Usernames { get; set; }
+        public IEnumerable<string> Usernames { get; set; } = Enumerable.Empty<string>();
 
         public decimal Credit { get; set; }
 
