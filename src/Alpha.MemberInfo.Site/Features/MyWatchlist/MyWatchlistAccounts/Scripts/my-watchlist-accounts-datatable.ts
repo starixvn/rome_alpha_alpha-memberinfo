@@ -49,11 +49,11 @@ class MyWatchlistAccountsDataTable {
     private buildDataTableOptions(myWatchlistUrl: string) {
         const sortDefinitions = {
             Username: 1,
-            FirstLastName: 2,
-            LastLogin: 3,
-            Status: 4,
-            WinningThreshold: 5,
-            LosingThreshold: 6
+            LastLogin: 2,
+            Status: 3,
+            WinningThreshold: 4,
+            LosingThreshold: 5,
+            FirstLastName: 6
         };
 
         return {

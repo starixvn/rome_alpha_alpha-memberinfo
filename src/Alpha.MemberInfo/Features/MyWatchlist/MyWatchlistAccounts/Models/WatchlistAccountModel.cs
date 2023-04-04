@@ -2,10 +2,9 @@
 {
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Extensions;
-    using Alpha.MemberInfo.Features.MyWatchlist.Model;
     using System;
 
-    public class WatchlistAccountModel : ModelBase
+    public class WatchlistAccountModel
     {
         public WatchlistAccountModel()
         {
@@ -22,8 +21,7 @@
             decimal? losingThreshold, 
             byte closedReason, 
             byte locked,
-            string firstName,
-            string lastName)
+            string firstLastName)
         {
             RowNumber = rowNumber;
             CustId = custId;
@@ -35,8 +33,7 @@
             LosingThreshold = losingThreshold;
             ClosedReason = closedReason;
             Locked = locked;
-            FirstName = firstName;
-            LastName = lastName;
+            FirstLastName = firstLastName;
         }
 
         public int RowNumber { get; }
@@ -66,11 +63,7 @@
         public byte ClosedReason { get; }
 
         public byte Locked { get; }
-
-        public string FirstName { get; }
-
-        public string LastName { get; }
-
-        public string FirstLastName => GetFirstLastName(FirstName, LastName);
+        
+        public string FirstLastName { get; }
     }
 }

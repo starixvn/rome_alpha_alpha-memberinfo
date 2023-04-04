@@ -2,10 +2,9 @@
 {
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Extensions;
-    using Alpha.MemberInfo.Features.MyWatchlist.Model;
     using System;
 
-    public class ReachlistAccountModel : ModelBase
+    public class ReachlistAccountModel
     {
         public ReachlistAccountModel()
         {
@@ -28,8 +27,7 @@
             byte locked,
             int winningReachedCnt,
             int losingReachedCnt,
-            string firstName,
-            string lastName)
+            string firstLastName)
         {
             RowNumber = rowNumber;
             CustId = custId;
@@ -47,8 +45,7 @@
             Locked = locked;
             WinningReachedCnt = winningReachedCnt;
             LosingReachedCnt = losingReachedCnt;
-            FirstName = firstName;
-            LastName = lastName;
+            FirstLastName = firstLastName;
         }
 
         public int RowNumber { get; }
@@ -120,10 +117,6 @@
             }
         }
 
-        public string FirstName { get; }
-
-        public string LastName { get; }
-
-        public string FirstLastName => GetFirstLastName(FirstName, LastName);
+        public string FirstLastName { get; }
     }
 }

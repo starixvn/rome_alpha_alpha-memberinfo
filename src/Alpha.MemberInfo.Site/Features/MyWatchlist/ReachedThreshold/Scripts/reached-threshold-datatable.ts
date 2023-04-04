@@ -58,15 +58,15 @@ class ReachedThresholdDataTable {
     private buildDataTableOptions(reachedThresholdUrl: string) {
         const sortDefinitions = {
             Username: 1,
-            FirstLastName: 2,
-            LastLogin: 3,
-            Status: 4,
-            LastReach: 5,
-            LastLimitTypeReach: 6,
-            WinningLosingAmount: 7,
-            LastReachWinningThreshold: 8,
-            LastReachLosingThreshold: 9,
-            NoOfReach: 10
+            LastLogin: 2,
+            Status: 3,
+            LastReach: 4,
+            LastLimitTypeReach: 5,
+            WinningLosingAmount: 6,
+            LastReachWinningThreshold: 7,
+            LastReachLosingThreshold: 8,
+            NoOfReach: 9,
+            FirstLastName: 10
         };
 
         return {
