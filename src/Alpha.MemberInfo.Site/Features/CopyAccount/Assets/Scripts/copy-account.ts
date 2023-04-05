@@ -252,6 +252,14 @@ class CopyAccount {
             this.validateCredit();
             this.validateInputs();
         });
+
+        this.$sourceUsername.on('input', () => {
+            if (!this.$sourceUsername.val()) {
+                this.inValidSourceAccount = true;
+                this.$("#icon-message-SourceUsername").addClass("hidden");
+                this.validateInputs();
+            }
+        });
     }
 
     validateInputs = () => {
