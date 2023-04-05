@@ -88,6 +88,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This account was disabled..
+        /// </summary>
+        public static string AccountWasDisabled {
+            get {
+                return ResourceManager.GetString("AccountWasDisabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accumulated Win Loss only starts counting when a winning/losing threshold is set. It will be reset daily or when the function is off..
         /// </summary>
         public static string AccumulatedMemberWinLossOnlyStartsCountingNote {

@@ -22,6 +22,8 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         Task<bool> CheckExistedCustomer(string username);
 
         Task<Downline> GetDownlineByUsername(int custId, int subAccountId, string username);
+
+        Task<bool> IsCustomerEnabled(int custId);
     }
 
     public class CopyAccountService : ICopyAccountService
@@ -102,6 +104,11 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         public Task<Downline> GetDownlineByUsername(int custId, int subAccountId, string username)
         {
             return GetAsJsonAsync<Downline>($"api/customer/{custId}/{subAccountId}/downlines/{username}");
+        }
+
+        public Task<bool> IsCustomerEnabled(int custId)
+        {
+            return GetAsJsonAsync<bool>($"api/customer/{custId}/IsEnabled");
         }
     }
 }

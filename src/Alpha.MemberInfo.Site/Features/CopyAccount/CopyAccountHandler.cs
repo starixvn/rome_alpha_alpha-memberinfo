@@ -1,6 +1,5 @@
 ﻿using Alpha.MemberInfo.AppResources;
 using Alpha.MemberInfo.Enumerations;
-using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Request;
@@ -17,7 +16,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         IAsyncRequestHandler<CopyAccountQuery, CopyAccountViewModel>,
         IAsyncRequestHandler<CopyAccountCommand, CopyAccountResponse>,
         IAsyncRequestHandler<CreditQuery, CreditInfo>,
-        IAsyncRequestHandler<CheckUsernameQuery, bool>,
+        IAsyncRequestHandler<CheckUsernameQuery, Result>,
         IAsyncRequestHandler<CheckExistedCustomerQuery, bool>
     {
         private const string HashKeySessionKey = "Alpha.MemberInfo.Site.Features.CopyAccount.CopyAccountHandler.PasswordHash";
@@ -86,11 +85,22 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
         public Task<CreditInfo> Handle(CreditQuery message)
             => copyAccountService.GetCreditInfo(message.CustName);
 
-        public async Task<bool> Handle(CheckUsernameQuery message)
+        public async Task<Result> Handle(CheckUsernameQuery message)
         {
             var result = await copyAccountService.GetDownlineByUsername(message.ViewerId, message.SubAccId, message.CustName);
-            var isValid = result.CustId > 0 && Enumeration.FromValue<UserLevel>(result.RoleId).IsDirectDownlineOf(message.ActorLevel);
-            return isValid;
+            if(result.CustId > 0 && Enumeration.FromValue<UserLevel>(result.RoleId).IsDirectDownlineOf(message.ActorLevel))
+            {
+                if (await copyAccountService.IsCustomerEnabled(result.CustId))
+                {
+                    return Result.CreateSuccessResult();
+                }
+                else
+                {
+                    return Result.CreateErrorResult(Resources.AccountWasDisabled);
+                }
+            }
+
+            return Result.CreateErrorResult(Resources.UserNotExist);
         }
 
         public Task<bool> Handle(CheckExistedCustomerQuery message)

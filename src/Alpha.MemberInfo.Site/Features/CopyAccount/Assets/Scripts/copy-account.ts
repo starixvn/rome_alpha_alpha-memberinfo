@@ -63,7 +63,6 @@ class CopyAccount {
     }
 
     resource = {
-        userNotExistMessage: (<HTMLInputElement>document.getElementById('UserNotExistMessage')).value,
         invalidPasswordFormat: (<HTMLInputElement>document.getElementById('InvalidPasswordFormat')).value,
         invalidMaxCreditPerAccount: (<HTMLInputElement>document.getElementById('InvalidMaxCreditPerAccount')).value,
         invalidMemberMaxCredit: (<HTMLInputElement>document.getElementById('InvalidMemberMaxCredit')).value,
@@ -151,11 +150,6 @@ class CopyAccount {
             numeralDecimalMark: '.',
             delimiter: ','
         });
-
-        //this.$noOfAccounts.change(() => {
-        //    this.validateCredit();
-        //    this.isCreateAgent && this.validateMemberMaxCredit();
-        //});
 
         this.validateCredit();
 
@@ -363,12 +357,12 @@ class CopyAccount {
                     const iconClass = result ? 'icon-check' : 'icon-close';
                     this.$("#icon-message-SourceUsername").removeClass().addClass(iconClass);
                     this.inValidSourceAccount = !result;
-                    if (result) {
+                    if (result.IsOk) {
                         this.getCustomerCredit(this.$sourceUsername.val());
                         this.removeTooltipError(this.$sourceAccountErrMsg);
 
                     } else {
-                        this.addTooltipError(this.$sourceAccountErrMsg, this.resource.userNotExistMessage);
+                        this.addTooltipError(this.$sourceAccountErrMsg, result.Message);
                         this.$creditRange.addClass("hidden");
                     }
                     this.validateInputs();

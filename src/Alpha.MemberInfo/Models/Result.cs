@@ -44,5 +44,10 @@
         {
             return new Result { Code = code ?? ErrorCode, Message = message };
         }
+
+        public static Result CreateSuccessResult()
+        {
+            return new Result { Code = 0, Message = string.Empty };
+        }
     }
 }

@@ -917,4 +917,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="InvalidMemberMaxCredit" xml:space="preserve">
     <value>Hạn mức tín dụng được cấp cho Member phải trong khoảng từ 0 đến {0}</value>
   </data>
+  <data name="AccountWasDisabled" xml:space="preserve">
+    <value>Tài khoản bị vô hiệu hóa.</value>
+  </data>
 </root>

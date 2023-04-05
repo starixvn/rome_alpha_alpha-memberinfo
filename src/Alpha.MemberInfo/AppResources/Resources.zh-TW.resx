@@ -926,4 +926,7 @@
   <data name="InvalidMemberMaxCredit" xml:space="preserve">
     <value>會員信用額應在0和{0}之間</value>
   </data>
+  <data name="AccountWasDisabled" xml:space="preserve">
+    <value>這個帳號禁用</value>
+  </data>
 </root>
