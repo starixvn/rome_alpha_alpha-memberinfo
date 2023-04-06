@@ -899,9 +899,6 @@
   <data name="AccountDetailsNote" xml:space="preserve">
     <value>选择第一个可用的用户名，其余的账号将根据系统的建议。</value>
   </data>
-  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
-    <value>以下账号已创建成功</value>
-  </data>
   <data name="SwitchToOldVersion" xml:space="preserve">
     <value>切换至旧版本</value>
   </data>

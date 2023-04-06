@@ -918,7 +918,7 @@ Notes: your password is cAsE sEnSiTiVe</value>
     <value>Usernames</value>
   </data>
   <data name="CreateCustomerSuccessMessage" xml:space="preserve">
-    <value>The following accounts have been created successfully</value>
+    <value>{0} accounts have been created successfully.</value>
   </data>
   <data name="UserNotExist" xml:space="preserve">
     <value>This user does not exist</value>

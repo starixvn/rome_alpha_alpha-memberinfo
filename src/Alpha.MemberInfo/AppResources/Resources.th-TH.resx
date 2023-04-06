@@ -899,9 +899,6 @@
   <data name="AccountDetailsNote" xml:space="preserve">
     <value>เลือกชื่อบัญชีลำดับแรกที่ว่างอยู่ สำหรับบัญชีถัดไป ระบบจะเลือกให้โดยอัตโนมัติ</value>
   </data>
-  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
-    <value>บัญชีต่อไปนี้ ได้สร้างขึ้นสำเร็จแล้ว</value>
-  </data>
   <data name="SwitchToOldVersion" xml:space="preserve">
     <value>เปลี่ยนกลับไปเวอร์ชั่นเก่า</value>
   </data>

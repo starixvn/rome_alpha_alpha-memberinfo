@@ -1,5 +1,5 @@
 ﻿@model CopyAccountResponse
-<p class="msg msg-success msg-result">@Resources.CreateCustomerSuccessMessage</p>
+<p class="msg msg-success msg-result">@string.Format(Resources.CreateCustomerSuccessMessage,Model.Usernames.Count())</p>
 <div class="form-row">
     <label>@Resources.Usernames:</label>
     <div class="relative-input result-area">

@@ -484,7 +484,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The following accounts have been created successfully.
+        ///   Looks up a localized string similar to {0} accounts have been created successfully..
         /// </summary>
         public static string CreateCustomerSuccessMessage {
             get {

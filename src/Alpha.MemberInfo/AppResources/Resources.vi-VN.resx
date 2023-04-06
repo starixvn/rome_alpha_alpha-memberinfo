@@ -890,9 +890,6 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="AccountDetailsNote" xml:space="preserve">
     <value>Hãy chọn tên người dùng khả dụng trước và hệ thống sẽ đề xuất tên cho các tài khoản còn lại.</value>
   </data>
-  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
-    <value>Các tài khoản sau đây đã được tạo thành công</value>
-  </data>
   <data name="SwitchToOldVersion" xml:space="preserve">
     <value>Chuyển sang phiên bản cũ</value>
   </data>
