@@ -143,7 +143,6 @@ class CopyAccount {
 
         this.$creditInput.keyup(() => {
             this.validateCredit();
-            this.isCreateAgent && this.validateMemberMaxCredit();
         });
         this.cleave = new Cleave('#Credit', {
             numeral: true,
@@ -151,7 +150,7 @@ class CopyAccount {
             delimiter: ','
         });
 
-        this.validateCredit();
+        
 
         this.$btnSwitchVersion.click(() => {
             this.topWindow.indexManager.changeMenu(this.oldVersionUrl);
@@ -172,6 +171,8 @@ class CopyAccount {
 
             this.$memberMaxCreditInput.focus(() => this.showTooltipError(this.$memberMaxCreditErrMsg));
         }
+
+        this.validateCredit();
 
         window.addEventListener("click", (e) => {
             if (this.$(e.target).parent().hasClass("error-input") || this.$(e.target).attr("id") == "NoOfAccounts") {
@@ -415,6 +416,9 @@ class CopyAccount {
         } else {
             this.credit = credit;
             this.removeTooltipError(this.$creditErrMsg);
+            if (this.isCreateAgent) {
+                this.validateMemberMaxCredit();
+            }
         }
 
         const errorClass = this.invalidCredit ? 'icon-close' : 'icon-check';
