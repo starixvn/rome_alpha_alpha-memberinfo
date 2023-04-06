@@ -8,7 +8,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
         public CopyAccountViewModel(CopyAccountQuery request, string usernameSuffix, string hashKey)
         {
             ActorLevel = request.ActorLevel;
-            ActorUsername = request.ViewerUsername;
+            ActorUsername = request.CustName;
             UsernameSuffix = usernameSuffix;
             HashKey = hashKey;
             FirstChar = UsernameSuffix.Substring(0, 1).ToUpper();
