@@ -255,9 +255,9 @@ class CopyAccount {
         });
 
         this.$sourceUsername.on('input', () => {
+            this.$("#icon-message-SourceUsername").addClass("hidden");
             if (!this.$sourceUsername.val()) {
                 this.inValidSourceAccount = true;
-                this.$("#icon-message-SourceUsername").addClass("hidden");
                 this.validateInputs();
             }
         });
@@ -363,7 +363,7 @@ class CopyAccount {
                 dataType: 'json',
                 url: "CopyAccount/CheckUsername",
                 success: (result) => {
-                    const iconClass = result ? 'icon-check' : 'icon-close';
+                    const iconClass = result.IsOk ? 'icon-check' : 'icon-close';
                     this.$("#icon-message-SourceUsername").removeClass().addClass(iconClass);
                     this.inValidSourceAccount = !result;
                     if (result.IsOk) {
