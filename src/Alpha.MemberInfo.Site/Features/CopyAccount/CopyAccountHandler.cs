@@ -79,6 +79,8 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
                 };
             }
 
+            message.Password = encryptor.CfsEnCode(message.Password);
+
             return await copyAccountService.CreateAccount(message, sourceCustId);
         }
 
