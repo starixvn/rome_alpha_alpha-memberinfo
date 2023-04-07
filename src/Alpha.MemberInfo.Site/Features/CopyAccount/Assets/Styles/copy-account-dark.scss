@@ -27,7 +27,6 @@
         }
 
         .btn-switch-view {
-            width: 120px;
             height: 28px;
             background: #696969;
             border: 1px solid #A5A5A5;
@@ -264,6 +263,10 @@
 
 #NoOfAccounts {
     width: 333px;
+
+    @media only screen and (max-device-width: 767px) {
+        width: 95%;
+    }
 }
 
 
