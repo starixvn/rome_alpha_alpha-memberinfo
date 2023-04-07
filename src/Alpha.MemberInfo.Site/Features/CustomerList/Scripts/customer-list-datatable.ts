@@ -228,7 +228,7 @@ class CustomerListDataTable {
             "data": null,
             "render": item => {
                 var firstLastName = item.FirstName && item.LastName ? item.FirstName + "/ " + item.LastName
-                    : !item.FirstName && !item.LastName ? "" : (item.FistName || "") + (item.LastName || "");
+                    : !item.FirstName && !item.LastName ? "" : (item.FirstName || "") + (item.LastName || "");
                 return `<div class="col-firstlastname ${this.viewModel.IsMobileView ? '' : 'break-long-word'}" title="${firstLastName}">${firstLastName}</div>`;
             }
         });
