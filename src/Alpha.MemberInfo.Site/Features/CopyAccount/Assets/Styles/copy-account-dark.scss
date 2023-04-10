@@ -699,6 +699,7 @@ select:-webkit-autofill:focus {
     .tooltip-search-account {
         [data-tooltip]:before {
             font-size: calculateScale(12px) !important;
+            line-height: calculateScale(14px) !important;
         }
     }
 }
