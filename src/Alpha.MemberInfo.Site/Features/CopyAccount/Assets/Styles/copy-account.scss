@@ -1,4 +1,8 @@
-﻿.panel {
+﻿@function calculateScale($num, $scale: 0.7) {
+    @return $num / $scale;
+}
+
+.panel {
     box-sizing: border-box;
     max-width: 930px;
     border: 1px solid #E0E0E0;
@@ -137,7 +141,6 @@
             height: 32px;
             border: 1px solid #D1D1D1;
             box-shadow: none;
-            background: none;
         }
 
 
@@ -220,7 +223,6 @@
     }
 
     .icon-check, .icon-close {
-        font-size: 18px !important;
         display: inline-block;
         vertical-align: middle;
     }
@@ -228,7 +230,7 @@
     .icon-check {
         color: #fff;
         background: #18965B;
-        font-size: 12px !important;
+        font-size: 12px;
         padding: 2px;
         margin-left: 10px;
         border-radius: 50px;
@@ -484,11 +486,11 @@ select:-webkit-autofill:focus {
 @media (max-width : 767px) {
     .result {
         position: unset;
-        margin-bottom: 10px;
+        margin-bottom: calculateScale(10px);
     }
 
     .icon {
-        font-size: 16px;
+        font-size: calculateScale(16px) !important;
     }
 
     .form-row {
@@ -501,24 +503,22 @@ select:-webkit-autofill:focus {
     .panel-heading, .panel-body {
         padding: 10px !important;
     }
+
     .easy-autocomplete, .fixed-width, .form-select {
         width: 100% !important;
     }
+
     .icon-close {
         position: unset !important;
     }
-    .icon-check{
-        right : 0 !important;
-    }
+    
     .form-column {
         width: 100% !important;
         margin-right: 0 !important;
         margin-bottom : 10px !important;
     }
 
-    .form-submit {
-        margin-top: 5px !important; 
-    }
+
 
     input {
         width: 95% !important;
@@ -528,6 +528,7 @@ select:-webkit-autofill:focus {
     }
     .icon-eye-close {
         right: 33px !important;
+        top : 12px !important;
     }
     #icon-message-username{
         position : unset !important;
@@ -536,5 +537,47 @@ select:-webkit-autofill:focus {
         background: #FFE3E3 !important;
         bottom: -25px !important;
         width: 95% !important;
+    }
+
+
+    .panel-heading {
+        align-items: flex-start !important;
+    }
+
+    .note, label {
+        font-size: calculateScale(12px) !important;
+    }
+
+    .btn-switch-view {
+        width: calculateScale(87px);
+    }
+    .section-title {
+        font-size: calculateScale(14px) !important;
+    }
+
+    .easy-autocomplete {
+        input {
+            height: calculateScale(32px) !important;
+        }
+    }
+    input,select {
+        font-size: calculateScale(12px) !important;
+        height: calculateScale(32px) !important;
+    }
+    input::placeholder {
+        font-size: calculateScale(12px) !important;
+    }
+
+    .form-submit {
+        margin-top: calculateScale(16px) !important;
+
+        button {
+            font-size: calculateScale(13px) !important;
+            height: auto !important;
+        }
+    }
+    .icon-check {
+        right: 0 !important;
+        font-size: calculateScale(12px) !important;
     }
 }
