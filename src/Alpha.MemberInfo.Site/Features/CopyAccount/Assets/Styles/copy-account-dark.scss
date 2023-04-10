@@ -659,6 +659,7 @@ select:-webkit-autofill:focus {
 
     .note, label {
         font-size: calculateScale(14px) !important;
+        margin-bottom: calculateScale(4px) !important;
     }
 
     .btn-switch-view {
