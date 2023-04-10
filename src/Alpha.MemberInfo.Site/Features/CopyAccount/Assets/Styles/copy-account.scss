@@ -348,10 +348,6 @@
 
 #NoOfAccounts {
     width: 333px;
-
-    @media only screen and (max-device-width: 767px) {
-        width: 95%;
-    }
 }
 
 #credit-range {
@@ -599,8 +595,11 @@ select:-webkit-autofill:focus {
             margin-bottom: 16px;
         }
     }
-    .panel-heading, .panel-body {
-        padding: 10px !important;
+    .panel-heading {
+        padding: calculateScale(10px) !important;
+    }
+    .panel-body {
+        padding: calculateScale(12px) calculateScale(16px) !important;
     }
 
     .easy-autocomplete, .fixed-width, .form-select {
@@ -617,17 +616,15 @@ select:-webkit-autofill:focus {
         margin-bottom : 10px !important;
     }
 
-
-
-    input {
-        width: 95% !important;
+    input, #NoOfAccounts {
+        width: 94% !important;
     }
     .icon-close{
         margin-left : 10px !important;
     }
     .icon-eye-close {
         right: 33px !important;
-        top : 12px !important;
+        top: 16px !important;
     }
     #icon-message-username{
         position : unset !important;
@@ -644,11 +641,14 @@ select:-webkit-autofill:focus {
     }
 
     .note, label {
-        font-size: calculateScale(12px) !important;
+        font-size: calculateScale(14px) !important;
     }
 
     .btn-switch-view {
-        width: calculateScale(87px);
+        width: calculateScale(150px);
+        font-size: calculateScale(13px) !important;
+        margin-left: calculateScale(18px);
+        height: calculateScale(32px) !important;
     }
     .section-title {
         font-size: calculateScale(14px) !important;
@@ -656,27 +656,27 @@ select:-webkit-autofill:focus {
 
     .easy-autocomplete {
         input {
-            height: calculateScale(32px) !important;
+            height: calculateScale(40px) !important;
         }
     }
-    input,select {
-        font-size: calculateScale(12px) !important;
-        height: calculateScale(32px) !important;
+    input, select {
+        font-size: calculateScale(14px) !important;
+        height: calculateScale(40px) !important;
     }
     input::placeholder {
-        font-size: calculateScale(12px) !important;
+        font-size: calculateScale(14px) !important;
     }
 
     .form-submit {
         margin-top: calculateScale(16px) !important;
 
         button {
-            font-size: calculateScale(13px) !important;
+            font-size: calculateScale(16px) !important;
             height: auto !important;
         }
     }
     .icon-check {
-        right: 0 !important;
+        right: -5px !important;
         font-size: calculateScale(12px) !important;
     }
     .tooltip-search-account {
