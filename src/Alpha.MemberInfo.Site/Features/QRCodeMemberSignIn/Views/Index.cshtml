@@ -1,4 +1,4 @@
-﻿@using Sunplus.Agent.Model.Entities;
+﻿@using Alpha.MemberInfo.Configurations;
 @using Alpha.Web.Helpers;
 
 @model QRCodeMemberSignInViewModel
@@ -15,7 +15,7 @@
         FunctionName = "qrcode"
     };
 
-    var userguideLink = UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
+    var userguideLink = AppSettings.IsSiteLabel789y ?
         MicroSites.MessageUrl("~/StaticMessage/File?id=129373") :
         MicroSites.HowToUseUrl("~/Index.aspx?redirectTo=QRCode");
 }

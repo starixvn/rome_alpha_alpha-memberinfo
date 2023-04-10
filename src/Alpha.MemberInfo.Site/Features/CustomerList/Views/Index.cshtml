@@ -1,5 +1,5 @@
 ﻿@using Newtonsoft.Json
-@using Sunplus.Agent.Model.Entities
+@using Alpha.MemberInfo.Configurations;
 @using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources
 @model CustomerListViewModel
 
@@ -8,7 +8,7 @@
     ViewBag.Title = "Customer List";
 
     var commissionGroupClass = Model.IsMobileView || (Model.SearchAccountLevel.IsAgentLevel() && Model.Language.Equals("th-TH")) ? "none" : "desktop";
-    var userguideLink = UserSession.Current.Site.Equals("789y", StringComparison.OrdinalIgnoreCase) ?
+    var userguideLink = AppSettings.IsSiteLabel789y ?
         MicroSites.MessageUrl("~/StaticMessage/Guide?id=137130") :
         MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=137130");
 }
@@ -242,9 +242,9 @@
     <input type="hidden" id="isShowMyanmarOdds" value='@(Model.IsShowMyanmarOdds ? "true" : "false")'>
     <input type="hidden" id="canViewReport" value='@(Model.CanViewReport ? "true" : "false")'>
     <input type="hidden" id="canUpdateAccount" value='@(Model.CanUpdateAccount ? "true" : "false")'>
-    <input type="hidden" id="customerListResources" value='@Model.Resources'>    
+    <input type="hidden" id="customerListResources" value='@Model.Resources'>
     <input type="hidden" id="arrayCustID" name="arrayCustID" value=''>
-    <input type="hidden" id="arrayUserName" name="arrayUserName" value=''>    
+    <input type="hidden" id="arrayUserName" name="arrayUserName" value=''>
     <input type="hidden" id="commissionText" value='@CustomerListResources.Commission'>
     <input type="hidden" id="unuspendStatusPopupHeader" value='@CustomerListResources.UnuspendStatusPopupHeader'>
     <input type="hidden" id="editText" value='@CustomerListResources.Edit'>
