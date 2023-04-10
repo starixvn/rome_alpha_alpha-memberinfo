@@ -127,7 +127,7 @@
         }
 
         .btn-switch-view {
-            height: 28px;
+            padding: 6px 12px;
             background: #F2F2F2;
             border: 1px solid #A5A5A5;
             color: #5A5A5A;
@@ -136,6 +136,7 @@
             font-weight: 500;
             font-size: 13px;
             justify-content: center;
+            white-space: nowrap;
 
             .icon-refresh2, .icon-button {
                 font-size: 20px;
@@ -645,7 +646,6 @@ select:-webkit-autofill:focus {
     }
 
     .btn-switch-view {
-        width: calculateScale(150px);
         font-size: calculateScale(13px) !important;
         margin-left: calculateScale(18px);
         height: calculateScale(32px) !important;
@@ -662,6 +662,7 @@ select:-webkit-autofill:focus {
     input, select {
         font-size: calculateScale(14px) !important;
         height: calculateScale(40px) !important;
+        padding: calculateScale(8px) !important;
     }
     input::placeholder {
         font-size: calculateScale(14px) !important;
@@ -676,7 +677,7 @@ select:-webkit-autofill:focus {
         }
     }
     .icon-check {
-        right: -5px !important;
+        right: 0 !important;
         font-size: calculateScale(12px) !important;
     }
     .tooltip-search-account {
