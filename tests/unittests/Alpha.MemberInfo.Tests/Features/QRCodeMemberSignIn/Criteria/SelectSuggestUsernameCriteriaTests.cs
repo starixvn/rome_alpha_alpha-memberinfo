@@ -11,7 +11,7 @@
         {
             // Arrange
             var expectedSettingKey = "Age_CustomerSelSuggestUsername";
-            var criteria = new SelectSuggestUsernameCriteria("User Test", 1, 2);
+            var criteria = new SelectSuggestUsernameCriteria("User Test", 1);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -24,7 +24,7 @@
         public void RoleId_Is_Agent()
         {
             // Arrange
-            var criteria = new SelectSuggestUsernameCriteria("User Test", 1, 2);
+            var criteria = new SelectSuggestUsernameCriteria("User Test", 1);
 
             // Assert
             Assert.Equal(2, criteria.RoleId);
@@ -37,7 +37,7 @@
         public void IsValid_InputActorName_ReturnsCorrectValue(string actorName, bool expectedValue)
         {
             // Arrange
-            var criteria = new SelectSuggestUsernameCriteria(actorName, 1, 2);
+            var criteria = new SelectSuggestUsernameCriteria(actorName, 1);
 
             // Act
             var actualIsValid = criteria.IsValid();
@@ -54,7 +54,7 @@
         public void IsValid_InputCustId_ReturnsCorrectValue(int custId, bool expectedValue)
         {
             // Arrange
-            var criteria = new SelectSuggestUsernameCriteria("Test", custId, 2);
+            var criteria = new SelectSuggestUsernameCriteria("Test", custId);
 
             // Act
             var actualIsValid = criteria.IsValid();

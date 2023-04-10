@@ -62,7 +62,7 @@
             };
 
             service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
-            service.GetSuggestUsername(Arg.Any<string>(), Arg.Any<int>(), Arg.Any<byte>()).Returns("Suggestion Name");
+            service.GetSuggestUsername(Arg.Any<string>(), Arg.Any<int>()).Returns("Suggestion Name");
 
             var expectedViewModel = new QRCodeMemberSignInViewModel(
                 message.MemberName,
