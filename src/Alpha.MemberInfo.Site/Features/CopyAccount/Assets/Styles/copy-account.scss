@@ -299,6 +299,10 @@
             z-index: 10;
             top: 7px;
             right: -25px;
+            background: #FE0000;
+            color: #fff;
+            border-radius: 50px;
+            padding: 2px;
         }
     }
 
@@ -607,9 +611,7 @@ select:-webkit-autofill:focus {
         width: 100% !important;
     }
 
-    .icon-close {
-        position: unset !important;
-    }
+   
     
     .form-column {
         width: 100% !important;
@@ -620,8 +622,11 @@ select:-webkit-autofill:focus {
     input, #NoOfAccounts {
         width: 94% !important;
     }
-    .icon-close{
-        margin-left : 10px !important;
+    .icon-close {
+        margin-left: 10px !important;
+        font-size: calculateScale(12px) !important;
+        right : 0 !important;
+        top : 17px !important;
     }
     .icon-eye-close {
         right: 33px !important;
@@ -631,9 +636,10 @@ select:-webkit-autofill:focus {
         position : unset !important;
     }
     .error-input-text {
-        background: #FFE3E3 !important;
-        bottom: -25px !important;
-        width: 95% !important;
+        top: 58px !important;
+        width: 94% !important;
+        padding: calculateScale(4px) calculateScale(8px) !important;
+        font-size: calculateScale(13px) !important;
     }
 
 

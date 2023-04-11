@@ -309,6 +309,10 @@
             z-index: 10;
             top: 7px;
             right: -25px;
+            background: #CC7070;
+            color: #000;
+            border-radius: 50px;
+            padding: 2px;
         }
     }
 
@@ -615,11 +619,6 @@ select:-webkit-autofill:focus {
     .easy-autocomplete, .fixed-width, .form-select {
         width: 100% !important;
     }
-
-    .icon-close {
-        position: unset !important;
-    }
-
     .icon-check {
         right: 0 !important;
     }
@@ -636,6 +635,9 @@ select:-webkit-autofill:focus {
 
     .icon-close {
         margin-left: 10px !important;
+        font-size: calculateScale(12px) !important;
+        right: 0 !important;
+        top: 17px !important;
     }
 
     .icon-eye-close {
@@ -647,9 +649,10 @@ select:-webkit-autofill:focus {
         position: unset !important;
     }
     .error-input-text {
-        background: #FFE3E3 !important;
-        bottom: -25px !important;
-        width: 95% !important;
+        top: 58px !important;
+        width: 94% !important;
+        padding: calculateScale(4px) calculateScale(8px) !important;
+        font-size: calculateScale(13px) !important;
     }
 
 
