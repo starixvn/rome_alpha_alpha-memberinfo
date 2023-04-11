@@ -195,6 +195,7 @@
 
                 &::placeholder {
                     color: #EDEDED;
+                    font-size: 14px;
                 }
             }
         }
@@ -248,6 +249,7 @@
             background: #1F1F1F;
             border: 1px solid #474747;
             box-shadow: none;
+            font-size: 14px;
         }
 
 
@@ -272,6 +274,7 @@
             appearance: none;
             border-radius: 0;
             box-shadow: none;
+            font-size: 14px;
 
             &::placeholder {
                 color: #EDEDED;
@@ -429,7 +432,7 @@ select:-webkit-autofill:focus {
 
 .failed-account-created {
     padding-top: 12px;
-    border-top: 1px solid #E0E0E0;
+    border-top: 1px solid #3E3F41;
     margin-top: 12px;
 
     .msg-error {
@@ -437,13 +440,13 @@ select:-webkit-autofill:focus {
     }
 
     .result-text {
-        color: #FE0000;
+        color: #CC7070;
         font-weight: 500;
         font-size: 14px;
 
         span {
             &:nth-child(1) {
-                color: #333333;
+                color: #EDEDED;
             }
         }
     }
@@ -526,10 +529,10 @@ select:-webkit-autofill:focus {
 }
 
 
-.form-submit {
-    margin-top: 16px;
 
+.form-submit {
     button {
+        margin-top: 10px;
         padding: 6px 16px;
     }
 }
@@ -692,9 +695,8 @@ select:-webkit-autofill:focus {
     }
 
     .form-submit {
-        margin-top: calculateScale(16px) !important;
-
         button {
+            margin-top: calculateScale(10px) !important;
             font-size: calculateScale(16px) !important;
             height: auto !important;
         }
@@ -709,6 +711,22 @@ select:-webkit-autofill:focus {
         [data-tooltip]:before {
             font-size: calculateScale(12px) !important;
             line-height: calculateScale(14px) !important;
+        }
+    }
+    .failed-account-created {
+        padding-top: calculateScale(12px);
+        margin-top: calculateScale(12px);
+
+        .msg-error {
+            margin: 0 0 12px 0;
+
+            &:before {
+                top: calculateScale(12px) !important;
+            }
+        }
+
+        .result-text {
+            font-size: calculateScale(14px);
         }
     }
 }

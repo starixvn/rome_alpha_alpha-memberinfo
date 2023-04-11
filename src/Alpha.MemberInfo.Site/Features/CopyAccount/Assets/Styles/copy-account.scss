@@ -189,6 +189,10 @@
                 padding: 5px 8px;
                 box-shadow: none;
                 border-radius: 0;
+
+                &::placeholder {
+                    font-size: 14px;
+                }
             }
         }
     }
@@ -241,6 +245,7 @@
             border: 1px solid #D1D1D1;
             box-shadow: none;
             background: #FFFFFF;
+            font-size: 14px;
         }
 
 
@@ -265,6 +270,7 @@
             appearance: none;
             border-radius: 0;
             box-shadow: none;
+            font-size: 14px;
 
             &.source-username {
                 width: 333px;
@@ -518,9 +524,8 @@ select:-webkit-autofill:focus {
 
 
 .form-submit {
-    margin-top: 16px;
-
     button {
+        margin-top: 10px;
         padding: 6px 16px;
     }
 }
@@ -676,9 +681,8 @@ select:-webkit-autofill:focus {
     }
 
     .form-submit {
-        margin-top: calculateScale(16px) !important;
-
         button {
+            margin-top: calculateScale(10px) !important;
             font-size: calculateScale(16px) !important;
             height: auto !important;
         }
@@ -691,6 +695,23 @@ select:-webkit-autofill:focus {
         [data-tooltip]:before {
             font-size: calculateScale(12px) !important;
             line-height: calculateScale(14px) !important;
+        }
+    }
+
+    .failed-account-created {
+        padding-top: calculateScale(12px);
+        margin-top: calculateScale(12px);
+
+        .msg-error {
+            margin: 0 0 12px 0;
+
+            &:before {
+                top: calculateScale(12px) !important;
+            }
+        }
+
+        .result-text {
+            font-size: calculateScale(14px);
         }
     }
 }
