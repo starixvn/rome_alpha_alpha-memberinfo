@@ -47,7 +47,6 @@ class CopyAccount {
     hashKey: string;
 
     $sourceAccountErrMsg: JQuery;
-    $passwordErrMsg: JQuery;
     $creditErrMsg: JQuery;
     $memberMaxCreditErrMsg: JQuery;
 
@@ -63,7 +62,6 @@ class CopyAccount {
     }
 
     resource = {
-        invalidPasswordFormat: (<HTMLInputElement>document.getElementById('InvalidPasswordFormat')).value,
         invalidMaxCreditPerAccount: (<HTMLInputElement>document.getElementById('InvalidMaxCreditPerAccount')).value,
         invalidMemberMaxCredit: (<HTMLInputElement>document.getElementById('InvalidMemberMaxCredit')).value,
     }
@@ -105,7 +103,6 @@ class CopyAccount {
 
         this.$showPass = this.$(".show-pass");
         this.hashKey = this.$("#HashKey").val();
-        this.$passwordErrMsg = this.$("#passwordErrMsg");
         this.$creditErrMsg = this.$("#creditErrMsg");
         this.$memberMaxCreditErrMsg = this.$("#memberMaxCreditErrMsg");
     }
@@ -143,6 +140,7 @@ class CopyAccount {
 
         this.$creditInput.keyup(() => {
             this.validateCredit();
+            this.validateInputs();
         });
         this.cleave = new Cleave('#Credit', {
             numeral: true,
@@ -165,6 +163,7 @@ class CopyAccount {
 
             this.$memberMaxCreditInput.keyup(() => {
                 this.validateMemberMaxCredit();
+                this.validateInputs();
             });
 
             this.validateMemberMaxCredit();
@@ -183,7 +182,6 @@ class CopyAccount {
         });
 
         this.$sourceUsername.focus(() => this.showTooltipError(this.$sourceAccountErrMsg));
-        this.$password.focus(() => this.showTooltipError(this.$passwordErrMsg));
         this.$creditInput.focus(() => this.showTooltipError(this.$creditErrMsg));
     }
 
@@ -348,6 +346,12 @@ class CopyAccount {
                 this.invalidUsername = result;
                 const iconClass = result ? 'icon-close' : 'icon-check';
                 this.$("#icon-message-username").removeClass().addClass(iconClass);
+
+                if (result) {
+                    this.$("#icon-message-username").parent().addClass("error-input");
+                } else {
+                    this.$("#icon-message-username").parent().removeClass("error-input");
+                }
                 this.validateInputs();
             }
         });
@@ -423,8 +427,6 @@ class CopyAccount {
 
         const errorClass = this.invalidCredit ? 'icon-close' : 'icon-check';
         this.$('#icon-message-credit').removeClass().addClass(errorClass);
-
-        this.validateInputs();
     }
 
     isInValidCredit = (credit: number, max: number) => {
@@ -450,9 +452,9 @@ class CopyAccount {
         this.validateInputs();
 
         if (validPassword) {
-            this.removeTooltipError(this.$passwordErrMsg);
+            this.$password.parent().removeClass("error-input");
         } else {
-            this.addTooltipError(this.$passwordErrMsg, this.resource.invalidPasswordFormat);
+            this.$password.parent().addClass("error-input");
         }
     }
 

@@ -52,7 +52,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
             return new CopyAccountViewModel(
                 message,
-                await copyAccountService.GetSuggestUsername(message.ViewerUsername, message.ViewerId, message.ViewerLevelId),
+                await copyAccountService.GetSuggestUsername(message.CustName, message.ViewerId, message.ViewerLevelId),
                 GetHasKey());
         }
 
