@@ -26,7 +26,8 @@
             byte closedReason,
             byte locked,
             int winningReachedCnt,
-            int losingReachedCnt)
+            int losingReachedCnt,
+            string firstLastName)
         {
             RowNumber = rowNumber;
             CustId = custId;
@@ -44,6 +45,7 @@
             Locked = locked;
             WinningReachedCnt = winningReachedCnt;
             LosingReachedCnt = losingReachedCnt;
+            FirstLastName = firstLastName;
         }
 
         public int RowNumber { get; }
@@ -114,5 +116,7 @@
                 return $"{ReachedCnt} {winOrLoseText}";
             }
         }
+
+        public string FirstLastName { get; }
     }
 }

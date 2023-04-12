@@ -855,4 +855,7 @@
   <data name="NonEntered" xml:space="preserve">
     <value>未完成</value>
   </data>
+  <data name="FirstLastName" xml:space="preserve">
+    <value>名/ 姓</value>
+  </data>
 </root>

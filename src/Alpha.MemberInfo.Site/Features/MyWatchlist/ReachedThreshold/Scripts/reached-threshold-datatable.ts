@@ -65,7 +65,8 @@ class ReachedThresholdDataTable {
             WinningLosingAmount: 6,
             LastReachWinningThreshold: 7,
             LastReachLosingThreshold: 8,
-            NoOfReach: 9
+            NoOfReach: 9,
+            FirstLastName: 10
         };
 
         return {
@@ -118,6 +119,8 @@ class ReachedThresholdDataTable {
 
         columns.push({ className: 'left', data: "Username", name: "Username" });
 
+        columns.push({ data: null, name: "FirstLastName", render: this.renderFirstLastName });
+
         this.isShowLastLoginColumn &&
             columns.push({ className: 'center', data: "LastLoggedString", name: "LastLogin" });
 
@@ -138,6 +141,10 @@ class ReachedThresholdDataTable {
         );
 
         return columns;
+    }
+
+    private renderFirstLastName(data) {
+        return '<div class="left col-firstlastname" title="' + data.FirstLastName + '">' + data.FirstLastName + "</div>";
     }
 
     private renderReachCountColumn(data, type) {

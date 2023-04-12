@@ -52,7 +52,8 @@ class MyWatchlistAccountsDataTable {
             LastLogin: 2,
             Status: 3,
             WinningThreshold: 4,
-            LosingThreshold: 5
+            LosingThreshold: 5,
+            FirstLastName: 6
         };
 
         return {
@@ -125,6 +126,8 @@ class MyWatchlistAccountsDataTable {
 
         columns.push({ className: 'left', data: "Username", name: "Username" });
 
+        columns.push({ data: null, name: "FirstLastName", render: this.renderFirstLastName });
+
         this.isShowLastLoginColumn &&
             columns.push({ className: 'center', data: "LastLoggedString", name: "LastLogin" });
 
@@ -136,6 +139,10 @@ class MyWatchlistAccountsDataTable {
         );
 
         return columns;
+    }
+
+    private renderFirstLastName(data) {
+        return '<div class="left col-firstlastname" title="' + data.FirstLastName + '">' + data.FirstLastName + "</div>";
     }
 
     private renderCheckboxColumn(item) {

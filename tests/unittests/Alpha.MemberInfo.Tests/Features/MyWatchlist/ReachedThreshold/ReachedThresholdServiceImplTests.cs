@@ -46,8 +46,8 @@
                 string.Empty);
             IEnumerable<ReachlistAccountModel> reachlistAccounts = new List<ReachlistAccountModel>()
             {
-                new ReachlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0, 1, 1),
-                new ReachlistAccountModel(2, 1234, 0, "agent0102", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0, 1, 1)
+                new ReachlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0, 1, 1, null),
+                new ReachlistAccountModel(2, 1234, 0, "agent0102", new DateTime(), new DateTime(), "Global", "Open", 1000, 1000, 2000, 1, 0, 0, 1, 1, null)
             };
             var expectedResults = new ReachlistAccountReport(reachlistAccounts, 0);
             dynamicRepository.FetchAsync<ReachlistAccountModel>(Arg.Any<SelectReachListCriteria>())

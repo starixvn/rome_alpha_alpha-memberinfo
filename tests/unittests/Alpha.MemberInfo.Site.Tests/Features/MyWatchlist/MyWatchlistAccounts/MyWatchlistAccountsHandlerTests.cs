@@ -41,8 +41,8 @@
            => new WatchlistAccountReport(
                   new List<WatchlistAccountModel>()
                   {
-                        new WatchlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), "Open", null, null, 0, 0),
-                        new WatchlistAccountModel(2, 2345, 0, "agent0102", new DateTime(), "Open", null, null, 0, 0),
+                        new WatchlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), "Open", null, null, 0, 0, null),
+                        new WatchlistAccountModel(2, 2345, 0, "agent0102", new DateTime(), "Open", null, null, 0, 0, null),
                   },
               2);
 

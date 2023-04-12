@@ -269,7 +269,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to First &amp; Last Name.
+        ///   Looks up a localized string similar to First/ Last Name.
         /// </summary>
         public static string FirstLastName {
             get {

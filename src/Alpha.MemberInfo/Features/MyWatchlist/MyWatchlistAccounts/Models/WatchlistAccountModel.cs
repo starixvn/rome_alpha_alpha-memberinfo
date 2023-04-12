@@ -20,7 +20,8 @@
             decimal? winningThreshold, 
             decimal? losingThreshold, 
             byte closedReason, 
-            byte locked)
+            byte locked,
+            string firstLastName)
         {
             RowNumber = rowNumber;
             CustId = custId;
@@ -32,6 +33,7 @@
             LosingThreshold = losingThreshold;
             ClosedReason = closedReason;
             Locked = locked;
+            FirstLastName = firstLastName;
         }
 
         public int RowNumber { get; }
@@ -61,5 +63,7 @@
         public byte ClosedReason { get; }
 
         public byte Locked { get; }
+        
+        public string FirstLastName { get; }
     }
 }
