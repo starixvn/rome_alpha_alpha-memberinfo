@@ -190,6 +190,10 @@
                 box-shadow: none;
                 border-radius: 0;
 
+                &:focus {
+                    box-shadow: 0px 0px 0px 2.5px rgba(95, 160, 255, 0.5);
+                }
+
                 &::placeholder {
                     font-size: 14px;
                 }
@@ -246,6 +250,11 @@
             box-shadow: none;
             background: #FFFFFF;
             font-size: 14px;
+
+            &:focus {
+                box-shadow: 0px 0px 0px 2.5px rgba(95, 160, 255, 0.5);
+                z-index: 20;
+            }
         }
 
 
@@ -271,6 +280,10 @@
             border-radius: 0;
             box-shadow: none;
             font-size: 14px;
+
+            &:focus {
+                box-shadow: 0px 0px 0px 2.5px rgba(95, 160, 255, 0.5);
+            }
 
             &.source-username {
                 width: 333px;
@@ -312,9 +325,17 @@
         }
     }
 
-    .form-select {
-        width: 333px;
+    .form-username {
+        align-items: initial;
+
+        .name-account {
+            border: 1px solid #d1d1d1;
+            line-height: 30px;
+            padding: 0 9px;
+            background: #E6E6E6;
+        }
     }
+
 
     .require {
         color: #A11515;
@@ -358,7 +379,7 @@
 }
 
 #NoOfAccounts {
-    width: 333px;
+    width: 100px;
 }
 
 #credit-range {
@@ -526,7 +547,8 @@ select:-webkit-autofill:focus {
 .form-submit {
     button {
         margin-top: 10px;
-        padding: 6px 16px;
+        padding: 2px 15px;
+        font-size: 13px;
     }
 }
 
@@ -668,7 +690,7 @@ select:-webkit-autofill:focus {
 
     .easy-autocomplete {
         input {
-            height: calculateScale(40px) !important;
+            height: calculateScale(40px) !important;            
         }
     }
     input, select {
@@ -685,6 +707,7 @@ select:-webkit-autofill:focus {
             margin-top: calculateScale(10px) !important;
             font-size: calculateScale(16px) !important;
             height: auto !important;
+            padding: calculateScale(2px) calculateScale(15px);
         }
     }
     .icon-check {
@@ -712,6 +735,21 @@ select:-webkit-autofill:focus {
 
         .result-text {
             font-size: calculateScale(14px);
+        }
+    }
+    .panel {       
+            input {
+                font-size: calculateScale(16px)!important;
+            }
+       
+        .form-username {
+            .name-account {
+                flex: 1;
+                font-size: calculateScale(14px);
+                height: calculateScale(40px);
+                line-height: calculateScale(40px);
+                text-align: center;
+            }
         }
     }
 }

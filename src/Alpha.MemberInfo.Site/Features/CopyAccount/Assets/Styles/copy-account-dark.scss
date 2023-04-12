@@ -193,6 +193,10 @@
                 border-radius: 0;
                 background: #1F1F1F;
 
+                &:focus {
+                    box-shadow: 0px 0px 0px 2.5px rgba(95, 160, 255, 0.5);
+                }
+
                 &::placeholder {
                     color: #EDEDED;
                     font-size: 14px;
@@ -250,6 +254,11 @@
             border: 1px solid #474747;
             box-shadow: none;
             font-size: 14px;
+
+            &:focus {
+                box-shadow: 0px 0px 0px 2.5px rgba(95, 160, 255, 0.5);
+                z-index: 20;
+            }
         }
 
 
@@ -278,6 +287,10 @@
 
             &::placeholder {
                 color: #EDEDED;
+            }
+
+            &:focus {
+                box-shadow: 0px 0px 0px 2.5px rgba(95, 160, 255, 0.5);
             }
 
             &.source-username {
@@ -319,11 +332,17 @@
         }
     }
 
-    .form-select {
-        width: 333px;
+    .form-username {
+        align-items: initial;
+
+        .name-account {
+            background: #393939;
+            border: 1px solid #474747;
+            line-height: 30px;
+            padding: 0 9px;
+            color: #ededed;
+        }
     }
-
-
 
 
 
@@ -369,7 +388,7 @@
 }
 
 #NoOfAccounts {
-    width: 333px;
+    width: 100px;
 }
 
 
@@ -533,7 +552,8 @@ select:-webkit-autofill:focus {
 .form-submit {
     button {
         margin-top: 10px;
-        padding: 6px 16px;
+        padding: 2px 15px;
+        font-size: 13px;
     }
 }
 
@@ -699,6 +719,7 @@ select:-webkit-autofill:focus {
             margin-top: calculateScale(10px) !important;
             font-size: calculateScale(16px) !important;
             height: auto !important;
+            padding: calculateScale(2px) calculateScale(15px);
         }
     }
 
@@ -727,6 +748,21 @@ select:-webkit-autofill:focus {
 
         .result-text {
             font-size: calculateScale(14px);
+        }
+    }
+    .panel {
+        input {
+            font-size: calculateScale(16px) !important;
+        }
+
+        .form-username {
+            .name-account {
+                flex: 1;
+                font-size: calculateScale(14px);
+                height: calculateScale(40px);
+                line-height: calculateScale(40px);
+                text-align: center;
+            }
         }
     }
 }
