@@ -745,15 +745,6 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to First/ Last Name.
-        /// </summary>
-        public static string FirstLastName {
-            get {
-                return ResourceManager.GetString("FirstLastName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to FIRST LOGIN QR CODE.
         /// </summary>
         public static string FirstLoginQRCode {

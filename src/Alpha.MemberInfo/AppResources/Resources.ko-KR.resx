@@ -414,7 +414,4 @@
   <data name="From" xml:space="preserve">
     <value>From</value>
   </data>
-  <data name="FirstLastName" xml:space="preserve">
-    <value>First &amp; Last Name</value>
-  </data>
 </root>

@@ -224,13 +224,8 @@ class CustomerListDataTable {
 
         columns.push({
             "className": 'left',
-            "width": "200px",
             "data": null,
-            "render": item => {
-                var firstLastName = item.FirstName && item.LastName ? item.FirstName + "/ " + item.LastName
-                    : !item.FirstName && !item.LastName ? "" : (item.FirstName || "") + (item.LastName || "");
-                return `<div class="col-firstlastname ${this.viewModel.IsMobileView ? '' : 'break-long-word'}" title="${firstLastName}">${firstLastName}</div>`;
-            }
+            "render": item => `<div class="${this.viewModel.IsMobileView ? '' : 'break-long-word'}">${item.FirstName || ""} ${item.LastName || ""}</div>`
         });
 
         if (this.viewModel.SearchAccountRoleId === CustomerLevel.Agent) {

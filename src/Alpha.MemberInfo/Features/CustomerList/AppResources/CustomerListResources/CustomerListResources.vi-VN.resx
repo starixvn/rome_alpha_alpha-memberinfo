@@ -283,7 +283,7 @@
     <value>Nhóm</value>
   </data>
   <data name="FirstLastName" xml:space="preserve">
-    <value>Tên/ Họ</value>
+    <value>Họ và tên</value>
   </data>
   <data name="StatementTooltip" xml:space="preserve">
     <value>Xem Sao Kê</value>

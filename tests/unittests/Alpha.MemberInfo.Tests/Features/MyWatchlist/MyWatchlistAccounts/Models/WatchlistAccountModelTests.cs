@@ -23,7 +23,7 @@
             byte locked = 0;
 
             // Act
-            var model = new WatchlistAccountModel(rowNumber, custId, sporttype, username, lastLogged, status, winningThreshold, losingThreshold, closedReason, locked, null);
+            var model = new WatchlistAccountModel(rowNumber, custId, sporttype, username, lastLogged, status, winningThreshold, losingThreshold, closedReason, locked);
 
             // Assert
             Assert.True(model.RowNumber == rowNumber

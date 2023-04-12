@@ -846,7 +846,4 @@
   <data name="NonEntered" xml:space="preserve">
     <value>Chưa có kết quả</value>
   </data>
-  <data name="FirstLastName" xml:space="preserve">
-    <value>Tên/ Họ</value>
-  </data>
 </root>

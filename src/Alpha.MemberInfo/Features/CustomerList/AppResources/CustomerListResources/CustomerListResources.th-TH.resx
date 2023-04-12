@@ -283,7 +283,7 @@
     <value>กลุ่ม</value>
   </data>
   <data name="FirstLastName" xml:space="preserve">
-    <value>ชื่อ/ นามสุกล</value>
+    <value>ชื่อนามสกุล</value>
   </data>
   <data name="StatementTooltip" xml:space="preserve">
     <value>ดูบัญชี</value>
