@@ -589,7 +589,7 @@ select:-webkit-autofill:focus {
 }
 
 .error-input {
-    input {
+    input, select, .name-account {
         border: 1px solid #FE0000 !important;
     }
 
@@ -755,7 +755,11 @@ select:-webkit-autofill:focus {
         width : 94% !important;
     }
 
-
+    .sub-input {
+        margin-top: calculateScale(4px) !important;
+        font-size: calculateScale(12px) !important;
+        line-height: calculateScale(20px) !important;
+    }
 
 
     .result {

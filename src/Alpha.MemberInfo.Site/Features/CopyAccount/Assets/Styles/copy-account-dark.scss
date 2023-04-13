@@ -26,6 +26,7 @@
         line-height: 14px;
         min-width: 300px;
         border-radius: 3px;
+        border: 1px solid #9F9F9F;
     }
     /* Dynamic horizontal centering */
     [data-tooltip-position="top"]:before,
@@ -596,7 +597,7 @@ select:-webkit-autofill:focus {
 }
 
 .error-input {
-    input {
+    input, select, .name-account {
         background: #361212 !important;
         border: 1px solid #CC7070 !important;
     }
@@ -608,7 +609,7 @@ select:-webkit-autofill:focus {
         padding: 4px 8px;
         z-index: 9;
         color: #000000;
-        width : 100%;
+        width: 100%;
     }
 }
 
@@ -771,6 +772,13 @@ select:-webkit-autofill:focus {
     .easy-autocomplete-container {
         width: 94% !important;
     }
+    .sub-input {
+        margin-top: calculateScale(4px) !important;
+        font-size: calculateScale(12px) !important;
+        line-height: calculateScale(20px) !important;
+    }
+
+
     .result {
         .relative-input {
             width: 100% !important;
