@@ -183,6 +183,31 @@ class CopyAccount {
 
         this.$sourceUsername.focus(() => this.showTooltipError(this.$sourceAccountErrMsg));
         this.$creditInput.focus(() => this.showTooltipError(this.$creditErrMsg));
+
+        this.registerTooltip();
+    }
+
+    registerTooltip = () => {
+        this.$('[data-toggle="tooltip"]').tooltip({ html: true });
+
+        this.hideTooltipOnTouchOutInMobile();
+    }
+
+    hideTooltipOnTouchOutInMobile = () => {
+        const $tooltip = this.$('[data-toggle="tooltip"]');
+
+        this.$(window.document).on('touchend', (event) => {
+            const target = this.$(event.target);
+
+            $tooltip.tooltip('hide');
+
+            if (target.attr('data-toggle') === 'tooltip') {
+                target.tooltip('show');
+            }
+            else if (target.parent().attr('data-toggle') === 'tooltip') {
+                target.parent().tooltip('show');
+            }
+        });
     }
 
     showTooltipError = ($errorContianer: JQuery) => {
