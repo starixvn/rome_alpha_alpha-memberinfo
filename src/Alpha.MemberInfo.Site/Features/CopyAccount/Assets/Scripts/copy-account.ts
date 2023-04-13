@@ -331,7 +331,7 @@ class CopyAccount {
     }
 
     checkExistedUsernameByChangeSuffix = () => {
-        let username = `${this.$('#actor-name').val()}${this.$firstSuffix.val()}${this.$secondSuffix.val()}`;
+        let username = `${this.$('#ActorUsername').val()}${this.$firstSuffix.val()}${this.$secondSuffix.val()}`;
         if (this.$thirdSuffix.val()) {
             username = `${username}${this.$thirdSuffix.val()}`;
         }

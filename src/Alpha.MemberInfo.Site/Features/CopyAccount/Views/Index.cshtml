@@ -133,6 +133,7 @@
                         @Html.Hidden("InvalidMaxCreditPerAccount", Resources.InvalidMaxCreditPerAccount)
                         @Html.Hidden("InvalidMemberMaxCredit", Resources.InvalidMemberMaxCredit)
                         @Html.Hidden("old-version-url", MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx?isNew=false"))
+                        @Html.Hidden("ActorUsername", Model.ActorUsername)
                         @Html.AntiForgeryToken()
                     </form>
                     <div id="result" class="result hidden">
