@@ -526,18 +526,19 @@ select:-webkit-autofill:focus {
             top: 10px !important;
         }
     }
-    .result-area{
-        width : 100%;
+
+    .result-area {
+        width: 100%;
     }
 
     textarea {
         min-height: 50px;
         background: rgba(0, 0, 0, 0.03);
         border: 1px solid #D1D1D1;
-        padding: 6px 8px;
+        padding: 6px 30px 6px 8px;
         appearance: none;
         resize: none;
-        width : 100%;
+        width: 100%;
     }
 }
 
@@ -553,11 +554,6 @@ select:-webkit-autofill:focus {
 }
 
 
-.error-input {
-    input, select {
-        border: 1px solid red !important;
-    }
-}
 
 .easy-autocomplete-container {
     ul {
@@ -593,7 +589,7 @@ select:-webkit-autofill:focus {
 }
 
 .error-input {
-    input, select {
+    input {
         border: 1px solid #FE0000 !important;
     }
 
@@ -707,7 +703,9 @@ select:-webkit-autofill:focus {
             margin-top: calculateScale(10px) !important;
             font-size: calculateScale(16px) !important;
             height: auto !important;
-            padding: calculateScale(2px) calculateScale(15px);
+            padding: calculateScale(10px) calculateScale(15px);
+            width : 100%;
+            box-shadow : none !important;
         }
     }
     .icon-check {
@@ -729,7 +727,7 @@ select:-webkit-autofill:focus {
             margin: 0 0 12px 0;
 
             &:before {
-                top: calculateScale(12px) !important;
+                top: 14px !important;
             }
         }
 
@@ -750,6 +748,52 @@ select:-webkit-autofill:focus {
                 line-height: calculateScale(40px);
                 text-align: center;
             }
+        }
+    }
+
+    .easy-autocomplete-container{
+        width : 94% !important;
+    }
+
+
+
+
+    .result {
+        .relative-input {
+            width: 100% !important;
+        }
+
+        .result-submit {
+            .btn-submit {
+                width: 100%;
+                text-align: center;
+                padding: calculateScale(10px) calculateScale(15px);
+                font-size: calculateScale(16px) !important;
+                height: auto !important;
+                box-shadow: none !important;
+            }
+        }
+
+        input {
+            width: 100% !important;
+        }
+
+        .form-row {
+            margin-bottom: calculateScale(10px) !important;
+        }
+
+        .msg-result {
+            font-size: calculateScale(14px) !important;
+
+            &:before {
+                top: 13px !important;
+            }
+        }
+
+        textarea {
+            min-height: calculateScale(50px) !important;
+            font-size: calculateScale(14px) !important;
+            padding: calculateScale(6px) calculateScale(30px) calculateScale(6px) calculateScale(8px) !important;
         }
     }
 }
