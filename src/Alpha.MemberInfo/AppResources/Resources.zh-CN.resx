@@ -878,17 +878,11 @@
   <data name="CreateMore" xml:space="preserve">
     <value>创建更多</value>
   </data>
-  <data name="CopySettingsNote" xml:space="preserve">
-    <value>搜索现有账号以复制设定</value>
-  </data>
   <data name="CopyAccountNote" xml:space="preserve">
     <value>注意：设定将与原始账号保持相同</value>
   </data>
   <data name="NoOfAccounts" xml:space="preserve">
     <value>账号数量</value>
-  </data>
-  <data name="NoOfAccountsNote" xml:space="preserve">
-    <value>选择您要创建的账号数量(最多 = {0})</value>
   </data>
   <data name="AccountDetails" xml:space="preserve">
     <value>账号的详细资料</value>
@@ -896,17 +890,11 @@
   <data name="AccountDetailsNote" xml:space="preserve">
     <value>选择第一个可用的用户名，其余的账号将根据系统的建议。</value>
   </data>
-  <data name="SwitchToOldVersion" xml:space="preserve">
-    <value>切换至旧版本</value>
-  </data>
   <data name="Usernames" xml:space="preserve">
     <value>用户名</value>
   </data>
   <data name="MemberMaxCredit" xml:space="preserve">
     <value>会员最高信用额</value>
-  </data>
-  <data name="PerAccount" xml:space="preserve">
-    <value>每个账号</value>
   </data>
   <data name="GivenCreditPerAccount" xml:space="preserve">
     <value>每个账号的信用额度</value>

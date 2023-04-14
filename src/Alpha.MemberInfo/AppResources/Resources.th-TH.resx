@@ -878,17 +878,11 @@
   <data name="CreateMore" xml:space="preserve">
     <value>สร้างเพิ่ม</value>
   </data>
-  <data name="CopySettingsNote" xml:space="preserve">
-    <value>ค้นหาบัญชีที่มีอยู่เพื่อใช้เป็นบัญชีต้นทางสำหรับคัดลอกการตั้งค่า</value>
-  </data>
   <data name="CopyAccountNote" xml:space="preserve">
     <value>หมายเหตุ : การตั้งค่าต่างๆ จะใช้ค่าเดียวกันกับบัญชีต้นทาง</value>
   </data>
   <data name="NoOfAccounts" xml:space="preserve">
     <value>จำนวนบัญชี</value>
-  </data>
-  <data name="NoOfAccountsNote" xml:space="preserve">
-    <value>เลือกจำนวนบัญชีลูกค้าใหม่ที่ต้องการสร้าง(สูงสุด = {0})</value>
   </data>
   <data name="AccountDetails" xml:space="preserve">
     <value>รายละเอียดของบัญชี</value>
@@ -896,17 +890,11 @@
   <data name="AccountDetailsNote" xml:space="preserve">
     <value>เลือกชื่อบัญชีลำดับแรกที่ว่างอยู่ สำหรับบัญชีถัดไป ระบบจะเลือกให้โดยอัตโนมัติ</value>
   </data>
-  <data name="SwitchToOldVersion" xml:space="preserve">
-    <value>เปลี่ยนกลับไปเวอร์ชั่นเก่า</value>
-  </data>
   <data name="Usernames" xml:space="preserve">
     <value>ชื่อผู้ใช้</value>
   </data>
   <data name="MemberMaxCredit" xml:space="preserve">
     <value>เครดิตโอนเงินสูงสุดของสมาชิก</value>
-  </data>
-  <data name="PerAccount" xml:space="preserve">
-    <value>ต่อบัญชี</value>
   </data>
   <data name="GivenCreditPerAccount" xml:space="preserve">
     <value>เครดิตที่ให้แต่ละบัญชี</value>

@@ -876,12 +876,6 @@
   <data name="NoOfAccounts" xml:space="preserve">
     <value>No. of Accounts</value>
   </data>
-  <data name="CopySettingsNote" xml:space="preserve">
-    <value>Search for an existing account to copy settings</value>
-  </data>
-  <data name="NoOfAccountsNote" xml:space="preserve">
-    <value>Choose the number of accounts you want to create (Max = {0})</value>
-  </data>
   <data name="AccountDetails" xml:space="preserve">
     <value>Account Details</value>
   </data>
@@ -889,24 +883,18 @@
     <value>Choose the first available username and the remaining accounts will follow the system's suggestion.</value>
   </data>
   <data name="lblPasswordRequire" xml:space="preserve">
-    <value>Password must be at least 8 characters without white-space and contain at least 3 of the following:
+    <value>Password must be at least 8 characters without white-space and contain at least 3 of the following:&lt;br&gt;
 
-  • Uppercase letter [A-Z] 
-  • Lowercase letter [a-z] 
-  • Numeric [0-9] 
-  • Special character (!,@,#,etc..)
+  • Uppercase letter [A-Z] &lt;br&gt;
+  • Lowercase letter [a-z] &lt;br&gt;
+  • Numeric [0-9] &lt;br&gt;
+  • Special character (!,@,#,etc..)&lt;br&gt;
 
-For example: 59D7!4$h, 493abcDE
-Notes: your password is cAsE sEnSiTiVe</value>
+For example: 59D7!4$h, 493abcDE&lt;br&gt;
+Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
   </data>
   <data name="MemberMaxCredit" xml:space="preserve">
     <value>Member Max Credit</value>
-  </data>
-  <data name="PerAccount" xml:space="preserve">
-    <value>per account</value>
-  </data>
-  <data name="SwitchToOldVersion" xml:space="preserve">
-    <value>Switch to old version</value>
   </data>
   <data name="CreateMore" xml:space="preserve">
     <value>Create more</value>
