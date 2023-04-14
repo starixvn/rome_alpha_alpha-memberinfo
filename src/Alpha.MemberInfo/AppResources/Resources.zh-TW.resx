@@ -903,7 +903,7 @@
     <value>切換至舊版本</value>
   </data>
   <data name="Usernames" xml:space="preserve">
-    <value>信用額度</value>
+    <value>用戶名</value>
   </data>
   <data name="MemberMaxCredit" xml:space="preserve">
     <value>會員最高信用額</value>
@@ -925,5 +925,17 @@
   </data>
   <data name="AccountWasDisabled" xml:space="preserve">
     <value>這個帳號禁用</value>
+  </data>
+  <data name="SourceAccount" xml:space="preserve">
+    <value>賬號來源。</value>
+  </data>
+  <data name="MaxCreditPerMember" xml:space="preserve">
+    <value>每個會員的最高信用額</value>
+  </data>
+  <data name="InvalidMaxCreditPerAccount" xml:space="preserve">
+    <value>每個賬號最高信用額度限額: {0} 或是 低於。</value>
+  </data>
+  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
+    <value>{0} 賬號已經創建成功。</value>
   </data>
 </root>

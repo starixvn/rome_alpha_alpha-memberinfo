@@ -894,7 +894,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Chuyển sang phiên bản cũ</value>
   </data>
   <data name="Usernames" xml:space="preserve">
-    <value>Hạn mức</value>
+    <value>Tên người dùng</value>
   </data>
   <data name="MemberMaxCredit" xml:space="preserve">
     <value>Hạn mức tín dụng tối đa của Member</value>
@@ -916,5 +916,17 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="AccountWasDisabled" xml:space="preserve">
     <value>Tài khoản bị vô hiệu hóa.</value>
+  </data>
+  <data name="SourceAccount" xml:space="preserve">
+    <value>Tài khoản sao chép</value>
+  </data>
+  <data name="MaxCreditPerMember" xml:space="preserve">
+    <value>Hạn mức tối đa mỗi Member</value>
+  </data>
+  <data name="InvalidMaxCreditPerAccount" xml:space="preserve">
+    <value>Hạn mức tối đa mỗi Tài khoản: {0} hoặc thấp hơn.</value>
+  </data>
+  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
+    <value>{0} tài khoản đã được tạo thành công.</value>
   </data>
 </root>

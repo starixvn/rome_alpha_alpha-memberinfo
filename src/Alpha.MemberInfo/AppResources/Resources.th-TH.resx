@@ -903,7 +903,7 @@
     <value>เปลี่ยนกลับไปเวอร์ชั่นเก่า</value>
   </data>
   <data name="Usernames" xml:space="preserve">
-    <value>เครดิต</value>
+    <value>ชื่อผู้ใช้</value>
   </data>
   <data name="MemberMaxCredit" xml:space="preserve">
     <value>เครดิตโอนเงินสูงสุดของสมาชิก</value>
@@ -925,5 +925,17 @@
   </data>
   <data name="AccountWasDisabled" xml:space="preserve">
     <value>บัญชีนี้ได้ถูกปิดไปแล้ว</value>
+  </data>
+  <data name="SourceAccount" xml:space="preserve">
+    <value>บัญชีต้นทาง</value>
+  </data>
+  <data name="MaxCreditPerMember" xml:space="preserve">
+    <value>เครดิตสูงสุดต่อสมาชิก</value>
+  </data>
+  <data name="InvalidMaxCreditPerAccount" xml:space="preserve">
+    <value>ค่าเครดิตสูงสุดต่อบัญชี ต้องไม่เกิน {0}</value>
+  </data>
+  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
+    <value>สร้างบัญชีใหม่จำนวน {0} บัญชีสำเร็จแล้ว</value>
   </data>
 </root>

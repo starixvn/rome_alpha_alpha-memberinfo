@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -1087,7 +1087,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Max Given Credit per Account limit: {0} or lower..
+        ///   Looks up a localized string similar to Max Given Credit per Account: {0} or lower..
         /// </summary>
         public static string InvalidMaxCreditPerAccount {
             get {
@@ -1110,15 +1110,6 @@ namespace Alpha.MemberInfo.AppResources {
         public static string InvalidMemberMaxCredit {
             get {
                 return ResourceManager.GetString("InvalidMemberMaxCredit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Invalid Password format!.
-        /// </summary>
-        public static string InvalidPasswordFormat {
-            get {
-                return ResourceManager.GetString("InvalidPasswordFormat", resourceCulture);
             }
         }
         
