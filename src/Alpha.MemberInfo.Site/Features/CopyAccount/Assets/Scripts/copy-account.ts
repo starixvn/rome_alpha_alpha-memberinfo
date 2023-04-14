@@ -73,6 +73,8 @@ class CopyAccount {
         if (this.$sourceUsername.val() !== '') {
             this.blurEventSourceAccount();
         }
+
+        setTimeout(() => this.topWindow.indexManager.initFeedbackFunction(1, undefined, 500), 1000);
     };
 
     cacheDOMElement = () => {
