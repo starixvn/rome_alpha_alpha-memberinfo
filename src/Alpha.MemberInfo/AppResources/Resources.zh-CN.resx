@@ -856,14 +856,14 @@
     <value>未完成</value>
   </data>
   <data name="lblPasswordRequire" xml:space="preserve">
-    <value>密码必须至少 8 个字符没有空格和包含至少 3个 以下：
-
-• 大写字母 [A-Z]
-• 小写字母 [a-z]
-• 数字 [0-9]
-• 特殊字符 （!、 @、 # 等。。)
-
-例如： 59D7!4$h, 493abcDE
+    <value>密码必须至少 8 个字符没有空格和包含至少 3个 以下：&lt;br&gt;
+&lt;br&gt;
+• 大写字母 [A-Z]&lt;br&gt;
+• 小写字母 [a-z]&lt;br&gt;
+• 数字 [0-9]&lt;br&gt;
+• 特殊字符 （!、 @、 # 等。。)&lt;br&gt;
+&lt;br&gt;
+例如： 59D7!4$h, 493abcDE&lt;br&gt;
 注意： 您的密码需有大小写</value>
   </data>
   <data name="UserNotExist" xml:space="preserve">
