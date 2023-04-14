@@ -873,9 +873,6 @@
   <data name="CopyAccountNote" xml:space="preserve">
     <value>Note: Settings will be the same as the Source account</value>
   </data>
-  <data name="CopySettings" xml:space="preserve">
-    <value>Copy Settings</value>
-  </data>
   <data name="NoOfAccounts" xml:space="preserve">
     <value>No. of Accounts</value>
   </data>

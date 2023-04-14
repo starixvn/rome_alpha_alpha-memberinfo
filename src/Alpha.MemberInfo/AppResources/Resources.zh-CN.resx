@@ -878,9 +878,6 @@
   <data name="CreateMore" xml:space="preserve">
     <value>创建更多</value>
   </data>
-  <data name="CopySettings" xml:space="preserve">
-    <value>*注意：设定将与原始账号保持相同</value>
-  </data>
   <data name="CopySettingsNote" xml:space="preserve">
     <value>搜索现有账号以复制设定</value>
   </data>

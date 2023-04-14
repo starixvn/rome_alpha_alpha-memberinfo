@@ -878,9 +878,6 @@
   <data name="CreateMore" xml:space="preserve">
     <value>สร้างเพิ่ม</value>
   </data>
-  <data name="CopySettings" xml:space="preserve">
-    <value>*หมายเหตุ : การตั้งค่าต่างๆ จะใช้ค่าเดียวกันกับบัญชีต้นทาง</value>
-  </data>
   <data name="CopySettingsNote" xml:space="preserve">
     <value>ค้นหาบัญชีที่มีอยู่เพื่อใช้เป็นบัญชีต้นทางสำหรับคัดลอกการตั้งค่า</value>
   </data>

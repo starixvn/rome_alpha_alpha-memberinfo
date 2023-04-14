@@ -869,14 +869,11 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="CreateMore" xml:space="preserve">
     <value>Tạo thêm</value>
   </data>
-  <data name="CopySettings" xml:space="preserve">
-    <value>*Lưu ý: Cài đặt sẽ giống như của tài khoản nguồn</value>
-  </data>
   <data name="CopySettingsNote" xml:space="preserve">
     <value>Tìm tài khoản có sẵn để sao chép cài đặt</value>
   </data>
   <data name="CopyAccountNote" xml:space="preserve">
-    <value>Lưu ý: Cài đặt sẽ giống như của tài khoản nguồn</value>
+    <value>Lưu ý: Cài đặt sẽ giống như của tài khoản sao chép</value>
   </data>
   <data name="NoOfAccounts" xml:space="preserve">
     <value>Số tài khoản</value>
