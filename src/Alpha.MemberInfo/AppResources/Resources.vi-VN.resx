@@ -847,14 +847,14 @@
     <value>Chưa có kết quả</value>
   </data>
   <data name="lblPasswordRequire" xml:space="preserve">
-    <value>Mật khẩu phải gồm ít nhất 8 ký tự, không có khoảng trắng và phải có ít nhất 3 ký tự sau đây:
-
- - Ký tự viết hoa [A-Z]
- - Ký tự viết thường [a-z]
- - Ký tự số [0-9]
- - Ký tự đặc biệt (!,@,#,...)
-Ví dụ : 59D7!4$h, 493abcDE
-
+    <value>Mật khẩu phải gồm ít nhất 8 ký tự, không có khoảng trắng và phải có ít nhất 3 ký tự sau đây:&lt;br&gt;
+&lt;br&gt;
+ - Ký tự viết hoa [A-Z]&lt;br&gt;
+ - Ký tự viết thường [a-z]&lt;br&gt;
+ - Ký tự số [0-9]&lt;br&gt;
+ - Ký tự đặc biệt (!,@,#,...)&lt;br&gt;
+Ví dụ : 59D7!4$h, 493abcDE&lt;br&gt;
+&lt;br&gt;
 Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="UserNotExist" xml:space="preserve">
