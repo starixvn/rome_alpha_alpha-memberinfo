@@ -7,49 +7,18 @@
     background-color: transparent;
     border-color: transparent;
 
-    &.bottom {
-        margin-top: 10px;
-    }
-
     .tooltip-inner {
         padding: 8px;
-        background-color: #f2f2f2;
+        background: #2E2E2E;
         font-size: 12px;
         line-height: 20px;
         max-width: 250px;
-        border: 1px solid #ccc;
-        color: #333;
+        color: #EDEDED;
         text-align: inherit;
-
-        &:before, &:after {
-            top: 0;
-            left: 50%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-        }
-
-        &:before {
-            border-color: transparent;
-            border-bottom-color: #ccc;
-            border-width: 10px;
-            margin-left: -10px;
-            margin-top: -14px;
-        }
-
-        &:after {
-            border-color: transparent;
-            border-bottom-color: #f2f2f2;
-            border-width: 8px;
-            margin-left: -8px;
-            margin-top: -10px;
-        }
     }
 
     .tooltip-arrow {
-        border-bottom-color: #2E2E2E;
+        border-bottom-color: #2E2E2E !important; 
     }
 }
 
@@ -488,6 +457,12 @@ select:-webkit-autofill:focus {
 
     .result-area {
         width: 100%;
+
+        .tooltip {
+            .tooltip-arrow {
+                border-top-color: #2E2E2E !important;
+            }
+        }
     }
 
     textarea {

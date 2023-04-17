@@ -490,6 +490,30 @@ select:-webkit-autofill:focus {
 
     .result-area {
         width: 100%;
+
+        .tooltip {
+            .tooltip-inner {
+                &::before, &::after {
+                    bottom: -12px;
+                    top: auto;
+                    border-bottom-color: transparent;
+                }
+
+                &::before {
+                    border-top-color: #999999;
+                    border-width: 9px;
+                    margin-left: -10px;
+                    margin-top: -12px;
+                }
+
+                &::after {
+                    border-top-color: #2E2E2E;
+                    border-width: 10px;
+                    margin-left: -11px;
+                    margin-top: 10px;
+                }
+            }
+        }
     }
 
     textarea {
