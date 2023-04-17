@@ -274,7 +274,7 @@
 
         .icon-close {
             position: absolute;
-            z-index: 10;
+            z-index: 1;
             top: 7px;
             right: -25px;
             background: #FE0000;
@@ -661,10 +661,10 @@ select:-webkit-autofill:focus {
         button {
             margin-top: calculateScale(10px) !important;
             font-size: calculateScale(16px) !important;
-            height: auto !important;
+            height: calculateScale(40px) !important;
             padding: calculateScale(10px) calculateScale(15px);
-            width : 100%;
-            box-shadow : none !important;
+            width: 100%;
+            box-shadow: none !important;
         }
     }
     .icon-check {
