@@ -17,7 +17,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
         Task<Result> CheckLimitNewDownline(int custId, byte custLevel, string language);
 
-        Task<string> GetSuggestUsername(string actorName, int custId, byte roleId);
+        Task<string> GetSuggestUsername(string actorName, byte roleId);
 
         Task<bool> CheckExistedCustomer(string username);
 
@@ -91,9 +91,9 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
             return PostAsJsonAsync<Result>("api/customer/CheckLimitNewDownline", new { custId, custLevel, language });
         }
 
-        public Task<string> GetSuggestUsername(string actorName, int custId, byte roleId)
+        public Task<string> GetSuggestUsername(string actorName, byte roleId)
         {
-            return PostAsJsonAsync<string>("api/customer/suggest-username", new { actorName, custId, roleId });
+            return PostAsJsonAsync<string>("api/customer/suggest-username", new { actorName, roleId });
         }
 
         public Task<bool> CheckExistedCustomer(string username)

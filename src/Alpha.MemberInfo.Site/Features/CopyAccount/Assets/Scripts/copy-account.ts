@@ -333,6 +333,7 @@ class CopyAccount {
                         && window.document.queryCommandSupported("copy")) {
                         this.clipboardUsernames
                             .on("success", function (e) {
+                                self.completeCopy(self.$(e.trigger))
                                 self.$(e.trigger).tooltip("show");
                             })
                             .on("error", function (e) {
@@ -347,6 +348,16 @@ class CopyAccount {
             error: () => { this.$.unblockUI(); }
         });
     }
+
+    completeCopy = ($elm) => {
+        $elm.attr('title', this.$('#copied').val());
+        $elm.tooltip('show');
+
+        setTimeout(() => {
+            $elm.tooltip('hide');
+            $elm.attr('title', this.$('#copy').val());
+        }, 3000);
+    };
 
     safelyParseJSON = (json) => {
         var parsed;

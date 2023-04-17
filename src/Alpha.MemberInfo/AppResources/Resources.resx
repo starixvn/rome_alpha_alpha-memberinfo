@@ -941,4 +941,7 @@ Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
   <data name="Copied" xml:space="preserve">
     <value>Copied</value>
   </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
 </root>
