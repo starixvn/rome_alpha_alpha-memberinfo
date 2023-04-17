@@ -8,6 +8,7 @@ using Alpha.Web.Helpers;
 using Fanex.Cryptography.Aes;
 using MediatR;
 using Sunplus.Agent.Utilities;
+using System;
 using System.Threading.Tasks;
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount
@@ -84,13 +85,23 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
             return await copyAccountService.CreateAccount(message, sourceCustId);
         }
 
-        public Task<CreditInfo> Handle(CreditQuery message)
-            => copyAccountService.GetCreditInfo(message.CustName);
+        public async Task<CreditInfo> Handle(CreditQuery message)
+        {
+            var result = await copyAccountService.GetDownlineByUsername(message.ViewerId, message.SubAccId, message.CustName);
+            if (result.CustId > 0 && Enumeration.FromValue<UserLevel>(result.RoleId).IsDirectDownlineOf(message.ActorLevel))
+            {
+                return await copyAccountService.GetCreditInfo(message.CustName);
+            }
+            else
+            {
+                throw new InvalidOperationException(Lang.NotAuthorized);
+            }
+        }
 
         public async Task<Result> Handle(CheckUsernameQuery message)
         {
             var result = await copyAccountService.GetDownlineByUsername(message.ViewerId, message.SubAccId, message.CustName);
-            if(result.CustId > 0 && Enumeration.FromValue<UserLevel>(result.RoleId).IsDirectDownlineOf(message.ActorLevel))
+            if (result.CustId > 0 && Enumeration.FromValue<UserLevel>(result.RoleId).IsDirectDownlineOf(message.ActorLevel))
             {
                 if (await copyAccountService.IsCustomerEnabled(result.CustId))
                 {
