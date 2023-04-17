@@ -923,4 +923,7 @@
   <data name="CreateCustomerSuccessMessage" xml:space="preserve">
     <value>{0} 账号已经创建成功。</value>
   </data>
+  <data name="Copied" xml:space="preserve">
+    <value>复制！</value>
+  </data>
 </root>

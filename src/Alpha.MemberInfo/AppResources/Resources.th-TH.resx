@@ -923,4 +923,7 @@
   <data name="CreateCustomerSuccessMessage" xml:space="preserve">
     <value>สร้างบัญชีใหม่จำนวน {0} บัญชีสำเร็จแล้ว</value>
   </data>
+  <data name="Copied" xml:space="preserve">
+    <value>คัดลอกเรียบร้อยแล้ว</value>
+  </data>
 </root>

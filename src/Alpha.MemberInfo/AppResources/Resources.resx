@@ -938,4 +938,7 @@ Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
   <data name="AccountWasDisabled" xml:space="preserve">
     <value>This account was disabled.</value>
   </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Copied</value>
+  </data>
 </root>
