@@ -620,7 +620,7 @@ select:-webkit-autofill:focus {
         top: 17px !important;
     }
 
-    .icon-eye-close {
+    .icon-eye-close, .icon-eye {
         right: 8% !important;
         top: 16px !important;
     }
@@ -720,6 +720,12 @@ select:-webkit-autofill:focus {
 
     .easy-autocomplete-container {
         width: 94% !important;
+
+        ul {
+            li {
+                font-size: calculateScale(14px) !important;
+            }
+        }
     }
     .sub-input {
         margin-top: calculateScale(4px) !important;
