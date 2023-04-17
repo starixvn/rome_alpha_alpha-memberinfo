@@ -261,6 +261,7 @@
     <Compile Include="Controllers\MemberRequestsControllerTests.cs" />
     <Compile Include="Controllers\WinLossLimitControllerTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
+    <Compile Include="Features\CopyAccount\CopyAccountControllerTests.cs" />
     <Compile Include="Features\CustomerList\CustomerListControllerTests.cs" />
     <Compile Include="Features\CustomerList\CustomerListHandlerTests.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountControllerTests.cs" />

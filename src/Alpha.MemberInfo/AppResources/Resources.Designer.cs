@@ -457,24 +457,6 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copy Settings.
-        /// </summary>
-        public static string CopySettings {
-            get {
-                return ResourceManager.GetString("CopySettings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Search for an existing account to copy settings.
-        /// </summary>
-        public static string CopySettingsNote {
-            get {
-                return ResourceManager.GetString("CopySettingsNote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Create Account.
         /// </summary>
         public static string CreateAccount {
@@ -1195,15 +1177,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password must be at least 8 characters without white-space and contain at least 3 of the following:
-        ///
-        ///  • Uppercase letter [A-Z] 
-        ///  • Lowercase letter [a-z] 
-        ///  • Numeric [0-9] 
-        ///  • Special character (!,@,#,etc..)
-        ///
-        ///For example: 59D7!4$h, 493abcDE
-        ///Notes: your password is cAsE sEnSiTiVe.
+        ///   Looks up a localized string similar to Password must be at least 8 characters without white-space and contain at least 3 of the following:&lt;br&gt;
+        ///&lt;br&gt;
+        ///  • Uppercase letter [A-Z] &lt;br&gt;
+        ///  • Lowercase letter [a-z] &lt;br&gt;
+        ///  • Numeric [0-9] &lt;br&gt;
+        ///  • Special character (!,@,#,etc..)&lt;br&gt;
+        ///&lt;br&gt;
+        ///For example: 59D7!4$h, 493abcDE&lt;br&gt;
+        ///Notes: your password is cAsE sEnSiTiVe&lt;br&gt;.
         /// </summary>
         public static string lblPasswordRequire {
             get {
@@ -1599,15 +1581,6 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose the number of accounts you want to create (Max = {0}).
-        /// </summary>
-        public static string NoOfAccountsNote {
-            get {
-                return ResourceManager.GetString("NoOfAccountsNote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Product settings have not been configured for your account yet, please contact your upline..
         /// </summary>
         public static string NoSettingWarning {
@@ -1730,15 +1703,6 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to per account.
-        /// </summary>
-        public static string PerAccount {
-            get {
-                return ResourceManager.GetString("PerAccount", resourceCulture);
             }
         }
         
@@ -2279,15 +2243,6 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Suspended {
             get {
                 return ResourceManager.GetString("Suspended", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Switch to old version.
-        /// </summary>
-        public static string SwitchToOldVersion {
-            get {
-                return ResourceManager.GetString("SwitchToOldVersion", resourceCulture);
             }
         }
         

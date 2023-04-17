@@ -918,7 +918,7 @@
     <value>每個會員的最高信用額</value>
   </data>
   <data name="InvalidMaxCreditPerAccount" xml:space="preserve">
-    <value>每個賬號最高信用額度限額: {0} 或是 低於。</value>
+    <value>每個賬號最高信用額度: {0} 或是降低。</value>
   </data>
   <data name="CreateCustomerSuccessMessage" xml:space="preserve">
     <value>{0} 賬號已經創建成功。</value>
