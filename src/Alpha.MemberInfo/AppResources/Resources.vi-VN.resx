@@ -879,7 +879,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Chi Tiết Tài Khoản</value>
   </data>
   <data name="AccountDetailsNote" xml:space="preserve">
-    <value>Hãy chọn tên người dùng khả dụng trước và hệ thống sẽ đề xuất tên cho các tài khoản còn lại.</value>
+    <value>Hãy chọn tên tài khoản khả dụng trước và hệ thống sẽ đề xuất tên cho các tài khoản còn lại.</value>
   </data>
   <data name="Usernames" xml:space="preserve">
     <value>Tên người dùng</value>
@@ -888,7 +888,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Hạn mức tín dụng tối đa của Member</value>
   </data>
   <data name="GivenCreditPerAccount" xml:space="preserve">
-    <value>Hạn mức tín dụng cho mỗi tài khoản</value>
+    <value>Hạn mức cho mỗi tài khoản</value>
   </data>
   <data name="ClassicView" xml:space="preserve">
     <value>Giao diện thường</value>
