@@ -846,4 +846,78 @@
   <data name="NonEntered" xml:space="preserve">
     <value>Chưa có kết quả</value>
   </data>
+  <data name="lblPasswordRequire" xml:space="preserve">
+    <value>Mật khẩu phải gồm ít nhất 8 ký tự, không có khoảng trắng và phải có ít nhất 3 ký tự sau đây:&lt;br&gt;
+&lt;br&gt;
+ - Ký tự viết hoa [A-Z]&lt;br&gt;
+ - Ký tự viết thường [a-z]&lt;br&gt;
+ - Ký tự số [0-9]&lt;br&gt;
+ - Ký tự đặc biệt (!,@,#,...)&lt;br&gt;
+Ví dụ : 59D7!4$h, 493abcDE&lt;br&gt;
+&lt;br&gt;
+Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
+  </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>Người chơi này không có thực </value>
+  </data>
+  <data name="NoAccountCreatedFailed" xml:space="preserve">
+    <value>{0} tài khoản tạo không thành công</value>
+  </data>
+  <data name="FailureReason" xml:space="preserve">
+    <value>Lý do thất bại</value>
+  </data>
+  <data name="CreateMore" xml:space="preserve">
+    <value>Tạo thêm</value>
+  </data>
+  <data name="CopyAccountNote" xml:space="preserve">
+    <value>Lưu ý: Cài đặt sẽ giống như của tài khoản sao chép</value>
+  </data>
+  <data name="NoOfAccounts" xml:space="preserve">
+    <value>Số tài khoản</value>
+  </data>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>Chi Tiết Tài Khoản</value>
+  </data>
+  <data name="AccountDetailsNote" xml:space="preserve">
+    <value>Hãy chọn tên tài khoản khả dụng trước và hệ thống sẽ đề xuất tên cho các tài khoản còn lại.</value>
+  </data>
+  <data name="Usernames" xml:space="preserve">
+    <value>Tên người dùng</value>
+  </data>
+  <data name="MemberMaxCredit" xml:space="preserve">
+    <value>Hạn mức tín dụng tối đa của Member</value>
+  </data>
+  <data name="GivenCreditPerAccount" xml:space="preserve">
+    <value>Hạn mức cho mỗi tài khoản</value>
+  </data>
+  <data name="ClassicView" xml:space="preserve">
+    <value>Phiên bản cũ</value>
+  </data>
+  <data name="AvailableGivenCredit" xml:space="preserve">
+    <value>Hạn mức tín dụng còn lại</value>
+  </data>
+  <data name="InvalidMemberMaxCredit" xml:space="preserve">
+    <value>Hạn mức tín dụng được cấp cho Member phải trong khoảng từ 0 đến {0}</value>
+  </data>
+  <data name="AccountWasDisabled" xml:space="preserve">
+    <value>Tài khoản bị vô hiệu hóa.</value>
+  </data>
+  <data name="SourceAccount" xml:space="preserve">
+    <value>Tài khoản sao chép</value>
+  </data>
+  <data name="MaxCreditPerMember" xml:space="preserve">
+    <value>Hạn mức tối đa mỗi Member</value>
+  </data>
+  <data name="InvalidMaxCreditPerAccount" xml:space="preserve">
+    <value>Hạn mức tối đa mỗi Tài khoản: {0} hoặc thấp hơn.</value>
+  </data>
+  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
+    <value>{0} tài khoản đã được tạo thành công.</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Đã lưu!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Sao chép</value>
+  </data>
 </root>

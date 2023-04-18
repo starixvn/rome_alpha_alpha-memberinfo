@@ -126,5 +126,13 @@
   {
     "outputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-settings-media.css",
     "inputFile": "Features/MyWatchlist/Shared/Styles/my-watchlist-settings-media.scss"
+  },
+  {
+    "outputFile": "Features/CopyAccount/Assets/Styles/copy-account.css",
+    "inputFile": "Features/CopyAccount/Assets/Styles/copy-account.scss"
+  },
+  {
+    "outputFile": "Features/CopyAccount/Assets/Styles/copy-account-dark.css",
+    "inputFile": "Features/CopyAccount/Assets/Styles/copy-account-dark.scss"
   }
 ]

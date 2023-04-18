@@ -414,4 +414,7 @@
   <data name="From" xml:space="preserve">
     <value>From</value>
   </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>존재하지 않는 유저</value>
+  </data>
 </root>

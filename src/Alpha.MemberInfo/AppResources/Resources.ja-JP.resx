@@ -213,26 +213,14 @@
   <data name="Disabled" xml:space="preserve">
     <value>Disabled</value>
   </data>
-  <data name="Closed_Duplicate[1]" xml:space="preserve">
-    <value>閉鎖</value>
-  </data>
   <data name="Suspended" xml:space="preserve">
     <value>Suspended</value>
-  </data>
-  <data name="Open_Duplicate[1]" xml:space="preserve">
-    <value>開設</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
   <data name="No2" xml:space="preserve">
     <value>No</value>
-  </data>
-  <data name="Page_Duplicate[1]" xml:space="preserve">
-    <value>ページ</value>
-  </data>
-  <data name="Of_Duplicate[1]" xml:space="preserve">
-    <value>/</value>
   </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>Member Win/Loss Limit</value>
@@ -251,18 +239,6 @@
   </data>
   <data name="AllAgent" xml:space="preserve">
     <value>All Agent</value>
-  </data>
-  <data name="Status_Duplicate[1]" xml:space="preserve">
-    <value>状態</value>
-  </data>
-  <data name="FirstName_Duplicate[1]" xml:space="preserve">
-    <value>名</value>
-  </data>
-  <data name="LastName_Duplicate[1]" xml:space="preserve">
-    <value>氏</value>
-  </data>
-  <data name="Credit_Duplicate[1]" xml:space="preserve">
-    <value>貸付金額</value>
   </data>
   <data name="AutoDailyResetLimit" xml:space="preserve">
     <value>Auto Daily Reset Limit</value>
@@ -404,5 +380,8 @@
   </data>
   <data name="From" xml:space="preserve">
     <value>From</value>
+  </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>This user does not exist</value>
   </data>
 </root>

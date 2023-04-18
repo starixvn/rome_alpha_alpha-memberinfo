@@ -855,4 +855,78 @@
   <data name="NonEntered" xml:space="preserve">
     <value>未完成</value>
   </data>
+  <data name="lblPasswordRequire" xml:space="preserve">
+    <value>密码必须至少 8 个字符没有空格和包含至少 3个 以下：&lt;br&gt;
+&lt;br&gt;
+• 大写字母 [A-Z]&lt;br&gt;
+• 小写字母 [a-z]&lt;br&gt;
+• 数字 [0-9]&lt;br&gt;
+• 特殊字符 （!、 @、 # 等。。)&lt;br&gt;
+&lt;br&gt;
+例如： 59D7!4$h, 493abcDE&lt;br&gt;
+注意： 您的密码需有大小写</value>
+  </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>此賬號不存在</value>
+  </data>
+  <data name="NoAccountCreatedFailed" xml:space="preserve">
+    <value>{0} 賬號創建失敗</value>
+  </data>
+  <data name="FailureReason" xml:space="preserve">
+    <value>失敗原因</value>
+  </data>
+  <data name="CreateMore" xml:space="preserve">
+    <value>創建更多</value>
+  </data>
+  <data name="CopyAccountNote" xml:space="preserve">
+    <value>注意：設定將與原始賬號保持相同</value>
+  </data>
+  <data name="NoOfAccounts" xml:space="preserve">
+    <value>賬號數量</value>
+  </data>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>賬號的詳細資料</value>
+  </data>
+  <data name="AccountDetailsNote" xml:space="preserve">
+    <value>選擇第一個可用的用戶名，其餘的賬號將根據系統的建議。</value>
+  </data>
+  <data name="Usernames" xml:space="preserve">
+    <value>用戶名</value>
+  </data>
+  <data name="MemberMaxCredit" xml:space="preserve">
+    <value>會員最高信用額</value>
+  </data>
+  <data name="GivenCreditPerAccount" xml:space="preserve">
+    <value>每個賬號的信用額度</value>
+  </data>
+  <data name="ClassicView" xml:space="preserve">
+    <value>經典版</value>
+  </data>
+  <data name="AvailableGivenCredit" xml:space="preserve">
+    <value>可用信用額度</value>
+  </data>
+  <data name="InvalidMemberMaxCredit" xml:space="preserve">
+    <value>會員信用額應在0和{0}之間</value>
+  </data>
+  <data name="AccountWasDisabled" xml:space="preserve">
+    <value>這個帳號禁用</value>
+  </data>
+  <data name="SourceAccount" xml:space="preserve">
+    <value>賬號來源。</value>
+  </data>
+  <data name="MaxCreditPerMember" xml:space="preserve">
+    <value>每個會員的最高信用額</value>
+  </data>
+  <data name="InvalidMaxCreditPerAccount" xml:space="preserve">
+    <value>每個賬號最高信用額度: {0} 或是降低。</value>
+  </data>
+  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
+    <value>{0} 賬號已經創建成功。</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>複製！</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>複製</value>
+  </data>
 </root>

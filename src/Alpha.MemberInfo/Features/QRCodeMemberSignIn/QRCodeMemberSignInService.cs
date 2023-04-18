@@ -1,7 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn
 {
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Alpha.CopyAccount.Params;
     using Alpha.CopyAccount.Services;

@@ -313,6 +313,22 @@
       "Features/MyWatchlist/MyThresholds/Scripts/my-thresholds-settings.js"
     ]
   },
+  {
+    "outputFileName": "Features/CopyAccount/bundles/copy-account.css",
+    "inputFiles": [
+      "Features/CopyAccount/Assets/Styles/copy-account.css",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/CopyAccount/Bundles/copy-account.js",
+    "inputFiles": [
+      "assets/scripts/aes.js",
+      "assets/scripts/encryptor.js",
+      "Features/CopyAccount/Assets/Scripts/copy-account.js",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
+    ]
+  },
   /************************** Dark Mode ************************/
   {
     "outputFileName": "assets/bundles/default-dark.css",
@@ -391,6 +407,13 @@
     "inputFiles": [
       "assets/styles/common-dark.css",
       "Features/MyWatchlist/Shared/Styles/my-watchlist-settings-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/CopyAccount/bundles/copy-account-dark.css",
+    "inputFiles": [
+      "Features/CopyAccount/Assets/Styles/copy-account-dark.css",
+      "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css"
     ]
   }
 ]

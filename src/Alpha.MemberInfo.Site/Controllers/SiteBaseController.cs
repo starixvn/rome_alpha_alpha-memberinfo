@@ -15,7 +15,7 @@
     {
         protected const string InvalidPageViewPath = "~/Views/Shared/InvalidPage.cshtml";
         private const string InvalidExcelFileName = "Invalid";
-        private const int BadRequestErrorCode = 999;
+        protected const int BadRequestErrorCode = 999;
 
         protected readonly IMediator mediator;
 

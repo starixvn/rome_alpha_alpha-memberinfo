@@ -462,9 +462,6 @@
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>Please input Member credit</value>
   </data>
-  <data name="UserNamePlaceHolder1" xml:space="preserve">
-    <value>Username or First/Last Name</value>
-  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -863,5 +860,88 @@
   </data>
   <data name="NonEntered" xml:space="preserve">
     <value>Non-Entered</value>
+  </data>
+  <data name="SearchAndCopy" xml:space="preserve">
+    <value>Search And Copy</value>
+  </data>
+  <data name="FullMode" xml:space="preserve">
+    <value>Full Mode</value>
+  </data>
+  <data name="QRCode" xml:space="preserve">
+    <value>QR Code</value>
+  </data>
+  <data name="CopyAccountNote" xml:space="preserve">
+    <value>Note: Settings will be the same as the Source account</value>
+  </data>
+  <data name="NoOfAccounts" xml:space="preserve">
+    <value>No. of Accounts</value>
+  </data>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>Account Details</value>
+  </data>
+  <data name="AccountDetailsNote" xml:space="preserve">
+    <value>Choose the first available username and the remaining accounts will follow the system's suggestion.</value>
+  </data>
+  <data name="lblPasswordRequire" xml:space="preserve">
+    <value>Password must be at least 8 characters without white-space and contain at least 3 of the following:&lt;br&gt;
+&lt;br&gt;
+  • Uppercase letter [A-Z] &lt;br&gt;
+  • Lowercase letter [a-z] &lt;br&gt;
+  • Numeric [0-9] &lt;br&gt;
+  • Special character (!,@,#,etc..)&lt;br&gt;
+&lt;br&gt;
+For example: 59D7!4$h, 493abcDE&lt;br&gt;
+Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
+  </data>
+  <data name="MemberMaxCredit" xml:space="preserve">
+    <value>Member Max Credit</value>
+  </data>
+  <data name="CreateMore" xml:space="preserve">
+    <value>Create more</value>
+  </data>
+  <data name="Usernames" xml:space="preserve">
+    <value>Usernames</value>
+  </data>
+  <data name="CreateCustomerSuccessMessage" xml:space="preserve">
+    <value>{0} accounts have been created successfully.</value>
+  </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>This user does not exist</value>
+  </data>
+  <data name="NoAccountCreatedFailed" xml:space="preserve">
+    <value>{0} accounts failed to be created.</value>
+  </data>
+  <data name="FailureReason" xml:space="preserve">
+    <value>Failure Reason</value>
+  </data>
+  <data name="SourceAccount" xml:space="preserve">
+    <value>Source Account</value>
+  </data>
+  <data name="GivenCreditPerAccount" xml:space="preserve">
+    <value>Given Credit per Account</value>
+  </data>
+  <data name="ClassicView" xml:space="preserve">
+    <value>Classic view</value>
+  </data>
+  <data name="AvailableGivenCredit" xml:space="preserve">
+    <value>Available Given Credit</value>
+  </data>
+  <data name="MaxCreditPerMember" xml:space="preserve">
+    <value>Max Credit per Member</value>
+  </data>
+  <data name="InvalidMaxCreditPerAccount" xml:space="preserve">
+    <value>Max Given Credit per Account: {0} or lower.</value>
+  </data>
+  <data name="InvalidMemberMaxCredit" xml:space="preserve">
+    <value>Member Max Credit must be between 0 and {0}</value>
+  </data>
+  <data name="AccountWasDisabled" xml:space="preserve">
+    <value>This account was disabled.</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Copied</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
   </data>
 </root>

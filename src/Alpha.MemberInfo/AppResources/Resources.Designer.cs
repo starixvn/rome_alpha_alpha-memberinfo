@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -61,11 +61,38 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account Details.
+        /// </summary>
+        public static string AccountDetails {
+            get {
+                return ResourceManager.GetString("AccountDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the first available username and the remaining accounts will follow the system&apos;s suggestion..
+        /// </summary>
+        public static string AccountDetailsNote {
+            get {
+                return ResourceManager.GetString("AccountDetailsNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account Information.
         /// </summary>
         public static string AccountInformation {
             get {
                 return ResourceManager.GetString("AccountInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This account was disabled..
+        /// </summary>
+        public static string AccountWasDisabled {
+            get {
+                return ResourceManager.GetString("AccountWasDisabled", resourceCulture);
             }
         }
         
@@ -232,6 +259,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Available Given Credit.
+        /// </summary>
+        public static string AvailableGivenCredit {
+            get {
+                return ResourceManager.GetString("AvailableGivenCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Balance.
         /// </summary>
         public static string Balance {
@@ -300,6 +336,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Cash {
             get {
                 return ResourceManager.GetString("Cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classic view.
+        /// </summary>
+        public static string ClassicView {
+            get {
+                return ResourceManager.GetString("ClassicView", resourceCulture);
             }
         }
         
@@ -394,6 +439,33 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copied.
+        /// </summary>
+        public static string Copied {
+            get {
+                return ResourceManager.GetString("Copied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy.
+        /// </summary>
+        public static string Copy {
+            get {
+                return ResourceManager.GetString("Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note: Settings will be the same as the Source account.
+        /// </summary>
+        public static string CopyAccountNote {
+            get {
+                return ResourceManager.GetString("CopyAccountNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy Link.
         /// </summary>
         public static string CopyLink {
@@ -412,6 +484,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} accounts have been created successfully..
+        /// </summary>
+        public static string CreateCustomerSuccessMessage {
+            get {
+                return ResourceManager.GetString("CreateCustomerSuccessMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Created Date.
         /// </summary>
         public static string CreatedDate {
@@ -426,6 +507,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string CreateMemberWithQRCode {
             get {
                 return ResourceManager.GetString("CreateMemberWithQRCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create more.
+        /// </summary>
+        public static string CreateMore {
+            get {
+                return ResourceManager.GetString("CreateMore", resourceCulture);
             }
         }
         
@@ -745,6 +835,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failure Reason.
+        /// </summary>
+        public static string FailureReason {
+            get {
+                return ResourceManager.GetString("FailureReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FIRST LOGIN QR CODE.
         /// </summary>
         public static string FirstLoginQRCode {
@@ -781,11 +880,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Full Mode.
+        /// </summary>
+        public static string FullMode {
+            get {
+                return ResourceManager.GetString("FullMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Given Credit must be between {0} and {1}..
         /// </summary>
         public static string GivenCreditMustBeBetweenMinMax {
             get {
                 return ResourceManager.GetString("GivenCreditMustBeBetweenMinMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Given Credit per Account.
+        /// </summary>
+        public static string GivenCreditPerAccount {
+            get {
+                return ResourceManager.GetString("GivenCreditPerAccount", resourceCulture);
             }
         }
         
@@ -970,11 +1087,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max Given Credit per Account: {0} or lower..
+        /// </summary>
+        public static string InvalidMaxCreditPerAccount {
+            get {
+                return ResourceManager.GetString("InvalidMaxCreditPerAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The value must be a positive amount..
         /// </summary>
         public static string InvalidMaxPayoutValueText {
             get {
                 return ResourceManager.GetString("InvalidMaxPayoutValueText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member Max Credit must be between 0 and {0}.
+        /// </summary>
+        public static string InvalidMemberMaxCredit {
+            get {
+                return ResourceManager.GetString("InvalidMemberMaxCredit", resourceCulture);
             }
         }
         
@@ -1060,6 +1195,23 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password must be at least 8 characters without white-space and contain at least 3 of the following:&lt;br&gt;
+        ///&lt;br&gt;
+        ///  • Uppercase letter [A-Z] &lt;br&gt;
+        ///  • Lowercase letter [a-z] &lt;br&gt;
+        ///  • Numeric [0-9] &lt;br&gt;
+        ///  • Special character (!,@,#,etc..)&lt;br&gt;
+        ///&lt;br&gt;
+        ///For example: 59D7!4$h, 493abcDE&lt;br&gt;
+        ///Notes: your password is cAsE sEnSiTiVe&lt;br&gt;.
+        /// </summary>
+        public static string lblPasswordRequire {
+            get {
+                return ResourceManager.GetString("lblPasswordRequire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Level.
         /// </summary>
         public static string Level {
@@ -1132,6 +1284,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max Credit per Member.
+        /// </summary>
+        public static string MaxCreditPerMember {
+            get {
+                return ResourceManager.GetString("MaxCreditPerMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum Loss.
         /// </summary>
         public static string MaximumLoss {
@@ -1182,6 +1343,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string MemberCredit {
             get {
                 return ResourceManager.GetString("MemberCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member Max Credit.
+        /// </summary>
+        public static string MemberMaxCredit {
+            get {
+                return ResourceManager.GetString("MemberMaxCredit", resourceCulture);
             }
         }
         
@@ -1366,6 +1536,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} accounts failed to be created..
+        /// </summary>
+        public static string NoAccountCreatedFailed {
+            get {
+                return ResourceManager.GetString("NoAccountCreatedFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There is no change to update..
         /// </summary>
         public static string NoChangeToUpdateError {
@@ -1407,6 +1586,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string NonEntered {
             get {
                 return ResourceManager.GetString("NonEntered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No. of Accounts.
+        /// </summary>
+        public static string NoOfAccounts {
+            get {
+                return ResourceManager.GetString("NoOfAccounts", resourceCulture);
             }
         }
         
@@ -1699,6 +1887,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to QR Code.
+        /// </summary>
+        public static string QRCode {
+            get {
+                return ResourceManager.GetString("QRCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reach Count.
         /// </summary>
         public static string ReachCount {
@@ -1839,6 +2036,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search And Copy.
+        /// </summary>
+        public static string SearchAndCopy {
+            get {
+                return ResourceManager.GetString("SearchAndCopy", resourceCulture);
             }
         }
         
@@ -1992,6 +2198,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string soccerParlay {
             get {
                 return ResourceManager.GetString("soccerParlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source Account.
+        /// </summary>
+        public static string SourceAccount {
+            get {
+                return ResourceManager.GetString("SourceAccount", resourceCulture);
             }
         }
         
@@ -2221,11 +2436,20 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username or First/Last Name.
+        ///   Looks up a localized string similar to Usernames.
         /// </summary>
-        public static string UserNamePlaceHolder1 {
+        public static string Usernames {
             get {
-                return ResourceManager.GetString("UserNamePlaceHolder1", resourceCulture);
+                return ResourceManager.GetString("Usernames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This user does not exist.
+        /// </summary>
+        public static string UserNotExist {
+            get {
+                return ResourceManager.GetString("UserNotExist", resourceCulture);
             }
         }
         
