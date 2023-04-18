@@ -891,7 +891,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Hạn mức cho mỗi tài khoản</value>
   </data>
   <data name="ClassicView" xml:space="preserve">
-    <value>Giao diện thường</value>
+    <value>Phiên bản cũ</value>
   </data>
   <data name="AvailableGivenCredit" xml:space="preserve">
     <value>Hạn mức tín dụng còn lại</value>
