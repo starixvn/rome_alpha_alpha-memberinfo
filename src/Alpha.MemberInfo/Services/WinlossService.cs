@@ -30,17 +30,17 @@ namespace Alpha.MemberInfo.Services
         {
             bool includeTestData = AppSettings.LocalTest;
 
-            var reportData =  GetDataEnteredSportResults(includeTestData);
+            var reportData = GetDataEnteredSportResults(includeTestData);
 
             return GetTotalEnteredSportYesterdayAndToday(reportData);
         }
 
         internal static EnteredSportResult GetTotalEnteredSportYesterdayAndToday(IEnumerable<EnteredSportResult> reportData)
         {
-            int totalEnteredToday = 0,
-                totalNonEnteredToday = 0,
-                totalEnteredYesterday = 0,
-                totalNonEnteredYesterday = 0;
+            int totalEnteredToday = 0;
+            int totalNonEnteredToday = 0;
+            int totalEnteredYesterday = 0;
+            int totalNonEnteredYesterday = 0;
 
             if (reportData.Any())
             {
@@ -70,7 +70,7 @@ namespace Alpha.MemberInfo.Services
         {
             var criteria = new DailyEnteredSportCriteria(includeTestData);
 
-            var dailyEnteredSportData = cacheService.GetOrSet(EnteredResultsCacheKey, 
+            var dailyEnteredSportData = cacheService.GetOrSet(EnteredResultsCacheKey,
                 () => dynamicRepository.Fetch<DailyEnteredSport>(criteria),
                 new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(1)));
 

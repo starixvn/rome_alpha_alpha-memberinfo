@@ -501,4 +501,16 @@
   <data name="EditMultipleProtectedStatusText" xml:space="preserve">
     <value>修改多重保护状态</value>
   </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage" xml:space="preserve">
+    <value>您要为此客户禁用自动转账吗？</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage" xml:space="preserve">
+    <value>您要为此客户开启自动转账吗？</value>
+  </data>
+  <data name="EditMultipleAutoTransferText" xml:space="preserve">
+    <value>修改多重自动转账</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelText" xml:space="preserve">
+    <value>自动转账</value>
+  </data>
 </root>

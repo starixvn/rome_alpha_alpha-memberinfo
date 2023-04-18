@@ -312,4 +312,10 @@
   <data name="UnlockTooltip" xml:space="preserve">
     <value>คลิกเพื่อปลดล็อก</value>
   </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>เปิดใช้งาน</value>
+  </data>
+  <data name="AutoTransfer" xml:space="preserve">
+    <value>โอนอัตโนมัติ</value>
+  </data>
 </root>
