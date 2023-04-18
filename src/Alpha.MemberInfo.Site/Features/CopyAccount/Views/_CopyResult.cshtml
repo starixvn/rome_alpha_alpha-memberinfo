@@ -3,14 +3,14 @@
 <div class="form-row">
     <label>@Resources.Usernames:</label>
     <div class="relative-input result-area">
-        <textarea type="text" name="member" id="usernames">@string.Join(", ", Model.Usernames)</textarea>
+        <textarea readonly="readonly" type="text" name="member" id="usernames">@string.Join(", ", Model.Usernames)</textarea>
         <span class="icon icon-content-copy" data-clipboard-target="#usernames" title="@Resources.Copy"></span>
     </div>
 </div>
 <div class="form-row">
     <label class="sub-label">@Resources.GivenCreditPerAccount</label>
     <div class="relative-input result-input">
-        <input type="text" name="Credit" id="txtClonedCredit" value="@string.Format("{0:#,0.##}", Model.Credit)" />
+        <input disabled="disabled" type="text" name="Credit" id="txtClonedCredit" value="@string.Format("{0:#,0.##}", Model.Credit)" />
     </div>
 </div>
 
