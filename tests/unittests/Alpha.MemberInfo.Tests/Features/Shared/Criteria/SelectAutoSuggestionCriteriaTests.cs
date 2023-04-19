@@ -4,7 +4,7 @@
     using Xunit;
 
     [Trait("Category", "CustomerList")]
-    public class SelectAutoSuggestionCriteriaTest
+    public class SelectAutoSuggestionCriteriaTests
     {
         [Fact]
         public void GetSettingKey_Always_ReturnsValidSettingKey()
