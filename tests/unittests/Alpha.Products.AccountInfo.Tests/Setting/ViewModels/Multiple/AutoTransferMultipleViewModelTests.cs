@@ -1,9 +1,7 @@
-﻿using System.Linq;
-
-namespace Alpha.Products.AccountInfo.Tests.Setting.ViewModels.Multiple
+﻿namespace Alpha.Products.AccountInfo.Tests.Setting.ViewModels.Multiple
 {
+    using System.Collections.Generic;
     using AccountInfo.Setting.ViewModels.Products;
-    using System;
     using Utility;
     using Xunit;
 
@@ -11,43 +9,57 @@ namespace Alpha.Products.AccountInfo.Tests.Setting.ViewModels.Multiple
     public class AutoTransferMultipleViewModelTests
     {
         [Fact]
-        public void Url_Ends_With_AutoTransferUpdateAddress()
+        public void URL_Always_ReturnCorrectValue()
         {
-            string autoTransferUpdateAddress = "/AutoTransfer/UpdateMultiple";
+            // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
             var viewModel = new AutoTransferMultipleViewModel(request);
-            request.AddData("customerIds", "1, 3");
+            request.AddData("customerIds", "1,3");
             request.AddData("usernames", "master01");
-            var queryString = string.Join("&", viewModel.QueryStringParamaters.Select(query => $"{query.Key}={query.Value}"));
+            string expectedValue = "site-transfer/AutoTransfer/UpdateMultiple?SearchAccountIds=1,3&Usernames=master01&SearchAccountRoleId=3";
 
-            string expectedAutoTransferUpdateAddress = $"{autoTransferUpdateAddress}?{queryString}";
+            // Act
+            var actualValue = viewModel.Url;
 
-            Assert.EndsWith(expectedAutoTransferUpdateAddress, viewModel.Url, StringComparison.OrdinalIgnoreCase);
+            // Assert
+            Assert.Equal(expectedValue, actualValue);
         }
 
         [Fact]
-        public void Text_With_CorrectName()
+        public void Text_Always_CorrectName()
         {
+            // Arrange
             var expectedText = "EditMultipleAutoTransferText";
             var request = RequestHelper.CreateRequest(4, 3);
-
             var viewModel = new AutoTransferMultipleViewModel(request);
 
-            Assert.StartsWith(expectedText, viewModel.Text, StringComparison.OrdinalIgnoreCase);
+            // Act
+            var actualValue = viewModel.Text;
+
+            // Assert
+            Assert.StartsWith(expectedText, actualValue);
         }
 
         [Fact]
         public void QueryStringParamaters_With_Correctvalues()
         {
+            // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
             request.AddData("customerIds", "1, 3");
             request.AddData("usernames", "master01");
-
             var viewModel = new AutoTransferMultipleViewModel(request);
+            var epectedQueryStringParamaters = new Dictionary<string, string>
+            {
+                ["SearchAccountIds"] = "1, 3",
+                ["Usernames"] = "master01",
+                ["SearchAccountRoleId"] = "3"
+            };
 
-            Assert.Equal("1, 3", viewModel.QueryStringParamaters["SearchAccountIds"]);
-            Assert.Equal("master01", viewModel.QueryStringParamaters["Usernames"]);
-            Assert.Equal("3", viewModel.QueryStringParamaters["SearchAccountRoleId"]);
+            // Act
+            var actualValue = viewModel.QueryStringParamaters;
+
+            // Assert
+            Assert.Equal(epectedQueryStringParamaters, actualValue);
         }
 
         [Theory]
@@ -57,16 +69,17 @@ namespace Alpha.Products.AccountInfo.Tests.Setting.ViewModels.Multiple
         [InlineData(3, 2, true)]
         [InlineData(3, 1, false)]
         [InlineData(2, 1, true)]
-        public void Visible_Return_CorrectValue(
-          byte actorLevel,
-          byte searchAccountLevel,
-          bool expectedStatus)
+        public void Visible_Return_CorrectValue(byte actorLevel, byte searchAccountLevel, bool expectedStatus)
         {
+            // Arrange
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
-
             var viewModel = new AutoTransferMultipleViewModel(request);
 
-            Assert.Equal(expectedStatus, viewModel.Visible);
+            // Act
+            var actualValue = viewModel.Visible;
+
+            // Assert
+            Assert.Equal(expectedStatus, actualValue);
         }
     }
 }

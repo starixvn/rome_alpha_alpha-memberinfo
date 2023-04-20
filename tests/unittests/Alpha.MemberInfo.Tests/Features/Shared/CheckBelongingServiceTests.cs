@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Tests.Services
 {
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Features.Shared.Criteria;
     using Alpha.MemberInfo.Features.Shared.Models;
@@ -9,9 +10,6 @@
     using Fanex.Data.Repository;
     using KellermanSoftware.CompareNetObjects;
     using NSubstitute;
-    using NSubstitute.Extensions;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
     using Xunit;
 
     [Trait("Category", "CustomerList")]
@@ -33,39 +31,47 @@
         [Fact]
         public async void GetBelongingInfoAsync_Always_ReturnsCorrectModel()
         {
-
+            // Arrange
             var model = new BelongingInfo(true, 1, "Username");
             repository.ExecuteAsync(Arg.Any<CheckBelongingInDBCustCommand>()).Returns(x =>
             {
-                ((CheckBelongingInDBCustCommand)x[0]).IsActive = true;
-                ((CheckBelongingInDBCustCommand)x[0]).RoleId = 1;
-                ((CheckBelongingInDBCustCommand)x[0]).Username = "Username";
+                var criteria = (CheckBelongingInDBCustCommand)x[0];
+                criteria.IsActive = true;
+                criteria.RoleId = 1;
+                criteria.Username = "Username";
                 return Task.CompletedTask;
             });
+
             var param = new CheckBelongingParam(1, 1, 1, 1);
 
+            // Act
             var actualModel = await service.GetBelongingInfoAsync(param);
 
-            AssertExtension.Equal(actualModel, model);
+            // Assert
+            AssertExtension.Equal(model, actualModel);
         }
 
         [Fact]
         public void GetBelongingInfo_Always_ReturnsCorrectModel()
         {
+            // Arrange
             var model = new BelongingInfo(true, 1, "Username");
             repository.When(r => r.Execute(Arg.Any<CheckBelongingInDBCustCommand>()))
                 .Do(x =>
                 {
-                    ((CheckBelongingInDBCustCommand)x[0]).IsActive = true;
-                    ((CheckBelongingInDBCustCommand)x[0]).RoleId = 1;
-                    ((CheckBelongingInDBCustCommand)x[0]).Username = "Username";
+                    var criteria = (CheckBelongingInDBCustCommand)x[0];
+                    criteria.IsActive = true;
+                    criteria.RoleId = 1;
+                    criteria.Username = "Username";
                 });
+
             var param = new CheckBelongingParam(1, 1, 1, 1);
 
+            // Act
             var actualModel = service.GetBelongingInfo(param);
 
-            AssertExtension.Equal(actualModel, model);
-
+            // Assert
+            AssertExtension.Equal(model, actualModel);
         }
     }
 }

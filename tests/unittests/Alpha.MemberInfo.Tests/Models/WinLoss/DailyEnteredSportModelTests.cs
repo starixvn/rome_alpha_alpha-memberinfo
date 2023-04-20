@@ -1,8 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Tests.Models.Winloss
 {
-    using Alpha.MemberInfo.Models;
-    using MemberInfo.Models.Winloss;
     using System;
+    using MemberInfo.Models.Winloss;
     using Xunit;
 
     [Trait("Category", "WinLoss")]

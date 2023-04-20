@@ -1,7 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Tests.Criteria.WinLoss
 {
     using MemberInfo.Criteria.WinLoss;
-    using MemberInfo.Params;
     using Xunit;
 
     [Trait("Category", "WinLoss")]
@@ -22,7 +21,7 @@
         }
 
         [Fact]
-        public void IsValid_Always_ReturnsCorrectValue()
+        public void IsValid_Always_ReturnsTrue()
         {
             // Arrange
             var criteria = new DailyEnteredSportCriteria(true);

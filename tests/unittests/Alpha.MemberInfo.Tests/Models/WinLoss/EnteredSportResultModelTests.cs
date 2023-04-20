@@ -23,9 +23,11 @@
         [Fact]
         public void Constructor_Always_SetData()
         {
-            // Act
+            // Arrange
             var dailyEnteredSport = new DailyEnteredSport();
             var enteredSportYesterday = new DailyEnteredSport();
+
+            // Act
             var model = new EnteredSportResult(1, "SportName", dailyEnteredSport, enteredSportYesterday);
 
             // Assert
