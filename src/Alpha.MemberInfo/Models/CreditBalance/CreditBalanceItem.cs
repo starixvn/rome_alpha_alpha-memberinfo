@@ -23,6 +23,7 @@
             decimal balance,
             decimal yesterdayBalance,
             decimal outstanding,
+            decimal pendingTransfer3rd,
             DateTime createdDate,
             DateTime lastLogged,
             string ipLogin)
@@ -40,6 +41,8 @@
             Balance = balance;
             Yesterday_Balance = yesterdayBalance;
             Outstanding = outstanding;
+            PendingTransfer3rd = pendingTransfer3rd;
+
             LastLogged = lastLogged;
             CreatedDate = createdDate;
             IPLogin = ipLogin;
@@ -74,6 +77,8 @@
         public decimal Yesterday_Balance { get; }
 
         public decimal Outstanding { get; }
+
+        public decimal PendingTransfer3rd { get; }
 
         public DateTime? LastLogged { get; }
 

@@ -82,6 +82,7 @@
                     <th class="column-bc">@Resources.AvailableCredit</th>
                 }
                 <th class="column-ot">@Resources.Outstanding</th>
+                <th class="column-pta">@Resources.pendingTransfer3rd</th>
                 @if (Model.IsShowDateTimeColumn)
                 {
                     <th class="column-crd">@Resources.CreatedDate</th>
@@ -107,6 +108,7 @@
                         <td class="text-right column-yb">@RenderYesterdayBalanceColumn(item)</td>
                         <td class="text-right column-bc">@RenderBetCreditColumn(item)</td>
                         <td class="text-right column-ot">@renderOutstandingColumn(item)</td>
+                        <td class="text-right column-pta">@HtmlHelpers.FormatDecimal(item.PendingTransfer3rd)</td>
                         @if (Model.IsShowDateTimeColumn)
                         {
                             <td class="text-center text-sm column-crd">@item.CreatedDate.FormatDateTimeEn12()</td>
@@ -125,13 +127,13 @@
         }
         else
         {
-            @NoInformation.Render(14);
+            @NoInformation.Render(15);
         }
         @if (pagedCreditBalances.ShowPager)
         {
             <tfoot>
                 <tr>
-                    <td colspan="14">
+                    <td colspan="15">
                         @Pager.Render(new PagerViewModel(pagedCreditBalances.PageIndex, pagedCreditBalances.PageSize, pagedCreditBalances.TotalItems))
                     </td>
                 </tr>
@@ -223,6 +225,7 @@
         @HtmlHelpers.FormatDecimal(item.Outstanding)
     }
 }
+
 
 @section Styles {
     @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/credit-balance")

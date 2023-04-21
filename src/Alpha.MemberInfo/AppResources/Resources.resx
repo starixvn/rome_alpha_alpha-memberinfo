@@ -950,4 +950,7 @@ Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
   <data name="classicViewSCNotifyMessage" xml:space="preserve">
     <value>Classic View will be the default option until New View takes over on {0} (dd/mm/yyyy).</value>
   </data>
+  <data name="pendingTransfer3rd" xml:space="preserve">
+    <value>3rd Party Pending Transfer</value>
+  </data>
 </root>

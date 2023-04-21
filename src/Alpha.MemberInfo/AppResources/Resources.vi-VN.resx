@@ -926,4 +926,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="classicViewSCNotifyMessage" xml:space="preserve">
     <value>Phiên bản cũ sẽ được chọn mặc định cho đến khi chuyển sang phiên bản mới vào ngày {0} (dd/mm/yyyy).</value>
   </data>
+  <data name="pendingTransfer3rd" xml:space="preserve">
+    <value>Tiền Chưa Chuyển Về Từ Trò Chơi</value>
+  </data>
 </root>
