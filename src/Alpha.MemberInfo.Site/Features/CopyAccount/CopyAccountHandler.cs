@@ -71,7 +71,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
             var model = await copyAccountService.GetDownlineByUsername(message.CustId, message.SubAccId, message.SourceUsername);
             var sourceCustId = model.CustId;
             message.Password = aes.Decrypt(message.Password, sessionManager.Get<string>(HashKeySessionKey));
-            if (string.IsNullOrWhiteSpace(message.Password))
+            if (string.IsNullOrWhiteSpace(message.Password) || sourceCustId <= 0)
             {
                 return new CopyAccountResponse
                 {
