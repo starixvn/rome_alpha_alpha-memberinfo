@@ -407,14 +407,15 @@ class CopyAccount {
                 success: (result) => {
                     const iconClass = result.IsOk ? 'icon-check' : 'icon-close';
                     this.$("#icon-message-SourceUsername").removeClass().addClass(iconClass);
-                    this.inValidSourceAccount = !result;
                     if (result.IsOk) {
                         this.getCustomerCredit(this.$sourceUsername.val());
                         this.removeTooltipError(this.$sourceAccountErrMsg);
+                        this.inValidSourceAccount = false;
 
                     } else {
                         this.addTooltipError(this.$sourceAccountErrMsg, result.Message);
                         this.$creditRange.addClass("hidden");
+                        this.inValidSourceAccount = true;
                     }
                     this.validateInputs();
                 }
