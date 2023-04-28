@@ -148,6 +148,11 @@ table.dataTable {
     tbody tr {
         background: transparent;
     }
+
+    .cell-username {
+        display: flex;
+        align-items: center;
+    }
 }
 
 .dataTables_wrapper {
@@ -162,7 +167,7 @@ table.dataTable {
 
 .my-watchlist-accounts .table-container {
     width: 100%;
-    max-width: 1024px;
+    max-width: 1174px;
 }
 
 .my-thresholds .table-container {

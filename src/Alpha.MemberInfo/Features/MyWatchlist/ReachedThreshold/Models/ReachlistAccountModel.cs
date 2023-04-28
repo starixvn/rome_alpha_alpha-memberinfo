@@ -26,7 +26,8 @@
             byte closedReason,
             byte locked,
             int winningReachedCnt,
-            int losingReachedCnt)
+            int losingReachedCnt,
+            bool isPA)
         {
             RowNumber = rowNumber;
             CustId = custId;
@@ -44,6 +45,7 @@
             Locked = locked;
             WinningReachedCnt = winningReachedCnt;
             LosingReachedCnt = losingReachedCnt;
+            IsPA = isPA;
         }
 
         public int RowNumber { get; }
@@ -69,6 +71,10 @@
         public string Status { get; internal set; }
 
         public string TranslatedStatus => Resources.ResourceManager.GetString(Status);
+
+        public bool IsOpen => Status.Equals(Resources.Open, StringComparison.OrdinalIgnoreCase);
+
+        public bool IsSuspended => Status.Equals(Resources.Suspended, StringComparison.OrdinalIgnoreCase);
 
         public decimal WinLossAmount { get; internal set; }
 
@@ -114,5 +120,9 @@
                 return $"{ReachedCnt} {winOrLoseText}";
             }
         }
+
+        public bool IsPA { get; }
+
+        public string IsPAText => IsPA ? Resources.Yes : Resources.No2;
     }
 }

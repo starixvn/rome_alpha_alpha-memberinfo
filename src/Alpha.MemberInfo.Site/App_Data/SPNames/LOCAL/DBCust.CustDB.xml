@@ -88,8 +88,8 @@
     <Setting Key="Acc_CheckUM" SpName="Acc_CheckUM" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="My Monitor Accounts">
-    <Setting Key="Acc_WLMonitored_Player_ReachList_Sel" SpName="Acc_WLMonitored_Player_ReachList_Sel" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
-    <Setting Key="Acc_WLMonitored_Player_WatchList_Sel" SpName="Acc_WLMonitored_Player_WatchList_Sel" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_WLMonitored_Player_ReachList_Sel" SpName="Acc_WLMonitored_Player_ReachList_Sel_xpre" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_WLMonitored_Player_WatchList_Sel" SpName="Acc_WLMonitored_Player_WatchList_Sel_xpre" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_WLMonitored_Personal_Multiple_Ins" SpName="Acc_WLMonitored_Personal_Multiple_Ins" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0">
       <Mapping DataField="Username" ObjectProperty="Name" />
       <Mapping DataField="ErrCode" ObjectProperty="Code" />

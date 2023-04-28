@@ -1,4 +1,5 @@
 ﻿@using Newtonsoft.Json
+@using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources
 @model ReachedThresholdViewModel
 
 @{
@@ -84,6 +85,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
             <tr>
                 @if (!Model.IsMobile)
@@ -98,6 +100,7 @@
                     <th class="header">@Resources.LastLogin</th>
                 }
                 <th class="header">@Resources.Status</th>
+                <th class="header">@Resources.ProblemAccount</th>
                 <th class="header all last-reach">@Resources.LastReach</th>
                 <th class="header">@Resources.LastThresholdType</th>
                 <th class="header all winning-losing">@Resources.WinningLosingAmount</th>
@@ -129,3 +132,6 @@
 <input type="hidden" id="of" value="@Resources.Of" />
 <input type="hidden" id="no-info" value="@Resources.NoInformationIsAvailable" />
 <input type="hidden" id="is-show-last-login" value="@(Model.IsShowLastLoginColumn ? "true" : "false")" />
+<input type="hidden" id="text-locked" value="@Resources.Locked" />
+<input type="hidden" id="text-confirm-suspend-member" value="@ProductResources.ConfirmSuspendedViewModelInCaseSuspendedMemberMessage" />
+<input type="hidden" id="text-confirm-unsuspend-member" value="@ProductResources.ConfirmSuspendedViewModelInCaseUnsuspendedMemberMessage" />
