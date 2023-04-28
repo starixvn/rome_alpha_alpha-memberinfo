@@ -7,6 +7,7 @@
     using Alpha.MemberInfo.Services;
     using Alpha.MemberInfo.Site.Requests.ProblemAccount;
     using Alpha.MemberInfo.Site.ViewModels.ProblemAccount;
+    using Alpha.Web.Helpers;
     using MediatR;
 
     public class ProblemAccountHandler :
@@ -16,9 +17,11 @@
         IRequestHandler<UpdateProblemAccountRequest, UpdateReviewStatusViewModel>
     {
         private readonly IProblemAccountService service;
+        private readonly BrowserHelper browserHelper;
 
-        public ProblemAccountHandler(IProblemAccountService service)
+        public ProblemAccountHandler(IProblemAccountService service, BrowserHelper browserHelper)
         {
+            this.browserHelper = browserHelper;
             this.service = service;
         }
 
@@ -40,7 +43,8 @@
         }
 
         public ProblemAccountReportViewModel Handle(IndexRequest message)
-            => new ProblemAccountReportViewModel(message, new List<ProblemAccountModel>());
+            => new ProblemAccountReportViewModel(message, new List<ProblemAccountModel>(),
+                browserHelper.IsMobile(isOnlyTablet: false));
 
         public IEnumerable<ProblemAccountModel> Handle(GetProblemAccountRequest message)
         {

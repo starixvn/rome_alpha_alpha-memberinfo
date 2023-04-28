@@ -4,6 +4,8 @@ class BaseList {
     $: JQueryStatic;
     topWindow: Window;
     reviewStatusComponent: SingleSelectionDropdownComponent;
+    problemAccountPopup: ProblemAccountPopup;
+
     dateRangePickerComponent: DateRangePickerComponent;
     $fromDate: JQuery;
     $toDate: JQuery;
@@ -37,7 +39,8 @@ class BaseList {
         levelId: number,
         levelName: string,
         dateRangePickerComponent: DateRangePickerComponent,
-        reviewStatusComponent: SingleSelectionDropdownComponent = null
+        reviewStatusComponent: SingleSelectionDropdownComponent = null,
+        problemAccountPopup: ProblemAccountPopup = null
     ) {
         this.$ = $;
         this.topWindow = topWindow;
@@ -46,6 +49,7 @@ class BaseList {
         this.levelNameLowerCase = levelName.toLowerCase();
         this.levelId = levelId;
         this.dateRangePickerComponent = dateRangePickerComponent;
+        this.problemAccountPopup = problemAccountPopup;
     }
 
     public init(indexManager: ProblemAccount, downlineObject: BaseList) {
@@ -54,9 +58,9 @@ class BaseList {
         this.isIndirectDownlineOfActor = this.levelId < this.indexManager.ActorLevel - 1;
         this.directDownlineRoleId = this.levelId - 1;
         this.cacheDOMElements();
+        this.problemAccountPopup && this.problemAccountPopup.init(this.$tblReport);
 
-
-        this.customerListHelper = new CustomerListHelper(indexManager.viewResources);
+        this.customerListHelper = new CustomerListHelper(this.$, indexManager.viewResources);
         this.$downlineObject = downlineObject;
         this.reviewStatusComponent.render(
             new SingleSelectionDropdownOption(`dropdown-reviewstatus-${this.levelNameLowerCase}`, `UserSelectedReviewedStatusId-${this.levelName}`));
@@ -254,6 +258,8 @@ class BaseList {
         this.$(window).trigger('resize.stickyTableHeaders');
 
         this.bindReportEvents();
+        this.problemAccountPopup && this.problemAccountPopup.bindEvents(this.$tblReport);
+
     }
 
     reloadPage() {

@@ -16,7 +16,7 @@
         public ActionResult Index(IndexRequest message)
             => View(message, "Index");
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult Update(UpdateProblemAccountRequest message)
             => View(message, "Update");
 

@@ -14,7 +14,8 @@
     {
         public ProblemAccountReportViewModel(
             IndexRequest query,
-            IEnumerable<ProblemAccountModel> models)
+            IEnumerable<ProblemAccountModel> models,
+            bool isMobile)
         {
             DateRangePickerViewModel = new DateRangePickerViewModel(new DateTime(2020, 1, 1), DateTime.Now, query.FromDate, query.ToDate);
             var status = ReviewStatusConstant.Items
@@ -25,6 +26,7 @@
                     Selected = s.Key == query.UserSelectedReviewedStatusId
                 });
             ReviewedStatusSelectionViewModel = new ReviewedStatusSelectionViewModel(status, query.UserSelectedReviewedStatusId);
+            IsMobileView = isMobile;
             Models = models;
             Query = query;
         }
@@ -38,6 +40,7 @@
         public IndexRequest Query { get; }
 
         public const int TotalColumnMaster = 10;
+        public bool IsMobileView { get; }
 
         public int TotalColumnAgent => Query.CustLevel.IsMasterLevel() ? 10 : 9;
 

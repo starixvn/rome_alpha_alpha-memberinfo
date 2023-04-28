@@ -28,7 +28,12 @@
         <div>
             <p class="note">@Resources.GlobalThresholdSettingsNote</p>
             <p>@Resources.EnterListOfMemberUsernames <span class="red">*</span> @Resources.MaximumMembers</p>
-            <textarea rows="3" class="txt-usernames" name="usernames" id="txt-usernames"></textarea>
+            <textarea rows="3" class="txt-usernames" name="usernames" id="txt-usernames">
+                @if(!string.IsNullOrWhiteSpace(Model.Usernames))
+                {
+                    @Model.Usernames
+                }
+            </textarea>
         </div>
     }
 

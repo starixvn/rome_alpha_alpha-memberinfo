@@ -34,8 +34,24 @@
         }
 
         public IEnumerable<ProblemAccountModel> Get(GetProblemAccountParam param)
-            => dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
+        {
+            var a = dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
             .OrderBy(i => i.IsReviewed)
             .ThenByDescending(i => i.CreatedDate);
+            ProblemAccountModel problemAccountModel = a.First();
+            if (problemAccountModel != null)
+            {
+                problemAccountModel.IsReviewed = false;
+
+                var result = new List<ProblemAccountModel>() {
+                    a.First(), a.First(), a.First(),
+                    a.First(), a.First(), a.First()
+                };
+                
+                return result.AsEnumerable();
+            }
+            return new List<ProblemAccountModel>() { }.AsEnumerable();
+        }
+
     }
 }

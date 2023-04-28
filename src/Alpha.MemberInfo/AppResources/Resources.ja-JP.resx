@@ -384,4 +384,10 @@
   <data name="UserNotExist" xml:space="preserve">
     <value>This user does not exist</value>
   </data>
+  <data name="EditSetting" xml:space="preserve">
+    <value>Edit Setting</value>
+  </data>
+  <data name="EditMutipleSetting" xml:space="preserve">
+    <value>Edit Multiple Setting</value>
+  </data>
 </root>

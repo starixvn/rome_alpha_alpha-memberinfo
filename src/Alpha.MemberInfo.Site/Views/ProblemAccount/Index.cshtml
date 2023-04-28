@@ -54,7 +54,7 @@
             @Html.Hidden("UserName", Model.Query.UserName)
         </form>
 
-        <form class="hide" id="target" method="post" action="@Url.Action("Update")">
+        <form class="hide" id="target" method="get" action="@Url.Action("Update")">
             @Html.Hidden("Ids", string.Empty)
             @Html.Hidden("UserNames", string.Empty)
             @Html.Hidden("RoleId", Model.Query.SearchRoleId)
@@ -70,6 +70,39 @@
 @Html.Hidden("NoInformationIsAvailable", Resources.NoInformationIsAvailable)
 @Html.Hidden("UpdatePopupTitle", Resources.SetToReviewed)
 @Html.Hidden("ActorLevel", Model.Query.ActorLevel.Value)
+@Html.Hidden("isMobileView", Model.IsMobileView)
+@Html.Hidden("editSettingText", Resources.EditSetting)
+@Html.Hidden("editMultipleSettingText", Resources.EditMutipleSetting)
+@Html.Hidden("markMultipleAsReviewedText", Resources.MarkMultipleAsReviewed)
+@Html.Hidden("addMultipleToWatchlistText", Resources.AddMultipleToWatchlist)
+@Html.Hidden("addMultipleAccountsToWatchlistText", Resources.AddMultipleAccountsToWatchlist)
+@Html.Hidden("suspendMultipleAccountsText", Resources.SuspendMultipleAccounts)
+@Html.Hidden("addToMyWatchlistText", Resources.AddToMyWatchlist)
+@Html.Hidden("markAsReviewedText", Resources.MarkAsReviewed)
+@Html.Hidden("suspendText", Resources.Suspend)
+@Html.Hidden("openText", Resources.Open)
+@Html.Hidden("changeStatusToSuspendMessage", Resources.ChangeStatusToSuspendMessage)
+
+@Html.Hidden("memberInfoUrl", @MicroSites.MemberInfoUrl())
+@Html.Hidden("accountInfoUrl", @MicroSites.AccountInfoUrl())
+
+<div class="modal modal-sm fade" id="edit-popup" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @if (Model.IsMobileView)
+            {
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="icon icon-close close" data-dismiss="modal" aria-label="Close" id="close-edit-popup">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+            }
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
+
 
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-memberinfo/problem-account")
@@ -180,13 +213,21 @@
 
 @helper RenderCheckAll(UserLevel level)
 {
-    var levelName = level.DisplayName.ToLower();
-    <div class="pull-right checkall-section">
-        @Resources.Select:
-        <a href="#" id="chkAll-@(levelName)">@Resources.All</a>
-        |
-        <a href="#" id="chkNone-@(levelName)" onclick="CheckAll_onClick(false);">@Resources.None</a>
-    </div>
+    @*@if (level.IsNotMemberLevel())
+        {*@
+    if (Model.Query.CustLevel.IsAgentLevel())
+    {
+        var levelName = level.DisplayName.ToLower();
+        <div class="pull-right checkall-section">
+            @Resources.Select:
+            <a href="#" id="chkAll-@(levelName)">@Resources.All</a>
+            |
+            <a href="#" id="chkNone-@(levelName)" onclick="CheckAll_onClick(false);">@Resources.None</a>
+        </div>
+    }
+
+    @*}*@
+
 }
 @helper RenderContainer(UserLevel level)
 {
@@ -194,6 +235,8 @@
     var columns = new[]
     {
 new { Text = Resources.No, ClassName = "", Show = true},
+new { Text = "<input type='checkbox' class='select-all' id='select-all'/>", ClassName = "", Show = Model.Query.CustLevel.IsAgentLevel()},
+new { Text = "<div class='edit-multiple icon-table-edit' id='edit-multiple' data-url='' title='"+@Resources.EditMutipleSetting+"'>", ClassName = "", Show = Model.Query.CustLevel.IsAgentLevel()},
 new { Text = Resources.Username, ClassName = "", Show = true},
 new { Text = Resources.Nickname, ClassName = "", Show = Model.Query.CustLevel.GetDirectDownLineLevel().Is(level)},
 new { Text = Resources.FirstName, ClassName = "", Show = true},
@@ -215,7 +258,10 @@ new { Text = Resources.ReviewStatus, ClassName = "", Show = true}
                         <th class="@column.ClassName">@Html.Raw(column.Text)</th>
                     }
                 }
-                <th><span class="icon-review-user update-@levelName" title="@Resources.SetToReviewed"></span></th>
+                @if (Model.Query.CustLevel.IsAgentLevel())
+                {
+                    <th><span class="icon-review-user update-@levelName" title="@Resources.SetToReviewed"></span></th>
+                }
             </tr>
         </thead>
         <tbody></tbody>

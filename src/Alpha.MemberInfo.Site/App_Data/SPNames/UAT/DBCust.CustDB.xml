@@ -107,6 +107,7 @@
     <Setting Key="Acc_WLMonitored_Preset_Del" SpName="Acc_WLMonitored_Preset_Del" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_WLMonitored_SMA_Sel" SpName="Acc_WLMonitored_SMA_Sel" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
     <Setting Key="Acc_WLMonitored_SMA_Adjust" SpName="Acc_WLMonitored_SMA_Adjust" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Acc_WLMonitored_CheckExistSettingByCust" SpName="Acc_WLMonitored_CheckExistSettingByCust_xpre" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Partial UM">
     <Setting Key="Acc_CheckUM_ByReport" SpName="Acc_CheckUM_ByReport" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
