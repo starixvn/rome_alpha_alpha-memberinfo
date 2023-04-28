@@ -1,8 +1,11 @@
 ﻿
 class CustomerListHelper {
     viewResources: ViewResources;
+    $: JQueryStatic;
 
-    constructor(viewResources: ViewResources) {
+
+    constructor($: JQueryStatic, viewResources: ViewResources) {
+        this.$ = $;
         this.viewResources = viewResources;
     }
 
@@ -18,6 +21,45 @@ class CustomerListHelper {
         return `<tr><td colspan='${colspan}' align='center' class='no-info'>${this.viewResources.NoInformationIsAvailable}</td></tr>`;
     }
 
+
+    private renderCheckboxColumn = item => {
+        const attrs = {
+            'class': 'checkbox',
+            'data-custid': item.CustId,
+            'data-username': item.UserName,
+        };
+
+        return `<input type="checkbox" ${this.buildAttributes(attrs)} />`;
+    }
+
+
+    private renderEditColumn = item => {
+        const attrs = {
+            'class': 'edit icon-table-edit',
+            'id': `setting-${item.CustId}`,
+            'data-custid': item.CustId,
+            'data-username': item.UserName,
+            'title': this.$('#editSettingText').val()
+        };
+
+        return `<div ${this.buildAttributes(attrs)}/>`;
+    }
+
+    private renderStatusColumn = item => {
+
+        const className = item.Status === 1 ? "open-status" :"";
+        const attrs = {
+            'class': `${className}`,
+            'id': `status-${item.CustId}`,
+            'data-custid': item.CustId,
+            'data-username': item.UserName,
+        };
+
+        return `<div ${this.buildAttributes(attrs)}>${item.StatusName}</div>`;
+    }
+
+    private buildAttributes = attrs => this.$.map(attrs, (value, key) => `${key}='${value}'`).join(' ');
+
     private buildColumnAttributesJson(customer, levelId: number, actorId: number, customerIndex: number) {
         const memberId = siteInfrastructure.Role.Member.Id, isMember = levelId === memberId,
             isViewNickname = actorId - 1 == levelId,
@@ -29,6 +71,16 @@ class CustomerListHelper {
                 Content: customerIndex.toString(),
                 Attributes: [{ Name: 'class', Value: 'text-center' }],
                 Visibile: true
+            },
+            {
+                Content: this.renderCheckboxColumn(customer),
+                Attributes: [{ Name: 'class', Value: 'center' }],
+                Visibile: isMember
+            },
+            {
+                Content: this.renderEditColumn(customer),
+                Attributes: [{ Name: 'class', Value: 'center' }],
+                Visibile: isMember
             },
             {
                 Content: UserName,
@@ -51,7 +103,7 @@ class CustomerListHelper {
                 Visibile: true
             },
             {
-                Content: StatusName,
+                Content: this.renderStatusColumn(customer),
                 Attributes: [{ Name: 'class', Value: 'text-center' }],
                 Visibile: true
             },
@@ -73,6 +125,7 @@ class CustomerListHelper {
             {
                 Content: this.buildActionColumnOnDesktop(customer, levelId, CanEdit),
                 Attributes: [{ Name: 'class', Value: 'text-center' }],
+                //Visibile: !isMember
                 Visibile: true
             }
         ];

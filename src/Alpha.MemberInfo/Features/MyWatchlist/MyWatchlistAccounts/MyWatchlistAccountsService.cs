@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Criteria;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
@@ -14,6 +15,7 @@
         Task<WatchlistAccountReport> GetWatchlistAccounts(SelectWatchlistAccountsParam param);
 
         Task<IEnumerable<PersonalPresetModel>> GetPresets(SelectPresetsParam param);
+        Task<MultipleWatchlistAccountModel> GetMultipleWatchlistAccount(SelectMultipleWatchlistParam param);
 
         Task<IEnumerable<NamedResult>> AddPersonalThreshold(AddPersonalThresholdParam param);
 
@@ -48,9 +50,9 @@
         public async Task<WatchlistAccountReport> GetWatchlistAccounts(SelectWatchlistAccountsParam param)
         {
             var criteria = new SelectWatchlistAccountsCriteria(
-                param.AgentId, 
-                param.Username, 
-                param.SortType, 
+                param.AgentId,
+                param.Username,
+                param.SortType,
                 param.IsDesc,
                 param.PageIndex,
                 param.PageSize);
@@ -67,6 +69,24 @@
             partialUMService.ThrowIfUM(criteria.GetSettingKey(), param.SiteName);
 
             return await dynamicRepository.FetchAsync<PersonalPresetModel>(criteria);
+        }
+        public async Task<MultipleWatchlistAccountModel> GetMultipleWatchlistAccount(SelectMultipleWatchlistParam param)
+        {
+            var criteria = new SelectMultipleWatchlistCriteria(param.CustList);
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), param.SiteName);
+            var rawdata = await dynamicRepository.FetchMultipleAsync<WatchlistAccountModel, WatchlistAccountModel>(criteria);
+            var alreadyAddedAccounts = new List<WatchlistAccountModel>();
+            var newlyAddedAccounts = new List<WatchlistAccountModel>();
+            if (rawdata.Item1.Any())
+            {
+                alreadyAddedAccounts.AddRange(rawdata.Item1);
+            }
+            if (rawdata.Item2.Any())
+            {
+                newlyAddedAccounts.AddRange(rawdata.Item2);
+            }
+            return new MultipleWatchlistAccountModel(alreadyAddedAccounts, newlyAddedAccounts);
+
         }
 
         public async Task<IEnumerable<NamedResult>> AddPersonalThreshold(AddPersonalThresholdParam param)
@@ -177,5 +197,6 @@
 
             return new Result { Code = command.ErrCode, Message = command.ErrMsg };
         }
+
     }
 }

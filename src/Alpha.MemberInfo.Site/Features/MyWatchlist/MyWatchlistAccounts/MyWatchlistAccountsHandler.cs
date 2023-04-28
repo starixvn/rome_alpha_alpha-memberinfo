@@ -24,7 +24,8 @@
         IAsyncRequestHandler<DeletePersonalPresetCommand, Result>,
         IAsyncRequestHandler<ManageWatchlistAccountsQuery, ManageWatchlistAccountsViewModel>,
         IAsyncRequestHandler<ManageGlobalThresholdQuery, ManageGlobalThresholdViewModel>,
-        IAsyncRequestHandler<ManagePersonalThresholdPresetQuery, ManagePersonalThresholdPresetViewModel>
+        IAsyncRequestHandler<ManagePersonalThresholdPresetQuery, ManagePersonalThresholdPresetViewModel>,
+        IAsyncRequestHandler<ConfirmAddToWatchlistQuery, ConfirmAddToWatchlistViewModel>
     {
         private readonly MyWatchlistAccountsService service;
         private readonly BrowserHelper browserHelper;
@@ -52,10 +53,10 @@
             var pagingViewModel = await Handle(query);
 
             var param = new SelectGlobalThresholdParam(message.CustId, message.Site);
-            var globalThreshold = await service.GetGlobalThreshold(param);            
+            var globalThreshold = await service.GetGlobalThreshold(param);
 
             return new MyWatchlistAccountsViewModel(
-                message, 
+                message,
                 globalThreshold,
                 isMobile,
                 canUpdateAccount,
@@ -164,7 +165,7 @@
         {
             var results = new List<NamedResult>();
 
-            foreach(var preset in message.Presets)
+            foreach (var preset in message.Presets)
             {
                 var param = new AddPersonalPresetParam(
                     message.CustId,
@@ -221,6 +222,13 @@
             var personalPresets = await service.GetPresets(param);
 
             return new ManagePersonalThresholdPresetViewModel(personalPresets);
+        }
+
+        public async Task<ConfirmAddToWatchlistViewModel> Handle(ConfirmAddToWatchlistQuery message) {
+            var param = new SelectMultipleWatchlistParam(message.Ids,message.CustId, message.Site);
+            var multipleWatchlistAccountModel = await service.GetMultipleWatchlistAccount(param);
+
+            return new ConfirmAddToWatchlistViewModel(multipleWatchlistAccountModel);
         }
     }
 }

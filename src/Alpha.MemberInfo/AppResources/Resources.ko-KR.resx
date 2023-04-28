@@ -417,4 +417,10 @@
   <data name="UserNotExist" xml:space="preserve">
     <value>존재하지 않는 유저</value>
   </data>
+  <data name="EditSetting" xml:space="preserve">
+    <value>Edit Setting</value>
+  </data>
+  <data name="EditMutipleSetting" xml:space="preserve">
+    <value>Edit Multiple Setting</value>
+  </data>
 </root>

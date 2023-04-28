@@ -935,4 +935,10 @@
   <data name="pendingTransfer3rd" xml:space="preserve">
     <value>บุคคลที่สามรอการถ่ายโอน</value>
   </data>
+  <data name="EditSetting" xml:space="preserve">
+    <value>แก้ไขการตั้งค่า</value>
+  </data>
+  <data name="EditMutipleSetting" xml:space="preserve">
+    <value>แก้ไขการตั้งค่าหลายรายการ</value>
+  </data>
 </root>

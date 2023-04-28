@@ -931,6 +931,12 @@
   </data>
   <data name="lblUsername" xml:space="preserve">
     <value>用户名</value>
+    </data>
+  <data name="EditSetting" xml:space="preserve">
+    <value>修改设定</value>
+  </data>
+  <data name="EditMutipleSetting" xml:space="preserve">
+    <value>修改多重设置</value>
   </data>
   <data name="pendingTransfer3rd" xml:space="preserve">
     <value>第三方待定转账</value>

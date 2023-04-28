@@ -61,5 +61,6 @@
         public byte ClosedReason { get; }
 
         public byte Locked { get; }
+        public bool isExistedThreshold { get; }
     }
 }

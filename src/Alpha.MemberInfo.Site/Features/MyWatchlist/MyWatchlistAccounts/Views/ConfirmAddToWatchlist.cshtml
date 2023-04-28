@@ -1,0 +1,43 @@
+﻿@model ConfirmAddToWatchlistViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Resources.GlobalThresholdSettings;
+}
+
+@section Styles {
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MyWatchlist/Shared/Bundles/my-watchlist-settings")
+    @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/Shared/Bundles/my-watchlist-settings-media")
+}
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/confirm-add-to-watchlist")
+
+}
+
+<div class="box-settings">
+
+    @if (Model.HasAlreadyAddedAccounts)
+    {
+        <p class="note">@Resources.AccountsAlreadyInWatchlist: @Model.AlreadyAddedAccounts </p>
+    }
+
+    @if (Model.IsExceedLimit)
+    {
+        <p class="note">@Resources.AddMultipleToWatchlistExceedMessage  </p>
+    }
+
+    @if (Model.HasNewlyAddedAccounts)
+    {
+        <p class="note">@Resources.NewlyAddedAccounts: : @Model.NewlyAddedAccounts </p>
+    }
+    @Resources.AddToWatchListConfirmThresholds
+    <button class="btn-submit" id="btnSubmit">@Resources.SetThresholds</button>
+    <input type="button" class="btn-cancel" id="btnCancel" value="@Resources.Cancel" />
+</div>
+
+@Html.AntiForgeryToken()
+
+@Html.Hidden("member-info-url", MicroSites.MemberInfoUrl())
+@Html.Hidden("NewlyAddedAccounts", @Model.NewlyAddedAccounts)
+

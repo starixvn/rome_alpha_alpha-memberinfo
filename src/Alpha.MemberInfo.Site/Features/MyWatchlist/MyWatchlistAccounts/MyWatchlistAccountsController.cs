@@ -15,6 +15,7 @@
         private const string ManageWatchlistAccountsPath = "~/Features/MyWatchlist/MyWatchlistAccounts/Views/ManageWatchlistAccounts.cshtml";
         private const string ManageGlobalThresholdPath = "~/Features/MyWatchlist/MyWatchlistAccounts/Views/ManageGlobalThreshold.cshtml";
         private const string ManagePersonalThresholdPresetPath = "~/Features/MyWatchlist/MyWatchlistAccounts/Views/ManagePersonalThresholdPreset.cshtml";
+        private const string ConfirmAddToWatchlistPath = "~/Features/MyWatchlist/MyWatchlistAccounts/Views/ConfirmAddToWatchlist.cshtml";
 
         public MyWatchlistAccountsController(IMediator mediator)
             : base(mediator)
@@ -32,6 +33,10 @@
 
         public async Task<ActionResult> ManagePersonalThresholdPreset(ManagePersonalThresholdPresetQuery message)
             => await ViewAsync(message, ManagePersonalThresholdPresetPath);
+
+        public async Task<ActionResult> ConfirmAddToWatchlist(ConfirmAddToWatchlistQuery message)
+            => await ViewAsync(message, ConfirmAddToWatchlistPath);
+
 
         [HttpPost]
         public async Task<ActionResult> GetWatchlistAccounts(WatchlistAccountsQuery message)

@@ -5,7 +5,7 @@ class ProblemAccount {
     $: JQueryStatic;
     topWindow: any;
     $usernameAutoSuggestionPath: JQuery;
-
+    private problemAccountPopup: ProblemAccountPopup;
     masterList: BaseList;
     agentList: BaseList;
     memberList: BaseList;
@@ -14,10 +14,12 @@ class ProblemAccount {
     constructor(
         $: JQueryStatic,
         topWindow: any,
+        problemAccountPopup: ProblemAccountPopup,
         viewResources: ViewResources = null) {
         this.$ = $;
         this.viewResources = viewResources === null ? new ViewResources($) : viewResources;
         this.topWindow = topWindow;
+        this.problemAccountPopup = problemAccountPopup;
     }
 
     init = () => {
@@ -27,7 +29,6 @@ class ProblemAccount {
 
     render = () => {
         this.initDownlineLists();
-
         const searchAccountRoleId = parseInt(this.$("#SearchRoleId").val());
         if (searchAccountRoleId > 0) {
             this.$(`#tab${searchAccountRoleId}`).click();
@@ -49,7 +50,7 @@ class ProblemAccount {
     };
 
     initDownlineLists(): void {
-        this.memberList = new BaseList(this.$, this.topWindow, siteInfrastructure.Role.Member.Id, siteInfrastructure.Role.Member.Name, new DateRangePickerComponent($));
+        this.memberList = new BaseList(this.$, this.topWindow, siteInfrastructure.Role.Member.Id, siteInfrastructure.Role.Member.Name, new DateRangePickerComponent($), null, this.problemAccountPopup);
         this.memberList.init(this, null);
 
         if (this.ActorLevel >= siteInfrastructure.Role.Master.Id) {
@@ -60,12 +61,17 @@ class ProblemAccount {
         if (this.ActorLevel >= siteInfrastructure.Role.Super.Id) {
             this.masterList = new BaseList(this.$, this.topWindow, siteInfrastructure.Role.Master.Id, siteInfrastructure.Role.Master.Name, new DateRangePickerComponent($));
             this.masterList.init(this, this.agentList);
-        }        
+        }
     }
 }
 
-const problemAccount = new ProblemAccount($, window.top);
+
 
 $(() => {
+
+    const popup = new ProblemAccountPopup($, window.top);
+
+    const problemAccount = new ProblemAccount($, window.top,  popup);
+
     problemAccount.init();
 });
