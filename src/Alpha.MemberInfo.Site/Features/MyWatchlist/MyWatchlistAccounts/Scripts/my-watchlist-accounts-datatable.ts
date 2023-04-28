@@ -52,7 +52,8 @@ class MyWatchlistAccountsDataTable {
             LastLogin: 2,
             Status: 3,
             WinningThreshold: 4,
-            LosingThreshold: 5
+            LosingThreshold: 5,
+            IsPA: 7
         };
 
         return {
@@ -130,6 +131,7 @@ class MyWatchlistAccountsDataTable {
 
         columns.push(
             { className: 'center', data: "TranslatedStatus", name: "Status" },
+            { className: 'center', data: "IsPAText", name: "IsPA" },
             { className: 'right', data: "WinningThresholdString", name: "WinningThreshold" },
             { className: 'right', data: "LosingThresholdString", name: "LosingThreshold" },
             { data: null }

@@ -7,6 +7,9 @@ class ReachedThresholdDataTable {
 
     private isMobile: boolean;
     private isShowLastLoginColumn: boolean;
+    private textLocked: string;
+    private textConfirmSuspendMember: string;
+    private textConfirmUnsuspedMember: string;
 
     private $txtUsername: JQuery;
     private $fromDate: JQuery;
@@ -30,6 +33,9 @@ class ReachedThresholdDataTable {
     private cacheDOMElements() {
         this.isMobile = this.$("#is-mobile").val() === "true";
         this.isShowLastLoginColumn = this.$("#is-show-last-login").val() === "true";
+        this.textLocked = this.$("#text-locked").val();
+        this.textConfirmSuspendMember = this.$("#text-confirm-suspend-member").val();
+        this.textConfirmUnsuspedMember = this.$("#text-confirm-unsuspend-member").val();
 
         this.$txtUsername = this.$("#txt-username");
         this.$fromDate = this.$("#from-date");
@@ -47,6 +53,8 @@ class ReachedThresholdDataTable {
             this.buildDataTableOptions($reportForm.attr("action")),
             this.buildDataTablePagingOptions());
 
+        $tableReport.on("click", ".open-button", event => this.handleSuspend(event, baseUrl, this.textConfirmSuspendMember, "True"));
+        $tableReport.on("click", ".suspended-button", event => this.handleSuspend(event, baseUrl, this.textConfirmUnsuspedMember, "False"));
         $tableReport.on("click", ".reach-count", event => this.handleOpenReachHistory(event, baseUrl));
         $reportForm.submit(event => {
             event.preventDefault();
@@ -65,7 +73,8 @@ class ReachedThresholdDataTable {
             WinningLosingAmount: 6,
             LastReachWinningThreshold: 7,
             LastReachLosingThreshold: 8,
-            NoOfReach: 9
+            NoOfReach: 9,
+            IsPA: 11
         };
 
         return {
@@ -116,13 +125,14 @@ class ReachedThresholdDataTable {
         !this.isMobile &&
             columns.push({ className: 'center', data: "RowNumber", orderable: false });
 
-        columns.push({ className: 'left', data: "Username", name: "Username" });
+        columns.push({ className: 'left', data: null, render: (data, type) => this.renderUsernameCell(data, type), name: "Username" });
 
         this.isShowLastLoginColumn &&
             columns.push({ className: 'center', data: "LastLoggedString", name: "LastLogin" });
 
         columns.push(
-            { className: 'center', data: "TranslatedStatus", name: "Status" },
+            { className: 'center', data: null, render: this.renderStatusCell, name: "Status" },
+            { className: 'center', data: "IsPAText", name: "IsPA" },
             { className: 'center', data: "LastReachedDateString", name: "LastReach" },
             { className: 'center', data: "TranslatedLastLimitTypeReach", name: "LastLimitTypeReach" },
             { className: 'right', data: "WinLossAmountString", name: "WinningLosingAmount" },
@@ -140,6 +150,38 @@ class ReachedThresholdDataTable {
         return columns;
     }
 
+    private renderUsernameCell(data, type) {
+        if (type === "display") {
+            if (data.Locked) {
+                let html = `<div class="cell-username"><div class="pull-left">${data.Username}</div>`;
+                if (data.Locked) {
+                    html += `<div class="pull-right"><span class="icon-locked" title="${this.textLocked}"></span></div>`
+                }
+
+                return html + "</div>";
+            }
+
+            return data.Username;
+        }
+
+        return data;
+    }
+
+    private renderStatusCell(data, type) {
+        if (type === "display") {
+            if (data.IsOpen) {
+                return `<button class="open-button" data-custid="${data.CustId}" data-username="${data.Username}">${data.TranslatedStatus}</button>`;
+            }
+            if (data.IsSuspended) {
+                return `<button class="suspended-button" data-custid="${data.CustId}" data-username="${data.Username}">${data.TranslatedStatus}</button>`;
+            } 
+
+            return data.TranslatedStatus;
+        }
+
+        return data;
+    }
+
     private renderReachCountColumn(data, type) {
         return type === "display"
             ? `<a class="reach-count" href="javascript:;" data-custid="${data.CustId}" data-username="${data.Username}">${data.ReachedCountString}</a>`
@@ -155,6 +197,24 @@ class ReachedThresholdDataTable {
             pageText: this.$("#page").val(),
             ofText: this.$("#of").val()
         };
+    }
+
+    private handleSuspend(event, baseUrl: string, confirmMessage: string, statusValue: string) {
+        const $this = this.$(event.target);
+        const SearchAccountId = $this.data("custid");
+        const SearchAccountName = $this.data("username");
+        this.topWindow.bootboxConfirm(
+            confirmMessage,
+            event.target,
+            () => {
+                this.$.post(`${baseUrl}CustomerList/UpdateCustomerStatus`, {
+                    SearchAccountId,
+                    SearchAccountName,
+                    SearchAccountRoleId: 1,
+                    StatusName: "Suspended",
+                    StatusValue: statusValue
+                }, function () { })
+            });
     }
 
     private handleOpenReachHistory(event, baseUrl) {
