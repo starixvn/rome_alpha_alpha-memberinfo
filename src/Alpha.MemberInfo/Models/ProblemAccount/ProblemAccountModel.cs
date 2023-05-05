@@ -17,7 +17,7 @@
 
         public string NickName => string.IsNullOrEmpty(Username2) ? string.Empty : Username2;
 
-        public string UserName { get; }
+        public string UserName { get; } = "Test";
 
         public string FirstName { get; }
 
@@ -47,6 +47,6 @@
 
         public bool CanEdit => !IsReviewed;
 
-        public byte Locked { get; }
+        public byte Locked { get; } = 1;
     }
 }

@@ -44,10 +44,17 @@ class CustomerListHelper {
 
         return `<div ${this.buildAttributes(attrs)}/>`;
     }
+    private renderUsernameColumn = item => {
+        const textLocked = this.$("#text-locked").val();
+        return item.Locked
+            ? `${item.UserName}
+                <span class="pull-right icon-locked" title="${textLocked}"></span>`
+            : `${item.UserName}`;
+    }
 
     private renderStatusColumn = item => {
 
-        const className = item.Status === 1 ? "open-status" :"";
+        const className = item.Status === 1 ? "open-button" : "";
         const attrs = {
             'class': `${className}`,
             'id': `status-${item.CustId}`,
@@ -62,6 +69,7 @@ class CustomerListHelper {
 
     private buildColumnAttributesJson(customer, levelId: number, actorId: number, customerIndex: number) {
         const memberId = siteInfrastructure.Role.Member.Id, isMember = levelId === memberId,
+            isAgentLogin = actorId === siteInfrastructure.Role.Agent.Id,
             isViewNickname = actorId - 1 == levelId,
             { CustId, UserName, StatusName, NickName, FirstName, LastName, CreatedDateStr, ReviewStatus, Count, CanEdit } = customer,
             commonAttributesJson = this.buildCommonAttributesJson(CustId, UserName, levelId);
@@ -75,15 +83,15 @@ class CustomerListHelper {
             {
                 Content: this.renderCheckboxColumn(customer),
                 Attributes: [{ Name: 'class', Value: 'center' }],
-                Visibile: isMember
+                Visibile: isAgentLogin
             },
             {
                 Content: this.renderEditColumn(customer),
                 Attributes: [{ Name: 'class', Value: 'center' }],
-                Visibile: isMember
+                Visibile: isAgentLogin
             },
             {
-                Content: UserName,
+                Content: this.renderUsernameColumn(customer),
                 Attributes: [{ Name: 'class', Value: isMember ? '' : ' link view-downline' }].concat(commonAttributesJson),
                 Visibile: true
             },
@@ -125,8 +133,7 @@ class CustomerListHelper {
             {
                 Content: this.buildActionColumnOnDesktop(customer, levelId, CanEdit),
                 Attributes: [{ Name: 'class', Value: 'text-center' }],
-                //Visibile: !isMember
-                Visibile: true
+                Visibile: !isAgentLogin
             }
         ];
     }

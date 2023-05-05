@@ -37,16 +37,21 @@ class ProblemAccountPopup {
             this.$ckbSelectAll.prop("checked", tableReport.find(".checkbox").length === tableReport.find(".checkbox:checked").length));
 
         this.$(".edit").off().on("click", event => this.openSinglePopup(this.$(event.currentTarget)));
-        this.$(".open-status").off().on("click", event => this.changeStatusToSuspend(this.$(event.currentTarget)));
+        this.$(".open-button").off().on("click", event => this.changeStatusToSuspend(this.$(event.currentTarget)));
     }
 
     private changeStatusToSuspend(element) {
-        const ids = this.$(element).data("custid");
-        const roleid = this.roleId;
+        const $this = this.$(event.target);
+
+        const SearchAccountId = this.$(element).data("custid");
+        const SearchAccountName = $this.data("username");
+
+        const SearchAccountRoleId = this.roleId;
 
         const message = this.$("#changeStatusToSuspendMessage").val();
-        $(`#status-${ids}`).toggleClass('suspend');
-        $(`#status-${ids}:first-child`).html($(`#suspendText`).val());
+        $this.addClass('suspended-button');
+        $this.removeClass('open-button');
+        $this.html($(`#suspendText`).val());
 
         this.topWindow.bootboxConfirm(
             message,
@@ -54,37 +59,42 @@ class ProblemAccountPopup {
             () => {
 
                 AJAXHelper.postForm(
-                    `${this.memberInfoUrl}ProblemAccount/UpdateCommand`,
-                    { ids, roleid },
+                    `${this.memberInfoUrl}CustomerList/UpdateCustomerStatus`,
+                    {
+                        SearchAccountId,
+                        SearchAccountName,
+                        SearchAccountRoleId,
+                        StatusName: "Suspended",
+                        StatusValue: "True" },
                     result => {
-                        this.setOpenStatus(ids);
 
-                        if (result && result.ErrCode === 1) {
-
-                            this.topWindow.bootboxAlert(result.ErrMsg);
+                        if (result && result.Code === 0 && result.IsSuccessful) {
+                            $this.removeClass('suspended-button');
+                            $this.html($(`#suspended-text`).val());
+                            //update column bg
                             return;
                         }
+                        if (result && result.ErrCode === 1) {
 
-                        if (result && result.length > 0) {
-                            this.topWindow.reloadPromblemAccountListDataTable();
+                            $this.html($(`#openText`).val());
+                            $this.remove('suspended-button');
+                            $this.addClass('open-button');
+                            this.topWindow.bootboxAlert(result.ErrMsg);
                         }
-
                     });
             },
             () => {
-                this.setOpenStatus(ids);
+                $this.html($(`#openText`).val());
+                $this.remove('suspended-button');
+                $this.addClass('open-button');
+
             }
 
         );
     }
 
-    private setOpenStatus(ids) {
-        $(`#status-${ids}:first-child`).html($(`#openText`).val());
-        $(`#status-${ids}`).toggleClass('suspend');
-    }
 
     private openSinglePopup(element) {
-        console.log("single popup item is clicked");
 
         var content =
             `<ul>
@@ -134,7 +144,6 @@ class ProblemAccountPopup {
     }
 
     private openEditSettingPopup(element, content, title, data) {
-        console.log("popup item is clicked");
 
         this.$editPopupContainer.find('.modal-body').empty().append(content);
 
@@ -185,8 +194,8 @@ class ProblemAccountPopup {
         this.topWindow.popupManager.open(
             url,
             title,
-            820,
-            520,
+            1158,
+            273,
             "modal-mobile-friendly");
     }
 
@@ -204,52 +213,22 @@ class ProblemAccountPopup {
         this.topWindow.popupManager.open(
             url,
             title,
-            820,
-            520,
+            534,
+            154,
             "modal-mobile-friendly");
     }
 
-    private IsSingleSelect = data => data.usernames.length === 1;
-
-
     private openAddToWatchlistPopup(data) {
-        const isSingleSelect = this.IsSingleSelect(data);
+        const isSingleSelect = data.usernames.length === 1;
         const title = isSingleSelect
             ? this.$("#addToMyWatchlistText").val()
             : this.$("#addMultipleToMyWatchlistText").val();
-        const usernames = data.usernames.join(", ");
         const custIds = data.ids.join(",");
-        
-        if (isSingleSelect) {
-            this.topWindow.popupManager.open(
-                `${this.memberInfoUrl}MyWatchlistAccounts/ConfirmAddToWatchlist?Ids=${"18363561,18363711,1176092"}`,
-                title,
-                820,
-                550,
-                "modal-mobile-friendly");
-            return;
-        }
-
-
-        const divUsernames = `<div style="max-height: 245px; overflow-y: auto;">${usernames}</div><br/>`;
-
-        this.topWindow.bootboxConfirm(
-            divUsernames + this.$("#are-you-sure-to-remove-accounts").val(),
-            null,
-            () => {
-                AJAXHelper.postForm(
-                    `${this.memberInfoUrl}MyWatchlistAccounts/DeleteMultiplePersonalThreshold`,
-                    { usernames, custIds },
-                    result => {
-                        if (result && result.Code === 1) {
-                            this.topWindow.bootboxAlert(result.Message);
-                            return;
-                        }
-
-                        if (result && result.length > 0) {
-                            this.topWindow.reloadMyWatchlistDataTable();
-                        }
-                    });
-            });
+        this.topWindow.popupManager.open(
+            `${this.memberInfoUrl}MyWatchlistAccounts/ConfirmAddToWatchlist?Ids=${custIds}`,
+            title,
+            485,
+            238,
+            "modal-mobile-friendly");
     }
 }

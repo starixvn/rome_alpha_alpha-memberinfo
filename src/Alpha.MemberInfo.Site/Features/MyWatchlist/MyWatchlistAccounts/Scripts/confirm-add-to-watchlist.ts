@@ -21,27 +21,14 @@ class ConfirmAddToWatchlist {
         });
 
         $("#btnSubmit").on("click touchend", () => {
-            //set url
             const newlyAddedAccounts = this.$('#NewlyAddedAccounts').val();
             const baseUrl = this.$('#member-info-url').val();
             const watchlistPage = this.$('#member-info-url').val() + `MyWatchlistAccounts`;
-            
+            const params = `?IsOpenFromProblemAccount=true&Ids=${newlyAddedAccounts}`;
 
             const mainFrame = this.topWindow.$('#main');
 
-            mainFrame.attr('src', watchlistPage);
-
-            this.topWindow.popupManager.open(
-                `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?Usernames=${newlyAddedAccounts}&isEdite=true`,
-                undefined,
-                820,
-                550,
-                "modal-mobile-friendly");
-
-
-            //open tab my watch list
-
-            //call open add member to watch list
+            mainFrame.attr('src', watchlistPage + params);
         });
     }
 

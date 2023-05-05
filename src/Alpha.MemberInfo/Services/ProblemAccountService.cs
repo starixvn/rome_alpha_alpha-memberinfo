@@ -34,23 +34,46 @@
         }
 
         public IEnumerable<ProblemAccountModel> Get(GetProblemAccountParam param)
+        //=> dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
+        //.OrderBy(i => i.IsReviewed)
+        //.ThenByDescending(i => i.CreatedDate);
         {
-            var a = dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
-            .OrderBy(i => i.IsReviewed)
-            .ThenByDescending(i => i.CreatedDate);
-            ProblemAccountModel problemAccountModel = a.First();
-            if (problemAccountModel != null)
+            var test = dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
+        .OrderBy(i => i.IsReviewed)
+        .ThenByDescending(i => i.CreatedDate);
+            var a = new ProblemAccountModel()
             {
-                problemAccountModel.IsReviewed = false;
+                Username2 = "Test1",
+                CustId = 18363561,
+                IsReviewed = false,
+                Status = 1,
+            };
 
-                var result = new List<ProblemAccountModel>() {
-                    a.First(), a.First(), a.First(),
-                    a.First(), a.First(), a.First()
+
+            var b = new ProblemAccountModel()
+            {
+                Username2 = "Test2",
+                CustId = 18363711,
+                IsReviewed = false,
+                Status = 1,
+            };
+
+            var c = new ProblemAccountModel()
+            {
+                Username2 = "Test2",
+                CustId = 1176092,
+                IsReviewed = false,
+                Status = 1,
+            };
+
+            a.IsReviewed = false;
+
+            var result = new List<ProblemAccountModel>() {
+                   a,b,c
                 };
-                
-                return result.AsEnumerable();
-            }
-            return new List<ProblemAccountModel>() { }.AsEnumerable();
+
+            return result.AsEnumerable();
+
         }
 
     }
