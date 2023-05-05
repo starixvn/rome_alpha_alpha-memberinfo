@@ -34,47 +34,47 @@
         }
 
         public IEnumerable<ProblemAccountModel> Get(GetProblemAccountParam param)
-        //=> dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
-        //.OrderBy(i => i.IsReviewed)
-        //.ThenByDescending(i => i.CreatedDate);
-        {
-            var test = dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
+        => dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
         .OrderBy(i => i.IsReviewed)
         .ThenByDescending(i => i.CreatedDate);
-            var a = new ProblemAccountModel()
-            {
-                Username2 = "Test1",
-                CustId = 18363561,
-                IsReviewed = false,
-                Status = 1,
-            };
+        //{
+        //    var test = dynamicRepository.Fetch<ProblemAccountModel>(new GetProblemAccountCriteria(param))
+        //.OrderBy(i => i.IsReviewed)
+        //.ThenByDescending(i => i.CreatedDate);
+        //    var a = new ProblemAccountModel()
+        //    {
+        //        Username2 = "Test1",
+        //        CustId = 18363561,
+        //        IsReviewed = false,
+        //        Status = 1,
+        //    };
 
 
-            var b = new ProblemAccountModel()
-            {
-                Username2 = "Test2",
-                CustId = 18363711,
-                IsReviewed = false,
-                Status = 1,
-            };
+        //    var b = new ProblemAccountModel()
+        //    {
+        //        Username2 = "Test2",
+        //        CustId = 18363711,
+        //        IsReviewed = false,
+        //        Status = 1,
+        //    };
 
-            var c = new ProblemAccountModel()
-            {
-                Username2 = "Test2",
-                CustId = 1176092,
-                IsReviewed = false,
-                Status = 1,
-            };
+        //    var c = new ProblemAccountModel()
+        //    {
+        //        Username2 = "Test2",
+        //        CustId = 1176092,
+        //        IsReviewed = false,
+        //        Status = 1,
+        //    };
 
-            a.IsReviewed = false;
+        //    a.IsReviewed = false;
 
-            var result = new List<ProblemAccountModel>() {
-                   a,b,c
-                };
+        //    var result = new List<ProblemAccountModel>() {
+        //           a,b,c
+        //        };
 
-            return result.AsEnumerable();
+        //    return result.AsEnumerable();
 
-        }
+        //}
 
     }
 }

@@ -6,12 +6,14 @@ class ProblemAccountPopup {
 
     private $ckbSelectAll: JQuery;
     private $editPopupContainer: JQuery;
+    private $updateMultipleIframeForm: JQuery;
+
     private editText: string;
     private editMultipleText: string;
     private memberInfoUrl: string;
-    private accountInfoUrl: string;
+    private updateMultipleSuspendUrl: string;
     private roleId: string;
-
+    private updateMultipleTarget: string;
     constructor($: JQueryStatic, topWindow: any) {
         this.$ = $;
         this.topWindow = topWindow;
@@ -23,8 +25,11 @@ class ProblemAccountPopup {
         this.editText = this.$('#editSettingText').val();
         this.editMultipleText = this.$('#editMultipleSettingText').val();
         this.memberInfoUrl = this.$("#memberInfoUrl").val();
-        this.accountInfoUrl = this.$("#accountInfoUrl").val();
+        this.updateMultipleSuspendUrl = this.$("#accountInfoUrl").val() + "UnsuspendDownlines/EditMultiple";
         this.roleId = this.$("#RoleId").val();
+
+        this.$updateMultipleIframeForm = this.$('form#update-multiple-suspend-form');
+        this.updateMultipleTarget = "update-multiple-suspend";
 
         this.$ckbSelectAll.click(_ => tableReport.find(".checkbox").prop("checked", this.$ckbSelectAll.is(":checked")));
         this.$("#edit-multiple").click(event => this.openMultiplePopup(event.currentTarget));
@@ -38,6 +43,13 @@ class ProblemAccountPopup {
 
         this.$(".edit").off().on("click", event => this.openSinglePopup(this.$(event.currentTarget)));
         this.$(".open-button").off().on("click", event => this.changeStatusToSuspend(this.$(event.currentTarget)));
+    }
+
+
+
+    public reloadUpdateSuspendFrame = () => {
+        
+        this.$updateMultipleIframeForm && this.$updateMultipleIframeForm.submit();
     }
 
     private changeStatusToSuspend(element) {
@@ -65,7 +77,8 @@ class ProblemAccountPopup {
                         SearchAccountName,
                         SearchAccountRoleId,
                         StatusName: "Suspended",
-                        StatusValue: "True" },
+                        StatusValue: "True"
+                    },
                     result => {
 
                         if (result && result.Code === 0 && result.IsSuccessful) {
@@ -113,7 +126,6 @@ class ProblemAccountPopup {
     }
 
     private openMultiplePopup(element) {
-        console.log("multiple popup item is open");
 
         var content =
             `<ul>
@@ -190,13 +202,16 @@ class ProblemAccountPopup {
 
         const ids = data.ids.join(",");
         const params = `custIds=${ids}&roleId=${this.roleId}`;
-        const url = `${this.accountInfoUrl}UnsuspendDownlines/EditMultiple?${params}`;
+        const url = `${this.updateMultipleSuspendUrl}?${params}`;
         this.topWindow.popupManager.open(
             url,
             title,
             1158,
             273,
             "modal-mobile-friendly");
+        this.$('#CustIds').val(ids);
+        window.top.document.querySelector('[id^="page-popup-"] .modal-body iframe#popup-iframe').setAttribute("name", this.updateMultipleTarget);
+
     }
 
 
