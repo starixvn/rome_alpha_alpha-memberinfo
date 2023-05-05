@@ -89,6 +89,16 @@
 @Html.Hidden("memberInfoUrl", @MicroSites.MemberInfoUrl())
 @Html.Hidden("accountInfoUrl", @MicroSites.AccountInfoUrl())
 
+@if (Model.Query.CustLevel.IsAgentLevel())
+{
+    <form target="update-multiple-suspend" method="get" action="@MicroSites.AccountInfoUrl()UnsuspendDownlines/EditMultiple" id="update-multiple-suspend-form">
+        @Html.Hidden("CustIds", string.Empty)
+        @Html.Hidden("RoleId", Model.Query.SearchRoleId)
+        <input type="submit" class="hidden">
+    </form>
+
+}
+
 <div class="modal modal-sm fade" id="edit-popup" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

@@ -61,45 +61,7 @@ class ReachedThresholdDataTable {
         });
         this.$("#icon-excel").click(this.handleExportExcel);
     }
-
-    //private changeStatusToSuspend(element) {
-    //    const ids = this.$(element).data("custid");
-    //    const roleid = this.roleId;
-
-    //    const message = this.$("#changeStatusToSuspendMessage").val();
-    //    $(`#status-${ids}`).addClass('suspended-button');
-    //    $(`#status-${ids}`).removeClass('open-button');
-    //    $(`#status-${ids}:first-child`).html($(`#suspendText`).val());
-
-    //    this.topWindow.bootboxConfirm(
-    //        message,
-    //        null,
-    //        () => {
-
-    //            AJAXHelper.postForm(
-    //                `${this.memberInfoUrl}ProblemAccount/UpdateCommand`,
-    //                { ids, roleid },
-    //                result => {
-    //                    this.setOpenStatus(ids);
-
-    //                    if (result && result.ErrCode === 1) {
-
-    //                        this.topWindow.bootboxAlert(result.ErrMsg);
-    //                        return;
-    //                    }
-
-    //                    if (result && result.length > 0) {
-    //                        this.topWindow.reloadPromblemAccountListDataTable();
-    //                    }
-
-    //                });
-    //        },
-    //        () => {
-    //            this.setOpenStatus(ids);
-    //        }
-
-    //    );
-    //}
+    
 
 
     private buildDataTableOptions(reachedThresholdUrl: string) {
@@ -261,6 +223,7 @@ class ReachedThresholdDataTable {
                     if (result && result.Code === 0 && result.IsSuccessful) {
                         $this.removeClass('suspended-button');
                         $this.html($(`#suspended-text`).val());
+                        $this.parent().parent().attr("class", "RowBgSuspended");
                         return;
                     }
 

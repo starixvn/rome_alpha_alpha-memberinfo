@@ -31,7 +31,7 @@ class Unlock {
 
     private updateCustomerStatusSuccess = (currentTarget, parentTarget, data, reloadcustomerlist) => {
         if (data.IsSuccessful) {
-            if (reloadcustomerlist && this.topWindow.customerListNew) {
+            if (reloadcustomerlist && this.topWindow.needReloadMainFrameAfterUpdating) {
                 this.topWindow.successfulUpdatingCallbackAndReloadMainFrame(true);
             }
             else {
