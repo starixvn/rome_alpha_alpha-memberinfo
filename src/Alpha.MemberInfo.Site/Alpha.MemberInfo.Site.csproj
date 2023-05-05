@@ -595,6 +595,10 @@
     <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\confirm-add-to-watchlist.min.js">
       <DependentUpon>confirm-add-to-watchlist.js</DependentUpon>
     </Content>
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.js" />
+    <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.min.js">
+      <DependentUpon>reached-threshold-datatable.js</DependentUpon>
+    </Content>
     <Content Include="IbcKeys\ibckey.snk" />
     <Content Include="IbcKeys\ibckeydec.snk" />
     <Content Include="IbcKeys\Web.config" />

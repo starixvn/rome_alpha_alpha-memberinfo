@@ -235,6 +235,12 @@
     ]
   },
   {
+    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reached-threshold-datatable.js",
+    "inputFiles": [
+      "assets/scripts/shared/ajax-helper.js"
+    ]
+  },
+  {
     "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reach-history.js",
     "inputFiles": [
       "assets/scripts/shared/datatable-helper.js",

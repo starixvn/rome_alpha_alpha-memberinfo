@@ -19,20 +19,21 @@
 
     @if (Model.HasAlreadyAddedAccounts)
     {
-        <p class="note">@Resources.AccountsAlreadyInWatchlist: @Model.AlreadyAddedAccounts </p>
+        <p class="red">@Resources.AccountsAlreadyInWatchlist: @Model.AlreadyAddedAccounts </p>
     }
 
     @if (Model.IsExceedLimit)
     {
-        <p class="note">@Resources.AddMultipleToWatchlistExceedMessage  </p>
+        <p class="red">@Resources.AddMultipleToWatchlistExceedMessage  </p>
     }
 
     @if (Model.HasNewlyAddedAccounts)
     {
-        <p class="note">@Resources.NewlyAddedAccounts: : @Model.NewlyAddedAccounts </p>
+        <p class="note">@Resources.NewlyAddedAccounts: @Model.NewlyAddedAccounts </p>
+        @Html.Raw(@Resources.AddToWatchListConfirmThresholds)
+        <button class="btn-submit" id="btnSubmit">@Resources.SetThresholds</button>
     }
-    @Resources.AddToWatchListConfirmThresholds
-    <button class="btn-submit" id="btnSubmit">@Resources.SetThresholds</button>
+
     <input type="button" class="btn-cancel" id="btnCancel" value="@Resources.Cancel" />
 </div>
 

@@ -53,8 +53,7 @@ class ReachedThresholdDataTable {
             this.buildDataTableOptions($reportForm.attr("action")),
             this.buildDataTablePagingOptions());
 
-        $tableReport.on("click", ".open-button", event => this.handleSuspend(event, baseUrl, this.textConfirmSuspendMember, "True"));
-        $tableReport.on("click", ".suspended-button", event => this.handleSuspend(event, baseUrl, this.textConfirmUnsuspedMember, "False"));
+        $tableReport.on("click", ".open-button", event => this.handleSuspend(event, baseUrl));
         $tableReport.on("click", ".reach-count", event => this.handleOpenReachHistory(event, baseUrl));
         $reportForm.submit(event => {
             event.preventDefault();
@@ -62,6 +61,46 @@ class ReachedThresholdDataTable {
         });
         this.$("#icon-excel").click(this.handleExportExcel);
     }
+
+    //private changeStatusToSuspend(element) {
+    //    const ids = this.$(element).data("custid");
+    //    const roleid = this.roleId;
+
+    //    const message = this.$("#changeStatusToSuspendMessage").val();
+    //    $(`#status-${ids}`).addClass('suspended-button');
+    //    $(`#status-${ids}`).removeClass('open-button');
+    //    $(`#status-${ids}:first-child`).html($(`#suspendText`).val());
+
+    //    this.topWindow.bootboxConfirm(
+    //        message,
+    //        null,
+    //        () => {
+
+    //            AJAXHelper.postForm(
+    //                `${this.memberInfoUrl}ProblemAccount/UpdateCommand`,
+    //                { ids, roleid },
+    //                result => {
+    //                    this.setOpenStatus(ids);
+
+    //                    if (result && result.ErrCode === 1) {
+
+    //                        this.topWindow.bootboxAlert(result.ErrMsg);
+    //                        return;
+    //                    }
+
+    //                    if (result && result.length > 0) {
+    //                        this.topWindow.reloadPromblemAccountListDataTable();
+    //                    }
+
+    //                });
+    //        },
+    //        () => {
+    //            this.setOpenStatus(ids);
+    //        }
+
+    //    );
+    //}
+
 
     private buildDataTableOptions(reachedThresholdUrl: string) {
         const sortDefinitions = {
@@ -167,14 +206,12 @@ class ReachedThresholdDataTable {
         return data;
     }
 
+
     private renderStatusCell(data, type) {
         if (type === "display") {
             if (data.IsOpen) {
-                return `<button class="open-button" data-custid="${data.CustId}" data-username="${data.Username}">${data.TranslatedStatus}</button>`;
+                return `<div class="open-button" data-custid="${data.CustId}" data-username="${data.Username}">${data.TranslatedStatus}</div>`;
             }
-            if (data.IsSuspended) {
-                return `<button class="suspended-button" data-custid="${data.CustId}" data-username="${data.Username}">${data.TranslatedStatus}</button>`;
-            } 
 
             return data.TranslatedStatus;
         }
@@ -199,22 +236,54 @@ class ReachedThresholdDataTable {
         };
     }
 
-    private handleSuspend(event, baseUrl: string, confirmMessage: string, statusValue: string) {
+    private handleSuspend(event, baseUrl: string) {
         const $this = this.$(event.target);
         const SearchAccountId = $this.data("custid");
         const SearchAccountName = $this.data("username");
+
+        $this.addClass('suspended-button');
+        $this.removeClass('open-button');
+        $this.html($(`#suspend-text`).val());
+
         this.topWindow.bootboxConfirm(
-            confirmMessage,
+            this.textConfirmSuspendMember,
             event.target,
             () => {
-                this.$.post(`${baseUrl}CustomerList/UpdateCustomerStatus`, {
+
+                AJAXHelper.postForm(`${baseUrl}CustomerList/UpdateCustomerStatus`, {
                     SearchAccountId,
                     SearchAccountName,
                     SearchAccountRoleId: 1,
                     StatusName: "Suspended",
-                    StatusValue: statusValue
-                }, function () { })
-            });
+                    StatusValue: "True"
+                }, result => {
+
+                    if (result && result.Code === 0 && result.IsSuccessful) {
+                        $this.removeClass('suspended-button');
+                        $this.html($(`#suspended-text`).val());
+                        return;
+                    }
+
+
+                    if (result && result.ErrCode !== 0) {
+                        $this.removeClass('suspended-button');
+                        $this.addClass('open-button');
+                        $this.html($(`#open-text`).val());
+                        this.topWindow.bootboxAlert(result.ErrMsg);
+                        return;
+                    }
+
+                })
+            },
+            () => {
+                //cancel
+
+                $this.removeClass('suspended-button');
+                $this.addClass('open-button');
+                $this.html($(`#open-text`).val());
+
+            }
+        );
     }
 
     private handleOpenReachHistory(event, baseUrl) {

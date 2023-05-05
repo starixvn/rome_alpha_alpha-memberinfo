@@ -3,6 +3,7 @@
 class MyWatchlistAccountsDataTable {
     private $: JQueryStatic;
     private editSettingPopup: EditSettingPopup;
+    private topWindow: any;
 
     private isMobile: boolean;
     private isShowLastLoginColumn: boolean;
@@ -13,10 +14,11 @@ class MyWatchlistAccountsDataTable {
     private $dataTable: JQuery;
     private myWatchlistAccountData: any;
 
-    constructor($: JQueryStatic, editSettingPopup: EditSettingPopup, myWatchlistAccountData: any) {
+    constructor($: JQueryStatic, editSettingPopup: EditSettingPopup, myWatchlistAccountData: any, topWindow:any) {
         this.$ = $;
         this.editSettingPopup = editSettingPopup;
         this.myWatchlistAccountData = myWatchlistAccountData;
+        this.topWindow = topWindow;
     }
 
     public reloadData() {
@@ -181,6 +183,29 @@ class MyWatchlistAccountsDataTable {
     private drawCallback() {
         this.$tableReport.removeClass("hidden");
         this.editSettingPopup.bindEvents(this.$tableReport);
+        console.log("DataTable draw");
+
+
+        const isOpenFromProblemAccount = this.$('#isOpenFromProblemAccount').val();
+        if (isOpenFromProblemAccount) {
+           this.openAddMultiplePopup();
+        }
+
         //this.$('thead tr th.control').parent().removeClass("parent");
+     
+    }
+
+    private openAddMultiplePopup() {
+        const ids = this.$('#ids').val();
+        const baseUrl = this.$('#member-info-url').val();
+
+        this.topWindow.popupManager.open(
+            `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?Usernames=${ids}&isEdite=true`,
+            undefined,
+            820,
+            550,
+            "modal-mobile-friendly");
+        console.log("opened");
+
     }
 }

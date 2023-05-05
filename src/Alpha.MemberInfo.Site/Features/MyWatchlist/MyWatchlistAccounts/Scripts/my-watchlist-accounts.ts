@@ -1,11 +1,13 @@
 ﻿interface Window {
     watchlistAccountData: any;
     reloadMyWatchlistDataTable: Function;
+    openAddMultiplePopup: Function;
 }
 
 class MyWatchlistAccounts extends MyWatchlistBase {
     private topWindow: any;
     private dataTable: MyWatchlistAccountsDataTable;
+
 
     constructor(
         $: JQueryStatic,
@@ -19,6 +21,8 @@ class MyWatchlistAccounts extends MyWatchlistBase {
     public init() {
         this.initInfoLegend();
         const baseUrl = this.$('#member-info-url').val();
+        console.log("init");
+
 
         this.initUsernameAutoSuggestion(baseUrl, this.$('#search-account-id').val());
         this.$("#btn-global-threshold").click(_ =>
@@ -68,7 +72,7 @@ class MyWatchlistAccounts extends MyWatchlistBase {
 
 $(function () {
     const editSettingPopup = new EditSettingPopup($, window.top);
-    const dataTable = new MyWatchlistAccountsDataTable($, editSettingPopup, window.watchlistAccountData);
+    const dataTable = new MyWatchlistAccountsDataTable($, editSettingPopup, window.watchlistAccountData, window.top);
     window.top.reloadMyWatchlistDataTable = () => dataTable.reloadData();
 
     new MyWatchlistAccounts($, window.top, dataTable).init();

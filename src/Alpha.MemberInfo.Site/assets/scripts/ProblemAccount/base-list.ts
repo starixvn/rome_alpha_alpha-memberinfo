@@ -182,8 +182,7 @@ class BaseList {
 
     viewDownlines(event) {
         const $this = this.$(event.currentTarget),
-            custId = parseInt($this.attr("cust-id")),
-            username = $this.html();
+            username = $this.attr('username');
 
         this.$(`#tab${this.directDownlineRoleId}`).click();
         this.$downlineObject.$fromDate.val(this.$fromDate.val());

@@ -41,8 +41,8 @@
            => new WatchlistAccountReport(
                   new List<WatchlistAccountModel>()
                   {
-                        new WatchlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), "Open", null, null, 0, 0),
-                        new WatchlistAccountModel(2, 2345, 0, "agent0102", new DateTime(), "Open", null, null, 0, 0),
+                        new WatchlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), "Open", null, null, 0, 0, true),
+                        new WatchlistAccountModel(2, 2345, 0, "agent0102", new DateTime(), "Open", null, null, 0, 0, false),
                   },
               2);
 
@@ -60,10 +60,10 @@
             service.GetGlobalThreshold(Arg.Any<SelectGlobalThresholdParam>()).Returns(Task.FromResult(globalThreshold));
 
             var expectedViewModel = new MyWatchlistAccountsViewModel(
-                myWatchlistAccountsMessage, 
+                myWatchlistAccountsMessage,
                 globalThreshold,
                 browserHelper.IsMobile(isOnlyTablet: false),
-                myWatchlistAccountsMessage.CanUpdateAccount, 
+                myWatchlistAccountsMessage.CanUpdateAccount,
                 new MyWatchlistAccountsPagingViewModel(watchlistAccountReport, watchlistAccountsMessage));
 
             // Act
@@ -95,9 +95,9 @@
             AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
 
-       [Fact]
-       public async Task HandlePersonalPresetQuery_Always_ReturnsCorrectPresets()
-       {
+        [Fact]
+        public async Task HandlePersonalPresetQuery_Always_ReturnsCorrectPresets()
+        {
             // Arrange
             var message = new PersonalPresetQuery(user);
             IEnumerable<PersonalPresetModel> expectedPresets = new List<PersonalPresetModel>()
@@ -112,11 +112,11 @@
 
             // Assert
             Assert.Equal(expectedPresets, actualPresets);
-       }
+        }
 
-       [Fact]
-       public async Task HandleAddPersonalThresholdCommand_Always_ReturnsCorrectResults()
-       {
+        [Fact]
+        public async Task HandleAddPersonalThresholdCommand_Always_ReturnsCorrectResults()
+        {
             // Arrange
             var message = new AddPersonalThresholdCommand(user);
             IEnumerable<NamedResult> expectedResults = new List<NamedResult>()
@@ -132,7 +132,7 @@
 
             // Assert
             Assert.Equal(expectedResults, actualResults);
-       }
+        }
 
         [Fact]
         public async Task HandleUpdateMultiplePersonalThresholdCommand_Always_ReturnsCorrectResults()
@@ -185,7 +185,7 @@
         {
             // Arrange
             var message = new UpdateGlobalThresholdCommand(user);
-            var expectedResult = new Result() 
+            var expectedResult = new Result()
             {
                 Code = 0,
                 Message = "Update successfully"

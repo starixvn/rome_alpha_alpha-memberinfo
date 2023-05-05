@@ -21,9 +21,10 @@
             decimal? losingThreshold = 2000;
             byte closedReason = 0;
             byte locked = 0;
+            bool isPA = true;
 
             // Act
-            var model = new WatchlistAccountModel(rowNumber, custId, sporttype, username, lastLogged, status, winningThreshold, losingThreshold, closedReason, locked);
+            var model = new WatchlistAccountModel(rowNumber, custId, sporttype, username, lastLogged, status, winningThreshold, losingThreshold, closedReason, locked, isPA);
 
             // Assert
             Assert.True(model.RowNumber == rowNumber
@@ -35,7 +36,8 @@
                 && model.WinningThreshold == winningThreshold
                 && model.LosingThreshold == losingThreshold
                 && model.ClosedReason == closedReason
-                && model.Locked == locked);
+                && model.Locked == locked
+                && model.IsPA == isPA);
         }
     }
 }

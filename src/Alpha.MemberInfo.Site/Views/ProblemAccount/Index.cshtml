@@ -1,6 +1,7 @@
 ﻿@using Alpha.MemberInfo.Site.ViewModels.ProblemAccount
 @using Alpha.MemberInfo.Models;
 @using Alpha.MemberInfo.Extensions;
+@using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources
 
 @model ProblemAccountReportViewModel
 @{
@@ -61,7 +62,7 @@
         </form>
     </div>
 </div>
-
+@Html.AntiForgeryToken()
 @Html.Hidden("TotalColumnMaster", ProblemAccountReportViewModel.TotalColumnMaster)
 @Html.Hidden("TotalColumnAgent", Model.TotalColumnAgent)
 @Html.Hidden("TotalColumnMember", ProblemAccountReportViewModel.TotalColumnMember)
@@ -80,8 +81,10 @@
 @Html.Hidden("addToMyWatchlistText", Resources.AddToMyWatchlist)
 @Html.Hidden("markAsReviewedText", Resources.MarkAsReviewed)
 @Html.Hidden("suspendText", Resources.Suspend)
+@Html.Hidden("suspended-text", Resources.Suspended)
 @Html.Hidden("openText", Resources.Open)
-@Html.Hidden("changeStatusToSuspendMessage", Resources.ChangeStatusToSuspendMessage)
+@Html.Hidden("changeStatusToSuspendMessage", @ProductResources.ConfirmSuspendedViewModelInCaseSuspendedMemberMessage)
+@Html.Hidden("text-locked", Resources.Locked)
 
 @Html.Hidden("memberInfoUrl", @MicroSites.MemberInfoUrl())
 @Html.Hidden("accountInfoUrl", @MicroSites.AccountInfoUrl())
@@ -215,7 +218,7 @@
 {
     @*@if (level.IsNotMemberLevel())
         {*@
-    if (Model.Query.CustLevel.IsAgentLevel())
+    if (Model.Query.CustLevel.IsNotAgentLevel())
     {
         var levelName = level.DisplayName.ToLower();
         <div class="pull-right checkall-section">
@@ -258,7 +261,7 @@ new { Text = Resources.ReviewStatus, ClassName = "", Show = true}
                         <th class="@column.ClassName">@Html.Raw(column.Text)</th>
                     }
                 }
-                @if (Model.Query.CustLevel.IsAgentLevel())
+                @if (Model.Query.CustLevel.IsNotAgentLevel())
                 {
                     <th><span class="icon-review-user update-@levelName" title="@Resources.SetToReviewed"></span></th>
                 }
