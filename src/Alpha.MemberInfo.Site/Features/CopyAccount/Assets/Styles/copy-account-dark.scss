@@ -594,6 +594,32 @@ select:-webkit-autofill:focus {
     }
 }
 
+
+.user-announcements {
+    background: #13314D;
+    border: 1px solid #40A3FF;
+    max-width: 930px;
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    padding: 9px;
+
+    i {
+        margin-right: 3px;
+        font-size: 20px;
+        color: #40A3FF;
+    }
+
+    p {
+        margin-bottom: 0;
+        font-weight: 500;
+        font-size: 14px;
+        color: #40A3FF;
+    }
+}
+
+
 @media (max-width : 767px) {
     .result {
         position: unset;
@@ -807,5 +833,11 @@ select:-webkit-autofill:focus {
             font-size: calculateScale(12px);
             line-height: calculateScale(20px);
         }
+    }
+
+    .user-announcements {
+        margin-top: calculateScale(5px);
+        align-items: flex-start;
+        width: 100%;
     }
 }
