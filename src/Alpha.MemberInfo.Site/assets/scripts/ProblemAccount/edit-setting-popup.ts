@@ -48,7 +48,7 @@ class ProblemAccountPopup {
 
 
     public reloadUpdateSuspendFrame = () => {
-        
+
         this.$updateMultipleIframeForm && this.$updateMultipleIframeForm.submit();
     }
 
@@ -106,12 +106,14 @@ class ProblemAccountPopup {
         );
     }
 
-
     private openSinglePopup(element) {
+        const id = "#" + this.$(element).attr("id");
+        const isReviewed = $(id).closest('tr').attr('is-reviewed');
 
+        const markReviewMenu = `<li class="edit-popup icon-edit" id="mark-as-reviewed-selected">${this.$("#markAsReviewedText").val()}</li>`;
         var content =
             `<ul>
-                <li class="edit-popup icon-edit" id="mark-as-reviewed-selected">${this.$("#markAsReviewedText").val()}</li>
+              ${!isReviewed ? markReviewMenu : ""}  
                 <li class="edit-popup icon-edit" id="add-to-my-watchlist-selected">${this.$("#addToMyWatchlistText").val()}</li>
              </ul>`;
         this.openEditSettingPopup(

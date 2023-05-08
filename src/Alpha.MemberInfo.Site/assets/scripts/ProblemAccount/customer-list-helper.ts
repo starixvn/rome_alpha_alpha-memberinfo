@@ -221,11 +221,15 @@ class CustomerListHelper {
                     }
                 });
 
+            const rowAttributes = [
+                new Attribute('class', this.buildAccountStatusCssClass(Customers[i])),
+                new Attribute('cust-id', Customers[i].CustId)
+            ];
+            const reviewAttribute = Customers[i].IsReviewed ? new Attribute('is-reviewed', Customers[i].IsReviewed) : null;
+            reviewAttribute && rowAttributes.push(reviewAttribute);
+
             bodyContent += new RowWrapper(rowContent,
-                [
-                    new Attribute('class', this.buildAccountStatusCssClass(Customers[i])),
-                    new Attribute('cust-id', Customers[i].CustId)
-                ]).ToString();
+                rowAttributes).ToString();
         }
 
         return bodyContent;

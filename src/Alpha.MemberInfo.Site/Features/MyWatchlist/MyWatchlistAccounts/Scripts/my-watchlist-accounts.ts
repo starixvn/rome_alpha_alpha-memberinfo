@@ -21,8 +21,6 @@ class MyWatchlistAccounts extends MyWatchlistBase {
     public init() {
         this.initInfoLegend();
         const baseUrl = this.$('#member-info-url').val();
-        console.log("init");
-
 
         this.initUsernameAutoSuggestion(baseUrl, this.$('#search-account-id').val());
         this.$("#btn-global-threshold").click(_ =>
