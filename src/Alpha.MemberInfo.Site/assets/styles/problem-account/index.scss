@@ -144,6 +144,7 @@
         }
     }
 }
+
 input[type="radio"], input[type="checkbox"] {
     top : 0 !important;
 }
@@ -195,4 +196,12 @@ button{
         }
     }
     
+}
+
+.grey-color {
+    color: #838383 !important;
+}
+
+#edit-popup ul li.Disable_edit:before, #status-popup ol li.Disable_edit:before {
+    color: #bbb !important;
 }

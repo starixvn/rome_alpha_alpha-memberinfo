@@ -65,7 +65,7 @@
 @Html.AntiForgeryToken()
 @Html.Hidden("TotalColumnMaster", ProblemAccountReportViewModel.TotalColumnMaster)
 @Html.Hidden("TotalColumnAgent", Model.TotalColumnAgent)
-@Html.Hidden("TotalColumnMember", ProblemAccountReportViewModel.TotalColumnMember)
+@Html.Hidden("TotalColumnMember", Model.TotalColumnMember)
 @Html.Hidden("SearchRoleId", Model.Query.SearchRoleId)
 @Html.Hidden("getProblemAccountUrl", Url.Action("GetProblemAccounts"))
 @Html.Hidden("NoInformationIsAvailable", Resources.NoInformationIsAvailable)

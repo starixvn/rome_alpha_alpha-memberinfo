@@ -1,7 +1,8 @@
 ﻿@import "../_mixins.scss";
+
 .filter {
     position: relative;
-   
+
     .form-group label {
         font-weight: normal;
         font-size: 13px;
@@ -89,28 +90,34 @@
     }
 }
 
-.icon-review-user, .icon-uncheck, .icon-checkbox{
+.icon-review-user, .icon-uncheck, .icon-checkbox {
     cursor: pointer;
 }
 
 .RowBgSuspended {
     background-color: #805757;
 }
+
 .RowBgDisabled {
     background-color: #4b5425;
 }
+
 .RowBgLockedFalsePassword {
     background-color: #6e654e;
 }
+
 .RowBgClosedByAdmin {
     background-color: #453659;
 }
+
 .RowBgClosedByUpline {
     background-color: #874d1e;
 }
+
 .RowBgLockedFalsedOTPSC {
     background-color: #0d3c54;
 }
+
 .RowBgClosedByArchive {
     background-color: #0b2945;
 }
@@ -144,8 +151,9 @@
                         margin-right: 5px;
                         font-family: 'Iconalpha';
                     }
-                    &:after{
-                        display : none;
+
+                    &:after {
+                        display: none;
                     }
                 }
 
@@ -189,4 +197,12 @@
             }
         }
     }
+}
+
+.grey-color {
+    color: #838383 !important;
+}
+
+#edit-popup ul li.Disable_edit:before, #status-popup ol li.Disable_edit:before {
+    color: #bbb !important;
 }
