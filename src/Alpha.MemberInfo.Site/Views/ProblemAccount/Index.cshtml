@@ -226,8 +226,7 @@
 
 @helper RenderCheckAll(UserLevel level)
 {
-    @*@if (level.IsNotMemberLevel())
-        {*@
+   
     if (Model.Query.CustLevel.IsNotAgentLevel())
     {
         var levelName = level.DisplayName.ToLower();
@@ -239,7 +238,6 @@
         </div>
     }
 
-    @*}*@
 
 }
 @helper RenderContainer(UserLevel level)

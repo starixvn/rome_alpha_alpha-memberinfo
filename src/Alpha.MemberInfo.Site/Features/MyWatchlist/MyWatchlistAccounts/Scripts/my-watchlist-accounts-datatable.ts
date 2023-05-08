@@ -183,16 +183,13 @@ class MyWatchlistAccountsDataTable {
     private drawCallback() {
         this.$tableReport.removeClass("hidden");
         this.editSettingPopup.bindEvents(this.$tableReport);
-        console.log("DataTable draw");
+
+        const isOpenFromProblemAccount = JSON.parse(this.$('#isOpenFromProblemAccount').val());
 
 
-        const isOpenFromProblemAccount = this.$('#isOpenFromProblemAccount').val();
         if (isOpenFromProblemAccount) {
-           this.openAddMultiplePopup();
+            setTimeout(() => { this.openAddMultiplePopup() }, 1500);
         }
-
-        //this.$('thead tr th.control').parent().removeClass("parent");
-     
     }
 
     private openAddMultiplePopup() {
@@ -205,7 +202,5 @@ class MyWatchlistAccountsDataTable {
             820,
             550,
             "modal-mobile-friendly");
-        console.log("opened");
-
     }
 }

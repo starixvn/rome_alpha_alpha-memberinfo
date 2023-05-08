@@ -9,7 +9,6 @@ class ReachedThresholdDataTable {
     private isShowLastLoginColumn: boolean;
     private textLocked: string;
     private textConfirmSuspendMember: string;
-    private textConfirmUnsuspedMember: string;
 
     private $txtUsername: JQuery;
     private $fromDate: JQuery;
@@ -35,7 +34,6 @@ class ReachedThresholdDataTable {
         this.isShowLastLoginColumn = this.$("#is-show-last-login").val() === "true";
         this.textLocked = this.$("#text-locked").val();
         this.textConfirmSuspendMember = this.$("#text-confirm-suspend-member").val();
-        this.textConfirmUnsuspedMember = this.$("#text-confirm-unsuspend-member").val();
 
         this.$txtUsername = this.$("#txt-username");
         this.$fromDate = this.$("#from-date");
