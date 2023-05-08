@@ -773,7 +773,7 @@ select:-webkit-autofill:focus {
     }
 
     .user-announcements {
-        margin-top: 3px;
+        margin-top: calculateScale(5px);
         align-items: flex-start;
         width: 100%;
     }
