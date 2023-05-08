@@ -1,7 +1,7 @@
 ﻿@import "../_mixins.scss";
 .filter {
     position: relative;
-
+   
     .form-group label {
         font-weight: normal;
         font-size: 13px;
@@ -152,6 +152,40 @@
                 &:hover {
                     background-color: #3c3c3c;
                 }
+            }
+        }
+    }
+}
+
+
+@media (max-width : 1440px) {
+    .filter {
+        margin-bottom: 10px;
+
+        #form-member {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width : 768px) {
+    .filter {
+        margin: 10px 0;
+    }
+
+    #edit-popup {
+        .modal-header {
+            padding: 0;
+
+            .icon-close {
+                top: 12px;
+                position: absolute;
+                right: 0;
+                left: auto;
+            }
+
+            h5 {
+                padding: 10px 10px;
             }
         }
     }
