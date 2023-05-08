@@ -30,7 +30,7 @@
     box-sizing: border-box;
     max-width: 930px;
     border: 1px solid #E0E0E0;
-    margin: 20px 0 0 0;
+    margin: 12px 0 0 0;
     overflow: unset;
 
     .fixed-width {
@@ -54,7 +54,7 @@
         }
 
         .btn-switch-view {
-            padding: 6px 12px;
+            padding: 3px 12px;
             background: #F2F2F2;
             border: 1px solid #A5A5A5;
             color: #5A5A5A;
@@ -539,6 +539,31 @@ select:-webkit-autofill:focus {
     }
 }
 
+.user-announcements {
+    background: #E1F1FF;
+    border: 1px solid #7FB3E0;
+    max-width: 930px;
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    padding: 9px;
+
+    i {
+        margin-right: 3px;
+        font-size: 20px;
+        color: #1C62A3;
+    }
+
+    p {
+        margin-bottom: 0;
+        font-weight: 500;
+        font-size: 14px;
+        color: #1C62A3;
+    }
+}
+
+
 
 
 @media (max-width : 767px) {
@@ -745,5 +770,11 @@ select:-webkit-autofill:focus {
             font-size: calculateScale(12px);
             line-height: calculateScale(20px);
         }
+    }
+
+    .user-announcements {
+        margin-top: 3px;
+        align-items: flex-start;
+        width: 100%;
     }
 }
