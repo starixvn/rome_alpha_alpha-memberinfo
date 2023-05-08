@@ -44,7 +44,7 @@
 
         public int TotalColumnAgent => Query.CustLevel.IsMasterLevel() ? 10 : 9;
 
-        public const int TotalColumnMember = 8;
+        public int TotalColumnMember => Query.CustLevel.IsAgentLevel() ? 10 : 8;
 
         public static string UsernameAutoSuggestionPath
             => MicroSites.OldMainUrl("~/_GlobalResources/Handlers/QueryUserName.ashx");

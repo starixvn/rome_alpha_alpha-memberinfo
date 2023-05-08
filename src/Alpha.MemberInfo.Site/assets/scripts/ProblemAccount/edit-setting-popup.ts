@@ -14,6 +14,9 @@ class ProblemAccountPopup {
     private updateMultipleSuspendUrl: string;
     private roleId: string;
     private updateMultipleTarget: string;
+    private needReviewUsernames: string[];
+    private needReviewUsernameIds: string[];
+
     constructor($: JQueryStatic, topWindow: any) {
         this.$ = $;
         this.topWindow = topWindow;
@@ -111,9 +114,12 @@ class ProblemAccountPopup {
         const isReviewed = $(id).closest('tr').attr('is-reviewed');
 
         const markReviewMenu = `<li class="edit-popup icon-edit" id="mark-as-reviewed-selected">${this.$("#markAsReviewedText").val()}</li>`;
-        var content =
+
+        const disableMarkReviewMenu = `<li class="edit-popup icon-edit grey-color Disable_edit">${this.$("#markAsReviewedText").val()}</li>`;
+        const content =
             `<ul>
-              ${!isReviewed ? markReviewMenu : ""}  
+              ${!isReviewed ? markReviewMenu : disableMarkReviewMenu}
+
                 <li class="edit-popup icon-edit" id="add-to-my-watchlist-selected">${this.$("#addToMyWatchlistText").val()}</li>
              </ul>`;
         this.openEditSettingPopup(
@@ -127,34 +133,52 @@ class ProblemAccountPopup {
         );
     }
 
+
+    private hasEnableMarkReview(element) {
+        return !this.$(element).closest('tr').attr('is-reviewed');
+    }
+
+
     private openMultiplePopup(element) {
-
-        var content =
-            `<ul>
-                <li class="edit-popup icon-edit" id="mark-multiple-as-reviewed-selected">${this.$("#markMultipleAsReviewedText").val()}</li>
-                <li class="edit-popup icon-edit" id="add-multiple-to-watchlist-selected">${this.$("#addMultipleToWatchlistText").val()}</li>
-                <li class="edit-popup icon-edit" id="suspend-multiple-accounts-selected">${this.$("#suspendMultipleAccountsText").val()}</li>
-            </ul>`;
-
         const checkboxs = this.$('input.checkbox:checkbox:checked');
+        if (!checkboxs.length) {
+            return
+        }
+        this.needReviewUsernames = [];
+        this.needReviewUsernameIds = [];
+        let isEnableMarkReview = false;
+        
         const ids = [];
         const usernames = [];
         checkboxs.each((_, checkbox) => {
+            if (this.hasEnableMarkReview(checkbox)) {
+                this.needReviewUsernames.push(this.$(checkbox).data("username"));
+                this.needReviewUsernameIds.push(this.$(checkbox).data("custid"));
+
+                isEnableMarkReview = true;
+            }
             usernames.push(this.$(checkbox).data("username"));
             ids.push(this.$(checkbox).data("custid"));
-        });
 
-        if (ids.length > 0 && usernames.length > 0) {
-            this.openEditSettingPopup(
-                element,
-                content,
-                this.editMultipleText,
-                {
-                    ids,
-                    usernames
-                }
-            );
-        }
+        });
+        const markReviewMenu = `<li class="edit-popup icon-edit" id="mark-multiple-as-reviewed-selected">${this.$("#markMultipleAsReviewedText").val()}</li>`;
+        const disableMarkReviewMenu = `<li class="edit-popup icon-edit grey-color Disable_edit"> ${this.$("#markMultipleAsReviewedText").val()} </li>`;
+
+        const content =
+            `<ul>
+                ${isEnableMarkReview ? markReviewMenu : disableMarkReviewMenu}
+                <li class="edit-popup icon-edit" id="add-multiple-to-watchlist-selected">${this.$("#addMultipleToWatchlistText").val()}</li>
+                <li class="edit-popup icon-edit" id="suspend-multiple-accounts-selected">${this.$("#suspendMultipleAccountsText").val()}</li>
+            </ul>`;
+        this.openEditSettingPopup(
+            element,
+            content,
+            this.editMultipleText,
+            {
+                ids,
+                usernames
+            }
+        );
     }
 
     private openEditSettingPopup(element, content, title, data) {
@@ -188,9 +212,9 @@ class ProblemAccountPopup {
             this.$editPopupContainer.css({ top, left });
         }
 
-        this.$('#mark-as-reviewed-selected').click(() => this.openMarkReviewPopup(data));
+        this.$('#mark-as-reviewed-selected').click(() => this.openMarkReviewPopup());
 
-        this.$('#mark-multiple-as-reviewed-selected').click(() => this.openMarkReviewPopup(data));
+        this.$('#mark-multiple-as-reviewed-selected').click(() => this.openMarkReviewPopup());
 
         this.$('#suspend-multiple-accounts-selected').click(() => this.openSuspendStatusPopup(data));
 
@@ -217,14 +241,14 @@ class ProblemAccountPopup {
     }
 
 
-    private openMarkReviewPopup(data) {
+    private openMarkReviewPopup() {
 
-        const title = data.usernames.length === 1
+        const title = this.needReviewUsernames.length === 1
             ? this.$("#markAsReviewedText").val()
             : this.$("#markMultipleAsReviewedText").val();
 
-        const usernames = data.usernames.join(", ");
-        const ids = data.ids.join(",");
+        const usernames = this.needReviewUsernames.join(", ");
+        const ids = this.needReviewUsernameIds.join(",");
         const params = `ids=${ids}&usernames=${usernames}&roleId=${this.roleId}`;
         const url = `${this.memberInfoUrl}ProblemAccount/Update?${params}`;
         this.topWindow.popupManager.open(
