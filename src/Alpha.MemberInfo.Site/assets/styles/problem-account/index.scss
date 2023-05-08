@@ -144,3 +144,55 @@
         }
     }
 }
+input[type="radio"], input[type="checkbox"] {
+    top : 0 !important;
+}
+
+button{
+    outline : none !important;
+}
+
+
+.bootbox .modal-footer .btn.btn-primary:not(.btn-raised) {
+    background-color: #0B599C !important;
+    color: #EDEDED !important;
+}
+
+.btn-default {
+    background: #909090;
+    color: #FFFFFF;
+}
+
+
+
+@media (max-width : 1440px) {
+    .filter {
+        margin-bottom: 10px;
+
+        #form-member {
+            margin-bottom: 0;
+        }
+    }
+}
+@media (max-width : 768px) {
+    .filter {
+        margin: 10px 0;
+    }
+    #edit-popup {
+        .modal-header {
+            padding: 0;
+
+            .icon-close {
+                top: 12px;
+                position: absolute;
+                right: 0;
+                left: auto;
+            }
+
+            h5 {
+                padding: 10px 10px;
+            }
+        }
+    }
+    
+}
