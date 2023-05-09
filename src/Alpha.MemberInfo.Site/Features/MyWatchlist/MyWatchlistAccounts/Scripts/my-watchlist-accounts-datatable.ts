@@ -14,7 +14,7 @@ class MyWatchlistAccountsDataTable {
     private $dataTable: JQuery;
     private myWatchlistAccountData: any;
 
-    constructor($: JQueryStatic, editSettingPopup: EditSettingPopup, myWatchlistAccountData: any, topWindow:any) {
+    constructor($: JQueryStatic, editSettingPopup: EditSettingPopup, myWatchlistAccountData: any, topWindow: any) {
         this.$ = $;
         this.editSettingPopup = editSettingPopup;
         this.myWatchlistAccountData = myWatchlistAccountData;
@@ -184,12 +184,9 @@ class MyWatchlistAccountsDataTable {
         this.$tableReport.removeClass("hidden");
         this.editSettingPopup.bindEvents(this.$tableReport);
 
-        const isOpenFromProblemAccount = JSON.parse(this.$('#isOpenFromProblemAccount').val());
+        const isOpenFromProblemAccount = this.$('#isOpenFromProblemAccount').val();
 
-
-        if (isOpenFromProblemAccount) {
-            setTimeout(() => { this.openAddMultiplePopup() }, 1500);
-        }
+        isOpenFromProblemAccount && JSON.parse(isOpenFromProblemAccount) && setTimeout(() => { this.openAddMultiplePopup() }, 1500);
     }
 
     private openAddMultiplePopup() {
@@ -202,5 +199,8 @@ class MyWatchlistAccountsDataTable {
             820,
             550,
             "modal-mobile-friendly");
+        this.$('#ids').val("");
+        this.$('#isOpenFromProblemAccount').val("");
+
     }
 }
