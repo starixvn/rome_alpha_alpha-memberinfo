@@ -118,10 +118,10 @@
     text-align: right;
 }
 
-@media (max-width : 480px){
+@media screen and (max-device-width: 767px) {
     .button-group {
-        .btn-cancel{
-            height : 45px;
+        .btn-cancel {
+            height: 45px;
         }
     }
 }
