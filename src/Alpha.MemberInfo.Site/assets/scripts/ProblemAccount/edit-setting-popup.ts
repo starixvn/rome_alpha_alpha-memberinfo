@@ -197,9 +197,9 @@ class ProblemAccountPopup {
             this.$editPopupContainer.css({ top, left });
         }
 
-        this.$('#mark-as-reviewed-selected').click(() => this.openMarkReviewPopup());
+        this.$('#mark-as-reviewed-selected').click(() => this.openSingleMarkReviewPopup(data));
 
-        this.$('#mark-multiple-as-reviewed-selected').click(() => this.openMarkReviewPopup());
+        this.$('#mark-multiple-as-reviewed-selected').click(() => this.openMultipleMarkReviewPopup());
 
         this.$('#suspend-multiple-accounts-selected').click(() => this.openSuspendStatusPopup(data));
 
@@ -225,14 +225,26 @@ class ProblemAccountPopup {
 
     }
 
+    private openSingleMarkReviewPopup(data) {
 
-    private openMarkReviewPopup() {
+        const title = this.$("#markAsReviewedText").val();
+        const usernames = data.usernames.join(", ");
+        const ids = data.ids.join(",");
+        const params = `ids=${ids}&usernames=${usernames}&roleId=${this.roleId}`;
+        const url = `${this.memberInfoUrl}ProblemAccount/Update?${params}`;
+        this.topWindow.popupManager.open(
+            url,
+            title,
+            534,
+            154,
+            "modal-mobile-friendly");
 
-        const title = this.needReviewUsernames.length === 1
-            ? this.$("#markAsReviewedText").val()
-            : this.$("#markMultipleAsReviewedText").val();
+    }
 
-        const usernames = this.needReviewUsernames.join(", ");
+    private openMultipleMarkReviewPopup() {
+        const title = this.$("#markMultipleAsReviewedText").val();
+
+        const usernames = this.needReviewUsernames.join(",");
         const ids = this.needReviewUsernameIds.join(",");
         const params = `ids=${ids}&usernames=${usernames}&roleId=${this.roleId}`;
         const url = `${this.memberInfoUrl}ProblemAccount/Update?${params}`;
