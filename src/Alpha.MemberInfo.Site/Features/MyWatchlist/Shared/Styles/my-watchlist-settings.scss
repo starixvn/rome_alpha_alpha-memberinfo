@@ -118,12 +118,17 @@
         width: auto;
     }
 }
-.button-group{
-    text-align : right;
+.button-group {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 @media screen and (max-device-width: 767px) {
     .button-group {
+        text-align: right;
+        position: unset;
+
         .btn-cancel {
             height: 45px;
         }
