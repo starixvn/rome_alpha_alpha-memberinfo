@@ -2,15 +2,13 @@
 {
     public class SelectMultipleWatchlistParam
     {
-        public SelectMultipleWatchlistParam(string custList, int agentId, string siteName)
+        public SelectMultipleWatchlistParam(string custList, string siteName)
         {
             CustList = custList;
-            AgentId = agentId;
             SiteName = siteName;
         }
 
         public string CustList { get; }
-        public int AgentId { get; }
 
         public string SiteName { get; }
     }

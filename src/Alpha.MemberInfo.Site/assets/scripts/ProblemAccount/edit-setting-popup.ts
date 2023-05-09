@@ -3,7 +3,7 @@
 class ProblemAccountPopup {
     private $: JQueryStatic;
     private topWindow: any;
-
+    private indexManager: ProblemAccount
     private $ckbSelectAll: JQuery;
     private $editPopupContainer: JQuery;
     private $updateMultipleIframeForm: JQuery;
@@ -13,7 +13,6 @@ class ProblemAccountPopup {
     private memberInfoUrl: string;
     private updateMultipleSuspendUrl: string;
     private roleId: string;
-    private updateMultipleTarget: string;
     private needReviewUsernames: string[];
     private needReviewUsernameIds: string[];
 
@@ -22,8 +21,9 @@ class ProblemAccountPopup {
         this.topWindow = topWindow;
     }
 
-    public init(tableReport: JQuery) {
+    public init(tableReport: JQuery, indexManager: ProblemAccount) {
         this.$ckbSelectAll = this.$("#select-all");
+        this.indexManager = indexManager;
         this.$editPopupContainer = this.$('#edit-popup');
         this.editText = this.$('#editSettingText').val();
         this.editMultipleText = this.$('#editMultipleSettingText').val();
@@ -32,7 +32,6 @@ class ProblemAccountPopup {
         this.roleId = this.$("#RoleId").val();
 
         this.$updateMultipleIframeForm = this.$('form#update-multiple-suspend-form');
-        this.updateMultipleTarget = "update-multiple-suspend";
 
         this.$ckbSelectAll.click(_ => tableReport.find(".checkbox").prop("checked", this.$ckbSelectAll.is(":checked")));
         this.$("#edit-multiple").click(event => this.openMultiplePopup(event.currentTarget));
@@ -48,11 +47,12 @@ class ProblemAccountPopup {
         this.$(".open-button").off().on("click", event => this.changeStatusToSuspend(this.$(event.currentTarget)));
     }
 
-
+    private getPopupFrame = () => window.top.document.querySelector('[id^="page-popup-"] .modal-body iframe#popup-iframe');
 
     public reloadUpdateSuspendFrame = () => {
 
-        this.$updateMultipleIframeForm && this.$updateMultipleIframeForm.submit();
+        const popupIsOpened = this.getPopupFrame()
+        popupIsOpened && this.$updateMultipleIframeForm && this.$updateMultipleIframeForm.submit();
     }
 
     private changeStatusToSuspend(element) {
@@ -76,14 +76,14 @@ class ProblemAccountPopup {
                         SearchAccountName,
                         SearchAccountRoleId,
                         StatusName: "Suspended",
-                        StatusValue: "True"
+                        StatusValue: true
                     },
                     result => {
 
-                        if (result && result.Code === 0 && result.IsSuccessful) {
-                            $this.removeClass('open-button');
-                            $this.html($(`#suspended-text`).val());
-                            $this.parent().parent().attr("class", "RowBgSuspended");
+                        if (result && result.IsSuccessful) {
+                            this.indexManager.memberList.reloadPage();
+                            this.topWindow.successfulUpdatingCallbackAndReloadMainFrame(true);
+
                             return;
                         }
 
@@ -221,7 +221,7 @@ class ProblemAccountPopup {
             273,
             "modal-mobile-friendly");
         this.$('#CustIds').val(ids);
-        window.top.document.querySelector('[id^="page-popup-"] .modal-body iframe#popup-iframe').setAttribute("name", this.updateMultipleTarget);
+        this.getPopupFrame().setAttribute("name", "update-multiple-suspend");
 
     }
 

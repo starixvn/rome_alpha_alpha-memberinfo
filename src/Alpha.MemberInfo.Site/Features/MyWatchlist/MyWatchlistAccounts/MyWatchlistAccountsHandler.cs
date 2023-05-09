@@ -224,8 +224,9 @@
             return new ManagePersonalThresholdPresetViewModel(personalPresets);
         }
 
-        public async Task<ConfirmAddToWatchlistViewModel> Handle(ConfirmAddToWatchlistQuery message) {
-            var param = new SelectMultipleWatchlistParam(message.Ids,message.CustId, message.Site);
+        public async Task<ConfirmAddToWatchlistViewModel> Handle(ConfirmAddToWatchlistQuery message)
+        {
+            var param = new SelectMultipleWatchlistParam(message.Ids, message.Site);
             var multipleWatchlistAccountModel = await service.GetMultipleWatchlistAccount(param);
 
             return new ConfirmAddToWatchlistViewModel(multipleWatchlistAccountModel);

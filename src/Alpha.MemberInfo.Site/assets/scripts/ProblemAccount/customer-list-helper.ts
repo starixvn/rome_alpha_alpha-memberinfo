@@ -91,7 +91,7 @@ class CustomerListHelper {
                 Visibile: isAgentLogin
             },
             {
-                Content: this.renderUsernameColumn(customer),
+                Content: isAgentLogin ? this.renderUsernameColumn(customer) : UserName,
                 Attributes: [{ Name: 'class', Value: isMember ? '' : ' link view-downline' }].concat(commonAttributesJson),
                 Visibile: true
             },

@@ -4,6 +4,7 @@
     using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
+    using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.Requests;
     using Alpha.MemberInfo.Site.ViewModels.Components;
     using Alpha.Web.Helpers;
@@ -48,7 +49,7 @@
             IsMobile = isMobile;
             IsShowLastLoginColumn = request.LimitedDateToShowInfo == default(DateTime);
             CustLevel = request.CustLevel.DisplayName;
-            SearchRoleId = request.CustLevel.GetDirectDownLineLevel().Value;
+            SearchRoleId = UserLevel.Member.Value;
         }
 
         public ReachedThresholdPagingViewModel ReachedThresholdPagingViewModel { get; }
