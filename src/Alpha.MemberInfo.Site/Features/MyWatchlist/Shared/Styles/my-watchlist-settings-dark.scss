@@ -109,8 +109,19 @@
 }
 
 .box-settings {
+    position: relative;
+
     .btn-submit {
-        width: auto;
         margin-top: 10px;
+        width: auto;
+        position: absolute;
+        bottom: -40px;
+        right: 80px;
+    }
+
+    #btnCancel {
+        position: absolute;
+        right: 0;
+        bottom: -40px;
     }
 }
