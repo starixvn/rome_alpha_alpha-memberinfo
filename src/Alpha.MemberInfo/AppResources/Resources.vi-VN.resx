@@ -390,7 +390,7 @@
   <data name="Reviewed" xml:space="preserve">
     <value>Đã Xem</value>
   </data>
-  <data name="SetToReviewed" xml:space="preserve">
+  <data name="MarkAsReviewed" xml:space="preserve">
     <value>Đánh dấu Đã Xem</value>
   </data>
   <data name="ReviewStatus" xml:space="preserve">

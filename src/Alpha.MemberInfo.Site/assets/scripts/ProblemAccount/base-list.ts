@@ -292,7 +292,7 @@ class ViewResources {
         this.$ = $;
 
         this.NoInformationIsAvailable = this.$("#NoInformationIsAvailable").val();
-        this.UpdatePopupTitle = this.$("#UpdatePopupTitle").val();
+        this.UpdatePopupTitle = this.$("#markAsReviewedText").val();
         this.TotalColumnMaster = parseInt(this.$("#TotalColumnMaster").val());
         this.TotalColumnAgent = parseInt(this.$("#TotalColumnAgent").val());
         this.TotalColumnMember = parseInt(this.$("#TotalColumnMember").val());

@@ -375,8 +375,8 @@
   <data name="ReviewStatus" xml:space="preserve">
     <value>ตรวจสอบสถานะ</value>
   </data>
-  <data name="SetToReviewed" xml:space="preserve">
-    <value>ตั้งค่าการตรวจสอบ</value>
+  <data name="MarkAsReviewed" xml:space="preserve">
+    <value>บันทึกว่าตรวจสอบแล้ว</value>
   </data>
   <data name="Reviewed" xml:space="preserve">
     <value>ตรวจสอบแล้ว</value>
@@ -943,5 +943,14 @@
   </data>
   <data name="EditMutipleSetting" xml:space="preserve">
     <value>แก้ไขการตั้งค่าหลายรายการ</value>
+  </data>
+  <data name="AddToMyWatchlist" xml:space="preserve">
+    <value>เพิ่ิ่มเข้าสู่รายการเฝ้าดูของฉัน</value>
+  </data>
+  <data name="AddMultipleAccountsToWatchlist" xml:space="preserve">
+    <value>เพิ่มหลายบัญชีเข้าสู่รายการเฝ้าดูของฉัน</value>
+  </data>
+  <data name="SuspendMultipleAccounts" xml:space="preserve">
+    <value>ระงับหลายบัญชี</value>
   </data>
 </root>
