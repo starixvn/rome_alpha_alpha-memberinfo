@@ -125,3 +125,18 @@
         bottom: -40px;
     }
 }
+
+
+@media (max-width : 767px) {
+    .box-settings {
+        .btn-submit {
+            bottom: -60px;
+            right: 105px;
+        }
+
+        #btnCancel {
+            bottom: -60px;
+            height: 45px;
+        }
+    }
+}
