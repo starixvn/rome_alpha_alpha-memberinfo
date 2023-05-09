@@ -349,6 +349,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Classic View will be the default option until New View takes over on {0} (dd/mm/yyyy)..
+        /// </summary>
+        public static string classicViewSCNotifyMessage {
+            get {
+                return ResourceManager.GetString("classicViewSCNotifyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cleared Given Credit.
         /// </summary>
         public static string ClearedGivenCredit {
