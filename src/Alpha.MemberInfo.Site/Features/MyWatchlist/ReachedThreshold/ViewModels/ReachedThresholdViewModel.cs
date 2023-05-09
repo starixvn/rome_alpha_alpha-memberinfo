@@ -48,6 +48,7 @@
             IsMobile = isMobile;
             IsShowLastLoginColumn = request.LimitedDateToShowInfo == default(DateTime);
             CustLevel = request.CustLevel.DisplayName;
+            SearchRoleId = request.CustLevel.GetDirectDownLineLevel().Value;
         }
 
         public ReachedThresholdPagingViewModel ReachedThresholdPagingViewModel { get; }
@@ -61,7 +62,7 @@
         public GlobalThresholdModel GlobalThresholdModel { get; }
 
         public int SearchAccountId { get; }
-
+        public byte SearchRoleId { get; }
         public bool IsMobile { get; }
 
         public bool IsShowLastLoginColumn { get; }

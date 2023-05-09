@@ -8,6 +8,7 @@ class ReachedThresholdDataTable {
     private isMobile: boolean;
     private isShowLastLoginColumn: boolean;
     private textLocked: string;
+    private roleId: string;
     private textConfirmSuspendMember: string;
 
     private $txtUsername: JQuery;
@@ -31,6 +32,7 @@ class ReachedThresholdDataTable {
 
     private cacheDOMElements() {
         this.isMobile = this.$("#is-mobile").val() === "true";
+        this.roleId= this.$("#role-id").val();
         this.isShowLastLoginColumn = this.$("#is-show-last-login").val() === "true";
         this.textLocked = this.$("#text-locked").val();
         this.textConfirmSuspendMember = this.$("#text-confirm-suspend-member").val();
@@ -59,7 +61,7 @@ class ReachedThresholdDataTable {
         });
         this.$("#icon-excel").click(this.handleExportExcel);
     }
-    
+
 
 
     private buildDataTableOptions(reachedThresholdUrl: string) {
@@ -200,10 +202,7 @@ class ReachedThresholdDataTable {
         const $this = this.$(event.target);
         const SearchAccountId = $this.data("custid");
         const SearchAccountName = $this.data("username");
-
-        $this.addClass('suspended-button');
-        $this.removeClass('open-button');
-        $this.html($(`#suspend-text`).val());
+        const SearchAccountRoleId = this.roleId;
 
         this.topWindow.bootboxConfirm(
             this.textConfirmSuspendMember,
@@ -213,37 +212,23 @@ class ReachedThresholdDataTable {
                 AJAXHelper.postForm(`${baseUrl}CustomerList/UpdateCustomerStatus`, {
                     SearchAccountId,
                     SearchAccountName,
-                    SearchAccountRoleId: 1,
+                    SearchAccountRoleId,
                     StatusName: "Suspended",
                     StatusValue: "True"
                 }, result => {
 
                     if (result && result.Code === 0 && result.IsSuccessful) {
-                        $this.removeClass('suspended-button');
+                        $this.removeClass('open-button');
                         $this.html($(`#suspended-text`).val());
                         $this.parent().parent().attr("class", "RowBgSuspended");
                         return;
                     }
 
-
-                    if (result && result.ErrCode !== 0) {
-                        $this.removeClass('suspended-button');
-                        $this.addClass('open-button');
-                        $this.html($(`#open-text`).val());
-                        this.topWindow.bootboxAlert(result.ErrMsg);
-                        return;
-                    }
+                    this.topWindow.bootboxAlert(result.Message);
 
                 })
-            },
-            () => {
-                //cancel
-
-                $this.removeClass('suspended-button');
-                $this.addClass('open-button');
-                $this.html($(`#open-text`).val());
-
             }
+
         );
     }
 
