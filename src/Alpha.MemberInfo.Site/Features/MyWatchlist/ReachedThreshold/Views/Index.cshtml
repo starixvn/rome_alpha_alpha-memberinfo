@@ -128,6 +128,7 @@
 <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
 <input type="hidden" id="reach-history-popup-title" value="@Resources.ReachHistory" />
 <input type="hidden" id="is-mobile" value='@(Model.IsMobile ? "true" : "false")' />
+<input type="hidden" id="role-id" value=@Model.SearchRoleId />
 <input type="hidden" id="page-size" value="@Resources.PageSize" />
 <input type="hidden" id="page" value="@Resources.Page" />
 <input type="hidden" id="of" value="@Resources.Of" />
@@ -135,7 +136,4 @@
 <input type="hidden" id="is-show-last-login" value="@(Model.IsShowLastLoginColumn ? "true" : "false")" />
 <input type="hidden" id="text-locked" value="@Resources.Locked" />
 <input type="hidden" id="text-confirm-suspend-member" value="@ProductResources.ConfirmSuspendedViewModelInCaseSuspendedMemberMessage" />
-<input type="hidden" id="text-confirm-unsuspend-member" value="@ProductResources.ConfirmSuspendedViewModelInCaseUnsuspendedMemberMessage" />
-<input type="hidden" id="open-text" value="@Resources.Open" />
-<input type="hidden" id="suspend-text" value="@Resources.Suspend" />
 <input type="hidden" id="suspended-text" value="@Resources.Suspended" />

@@ -64,10 +64,6 @@ class ProblemAccountPopup {
         const SearchAccountRoleId = this.roleId;
 
         const message = this.$("#changeStatusToSuspendMessage").val();
-        $this.addClass('suspended-button');
-        $this.removeClass('open-button');
-        $this.html($(`#suspendText`).val());
-
         this.topWindow.bootboxConfirm(
             message,
             null,
@@ -85,27 +81,16 @@ class ProblemAccountPopup {
                     result => {
 
                         if (result && result.Code === 0 && result.IsSuccessful) {
-                            $this.removeClass('suspended-button');
+                            $this.removeClass('open-button');
                             $this.html($(`#suspended-text`).val());
-                            //update column bg
+                            $this.parent().parent().attr("class", "RowBgSuspended");
                             return;
                         }
-                        if (result && result.ErrCode === 1) {
 
-                            $this.html($(`#openText`).val());
-                            $this.remove('suspended-button');
-                            $this.addClass('open-button');
-                            this.topWindow.bootboxAlert(result.ErrMsg);
-                        }
+                        this.topWindow.bootboxAlert(result.Message);
+
                     });
-            },
-            () => {
-                $this.html($(`#openText`).val());
-                $this.remove('suspended-button');
-                $this.addClass('open-button');
-
             }
-
         );
     }
 
@@ -147,7 +132,7 @@ class ProblemAccountPopup {
         this.needReviewUsernames = [];
         this.needReviewUsernameIds = [];
         let isEnableMarkReview = false;
-        
+
         const ids = [];
         const usernames = [];
         checkboxs.each((_, checkbox) => {
