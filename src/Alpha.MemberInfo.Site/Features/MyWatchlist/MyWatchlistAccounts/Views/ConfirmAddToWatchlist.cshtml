@@ -15,23 +15,25 @@
 
 }
 
-<div class="box-settings">
+<div class="box-settings flex-settings">
+    <div class="content-settings">
 
-    @if (Model.HasAlreadyAddedAccounts)
-    {
-        <p class="red">@Resources.AccountsAlreadyInWatchlist: @Model.AlreadyAddedAccounts </p>
-    }
+        @if (Model.HasAlreadyAddedAccounts)
+        {
+            <p class="red">@Resources.AccountsAlreadyInWatchlist: @Model.AlreadyAddedAccounts </p>
+        }
 
-    @if (Model.IsExceedLimit)
-    {
-        <p class="red">@Resources.AddMultipleToWatchlistExceedMessage  </p>
-    }
+        @if (Model.IsExceedLimit)
+        {
+            <p class="red">@Resources.AddMultipleToWatchlistExceedMessage  </p>
+        }
 
-    @if (Model.HasNewlyAddedAccounts)
-    {
-        <p class="note">@Resources.NewlyAddedAccounts: @Model.NewlyAddedAccounts </p>
-        @Html.Raw(@Resources.AddToWatchListConfirmThresholds)
-    }
+        @if (Model.HasNewlyAddedAccounts)
+        {
+            <p class="note">@Resources.NewlyAddedAccounts: @Model.NewlyAddedAccounts </p>
+            @Html.Raw(@Resources.AddToWatchListConfirmThresholds)
+        }
+    </div>
     <div class="button-group">
         @if (Model.HasNewlyAddedAccounts)
         {
