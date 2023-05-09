@@ -565,7 +565,6 @@
     </Content>
     <Content Include="assets\scripts\aes.js" />
     <Content Include="assets\scripts\indirect-login-account\quick-introduction.js" />
-    <Content Include="assets\styles\images\suspended.png" />
     <Content Include="assets\styles\images\open.png" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.css">
       <DependentUpon>copy-account-dark.scss</DependentUpon>

@@ -72,7 +72,7 @@
 
         public string TranslatedStatus => Resources.ResourceManager.GetString(Status);
 
-        public bool IsOpen => Status.Equals(Resources.Open, StringComparison.OrdinalIgnoreCase);
+        public bool IsOpen => Status.Equals("Open", StringComparison.OrdinalIgnoreCase);
 
         public bool IsSuspended => Status.Equals(Resources.Suspended, StringComparison.OrdinalIgnoreCase);
 
