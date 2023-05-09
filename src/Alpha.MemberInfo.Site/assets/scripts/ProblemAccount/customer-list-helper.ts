@@ -111,7 +111,7 @@ class CustomerListHelper {
                 Visibile: true
             },
             {
-                Content: this.renderStatusColumn(customer),
+                Content: isAgentLogin ? this.renderStatusColumn(customer) : StatusName,
                 Attributes: [{ Name: 'class', Value: 'text-center' }],
                 Visibile: true
             },
