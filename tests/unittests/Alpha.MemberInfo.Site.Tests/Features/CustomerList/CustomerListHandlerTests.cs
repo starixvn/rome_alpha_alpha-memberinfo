@@ -225,9 +225,7 @@
             var customerProductStatus = new List<CustomerProductStatus>
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
-                new CustomerProductStatus(ProductConstants.NumberGame, true),
                 new CustomerProductStatus(ProductConstants.ESport, true),
-                new CustomerProductStatus(ProductConstants.Keno, hidden: true),
             };
 
             var actualActorProductStatus = handler.BuildActorProductStatus(message, Enumerable.Empty<DCSProductStatusModel>());
@@ -240,9 +238,7 @@
             var customerProductStatus = new List<CustomerProductStatus>
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
-                new CustomerProductStatus(ProductConstants.NumberGame, true),
                 new CustomerProductStatus(ProductConstants.ESport, true),
-                new CustomerProductStatus(ProductConstants.Keno, hidden: true),
             };
 
             var actualSearchAccountProduct = handler.BuildSearchAccountProductStatus(StubNonDCSProduct(), Enumerable.Empty<DCSProductStatusModel>());
@@ -255,9 +251,7 @@
             var customerProductStatus = new List<CustomerProductStatus>
             {
                 new CustomerProductStatus(ProductConstants.Sportsbook, true),
-                new CustomerProductStatus(ProductConstants.NumberGame, true),
                 new CustomerProductStatus(ProductConstants.ESport, true),
-                new CustomerProductStatus(ProductConstants.Keno, hidden: true),
             };
 
             var actualUplineProductStatus = handler.BuildUplineProductStatus(StubNonDCSProduct(), Enumerable.Empty<DCSProductStatusModel>());
@@ -308,12 +302,8 @@
 
         private static NonDCSProductStatusModel StubNonDCSProduct()
             => new NonDCSProductStatusModel(
-                       disableNumber: true,
-                       uplineDisableNumber: true,
                        disableEsports: true,
-                       uplineDisableEsports: true,
-                       hideKeno: true,
-                       disableKeno: false
+                       uplineDisableEsports: true
                       );
 
         private static NonProductStatusModel StubNonProductStatus()

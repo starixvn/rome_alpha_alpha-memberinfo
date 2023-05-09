@@ -64,16 +64,10 @@
         {
             var sportsbook = Substitute.For<IConfigurationItem>();
             sportsbook.ProductId.Returns(1);
-
-            var keno = Substitute.For<IConfigurationItem>();
-            keno.ProductId.Returns(8);
-
-
             return new List<object[]>()
             {
                 new object[] { request, 1, new SportsbookViewModel(request, sportsbook) },
                 new object[] { request, 5, new DynamicProductViewModel(request, CreateDynamicProduct(5)) },
-                new object[] { request, 8, new KenoViewModel(request, keno) },
                 new object[] { request, 16, new DynamicProductViewModel(request, CreateDynamicProduct(16)) },
                 new object[] { request, 21, new DynamicProductViewModel(request, CreateDynamicProduct(21)) },
                 new object[] { request, 22, new DynamicProductViewModel(request, CreateDynamicProduct(22)) },

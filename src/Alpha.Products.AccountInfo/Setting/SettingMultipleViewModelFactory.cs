@@ -38,9 +38,6 @@ namespace Alpha.Products.AccountInfo.Setting
                 case Sportsbook:
                     return new SportsbookMultipleViewModel(request, productItem);            
 
-                case Keno:
-                    return new KenoMultipleViewModel(request, productItem);              
-
                 case Sportsbook2:
                     return new Sportsbook2MultipeViewModel(request, productItem);
 

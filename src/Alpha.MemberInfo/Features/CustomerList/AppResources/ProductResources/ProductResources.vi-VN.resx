@@ -432,9 +432,6 @@
   <data name="YesterdayCash" xml:space="preserve">
     <value>Số dư tài khoản đến hết hôm qua</value>
   </data>
-  <data name="EditMultipleRNGKenoText" xml:space="preserve">
-    <value>Tùy chỉnh đồng loạt cho RNG Keno</value>
-  </data>
   <data name="EditMultipleSportsbook2" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Sportsbook 2</value>
   </data>

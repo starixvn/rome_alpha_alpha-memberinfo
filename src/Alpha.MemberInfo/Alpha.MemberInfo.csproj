@@ -167,15 +167,15 @@
       <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.6.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.6.8\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.7.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.7.1\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.2\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.5\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.7\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Utilities.3.0.2\lib\net461\Sunplus.Agent.Utilities.dll</HintPath>
@@ -546,15 +546,28 @@
       <LastGenOutput>CustomerListResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.ja-JP.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.ko-KR.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.zh-TW.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.zh-CN.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.vi-VN.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.th-TH.resx" />
-    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.ja-JP.resx" />
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.ko-KR.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.zh-TW.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.vi-VN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.th-TH.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.ja-JP.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\CustomerList\AppResources\ProductResources\ProductResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

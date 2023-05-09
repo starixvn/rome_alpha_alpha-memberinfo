@@ -429,9 +429,6 @@
   <data name="YesterdayCash" xml:space="preserve">
     <value>Yesterday Cash</value>
   </data>
-  <data name="EditMultipleRNGKenoText" xml:space="preserve">
-    <value>Edit Multiple RNG Keno</value>
-  </data>
   <data name="EditMultipleSportsbookText" xml:space="preserve">
     <value>Edit Multiple Sportsbook</value>
   </data>

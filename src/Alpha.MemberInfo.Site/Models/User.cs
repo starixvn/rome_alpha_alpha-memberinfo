@@ -75,11 +75,7 @@
 
         public bool IsAllowedIndirectLogin => !userSession.IsIndirectLoggedIn && AppSettings.IsAllowedIndirectLogin(Srecommend);
 
-        public bool IsHideKeno => userSession.IsHideKeno;      
-
         public bool IsDisabledESports => userSession.IsDisabledESports;
-
-        public bool IsNumberGameDisabled => userSession.IsNumberGameDisabled;      
 
         public bool AllowedTotalBalanceTransfer => userSession.IsAllowedTotalBalanceTransfer;
 

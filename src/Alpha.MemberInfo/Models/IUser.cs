@@ -55,11 +55,7 @@
 
         bool GetDisabledProduct(int productId);
 
-        bool IsHideKeno { get; }     
-
         bool IsDisabledESports { get; }
-
-        bool IsNumberGameDisabled { get; }  
 
         bool AllowedTotalBalanceTransfer { get; }
 
