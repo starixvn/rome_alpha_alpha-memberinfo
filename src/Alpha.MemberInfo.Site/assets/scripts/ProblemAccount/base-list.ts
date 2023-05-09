@@ -60,7 +60,7 @@ class BaseList {
         this.isIndirectDownlineOfActor = this.levelId < this.indexManager.ActorLevel - 1;
         this.directDownlineRoleId = this.levelId - 1;
         this.cacheDOMElements();
-        this.problemAccountPopup && this.problemAccountPopup.init(this.$tblReport);
+        this.problemAccountPopup && this.problemAccountPopup.init(this.$tblReport, indexManager);
 
         this.customerListHelper = new CustomerListHelper(this.$, indexManager.viewResources);
         this.$downlineObject = downlineObject;

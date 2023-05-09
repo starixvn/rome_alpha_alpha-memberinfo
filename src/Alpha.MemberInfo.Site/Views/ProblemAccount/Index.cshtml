@@ -268,7 +268,7 @@ new { Text = Resources.ReviewStatus, ClassName = "", Show = true}
                 }
                 @if (Model.Query.CustLevel.IsNotAgentLevel())
                 {
-                    <th><span class="icon-review-user update-@levelName" title="@Resources.SetToReviewed"></span></th>
+                    <th><span class="icon-review-user update-@levelName" title="@Resources.MarkAsReviewed"></span></th>
                 }
             </tr>
         </thead>

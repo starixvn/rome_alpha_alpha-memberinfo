@@ -203,19 +203,18 @@ class ReachedThresholdDataTable {
 
         this.topWindow.bootboxConfirm(
             this.textConfirmSuspendMember,
-            event.target,
+            null,
             () => {
                 AJAXHelper.postForm(`${baseUrl}CustomerList/UpdateCustomerStatus`, {
                     SearchAccountId,
                     SearchAccountName,
                     SearchAccountRoleId,
                     StatusName: "Suspended",
-                    StatusValue: "True"
+                    StatusValue: true
                 }, result => {
-                    if (result && result.Code === 0 && result.IsSuccessful) {
-                        $this.removeClass('open-button');
-                        $this.html($(`#suspended-text`).val());
-                        $this.parent().parent().attr("class", "RowBgSuspended");
+
+                    if (result && result.IsSuccessful) {
+                        this.$table.ajax.reload();
                         return;
                     }
 
