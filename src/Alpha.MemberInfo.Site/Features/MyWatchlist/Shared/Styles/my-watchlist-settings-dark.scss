@@ -117,3 +117,11 @@
 .button-group {
     text-align: right;
 }
+
+@media (max-width : 480px){
+    .button-group {
+        .btn-cancel{
+            height : 45px;
+        }
+    }
+}
