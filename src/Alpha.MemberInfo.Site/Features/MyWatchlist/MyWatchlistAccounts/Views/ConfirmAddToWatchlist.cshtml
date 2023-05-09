@@ -2,7 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = Resources.GlobalThresholdSettings;
+    ViewBag.Title = Resources.AddMultipleToWatchlist;
 }
 
 @section Styles {
@@ -31,14 +31,19 @@
     {
         <p class="note">@Resources.NewlyAddedAccounts: @Model.NewlyAddedAccounts </p>
         @Html.Raw(@Resources.AddToWatchListConfirmThresholds)
-        <button class="btn-submit" id="btnSubmit">@Resources.SetThresholds</button>
     }
+    <div class="button-group">
+        @if (Model.HasNewlyAddedAccounts)
+        {
+            <button class="btn-submit" id="btnSubmit">@Resources.SetThresholds</button>
+        }
 
-    <input type="button" class="btn-cancel" id="btnCancel" value="@Resources.Cancel" />
+        <input type="button" class="btn-cancel" id="btnCancel" value="@Resources.Cancel" />
+    </div>
+
 </div>
 
 @Html.AntiForgeryToken()
 
 @Html.Hidden("member-info-url", MicroSites.MemberInfoUrl())
 @Html.Hidden("NewlyAddedAccounts", @Model.NewlyAddedAccounts)
-
