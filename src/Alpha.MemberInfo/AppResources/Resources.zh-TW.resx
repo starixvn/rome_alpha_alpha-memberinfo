@@ -330,8 +330,8 @@
   <data name="ReviewStatus" xml:space="preserve">
     <value>審查狀態</value>
   </data>
-  <data name="SetToReviewed" xml:space="preserve">
-    <value>設為已審查</value>
+  <data name="MarkAsReviewed" xml:space="preserve">
+    <value>標記為已審核</value>
   </data>
   <data name="Reviewed" xml:space="preserve">
     <value>已審查</value>
@@ -940,5 +940,14 @@
   </data>
   <data name="EditMutipleSetting" xml:space="preserve">
     <value>修改多重設置</value>
+  </data>
+  <data name="AddToMyWatchlist" xml:space="preserve">
+    <value>添加至我的監控列表</value>
+  </data>
+  <data name="AddMultipleAccountsToWatchlist" xml:space="preserve">
+    <value>將多重賬號添加到我的監控列表</value>
+  </data>
+  <data name="SuspendMultipleAccounts" xml:space="preserve">
+    <value>暫停多重賬號</value>
   </data>
 </root>

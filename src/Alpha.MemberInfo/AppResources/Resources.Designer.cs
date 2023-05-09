@@ -394,15 +394,6 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to chage Suspend status for this customers?&lt;br/&gt;Warning, this member can&apos;t place bet!.
-        /// </summary>
-        public static string ChangeStatusToSuspendMessage {
-            get {
-                return ResourceManager.GetString("ChangeStatusToSuspendMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Classic view.
         /// </summary>
         public static string ClassicView {
@@ -826,29 +817,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Setting.
-        /// </summary>
-        public static string EditMutipleSetting {
-            get {
-                return ResourceManager.GetString("EditMutipleSetting", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Personal Threshold.
         /// </summary>
         public static string EditPersonalThreshold {
             get {
                 return ResourceManager.GetString("EditPersonalThreshold", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit Setting.
-        /// </summary>
-        public static string EditSetting {
-            get {
-                return ResourceManager.GetString("EditSetting", resourceCulture);
             }
         }
         
@@ -2292,15 +2265,6 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Set to Reviewed.
-        /// </summary>
-        public static string SetToReviewed {
-            get {
-                return ResourceManager.GetString("SetToReviewed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Show all {0} accounts?.
         /// </summary>
         public static string ShowAllAccounts {
@@ -2396,15 +2360,6 @@ namespace Alpha.MemberInfo.AppResources {
         public static string SupportsSportsbookDataOnly {
             get {
                 return ResourceManager.GetString("SupportsSportsbookDataOnly", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Suspend.
-        /// </summary>
-        public static string Suspend {
-            get {
-                return ResourceManager.GetString("Suspend", resourceCulture);
             }
         }
         

@@ -63,7 +63,7 @@ class ProblemAccountPopup {
 
         const SearchAccountRoleId = this.roleId;
 
-        const message = this.$("#changeStatusToSuspendMessage").val();
+        const message = this.$("#changeStatusToSuspendText").val();
         this.topWindow.bootboxConfirm(
             message,
             null,
