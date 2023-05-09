@@ -120,9 +120,14 @@ table.dataTable {
 
     box-sizing: border-box;
 
-    .cell-username {
+    tbody td.col-username {
+        padding: 0 0 0 8px;
         display: flex;
         align-items: center;
+
+        .col-username-text {
+            margin-right: 4px;
+        }
     }
 }
 

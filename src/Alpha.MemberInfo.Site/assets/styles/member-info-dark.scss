@@ -219,22 +219,15 @@ html {
 }
 
 %btn {
-    width: 100px;
-    height: 22px;
-    line-height: 22px;
+    width: 80px;
+    height: 20px;
+    line-height: 20px;
     margin: auto;
     text-align: center;
     font-size: 11px;
     color: #fff;
     cursor: pointer;
 }
-
-.suspended-button {
-    @extend %btn;
-    padding-right: 20px;
-    background: url('./images/suspended.png');
-}
-
 
 .open-button {
     @extend %btn;

@@ -32,7 +32,7 @@ class ReachedThresholdDataTable {
 
     private cacheDOMElements() {
         this.isMobile = this.$("#is-mobile").val() === "true";
-        this.roleId= this.$("#role-id").val();
+        this.roleId = this.$("#role-id").val();
         this.isShowLastLoginColumn = this.$("#is-show-last-login").val() === "true";
         this.textLocked = this.$("#text-locked").val();
         this.textConfirmSuspendMember = this.$("#text-confirm-suspend-member").val();
@@ -126,7 +126,7 @@ class ReachedThresholdDataTable {
         !this.isMobile &&
             columns.push({ className: 'center', data: "RowNumber", orderable: false });
 
-        columns.push({ className: 'left', data: null, render: (data, type) => this.renderUsernameCell(data, type), name: "Username" });
+        columns.push({ className: 'left col-username', data: null, render: (data, type) => this.renderUsernameCell(data, type), name: "Username" });
 
         this.isShowLastLoginColumn &&
             columns.push({ className: 'center', data: "LastLoggedString", name: "LastLogin" });
@@ -153,16 +153,15 @@ class ReachedThresholdDataTable {
 
     private renderUsernameCell(data, type) {
         if (type === "display") {
-            if (data.Locked) {
-                let html = `<div class="cell-username"><div class="pull-left">${data.Username}</div>`;
-                if (data.Locked) {
-                    html += `<div class="pull-right"><span class="icon-locked" title="${this.textLocked}"></span></div>`
-                }
-
-                return html + "</div>";
-            }
-
-            return data.Username;
+            return data.Locked
+                ? [
+                    '<div class="col-username-text">',
+                    data.Username,
+                    '</div><div><span class="icon-locked" title="',
+                    this.textLocked,
+                    '"></span></div>'
+                ].join("")
+                : data.Username;
         }
 
         return data;
@@ -171,11 +170,9 @@ class ReachedThresholdDataTable {
 
     private renderStatusCell(data, type) {
         if (type === "display") {
-            if (data.IsOpen) {
-                return `<div class="open-button" data-custid="${data.CustId}" data-username="${data.Username}">${data.TranslatedStatus}</div>`;
-            }
-
-            return data.TranslatedStatus;
+            return data.IsOpen
+                ? `<div class="open-button" data-custid="${data.CustId}" data-username="${data.Username}">${data.TranslatedStatus}</div>`
+                : data.TranslatedStatus;
         }
 
         return data;
@@ -208,7 +205,6 @@ class ReachedThresholdDataTable {
             this.textConfirmSuspendMember,
             event.target,
             () => {
-
                 AJAXHelper.postForm(`${baseUrl}CustomerList/UpdateCustomerStatus`, {
                     SearchAccountId,
                     SearchAccountName,
@@ -216,7 +212,6 @@ class ReachedThresholdDataTable {
                     StatusName: "Suspended",
                     StatusValue: "True"
                 }, result => {
-
                     if (result && result.Code === 0 && result.IsSuccessful) {
                         $this.removeClass('open-button');
                         $this.html($(`#suspended-text`).val());
@@ -225,11 +220,8 @@ class ReachedThresholdDataTable {
                     }
 
                     this.topWindow.bootboxAlert(result.Message);
-
-                })
-            }
-
-        );
+                });
+            });
     }
 
     private handleOpenReachHistory(event, baseUrl) {
