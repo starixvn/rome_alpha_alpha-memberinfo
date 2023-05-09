@@ -119,18 +119,27 @@
     }
 }
 .button-group {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    text-align: right;
+}
+
+.flex-settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95vh;
 }
 
 @media screen and (max-device-width: 767px) {
     .button-group {
-        text-align: right;
-        position: unset;
-
         .btn-cancel {
             height: 45px;
         }
+    }
+    .flex-settings {
+        display: unset;
+        height : auto;
+    }
+    .modal-mobile-friendly .modal-dialog .modal-body{
+        padding : 8px !important;
     }
 }
