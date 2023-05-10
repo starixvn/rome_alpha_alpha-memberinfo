@@ -155,11 +155,11 @@ class ReachedThresholdDataTable {
         if (type === "display") {
             return data.Locked
                 ? [
-                    '<div class="col-username-text">',
+                    '<div class="cell-username"><div class="cell-username-text">',
                     data.Username,
                     '</div><div><span class="icon-locked" title="',
                     this.textLocked,
-                    '"></span></div>'
+                    '"></span></div></div>'
                 ].join("")
                 : data.Username;
         }
@@ -203,7 +203,7 @@ class ReachedThresholdDataTable {
 
         this.topWindow.bootboxConfirm(
             this.textConfirmSuspendMember,
-            null,
+            this.isMobile ? null : event.target,
             () => {
                 AJAXHelper.postForm(`${baseUrl}CustomerList/UpdateCustomerStatus`, {
                     SearchAccountId,

@@ -122,11 +122,14 @@ table.dataTable {
 
     tbody td.col-username {
         padding: 0 0 0 8px;
-        display: flex;
-        align-items: center;
 
-        .col-username-text {
-            margin-right: 4px;
+        .cell-username {
+            display: flex;
+            align-items: center;
+
+            .cell-username-text {
+                margin-right: 4px;
+            }
         }
     }
 }
