@@ -218,7 +218,7 @@ class ProblemAccountPopup {
             url,
             title,
             1158,
-            273,
+            800,
             "modal-mobile-friendly");
         this.$('#CustIds').val(ids);
         this.getPopupFrame().setAttribute("name", "update-multiple-suspend");

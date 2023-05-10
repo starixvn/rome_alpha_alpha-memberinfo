@@ -108,9 +108,20 @@
     background-color: #969696;
 }
 
-#tbl-member .icon-table-edit {
-    font-size: 18px;
-    cursor : pointer;
+#tbl-member {
+    .icon-table-edit {
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .cell-username {
+        display: flex;
+        align-items: center;
+
+        .pull-right {
+            margin-left: auto;
+        }
+    }
 }
 #edit-popup {
     height: fit-content !important;

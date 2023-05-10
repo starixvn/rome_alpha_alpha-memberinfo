@@ -47,8 +47,10 @@ class CustomerListHelper {
     private renderUsernameColumn = item => {
         const textLocked = this.$("#text-locked").val();
         return item.Locked
-            ? `${item.UserName}
-                <span class="pull-right icon-locked" title="${textLocked}"></span>`
+            ? `<div class="cell-username">
+                ${item.UserName}
+                <span class="pull-right icon-locked" title="${textLocked}"></span>
+                <div/>`
             : `${item.UserName}`;
     }
 
