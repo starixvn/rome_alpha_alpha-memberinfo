@@ -70,6 +70,7 @@
 
             return await dynamicRepository.FetchAsync<PersonalPresetModel>(criteria);
         }
+
         public async Task<MultipleWatchlistAccountModel> GetMultipleWatchlistAccount(SelectMultipleWatchlistParam param)
         {
             var criteria = new SelectMultipleWatchlistCriteria(param.CustList);
@@ -86,7 +87,6 @@
                 newlyAddedAccounts.AddRange(rawdata.Item2);
             }
             return new MultipleWatchlistAccountModel(alreadyAddedAccounts, newlyAddedAccounts);
-
         }
 
         public async Task<IEnumerable<NamedResult>> AddPersonalThreshold(AddPersonalThresholdParam param)
@@ -197,6 +197,5 @@
 
             return new Result { Code = command.ErrCode, Message = command.ErrMsg };
         }
-
     }
 }

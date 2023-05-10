@@ -51,7 +51,6 @@ class BaseList {
         this.dateRangePickerComponent = dateRangePickerComponent;
         this.problemAccountPopup = problemAccountPopup;
         this.topWindow.needReloadMainFrameAfterUpdating = true;
-
     }
 
     public init(indexManager: ProblemAccount, downlineObject: BaseList) {
@@ -260,7 +259,6 @@ class BaseList {
 
         this.bindReportEvents();
         this.problemAccountPopup && this.problemAccountPopup.bindEvents(this.$tblReport);
-
     }
 
     reloadPage() {

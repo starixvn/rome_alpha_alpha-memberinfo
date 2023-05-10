@@ -37,7 +37,6 @@
         public async Task<ActionResult> ConfirmAddToWatchlist(ConfirmAddToWatchlistQuery message)
             => await ViewAsync(message, ConfirmAddToWatchlistPath);
 
-
         [HttpPost]
         public async Task<ActionResult> GetWatchlistAccounts(WatchlistAccountsQuery message)
         {

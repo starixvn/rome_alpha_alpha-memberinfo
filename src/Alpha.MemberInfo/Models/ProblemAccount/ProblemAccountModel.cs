@@ -17,7 +17,7 @@
 
         public string NickName => string.IsNullOrEmpty(Username2) ? string.Empty : Username2;
 
-        public string UserName { get; } 
+        public string UserName { get; }
 
         public string FirstName { get; }
 

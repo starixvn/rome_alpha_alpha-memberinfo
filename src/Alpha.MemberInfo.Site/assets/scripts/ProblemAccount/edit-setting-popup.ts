@@ -66,7 +66,6 @@ class ProblemAccountPopup {
             message,
             null,
             () => {
-
                 AJAXHelper.postForm(
                     `${this.memberInfoUrl}CustomerList/UpdateCustomerStatus`,
                     {
@@ -77,16 +76,12 @@ class ProblemAccountPopup {
                         StatusValue: true
                     },
                     result => {
-
                         if (result && result.IsSuccessful) {
                             this.indexManager.memberList.reloadPage();
                             this.topWindow.successfulUpdatingCallbackAndReloadMainFrame(true);
-
                             return;
                         }
-
                         this.topWindow.bootboxAlert(result.Message);
-
                     });
             }
         );
@@ -179,7 +174,7 @@ class ProblemAccountPopup {
         }
         else {
             this.$editPopupContainer
-                .css({ height: '70px', width: 'fit-content' })
+                .css({ height: 'fit-content', width: 'fit-content', paddingRight: '0px' })
                 .modal({ show: true, backdrop: false });
 
             $modalDialog.css({ width: '100%' });
