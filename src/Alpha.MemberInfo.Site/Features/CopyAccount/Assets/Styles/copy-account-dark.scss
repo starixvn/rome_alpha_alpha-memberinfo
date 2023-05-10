@@ -839,5 +839,13 @@ select:-webkit-autofill:focus {
         margin-top: calculateScale(5px);
         align-items: flex-start;
         width: 100%;
+
+        i {
+            font-size: calculateScale(20px);
+        }
+
+        p {
+            font-size: calculateScale(14px);
+        }
     }
 }
