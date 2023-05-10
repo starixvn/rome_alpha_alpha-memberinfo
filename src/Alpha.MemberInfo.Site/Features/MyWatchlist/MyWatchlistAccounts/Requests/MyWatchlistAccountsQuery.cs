@@ -12,6 +12,7 @@
         }
 
         public bool IsOpenFromProblemAccount { get; set; }
+
         public string Ids { get; set; }
 
         public IUser Viewer { get; }

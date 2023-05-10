@@ -27,14 +27,16 @@
                     NewlyAddedAccounts = string.Join(", ", newlyAddedAccounts.Take(limitMember).Select(c => c.Username).ToArray());
                 }
             }
-
-
         }
 
         public string AlreadyAddedAccounts { get; }
+
         public string NewlyAddedAccounts { get; }
+
         public bool HasAlreadyAddedAccounts => !string.IsNullOrWhiteSpace(AlreadyAddedAccounts);
+
         public bool HasNewlyAddedAccounts => !string.IsNullOrWhiteSpace(NewlyAddedAccounts);
+
         public bool IsExceedLimit { get; }
     }
 }

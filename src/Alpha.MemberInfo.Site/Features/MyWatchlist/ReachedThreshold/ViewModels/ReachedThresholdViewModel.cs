@@ -7,7 +7,6 @@
     using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
-    using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.Requests;
     using Alpha.MemberInfo.Site.ViewModels.Components;
     using Alpha.Web.Helpers;
@@ -61,6 +60,7 @@
         public GlobalThresholdModel GlobalThresholdModel { get; }
 
         public int SearchAccountId { get; }
+
         public bool IsMobile { get; }
 
         public bool IsShowLastLoginColumn { get; }

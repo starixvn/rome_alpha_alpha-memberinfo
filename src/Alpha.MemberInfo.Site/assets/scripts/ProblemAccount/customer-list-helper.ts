@@ -34,7 +34,6 @@ class CustomerListHelper {
         return `<input type="checkbox" ${this.buildAttributes(attrs)} />`;
     }
 
-
     private renderEditColumn = item => {
         const attrs = {
             'class': 'edit icon-table-edit',
