@@ -8,8 +8,8 @@ class ReachedThresholdDataTable {
     private isMobile: boolean;
     private isShowLastLoginColumn: boolean;
     private textLocked: string;
-    private roleId: string;
     private textConfirmSuspendMember: string;
+    private canUpdateAccount: boolean;
 
     private $txtUsername: JQuery;
     private $fromDate: JQuery;
@@ -32,10 +32,10 @@ class ReachedThresholdDataTable {
 
     private cacheDOMElements() {
         this.isMobile = this.$("#is-mobile").val() === "true";
-        this.roleId = this.$("#role-id").val();
         this.isShowLastLoginColumn = this.$("#is-show-last-login").val() === "true";
         this.textLocked = this.$("#text-locked").val();
         this.textConfirmSuspendMember = this.$("#text-confirm-suspend-member").val();
+        this.canUpdateAccount = this.$("#can-update-account").val() === "true";
 
         this.$txtUsername = this.$("#txt-username");
         this.$fromDate = this.$("#from-date");
@@ -61,8 +61,6 @@ class ReachedThresholdDataTable {
         });
         this.$("#icon-excel").click(this.handleExportExcel);
     }
-
-
 
     private buildDataTableOptions(reachedThresholdUrl: string) {
         const sortDefinitions = {
@@ -132,7 +130,7 @@ class ReachedThresholdDataTable {
             columns.push({ className: 'center', data: "LastLoggedString", name: "LastLogin" });
 
         columns.push(
-            { className: 'center', data: null, render: this.renderStatusCell, name: "Status" },
+            { className: 'center', data: null, render: (data, type) => this.renderStatusCell(data, type), name: "Status" },
             { className: 'center', data: "IsPAText", name: "IsPA" },
             { className: 'center', data: "LastReachedDateString", name: "LastReach" },
             { className: 'center', data: "TranslatedLastLimitTypeReach", name: "LastLimitTypeReach" },
@@ -170,7 +168,7 @@ class ReachedThresholdDataTable {
 
     private renderStatusCell(data, type) {
         if (type === "display") {
-            return data.IsOpen
+            return data.IsOpen && this.canUpdateAccount
                 ? `<div class="open-button" data-custid="${data.CustId}" data-username="${data.Username}">${data.TranslatedStatus}</div>`
                 : data.TranslatedStatus;
         }
@@ -199,7 +197,6 @@ class ReachedThresholdDataTable {
         const $this = this.$(event.target);
         const SearchAccountId = $this.data("custid");
         const SearchAccountName = $this.data("username");
-        const SearchAccountRoleId = this.roleId;
 
         this.topWindow.bootboxConfirm(
             this.textConfirmSuspendMember,
@@ -208,11 +205,10 @@ class ReachedThresholdDataTable {
                 AJAXHelper.postForm(`${baseUrl}CustomerList/UpdateCustomerStatus`, {
                     SearchAccountId,
                     SearchAccountName,
-                    SearchAccountRoleId,
+                    SearchAccountRoleId: 1,
                     StatusName: "Suspended",
                     StatusValue: true
                 }, result => {
-
                     if (result && result.IsSuccessful) {
                         this.$table.ajax.reload();
                         return;
