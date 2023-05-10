@@ -932,4 +932,7 @@
   <data name="lblUsername" xml:space="preserve">
     <value>用户名</value>
   </data>
+  <data name="classicViewSCNotifyMessage" xml:space="preserve">
+    <value>经典版将设为预设版型，{0} (日/月/年) 起将全面切会换新版面。</value>
+  </data>
 </root>

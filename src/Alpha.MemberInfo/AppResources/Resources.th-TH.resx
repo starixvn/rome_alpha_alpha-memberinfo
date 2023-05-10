@@ -932,4 +932,7 @@
   <data name="lblUsername" xml:space="preserve">
     <value>ชื่อผู้ใช้ระบบ</value>
   </data>
+  <data name="classicViewSCNotifyMessage" xml:space="preserve">
+    <value>มุมมองแบบเดิมจะเป็นตัวเลือกตั้งต้น จนถึงวันที่ {0} (dd/mm/yyyy) แล้วจะถูกแทนที่ด้วยมุมมองแบบใหม่</value>
+  </data>
 </root>
