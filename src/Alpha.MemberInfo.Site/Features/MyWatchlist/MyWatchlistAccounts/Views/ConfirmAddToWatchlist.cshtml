@@ -35,7 +35,7 @@
         }
     </div>
     <div class="button-group">
-        <button class="btn-submit" id="btnSubmit" disabled="@(!Model.HasNewlyAddedAccounts)">@Resources.SetThresholds</button>
+        <button class="btn-submit" id="btnSubmit" disabled="@(!Model.HasNewlyAddedAccounts?"disabled":"")">@Resources.SetThresholds</button>
         <input type="button" class="btn-cancel" id="btnCancel" value="@Resources.Cancel" />
     </div>
 

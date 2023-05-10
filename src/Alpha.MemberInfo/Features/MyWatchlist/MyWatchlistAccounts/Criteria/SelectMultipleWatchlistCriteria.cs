@@ -7,11 +7,9 @@
         public SelectMultipleWatchlistCriteria(string custList)
         {
             CustList = custList;
-
         }
 
         public string CustList { get; }
-
 
         public override string GetSettingKey() => "Acc_WLMonitored_CheckExistSettingByCust";
 

@@ -61,8 +61,6 @@ class ProblemAccountPopup {
         const SearchAccountId = this.$(element).data("custid");
         const SearchAccountName = $this.data("username");
 
-        const SearchAccountRoleId = this.roleId;
-
         const message = this.$("#changeStatusToSuspendText").val();
         this.topWindow.bootboxConfirm(
             message,
@@ -74,7 +72,7 @@ class ProblemAccountPopup {
                     {
                         SearchAccountId,
                         SearchAccountName,
-                        SearchAccountRoleId,
+                        SearchAccountRoleId: 1,
                         StatusName: "Suspended",
                         StatusValue: true
                     },
@@ -217,7 +215,7 @@ class ProblemAccountPopup {
         this.topWindow.popupManager.open(
             url,
             title,
-            1158,
+            1000,
             800,
             "modal-mobile-friendly");
         this.$('#CustIds').val(ids);

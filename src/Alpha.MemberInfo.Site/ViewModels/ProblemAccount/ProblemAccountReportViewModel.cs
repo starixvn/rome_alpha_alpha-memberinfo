@@ -40,11 +40,14 @@
         public IndexRequest Query { get; }
 
         public const int TotalColumnMaster = 10;
+
         public bool IsMobileView { get; }
+
+        public bool CanUpdateAccount => Query.CanUpdateAccount;
 
         public int TotalColumnAgent => Query.CustLevel.IsMasterLevel() ? 10 : 9;
 
-        public int TotalColumnMember => Query.CustLevel.IsAgentLevel() ? 10 : 8;
+        public int TotalColumnMember => Query.CustLevel.IsAgentLevel() && Query.CanUpdateAccount ? 10 : 8;
 
         public static string UsernameAutoSuggestionPath
             => MicroSites.OldMainUrl("~/_GlobalResources/Handlers/QueryUserName.ashx");

@@ -2,11 +2,13 @@
 class CustomerListHelper {
     viewResources: ViewResources;
     $: JQueryStatic;
+    private canUpdateAccount: string;
 
 
     constructor($: JQueryStatic, viewResources: ViewResources) {
         this.$ = $;
         this.viewResources = viewResources;
+        this.canUpdateAccount = JSON.parse(this.$("#CanUpdateAccount").val());
     }
 
     private buildCommonAttributesJson(CustId, Username: string, roleId) {
@@ -50,7 +52,7 @@ class CustomerListHelper {
             ? `<div class="cell-username">
                 ${item.UserName}
                 <span class="pull-right icon-locked" title="${textLocked}"></span>
-                <div/>`
+                </div>`
             : `${item.UserName}`;
     }
 
@@ -85,15 +87,15 @@ class CustomerListHelper {
             {
                 Content: this.renderCheckboxColumn(customer),
                 Attributes: [{ Name: 'class', Value: 'center' }],
-                Visibile: isAgentLogin
+                Visibile: isAgentLogin && this.canUpdateAccount
             },
             {
                 Content: this.renderEditColumn(customer),
                 Attributes: [{ Name: 'class', Value: 'center' }],
-                Visibile: isAgentLogin
+                Visibile: isAgentLogin && this.canUpdateAccount
             },
             {
-                Content: isAgentLogin ? this.renderUsernameColumn(customer) : UserName,
+                Content: isAgentLogin && this.canUpdateAccount ? this.renderUsernameColumn(customer) : UserName,
                 Attributes: [{ Name: 'class', Value: isMember ? '' : ' link view-downline' }].concat(commonAttributesJson),
                 Visibile: true
             },
@@ -113,7 +115,7 @@ class CustomerListHelper {
                 Visibile: true
             },
             {
-                Content: isAgentLogin ? this.renderStatusColumn(customer) : StatusName,
+                Content: isAgentLogin && this.canUpdateAccount ? this.renderStatusColumn(customer) : StatusName,
                 Attributes: [{ Name: 'class', Value: 'text-center' }],
                 Visibile: true
             },
