@@ -13,7 +13,7 @@
 
         public bool IsOpenFromProblemAccount { get; set; }
 
-        public string Ids { get; set; }
+        public string CustIds { get; set; }
 
         public IUser Viewer { get; }
     }

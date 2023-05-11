@@ -75,7 +75,7 @@
 
         public async Task<ConfirmAddToWatchlistViewModel> Handle(ConfirmAddToWatchlistQuery message)
         {
-            var param = new SelectMultipleWatchlistParam(message.Ids, message.Site);
+            var param = new SelectMultipleWatchlistParam(message.CustIds, message.Site);
             var multipleWatchlistAccountModel = await myWatchlistAccountsService.GetMultipleWatchlistAccount(param);
 
             return new ConfirmAddToWatchlistViewModel(multipleWatchlistAccountModel);

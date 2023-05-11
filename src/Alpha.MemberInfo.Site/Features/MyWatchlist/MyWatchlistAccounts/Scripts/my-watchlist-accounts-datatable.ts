@@ -190,16 +190,16 @@ class MyWatchlistAccountsDataTable {
     }
 
     private openAddMultiplePopup() {
-        const ids = this.$('#ids').val();
+        const custIds = this.$('#custIds').val();
         const baseUrl = this.$('#member-info-url').val();
 
         this.topWindow.popupManager.open(
-            `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?Usernames=${ids}&isEdite=true`,
+            `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?Usernames=${custIds}&isEdite=true`,
             undefined,
             820,
             550,
             "modal-mobile-friendly");
-        this.$('#ids').val("");
+        this.$('#custIds').val("");
         this.$('#isOpenFromProblemAccount').val("");
 
     }

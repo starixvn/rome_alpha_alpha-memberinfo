@@ -256,7 +256,7 @@ class ProblemAccountPopup {
             : this.$("#addMultipleToMyWatchlistText").val();
         const custIds = data.ids.join(",");
         this.topWindow.popupManager.open(
-            `${this.memberInfoUrl}ProblemAccount/ConfirmAddToWatchlist?Ids=${custIds}`,
+            `${this.memberInfoUrl}ProblemAccount/ConfirmAddToWatchlist?custIds=${custIds}`,
             title,
             485,
             238,
