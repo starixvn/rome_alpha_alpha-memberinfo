@@ -177,6 +177,39 @@
     }
 }
 
+div#update-multiple-suspend-popup {
+    overflow: hidden;
+}
+
+#update-multiple-suspend-popup {
+    .modal-dialog {
+        width: 100%;
+        height: 100%;
+
+        .modal-content {
+
+            .modal-body {
+                width: 100%;
+                height: calc(100% - 40px);
+                padding: 0px;
+            }
+
+            .modal-header {
+                display: flex;
+                justify-content: space-between;
+                padding-right: 0;
+
+                .modal-title {
+                    width: 100%;
+                }
+
+                button {
+                    padding: 0 16px;
+                }
+            }
+        }
+    }
+}
 
 @media (max-width : 1440px) {
     .filter {
@@ -223,6 +256,12 @@
                     }
                 }
             }
+        }
+    }
+
+    #update-multiple-suspend-popup {
+        .modal-body {
+            padding: 0px;
         }
     }
 }

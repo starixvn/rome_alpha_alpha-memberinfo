@@ -33,9 +33,9 @@
 }
 
 .checkall-section {
-    margin-bottom:10px;
+    margin-bottom: 10px;
 
-    >a {
+    > a {
         color: rgb(51, 51, 51);
         font-weight: bold;
         text-decoration: none;
@@ -82,7 +82,7 @@
     }
 }
 
-.icon-review-user, .icon-uncheck, .icon-checkbox{
+.icon-review-user, .icon-uncheck, .icon-checkbox {
     cursor: pointer;
 }
 
@@ -93,18 +93,23 @@
 .RowBgDisabled {
     background-color: #a0a97a;
 }
+
 .RowBgLockedFalsePassword {
     background-color: #ccc7ba;
 }
+
 .RowBgClosedByAdmin {
     background-color: #b3a2c7;
 }
+
 .RowBgClosedByUpline {
     background-color: #f79646;
 }
+
 .RowBgLockedFalsedOTPSC {
     background-color: #86c5e4;
 }
+
 .RowBgClosedByArchive {
     background-color: #969696;
 }
@@ -124,6 +129,7 @@
         }
     }
 }
+
 #edit-popup {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.19);
     padding-right: 0 !important;
@@ -158,12 +164,46 @@
     }
 }
 
-input[type="radio"], input[type="checkbox"] {
-    top : 0 !important;
+div#update-multiple-suspend-popup{
+    overflow:hidden;
 }
 
-button{
-    outline : none !important;
+#update-multiple-suspend-popup {
+    .modal-dialog {
+        width: 100%;
+        height: 100%;
+
+        .modal-content {
+
+            .modal-body {
+                width: 100%;
+                height: calc(100% - 40px);
+                padding: 10px;
+            }
+
+            .modal-header {
+                display: flex;
+                justify-content: space-between;
+                padding-right: 0;
+
+                .modal-title {
+                    width: 100%;
+                }
+
+                button {
+                    padding: 0 16px;
+                }
+            }
+        }
+    }
+}
+
+input[type="radio"], input[type="checkbox"] {
+    top: 0 !important;
+}
+
+button {
+    outline: none !important;
 }
 
 
@@ -188,6 +228,7 @@ button{
         }
     }
 }
+
 @media (max-width : 768px) {
     .filter {
         margin: calculateScale(10px) 0;
@@ -223,6 +264,12 @@ button{
                     }
                 }
             }
+        }
+    }
+
+    #update-multiple-suspend-popup {
+        .modal-body {
+            padding: 0px;
         }
     }
 }

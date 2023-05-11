@@ -12,5 +12,7 @@
         }
 
         public string CustIds { get; set; }
+
+        public override bool IsValid() => base.IsValid() && !string.IsNullOrWhiteSpace(CustIds);
     }
 }
