@@ -22,7 +22,6 @@ class ConfirmAddToWatchlist {
 
         $("#btnSubmit").on("click touchend", () => {
             const newlyAddedAccounts = this.$('#NewlyAddedAccounts').val();
-            const baseUrl = this.$('#member-info-url').val();
             const watchlistPage = this.$('#member-info-url').val() + `MyWatchlistAccounts`;
             const params = `?IsOpenFromProblemAccount=true&custIds=${newlyAddedAccounts}`;
 

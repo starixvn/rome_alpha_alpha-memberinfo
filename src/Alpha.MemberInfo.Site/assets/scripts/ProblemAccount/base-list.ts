@@ -5,8 +5,8 @@ class BaseList {
     topWindow: Window;
     reviewStatusComponent: SingleSelectionDropdownComponent;
     problemAccountPopup: ProblemAccountPopup;
-
     dateRangePickerComponent: DateRangePickerComponent;
+
     $fromDate: JQuery;
     $toDate: JQuery;
     $updateButton: JQuery;

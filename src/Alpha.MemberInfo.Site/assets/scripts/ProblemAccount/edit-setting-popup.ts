@@ -22,20 +22,26 @@ class ProblemAccountPopup {
     }
 
     public init(tableReport: JQuery, indexManager: ProblemAccount) {
-        this.$ckbSelectAll = this.$("#select-all");
         this.indexManager = indexManager;
+        this.cacheDOMElements();
+
+        this.$ckbSelectAll.click(_ => tableReport.find(".checkbox").prop("checked", this.$ckbSelectAll.is(":checked")));
+        this.$("#edit-multiple").click(event => this.openMultiplePopup(event.currentTarget));
+        this.$editPopupContainer.on("mouseleave", _ => this.$editPopupContainer.modal("hide"));
+    }
+
+    private cacheDOMElements() {
+        this.$ckbSelectAll = this.$("#select-all");
         this.$editPopupContainer = this.$('#edit-popup');
         this.editText = this.$('#editSettingText').val();
         this.editMultipleText = this.$('#editMultipleSettingText').val();
         this.memberInfoUrl = this.$("#memberInfoUrl").val();
         this.updateMultipleSuspendUrl = this.$("#accountInfoUrl").val() + "UnsuspendDownlines/EditMultiple";
         this.roleId = this.$("#RoleId").val();
-
         this.$updateMultipleIframeForm = this.$('form#update-multiple-suspend-form');
-
-        this.$ckbSelectAll.click(_ => tableReport.find(".checkbox").prop("checked", this.$ckbSelectAll.is(":checked")));
-        this.$("#edit-multiple").click(event => this.openMultiplePopup(event.currentTarget));
-        this.$editPopupContainer.on("mouseleave", _ => this.$editPopupContainer.modal("hide"));
+        this.topWindow["indexManager"].reloadProblemAccount = () => {
+            this.indexManager.memberList.reloadPage();
+        };
     }
 
     public bindEvents(tableReport: JQuery) {
@@ -224,6 +230,7 @@ class ProblemAccountPopup {
         const usernames = data.usernames.join(", ");
         const ids = data.ids.join(",");
         const params = `ids=${ids}&usernames=${usernames}&roleId=${this.roleId}`;
+
         const url = `${this.memberInfoUrl}ProblemAccount/Update?${params}`;
         this.topWindow.popupManager.open(
             url,
