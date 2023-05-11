@@ -11,6 +11,6 @@
         {
         }
 
-        public string Ids { get; set; }
+        public string CustIds { get; set; }
     }
 }

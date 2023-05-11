@@ -25,7 +25,7 @@
             IsShowLastLoginColumn = request.IsShowLastLoginColumn;
             CustLevel = request.CustLevel.DisplayName;
             IsOpenFromProblemAccount = request.IsOpenFromProblemAccount;
-            Ids = request.Ids;
+            CustIds = request.CustIds;
         }
 
         public int SearchAccountId { get; }
@@ -42,7 +42,7 @@
 
         public bool CanUpdateAccount { get; }
         public bool IsOpenFromProblemAccount { get; }
-        public string Ids { get; }
+        public string CustIds { get; }
 
         public DateTime MinDate => DateTime.Today.AddMonths(-3).FirstDayOfMonth();
 

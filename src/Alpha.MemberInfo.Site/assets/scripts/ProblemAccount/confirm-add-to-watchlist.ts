@@ -24,7 +24,7 @@ class ConfirmAddToWatchlist {
             const newlyAddedAccounts = this.$('#NewlyAddedAccounts').val();
             const baseUrl = this.$('#member-info-url').val();
             const watchlistPage = this.$('#member-info-url').val() + `MyWatchlistAccounts`;
-            const params = `?IsOpenFromProblemAccount=true&Ids=${newlyAddedAccounts}`;
+            const params = `?IsOpenFromProblemAccount=true&custIds=${newlyAddedAccounts}`;
 
             const mainFrame = this.topWindow.$('#main');
 
