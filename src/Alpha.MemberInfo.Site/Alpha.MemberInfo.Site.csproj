@@ -527,6 +527,10 @@
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
       <DependentUpon>member-requests.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.js" />
+    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.min.js">
+      <DependentUpon>confirm-add-to-watchlist.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\problem-account\index-dark.css" />
     <Content Include="assets\bundles\problem-account\index-dark.min.css">
       <DependentUpon>index-dark.css</DependentUpon>
@@ -590,10 +594,6 @@
     <Content Include="Features\CopyAccount\bundles\copy-account.min.js">
       <DependentUpon>copy-account.js</DependentUpon>
     </Content>
-    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\confirm-add-to-watchlist.js" />
-    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Bundles\confirm-add-to-watchlist.min.js">
-      <DependentUpon>confirm-add-to-watchlist.js</DependentUpon>
-    </Content>
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.js" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.min.js">
       <DependentUpon>reached-threshold-datatable.js</DependentUpon>
@@ -601,6 +601,7 @@
     <Content Include="IbcKeys\ibckey.snk" />
     <Content Include="IbcKeys\ibckeydec.snk" />
     <Content Include="IbcKeys\Web.config" />
+    <Content Include="Views\ProblemAccount\ConfirmAddToWatchlist.cshtml" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\edit-setting-popup.ts" />
     <TypeScriptCompile Include="assets\scripts\shared\customer-status-helper.ts" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
@@ -935,7 +936,6 @@
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account.scss" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.scss" />
     <Content Include="Features\CopyAccount\Views\_CopyResult.cshtml" />
-    <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Views\ConfirmAddToWatchlist.cshtml" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
@@ -1130,7 +1130,7 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\DeletePersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\GlobalThresholdQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageGlobalThresholdQuery.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ConfirmAddToWatchlistQuery.cs" />
+    <Compile Include="Requests\ProblemAccount\ConfirmAddToWatchlistQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManagePersonalThresholdPresetQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageWatchlistAccountsQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\MyWatchlistAccountsQuery.cs" />
@@ -1141,7 +1141,6 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\UpdateMultiplePersonalThresholdCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\UpdatePersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\WatchlistAccountsQuery.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ConfirmAddToWatchlistViewModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ManageGlobalThresholdViewModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ManagePersonalThresholdPresetViewModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\ViewModels\ManageWatchlistAccountsViewModel.cs" />
@@ -1248,6 +1247,7 @@
     <Compile Include="ViewModels\IndirectLoginAccount\UpdatePasswordViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
+    <Compile Include="ViewModels\ProblemAccount\ConfirmAddToWatchlistViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\ProblemAccountReportViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\UpdateReviewStatusViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -1498,7 +1498,7 @@
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyThresholds\Scripts\my-thresholds-settings.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyThresholds\Scripts\my-thresholds.ts" />
-    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\confirm-add-to-watchlist.ts" />
+    <TypeScriptCompile Include="assets\scripts\ProblemAccount\confirm-add-to-watchlist.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\Shared\Scripts\threshold-inputs-base.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\manage-global-threshold.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\manage-presets.ts" />

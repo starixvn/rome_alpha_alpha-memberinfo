@@ -1,8 +1,8 @@
-﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Requests
+﻿namespace Alpha.MemberInfo.Site.Requests.ProblemAccount
 {
     using Alpha.MemberInfo.Models;
-    using Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.ViewModels;
     using Alpha.MemberInfo.Site.Requests;
+    using Alpha.MemberInfo.Site.ViewModels.ProblemAccount;
     using MediatR;
 
     public class ConfirmAddToWatchlistQuery : MemberInfoBaseQuery, IAsyncRequest<ConfirmAddToWatchlistViewModel>

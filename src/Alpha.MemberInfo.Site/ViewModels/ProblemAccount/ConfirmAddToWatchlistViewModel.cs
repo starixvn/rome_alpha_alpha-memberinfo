@@ -1,8 +1,8 @@
-﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.ViewModels
+﻿namespace Alpha.MemberInfo.Site.ViewModels.ProblemAccount
 {
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
     using System.Linq;
-
+    
     public class ConfirmAddToWatchlistViewModel
     {
         private const int limitMember = 50;

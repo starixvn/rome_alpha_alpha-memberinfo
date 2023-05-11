@@ -15,6 +15,7 @@
         Task<WatchlistAccountReport> GetWatchlistAccounts(SelectWatchlistAccountsParam param);
 
         Task<IEnumerable<PersonalPresetModel>> GetPresets(SelectPresetsParam param);
+
         Task<MultipleWatchlistAccountModel> GetMultipleWatchlistAccount(SelectMultipleWatchlistParam param);
 
         Task<IEnumerable<NamedResult>> AddPersonalThreshold(AddPersonalThresholdParam param);

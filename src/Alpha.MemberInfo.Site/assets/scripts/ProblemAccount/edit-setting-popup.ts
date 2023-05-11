@@ -169,12 +169,12 @@ class ProblemAccountPopup {
             this.$editPopupContainer.find('.modal-title').empty().append(title);
             $modalDialog.css({ height: '100%', width: '100%' });
             this.$editPopupContainer
-                .css({ top: 0, left: 0, height: '100%', width: '100%', paddingRight: '0px' })
+                .css({ top: 0, left: 0, height: '100%', width: '100%' })
                 .modal({ show: true, backdrop: false });
         }
         else {
             this.$editPopupContainer
-                .css({ height: 'fit-content', width: 'fit-content', paddingRight: '0px' })
+                .css({ height: 'fit-content', width: 'fit-content' })
                 .modal({ show: true, backdrop: false });
 
             $modalDialog.css({ width: '100%' });
@@ -256,7 +256,7 @@ class ProblemAccountPopup {
             : this.$("#addMultipleToMyWatchlistText").val();
         const custIds = data.ids.join(",");
         this.topWindow.popupManager.open(
-            `${this.memberInfoUrl}MyWatchlistAccounts/ConfirmAddToWatchlist?Ids=${custIds}`,
+            `${this.memberInfoUrl}ProblemAccount/ConfirmAddToWatchlist?Ids=${custIds}`,
             title,
             485,
             238,
