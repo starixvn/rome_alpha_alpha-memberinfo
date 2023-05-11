@@ -1,6 +1,9 @@
 ﻿namespace Alpha.MemberInfo.Site.Handlers
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
+    using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Params;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Models.ProblemAccount;
     using Alpha.MemberInfo.Params.ProblemAccount;
@@ -14,15 +17,19 @@
         IRequestHandler<IndexRequest, ProblemAccountReportViewModel>,
         IRequestHandler<GetProblemAccountRequest, IEnumerable<ProblemAccountModel>>,
         IRequestHandler<UpdateProblemAccountCommand, Result>,
-        IRequestHandler<UpdateProblemAccountRequest, UpdateReviewStatusViewModel>
+        IRequestHandler<UpdateProblemAccountRequest, UpdateReviewStatusViewModel>,
+        IAsyncRequestHandler<ConfirmAddToWatchlistQuery, ConfirmAddToWatchlistViewModel>
     {
-        private readonly IProblemAccountService service;
+        private readonly IProblemAccountService problemAccountService;
+        private readonly MyWatchlistAccountsService myWatchlistAccountsService;
         private readonly BrowserHelper browserHelper;
 
-        public ProblemAccountHandler(IProblemAccountService service, BrowserHelper browserHelper)
+        public ProblemAccountHandler(IProblemAccountService problemAccountService, MyWatchlistAccountsService myWatchlistAccountsService, BrowserHelper browserHelper)
         {
+
             this.browserHelper = browserHelper;
-            this.service = service;
+            this.problemAccountService = problemAccountService;
+            this.myWatchlistAccountsService = myWatchlistAccountsService;
         }
 
         public UpdateReviewStatusViewModel Handle(UpdateProblemAccountRequest message)
@@ -30,7 +37,7 @@
 
         public Result Handle(UpdateProblemAccountCommand message)
         {
-            return service.UpdateReviewStatus(new UpdateProblemAccountParam
+            return problemAccountService.UpdateReviewStatus(new UpdateProblemAccountParam
             {
                 CustId = message.CustId,
                 CustomerList = message.Ids,
@@ -48,7 +55,7 @@
 
         public IEnumerable<ProblemAccountModel> Handle(GetProblemAccountRequest message)
         {
-            var models = service.Get(CreateParam(message));
+            var models = problemAccountService.Get(CreateParam(message));
 
             return models;
         }
@@ -65,5 +72,13 @@
                 SearchRoleId = message.SearchRoleId,
                 SearchUserName = message.UserName
             };
+
+        public async Task<ConfirmAddToWatchlistViewModel> Handle(ConfirmAddToWatchlistQuery message)
+        {
+            var param = new SelectMultipleWatchlistParam(message.Ids, message.Site);
+            var multipleWatchlistAccountModel = await myWatchlistAccountsService.GetMultipleWatchlistAccount(param);
+
+            return new ConfirmAddToWatchlistViewModel(multipleWatchlistAccountModel);
+        }
     }
 }

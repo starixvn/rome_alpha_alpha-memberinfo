@@ -1,4 +1,5 @@
-﻿@model ConfirmAddToWatchlistViewModel
+﻿@using Alpha.MemberInfo.Site.ViewModels.ProblemAccount
+@model ConfirmAddToWatchlistViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,7 +12,7 @@
 }
 
 @section Scripts {
-    @StaticResources.RenderScripts("~/Features/MyWatchlist/MyWatchlistAccounts/Bundles/confirm-add-to-watchlist")
+    @StaticResources.RenderScripts("~/assets/bundles/problem-account/confirm-add-to-watchlist")
 
 }
 
@@ -35,7 +36,7 @@
         }
     </div>
     <div class="button-group">
-        <button class="btn-submit" id="btnSubmit" disabled="@(!Model.HasNewlyAddedAccounts?"disabled":"")">@Resources.SetThresholds</button>
+        <button class="btn-submit" id="btnSubmit" @(!Model.HasNewlyAddedAccounts?"disabled":"")>@Resources.SetThresholds</button>
         <input type="button" class="btn-cancel" id="btnCancel" value="@Resources.Cancel" />
     </div>
 

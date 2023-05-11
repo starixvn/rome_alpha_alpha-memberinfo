@@ -340,9 +340,9 @@
     ]
   },
   {
-    "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/confirm-add-to-watchlist.js",
+    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist.js",
     "inputFiles": [
-      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/confirm-add-to-watchlist.js"
+      "assets/scripts/ProblemAccount/confirm-add-to-watchlist.js"
     ]
   },
   /************************** Dark Mode ************************/
