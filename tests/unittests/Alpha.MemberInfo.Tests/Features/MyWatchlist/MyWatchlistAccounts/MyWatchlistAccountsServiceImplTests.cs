@@ -33,7 +33,7 @@
             // Arrange
             var param = new SelectWatchlistAccountsParam(
                 1234,
-                "agent0101", 
+                "agent0101",
                 string.Empty,
                 1,
                 false,
@@ -50,6 +50,55 @@
 
             // Act
             var actualResults = await service.GetWatchlistAccounts(param);
+
+            // Assert
+            AssertExtension.Equal(expectedResults, actualResults);
+        }
+
+        [Fact]
+        public async Task GetMultipleWatchlistAccount_HasData_ReturnsCorrectResults()
+        {
+            // Arrange
+            var param = new SelectMultipleWatchlistParam("1,2,3", string.Empty);
+            IEnumerable<WatchlistAccountModel> alreadyAddedAccounts = new List<WatchlistAccountModel>()
+            {
+                new WatchlistAccountModel()
+                {
+                    LastLogged = DateTime.Now,
+                    LosingThreshold = 200,
+                    Status = AppResources.Resources.Open,
+                    WinningThreshold = 2000
+                },
+                new WatchlistAccountModel() {
+                    LastLogged = DateTime.Now,
+                    LosingThreshold = 200,
+                    Status = AppResources.Resources.Open,
+                    WinningThreshold = 2000
+                },
+            };
+            IEnumerable<WatchlistAccountModel> newlyAddedAccounts = new List<WatchlistAccountModel>()
+            {
+                new WatchlistAccountModel() {
+                    LastLogged = DateTime.Now,
+                    LosingThreshold = 200,
+                    Status = AppResources.Resources.Open,
+                    WinningThreshold = 2000
+                },
+                new WatchlistAccountModel() {
+                    LastLogged = DateTime.Now,
+                    LosingThreshold = 200,
+                    Status = AppResources.Resources.Open,
+                    WinningThreshold = 2000
+                },
+            };
+
+            var expectedResults = new MultipleWatchlistAccountModel(alreadyAddedAccounts, newlyAddedAccounts);
+
+            dynamicRepository.FetchMultipleAsync<WatchlistAccountModel, WatchlistAccountModel>(Arg.Any<SelectMultipleWatchlistCriteria>())
+            .Returns(new Tuple<IEnumerable<WatchlistAccountModel>, IEnumerable<WatchlistAccountModel>>(alreadyAddedAccounts, newlyAddedAccounts));
+
+            // Act
+            var actualResults = await service.GetMultipleWatchlistAccount(param);
 
             // Assert
             AssertExtension.Equal(expectedResults, actualResults);
