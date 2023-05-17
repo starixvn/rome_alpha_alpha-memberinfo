@@ -88,7 +88,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Account(s) already in My Watchlist.
+        ///   Looks up a localized string similar to Account(s) already on My Watchlist.
         /// </summary>
         public static string AccountsAlreadyInWatchlist {
             get {
@@ -169,7 +169,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Multiple To Watchlist.
+        ///   Looks up a localized string similar to Add Multiple Accounts to My Watchlist.
         /// </summary>
         public static string AddMultipleToWatchlist {
             get {
@@ -817,11 +817,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Multiple Setting.
+        /// </summary>
+        public static string EditMutipleSetting {
+            get {
+                return ResourceManager.GetString("EditMutipleSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Personal Threshold.
         /// </summary>
         public static string EditPersonalThreshold {
             get {
                 return ResourceManager.GetString("EditPersonalThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Setting.
+        /// </summary>
+        public static string EditSetting {
+            get {
+                return ResourceManager.GetString("EditSetting", resourceCulture);
             }
         }
         
@@ -1347,7 +1365,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mark Multiple as Reviewed.
+        ///   Looks up a localized string similar to Mark Multiple Accounts as Reviewed.
         /// </summary>
         public static string MarkMultipleAsReviewed {
             get {

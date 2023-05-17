@@ -950,4 +950,28 @@
   <data name="SuspendMultipleAccounts" xml:space="preserve">
     <value>ระงับหลายบัญชี</value>
   </data>
+  <data name="SetThresholds" xml:space="preserve">
+    <value>ตั้งค่าเกณฑ์</value>
+  </data>
+  <data name="AccountsAlreadyInWatchlist" xml:space="preserve">
+    <value>บัญชีมีอยู่แล้วใน รายการเฝ้าดูของฉัน</value>
+  </data>
+  <data name="NewlyAddedAccounts" xml:space="preserve">
+    <value>บัญชีที่เพิ่มมาใหม่</value>
+  </data>
+  <data name="AddToWatchListConfirmThresholds" xml:space="preserve">
+    <value>ขอแนะนำให้คุณตั้งค่าเกณฑ์สำหรับบัญชีที่เพิ่มใหม่มาข้างต้น คลิก&lt;b&gt; ตั้งค่าเกณฑ์ &lt;/b&gt;เพื่อดำเนินการต่อ</value>
+  </data>
+  <data name="AddMultipleToWatchlistExceedMessage" xml:space="preserve">
+    <value>คุณสามารถเพิ่มสมาชิกไปยังรายการเฝ้าดูได้สูงสุด 50 คนต่อครั้ง</value>
+  </data>
+  <data name="AddMultipleToWatchlist" xml:space="preserve">
+    <value>เพิ่มหลายบัญชีเข้าสู่รายการเฝ้าดูของฉัน</value>
+  </data>
+  <data name="MarkMultipleAsReviewed" xml:space="preserve">
+    <value>บันทึกหลายบัญชีพร้อมกันว่าตรวจสอบแล้ว</value>
+  </data>
+  <data name="ProblemAccount" xml:space="preserve">
+    <value>บัญชีที่มีปัญหา</value>
+  </data>
 </root>
