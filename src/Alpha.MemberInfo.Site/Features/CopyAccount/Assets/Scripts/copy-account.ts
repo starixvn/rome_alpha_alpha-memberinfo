@@ -42,7 +42,7 @@ class CopyAccount {
 
     $btnSwitchVersion: JQuery;
     oldVersionUrl: string;
-    numberFormat = '0,0.##';
+    numberFormat = '0,0[.]00';
     clipboardUsernames: any;
     hashKey: string;
 
