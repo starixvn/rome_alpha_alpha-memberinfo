@@ -164,8 +164,15 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
                 return;
             }
 
-            isFailed || SiteHelper.closePopupAndReloadMainFrame();
+            isFailed || this.reloadPage()
         }
+    }
+
+    private reloadPage() {
+        setTimeout(() => {
+            this.topWindow.$('#main').attr('src', `${this.baseUrl}MyWatchlistAccounts`);
+        }, 3000)
+
     }
 }
 
