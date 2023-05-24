@@ -6,17 +6,15 @@ class ProblemAccountPopup {
     private indexManager: ProblemAccount
     private $ckbSelectAll: JQuery;
     private $editPopupContainer: JQuery;
-    private $updateMultipleIframeForm: JQuery;
-    private $updateMultiplePopup: JQuery;
-    private $closeUpdateMultipleIframePopup: JQuery;
 
     private editText: string;
     private editMultipleText: string;
     private memberInfoUrl: string;
-    private updateMultipleSuspendUrl: string;
     private roleId: string;
     private needReviewUsernames: string[];
     private needReviewUsernameIds: string[];
+    private needUpdateSuspendUsernames: string[];
+    private needUpdateSuspendUsernameIds: string[];
 
     constructor($: JQueryStatic, topWindow: any) {
         this.$ = $;
@@ -30,7 +28,6 @@ class ProblemAccountPopup {
         this.$ckbSelectAll.click(_ => tableReport.find(".checkbox").prop("checked", this.$ckbSelectAll.is(":checked")));
         this.$("#edit-multiple").click(event => this.openMultiplePopup(event.currentTarget));
         this.$editPopupContainer.on("mouseleave", _ => this.$editPopupContainer.modal("hide"));
-        this.$closeUpdateMultipleIframePopup.off().on("click", event => this.$closeUpdateMultipleIframePopup.modal('hide'));
     }
 
     private cacheDOMElements() {
@@ -39,11 +36,7 @@ class ProblemAccountPopup {
         this.editText = this.$('#editSettingText').val();
         this.editMultipleText = this.$('#editMultipleSettingText').val();
         this.memberInfoUrl = this.$("#memberInfoUrl").val();
-        this.updateMultipleSuspendUrl = this.$("#accountInfoUrl").val() + "UnsuspendDownlines/EditMultiple";
         this.roleId = this.$("#RoleId").val();
-        this.$updateMultipleIframeForm = this.$('form#update-multiple-suspend-form');
-        this.$updateMultiplePopup = this.$('#update-multiple-suspend-popup');
-        this.$closeUpdateMultipleIframePopup = this.$('#close-update-multiple-suspend-popup');
 
         this.topWindow["indexManager"].reloadProblemAccount = () => {
             this.indexManager.memberList.reloadPage();
@@ -60,11 +53,6 @@ class ProblemAccountPopup {
     }
 
 
-    public reloadUpdateSuspendFrame = () => {
-        if (this.$('#update-multiple-suspend-popup.in').length > 0) {
-            this.$updateMultipleIframeForm && this.$updateMultipleIframeForm.submit();
-        }
-    }
 
     private changeStatusToSuspend(element) {
         const $this = this.$(event.target);
@@ -89,7 +77,6 @@ class ProblemAccountPopup {
                     result => {
                         if (result && result.IsSuccessful) {
                             this.indexManager.memberList.reloadPage();
-                            this.topWindow.successfulUpdatingCallbackAndReloadMainFrame(true);
                             return;
                         }
                         this.topWindow.bootboxAlert(result.Message);
@@ -99,9 +86,7 @@ class ProblemAccountPopup {
     }
 
     private openSinglePopup(element) {
-        const id = "#" + this.$(element).attr("id");
-        const isReviewed = $(id).closest('tr').attr('is-reviewed');
-
+        const isReviewed = this.hasAttribute(element, "is-reviewed")
         const markReviewMenu = `<li class="edit-popup icon-edit" id="mark-as-reviewed-selected">${this.$("#markAsReviewedText").val()}</li>`;
 
         const disableMarkReviewMenu = `<li class="edit-popup icon-edit grey-color Disable_edit">${this.$("#markAsReviewedText").val()}</li>`;
@@ -122,11 +107,9 @@ class ProblemAccountPopup {
         );
     }
 
-
-    private hasEnableMarkReview(element) {
-        return !this.$(element).closest('tr').attr('is-reviewed');
+    private hasAttribute(element, attName) {
+        return this.$(element).closest('tr').attr(attName);
     }
-
 
     private openMultiplePopup(element) {
         const checkboxs = this.$('input.checkbox:checkbox:checked');
@@ -135,16 +118,25 @@ class ProblemAccountPopup {
         }
         this.needReviewUsernames = [];
         this.needReviewUsernameIds = [];
+        this.needUpdateSuspendUsernames = [];
+        this.needUpdateSuspendUsernameIds = [];
         let isEnableMarkReview = false;
+        let isEnableUpdateSuspend = false;
 
         const ids = [];
         const usernames = [];
         checkboxs.each((_, checkbox) => {
-            if (this.hasEnableMarkReview(checkbox)) {
+            if (!this.hasAttribute(checkbox,"is-reviewed")) {
                 this.needReviewUsernames.push(this.$(checkbox).data("username"));
                 this.needReviewUsernameIds.push(this.$(checkbox).data("custid"));
 
                 isEnableMarkReview = true;
+            }
+            if (this.hasAttribute(checkbox, "is-open")) {
+                this.needUpdateSuspendUsernames.push(this.$(checkbox).data("username"));
+                this.needUpdateSuspendUsernameIds.push(this.$(checkbox).data("custid"));
+
+                isEnableUpdateSuspend = true;
             }
             usernames.push(this.$(checkbox).data("username"));
             ids.push(this.$(checkbox).data("custid"));
@@ -153,11 +145,14 @@ class ProblemAccountPopup {
         const markReviewMenu = `<li class="edit-popup icon-edit" id="mark-multiple-as-reviewed-selected">${this.$("#markMultipleAsReviewedText").val()}</li>`;
         const disableMarkReviewMenu = `<li class="edit-popup icon-edit grey-color Disable_edit"> ${this.$("#markMultipleAsReviewedText").val()} </li>`;
 
+        const updateSuspendMenu = `<li class="edit-popup icon-edit" id="suspend-multiple-accounts-selected">${this.$("#suspendMultipleAccountsText").val()}</li>`;
+        const disableUpdateSuspendMenu = `<li class="edit-popup icon-edit grey-color Disable_edit"> ${this.$("#suspendMultipleAccountsText").val()} </li>`;
+
         const content =
             `<ul>
                 ${isEnableMarkReview ? markReviewMenu : disableMarkReviewMenu}
                 <li class="edit-popup icon-edit" id="add-multiple-to-watchlist-selected">${this.$("#addMultipleToWatchlistText").val()}</li>
-                <li class="edit-popup icon-edit" id="suspend-multiple-accounts-selected">${this.$("#suspendMultipleAccountsText").val()}</li>
+                ${isEnableUpdateSuspend ? updateSuspendMenu : disableUpdateSuspendMenu}
             </ul>`;
         this.openEditSettingPopup(
             element,
@@ -205,36 +200,27 @@ class ProblemAccountPopup {
 
         this.$('#mark-multiple-as-reviewed-selected').click(() => this.openMultipleMarkReviewPopup());
 
-        this.$('#suspend-multiple-accounts-selected').click(() => this.openSuspendStatusPopup(data));
+        this.$('#suspend-multiple-accounts-selected').click(() => this.openSuspendStatusPopup());
 
         this.$('#add-to-my-watchlist-selected').click(() => this.openAddToWatchlistPopup(data));
 
         this.$('#add-multiple-to-watchlist-selected').click(() => this.openAddToWatchlistPopup(data));
     }
 
-    private openSuspendStatusPopup(data) {
-        this.$.blockUI();
+    private openSuspendStatusPopup() {
+
         const title = this.$("#suspendMultipleAccountsText").val();
-        this.$updateMultiplePopup.find('.modal-title').html(`<div>${title}</div>`);
 
-        const ids = data.ids.join(",");
-        this.$('#CustIds').val(ids);
-        this.$('#RoleId').val(this.roleId);
-
-        this.$updateMultipleIframeForm.submit();
-
-        let width = '100%';
-        if (!this.topWindow.alpha.isMobile) {
-            const bodyWidth = this.topWindow.$('#main').width();
-            width = bodyWidth < 1160 ? `${bodyWidth - 50}px` : '1160px';
-        }
-
-        this.$updateMultiplePopup
-            .css({ height: '100%', width })
-            .modal({ show: true, backdrop: false });
-
-        this.$updateMultiplePopup.draggable({ containment: "window" });
-        this.$.unblockUI();
+        const usernames = this.needUpdateSuspendUsernames.join(",");
+        const ids = this.needUpdateSuspendUsernameIds.join(",");
+        const params = `ids=${ids}&usernames=${usernames}&roleId=${this.roleId}`;
+        const url = `${this.memberInfoUrl}ProblemAccount/UpdateMultipleSuspend?${params}`;
+        this.topWindow.popupManager.open(
+            url,
+            title,
+            534,
+            154,
+            "modal-mobile-friendly");
     }
 
     private openSingleMarkReviewPopup(data) {

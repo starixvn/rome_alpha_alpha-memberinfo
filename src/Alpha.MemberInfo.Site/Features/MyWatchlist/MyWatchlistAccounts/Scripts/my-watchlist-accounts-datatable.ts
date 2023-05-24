@@ -191,6 +191,9 @@ class MyWatchlistAccountsDataTable {
 
     private openAddMultiplePopup() {
         const custIds = this.$('#custIds').val();
+        this.$('#custIds').val("");
+        this.$('#isOpenFromProblemAccount').val("");
+
         const baseUrl = this.$('#member-info-url').val();
 
         this.topWindow.popupManager.open(
@@ -199,8 +202,6 @@ class MyWatchlistAccountsDataTable {
             820,
             550,
             "modal-mobile-friendly");
-        this.$('#custIds').val("");
-        this.$('#isOpenFromProblemAccount').val("");
 
     }
 }

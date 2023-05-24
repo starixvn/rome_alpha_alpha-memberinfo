@@ -231,6 +231,9 @@ class CustomerListHelper {
             const reviewAttribute = Customers[i].IsReviewed ? new Attribute('is-reviewed', Customers[i].IsReviewed) : null;
             reviewAttribute && rowAttributes.push(reviewAttribute);
 
+            const statusAttribute = Customers[i].StatusNameEN === "Open" ? new Attribute('is-open', 'true') : null;
+            statusAttribute && rowAttributes.push(statusAttribute);
+
             bodyContent += new RowWrapper(rowContent,
                 rowAttributes).ToString();
         }

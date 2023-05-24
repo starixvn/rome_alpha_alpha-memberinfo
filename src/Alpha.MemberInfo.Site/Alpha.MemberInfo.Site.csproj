@@ -547,6 +547,8 @@
     <Content Include="assets\bundles\problem-account\update-dark.min.css">
       <DependentUpon>update-dark.css</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\problem-account\update-multiple-suspend.js" />
+    <Content Include="assets\bundles\problem-account\update-multiple-suspend.min.js" />
     <Content Include="assets\bundles\problem-account\update.css" />
     <Content Include="assets\bundles\problem-account\update.js" />
     <Content Include="assets\bundles\problem-account\update.min.css">
@@ -602,7 +604,9 @@
     <Content Include="IbcKeys\ibckeydec.snk" />
     <Content Include="IbcKeys\Web.config" />
     <Content Include="Views\ProblemAccount\ConfirmAddToWatchlist.cshtml" />
+    <Content Include="Views\ProblemAccount\UpdateMultipleSuspend.cshtml" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\edit-setting-popup.ts" />
+    <TypeScriptCompile Include="assets\scripts\ProblemAccount\update-multiple-suspend.ts" />
     <TypeScriptCompile Include="assets\scripts\shared\customer-status-helper.ts" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
     <Content Include="assets\scripts\tests\libs\bootstrap\dropdown.js" />
@@ -1233,6 +1237,7 @@
     <Compile Include="Requests\ProblemAccount\ProblemAccountExcelQuery.cs" />
     <Compile Include="Requests\ProblemAccount\ProblemAccountRequestBase.cs" />
     <Compile Include="Requests\ProblemAccount\UpdateProblemAccountCommand.cs" />
+    <Compile Include="Requests\ProblemAccount\UpdateMultipleSuspendProblemAccountRequest.cs" />
     <Compile Include="Requests\ProblemAccount\UpdateProblemAccountRequest.cs" />
     <Compile Include="Requests\ProblemAccount\GetProblemAccountRequest.cs" />
     <Compile Include="Requests\WinLossLimit\WinLossLimitQuery.cs" />
@@ -1249,6 +1254,7 @@
     <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\ConfirmAddToWatchlistViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\ProblemAccountReportViewModel.cs" />
+    <Compile Include="ViewModels\ProblemAccount\UpdateMultipleSuspendViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\UpdateReviewStatusViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\WinLossLimit\WinLossLimitViewModel.cs" />

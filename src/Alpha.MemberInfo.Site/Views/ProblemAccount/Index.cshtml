@@ -104,31 +104,6 @@
     </div>
 </div>
 
-@if (Model.Query.CustLevel.IsAgentLevel() && Model.CanUpdateAccount)
-{
-    <form target="update-multiple-suspend" method="get" action="@MicroSites.AccountInfoUrl()UnsuspendDownlines/EditMultiple" id="update-multiple-suspend-form">
-        @Html.Hidden("CustIds", string.Empty)
-        @Html.Hidden("RoleId", Model.Query.SearchRoleId)
-        <input type="submit" class="hidden">
-    </form>
-
-    <div class="modal modal-sm fade" id="update-multiple-suspend-popup" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-update-multiple-suspend-popup">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <iFrame src="" name="update-multiple-suspend" id="update-multiple-suspend" style="width:100%; height:95%;"></iFrame>
-                </div>
-            </div>
-        </div>
-    </div>
-}
-
 @section Scripts {
     @StaticResources.AssetScripts.Render("/bundles/site-memberinfo/problem-account")
     @StaticResources.RenderScripts("~/assets/bundles/problem-account/index")

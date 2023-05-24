@@ -25,14 +25,6 @@ class ProblemAccount {
     init = () => {
         this.ActorLevel = parseInt(this.$("#ActorLevel").val());
         this.render();
-        window.top.successfulUpdatingCallbackAndReloadMainFrame = (reloadAfterThreeSecond = false) => {
-            this.$.blockUI();
-            setTimeout(() => {
-                this.$.unblockUI();
-                this.memberList.reloadPage();
-                this.problemAccountPopup.reloadUpdateSuspendFrame();
-            }, reloadAfterThreeSecond ? 3000 : 1500);
-        }
     };
 
     render = () => {
