@@ -185,8 +185,10 @@ class MyWatchlistAccountsDataTable {
         this.editSettingPopup.bindEvents(this.$tableReport);
 
         const isOpenFromProblemAccount = this.$('#isOpenFromProblemAccount').val();
-
-        isOpenFromProblemAccount && JSON.parse(isOpenFromProblemAccount) && setTimeout(() => { this.openAddMultiplePopup() }, 1500);
+        isOpenFromProblemAccount && JSON.parse(isOpenFromProblemAccount) && setTimeout(() => {
+            this.openAddMultiplePopup();
+            this.topWindow.menuBar.activeMyWatchlistSubMenuItem();
+        }, 1500);
     }
 
     private openAddMultiplePopup() {
@@ -202,6 +204,5 @@ class MyWatchlistAccountsDataTable {
             820,
             550,
             "modal-mobile-friendly");
-
     }
 }

@@ -26,12 +26,9 @@ class ConfirmAddToWatchlist {
             const params = `?IsOpenFromProblemAccount=true&custIds=${newlyAddedAccounts}`;
 
             const mainFrame = this.topWindow.$('#main');
-
             mainFrame.attr('src', watchlistPage + params);
         });
     }
-
-
 }
 
 $(function () {

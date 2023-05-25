@@ -15,6 +15,7 @@
         public ProblemAccountController(IMediator mediator) : base(mediator)
         {
         }
+
         public async Task<ActionResult> ConfirmAddToWatchlist(ConfirmAddToWatchlistQuery message)
             => await ViewAsync(message, ConfirmAddToWatchlistPath);
 
@@ -28,7 +29,6 @@
         [HttpGet]
         public ActionResult UpdateMultipleSuspend(UpdateMultipleSuspendProblemAccountRequest message)
             => View(message, "UpdateMultipleSuspend");
-
 
         public ActionResult GetProblemAccounts(GetProblemAccountRequest message)
             => Json(message);

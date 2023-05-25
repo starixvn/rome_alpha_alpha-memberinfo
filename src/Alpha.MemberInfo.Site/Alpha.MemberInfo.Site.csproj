@@ -548,7 +548,9 @@
       <DependentUpon>update-dark.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\problem-account\update-multiple-suspend.js" />
-    <Content Include="assets\bundles\problem-account\update-multiple-suspend.min.js" />
+    <Content Include="assets\bundles\problem-account\update-multiple-suspend.min.js">
+      <DependentUpon>update-multiple-suspend.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\problem-account\update.css" />
     <Content Include="assets\bundles\problem-account\update.js" />
     <Content Include="assets\bundles\problem-account\update.min.css">
