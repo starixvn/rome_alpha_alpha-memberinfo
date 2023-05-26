@@ -75,12 +75,6 @@
     ]
   },
   {
-    "outputFileName": "assets/bundles/problem-account/update-multiple-suspend.js",
-    "inputFiles": [
-      "assets/scripts/ProblemAccount/update-multiple-suspend.js"
-    ]
-  },
-  {
     "outputFileName": "Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in.js",
     "inputFiles": [
       "Features/QRCodeMemberSignIn/Scripts/qr-code-member-sign-in.js",

@@ -41,6 +41,15 @@ class ProblemAccountPopup {
         this.topWindow["indexManager"].reloadProblemAccount = () => {
             this.indexManager.memberList.reloadPage();
         };
+
+        window.top.successfulUpdatingCallbackAndReloadMainFrame = (reloadAfterThreeSecond = false) => {
+            $.blockUI();
+            setTimeout(() => {
+                $.unblockUI();
+                this.indexManager.memberList.reloadPage();
+                window.top["popupManager"].close();
+            }, reloadAfterThreeSecond ? 3000 : 1500);
+        }
     }
 
     public bindEvents(tableReport: JQuery) {
@@ -214,7 +223,10 @@ class ProblemAccountPopup {
         const usernames = this.needUpdateSuspendUsernames.join(",");
         const ids = this.needUpdateSuspendUsernameIds.join(",");
         const params = `ids=${ids}&usernames=${usernames}&roleId=${this.roleId}`;
-        const url = `${this.memberInfoUrl}ProblemAccount/UpdateMultipleSuspend?${params}`;
+        
+        const accountInfoUrl = this.$("#accountInfoUrl").val();
+
+        const url = `${accountInfoUrl}UnsuspendDownlines/MultipleSuspendConfirm?${params}`;
         this.topWindow.popupManager.open(
             url,
             title,

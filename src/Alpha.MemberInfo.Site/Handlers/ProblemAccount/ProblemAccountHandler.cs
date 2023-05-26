@@ -18,7 +18,6 @@
         IRequestHandler<GetProblemAccountRequest, IEnumerable<ProblemAccountModel>>,
         IRequestHandler<UpdateProblemAccountCommand, Result>,
         IRequestHandler<UpdateProblemAccountRequest, UpdateReviewStatusViewModel>,
-        IRequestHandler<UpdateMultipleSuspendProblemAccountRequest, UpdateMultipleSuspendViewModel>,
         IAsyncRequestHandler<ConfirmAddToWatchlistQuery, ConfirmAddToWatchlistViewModel>
     {
         private readonly IProblemAccountService problemAccountService;
@@ -49,9 +48,6 @@
                 SubAccId = message.SubAccId
             });
         }
-
-        public UpdateMultipleSuspendViewModel Handle(UpdateMultipleSuspendProblemAccountRequest message)
-            => new UpdateMultipleSuspendViewModel(message);
 
         public ProblemAccountReportViewModel Handle(IndexRequest message)
             => new ProblemAccountReportViewModel(message, new List<ProblemAccountModel>(),

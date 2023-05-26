@@ -26,9 +26,6 @@
         public ActionResult Update(UpdateProblemAccountRequest message)
             => View(message, "Update");
         
-        [HttpGet]
-        public ActionResult UpdateMultipleSuspend(UpdateMultipleSuspendProblemAccountRequest message)
-            => View(message, "UpdateMultipleSuspend");
 
         public ActionResult GetProblemAccounts(GetProblemAccountRequest message)
             => Json(message);
