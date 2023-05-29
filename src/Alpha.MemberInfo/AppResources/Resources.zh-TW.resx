@@ -974,4 +974,7 @@
   <data name="ProblemAccount" xml:space="preserve">
     <value>問題賬號</value>
   </data>
+  <data name="SuspendAccount" xml:space="preserve">
+    <value>暫停賬號</value>
+  </data>
 </root>

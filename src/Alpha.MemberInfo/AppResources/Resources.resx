@@ -989,4 +989,7 @@ Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
   <data name="ProblemAccount" xml:space="preserve">
     <value>Problem Account</value>
   </data>
+  <data name="SuspendAccount" xml:space="preserve">
+    <value>Suspend Account</value>
+  </data>
 </root>

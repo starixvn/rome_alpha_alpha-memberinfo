@@ -2382,6 +2382,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Suspend Account.
+        /// </summary>
+        public static string SuspendAccount {
+            get {
+                return ResourceManager.GetString("SuspendAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Suspended.
         /// </summary>
         public static string Suspended {

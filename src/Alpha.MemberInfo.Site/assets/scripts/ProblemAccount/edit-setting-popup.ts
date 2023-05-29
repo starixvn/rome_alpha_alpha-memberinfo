@@ -135,7 +135,7 @@ class ProblemAccountPopup {
         const ids = [];
         const usernames = [];
         checkboxs.each((_, checkbox) => {
-            if (!this.hasAttribute(checkbox,"is-reviewed")) {
+            if (!this.hasAttribute(checkbox, "is-reviewed")) {
                 this.needReviewUsernames.push(this.$(checkbox).data("username"));
                 this.needReviewUsernameIds.push(this.$(checkbox).data("custid"));
 
@@ -218,12 +218,13 @@ class ProblemAccountPopup {
 
     private openSuspendStatusPopup() {
 
-        const title = this.$("#suspendMultipleAccountsText").val();
+        const isUpdateMultiple = this.needUpdateSuspendUsernames.length > 1;
+        const title = isUpdateMultiple ? this.$("#suspendMultipleAccountsText").val() : this.$("#suspendAccountsText").val();
 
         const usernames = this.needUpdateSuspendUsernames.join(",");
         const ids = this.needUpdateSuspendUsernameIds.join(",");
+
         const params = `ids=${ids}&usernames=${usernames}&roleId=${this.roleId}`;
-        
         const accountInfoUrl = this.$("#accountInfoUrl").val();
 
         const url = `${accountInfoUrl}UnsuspendDownlines/MultipleSuspendConfirm?${params}`;
@@ -252,7 +253,8 @@ class ProblemAccountPopup {
     }
 
     private openMultipleMarkReviewPopup() {
-        const title = this.$("#markMultipleAsReviewedText").val();
+        const isUpdateMultiple = this.needReviewUsernames.length > 1;
+        const title = isUpdateMultiple ? this.$("#markMultipleAsReviewedText").val() : this.$("#markAsReviewedText").val();
 
         const usernames = this.needReviewUsernames.join(",");
         const ids = this.needReviewUsernameIds.join(",");

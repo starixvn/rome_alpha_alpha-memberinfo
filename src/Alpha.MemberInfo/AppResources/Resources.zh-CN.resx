@@ -983,4 +983,7 @@
   <data name="ProblemAccount" xml:space="preserve">
     <value>问题账号</value>
   </data>
+  <data name="SuspendAccount" xml:space="preserve">
+    <value>暂停账号</value>
+  </data>
 </root>

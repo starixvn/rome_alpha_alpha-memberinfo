@@ -974,4 +974,7 @@
   <data name="ProblemAccount" xml:space="preserve">
     <value>บัญชีที่มีปัญหา</value>
   </data>
+  <data name="SuspendAccount" xml:space="preserve">
+    <value>ระงับบัญชี</value>
+  </data>
 </root>
