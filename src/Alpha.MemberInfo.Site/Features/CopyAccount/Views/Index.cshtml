@@ -21,12 +21,6 @@
         }
         else
         {
-            <div class="user-announcements">
-                <i class="icon-announcements"></i>
-                <p>@string.Format(Resources.classicViewSCNotifyMessage,AppSettings.GetConfigValue("CreateNewAccount:BannerEndDate"))</p>
-            </div>
-
-
             <div class="panel @(@Model.ActorLevel.IsAgentLevel() ? "panel-agent" : "")">
                 <div class="panel-heading">
                     <div class="note"><span class="require">*</span> @Resources.CopyAccountNote</div>
