@@ -391,7 +391,7 @@
     <value>Đã Xem</value>
   </data>
   <data name="MarkAsReviewed" xml:space="preserve">
-    <value>Đánh dấu Đã Xem</value>
+    <value>Đánh dấu Đã Duyệt</value>
   </data>
   <data name="ReviewStatus" xml:space="preserve">
     <value>Trạng Thái Đã Xem</value>
@@ -941,9 +941,6 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="AddToWatchListConfirmThresholds" xml:space="preserve">
     <value>Bạn nên cài đặt giới hạn cược cho tài khoản mới thêm. Nhấn &lt;b&gt;Cài Đặt Giới Hạn Cược&lt;/b&gt; để tiếp tục.</value>
   </data>
-  <data name="MarkAsReviewed1" xml:space="preserve">
-    <value>Đánh Dấu Đã Duyệt</value>
-  </data>
   <data name="MarkMultipleAsReviewed" xml:space="preserve">
     <value>Đánh Dấu Đã Duyệt Đồng Loạt</value>
   </data>
@@ -958,5 +955,11 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="SuspendMultipleAccounts" xml:space="preserve">
     <value>Đình Chỉ Đồng Loạt Tài Khoản</value>
+  </data>
+  <data name="AddMultipleToWatchlist" xml:space="preserve">
+    <value>Thêm Đồng Loạt Tài Khoản vào Danh Sách Theo Dõi</value>
+  </data>
+  <data name="EditSetting" xml:space="preserve">
+    <value>Sửa Thiết Lập</value>
   </data>
 </root>

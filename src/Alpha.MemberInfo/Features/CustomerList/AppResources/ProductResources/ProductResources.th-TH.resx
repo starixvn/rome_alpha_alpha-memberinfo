@@ -217,7 +217,7 @@
     <value>คอมสองเท่า</value>
   </data>
   <data name="ConfirmSuspendedViewModelInCaseSuspendedMasterOrAgentMessage" xml:space="preserve">
-    <value>คุณแน่ใจหรือว่าจะเปลียนสถานะเป็นระงับให้กับลูกค้า \n คำเดือน, สมาชิกทั้งหมดที่อยู่ภายใต้เอเย่นท่านนี้ไม่สามารถวางเดิมพันได้</value>
+    <value>คุณแน่ใจหรือว่าจะเปลียนสถานะเป็นระงับให้กับลูกค้า คำเดือน, สมาชิกทั้งหมดที่อยู่ภายใต้เอเย่นท่านนี้ไม่สามารถวางเดิมพันได้</value>
   </data>
   <data name="ConfirmSuspendedViewModelInCaseSuspendedMemberMessage" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าต้องการเปลี่ยนสถานะเป็นระงับการใช้งานให้กับลูกค้าท่านนี้?  คำเตือน : สมาชิกท่านนี้ไม่สามารถวางพนันได้</value>

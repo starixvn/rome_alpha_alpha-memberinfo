@@ -193,7 +193,7 @@
     <value>Bạn có chắc muốn thay đổi trạng thái "Đóng" của thành viên này không?</value>
   </data>
   <data name="ConfirmClosedViewModelInCaseClosedDownlinesMessage" xml:space="preserve">
-    <value>Bạn có chắc muốn đóng thành viên này?\nKhuyến cáo: tất cả cấp dưới của tài khoản này cũng sẽ bị đóng!</value>
+    <value>Bạn có chắc muốn đóng thành viên này? Khuyến cáo: tất cả cấp dưới của tài khoản này cũng sẽ bị đóng!</value>
   </data>
   <data name="ConfirmClosedViewModelInCaseOpenedMemberMessage" xml:space="preserve">
     <value>Bạn có chắc muốn mở tài khoản này?</value>
@@ -217,10 +217,10 @@
     <value>Nhân đôi hoa hồng</value>
   </data>
   <data name="ConfirmSuspendedViewModelInCaseSuspendedMasterOrAgentMessage" xml:space="preserve">
-    <value>Bạn có chắc muốn đình chỉ thành viên này?\n Khuyến cáo, tất cả cấp dưới trực thuộc thành viên này sẽ không thể đặt cược!</value>
+    <value>Bạn có chắc muốn đình chỉ thành viên này? Khuyến cáo, tất cả cấp dưới trực thuộc thành viên này sẽ không thể đặt cược!</value>
   </data>
   <data name="ConfirmSuspendedViewModelInCaseSuspendedMemberMessage" xml:space="preserve">
-    <value>Bạn có chắc muốn đình chỉ thành viên này?\n Khuyến cáo: thành viên này sẽ không thể đặt cược!</value>
+    <value>Bạn có chắc muốn đình chỉ thành viên này? Khuyến cáo: thành viên này sẽ không thể đặt cược!</value>
   </data>
   <data name="ConfirmSuspendedViewModelInCaseUnsuspendedMasterOrAgentMessage" xml:space="preserve">
     <value>Bạn có chắc muốn bỏ trạng thái "Đình Chỉ" cho thành viên này không? Khuyến cáo: tất cả cấp dưới trực thuộc thành viên này sẽ được bỏ trạng thái "Đình Chỉ".</value>
