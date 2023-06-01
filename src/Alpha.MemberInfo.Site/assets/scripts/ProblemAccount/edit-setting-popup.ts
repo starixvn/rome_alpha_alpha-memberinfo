@@ -277,7 +277,7 @@ class ProblemAccountPopup {
         this.topWindow.popupManager.open(
             `${this.memberInfoUrl}ProblemAccount/ConfirmAddToWatchlist?custIds=${custIds}`,
             title,
-            485,
+            534,
             238,
             "modal-mobile-friendly");
     }

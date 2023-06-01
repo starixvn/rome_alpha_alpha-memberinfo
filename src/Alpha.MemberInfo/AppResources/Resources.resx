@@ -992,4 +992,13 @@ Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
   <data name="SuspendAccount" xml:space="preserve">
     <value>Suspend Account</value>
   </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Show More</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Show Less</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
 </root>

@@ -24,6 +24,12 @@
     ]
   },
   {
+    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist.css",
+    "inputFiles": [
+      "assets/styles/problem-account/confirm-add-to-watchlist.css"
+    ]
+  },
+  {
     "outputFileName": "assets/bundles/problem-account/update.css",
     "inputFiles": [
       "assets/styles/problem-account/update.css"
@@ -66,6 +72,12 @@
       "assets/scripts/ProblemAccount/edit-setting-popup.js",
       "assets/scripts/shared/ajax-helper.js"
 
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist.js",
+    "inputFiles": [
+      "assets/scripts/ProblemAccount/confirm-add-to-watchlist.js"
     ]
   },
   {
@@ -339,12 +351,6 @@
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete.js"
     ]
   },
-  {
-    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist.js",
-    "inputFiles": [
-      "assets/scripts/ProblemAccount/confirm-add-to-watchlist.js"
-    ]
-  },
   /************************** Dark Mode ************************/
   {
     "outputFileName": "assets/bundles/default-dark.css",
@@ -368,6 +374,12 @@
     "outputFileName": "assets/bundles/problem-account/index-dark.css",
     "inputFiles": [
       "assets/styles/problem-account/index-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist-dark.css",
+    "inputFiles": [
+      "assets/styles/problem-account/confirm-add-to-watchlist-dark.css"
     ]
   },
   {

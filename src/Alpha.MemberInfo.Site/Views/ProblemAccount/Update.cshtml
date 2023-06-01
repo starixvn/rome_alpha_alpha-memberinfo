@@ -14,16 +14,30 @@
         <div class="review-content">
             @if (Model.DisplayShowAllAccountOption)
             {
-                @Html.Raw(Model.ConfirmMessage)
+                <div>
+                    <span class="total">
+                        @(Model.TotalAllAccount) @Resources.SelectedAccounts
+                    </span>
+                    @(string.Join(", ", Model.TopDownlineUsernames))
+                </div>
                 <span class="more-ellipses">...</span>
                 <div class="more-content">
                     <span>@($", {string.Join(", ", Model.MoreDownlineUsernames)}")</span>
-                    <a href="" class="more-link">@string.Format(Resources.ShowAllAccounts, Model.TotalAllAccount)</a>
+                    <a href="" class="more-link">@Resources.ShowMore</a>
+                </div>
+
+                <div class="less-content" style="display: none;">
+                    <a href="" class="less-link">@Resources.ShowLess</a>
                 </div>
             }
             else
             {
-                @Html.Raw($"{Model.ConfirmMessage}")
+                <div>
+                    <span class="total">
+                        @(Model.TotalAllAccount) @Resources.SelectedAccounts
+                    </span>
+                    @(string.Join(", ", Model.TopDownlineUsernames))
+                </div>
             }
         </div>
 

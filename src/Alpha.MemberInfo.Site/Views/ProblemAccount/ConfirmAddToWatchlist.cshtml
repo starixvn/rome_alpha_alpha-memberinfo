@@ -7,7 +7,7 @@
 }
 
 @section Styles {
-    @StaticResources.RenderStylesWithDarkMode("~/Features/MyWatchlist/Shared/Bundles/my-watchlist-settings")
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/problem-account/confirm-add-to-watchlist")
     @StaticResources.RenderStylesWithMedia(767, "~/Features/MyWatchlist/Shared/Bundles/my-watchlist-settings-media")
 }
 
@@ -21,27 +21,82 @@
 
         @if (Model.HasAlreadyAddedAccounts)
         {
-            <p class="red">@Resources.AccountsAlreadyInWatchlist: @Model.AlreadyAddedAccounts </p>
-        }
+            if (Model.IsShowAllAlreadyAddedAccounts)
+            {
+                <div class="shorten-content red">
+                    <span class="total">
+                        @Model.NoOfAlreadyAddedAccounts @Resources.AccountsAlreadyInWatchlist:
+                    </span>
+                    @(string.Join(", ", Model.ShortenAlreadyAddedUsernames))
+                </div>
+                <span class="more-ellipses">...</span>
+                <div class="more-content red">
+                    <span>@($", {string.Join(", ", Model.MoreAlreadyAddedUsernames)}")</span>
+                    <a href="#" id="already-more" class="more-link">@Resources.ShowMore</a>
+                </div>
 
+                <div id="already-less" class="less-content" style="display: none;">
+                    <a href="#" class="less-link">@Resources.ShowLess</a>
+                </div>
+            }
+            else
+            {
+                <p class="red">
+                    <span class="total">
+                        @Model.NoOfAlreadyAddedAccounts @Resources.AccountsAlreadyInWatchlist:
+                    </span>
+                    @Model.AlreadyAddedAccounts
+                </p>
+            }
+        }
+        <p></p>
         @if (Model.IsExceedLimit)
         {
             <p class="red">@Resources.AddMultipleToWatchlistExceedMessage  </p>
         }
-
+        <p></p>
         @if (Model.HasNewlyAddedAccounts)
         {
-            <p class="note">@Resources.NewlyAddedAccounts: @Model.NewlyAddedAccounts </p>
-            @Html.Raw(@Resources.AddToWatchListConfirmThresholds)
+            <div>
+                @if (Model.IsShowAllNewlyAddedAccounts)
+                {
+                    <div class="shorten-content">
+                        <span class="total">
+                            @(Model.NoOfNewlyAddedAccounts) @Resources.SelectedAccounts
+                        </span>
+                        @(string.Join(", ", Model.ShortenNewlyAddedUsernames))
+                    </div>
+                    <span class="more-ellipses">...</span>
+                    <div class="more-content">
+                        <span>@($", {string.Join(", ", Model.MoreNewlyAddedUsernames)}")</span>
+                        <a href="#" id="newly-more" class="more-link">@Resources.ShowMore</a>
+                    </div>
+
+                    <div id="newly-less" class="less-content" style="display: none;">
+                        <a href="#" class="less-link">@Resources.ShowLess</a>
+                    </div>
+                }
+                else
+                {
+                    <p class="note">
+                        <span class="total">
+                            @Model.NoOfNewlyAddedAccounts @Resources.NewlyAddedAccounts:
+                        </span>
+                        @Model.NewlyAddedAccounts
+                    </p>
+
+                }
+                <div class="message">
+                    @Html.Raw(@Resources.AddToWatchListConfirmThresholds)
+                </div>
+            </div>
         }
     </div>
-    <div class="button-group">
-        <button class="btn-submit" id="btnSubmit" @(!Model.HasNewlyAddedAccounts?"disabled":"")>@Resources.SetThresholds</button>
-        <input type="button" class="btn-cancel" id="btnCancel" value="@Resources.Cancel" />
-    </div>
-
 </div>
-
+<div class="list-button">
+    <button class="btn-submit" id="btnSubmit" @(!Model.HasNewlyAddedAccounts ? "disabled" : "")>@Resources.SetThresholds</button>
+    <input type="button" class="btn-cancel" id="btnCancel" value="@Resources.Cancel" />
+</div>
 @Html.AntiForgeryToken()
 
 @Html.Hidden("member-info-url", MicroSites.MemberInfoUrl())

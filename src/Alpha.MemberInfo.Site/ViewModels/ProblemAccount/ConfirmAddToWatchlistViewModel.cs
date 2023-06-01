@@ -1,42 +1,81 @@
 ﻿namespace Alpha.MemberInfo.Site.ViewModels.ProblemAccount
 {
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
+    using System.Collections.Generic;
     using System.Linq;
-    
+
     public class ConfirmAddToWatchlistViewModel
     {
         private const int limitMember = 50;
+        private const int showLimit = 10;
 
         public ConfirmAddToWatchlistViewModel(MultipleWatchlistAccountModel multipleWatchlistAccountModel)
         {
             var alreadyAddedAccounts = multipleWatchlistAccountModel.AlreadyAddedAccounts;
             var newlyAddedAccounts = multipleWatchlistAccountModel.NewlyAddedAccounts;
+
             if (alreadyAddedAccounts.Any())
             {
-                AlreadyAddedAccounts = string.Join(", ", alreadyAddedAccounts.Select(c => c.Username).ToArray());
+                HasAlreadyAddedAccounts = true;
+                NoOfAlreadyAddedAccounts = alreadyAddedAccounts.Count();
+                IsShowAllAlreadyAddedAccounts = NoOfAlreadyAddedAccounts > showLimit;
+
+                if (IsShowAllAlreadyAddedAccounts)
+                {
+                    MoreAlreadyAddedUsernames = alreadyAddedAccounts.Skip(showLimit).Select(c => c.Username);
+                    ShortenAlreadyAddedUsernames = alreadyAddedAccounts.Take(showLimit).Select(c => c.Username);
+                }
+
+                AlreadyAddedAccounts = string.Join(", ", alreadyAddedAccounts.Select(c => c.Username));
+
             }
             if (newlyAddedAccounts.Any())
             {
-                if (newlyAddedAccounts.Count() <= limitMember)
-                {
-                    NewlyAddedAccounts = string.Join(", ", newlyAddedAccounts.Select(c => c.Username).ToArray());
-                }
-                else
+                HasNewlyAddedAccounts = true;
+                NoOfNewlyAddedAccounts = newlyAddedAccounts.Count();
+                if (NoOfNewlyAddedAccounts > limitMember)
                 {
                     IsExceedLimit = true;
-                    NewlyAddedAccounts = string.Join(", ", newlyAddedAccounts.Take(limitMember).Select(c => c.Username).ToArray());
+                    newlyAddedAccounts = newlyAddedAccounts.Take(limitMember);
+                    NoOfNewlyAddedAccounts = limitMember;
                 }
+
+                IsShowAllNewlyAddedAccounts = NoOfNewlyAddedAccounts > showLimit;
+                if (IsShowAllNewlyAddedAccounts)
+                {
+                    MoreNewlyAddedUsernames = newlyAddedAccounts.Skip(showLimit).Select(c => c.Username);
+                    ShortenNewlyAddedUsernames = newlyAddedAccounts.Take(showLimit).Select(c => c.Username);
+                }
+
+                NewlyAddedAccounts = string.Join(", ", newlyAddedAccounts.Select(c => c.Username));
             }
         }
 
         public string AlreadyAddedAccounts { get; }
 
+        public int NoOfAlreadyAddedAccounts { get; }
+
         public string NewlyAddedAccounts { get; }
 
-        public bool HasAlreadyAddedAccounts => !string.IsNullOrWhiteSpace(AlreadyAddedAccounts);
+        public int NoOfNewlyAddedAccounts { get; }
 
-        public bool HasNewlyAddedAccounts => !string.IsNullOrWhiteSpace(NewlyAddedAccounts);
+        public bool HasAlreadyAddedAccounts { get; }
+
+        public bool HasNewlyAddedAccounts { get; }
 
         public bool IsExceedLimit { get; }
+
+        public bool IsShowAllAlreadyAddedAccounts { get; }
+
+        public bool IsShowAllNewlyAddedAccounts { get; }
+
+        public IEnumerable<string> ShortenNewlyAddedUsernames { get; }
+
+        public IEnumerable<string> ShortenAlreadyAddedUsernames { get; }
+
+        public IEnumerable<string> MoreNewlyAddedUsernames { get; }
+
+        public IEnumerable<string> MoreAlreadyAddedUsernames { get; }
+
     }
 }

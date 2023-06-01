@@ -527,7 +527,11 @@
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
       <DependentUpon>member-requests.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist-dark.css" />
+    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist-dark.min.css" />
+    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.css" />
     <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.js" />
+    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.min.css" />
     <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.min.js">
       <DependentUpon>confirm-add-to-watchlist.js</DependentUpon>
     </Content>
@@ -570,6 +574,10 @@
     <Content Include="assets\scripts\aes.js" />
     <Content Include="assets\scripts\indirect-login-account\quick-introduction.js" />
     <Content Include="assets\styles\images\open.png" />
+    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.css" />
+    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.min.css" />
+    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
+    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.css">
       <DependentUpon>copy-account-dark.scss</DependentUpon>
     </Content>
@@ -936,6 +944,8 @@
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account.scss" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.scss" />
     <Content Include="Features\CopyAccount\Views\_CopyResult.cshtml" />
+    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.scss" />
+    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.scss" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />

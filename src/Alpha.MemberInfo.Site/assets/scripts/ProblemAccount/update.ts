@@ -32,17 +32,26 @@ class UpdateReviewStatus {
     }
 
     bindEvents(): void {
+
         this.$btnCancel.on("click touchend", () => {
             this.topWindow["popupManager"].close();
         });
 
         this.$formUpdateReviewStatus.submit(this.onSubmit);
 
-        this.$(".more-link").click(function () {
-            $(this).parent().prev().toggle();
-            $(this).prev().toggle();
-            $(this).remove();
+        this.$(".more-link").click(() => {
+            this.$(".more-link").parent().prev().toggle();
+            this.$(".more-link").prev().toggle();
+            this.$(".more-link").toggle();
+            this.$(".less-content").toggle();
+            return false;
+        });
 
+        this.$(".less-link").click( () =>{
+            this.$(".less-link").parent().toggle();
+            this.$(".more-link").parent().prev().toggle();
+            this.$(".more-link").prev().toggle();
+            this.$(".more-link").toggle();
             return false;
         });
     }
