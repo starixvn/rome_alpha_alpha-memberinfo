@@ -10,6 +10,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.Request
     {
         public CopyAccountCommand(IUser viewer) : base(viewer)
         {
+            SiteDBGroupIp = viewer.SiteDBGroupIp;
         }
 
         public string SourceUsername { get; set; }
@@ -33,6 +34,8 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.Request
         public decimal MemberMaxCredit { get; set; }
 
         public string Password { get; set; }
+
+        public string SiteDBGroupIp { get; }
 
         public override bool IsValid() =>
             base.IsValid() &&

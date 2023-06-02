@@ -88,5 +88,7 @@
         public string DarkModeName => userSession.DarkModeName;
 
         public string AssetAppPath => userSession.AssetAppPath;
+
+        public string SiteDBGroupIp => userSession.AGIP;
     }
 }

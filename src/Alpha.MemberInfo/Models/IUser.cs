@@ -68,5 +68,7 @@
         string DarkModeName { get; }
 
         string AssetAppPath { get; }
+
+        string SiteDBGroupIp { get; }             
     }
 }

@@ -66,6 +66,7 @@
                 command.IP,
                 AlphaSite,
                 isQrCode: true,
+                siteDBGroupIp: command.SiteDBGroupIp,
                 firstName: command.FirstName)).ConfigureAwait(false);
 
             if (result != null)
