@@ -944,12 +944,6 @@
   <data name="EditMutipleSetting" xml:space="preserve">
     <value>修改多重设置</value>
   </data>
-  <data name="EditSetting" xml:space="preserve">
-    <value>修改设定</value>
-  </data>
-  <data name="EditMutipleSetting" xml:space="preserve">
-    <value>修改多重设置</value>
-  </data>
   <data name="AddToMyWatchlist" xml:space="preserve">
     <value>添加至我的监控列表</value>
   </data>
@@ -985,5 +979,11 @@
   </data>
   <data name="SuspendAccount" xml:space="preserve">
     <value>暂停账号</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>显示更多</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>显示更少</value>
   </data>
 </root>

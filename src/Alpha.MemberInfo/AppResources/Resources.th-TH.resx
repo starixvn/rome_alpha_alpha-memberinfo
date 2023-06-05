@@ -977,4 +977,10 @@
   <data name="SuspendAccount" xml:space="preserve">
     <value>ระงับบัญชี</value>
   </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>แสดงมากขึ้น</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>แสดงน้อยลง</value>
+  </data>
 </root>
