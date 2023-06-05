@@ -430,8 +430,8 @@
     <Content Include="App_Data\SPNames\Internal\DBCust.CustDB.xml" />
     <Content Include="App_Data\SPNames\Internal\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Internal\DBTXN.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Internal\DBTXN.CustDB.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\SiteDB.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DBAGE.bodb02.BODBDownlineNet.xml">
@@ -441,8 +441,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\SPNames\Local\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Local\DBTXN.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Local\DBTXN.CustDB.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Local\SiteDB.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Local\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBAGE.bodb02.BODBDownlineNet.xml">
@@ -451,8 +451,8 @@
     <Content Include="App_Data\SPNames\Pro\DBCust.CustDB.xml" />
     <Content Include="App_Data\SPNames\Pro\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Pro\DBTXN.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Pro\DBTXN.CustDB.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Pro\SiteDB.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Pro\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBAGE.bodb02.BODBDownlineNet.xml">
@@ -461,8 +461,8 @@
     <Content Include="App_Data\SPNames\SIT\DBCust.CustDB.xml" />
     <Content Include="App_Data\SPNames\SIT\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\SIT\DBTXN.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\SIT\DBTXN.CustDB.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\SIT\SiteDB.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\SIT\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBACC.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBAGE.bodb02.BODBDownlineNet.xml">
@@ -473,8 +473,8 @@
     </Content>
     <Content Include="App_Data\SPNames\UAT\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\UAT\DBTXN.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\UAT\DBTXN.CustDB.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\UAT\SiteDB.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\UAT\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="assets\bundles\credit-balance-dark.css" />
     <Content Include="assets\bundles\credit-balance-dark.min.css">
       <DependentUpon>credit-balance-dark.css</DependentUpon>
@@ -1250,6 +1250,9 @@
     <Compile Include="Requests\ProblemAccount\UpdateProblemAccountRequest.cs" />
     <Compile Include="Requests\ProblemAccount\GetProblemAccountRequest.cs" />
     <Compile Include="Requests\WinLossLimit\WinLossLimitQuery.cs" />
+    <Compile Include="Utilities\DbSettingProviderManagerExtension.cs" />
+    <Compile Include="Utilities\ShardDbSettingProvider.cs" />
+    <Compile Include="Utilities\ShardInfoAccessor.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
     <Compile Include="ViewModels\Components\PagerViewModel.cs" />
     <Compile Include="ViewModels\Components\ProductMultiSelectionViewModel.cs" />

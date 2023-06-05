@@ -35,7 +35,7 @@
         public int PageIndex { get; set; }
 
         public override string GetSettingKey()
-            => "Age_CustomerSelWinlimitInfo";
+            => "SiteDB_Age_CustomerSelWinlimitInfo";
 
         public override bool IsValid()
             => CustId > 0;

@@ -7,6 +7,7 @@
     using System.Web.Mvc;
     using System.Web.Routing;
     using Alpha.Logging;
+    using Alpha.MemberInfo.Site.Utilities;
     using Alpha.PartialUM.Filters;
     using App_Start;
     using Auth.Filters;
@@ -48,7 +49,7 @@
                 .StartNewSession()
                 .Use(new OldConnectionStringProvider())
                 .UseDefaultDbSettingProvider(resourcePath: AppSettings.StoreProcedurePath, enableWatching: true)
-                .Use((settingKey, commandTimeout) => new WrappingExceptionObjectDb(settingKey, commandTimeout))
+                .UseShardDbSettingProvider()
                 .Run();
 
             AppSettings.Verify();

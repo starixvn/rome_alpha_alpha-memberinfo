@@ -55,11 +55,27 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
                 systemId = 2
             };
 
-            return await PostAsJsonAsync<CopyAccountResponse>("api/customer/copy", payload);
+            return await PostAsJsonAsync<CopyAccountResponse>("api/customer/copy", command.SiteDBGroupIp, payload);
         }
 
         public Task<CreditInfo> GetCreditInfo(string username)
             => GetAsJsonAsync<CreditInfo>($"api/customer/{username}/credit");
+
+        private async Task<T> PostAsJsonAsync<T>(string requestUri, string siteDBGroupIp, object payload = null)
+        {
+            using (var stringContent = new StringContent(JsonConvert.SerializeObject(payload), Encoding.UTF8, "application/json"))
+            {
+                using (var request = new HttpRequestMessage(HttpMethod.Post, requestUri) { Content = stringContent })
+                {
+                    request.Headers.Add("X-SiteDBServer", siteDBGroupIp);
+                    using (var response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false))
+                    {
+                        response.EnsureSuccessStatusCode();
+                        return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
+                    }
+                }
+            }
+        }
 
         private async Task<T> PostAsJsonAsync<T>(string requestUri, object payload = null)
         {

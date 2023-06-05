@@ -41,6 +41,7 @@
     using Alpha.Products.Core.Services;
     using Alpha.Products.Core.ViewModels;
     using Alpha.SecurityCode.Services;
+    using Alpha.Utilities.IP;
     using Alpha.Web.Helpers;
     using Alpha.Web.Helpers.Impl;
     using Controllers;
@@ -65,7 +66,6 @@
     using Sunplus.Agent.Model.Base;
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Utilities;
-    using Utilities.IP;
 
     public static class DependencyConfig
     {
