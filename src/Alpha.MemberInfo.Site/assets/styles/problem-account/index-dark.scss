@@ -187,7 +187,17 @@
     }
 }
 
-@media (max-width : 768px) {
+#edit-popup {
+    .modal-header {
+        .icon-close {
+            left: auto;
+            position: absolute;
+            right: 0;
+        }
+    }
+}
+
+@media (max-width : 1024px) {
     .filter {
         margin: calculateScale(10px) 0;
     }
@@ -224,7 +234,6 @@
             }
         }
     }
-
 }
 
 .grey-color {

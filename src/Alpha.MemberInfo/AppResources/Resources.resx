@@ -975,7 +975,7 @@ Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
     <value>Set Thresholds</value>
   </data>
   <data name="AccountsAlreadyInWatchlist" xml:space="preserve">
-    <value>Account(s) already on My Watchlist</value>
+    <value>{0} existing account(s) on My Watchlist</value>
   </data>
   <data name="NewlyAddedAccounts" xml:space="preserve">
     <value>Newly added account(s)</value>

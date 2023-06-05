@@ -24,9 +24,7 @@
             if (Model.IsShowAllAlreadyAddedAccounts)
             {
                 <div class="shorten-content red">
-                    <span class="total">
-                        @Model.NoOfAlreadyAddedAccounts @Resources.AccountsAlreadyInWatchlist:
-                    </span>
+                    <span class="total">@string.Format(Resources.AccountsAlreadyInWatchlist, Model.NoOfAlreadyAddedAccounts):</span>
                     @(string.Join(", ", Model.ShortenAlreadyAddedUsernames))
                 </div>
                 <span class="more-ellipses">...</span>
@@ -42,9 +40,7 @@
             else
             {
                 <p class="red">
-                    <span class="total">
-                        @Model.NoOfAlreadyAddedAccounts @Resources.AccountsAlreadyInWatchlist:
-                    </span>
+                    <span class="total">@string.Format(Resources.AccountsAlreadyInWatchlist, Model.NoOfAlreadyAddedAccounts):</span>
                     @Model.AlreadyAddedAccounts
                 </p>
             }

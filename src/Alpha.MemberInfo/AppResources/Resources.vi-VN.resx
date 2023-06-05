@@ -385,16 +385,16 @@
     <value>Ngày Xuất</value>
   </data>
   <data name="NotReviewed" xml:space="preserve">
-    <value>Chưa Xem</value>
+    <value>Chưa Duyệt</value>
   </data>
   <data name="Reviewed" xml:space="preserve">
-    <value>Đã Xem</value>
+    <value>Đã Duyệt</value>
   </data>
   <data name="MarkAsReviewed" xml:space="preserve">
     <value>Đánh dấu Đã Duyệt</value>
   </data>
   <data name="ReviewStatus" xml:space="preserve">
-    <value>Trạng Thái Đã Xem</value>
+    <value>Trạng Thái Duyệt</value>
   </data>
   <data name="RemainingTransferInAmount" xml:space="preserve">
     <value>Tiền Có Thể Chuyển</value>
@@ -927,7 +927,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Tiền Chưa Chuyển Về Từ Trò Chơi</value>
   </data>
   <data name="AccountsAlreadyInWatchlist" xml:space="preserve">
-    <value>Tài khoản đã có trong Danh Sách Theo Dõi</value>
+    <value>Đang có {0} tài khoản trên Danh Sách Theo Dõi</value>
   </data>
   <data name="AddMultipleAccountsToWatchlist" xml:space="preserve">
     <value>Thêm Đồng Loạt Tài Khoản vào Danh Sách Theo Dõi</value>
@@ -961,5 +961,14 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="EditSetting" xml:space="preserve">
     <value>Sửa Thiết Lập</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Ẩn bớt</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Xem thêm</value>
+  </data>
+  <data name="EditMutipleSetting" xml:space="preserve">
+    <value>Tuỳ Chỉnh Đồng Loạt Thiết Lập</value>
   </data>
 </root>

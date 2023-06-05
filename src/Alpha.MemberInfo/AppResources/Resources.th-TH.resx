@@ -954,7 +954,7 @@
     <value>ตั้งค่าเกณฑ์</value>
   </data>
   <data name="AccountsAlreadyInWatchlist" xml:space="preserve">
-    <value>บัญชีมีอยู่แล้วใน รายการเฝ้าดูของฉัน</value>
+    <value>{0} บัญขีที่มีอยู่แล้วในรายการเฝ้าดูของฉัน</value>
   </data>
   <data name="NewlyAddedAccounts" xml:space="preserve">
     <value>บัญชีที่เพิ่มมาใหม่</value>

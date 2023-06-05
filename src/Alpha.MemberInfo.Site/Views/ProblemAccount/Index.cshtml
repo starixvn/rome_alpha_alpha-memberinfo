@@ -233,7 +233,7 @@
     var levelName = level.DisplayName.ToLower();
     var columns = new[]
     {
-new { Text = Resources.No, ClassName = "", Show = true},
+new { Text = "#", ClassName = "", Show = true},
 new { Text = "<input type='checkbox' class='select-all' id='select-all'/>", ClassName = "", Show = Model.Query.CustLevel.IsAgentLevel() && Model.CanUpdateAccount},
 new { Text = "<div class='edit-multiple icon-table-edit' id='edit-multiple' data-url='' title='"+@Resources.EditMutipleSetting+"'>", ClassName = "", Show = Model.Query.CustLevel.IsAgentLevel() && Model.CanUpdateAccount},
 new { Text = Resources.Username, ClassName = "", Show = true},

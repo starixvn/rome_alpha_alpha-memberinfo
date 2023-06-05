@@ -957,7 +957,7 @@
     <value>设定限额</value>
   </data>
   <data name="AccountsAlreadyInWatchlist" xml:space="preserve">
-    <value>账号已存在于我的监控列表</value>
+    <value>{0} 现有账号在我的监控列表中</value>
   </data>
   <data name="NewlyAddedAccounts" xml:space="preserve">
     <value>新添加的账号</value>
