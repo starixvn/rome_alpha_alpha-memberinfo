@@ -226,7 +226,7 @@ class ProblemAccountPopup {
 
         const params = `ids=${ids}&usernames=${usernames}&roleId=${this.roleId}`;
         const accountInfoUrl = this.$("#accountInfoUrl").val();
-
+        this.$editPopupContainer.modal("hide");
         const url = `${accountInfoUrl}UnsuspendDownlines/MultipleSuspendConfirm?${params}`;
         this.topWindow.popupManager.open(
             url,
@@ -244,6 +244,7 @@ class ProblemAccountPopup {
         const params = `ids=${ids}&usernames=${usernames}&roleId=${this.roleId}`;
 
         const url = `${this.memberInfoUrl}ProblemAccount/Update?${params}`;
+        this.$editPopupContainer.modal("hide");
         this.topWindow.popupManager.open(
             url,
             title,
@@ -260,6 +261,7 @@ class ProblemAccountPopup {
         const ids = this.needReviewUsernameIds.join(",");
         const params = `ids=${ids}&usernames=${usernames}&roleId=${this.roleId}`;
         const url = `${this.memberInfoUrl}ProblemAccount/Update?${params}`;
+        this.$editPopupContainer.modal("hide");
         this.topWindow.popupManager.open(
             url,
             title,
@@ -274,6 +276,7 @@ class ProblemAccountPopup {
             ? this.$("#addToMyWatchlistText").val()
             : this.$("#addMultipleToMyWatchlistText").val();
         const custIds = data.ids.join(",");
+        this.$editPopupContainer.modal("hide");
         this.topWindow.popupManager.open(
             `${this.memberInfoUrl}ProblemAccount/ConfirmAddToWatchlist?custIds=${custIds}`,
             title,
