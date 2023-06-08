@@ -18,36 +18,6 @@
     font-weight: bold;
 }
 
-@media screen and (max-device-width: 767px) {
-    .list-button {
-        padding: 20px 16px;
-
-        .btn-cancel {
-            height: 45px;
-            margin-bottom: 16px;
-        }
-
-        .btn-submit {
-            height: 45px;
-            width: auto;
-        }
-    }
-
-    .flex-settings {
-        padding-top: 8px;
-        display: unset;
-        height: auto;
-    }
-
-    .total {
-        font-size: 21px;
-    }
-
-    body {
-        font-size: 18px;
-    }
-}
-
 .list-button {
     position: fixed;
     right: 20px;
@@ -71,7 +41,6 @@
         margin-right: 0;
     }
 }
-
 
 .more-content {
     display: inline;
@@ -107,4 +76,34 @@
 
 .more-link:hover {
     color: #337ab7;
+}
+
+@media screen and (max-device-width: 767px) {
+    .list-button {
+        padding: 20px 16px;
+
+        .btn-cancel {
+            height: 45px;
+            margin-bottom: 16px;
+        }
+
+        .btn-submit {
+            height: 45px;
+            width: auto;
+        }
+    }
+
+    .flex-settings {
+        padding-top: 8px;
+        display: unset;
+        height: auto;
+    }
+
+    .total {
+        font-size: 21px;
+    }
+
+    body {
+        font-size: 18px;
+    }
 }

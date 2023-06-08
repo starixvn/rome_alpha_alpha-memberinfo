@@ -61,8 +61,6 @@ class ProblemAccountPopup {
         this.$(".open-button").off().on("click", event => this.changeStatusToSuspend(this.$(event.currentTarget)));
     }
 
-
-
     private changeStatusToSuspend(element) {
         const $this = this.$(event.target);
 

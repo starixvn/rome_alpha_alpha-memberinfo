@@ -54,7 +54,6 @@
             @Html.Hidden("SearchRoleId", Model.Query.SearchRoleId)
             @Html.Hidden("UserName", Model.Query.UserName)
         </form>
-
         <form class="hide" id="target" method="get" action="@Url.Action("Update")">
             @Html.Hidden("Ids", string.Empty)
             @Html.Hidden("UserNames", string.Empty)
@@ -225,8 +224,6 @@
             <a href="#" id="chkNone-@(levelName)" onclick="CheckAll_onClick(false);">@Resources.None</a>
         </div>
     }
-
-
 }
 @helper RenderContainer(UserLevel level)
 {

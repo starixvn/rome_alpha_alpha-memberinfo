@@ -36,7 +36,6 @@ class ConfirmAddToWatchlist {
             mainFrame.attr('src', watchlistPage + params);
         });
 
-        
         const toggleItem = ["already", "newly"];
         toggleItem.forEach((item) => {
 
@@ -56,9 +55,7 @@ class ConfirmAddToWatchlist {
                 return false;
             });
         });
-        
     }
-
 }
 
 $(function () {

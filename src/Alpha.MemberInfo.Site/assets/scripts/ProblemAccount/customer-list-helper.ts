@@ -23,7 +23,6 @@ class CustomerListHelper {
         return `<tr><td colspan='${colspan}' align='center' class='no-info'>${this.viewResources.NoInformationIsAvailable}</td></tr>`;
     }
 
-
     private renderCheckboxColumn = item => {
         const attrs = {
             'class': 'checkbox',
@@ -45,6 +44,7 @@ class CustomerListHelper {
 
         return `<div ${this.buildAttributes(attrs)}/>`;
     }
+
     private renderUsernameColumn = item => {
         const textLocked = this.$("#text-locked").val();
         return item.Locked
