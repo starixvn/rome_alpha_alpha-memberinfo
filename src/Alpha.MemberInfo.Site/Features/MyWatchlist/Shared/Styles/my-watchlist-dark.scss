@@ -155,9 +155,11 @@ table.dataTable {
         .cell-username {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            padding-right: 5px;
 
             .cell-username-text {
-                margin-right: 4px;
+                //margin-right: 4px;
             }
         }
     }
