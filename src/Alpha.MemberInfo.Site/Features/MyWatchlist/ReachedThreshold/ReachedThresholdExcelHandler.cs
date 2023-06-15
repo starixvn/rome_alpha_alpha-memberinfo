@@ -71,23 +71,25 @@
                 mapper
                     .Map(C, data => data.LastLoggedString)
                     .Map(D, data => data.TranslatedStatus)
+                    .Map(E, data => data.IsPAText)
+                    .Map(F, data => data.LastReachedDateString)
+                    .Map(G, data => data.TranslatedLastLimitTypeReach)
+                    .Map(H, data => data.WinLossAmountString)
+                    .Map(I, data => data.WinningThresholdString)
+                    .Map(J, data => data.LosingThresholdString)
+                    .Map(K, data => data.ReachedCountString);
+            }
+            else
+            {
+                mapper
+                    .Map(C, data => data.TranslatedStatus)
+                    .Map(D, data => data.IsPAText)
                     .Map(E, data => data.LastReachedDateString)
                     .Map(F, data => data.TranslatedLastLimitTypeReach)
                     .Map(G, data => data.WinLossAmountString)
                     .Map(H, data => data.WinningThresholdString)
                     .Map(I, data => data.LosingThresholdString)
                     .Map(J, data => data.ReachedCountString);
-            }
-            else
-            {
-                mapper
-                    .Map(C, data => data.TranslatedStatus)
-                    .Map(D, data => data.LastReachedDateString)
-                    .Map(E, data => data.TranslatedLastLimitTypeReach)
-                    .Map(F, data => data.WinLossAmountString)
-                    .Map(G, data => data.WinningThresholdString)
-                    .Map(H, data => data.LosingThresholdString)
-                    .Map(I, data => data.ReachedCountString);
             }
 
             return mapper;

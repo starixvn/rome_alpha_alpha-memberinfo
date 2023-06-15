@@ -52,10 +52,10 @@
             var pagingViewModel = await Handle(query);
 
             var param = new SelectGlobalThresholdParam(message.CustId, message.Site);
-            var globalThreshold = await service.GetGlobalThreshold(param);            
+            var globalThreshold = await service.GetGlobalThreshold(param);
 
             return new MyWatchlistAccountsViewModel(
-                message, 
+                message,
                 globalThreshold,
                 isMobile,
                 canUpdateAccount,
@@ -164,7 +164,7 @@
         {
             var results = new List<NamedResult>();
 
-            foreach(var preset in message.Presets)
+            foreach (var preset in message.Presets)
             {
                 var param = new AddPersonalPresetParam(
                     message.CustId,

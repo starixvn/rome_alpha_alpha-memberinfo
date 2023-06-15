@@ -24,6 +24,12 @@
     ]
   },
   {
+    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist.css",
+    "inputFiles": [
+      "assets/styles/problem-account/confirm-add-to-watchlist.css"
+    ]
+  },
+  {
     "outputFileName": "assets/bundles/problem-account/update.css",
     "inputFiles": [
       "assets/styles/problem-account/update.css"
@@ -61,7 +67,17 @@
       "assets/scripts/components/daterangepicker.js",
       "assets/scripts/ProblemAccount/base-list.js",
       "assets/scripts/ProblemAccount/customer-list-helper.js",
-      "assets/scripts/ProblemAccount/index.js"
+      "assets/scripts/ProblemAccount/index.js",
+      "assets/scripts/ProblemAccount/problem-account-viewmodel.js",
+      "assets/scripts/ProblemAccount/edit-setting-popup.js",
+      "assets/scripts/shared/ajax-helper.js"
+
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist.js",
+    "inputFiles": [
+      "assets/scripts/ProblemAccount/confirm-add-to-watchlist.js"
     ]
   },
   {
@@ -231,6 +247,12 @@
     ]
   },
   {
+    "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reached-threshold-datatable.js",
+    "inputFiles": [
+      "assets/scripts/shared/ajax-helper.js"
+    ]
+  },
+  {
     "outputFileName": "Features/MyWatchlist/ReachedThreshold/Bundles/reach-history.js",
     "inputFiles": [
       "assets/scripts/shared/datatable-helper.js",
@@ -352,6 +374,12 @@
     "outputFileName": "assets/bundles/problem-account/index-dark.css",
     "inputFiles": [
       "assets/styles/problem-account/index-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist-dark.css",
+    "inputFiles": [
+      "assets/styles/problem-account/confirm-add-to-watchlist-dark.css"
     ]
   },
   {

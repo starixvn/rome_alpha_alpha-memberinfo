@@ -1,9 +1,14 @@
 ﻿
 class CustomerListHelper {
     viewResources: ViewResources;
+    $: JQueryStatic;
+    private canUpdateAccount: string;
 
-    constructor(viewResources: ViewResources) {
+
+    constructor($: JQueryStatic, viewResources: ViewResources) {
+        this.$ = $;
         this.viewResources = viewResources;
+        this.canUpdateAccount = JSON.parse(this.$("#CanUpdateAccount").val());
     }
 
     private buildCommonAttributesJson(CustId, Username: string, roleId) {
@@ -18,8 +23,56 @@ class CustomerListHelper {
         return `<tr><td colspan='${colspan}' align='center' class='no-info'>${this.viewResources.NoInformationIsAvailable}</td></tr>`;
     }
 
+    private renderCheckboxColumn = item => {
+        const attrs = {
+            'class': 'checkbox',
+            'data-custid': item.CustId,
+            'data-username': item.UserName,
+        };
+
+        return `<input type="checkbox" ${this.buildAttributes(attrs)} />`;
+    }
+
+    private renderEditColumn = item => {
+        const attrs = {
+            'class': 'edit icon-table-edit',
+            'id': `setting-${item.CustId}`,
+            'data-custid': item.CustId,
+            'data-username': item.UserName,
+            'title': this.$('#editSettingText').val()
+        };
+
+        return `<div ${this.buildAttributes(attrs)}/>`;
+    }
+
+    private renderUsernameColumn = item => {
+        const textLocked = this.$("#text-locked").val();
+        return item.Locked
+            ? `<div class="cell-username">
+                ${item.UserName}
+                <span class="pull-right icon-locked" title="${textLocked}"></span>
+                </div>`
+            : `${item.UserName}`;
+    }
+
+    private renderStatusColumn = item => {
+
+        const className = item.Status === 1 ? "open-button" : "";
+        const attrs = {
+            'class': `${className}`,
+            'id': `status-${item.CustId}`,
+            'data-custid': item.CustId,
+            'data-username': item.UserName,
+        };
+
+        return `<div ${this.buildAttributes(attrs)}>${item.StatusName}</div>`;
+    }
+
+    private buildAttributes = attrs => this.$.map(attrs, (value, key) => `${key}='${value}'`).join(' ');
+
     private buildColumnAttributesJson(customer, levelId: number, actorId: number, customerIndex: number) {
         const memberId = siteInfrastructure.Role.Member.Id, isMember = levelId === memberId,
+            isAgentLogin = actorId === siteInfrastructure.Role.Agent.Id,
             isViewNickname = actorId - 1 == levelId,
             { CustId, UserName, StatusName, NickName, FirstName, LastName, CreatedDateStr, ReviewStatus, Count, CanEdit } = customer,
             commonAttributesJson = this.buildCommonAttributesJson(CustId, UserName, levelId);
@@ -31,7 +84,17 @@ class CustomerListHelper {
                 Visibile: true
             },
             {
-                Content: UserName,
+                Content: this.renderCheckboxColumn(customer),
+                Attributes: [{ Name: 'class', Value: 'center' }],
+                Visibile: isAgentLogin && this.canUpdateAccount
+            },
+            {
+                Content: this.renderEditColumn(customer),
+                Attributes: [{ Name: 'class', Value: 'center' }],
+                Visibile: isAgentLogin && this.canUpdateAccount
+            },
+            {
+                Content: isAgentLogin && this.canUpdateAccount ? this.renderUsernameColumn(customer) : UserName,
                 Attributes: [{ Name: 'class', Value: isMember ? '' : ' link view-downline' }].concat(commonAttributesJson),
                 Visibile: true
             },
@@ -51,7 +114,7 @@ class CustomerListHelper {
                 Visibile: true
             },
             {
-                Content: StatusName,
+                Content: isAgentLogin && this.canUpdateAccount ? this.renderStatusColumn(customer) : StatusName,
                 Attributes: [{ Name: 'class', Value: 'text-center' }],
                 Visibile: true
             },
@@ -73,7 +136,7 @@ class CustomerListHelper {
             {
                 Content: this.buildActionColumnOnDesktop(customer, levelId, CanEdit),
                 Attributes: [{ Name: 'class', Value: 'text-center' }],
-                Visibile: true
+                Visibile: !isAgentLogin
             }
         ];
     }
@@ -161,11 +224,18 @@ class CustomerListHelper {
                     }
                 });
 
+            const rowAttributes = [
+                new Attribute('class', this.buildAccountStatusCssClass(Customers[i])),
+                new Attribute('cust-id', Customers[i].CustId)
+            ];
+            const reviewAttribute = Customers[i].IsReviewed ? new Attribute('is-reviewed', Customers[i].IsReviewed) : null;
+            reviewAttribute && rowAttributes.push(reviewAttribute);
+
+            const statusAttribute = Customers[i].StatusNameEN === "Open" ? new Attribute('is-open', 'true') : null;
+            statusAttribute && rowAttributes.push(statusAttribute);
+
             bodyContent += new RowWrapper(rowContent,
-                [
-                    new Attribute('class', this.buildAccountStatusCssClass(Customers[i])),
-                    new Attribute('cust-id', Customers[i].CustId)
-                ]).ToString();
+                rowAttributes).ToString();
         }
 
         return bodyContent;

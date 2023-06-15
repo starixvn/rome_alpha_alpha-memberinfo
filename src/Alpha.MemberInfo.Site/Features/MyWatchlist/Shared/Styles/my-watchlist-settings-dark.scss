@@ -107,3 +107,32 @@
 .btn-submit {
     width: 90px;
 }
+
+.box-settings {
+    .btn-submit {
+        margin-top: 10px;
+        width: auto;
+    }
+}
+.button-group {
+    text-align: right;
+}
+.flex-settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height : 95vh;
+}
+
+@media screen and (max-device-width: 767px) {
+    .button-group {
+        .btn-cancel {
+            height: 45px;
+        }
+    }
+    .flex-settings {
+        padding-top : 8px;
+        display: unset;
+        height: auto;
+    }
+}

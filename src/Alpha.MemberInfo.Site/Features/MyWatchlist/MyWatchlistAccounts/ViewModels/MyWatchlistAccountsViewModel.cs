@@ -24,6 +24,8 @@
             MyWatchListAccountPagingViewModel = myWatchListAccountPagingViewModel;
             IsShowLastLoginColumn = request.IsShowLastLoginColumn;
             CustLevel = request.CustLevel.DisplayName;
+            IsOpenFromProblemAccount = request.IsOpenFromProblemAccount;
+            CustIds = request.CustIds;
         }
 
         public int SearchAccountId { get; }
@@ -39,6 +41,8 @@
         public string CustLevel { get; }
 
         public bool CanUpdateAccount { get; }
+        public bool IsOpenFromProblemAccount { get; }
+        public string CustIds { get; }
 
         public DateTime MinDate => DateTime.Today.AddMonths(-3).FirstDayOfMonth();
 

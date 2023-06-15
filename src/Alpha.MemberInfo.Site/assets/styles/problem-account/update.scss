@@ -7,12 +7,7 @@
 }
 
 .review-content {
-    line-height: 20px;
     margin-bottom: 10px;
-}
-
-.formUpdateReviewStatus {
-    padding-bottom: 60px;
 }
 
 .list-button {
@@ -22,7 +17,7 @@
     left: 0;
     width: 100%;
     background-color: #fff;
-    padding: 20px 16px;
+    padding: 10px 10px 0px 0px;
 
     [class^='btn'] {
         float: right;
@@ -47,6 +42,11 @@
     color: #333333;
 }
 
+.total {
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .more-content {
     display: inline;
 
@@ -55,15 +55,61 @@
     }
 }
 
+.less-content {
+    display: inline;
+}
+
+.less-link {
+    color: #337ab7;
+}
+
+.less-link:hover {
+    color: #337ab7;
+}
+
+.more-link {
+    color: #337ab7;
+}
+
+.more-link:hover {
+    color: #337ab7;
+}
+
 .form-horizontal {
     label {
         text-align: left;
     }
-    margin-top:10px;
+
+    margin-top: 10px;
 }
 
 .message-container {
     display: table;
     width: 100%;
     margin-bottom: 12px;
+}
+
+@media screen and (max-device-width: 767px) {
+
+    .list-button {
+        padding: 20px 16px;
+
+        .btn-cancel {
+            height: 45px;
+            margin-bottom: 16px;
+        }
+
+        .btn-submit {
+            height: 45px;
+            width: auto;
+        }
+    }
+
+    .total {
+        font-size: 21px;
+    }
+    
+    body {
+        font-size: 18px;
+    }
 }

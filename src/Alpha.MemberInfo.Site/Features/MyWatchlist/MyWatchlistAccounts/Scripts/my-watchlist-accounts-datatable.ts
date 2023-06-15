@@ -3,6 +3,7 @@
 class MyWatchlistAccountsDataTable {
     private $: JQueryStatic;
     private editSettingPopup: EditSettingPopup;
+    private topWindow: any;
 
     private isMobile: boolean;
     private isShowLastLoginColumn: boolean;
@@ -13,10 +14,11 @@ class MyWatchlistAccountsDataTable {
     private $dataTable: JQuery;
     private myWatchlistAccountData: any;
 
-    constructor($: JQueryStatic, editSettingPopup: EditSettingPopup, myWatchlistAccountData: any) {
+    constructor($: JQueryStatic, editSettingPopup: EditSettingPopup, myWatchlistAccountData: any, topWindow: any) {
         this.$ = $;
         this.editSettingPopup = editSettingPopup;
         this.myWatchlistAccountData = myWatchlistAccountData;
+        this.topWindow = topWindow;
     }
 
     public reloadData() {
@@ -52,7 +54,8 @@ class MyWatchlistAccountsDataTable {
             LastLogin: 2,
             Status: 3,
             WinningThreshold: 4,
-            LosingThreshold: 5
+            LosingThreshold: 5,
+            IsPA: 7
         };
 
         return {
@@ -130,6 +133,7 @@ class MyWatchlistAccountsDataTable {
 
         columns.push(
             { className: 'center', data: "TranslatedStatus", name: "Status" },
+            { className: 'center', data: "IsPAText", name: "IsPA" },
             { className: 'right', data: "WinningThresholdString", name: "WinningThreshold" },
             { className: 'right', data: "LosingThresholdString", name: "LosingThreshold" },
             { data: null }
@@ -179,6 +183,26 @@ class MyWatchlistAccountsDataTable {
     private drawCallback() {
         this.$tableReport.removeClass("hidden");
         this.editSettingPopup.bindEvents(this.$tableReport);
-        //this.$('thead tr th.control').parent().removeClass("parent");
+
+        const isOpenFromProblemAccount = this.$('#isOpenFromProblemAccount').val();
+        isOpenFromProblemAccount && JSON.parse(isOpenFromProblemAccount) && setTimeout(() => {
+            this.openAddMultiplePopup();
+            this.topWindow.menuBar.activeMyWatchlistSubMenuItem();
+        }, 1500);
+    }
+
+    private openAddMultiplePopup() {
+        const custIds = this.$('#custIds').val();
+        this.$('#custIds').val("");
+        this.$('#isOpenFromProblemAccount').val("");
+
+        const baseUrl = this.$('#member-info-url').val();
+
+        this.topWindow.popupManager.open(
+            `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?Usernames=${custIds}&isEdite=true`,
+            undefined,
+            820,
+            550,
+            "modal-mobile-friendly");
     }
 }

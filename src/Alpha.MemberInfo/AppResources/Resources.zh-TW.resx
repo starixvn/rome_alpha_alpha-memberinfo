@@ -330,8 +330,8 @@
   <data name="ReviewStatus" xml:space="preserve">
     <value>審查狀態</value>
   </data>
-  <data name="SetToReviewed" xml:space="preserve">
-    <value>設為已審查</value>
+  <data name="MarkAsReviewed" xml:space="preserve">
+    <value>標記為已審核</value>
   </data>
   <data name="Reviewed" xml:space="preserve">
     <value>已審查</value>
@@ -934,5 +934,53 @@
   </data>
   <data name="pendingTransfer3rd" xml:space="preserve">
     <value>第三方待定轉賬</value>
+  </data>
+  <data name="EditSetting" xml:space="preserve">
+    <value>修改設定</value>
+  </data>
+  <data name="EditMutipleSetting" xml:space="preserve">
+    <value>修改多重設置</value>
+  </data>
+  <data name="AddToMyWatchlist" xml:space="preserve">
+    <value>添加至我的監控列表</value>
+  </data>
+  <data name="AddMultipleAccountsToWatchlist" xml:space="preserve">
+    <value>將多重賬號添加到我的監控列表</value>
+  </data>
+  <data name="SuspendMultipleAccounts" xml:space="preserve">
+    <value>暫停多重賬號</value>
+  </data>
+  <data name="SetThresholds" xml:space="preserve">
+    <value>設定限額</value>
+  </data>
+  <data name="AccountsAlreadyInWatchlist" xml:space="preserve">
+    <value>{0} 現有賬號在我的監控列表中</value>
+  </data>
+  <data name="NewlyAddedAccounts" xml:space="preserve">
+    <value>新添加的賬號</value>
+  </data>
+  <data name="AddToWatchListConfirmThresholds" xml:space="preserve">
+    <value>建議設定限額予以上新添加賬號。點擊&lt;b&gt;設定限額&lt;/b&gt;繼續進行。</value>
+  </data>
+  <data name="AddMultipleToWatchlistExceedMessage" xml:space="preserve">
+    <value>您一次最多只能添加50個會員至監控列表</value>
+  </data>
+  <data name="AddMultipleToWatchlist" xml:space="preserve">
+    <value>將多重賬號添加到我的監控列表</value>
+  </data>
+  <data name="MarkMultipleAsReviewed" xml:space="preserve">
+    <value>將多重賬號標記為已審核</value>
+  </data>
+  <data name="ProblemAccount" xml:space="preserve">
+    <value>問題賬號</value>
+  </data>
+  <data name="SuspendAccount" xml:space="preserve">
+    <value>暫停賬號</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>顯示更多</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>显示更少</value>
   </data>
 </root>

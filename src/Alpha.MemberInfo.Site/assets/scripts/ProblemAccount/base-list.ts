@@ -4,7 +4,9 @@ class BaseList {
     $: JQueryStatic;
     topWindow: Window;
     reviewStatusComponent: SingleSelectionDropdownComponent;
+    problemAccountPopup: ProblemAccountPopup;
     dateRangePickerComponent: DateRangePickerComponent;
+
     $fromDate: JQuery;
     $toDate: JQuery;
     $updateButton: JQuery;
@@ -37,7 +39,8 @@ class BaseList {
         levelId: number,
         levelName: string,
         dateRangePickerComponent: DateRangePickerComponent,
-        reviewStatusComponent: SingleSelectionDropdownComponent = null
+        reviewStatusComponent: SingleSelectionDropdownComponent = null,
+        problemAccountPopup: ProblemAccountPopup = null
     ) {
         this.$ = $;
         this.topWindow = topWindow;
@@ -46,6 +49,8 @@ class BaseList {
         this.levelNameLowerCase = levelName.toLowerCase();
         this.levelId = levelId;
         this.dateRangePickerComponent = dateRangePickerComponent;
+        this.problemAccountPopup = problemAccountPopup;
+        this.topWindow.needReloadMainFrameAfterUpdating = true;
     }
 
     public init(indexManager: ProblemAccount, downlineObject: BaseList) {
@@ -54,9 +59,9 @@ class BaseList {
         this.isIndirectDownlineOfActor = this.levelId < this.indexManager.ActorLevel - 1;
         this.directDownlineRoleId = this.levelId - 1;
         this.cacheDOMElements();
+        this.problemAccountPopup && this.problemAccountPopup.init(this.$tblReport, indexManager);
 
-
-        this.customerListHelper = new CustomerListHelper(indexManager.viewResources);
+        this.customerListHelper = new CustomerListHelper(this.$, indexManager.viewResources);
         this.$downlineObject = downlineObject;
         this.reviewStatusComponent.render(
             new SingleSelectionDropdownOption(`dropdown-reviewstatus-${this.levelNameLowerCase}`, `UserSelectedReviewedStatusId-${this.levelName}`));
@@ -178,8 +183,7 @@ class BaseList {
 
     viewDownlines(event) {
         const $this = this.$(event.currentTarget),
-            custId = parseInt($this.attr("cust-id")),
-            username = $this.html();
+            username = $this.attr('username');
 
         this.$(`#tab${this.directDownlineRoleId}`).click();
         this.$downlineObject.$fromDate.val(this.$fromDate.val());
@@ -254,6 +258,7 @@ class BaseList {
         this.$(window).trigger('resize.stickyTableHeaders');
 
         this.bindReportEvents();
+        this.problemAccountPopup && this.problemAccountPopup.bindEvents(this.$tblReport);
     }
 
     reloadPage() {
@@ -285,7 +290,7 @@ class ViewResources {
         this.$ = $;
 
         this.NoInformationIsAvailable = this.$("#NoInformationIsAvailable").val();
-        this.UpdatePopupTitle = this.$("#UpdatePopupTitle").val();
+        this.UpdatePopupTitle = this.$("#markAsReviewedText").val();
         this.TotalColumnMaster = parseInt(this.$("#TotalColumnMaster").val());
         this.TotalColumnAgent = parseInt(this.$("#TotalColumnAgent").val());
         this.TotalColumnMember = parseInt(this.$("#TotalColumnMember").val());

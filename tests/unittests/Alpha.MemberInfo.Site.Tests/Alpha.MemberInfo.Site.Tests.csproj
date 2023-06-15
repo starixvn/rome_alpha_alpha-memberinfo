@@ -259,6 +259,7 @@
     <Compile Include="Controllers\CreditBalanceControllerTests.cs" />
     <Compile Include="Controllers\IndirectLoginAccountControllerTests.cs" />
     <Compile Include="Controllers\MemberRequestsControllerTests.cs" />
+    <Compile Include="Controllers\ProblemAccountControllerTests.cs" />
     <Compile Include="Controllers\WinLossLimitControllerTests.cs" />
     <Compile Include="Extensions\AssertExtension.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountControllerTests.cs" />
@@ -284,6 +285,7 @@
     <Compile Include="Handlers\CreditBalanceHandlerTests.cs" />
     <Compile Include="Handlers\IndirectLoginAccountHandlerTests.cs" />
     <Compile Include="Handlers\MemberRequestsHandlerTests.cs" />
+    <Compile Include="Handlers\ProblemAccount\ProblemAccountHandlerTests.cs" />
     <Compile Include="Handlers\WinLossLimitHandlerTests.cs" />
     <Compile Include="Helpers\BackgroundColorHelperTests.cs" />
     <Compile Include="Helpers\QueryEntityModelBinderTests.cs" />

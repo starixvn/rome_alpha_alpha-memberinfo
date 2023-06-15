@@ -119,6 +119,19 @@ table.dataTable {
     }
 
     box-sizing: border-box;
+
+    tbody td.col-username {
+        padding: 0 0 0 8px;
+
+        .cell-username {
+            display: flex;
+            align-items: center;
+
+            .cell-username-text {
+                margin-right: 4px;
+            }
+        }
+    }
 }
 
 .dataTables_wrapper {
@@ -133,7 +146,7 @@ table.dataTable {
 
 .my-watchlist-accounts .table-container {
     width: 100%;
-    max-width: 1024px;
+    max-width: 1174px;
 }
 
 .my-thresholds .table-container {

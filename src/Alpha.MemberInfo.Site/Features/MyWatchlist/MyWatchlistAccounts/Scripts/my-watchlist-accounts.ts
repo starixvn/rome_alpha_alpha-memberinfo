@@ -1,11 +1,13 @@
 ﻿interface Window {
     watchlistAccountData: any;
     reloadMyWatchlistDataTable: Function;
+    openAddMultiplePopup: Function;
 }
 
 class MyWatchlistAccounts extends MyWatchlistBase {
     private topWindow: any;
     private dataTable: MyWatchlistAccountsDataTable;
+
 
     constructor(
         $: JQueryStatic,
@@ -68,7 +70,7 @@ class MyWatchlistAccounts extends MyWatchlistBase {
 
 $(function () {
     const editSettingPopup = new EditSettingPopup($, window.top);
-    const dataTable = new MyWatchlistAccountsDataTable($, editSettingPopup, window.watchlistAccountData);
+    const dataTable = new MyWatchlistAccountsDataTable($, editSettingPopup, window.watchlistAccountData, window.top);
     window.top.reloadMyWatchlistDataTable = () => dataTable.reloadData();
 
     new MyWatchlistAccounts($, window.top, dataTable).init();

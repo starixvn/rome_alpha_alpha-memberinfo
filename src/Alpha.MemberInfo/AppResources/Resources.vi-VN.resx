@@ -385,16 +385,16 @@
     <value>Ngày Xuất</value>
   </data>
   <data name="NotReviewed" xml:space="preserve">
-    <value>Chưa Xem</value>
+    <value>Chưa Duyệt</value>
   </data>
   <data name="Reviewed" xml:space="preserve">
-    <value>Đã Xem</value>
+    <value>Đã Duyệt</value>
   </data>
-  <data name="SetToReviewed" xml:space="preserve">
-    <value>Đánh dấu Đã Xem</value>
+  <data name="MarkAsReviewed" xml:space="preserve">
+    <value>Đánh dấu Đã Duyệt</value>
   </data>
   <data name="ReviewStatus" xml:space="preserve">
-    <value>Trạng Thái Đã Xem</value>
+    <value>Trạng Thái Duyệt</value>
   </data>
   <data name="RemainingTransferInAmount" xml:space="preserve">
     <value>Tiền Có Thể Chuyển</value>
@@ -925,5 +925,50 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="pendingTransfer3rd" xml:space="preserve">
     <value>Tiền Chưa Chuyển Về Từ Trò Chơi</value>
+  </data>
+  <data name="AccountsAlreadyInWatchlist" xml:space="preserve">
+    <value>Đang có {0} tài khoản trên Danh Sách Theo Dõi</value>
+  </data>
+  <data name="AddMultipleAccountsToWatchlist" xml:space="preserve">
+    <value>Thêm Đồng Loạt Tài Khoản vào Danh Sách Theo Dõi</value>
+  </data>
+  <data name="AddMultipleToWatchlistExceedMessage" xml:space="preserve">
+    <value>Mỗi lần chỉ thêm được tối đa 50 Member vào Danh Sách Theo Dõi.</value>
+  </data>
+  <data name="AddToMyWatchlist" xml:space="preserve">
+    <value>Thêm vào Danh Sách Theo Dõi</value>
+  </data>
+  <data name="AddToWatchListConfirmThresholds" xml:space="preserve">
+    <value>Bạn nên cài đặt giới hạn cược cho tài khoản mới thêm. Nhấn &lt;b&gt;Cài Đặt Giới Hạn Cược&lt;/b&gt; để tiếp tục.</value>
+  </data>
+  <data name="MarkMultipleAsReviewed" xml:space="preserve">
+    <value>Đánh Dấu Đã Duyệt Đồng Loạt</value>
+  </data>
+  <data name="NewlyAddedAccounts" xml:space="preserve">
+    <value>Tài khoản mới thêm</value>
+  </data>
+  <data name="ProblemAccount" xml:space="preserve">
+    <value>Tài Khoản Có Vấn Đề</value>
+  </data>
+  <data name="SetThresholds" xml:space="preserve">
+    <value>Cài Đặt Giới Hạn Cược</value>
+  </data>
+  <data name="SuspendMultipleAccounts" xml:space="preserve">
+    <value>Đình Chỉ Đồng Loạt Tài Khoản</value>
+  </data>
+  <data name="AddMultipleToWatchlist" xml:space="preserve">
+    <value>Thêm Đồng Loạt Tài Khoản vào Danh Sách Theo Dõi</value>
+  </data>
+  <data name="EditSetting" xml:space="preserve">
+    <value>Sửa Thiết Lập</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Ẩn bớt</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Xem thêm</value>
+  </data>
+  <data name="EditMutipleSetting" xml:space="preserve">
+    <value>Tuỳ Chỉnh Đồng Loạt Thiết Lập</value>
   </data>
 </root>

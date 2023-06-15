@@ -1,6 +1,7 @@
 ﻿"use strict"
 
 class ParlayMaxPayout {
+    private topWindow: any;
     private $: JQueryStatic;
     private $btnSubmit: JQuery;
 
@@ -20,8 +21,10 @@ class ParlayMaxPayout {
     constructor(
         $: JQueryStatic,
         alertService: AlertService,
-        parlayMaxPayoutService: ParlayMaxPayoutService) {
+        parlayMaxPayoutService: ParlayMaxPayoutService,
+        topWindow: any) {
         this.$ = $;
+        this.topWindow = topWindow;
         this.alertService = alertService;
         this.parlayMaxPayoutService = parlayMaxPayoutService;
     }
@@ -235,9 +238,9 @@ class ParlayMaxPayout {
                 window.location.reload();
             }, this.reloadTimeout);
         } else {
-            window.top.customerListNew
-                ? window.top.customerListPopup.successfulUpdatingCallback(this.reloadTimeout)
-                : window.top.reloadPopUpSetting(this.reloadTimeout);
+            this.topWindow.needReloadMainFrameAfterUpdating
+                ? this.topWindow.customerListPopup.successfulUpdatingCallback(this.reloadTimeout)
+                : this.topWindow.reloadPopUpSetting(this.reloadTimeout);
         }
     }
 }
@@ -245,7 +248,7 @@ class ParlayMaxPayout {
 $(function () {
     const alertService = new AlertService($);
     const parlayMaxPayoutService = new ParlayMaxPayoutService($, alertService);
-    const parlayMaxPayout = new ParlayMaxPayout($, alertService, parlayMaxPayoutService);
+    const parlayMaxPayout = new ParlayMaxPayout($, alertService, parlayMaxPayoutService, window.top);
 
     parlayMaxPayout.Init();
 });

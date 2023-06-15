@@ -11,6 +11,10 @@
             Viewer = viewer;
         }
 
+        public bool IsOpenFromProblemAccount { get; set; }
+
+        public string CustIds { get; set; }
+
         public IUser Viewer { get; }
     }
 }

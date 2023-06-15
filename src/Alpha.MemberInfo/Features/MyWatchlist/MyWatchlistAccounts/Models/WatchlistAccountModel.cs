@@ -1,8 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models
 {
+    using System;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Extensions;
-    using System;
 
     public class WatchlistAccountModel
     {
@@ -20,7 +20,8 @@
             decimal? winningThreshold, 
             decimal? losingThreshold, 
             byte closedReason, 
-            byte locked)
+            byte locked,
+            bool isPA)
         {
             RowNumber = rowNumber;
             CustId = custId;
@@ -32,6 +33,7 @@
             LosingThreshold = losingThreshold;
             ClosedReason = closedReason;
             Locked = locked;
+            IsPA = isPA;
         }
 
         public int RowNumber { get; }
@@ -61,5 +63,11 @@
         public byte ClosedReason { get; }
 
         public byte Locked { get; }
+
+        public bool IsPA { get; }
+
+        public string IsPAText => IsPA ? Resources.Yes : Resources.No2;
+
+        public bool isExistedThreshold { get; }
     }
 }

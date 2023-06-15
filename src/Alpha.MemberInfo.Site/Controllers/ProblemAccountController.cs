@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Controllers
 {
+    using System.Threading.Tasks;
     using System.Web.Mvc;
     using System.Web.SessionState;
     using Alpha.MemberInfo.Site.Requests.ProblemAccount;
@@ -9,16 +10,22 @@
     [SessionState(SessionStateBehavior.Default)]
     public class ProblemAccountController : SiteBaseController
     {
+        private const string ConfirmAddToWatchlistPath = "~/Views/ProblemAccount/ConfirmAddToWatchlist.cshtml";
+
         public ProblemAccountController(IMediator mediator) : base(mediator)
         {
         }
 
+        public async Task<ActionResult> ConfirmAddToWatchlist(ConfirmAddToWatchlistQuery message)
+            => await ViewAsync(message, ConfirmAddToWatchlistPath);
+
         public ActionResult Index(IndexRequest message)
             => View(message, "Index");
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult Update(UpdateProblemAccountRequest message)
             => View(message, "Update");
+        
 
         public ActionResult GetProblemAccounts(GetProblemAccountRequest message)
             => Json(message);

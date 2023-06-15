@@ -1,17 +1,15 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.ViewModels
 {
-    using Alpha.MemberInfo.Configurations;
-    using Alpha.MemberInfo.Constants;
-    using Alpha.MemberInfo.Extensions;
-    using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
-    using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.Requests;
-    using Alpha.MemberInfo.Site.ViewModels.Components;
-    using Alpha.Web.Helpers;
-    using Sunplus.Agent.Model.Entities;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Alpha.MemberInfo.Configurations;
+    using Alpha.MemberInfo.Constants;
+    using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
+    using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold.Requests;
+    using Alpha.MemberInfo.Site.ViewModels.Components;
+    using Alpha.Web.Helpers;
 
     public class ReachedThresholdViewModel
     {
@@ -48,6 +46,7 @@
             IsMobile = isMobile;
             IsShowLastLoginColumn = request.LimitedDateToShowInfo == default(DateTime);
             CustLevel = request.CustLevel.DisplayName;
+            CanUpdateAccount = request.CanUpdateAccount;
         }
 
         public ReachedThresholdPagingViewModel ReachedThresholdPagingViewModel { get; }
@@ -67,6 +66,8 @@
         public bool IsShowLastLoginColumn { get; }
 
         public string CustLevel { get; }
+
+        public bool CanUpdateAccount { get; }
 
         public string UserGuideLink => AppSettings.IsSiteLabel789y ?
             MicroSites.MessageUrl("~/StaticMessage/Guide?id=179067") :

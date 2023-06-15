@@ -23,10 +23,10 @@
                 1);
 
             IsEditWatchlistAccountsPopup = message.IsEdit;
+            Usernames = message.Usernames;
             if (IsEditWatchlistAccountsPopup)
             {
                 CustIds = message.CustIds;
-                Usernames = message.Usernames;
                 Threshold = new ThresholdViewModel(message.WinningThreshold, message.LosingThreshold);
             }
         }
