@@ -35,7 +35,7 @@ class CustomerListDataTable {
         this.editStatus = editStatus;
         this.unlock = unlock;
 
-        this.topWindow.needReloadMainFrameAfterUpdating = true;
+        this.topWindow.customerListNew = true;
     }
 
     public bindingEvent = () => {
