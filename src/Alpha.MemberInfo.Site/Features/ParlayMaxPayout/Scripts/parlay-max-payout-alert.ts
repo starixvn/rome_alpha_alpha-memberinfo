@@ -2,7 +2,7 @@
 
 interface Window {
     bootboxConfirm: Function;
-    needReloadMainFrameAfterUpdating: boolean;
+    customerListNew: boolean;
 }
 
 class AlertService {

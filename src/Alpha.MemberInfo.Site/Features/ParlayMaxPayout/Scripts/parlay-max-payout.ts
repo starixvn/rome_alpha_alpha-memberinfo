@@ -238,7 +238,7 @@ class ParlayMaxPayout {
                 window.location.reload();
             }, this.reloadTimeout);
         } else {
-            this.topWindow.needReloadMainFrameAfterUpdating
+            this.topWindow.customerListNew
                 ? this.topWindow.customerListPopup.successfulUpdatingCallback(this.reloadTimeout)
                 : this.topWindow.reloadPopUpSetting(this.reloadTimeout);
         }

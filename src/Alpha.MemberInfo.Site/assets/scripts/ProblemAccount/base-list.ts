@@ -50,7 +50,7 @@ class BaseList {
         this.levelId = levelId;
         this.dateRangePickerComponent = dateRangePickerComponent;
         this.problemAccountPopup = problemAccountPopup;
-        this.topWindow.needReloadMainFrameAfterUpdating = true;
+        this.topWindow.customerListNew = true;
     }
 
     public init(indexManager: ProblemAccount, downlineObject: BaseList) {
