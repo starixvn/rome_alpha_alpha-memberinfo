@@ -4,6 +4,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
+    using System.Web;
+    using Alpha.MemberInfo.Configurations;
+    using Sunplus.Agent.Model.Entities;
+    using Sunplus.Agent.Utilities;
     using Web.Helpers;
 
     public static class UrlHelper
@@ -65,7 +69,21 @@
         {
             get
             {
-                return mapBetListPath ?? GetBetListPath;
+                if (mapBetListPath != null)
+                {
+                    return mapBetListPath;
+                }
+
+                if (AppSettings.IsStandaloneBetlist)
+                {
+                    mapBetListPath = MapBetListDomain;
+                }
+                else
+                {
+                    mapBetListPath = GetBetListPath;
+                }
+
+                return mapBetListPath;
             }
 
             internal set
@@ -128,8 +146,38 @@
         }
 
         internal static string GetBetListPath(string virtualPath = "~/WinLoss/Index")
+            => MicroSites.BetListsUrl(virtualPath);
+
+        internal static string MapBetListDomain(string virtualPath = "~/")
         {
-            return MicroSites.BetListsUrl(virtualPath);
+            var betlistDomain = AppSettings.BetlistDomain;
+            var cookieless = string.Empty;
+
+            if (HttpContext.Current.Session.IsCookieless)
+            {
+                var currentSession = UserSession.Current;
+                var cookieNameCurrentPage = GetCookieNameOfCurrentPage(currentSession.CustId, currentSession.SubAccId, Encryption.PearsonEncode);
+                cookieless = $"/(S({HttpContext.Current.Request.Cookies[$"{cookieNameCurrentPage}-betlist-{HttpContext.Current.Session.SessionID}"].Value}))";
+            }
+
+            return $"{betlistDomain}{cookieless}{virtualPath?.Replace("~", string.Empty)}";
+        }
+
+        internal static string GetCookieNameOfCurrentPage(
+            int custId,
+            int subAccId,
+            Func<string, string> encodeDataFunction)
+        {
+            var joinStrings = new[]
+            {
+                custId.ToString(),
+                subAccId.ToString(),
+                "NewMain"
+            };
+
+            var cacheUrlCookieName = string.Join("_", joinStrings);
+
+            return encodeDataFunction?.Invoke(cacheUrlCookieName) ?? cacheUrlCookieName;
         }
     }
 }

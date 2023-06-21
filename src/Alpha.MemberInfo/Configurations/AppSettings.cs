@@ -5,8 +5,8 @@
     using System.Collections.Specialized;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
-    using System.Web;
     using System.Linq;
+    using System.Web;
 
     public static class AppSettings
     {
@@ -93,5 +93,25 @@
         public static int MaxAccountsCreatePerRequest => Convert.ToInt32(GetConfigValue("CreateNewAccount:MaxAccountPerRequest"));
 
         public static Uri CustomerApiUri => new Uri(GetConfigValue("CustomerApi:Uri"));
+
+        public static bool IsStandaloneBetlist => !string.IsNullOrWhiteSpace(GetConfigValue("Betlist:Domain"));
+
+        public static string BetlistDomain
+        {
+            get
+            {
+                var betlistDomain = string.Empty + GetConfigValue("Betlist:Domain");
+                var mainDomain = HttpContext.Current?.Request?.Headers?["Host"];
+
+                if (HttpContext.Current?.Session?.IsCookieless == true)
+                {
+                    mainDomain = mainDomain?.Replace($"{mainDomain?.Split('.')?.ElementAt(0)}.", string.Empty);
+                }
+
+                return betlistDomain.IndexOf("{0}", StringComparison.OrdinalIgnoreCase) != -1
+                    ? string.Format(betlistDomain, mainDomain)
+                    : betlistDomain;
+            }
+        }
     }
 }

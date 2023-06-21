@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Models.Winloss;
     using AppResources;
     using Constants;
@@ -106,7 +107,7 @@
         public string CookiePrefix { get; }
 
         public string GetRunningBetListLink(CreditBalanceItem item)
-            => MicroSites.BetListsUrl($"~/RunningBetList/Index?custId={item.CustId}&custName={item.UserName}&getAll=true");
+            => Helpers.UrlHelper.MapBetListPath($"~/RunningBetList/Index?custId={item.CustId}&custName={item.UserName}&getAll=true");
 
         public string OldMainRootPath => MicroSites.OldMainUrl();
 
