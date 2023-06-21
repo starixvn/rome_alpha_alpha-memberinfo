@@ -62,8 +62,6 @@
 
         protected virtual string MessageUrl => Request.GetMicroSiteUrl(MicroSiteConstants.Message, "~/");
 
-        protected virtual string Ng2Url => Request.GetMicroSiteUrl(MicroSiteConstants.Ng2, "~/");
-
         public virtual bool Visible => Request.ActorIsEdittingDirectDownline;
 
         public virtual bool AddEditTextToPopupTitle => true;
