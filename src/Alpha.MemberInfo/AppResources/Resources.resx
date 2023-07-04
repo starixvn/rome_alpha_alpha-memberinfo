@@ -998,4 +998,7 @@ Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
   <data name="ShowLess" xml:space="preserve">
     <value>Show Less</value>
   </data>
+  <data name="RemoveClassicViewNotification" xml:space="preserve">
+    <value>From 18/07/2023 (dd/mm/yyyy), Classic View will no longer be available and will be replaced by the New View. Enjoy an improved user experience with the New View.</value>
+  </data>
 </root>
