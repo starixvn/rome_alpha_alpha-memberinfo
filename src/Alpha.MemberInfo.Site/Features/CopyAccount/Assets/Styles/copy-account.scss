@@ -546,19 +546,21 @@ select:-webkit-autofill:focus {
     width: 100%;
     margin-top: 12px;
     display: flex;
-    align-items: center;
-    padding: 9px;
+    padding: 10px 9px 8px 10px;
 
     i {
-        margin-right: 3px;
-        font-size: 20px;
+        margin-right: 5px;
+        font-size: 24px;
         color: #1C62A3;
+        position: relative;
+        top: -2px;
     }
 
     p {
         margin-bottom: 0;
-        font-weight: 500;
+        font-weight: bold;
         font-size: 14px;
+        line-height: 1.42;
         color: #1C62A3;
     }
 }
@@ -779,6 +781,7 @@ select:-webkit-autofill:focus {
 
         i {
             font-size: calculateScale(20px);
+            top: 0;
         }
 
         p {

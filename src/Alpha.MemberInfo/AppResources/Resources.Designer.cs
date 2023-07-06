@@ -2085,6 +2085,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to From 18/07/2023 (dd/mm/yyyy), Classic View will no longer be available and will be replaced by the New View. Enjoy an improved user experience with the New View..
+        /// </summary>
+        public static string RemoveClassicViewNotification {
+            get {
+                return ResourceManager.GetString("RemoveClassicViewNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove Multiple Accounts.
         /// </summary>
         public static string RemoveMultipleAccounts {
@@ -2360,15 +2369,6 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
         

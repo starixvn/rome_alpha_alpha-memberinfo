@@ -983,4 +983,7 @@
   <data name="ShowLess" xml:space="preserve">
     <value>แสดงน้อยลง</value>
   </data>
+  <data name="RemoveClassicViewNotification" xml:space="preserve">
+    <value>ตั้งแต่วันที่ 18/07/2023 (dd/mm/yyyy) มุมมองคลาสสิค จะไม่สามารถใช้งานได้อีกต่อไป โดยจะถูกแทนที่ด้วย มุมมองใหม่ เพลิดเพลินกับประสบการณ์ผู้ใช้ที่ได้รับการปรับปรุงให้ดีขึ้นจาก มุมมองใหม่</value>
+  </data>
 </root>
