@@ -971,4 +971,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="EditMutipleSetting" xml:space="preserve">
     <value>Tuỳ Chỉnh Đồng Loạt Thiết Lập</value>
   </data>
+  <data name="RemoveClassicViewNotification" xml:space="preserve">
+    <value>Từ ngày 18/07/2023 (dd/mm/yyyy), Phiên Bản Cũ sẽ không còn được hỗ trợ và sẽ được thay thế bằng Phiên Bản Mới. Hãy tận hưởng trải nghiệm người dùng được cải thiện với Phiên Bản Mới.</value>
+  </data>
 </root>
