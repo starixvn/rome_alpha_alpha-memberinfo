@@ -80,21 +80,6 @@
 
         public async Task<ResultCreateMemberQRCode> Handle(CreateAccountByQRCodeRequest message)
         {
-            var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
-                message.ViewerId,
-                message.ViewerLevelId,
-                message.Language);
-
-            if (limitNewDownlineResult.IsFailed)
-            {
-                return new ResultCreateMemberQRCode
-                {
-                    Success = false,
-                    ErrCode = limitNewDownlineResult.Code,
-                    ErrMsg = limitNewDownlineResult.Message
-                };
-            }
-
             var creditAndStatusModel = qrCodeMemberSignInService.GetCreditAndStatus(message.UsernameCopyFrom);
 
             if (creditAndStatusModel.Status != null &&
