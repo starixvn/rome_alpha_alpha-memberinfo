@@ -7,9 +7,11 @@
 .tooltip {
     background-color: transparent;
     border-color: transparent;
-    &.bottom{
-        margin-top : 10px;
+
+    &.bottom {
+        margin-top: 10px;
     }
+
     .tooltip-inner {
         padding: 8px;
         background: #2E2E2E;
@@ -18,7 +20,7 @@
         max-width: 250px;
         border: 1px solid #9F9F9F;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-        text-align : inherit;
+        text-align: inherit;
 
         &:before, &:after {
             top: 0;
@@ -317,7 +319,7 @@
 
     .icon-content-copy {
         color: #41A4FF;
-        padding : 8px;
+        padding: 8px;
     }
 
     .icon-check, .icon-close {
@@ -595,33 +597,6 @@ select:-webkit-autofill:focus {
 }
 
 
-.user-announcements {
-    background: #13314D;
-    border: 1px solid #40A3FF;
-    max-width: 930px;
-    width: 100%;
-    margin-top: 12px;
-    display: flex;
-    padding: 10px 9px 8px 10px;
-
-    i {
-        margin-right: 5px;
-        font-size: 24px;
-        color: #40A3FF;
-        position: relative;
-        top: -2px;
-    }
-
-    p {
-        margin-bottom: 0;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 1.42;
-        color: #40A3FF;
-    }
-}
-
-
 @media (max-width : 767px) {
     .result {
         position: unset;
@@ -652,6 +627,7 @@ select:-webkit-autofill:focus {
     .easy-autocomplete, .fixed-width, .form-select {
         width: 100% !important;
     }
+
     .icon-check {
         right: 0 !important;
     }
@@ -681,6 +657,7 @@ select:-webkit-autofill:focus {
     #icon-message-username {
         position: unset !important;
     }
+
     .error-input-text {
         top: 58px !important;
         width: 94% !important;
@@ -739,6 +716,7 @@ select:-webkit-autofill:focus {
         right: 0 !important;
         font-size: calculateScale(12px) !important;
     }
+
     .failed-account-created {
         padding-top: calculateScale(12px);
         margin-top: calculateScale(12px);
@@ -755,6 +733,7 @@ select:-webkit-autofill:focus {
             font-size: calculateScale(14px);
         }
     }
+
     .panel {
         input {
             font-size: calculateScale(16px) !important;
@@ -780,6 +759,7 @@ select:-webkit-autofill:focus {
             }
         }
     }
+
     .sub-input {
         margin-top: calculateScale(4px) !important;
         font-size: calculateScale(12px) !important;
@@ -829,26 +809,12 @@ select:-webkit-autofill:focus {
     .icon-information-outline {
         font-size: calculateScale(18px);
     }
+
     .tooltip {
         .tooltip-inner {
             max-width: 300px;
             font-size: calculateScale(12px);
             line-height: calculateScale(20px);
-        }
-    }
-
-    .user-announcements {
-        margin-top: calculateScale(5px);
-        align-items: flex-start;
-        width: 100%;
-
-        i {
-            font-size: calculateScale(20px);
-            top: 0;
-        }
-
-        p {
-            font-size: calculateScale(14px);
         }
     }
 }

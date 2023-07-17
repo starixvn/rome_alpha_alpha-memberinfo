@@ -18,7 +18,7 @@
     }
 
     .tooltip-arrow {
-        border-bottom-color: #2E2E2E !important; 
+        border-bottom-color: #2E2E2E !important;
     }
 }
 
@@ -279,7 +279,7 @@
 
     .icon-content-copy {
         color: #0B599C;
-        padding : 8px;
+        padding: 8px;
     }
 
     .icon-check, .icon-close {
@@ -387,7 +387,8 @@ select:-webkit-autofill:focus {
     .result-text {
         color: #FE0000;
         font-weight: 500;
-        font-size : 14px;
+        font-size: 14px;
+
         span {
             &:nth-child(1) {
                 color: #333333;
@@ -517,6 +518,7 @@ select:-webkit-autofill:focus {
         }
     }
 }
+
 .panel-agent {
     #actor-name {
         width: 177px;
@@ -539,34 +541,6 @@ select:-webkit-autofill:focus {
     }
 }
 
-.user-announcements {
-    background: #E1F1FF;
-    border: 1px solid #7FB3E0;
-    max-width: 930px;
-    width: 100%;
-    margin-top: 12px;
-    display: flex;
-    padding: 10px 9px 8px 10px;
-
-    i {
-        margin-right: 5px;
-        font-size: 24px;
-        color: #1C62A3;
-        position: relative;
-        top: -2px;
-    }
-
-    p {
-        margin-bottom: 0;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 1.42;
-        color: #1C62A3;
-    }
-}
-
-
-
 
 @media (max-width : 767px) {
     .result {
@@ -580,14 +554,17 @@ select:-webkit-autofill:focus {
 
     .form-row {
         flex-wrap: wrap;
-        margin-bottom : 0 !important;
+        margin-bottom: 0 !important;
+
         .form-column {
             margin-bottom: 16px;
         }
     }
+
     .panel-heading {
         padding: calculateScale(10px) !important;
     }
+
     .panel-body {
         padding: calculateScale(12px) calculateScale(16px) !important;
     }
@@ -596,30 +573,34 @@ select:-webkit-autofill:focus {
         width: 100% !important;
     }
 
-   
-    
+
+
     .form-column {
         width: 100% !important;
         margin-right: 0 !important;
-        margin-bottom : 10px !important;
+        margin-bottom: 10px !important;
     }
 
     input, #NoOfAccounts {
         width: 94% !important;
     }
+
     .icon-close {
         margin-left: 10px !important;
         font-size: calculateScale(12px) !important;
-        right : 0 !important;
-        top : 17px !important;
+        right: 0 !important;
+        top: 17px !important;
     }
+
     .icon-eye-close, .icon-eye {
         right: 8% !important;
         top: 16px !important;
     }
-    #icon-message-username{
-        position : unset !important;
+
+    #icon-message-username {
+        position: unset !important;
     }
+
     .error-input-text {
         top: 58px !important;
         width: 94% !important;
@@ -642,20 +623,23 @@ select:-webkit-autofill:focus {
         margin-left: calculateScale(18px);
         height: calculateScale(32px) !important;
     }
+
     .section-title {
         font-size: calculateScale(14px) !important;
     }
 
     .easy-autocomplete {
         input {
-            height: calculateScale(40px) !important;            
+            height: calculateScale(40px) !important;
         }
     }
+
     input, select {
         font-size: calculateScale(14px) !important;
         height: calculateScale(40px) !important;
         padding: calculateScale(8px) !important;
     }
+
     input::placeholder {
         font-size: calculateScale(14px) !important;
     }
@@ -670,6 +654,7 @@ select:-webkit-autofill:focus {
             box-shadow: none !important;
         }
     }
+
     .icon-check {
         right: 0 !important;
         font-size: calculateScale(12px) !important;
@@ -691,11 +676,12 @@ select:-webkit-autofill:focus {
             font-size: calculateScale(14px);
         }
     }
-    .panel {       
-            input {
-                font-size: calculateScale(16px)!important;
-            }
-       
+
+    .panel {
+        input {
+            font-size: calculateScale(16px) !important;
+        }
+
         .form-username {
             .name-account {
                 flex: 1;
@@ -762,6 +748,7 @@ select:-webkit-autofill:focus {
             padding: calculateScale(6px) calculateScale(30px) calculateScale(6px) calculateScale(8px) !important;
         }
     }
+
     .icon-information-outline {
         font-size: calculateScale(18px);
     }
@@ -771,21 +758,6 @@ select:-webkit-autofill:focus {
             max-width: 300px;
             font-size: calculateScale(12px);
             line-height: calculateScale(20px);
-        }
-    }
-
-    .user-announcements {
-        margin-top: calculateScale(5px);
-        align-items: flex-start;
-        width: 100%;
-
-        i {
-            font-size: calculateScale(20px);
-            top: 0;
-        }
-
-        p {
-            font-size: calculateScale(14px);
         }
     }
 }
