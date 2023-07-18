@@ -983,7 +983,4 @@
   <data name="ShowLess" xml:space="preserve">
     <value>显示更少</value>
   </data>
-  <data name="RemoveClassicViewNotification" xml:space="preserve">
-    <value>从 18/07/2023 (日/月/年) 起，经典版不再使用，并将由新版本取代。通过新版本享受经过改进的新增账号体验。</value>
-  </data>
 </root>
