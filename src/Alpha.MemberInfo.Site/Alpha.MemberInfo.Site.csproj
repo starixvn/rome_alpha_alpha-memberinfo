@@ -91,8 +91,8 @@
     <Reference Include="Alpha.Utilities.IP, Version=1.0.3.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.Utilities.IP.1.0.3.2\lib\net461\Alpha.Utilities.IP.dll</HintPath>
     </Reference>
-    <Reference Include="Alpha.Web, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Web.1.1.0.5\lib\net461\Alpha.Web.dll</HintPath>
+    <Reference Include="Alpha.Web, Version=1.1.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Web.1.1.1.2\lib\net461\Alpha.Web.dll</HintPath>
     </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Antlr3.Runtime.3.3.1.7705\lib\net20\Antlr3.Runtime.dll</HintPath>
@@ -306,8 +306,8 @@
       <HintPath>..\..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.2\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.7\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.9\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Utilities.3.0.2\lib\net461\Sunplus.Agent.Utilities.dll</HintPath>
