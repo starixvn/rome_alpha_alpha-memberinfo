@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Alpha.CopyAccount, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Alpha.CopyAccount.1.0.0.3-scaleout-01\lib\net461\Alpha.CopyAccount.dll</HintPath>
+      <HintPath>..\..\..\packages\Alpha.CopyAccount.1.0.0.3\lib\net461\Alpha.CopyAccount.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.Products.Core, Version=1.0.1.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.Products.Core.1.0.1.5\lib\net461\Alpha.Products.Core.dll</HintPath>
@@ -182,7 +182,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.7.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Sunplus.Agent.Model.Base.3.0.7.3-scaleout-04\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
+      <HintPath>..\..\..\packages\Sunplus.Agent.Model.Base.3.0.7.3\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.9, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Sunplus.Agent.Model.Definitions.3.0.3.9\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
