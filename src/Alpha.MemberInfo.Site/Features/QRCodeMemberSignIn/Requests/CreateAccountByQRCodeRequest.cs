@@ -11,6 +11,7 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
     {
         public CreateAccountByQRCodeRequest(IUser viewer) : base(viewer)
         {
+            SiteDBGroupIp = viewer.SiteDBGroupIp;
         }
 
         public string UsernameCopyFrom { get; set; }
@@ -33,6 +34,7 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests
 
         public bool ShowPageTitle { get; set; }
 
+        public string SiteDBGroupIp { get; }
         public override bool IsValid() =>
             base.IsValid() &&
             !IsInternal &&

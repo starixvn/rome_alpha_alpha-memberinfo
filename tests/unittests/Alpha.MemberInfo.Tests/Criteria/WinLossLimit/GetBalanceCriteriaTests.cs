@@ -11,7 +11,7 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var expectedSettingKey = "Age_CustomerSelWinlimitInfo";
+            var expectedSettingKey = "SiteDB_Age_CustomerSelWinlimitInfo";
             var param = new WinLossLimitParam(1, 1, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1);
             var criteria = new GetBalanceCriteria(param);
 

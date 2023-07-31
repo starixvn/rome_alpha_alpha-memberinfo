@@ -26,7 +26,7 @@
                 SuspendedTest,
                 PageIndexTest,
                 PageSizeTest);
-            var expected = "Age_CustomerSelCreditBalNetPosition_Ag";
+            var expected = "SiteDB_Age_CustomerSelCreditBalNetPosition_Ag";
 
             // Act
             var actual = criteria.GetSettingKey();

@@ -15,6 +15,6 @@
         }
 
         public override string GetSettingKey()
-            => "Age_CustomerSelCreditBalNetPosition_Ag";
+            => "SiteDB_Age_CustomerSelCreditBalNetPosition_Ag";
     }
 }

@@ -16,7 +16,8 @@
             string password,
             string copyFromUsername,
             decimal creditMax,
-            string subUsername)
+            string subUsername,
+            string siteDBGroupIp)
         {
             SubUsername = subUsername;
             IsQRCode = true;
@@ -34,6 +35,7 @@
             SubAccId = subAccId;
             IsSearchAndCopy = true;
             SystemId = alphaSystemId;
+            SiteDBGroupIp = siteDBGroupIp;
         }
     }
 }
