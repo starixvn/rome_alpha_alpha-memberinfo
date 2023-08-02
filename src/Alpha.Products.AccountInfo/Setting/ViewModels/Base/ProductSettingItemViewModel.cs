@@ -29,17 +29,12 @@
         {
             get
             {
-                if (!customerStatus.Synced)
-                {
-                    return "icon-refresh Synchronize";
-                }
-
                 if (!request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission))
                 {
                     return "icon-eye View";
                 }
 
-                return customerStatus.Enabled ? "icon-edit Enable" : "icon-edit Disable_edit";
+                return "icon-edit Enable";
             }
         }
     }

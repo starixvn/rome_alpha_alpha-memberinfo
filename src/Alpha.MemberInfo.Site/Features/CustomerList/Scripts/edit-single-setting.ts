@@ -41,7 +41,7 @@ class EditSingleSetting {
         let html = ['<ul>'];
         this.$.each(settings, (key, item) => {
             const attrs = {
-                'class': `edit-popup ${item.Icon} ${item.Enabled ? '' : 'grey-color'}`,
+                'class': `edit-popup ${item.Icon}`,
                 'data-method': item.Method,
                 'data-params': JSON.stringify(item.QueryStringParamaters),
                 'data-url': item.Url,
