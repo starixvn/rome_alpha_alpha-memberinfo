@@ -11,7 +11,6 @@ class QRCodeMemberSignIn {
     $creditMinLabel: JQuery;
     $creditMaxLabel: JQuery;
 
-    $captchaInput: JQuery;
     $submitBtn: JQuery;
 
     $creditInput: JQuery;
@@ -84,7 +83,6 @@ class QRCodeMemberSignIn {
         this.$form = this.$('#qrCodeMemberSignInForm');
         this.$usernameCopyFrom = this.$('#UsernameCopyFrom');
         this.usernameCopyFromInQueryRequest = this.$('#MemberNameCopyFrom').val();
-        this.$captchaInput = this.$('.captcha-input');
         this.$submitBtn = this.$('#btn-submit');
 
         this.$creditRange = this.$('#credit-range');
@@ -198,7 +196,6 @@ class QRCodeMemberSignIn {
                     }, 1000);
                 }
                 else {
-                    this.$('.captcha-icon-refresh').click();
                     this.showErrorMessage(result.ErrMsg);
                     this.$.unblockUI();
                 }
@@ -284,12 +281,10 @@ class QRCodeMemberSignIn {
 
         const validateInputs = () => {
             const username = this.$.trim(this.$usernameCopyFrom.val());
-            const captcha = this.$.trim(this.$captchaInput.val());
-            this.$submitBtn.prop('disabled', !username || !captcha);
+            this.$submitBtn.prop('disabled', !username);
         }
 
         this.$usernameCopyFrom.on('input', validateInputs);
-        this.$captchaInput.on('input', validateInputs);
     }
 
     checkErrorAndShowMessage = () => {

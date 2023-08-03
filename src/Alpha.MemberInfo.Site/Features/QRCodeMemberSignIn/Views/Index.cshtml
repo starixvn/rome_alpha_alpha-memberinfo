@@ -7,13 +7,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "QR Code Member Sign In";
     var errorMessageClass = string.IsNullOrEmpty(Model.ErrorMessage) ? "hidden" : "msg msg-error";
-    var captchaSetting = new CaptchaSetting
-    {
-        Level = CaptchaLevels.Low,
-        IsForm = false,
-        IsShowButton = false,
-        FunctionName = "qrcode"
-    };
 
     var userguideLink = AppSettings.IsSiteLabel789y ?
         MicroSites.MessageUrl("~/StaticMessage/File?id=129373") :
@@ -82,9 +75,6 @@ else
             <div class="form-group">
                 <label>@Resources.FirstNameOptional</label>
                 <input type="text" name="FirstName" id="FirstName" value="" maxlength="50" />
-            </div>
-            <div class="form-group">
-                @Html.Captcha(captchaSetting)
             </div>
             <div class="form-group">
                 <button type="submit" class="btn-submit" id="btn-submit" disabled>@Resources.CreateAccount</button>

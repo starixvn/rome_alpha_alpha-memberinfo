@@ -39,26 +39,9 @@
         public ActionResult Index(QRCodeMemberSignInRequest message)
             => View(message, IndexPath);
 
-        [HttpPost, CaptchaValidation(true), AntiXsrfFilter]
+        [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> CreateAccount(CreateAccountByQRCodeRequest message)
         {
-            if (!ModelState.IsValid)
-            {
-                var key = ModelState.Keys.FirstOrDefault(k => k.StartsWith(CaptchaInputName));
-                var errorCode = Convert.ToInt32(key.Split('_').Last());
-                var errorMessage = string.Join(Separator, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage));
-                if (errorCode != EmptyCaptchaErrorCode)
-                {
-                    WriteLog(errorMessage);
-                }
-
-                return Json(new ResultCreateMemberQRCode
-                {
-                    ErrCode = ErrorCodeDefault,
-                    ErrMsg = errorMessage
-                });
-            }
-
             if (message != null && !message.IsValid())
             {
                 return Json(new ResultCreateMemberQRCode
@@ -92,17 +75,6 @@
             {
                 ModelState.AddModelError("DBErrors", result.ErrMsg);
                 return Json(result);
-            }
-        }
-
-        private void WriteLog(string message)
-        {
-            var captchaFunction = Request.QueryString[CaptchaFunctionName] ?? Request.Form[CaptchaFunctionName];
-            var writeLogEnabled = AppSettings.NewCaptchaLogCurrencies.Any(c => c == userSession.Currency || c == "*");
-            if (writeLogEnabled)
-            {
-                var username = string.IsNullOrEmpty(userSession.SubUserName) ? userSession.UserName : userSession.SubUserName;
-                ExceptionHandler.Handle(new Exception($"Captcha validate result: customer={username}, function={captchaFunction}, message={message}"), TraceEventType.Warning);
             }
         }
 
