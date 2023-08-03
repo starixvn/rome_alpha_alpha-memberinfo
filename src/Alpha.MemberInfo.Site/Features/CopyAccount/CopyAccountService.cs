@@ -105,7 +105,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
         public Task<Result> CheckAllLimitedRules(int custId, byte custLevel, string actorUsername, string language)
         {
-            return PostAsJsonAsync<Result>("api/customer/CheckAllLimitedRules", new { custId, custLevel, actorUsername, language });
+            return PostAsJsonAsync<Result>("api/rules/CheckAllLimitedRules", new { custId, custLevel, actorUsername, language });
         }
 
         public Task<string> GetSuggestUsername(string actorName, byte roleId)
