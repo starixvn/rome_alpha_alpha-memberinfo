@@ -41,9 +41,10 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
         public async Task<CopyAccountViewModel> Handle(CopyAccountQuery message)
         {
-            var limitNewDownlineResult = await copyAccountService.CheckLimitNewDownline(
+            var limitNewDownlineResult = await copyAccountService.CheckAllLimitedRules(
                    message.ViewerId,
                    message.ViewerLevelId,
+                   message.CustName,
                    message.Language);
 
             if (limitNewDownlineResult.IsFailed)
