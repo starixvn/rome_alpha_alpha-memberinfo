@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Criteria.WinLossLimit
 {
+    using Alpha.MemberInfo.Configurations;
     using Fanex.Data;
     using Fanex.Data.Repository;
     using Params;
@@ -45,6 +46,8 @@
         public int PageIndex { get; set; }
 
         public int TotalRows { get; set; }
+
+        public byte SettingStatus => AppSettings.SettingStatus;
 
         public override string GetSettingKey()
             => "Age_CustomerSelCustWinlimit";
