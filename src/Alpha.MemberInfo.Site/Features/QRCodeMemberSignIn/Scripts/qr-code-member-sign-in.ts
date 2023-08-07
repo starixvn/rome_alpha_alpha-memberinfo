@@ -53,6 +53,10 @@ class QRCodeMemberSignIn {
         if (this.$usernameCopyFrom.val() !== '') {
             this.blurEventCustomerCopyFrom();
         }
+
+        if (!this.inValidCustomerCopyFrom && !this.inValidUsername && !this.invalidCredit) {
+            this.$submitBtn.prop('disabled', false);
+        }
     };
 
     bindingEvent = () => {
