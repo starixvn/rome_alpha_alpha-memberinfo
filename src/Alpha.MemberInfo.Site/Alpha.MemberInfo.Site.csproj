@@ -163,18 +163,6 @@
     <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\QrCode.Net.0.4.0.0\lib\net45\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
-    <Reference Include="IBCCrypt, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Crypt.1.1.0.0\lib\net40\IBCCrypt.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="IBCDBLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.DBLibrary.1.0.0.0\lib\net40\IBCDBLibrary.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\IBCFile.1.0.0.0\lib\net40\IBCFile.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="IBCUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Utils.1.0.0\lib\net40\IBCUtils.dll</HintPath>
       <Private>True</Private>
@@ -182,16 +170,8 @@
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="ILogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ILogger.1.0.0.0\lib\net40\ILogger.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <HintPath>..\..\packages\DotNetZip.1.9.1.5\lib\net40\Ionic.Zip.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="MediatR, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MediatR.2.1.0\lib\net45\MediatR.dll</HintPath>
@@ -295,10 +275,6 @@
       <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.3.3.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.7.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.7.3\lib\net461\Sunplus.Agent.Model.Base.dll</HintPath>
     </Reference>
@@ -314,10 +290,6 @@
     </Reference>
     <Reference Include="Sunplus.Core.Common, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Sunplus.Core.Common.1.2.0.1\lib\net40\Sunplus.Core.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Sunplus.Libraries.ThirdPartyTestData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Sunplus.Libraries.ThirdPartyTestData.1.0.0.0\lib\net40\Sunplus.Libraries.ThirdPartyTestData.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
