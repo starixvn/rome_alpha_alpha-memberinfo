@@ -35,8 +35,8 @@
     <CodeAnalysisRuleSet>Alpha.MemberInfo.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.CopyAccount, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.CopyAccount.1.0.0.3\lib\net461\Alpha.CopyAccount.dll</HintPath>
+    <Reference Include="Alpha.CopyAccount, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.CopyAccount.1.0.0.4-beta04\lib\net461\Alpha.CopyAccount.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.PartialUM, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.PartialUM.1.0.0.2\lib\net461\Alpha.PartialUM.dll</HintPath>

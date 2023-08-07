@@ -63,7 +63,8 @@
                 var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
                     message.ViewerId,
                     message.ViewerLevelId,
-                    message.Language);
+                    message.Language,
+                    message.ActorUsername);
                 onlyShowErrorMessage = limitNewDownlineResult.IsFailed;
                 message.ErrorMessage = limitNewDownlineResult.Message;
             }
@@ -116,7 +117,8 @@
                         message.UsernameCopyFrom,
                         message.CreditMax,
                         message.SubUsername,
-                        message.SiteDBGroupIp)).ConfigureAwait(false);
+                        message.SiteDBGroupIp,
+                        message.ActorUsername)).ConfigureAwait(false);
 
                 result.CustIdCopyFrom = custIdCopyFrom;
 

@@ -22,9 +22,6 @@
         private const string ShowQRCodePath = "~/Features/QRCodeMemberSignIn/Views/ShowQRCode.cshtml";
         private const string NotAuthorizedPath = "~/Features/QRCodeMemberSignIn/Views/_NotAuthorized.cshtml";
         private const string Separator = "; ";
-        private readonly string CaptchaInputName = "c_v";
-        private readonly string CaptchaFunctionName = "c_f";
-        private readonly int EmptyCaptchaErrorCode = 1;
 
         private readonly IUserSession userSession;
         private readonly int ErrorCodeDefault = 998;
