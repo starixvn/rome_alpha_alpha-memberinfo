@@ -170,9 +170,6 @@
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DotNetZip.1.9.1.5\lib\net40\Ionic.Zip.dll</HintPath>
-    </Reference>
     <Reference Include="MediatR, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MediatR.2.1.0\lib\net45\MediatR.dll</HintPath>
       <Private>True</Private>
@@ -1201,6 +1198,7 @@
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\WinLossLimitController.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountController.cs" />
+    <Compile Include="Features\CopyAccount\CopyAccountHandler.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountService.cs" />
     <Compile Include="Features\CopyAccount\Models\CreditInfo.cs" />
     <Compile Include="Features\CopyAccount\Models\Downline.cs" />
@@ -1208,7 +1206,6 @@
     <Compile Include="Features\CopyAccount\Request\CheckUsernameQuery.cs" />
     <Compile Include="Features\CopyAccount\Request\CreditQuery.cs" />
     <Compile Include="Features\CopyAccount\ViewModels\CopyAccountResponse.cs" />
-    <Compile Include="Features\CopyAccount\CopyAccountHandler.cs" />
     <Compile Include="Features\CopyAccount\Request\CopyAccountCommand.cs" />
     <Compile Include="Features\CopyAccount\Request\CopyAccountQuery.cs" />
     <Compile Include="Features\CopyAccount\ViewModels\CopyAccountViewModel.cs" />
