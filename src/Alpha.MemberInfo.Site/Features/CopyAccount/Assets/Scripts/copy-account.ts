@@ -35,6 +35,7 @@ class CopyAccount {
     memberMaxCreditCleave: any;
 
     isCreateAgent: boolean;
+    isCreateMember: boolean;
     inValidSourceAccount = true;
     invalidCredit: boolean = false;
     invalidMemberMaxCredit: boolean = false;
@@ -98,6 +99,7 @@ class CopyAccount {
         this.$password = this.$("#Password");
 
         this.isCreateAgent = this.$("#IsCreateAgent").val() == "True";
+        this.isCreateMember = this.$("#IsCreateMember").val() == "True";
         this.$btnSwitchVersion = this.$("#btn-switch-view");
         this.oldVersionUrl = this.$("#old-version-url").val();
 
@@ -148,7 +150,7 @@ class CopyAccount {
             delimiter: ','
         });
 
-        
+
 
         this.$btnSwitchVersion.click(() => {
             this.topWindow.indexManager.changeMenu(this.oldVersionUrl);
@@ -288,7 +290,8 @@ class CopyAccount {
 
     validateInputs = () => {
         const password = this.$.trim(this.$password.val());
-        this.$submitBtn.prop('disabled', this.inValidSourceAccount || this.invalidUsername || this.invalidCredit || this.invalidMemberMaxCredit || !this.isValidPassword(password));
+        const isValidPassword = this.isCreateMember ? this.isValidMemberPassword(password) : this.isValidPassword(password);
+        this.$submitBtn.prop('disabled', this.inValidSourceAccount || this.invalidUsername || this.invalidCredit || this.invalidMemberMaxCredit || !isValidPassword);
     }
 
     submitEvent = (event) => {
@@ -490,7 +493,7 @@ class CopyAccount {
     }
 
     validatePassword = () => {
-        var validPassword = this.isValidPassword(this.$password.val());
+        var validPassword = this.isCreateMember ? this.isValidMemberPassword(this.$password.val()) : this.isValidPassword(this.$password.val());
         const iconClass = validPassword ? 'icon-check' : 'icon-close';
         this.$('#icon-message-password').removeClass().addClass(iconClass);
         this.validateInputs();
@@ -517,6 +520,15 @@ class CopyAccount {
         var case4 = password.search(regex4) != -1 ? 1 : 0;
 
         return (case1 + case2 + case3 + case4 >= 3) && whiteSpaceCase;
+    }
+
+    isValidMemberPassword = (str: string) => {
+        const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$/;
+        const whiteSpace = /^\S*$/;
+
+        const case5 = str.search(whiteSpace) !== -1;
+
+        return str.search(regex) !== -1 && case5;
     }
 }
 

@@ -74,9 +74,9 @@
                                     </div>
                                 </div>
                                 <div class="form-column">
-                                    <label class="tooltip-search-account">@Resources.Password <span class="require">*</span><span data-toggle="tooltip" data-placement="bottom" title="@Resources.lblPasswordRequire"> <span class="icon-information-outline"></span> </span></label>
+                                    <label class="tooltip-search-account">@Resources.Password <span class="require">*</span><span data-toggle="tooltip" data-placement="bottom" title="@(Model.ActorLevel.IsAgentLevel() ? Resources.lblPasswordMemberRequire : Resources.lblPasswordRequire)"> <span class="icon-information-outline"></span> </span></label>
                                     <div class="relative-input">
-                                        <input type="text" name="Password" class="input-pass" id="Password" autocomplete="off" maxlength="10" />
+                                        <input type="text" name="Password" class="input-pass" id="Password" autocomplete="off" maxlength="@(Model.ActorLevel.IsAgentLevel() ? 10 : 16)" />
                                         <span class="icon-eye-close icon show-pass" aria-hidden="true"></span>
                                         <span id="icon-message-password"> </span>
                                     </div>
@@ -130,6 +130,7 @@
                         </div>
                         @Html.Hidden("HashKey", Model.HashKey)
                         @Html.Hidden("IsCreateAgent", Model.ActorLevel.IsMasterLevel())
+                        @Html.Hidden("IsCreateMember", Model.ActorLevel.IsAgentLevel())
                         <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
                         @Html.Hidden("InvalidMaxCreditPerAccount", Resources.InvalidMaxCreditPerAccount)
                         @Html.Hidden("InvalidMemberMaxCredit", Resources.InvalidMemberMaxCredit)
