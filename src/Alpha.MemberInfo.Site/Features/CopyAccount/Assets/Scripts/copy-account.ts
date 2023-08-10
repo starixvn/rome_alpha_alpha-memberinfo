@@ -309,7 +309,7 @@ class CopyAccount {
         };
 
         if (this.isCreateAgent) {
-            data["MemberMaxCredit"] = this.$memberMaxCreditInput.val();
+            data["MemberMaxCredit"] = this.memberMaxCredit;
         }
 
         this.$.ajax({
