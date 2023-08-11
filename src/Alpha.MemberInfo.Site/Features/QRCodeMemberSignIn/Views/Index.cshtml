@@ -37,12 +37,12 @@ else
         </div>
         <div id="create-form">
             <div class="form-group">
-                <label>@Resources.InputExistingMemberAccount</label>
+                <label>@Resources.InputExistingMemberAccount <span class="red">*</span></label>
                 <input type="text" name="UsernameCopyFrom" id="UsernameCopyFrom" placeholder="@Resources.UsernamePlaceHolder" value="@Model.MemberNameCopyFrom" />
                 <span id="icon-message-UsernameCopyFrom" />
             </div>
             <div class="form-group">
-                <label>@Resources.MemberCredit</label>
+                <label>@Resources.MemberCredit <span class="red">*</span></label>
                 <input type="text" name="Credit" id="Credit" placeholder="@Resources.PleaseInputMemberCredit" value="" />
                 <span id="icon-message-credit"> </span>
                 <div id="credit-range" class="hidden">
@@ -50,7 +50,7 @@ else
                 </div>
             </div>
             <div class="form-group" id="username-group">
-                <label>@Resources.Username</label>
+                <label>@Resources.Username <span class="red">*</span></label>
                 <span id="actor-name">@Model.ActorName</span>
                 <select id="FirstSuffix" name="FirstSuffix">
                     @foreach (var item in Model.NameSuffix)

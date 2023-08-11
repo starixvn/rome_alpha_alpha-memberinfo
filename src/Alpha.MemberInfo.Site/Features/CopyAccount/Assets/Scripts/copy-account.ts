@@ -462,7 +462,7 @@ class CopyAccount {
         var noOfAccounts = parseInt(this.$noOfAccounts.val());
         var perAccountMaxCredit = this.creditMax / noOfAccounts;
         this.invalidCredit = this.isInValidCredit(credit, perAccountMaxCredit);
-        if (this.invalidCredit) {
+        if (this.invalidCredit && !this.inValidSourceAccount) {
             this.addTooltipError(this.$creditErrMsg, this.resource.invalidMaxCreditPerAccount.replace("{0}", numeral(perAccountMaxCredit).format(this.numberFormat)));
         } else {
             this.credit = credit;

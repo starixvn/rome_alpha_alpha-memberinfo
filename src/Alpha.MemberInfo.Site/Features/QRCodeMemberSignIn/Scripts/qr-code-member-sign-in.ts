@@ -33,7 +33,7 @@ class QRCodeMemberSignIn {
 
     inValidCustomerCopyFrom: boolean;
     inValidUsername: boolean;
-    invalidCredit: boolean;
+    invalidCredit: boolean = true;
 
     showCreateFromUnopenedMemberMessage: boolean;
     cannotCreateClosedMemberQRCodeMessage: string;
@@ -54,9 +54,7 @@ class QRCodeMemberSignIn {
             this.blurEventCustomerCopyFrom();
         }
 
-        if (!this.inValidCustomerCopyFrom && !this.inValidUsername && !this.invalidCredit) {
-            this.$submitBtn.prop('disabled', false);
-        }
+        this.checkErrorAndShowMessage();
     };
 
     bindingEvent = () => {
@@ -283,31 +281,33 @@ class QRCodeMemberSignIn {
             }, 300);
         });
 
-        const validateInputs = () => {
-            const username = this.$.trim(this.$usernameCopyFrom.val());
-            this.$submitBtn.prop('disabled', !username);
-        }
-
-        this.$usernameCopyFrom.on('input', validateInputs);
+        this.$usernameCopyFrom.on('input', this.checkErrorAndShowMessage);
     }
 
     checkErrorAndShowMessage = () => {
-        if (this.showCreateFromUnopenedMemberMessage) {
+        if (!this.inValidCustomerCopyFrom && !this.inValidUsername && !this.invalidCredit) {
+            this.$submitBtn.prop('disabled', false);
+        }
+        else {
+            this.$submitBtn.prop('disabled', true);
+        }
+
+        if (this.showCreateFromUnopenedMemberMessage && this.cannotCreateClosedMemberQRCodeMessage) {
             this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
             return true;
         }
 
-        if (this.inValidCustomerCopyFrom) {
+        if (this.inValidCustomerCopyFrom && this.memberAccountInvalidMessage) {
             this.showErrorMessage(this.memberAccountInvalidMessage);
             return true;
         }
 
-        if (this.invalidCredit) {
+        if (this.invalidCredit && this.givenCreditMustBeBetweenMinMaxMessage) {
             this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage);
             return true;
         }
 
-        if (this.inValidUsername) {
+        if (this.inValidUsername && this.usernameIsInvalid) {
             this.showErrorMessage(this.usernameIsInvalid);
             return true;
         }
