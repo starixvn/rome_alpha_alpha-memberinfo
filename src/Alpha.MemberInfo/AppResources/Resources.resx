@@ -998,4 +998,8 @@ Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
   <data name="ShowLess" xml:space="preserve">
     <value>Show Less</value>
   </data>
+  <data name="lblPasswordMemberRequire" xml:space="preserve">
+    <value>Password must be 6-10 characters without white-space and contain at least 1 uppercase letter, 1 lowercase letter, 1 numeric digit. (e.g. 493abcDE, 59D7!4$h)
+Notes: your password is cAsE sEnSiTiVe.</value>
+  </data>
 </root>

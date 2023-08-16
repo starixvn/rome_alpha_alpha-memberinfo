@@ -28,7 +28,7 @@
 
         bool CheckExistedCustomer(string username);
 
-        Result CheckLimitNewDownline(int actorId, byte actorRoleId, string language);
+        Result CheckLimitNewDownline(int actorId, byte actorRoleId, string language, string actorUsername);
     }
 
     public class QRCodeMemberSignInServiceImpl : QRCodeMemberSignInService
@@ -66,6 +66,7 @@
                 command.IP,
                 AlphaSite,
                 isQrCode: true,
+                actorUsername: command.ActorUsername,
                 siteDBGroupIp: command.SiteDBGroupIp,
                 firstName: command.FirstName)).ConfigureAwait(false);
 
@@ -125,10 +126,10 @@
             return criteria.IsExists;
         }
 
-        public Result CheckLimitNewDownline(int actorId, byte actorRoleId, string language)
+        public Result CheckLimitNewDownline(int actorId, byte actorRoleId, string language, string actorUsername)
         {
             var limitNewDownlineResult = copyAccountService.CheckLimitNewDownline(
-                new CheckLimitNewDownlineParam(actorId, actorRoleId, language));
+                new CheckLimitNewDownlineParam(actorId, actorRoleId, language, actorUsername));
 
             return new Result { Code = limitNewDownlineResult.Code, Message = limitNewDownlineResult.Message };
         }

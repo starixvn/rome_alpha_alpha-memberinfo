@@ -63,7 +63,8 @@
                 var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
                     message.ViewerId,
                     message.ViewerLevelId,
-                    message.Language);
+                    message.Language,
+                    message.ActorUsername);
                 onlyShowErrorMessage = limitNewDownlineResult.IsFailed;
                 message.ErrorMessage = limitNewDownlineResult.Message;
             }
@@ -80,21 +81,6 @@
 
         public async Task<ResultCreateMemberQRCode> Handle(CreateAccountByQRCodeRequest message)
         {
-            var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
-                message.ViewerId,
-                message.ViewerLevelId,
-                message.Language);
-
-            if (limitNewDownlineResult.IsFailed)
-            {
-                return new ResultCreateMemberQRCode
-                {
-                    Success = false,
-                    ErrCode = limitNewDownlineResult.Code,
-                    ErrMsg = limitNewDownlineResult.Message
-                };
-            }
-
             var creditAndStatusModel = qrCodeMemberSignInService.GetCreditAndStatus(message.UsernameCopyFrom);
 
             if (creditAndStatusModel.Status != null &&
@@ -131,7 +117,8 @@
                         message.UsernameCopyFrom,
                         message.CreditMax,
                         message.SubUsername,
-                        message.SiteDBGroupIp)).ConfigureAwait(false);
+                        message.SiteDBGroupIp,
+                        message.ActorUsername)).ConfigureAwait(false);
 
                 result.CustIdCopyFrom = custIdCopyFrom;
 

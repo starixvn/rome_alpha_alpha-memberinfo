@@ -35,23 +35,6 @@
             serviceImpl = new QRCodeMemberSignInServiceImpl(repository, copyAccountService);
         }
 
-        //[Fact]
-        //public void GetUsernamesSuggestion_Always_ReturnsCorrectModel()
-        //{
-        //    var model = new List<UsernameSuggestion>
-        //    {
-        //        new UsernameSuggestion("UserName", "FirstName", "LastName", "UserName2")
-        //    };
-
-        //    repository
-        //        .Fetch<UsernameSuggestion>(Arg.Any<SelectAutoSuggestionCriteria>())
-        //        .Returns(model as IEnumerable<UsernameSuggestion>);
-
-        //    var actualModel = serviceImpl.GetUsernamesSuggestion(1, "test", false);
-
-        //    AssertExtension.Equal(actualModel, model);
-        //}
-
         [Fact]
         public void GetCreditRange_Always_ReturnsCorrectModel()
         {
@@ -171,7 +154,7 @@
                 .Returns(new CopyAccountResult { Code = 1001, Message = "Limit new downline" });
 
             // Act
-            var actualResult = serviceImpl.CheckLimitNewDownline(1, 4, "es-US");
+            var actualResult = serviceImpl.CheckLimitNewDownline(1, 4, "es-US", null);
 
             // Assert
             Assert.True(actualResult.Code == 1001 && actualResult.Message == "Limit new downline");

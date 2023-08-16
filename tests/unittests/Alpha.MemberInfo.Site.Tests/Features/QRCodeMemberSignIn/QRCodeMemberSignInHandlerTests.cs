@@ -61,7 +61,7 @@
                 ErrorMessage = string.Empty
             };
 
-            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
+            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
             service.GetSuggestUsername(Arg.Any<string>(), Arg.Any<int>()).Returns("Suggestion Name");
 
             var expectedViewModel = new QRCodeMemberSignInViewModel(
@@ -79,30 +79,6 @@
             // Assert
             AssertExtension.Equal(expectedViewModel, actualViewModel);
         }
-
-        //[Fact]
-        //public void HandlerUserNameSuggestionQuery_Always_ReturnsCorrectViewModel()
-        //{
-        //    // Arrange
-        //    var message = new UserNameSuggestionQuery(user)
-        //    {
-        //        SuggestionQuery = "AA"
-        //    };
-
-        //    var model = new List<UsernameSuggestion>
-        //    {
-        //        new UsernameSuggestion("test1", "--", "--", "NickName1"),
-        //        new UsernameSuggestion("test2", "--", "--", "NickName2")
-        //    };
-
-        //    service.GetUsernamesSuggestion(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(model);
-
-        //    // Act
-        //    var actualViewModel = handler.Handle(message);
-
-        //    // Assert
-        //    AssertExtension.Equal(model, actualViewModel);
-        //}
 
         [Fact]
         public void HandlerCreateAccountByQRCodeRequest_Always_ReturnsCorrectViewModel()
@@ -123,7 +99,7 @@
 
             var custIdCopyFrom = 999;
 
-            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
+            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
 
             service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
 
@@ -174,7 +150,7 @@
             };
 
             service
-                .CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language)
+                .CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername)
                 .Returns(new Result { Code = 1001, Message = "Limit new downline" });
 
             // Act
@@ -204,7 +180,7 @@
             };
 
             var custIdCopyFrom = -1;
-            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
+            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
             service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
             service.CheckBelongingByUsername(
                 Arg.Any<int>(),
@@ -243,7 +219,7 @@
                 ShowPageTitle = true
             };
 
-            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
+            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
             service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Closed"));
             var result = new ResultCreateMemberQRCode
             {
@@ -277,7 +253,7 @@
             };
 
             var custIdCopyFrom = 999;
-            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language).Returns(new Result());
+            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
             service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
             service.CheckBelongingByUsername(
                 Arg.Any<int>(),

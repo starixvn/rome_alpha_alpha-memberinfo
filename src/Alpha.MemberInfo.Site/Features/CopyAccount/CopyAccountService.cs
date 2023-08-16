@@ -15,7 +15,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
         Task<CreditInfo> GetCreditInfo(string username);
 
-        Task<Result> CheckLimitNewDownline(int custId, byte custLevel, string language);
+        Task<Result> CheckAllLimitedRules(int custId, byte custLevel, string actorUsername, string language);
 
         Task<string> GetSuggestUsername(string actorName, byte roleId);
 
@@ -52,7 +52,8 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
                 numberOfAccounts = command.NumberOfAccounts,
                 language = command.Language,
                 ip = command.IP,
-                systemId = 2
+                systemId = 2,
+                actorUsername = command.ActorUsername
             };
 
             return await PostAsJsonAsync<CopyAccountResponse>("api/customer/copy", command.SiteDBGroupIp, payload);
@@ -102,9 +103,9 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
             }
         }
 
-        public Task<Result> CheckLimitNewDownline(int custId, byte custLevel, string language)
+        public Task<Result> CheckAllLimitedRules(int custId, byte custLevel, string actorUsername, string language)
         {
-            return PostAsJsonAsync<Result>("api/customer/CheckLimitNewDownline", new { custId, custLevel, language });
+            return PostAsJsonAsync<Result>("api/rules/CheckAllLimitedRules", new { custId, custLevel, actorUsername, language });
         }
 
         public Task<string> GetSuggestUsername(string actorName, byte roleId)

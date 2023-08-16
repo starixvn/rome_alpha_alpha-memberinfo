@@ -34,5 +34,6 @@
         public string SubUsername { get; internal set; }
 
         public string SiteDBGroupIp { get; set; }
+        public string ActorUsername { get; }
     }
 }

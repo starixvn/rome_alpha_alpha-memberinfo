@@ -11,7 +11,6 @@ class QRCodeMemberSignIn {
     $creditMinLabel: JQuery;
     $creditMaxLabel: JQuery;
 
-    $captchaInput: JQuery;
     $submitBtn: JQuery;
 
     $creditInput: JQuery;
@@ -34,7 +33,7 @@ class QRCodeMemberSignIn {
 
     inValidCustomerCopyFrom: boolean;
     inValidUsername: boolean;
-    invalidCredit: boolean;
+    invalidCredit: boolean = true;
 
     showCreateFromUnopenedMemberMessage: boolean;
     cannotCreateClosedMemberQRCodeMessage: string;
@@ -54,6 +53,8 @@ class QRCodeMemberSignIn {
         if (this.$usernameCopyFrom.val() !== '') {
             this.blurEventCustomerCopyFrom();
         }
+
+        this.checkErrorAndShowMessage();
     };
 
     bindingEvent = () => {
@@ -84,7 +85,6 @@ class QRCodeMemberSignIn {
         this.$form = this.$('#qrCodeMemberSignInForm');
         this.$usernameCopyFrom = this.$('#UsernameCopyFrom');
         this.usernameCopyFromInQueryRequest = this.$('#MemberNameCopyFrom').val();
-        this.$captchaInput = this.$('.captcha-input');
         this.$submitBtn = this.$('#btn-submit');
 
         this.$creditRange = this.$('#credit-range');
@@ -198,7 +198,6 @@ class QRCodeMemberSignIn {
                     }, 1000);
                 }
                 else {
-                    this.$('.captcha-icon-refresh').click();
                     this.showErrorMessage(result.ErrMsg);
                     this.$.unblockUI();
                 }
@@ -282,33 +281,33 @@ class QRCodeMemberSignIn {
             }, 300);
         });
 
-        const validateInputs = () => {
-            const username = this.$.trim(this.$usernameCopyFrom.val());
-            const captcha = this.$.trim(this.$captchaInput.val());
-            this.$submitBtn.prop('disabled', !username || !captcha);
-        }
-
-        this.$usernameCopyFrom.on('input', validateInputs);
-        this.$captchaInput.on('input', validateInputs);
+        this.$usernameCopyFrom.on('input', this.checkErrorAndShowMessage);
     }
 
     checkErrorAndShowMessage = () => {
-        if (this.showCreateFromUnopenedMemberMessage) {
+        if (!this.inValidCustomerCopyFrom && !this.inValidUsername && !this.invalidCredit) {
+            this.$submitBtn.prop('disabled', false);
+        }
+        else {
+            this.$submitBtn.prop('disabled', true);
+        }
+
+        if (this.showCreateFromUnopenedMemberMessage && this.cannotCreateClosedMemberQRCodeMessage) {
             this.showErrorMessage(this.cannotCreateClosedMemberQRCodeMessage);
             return true;
         }
 
-        if (this.inValidCustomerCopyFrom) {
+        if (this.inValidCustomerCopyFrom && this.memberAccountInvalidMessage) {
             this.showErrorMessage(this.memberAccountInvalidMessage);
             return true;
         }
 
-        if (this.invalidCredit) {
+        if (this.invalidCredit && this.givenCreditMustBeBetweenMinMaxMessage) {
             this.showErrorMessage(this.givenCreditMustBeBetweenMinMaxMessage);
             return true;
         }
 
-        if (this.inValidUsername) {
+        if (this.inValidUsername && this.usernameIsInvalid) {
             this.showErrorMessage(this.usernameIsInvalid);
             return true;
         }

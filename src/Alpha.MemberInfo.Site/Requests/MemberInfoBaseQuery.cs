@@ -25,6 +25,8 @@
             BreadcrumbLevel = Enumerable.Empty<CustInfo>();
         }
 
+        public string ActorUsername => viewer.Name;
+
         public int UserId { get; set; }
 
         public string SubUsername { get; set; }

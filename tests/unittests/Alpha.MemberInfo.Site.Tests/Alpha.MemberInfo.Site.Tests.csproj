@@ -36,8 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.CopyAccount, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Alpha.CopyAccount.1.0.0.3\lib\net461\Alpha.CopyAccount.dll</HintPath>
+    <Reference Include="Alpha.CopyAccount, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Alpha.CopyAccount.1.0.0.4\lib\net461\Alpha.CopyAccount.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.Products.Core, Version=1.0.1.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.Products.Core.1.0.1.5\lib\net461\Alpha.Products.Core.dll</HintPath>

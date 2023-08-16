@@ -983,4 +983,8 @@
   <data name="ShowLess" xml:space="preserve">
     <value>แสดงน้อยลง</value>
   </data>
+  <data name="lblPasswordMemberRequire" xml:space="preserve">
+    <value>รหัสผ่านต้องมี6-10 อักขระและต้องไม่มีช่องเว้นวรรค ต้องมีภาษาอังกฤษตัวพิมพ์เล็กอย่างน้อย 1ตัว และภาษาอังกฤษตัวพิมพ์ใหญ่อย่างน้อย 1ตัวและตามด้วยตัวเลข
+ยกตัวอย่างเช่น : ( 493abcDE, 59D7!4$h)</value>
+  </data>
 </root>
