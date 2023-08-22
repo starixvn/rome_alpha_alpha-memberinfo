@@ -16,7 +16,7 @@
         public override string Text => Request.GetResource("EditMultipleAutoTransferText");
 
         protected override string BaseAddress
-            => MicroSites.TransferUrl("AutoTransfer/UpdateMultiple");
+            => MicroSites.TransferUrl("~/AutoTransfer/UpdateMultiple");
 
         public override Dictionary<string, string> QueryStringParamaters
               => new Dictionary<string, string>
