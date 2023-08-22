@@ -4,38 +4,51 @@
     using Xunit;
 
     [Trait("Category", "CustomerList")]
-    public class SelectAutoSuggestionCriteriaTest
+    public class SelectAutoSuggestionCriteriaTests
     {
         [Fact]
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
+            // Arrange
             var expectedSettingKey = "Age_CustomerSelUserSearch";
             var criteria = new SelectAutoSuggestionCriteria(8, "Test", true, true, false);
 
+            // Act
             var actualSettingKey = criteria.GetSettingKey();
 
-            Assert.Equal(actualSettingKey, expectedSettingKey);
+            // Assert
+            Assert.Equal(expectedSettingKey, actualSettingKey);
         }
 
         [Theory]
         [InlineData(-1, false)]
         [InlineData(1, true)]
-        public void IsValid_MRecommend_Should_ReturnsValidSettingKey(int actorId, bool expectedIsValid)
+        public void IsValid_WhenAllActorId_ReturnsCorrectValue(int actorId, bool expectedIsValid)
         {
+            // Arrange
             var criteria = new SelectAutoSuggestionCriteria(actorId, "Test", true, true, false);
 
-            Assert.Equal(expectedIsValid, criteria.IsValid());
+            // Act
+            var actualValue = criteria.IsValid();
+
+            // Assert
+            Assert.Equal(expectedIsValid, actualValue);
         }
 
         [Theory]
         [InlineData("user", true)]
         [InlineData("", false)]
         [InlineData(null, false)]
-        public void IsValid_SuggestionQuery_Should_ReturnsValidSettingKey(string suggestionQuery, bool expectedIsValid)
+        public void IsValid_WhenAllSuggestionQuery_ReturnsCorrectValue(string suggestionQuery, bool expectedIsValid)
         {
+            // Arrange
             var criteria = new SelectAutoSuggestionCriteria(1, suggestionQuery, true, true, false);
 
-            Assert.Equal(expectedIsValid, criteria.IsValid());
+            // Act
+            var actualValue = criteria.IsValid();
+
+            // Assert
+            Assert.Equal(expectedIsValid, actualValue);
         }
     }
 }

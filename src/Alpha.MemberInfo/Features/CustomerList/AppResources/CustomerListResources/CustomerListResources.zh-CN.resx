@@ -312,4 +312,10 @@
   <data name="UnlockTooltip" xml:space="preserve">
     <value>点击解锁</value>
   </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>开启</value>
+  </data>
+  <data name="AutoTransfer" xml:space="preserve">
+    <value>自动转账</value>
+  </data>
 </root>

@@ -150,7 +150,7 @@
 
             Assert.True(compareLogic.Compare(actualModel, result).AreEqual);
         }
-       
+
 
         private CustomerListDTO FectchMasterList(CustomerListParam param) =>
             new CustomerListDTO(FakeMasterList(), 100, 2);
@@ -176,7 +176,8 @@
                 1,
                 false,
                 false,
-                true);
+                true,
+                0);
 
         private IEnumerable<MasterListModel> FakeMasterList() =>
             new List<MasterListModel>

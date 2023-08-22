@@ -9,9 +9,11 @@
         public FetchDownlinesListRequesBase(IUser viewer) : base(viewer)
         {
             DoubleComm = 2;
+            AllowAutoTransfer = 2;
             LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
             IsShowMyanmarOdds = viewer.IsShowMyanmarOdds;
             CanViewReports = viewer.CanViewReports;
+            SupportAutoTransfer = Alpha.MemberInfo.Configurations.AppSettings.IsEnableAutoTransfer(viewer);
         }
 
         public string Username { get; set; }
@@ -45,5 +47,9 @@
         public bool ShowNickname => ViewerLevelId == CustLevelId;
 
         public bool CanViewReports { get; }
+
+        public int AllowAutoTransfer { get; set; }
+
+        public bool SupportAutoTransfer { get; set; }
     }
 }

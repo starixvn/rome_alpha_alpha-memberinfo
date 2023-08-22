@@ -84,11 +84,15 @@
         public bool CanViewReports => userSession.SubPageAccess.ViewReports;
 
         public bool IsOfferProtectedMode => userSession.IsOfferProtectedMode;
-        
+
         public string DarkModeName => userSession.DarkModeName;
 
         public string AssetAppPath => userSession.AssetAppPath;
 
         public string SiteDBGroupIp => userSession.AGIP;
+        public string Currency => userSession.Currency;
+
+        public bool IsSubAcc => userSession.IsSubAcc;
+        public PageAccess SubPageAccess => userSession.SubPageAccess;
     }
 }

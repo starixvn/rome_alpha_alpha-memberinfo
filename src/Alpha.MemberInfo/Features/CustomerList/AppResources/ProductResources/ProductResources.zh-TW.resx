@@ -501,4 +501,16 @@
   <data name="SportsbookMinPTViewModelText" xml:space="preserve">
     <value>體育博彩最低佔成數</value>
   </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage" xml:space="preserve">
+    <value>您要為此客戶禁用自動轉賬嗎？</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage" xml:space="preserve">
+    <value>您要為此客戶開啟自動轉賬嗎？</value>
+  </data>
+  <data name="EditMultipleAutoTransferText" xml:space="preserve">
+    <value>修改多重自動轉賬</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelText" xml:space="preserve">
+    <value>自動轉賬</value>
+  </data>
 </root>

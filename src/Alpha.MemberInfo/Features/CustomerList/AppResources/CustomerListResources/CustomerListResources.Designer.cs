@@ -134,6 +134,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto Transfer.
+        /// </summary>
+        public static string AutoTransfer {
+            get {
+                return ResourceManager.GetString("AutoTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Closed.
         /// </summary>
         public static string Closed {
@@ -247,6 +256,15 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string EditStatus {
             get {
                 return ResourceManager.GetString("EditStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enabled.
+        /// </summary>
+        public static string Enabled {
+            get {
+                return ResourceManager.GetString("Enabled", resourceCulture);
             }
         }
         
@@ -436,6 +454,24 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string Of {
             get {
                 return ResourceManager.GetString("Of", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string Off {
+            get {
+                return ResourceManager.GetString("Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On.
+        /// </summary>
+        public static string On {
+            get {
+                return ResourceManager.GetString("On", resourceCulture);
             }
         }
         

@@ -18,7 +18,8 @@
             int pageIndex,
             bool limitedDateToShowInfo,
             bool showNickname,
-            bool isShowMyanmarOdds)
+            bool isShowMyanmarOdds,
+            int allowAutoTransfer)
         {
             UserId = userId;
             DirectUplineId = directUplineId;
@@ -34,6 +35,7 @@
             LimitedDateToShowInfo = limitedDateToShowInfo;
             ShowNickname = showNickname;
             IsShowMyanmarOdds = isShowMyanmarOdds;
+            AllowAutoTransfer = allowAutoTransfer;
         }
 
         public int UserId { get; }
@@ -63,5 +65,7 @@
         public bool ShowNickname { get; }
 
         public bool IsShowMyanmarOdds { get; }
+
+        public int AllowAutoTransfer { get; }
     }
 }

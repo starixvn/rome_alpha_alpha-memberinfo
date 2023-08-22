@@ -1,9 +1,10 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.Utility
 {
+    using System;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Models;
-    using System;
+    using Sunplus.Agent.Model.Entities;
 
     /// <summary>
     /// should implementation be located in consumer sites.
@@ -48,5 +49,11 @@
         public Func<IConfigurationItem, bool> Predicate => _ => true;
 
         public Func<string, string, string> GetMicroSiteUrl { get; }
+
+        public bool IsSubAcc { get; }
+
+        public PageAccess SubPageAccess { get; }
+
+        public bool SupportAutoTransfer { get; }
     }
 }

@@ -81,7 +81,7 @@ class EditMultipleSetting {
     private buildPopupHtml = settings => {
         let html = ['<ul>'];
         this.$.each(settings, (key, item) => {
-         
+
             const attrs = {
                 'class': `edit-multiple-settings ${item.Icon}`,
                 'data-title': item.Title || item.Text,

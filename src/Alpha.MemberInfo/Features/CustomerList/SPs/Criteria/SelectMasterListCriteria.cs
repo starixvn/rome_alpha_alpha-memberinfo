@@ -10,6 +10,7 @@
             bool? suspended,
             bool locked,
             byte doubleCommLosing,
+            int autoTransfer,
             int pageSize,
             int pageIndex) : base(username,
             enabled,
@@ -17,6 +18,7 @@
             suspended,
             locked,
             doubleCommLosing,
+            autoTransfer,
             pageSize,
             pageIndex)
         {

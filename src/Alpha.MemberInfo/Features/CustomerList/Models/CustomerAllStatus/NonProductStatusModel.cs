@@ -24,7 +24,8 @@
             bool uplineDisableOutright,
             bool isAllDayBalTransfer,
             byte locked,
-            bool isProtectedMode)
+            bool isProtectedMode,
+            bool isAllowAutoTransfer)
         {
             HasDownline = hasDownline;
             DisableAutoMPT = disableAutoMPT;
@@ -48,6 +49,7 @@
 
             Locked = locked;
             IsProtectedMode = isProtectedMode;
+            IsAllowAutoTransfer = isAllowAutoTransfer;
         }
 
         public bool HasDownline { get; private set; }
@@ -66,8 +68,8 @@
 
         public string TransferOption { get; private set; }
 
-        public bool TransferDaily => 
-            !string.IsNullOrWhiteSpace(TransferOption) && 
+        public bool TransferDaily =>
+            !string.IsNullOrWhiteSpace(TransferOption) &&
             TransferOption[TransferDailyOption].Equals('0');
 
         public bool DoubleCommLosing { get; private set; }
@@ -85,5 +87,7 @@
         public byte Locked { get; }
 
         public bool IsProtectedMode { get; }
+
+        public bool IsAllowAutoTransfer { get; private set; }
     }
 }

@@ -265,6 +265,7 @@
 
             return new List<IStatusItemViewModel>
             {
+                new ConfirmAllowAutoTransferViewModel(request),
                 new ConfirmAllowAutoMasterPTViewModel(request),
                 new ConfirmAllowOutrightViewModel(request),
                 new ConfirmClosedViewModel(request),
@@ -323,7 +324,8 @@
                              uplineDisableOutright: true,
                              isAllDayBalTransfer: false,
                              locked: 0,
-                             isProtectedMode: false);
+                             isProtectedMode: false,
+                             isAllowAutoTransfer: false);
 
         private static List<DCSProductStatusModel> StubDcsProducts()
             => new List<DCSProductStatusModel>

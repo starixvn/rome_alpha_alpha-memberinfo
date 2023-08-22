@@ -58,6 +58,18 @@
                 }
             </select>
         </div>
+        @if (Model.EnableAutoTransfer)
+        {
+            <div class="form-group comm-box">
+                <label>@CustomerListResources.AutoTransfer</label>
+                <select id="dautoTransferFilter" name="dautoTransferFilter">
+                    @foreach (var option in Model.AllowAutoTransferOptions)
+                    {
+                        <option value="@option.Value" selected="@option.Value.Equals(Model.AllowAutoTransfer)">@option.Text</option>
+                    }
+                </select>
+            </div>
+        }
         <div class="form-group btn-box">
             <input type="submit" value="@Resources.Submit" class="btn-submit" />
         </div>
@@ -226,6 +238,7 @@
     @Html.AntiForgeryToken()
     @Html.Hidden("StatusId", Model.Status)
     @Html.Hidden("DoubleCommId", Model.DoubleComm)
+    @Html.Hidden("AllowAutoTransfer", Model.AllowAutoTransfer)
     @Html.Hidden("UnconfirmSettingId", Model.UnconfirmSetting)
     <input type="hidden" id="searchAccountId" value="@Model.SearchAccountId">
     <input type="hidden" id="searchAccountName" value="@Model.SearchAccountName">
