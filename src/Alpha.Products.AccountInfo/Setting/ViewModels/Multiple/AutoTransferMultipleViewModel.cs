@@ -2,6 +2,7 @@
 {
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
+    using Alpha.Web.Helpers;
     using System.Collections.Generic;
 
     public class AutoTransferMultipleViewModel : SettingItemViewModel, ISettingItemMultipleViewModel
@@ -15,7 +16,7 @@
         public override string Text => Request.GetResource("EditMultipleAutoTransferText");
 
         protected override string BaseAddress
-            => $"{TransferUrl}/AutoTransfer/UpdateMultiple";
+            => MicroSites.TransferUrl("AutoTransfer/UpdateMultiple");
 
         public override Dictionary<string, string> QueryStringParamaters
               => new Dictionary<string, string>
