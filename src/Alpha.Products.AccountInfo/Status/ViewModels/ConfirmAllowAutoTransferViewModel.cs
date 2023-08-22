@@ -4,6 +4,7 @@
     using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Web.Configurations;
+    using Alpha.Web.Helpers;
 
     public class ConfirmAllowAutoTransferViewModel : ConfirmStatusItemViewModelBase
     {
@@ -35,7 +36,7 @@
 
         internal override bool StatusValue => !Checked;
 
-        public override string Url => $"{AppSettings.TransferAppPath}/autotransfer/update";
+        public override string Url => MicroSites.TransferUrl("autotransfer/update");
 
         internal new IDictionary<string, object> Params =>
             new Dictionary<string, object>
