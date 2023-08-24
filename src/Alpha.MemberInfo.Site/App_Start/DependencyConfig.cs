@@ -33,6 +33,7 @@
     using Alpha.PartialUM.Services;
     using Alpha.Products.AccountInfo;
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.AccountInfo.Services;
     using Alpha.Products.AccountInfo.Setting;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
     using Alpha.Products.AccountInfo.Status;
@@ -133,14 +134,14 @@
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<IPService, IPServiceImpl>();
             container.RegisterSingleton<SecurityCodeChecker, SecurityCodeCheckerImpl>();
-            container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();          
+            container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
 
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
             container.Register<WinLossLimitService>(
                 () => new WinLossLimitServiceImpl(
                     container.GetInstance<IDynamicRepository>(),
                     container.GetInstance<WinLossLimitDataAccess>(),
-                    container.GetInstance<CacheRefService>().GetProductName));     
+                    container.GetInstance<CacheRefService>().GetProductName));
 
             container.Register<ParlayMaxPayoutService, ParlayMaxPayoutServiceImpl>();
             container.Register<CheckUMService, CheckUMServiceImpl>();
@@ -184,7 +185,7 @@
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            var httpClient= new HttpClient()
+            var httpClient = new HttpClient()
             {
                 BaseAddress = AppSettings.CustomerApiUri
             };

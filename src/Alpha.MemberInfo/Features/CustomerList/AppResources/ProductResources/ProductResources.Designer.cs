@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class ProductResources {
@@ -247,24 +247,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         public static string ConfirmAllowAutoMasterPTViewModelText {
             get {
                 return ResourceManager.GetString("ConfirmAllowAutoMasterPTViewModelText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Would you like to disable Auto Transfer for this account?.
-        /// </summary>
-        public static string ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage {
-            get {
-                return ResourceManager.GetString("ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Would you like to enable Auto Transfer for this account?.
-        /// </summary>
-        public static string ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage {
-            get {
-                return ResourceManager.GetString("ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage", resourceCulture);
             }
         }
         

@@ -3,10 +3,12 @@ namespace Alpha.Products.AccountInfo.Status
 {
     using System.Collections.Generic;
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.AccountInfo.Services;
     using Alpha.Products.AccountInfo.Status.ViewModels;
     using Alpha.Products.AccountInfo.Status.ViewModels.Base;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.ViewModels;
+    using Fanex.Data.Repository;
 
     public sealed class StatusViewModelFactory
         : GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>
@@ -30,7 +32,7 @@ namespace Alpha.Products.AccountInfo.Status
             if (request.SupportAutoTransfer &&
                 (!request.IsSubAcc || request.SubPageAccess.Transfer))
             {
-                yield return new ConfirmAllowAutoTransferViewModel(request);
+                yield return new ConfirmAllowAutoTransferViewModel(request, new AccountServiceImpl(new DynamicRepository()));
             }
         }
 

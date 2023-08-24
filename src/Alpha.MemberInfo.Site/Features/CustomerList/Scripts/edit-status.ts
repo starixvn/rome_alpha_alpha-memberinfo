@@ -77,7 +77,7 @@ class EditStatus {
                 if (!JSON.parse(this.$(event.currentTarget).data("disabled"))) {
                     this.topWindow.bootboxConfirm(
                         this.$(event.currentTarget).data("message"),
-                        event.currentTarget,
+                        null,
                         () => this.customerListServices.updateCustomerStatus(
                             event.currentTarget,
                             this.$(parentElement).context,

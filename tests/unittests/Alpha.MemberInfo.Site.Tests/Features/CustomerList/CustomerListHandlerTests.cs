@@ -265,7 +265,7 @@
 
             return new List<IStatusItemViewModel>
             {
-                new ConfirmAllowAutoTransferViewModel(request),
+                new ConfirmAllowAutoTransferViewModel(request, null),
                 new ConfirmAllowAutoMasterPTViewModel(request),
                 new ConfirmAllowOutrightViewModel(request),
                 new ConfirmClosedViewModel(request),
