@@ -1,10 +1,10 @@
 ﻿namespace Alpha.Products.AccountInfo.Status.ViewModels
 {
-    using System.Collections.Generic;
-    using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Services;
     using Alpha.Web.Helpers;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class ConfirmAllowAutoTransferViewModel : ConfirmStatusItemViewModelBase
     {

@@ -3,7 +3,7 @@
     using System;
     using NSubstitute;
     using Site.Models;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
     using Xunit;
 
     [Trait("Category", "BaseFunction")]

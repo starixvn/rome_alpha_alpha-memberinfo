@@ -1,4 +1,4 @@
-﻿using Sunplus.Agent.Model.Entities;
+﻿using AlphaPlus.User.Models;
 using System;
 
 namespace Alpha.MemberInfo.Site.Utilities

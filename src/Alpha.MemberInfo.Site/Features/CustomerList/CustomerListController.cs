@@ -8,7 +8,7 @@
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.Web.Filters;
     using MediatR;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
 
     public class CustomerListController : SiteBaseController
     {

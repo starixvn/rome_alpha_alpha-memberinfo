@@ -13,6 +13,7 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.Web.Filters;
     using MediatR;
+    using AlphaPlus.User.Models;
 
     public class QRCodeMemberSignInController : SiteBaseController
     {

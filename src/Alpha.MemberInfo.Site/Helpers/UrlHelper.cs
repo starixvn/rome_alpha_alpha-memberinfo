@@ -6,7 +6,7 @@
     using System.Text.RegularExpressions;
     using System.Web;
     using Alpha.MemberInfo.Configurations;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
     using Sunplus.Agent.Utilities;
     using Web.Helpers;
 

@@ -4,7 +4,7 @@ namespace Alpha.Products.AccountInfo.Requests
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Services;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
     using System;
 
     /// <summary>

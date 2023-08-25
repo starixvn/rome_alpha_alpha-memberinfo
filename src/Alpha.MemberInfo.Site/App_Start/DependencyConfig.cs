@@ -1,15 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Net;
-    using System.Net.Http;
-    using System.Reflection;
-    using System.Resources;
-    using System.Threading;
-    using System.Web;
-    using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Features.CustomerList;
@@ -47,6 +37,7 @@
     using Alpha.Utilities.IP;
     using Alpha.Web.Helpers;
     using Alpha.Web.Helpers.Impl;
+    using AlphaPlus.User.Models;
     using Controllers;
     using DataAccesses;
     using Fanex.Caching;
@@ -66,16 +57,27 @@
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
-    using Sunplus.Agent.Model.Base;
-    using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Utilities;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Net;
+    using System.Net.Http;
+    using System.Reflection;
+    using System.Resources;
+    using System.Threading;
+    using System.Web;
+    using System.Web.Mvc;
 
     public static class DependencyConfig
     {
         [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Reviewed")]
         public static void Init()
         {
-            RegisterQRCodeConfiguration();
+
+            AlphaPlus.Configurations.ConfigurationManager.Init(new ConfigurationHelper());
+
+            RegisterQRCodeConfiguration();            
 
             var container = new Container();
 
@@ -130,7 +132,8 @@
         private static void RegisterServices(Container container)
         {
             container.RegisterSingleton<BrowserHelper, BrowserHelperImpl>();
-            container.RegisterSingleton<IUserSession, UserSessionExt>();
+            UserSession.Init(new HttpContextHelper());
+            container.RegisterSingleton<IUserSession, AlphaPlus.User.Models.UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
             container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();

@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
 
     public interface IUser
     {

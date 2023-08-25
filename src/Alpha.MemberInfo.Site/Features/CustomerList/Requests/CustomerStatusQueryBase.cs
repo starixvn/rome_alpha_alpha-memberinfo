@@ -2,8 +2,7 @@
 {
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.Shared.Requests;
-    using Alpha.Web.Configurations;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
 
     public class CustomerStatusQueryBase : BaseRequest
     {
@@ -62,7 +61,7 @@
 
         public bool IsOfferProtectedMode => viewer.IsOfferProtectedMode;
 
-        public string DarkModeName => AppSettings.IsOfferDarkMode ? viewer.DarkModeName : string.Empty;
+        public string DarkModeName => viewer.DarkModeName;
 
         public PageAccess SubPageAccess => viewer.SubPageAccess;
 
