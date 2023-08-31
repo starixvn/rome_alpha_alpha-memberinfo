@@ -21,8 +21,7 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.Shared.Helpers;
     using Alpha.MemberInfo.Site.Handlers;
-    using Alpha.PartialUM.DataAccess;
-    using Alpha.PartialUM.Services;
+    using Alpha.PartialUM.Helpers;
     using Alpha.Products.AccountInfo;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Services;
@@ -33,11 +32,14 @@
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Services;
     using Alpha.Products.Core.ViewModels;
-    using Alpha.SecurityCode.Services;
-    using Alpha.Utilities.IP;
     using Alpha.Web.Helpers;
     using Alpha.Web.Helpers.Impl;
+    using AlphaPlus.PartialUM.DataAccess;
+    using AlphaPlus.PartialUM.Helpers;
+    using AlphaPlus.PartialUM.Services;
+    using AlphaPlus.SecurityCode.Services;
     using AlphaPlus.User.Models;
+    using AlphaPlus.Utilities.IP;
     using Controllers;
     using DataAccesses;
     using Fanex.Caching;
@@ -136,6 +138,7 @@
             container.RegisterSingleton<IUserSession, AlphaPlus.User.Models.UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
             container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
+            container.RegisterSingleton<IPartialUMSectionHelper, PartialUMSectionHelper>();
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<IPService, IPServiceImpl>();

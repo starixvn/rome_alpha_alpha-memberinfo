@@ -8,12 +8,13 @@
     using Alpha.MemberInfo.Features.CustomerList.SPs.Criteria;
     using Alpha.MemberInfo.Models;
     using Fanex.Data;
+    using Fanex.Data.Repository;
 
     public interface CustomerListDataAccess
     {
         CustomerStatusModel GetCustomerStatus(SelectCustomerAllStatusModelCriteria criteria);
 
-        Result UpdateCustomerStatus(UpdateCustomerStatusCommand command);
+        Result UpdateCustomerStatus(NonQueryCommand command);
 
         bool GetIsProtectedMode(SelectClosedReasonCriteria criteria);
     }
@@ -24,7 +25,7 @@
         {
             using (var objectDb = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
-                using (var multiResultReader = objectDb.QueryMultiple(criteria.GetSpParams()))
+                using (var multiResultReader = objectDb.QueryMultiple(criteria))
                 {
                     var customerStatus = multiResultReader.Read<NonProductStatusModel>().FirstOrDefault();
                     var nonDCSProduct = multiResultReader.Read<NonDCSProductStatusModel>().FirstOrDefault();
@@ -51,13 +52,14 @@
             }
         }
 
-        public Result UpdateCustomerStatus(UpdateCustomerStatusCommand command)
-        {
+        public Result UpdateCustomerStatus(NonQueryCommand command)
+        {   
+
             using (var objectDb = ObjectDbFactory.CreateInstance(command.GetSettingKey()))
             {
-                objectDb.ExecuteNonQuery(command.GetSpParams());
+                objectDb.ExecuteNonQuery(command);
 
-                var outputParams = objectDb.GetOuputParams();
+                var outputParams = objectDb.GetOutputParams();
 
                 return new Result
                 {
@@ -86,5 +88,7 @@
 
             return false;
         }
+
+         
     }
 }

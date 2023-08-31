@@ -2,7 +2,7 @@
 {
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
-    using Alpha.Utilities.IP;
+    using AlphaPlus.Utilities.IP;
     using System.Collections.Generic;
     using System.Linq;
 

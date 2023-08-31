@@ -8,7 +8,7 @@
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Params;
     using Alpha.MemberInfo.Tests.Extensions;
-    using Alpha.PartialUM.Services;
+    using AlphaPlus.PartialUM.Services;
     using Fanex.Data.Repository;
     using NSubstitute;
     using Xunit;
@@ -95,7 +95,7 @@
             var expectedResults = new MultipleWatchlistAccountModel(alreadyAddedAccounts, newlyAddedAccounts);
 
             dynamicRepository.FetchMultipleAsync<WatchlistAccountModel, WatchlistAccountModel>(Arg.Any<SelectMultipleWatchlistCriteria>())
-            .Returns(new Tuple<IEnumerable<WatchlistAccountModel>, IEnumerable<WatchlistAccountModel>>(alreadyAddedAccounts, newlyAddedAccounts));
+            .Returns((alreadyAddedAccounts, newlyAddedAccounts));
 
             // Act
             var actualResults = await service.GetMultipleWatchlistAccount(param);

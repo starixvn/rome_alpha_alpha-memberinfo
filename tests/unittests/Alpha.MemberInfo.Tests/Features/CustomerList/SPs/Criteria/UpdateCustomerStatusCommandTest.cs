@@ -11,7 +11,7 @@
         [InlineData(-1, false)]
         public void IsValid_SearchAccountId_Should_ReturnsCorrectValue(int searchAccountId, bool expectedValue)
         {
-            var command = new UpdateCustomerStatusCommand(searchAccountId, 1462, 0, "E", "192.168.1.1", StatusNames.Closed, true);
+            var command = new UpdateCustomerStatusCommand(searchAccountId, 1462, 0, "E", "192.168.1.1", StatusNames.Closed);
 
             Assert.Equal(expectedValue, command.IsValid());
         }
@@ -21,7 +21,7 @@
         [InlineData(-1, false)]
         public void IsValid_ActorId_Should_ReturnsCorrectValue(int actorId, bool expectedValue)
         {
-            var command = new UpdateCustomerStatusCommand(123, actorId, 0, "E", "192.168.1.1", StatusNames.Closed, true);
+            var command = new UpdateCustomerStatusCommand(123, actorId, 0, "E", "192.168.1.1", StatusNames.Closed);
 
             Assert.Equal(expectedValue, command.IsValid());
         }
@@ -35,23 +35,10 @@
         [InlineData(StatusNames.Unlock, "Acc_CustomerUpdLocked")]
         public void GetSettingKey_Always_ReturnsValidSettingKey(string statusName, string expectedSettingKey)
         {
-            var command = new UpdateCustomerStatusCommand(1, 2, 0, "E", "192.168.1.1", statusName, true);
+            var command = new UpdateCustomerStatusCommand(1, 2, 0, "E", "192.168.1.1", statusName);
             var actualSettingKey = command.GetSettingKey();
 
             Assert.Equal(expectedSettingKey, actualSettingKey);
-        }
-
-        [Theory]
-        [InlineData(StatusNames.DisableAutoMasterPT, false)]
-        [InlineData(StatusNames.Closed, true)]
-        [InlineData(StatusNames.DoubleComm, false)]
-        [InlineData(StatusNames.DisableOutright, false)]
-        [InlineData(StatusNames.Suspended, false)]
-        public void SystemIDProperty_Correct_Adding(string statusName, bool existed)
-        {
-            var command = new UpdateCustomerStatusCommand(1, 2, 0, "E", "192.168.1.1", statusName, true);
-
-            Assert.Equal(existed, command.GetSpParams().ContainsKey("SystemID"));
         }
     }
 }

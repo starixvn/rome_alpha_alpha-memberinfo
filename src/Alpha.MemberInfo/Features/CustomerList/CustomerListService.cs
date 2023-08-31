@@ -66,14 +66,36 @@
         }
 
         public Result UpdateCustomerStatus(UpdateCustomerStatusParam param)
-            => customerListDataAccess.UpdateCustomerStatus(new UpdateCustomerStatusCommand(
-                param.SearchAccountId,
-                param.ActorId,
-                param.SubAccountId,
-                param.Language,
-                param.IP,
-                param.StatusName,
-                param.StatusValue));
+        {
+            NonQueryCommand command = null;
+            switch (param.StatusName)
+            {
+                case StatusNames.Closed:
+                    command = new UpdateClosedStatusCommand(param);
+                    break;
+                case StatusNames.DisableAutoMasterPT:
+                    command = new UpdateDisableAutoMPTStatusCommand(param);
+                    break;
+                case StatusNames.DoubleComm:
+                    command = new UpdateDoubleCommLosingStatusCommand(param);
+                    break;
+                case StatusNames.DisableOutright:
+                    command = new UpdateDisableOutrightStatusCommand(param);
+                    break;
+                case StatusNames.Suspended:
+                    command = new UpdateSuspendedStatusCommand(param);
+                    break;
+                case StatusNames.Unlock:
+                    command = new UpdateSuspendedStatusCommand(param);
+                    break;
+                case StatusNames.AllowAutoTransfer:
+                    command = new UpdateAllowAutoTransferStatusCommand(param);
+                    break;
+                default:                 
+                    break;
+            }
+            return customerListDataAccess.UpdateCustomerStatus(command);
+        }
 
         internal CustomerListDTO FectchMasterList(CustomerListParam param)
         {

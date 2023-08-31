@@ -45,13 +45,12 @@
                 searchAccountId: 1,
                 actorId: 2,
                 subAccountId: 0,
-                statusName: StatusNames.Closed,
-                statusValue: true,
+                statusName: StatusNames.Closed,          
                 language: "E",
                 ip: "192.168.1.1");
 
             var expectedResult = new Result() { Code = 0, Message = string.Empty };
-            objectDb.GetOuputParams().Returns(new Hashtable { { "errcode", 0 }, { "errmsg", string.Empty } });
+            objectDb.GetOutputParams().Returns(new Hashtable { { "errcode", 0 }, { "errmsg", string.Empty } });
 
             // Act
             var actualResult = dataAccess.UpdateCustomerStatus(command);
@@ -68,14 +67,13 @@
                 searchAccountId: 1,
                 actorId: 2,
                 subAccountId: 0,
-                statusName: StatusNames.Closed,
-                statusValue: true,
+                statusName: StatusNames.Closed,             
                 language: "E",
                 ip: "192.168.1.1");
 
             var errorMsg = "Update Failed !";
             var expectedResult = new Result() { Code = 100, Message = "Update Failed !" };
-            objectDb.GetOuputParams().Returns(new Hashtable { { "errcode", 100 }, { "errmsg", errorMsg } });
+            objectDb.GetOutputParams().Returns(new Hashtable { { "errcode", 100 }, { "errmsg", errorMsg } });
 
             // Act
             var actualResult = dataAccess.UpdateCustomerStatus(command);

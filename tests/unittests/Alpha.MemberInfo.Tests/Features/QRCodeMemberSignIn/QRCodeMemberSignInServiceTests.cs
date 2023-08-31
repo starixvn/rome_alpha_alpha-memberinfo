@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Tests.Services.MemberRequest
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Alpha.CopyAccount.Models;
     using Alpha.CopyAccount.Params;
     using Alpha.CopyAccount.Services;
@@ -54,16 +55,7 @@
         {
             var result = new ResultCreateMemberQRCode();
 
-            repository
-               .When(repo => repo.Execute(Arg.Any<InsertMemberCommand>()))
-               .Do((callInfo) =>
-               {
-                   var command = callInfo[0] as InsertMemberCommand;
-                   command.CustId = result.CustId;
-                   command.Success = result.Success;
-                   command.ErrCode = result.ErrCode;
-                   command.ErrMsg = result.ErrMsg;
-               });
+            copyAccountService.CopyAsync(Arg.Any<CopyAccountParams>()).Returns(Task.FromResult(new CopyAccountResult() { CustId = result.CustId }));
 
             var actualResult = serviceImpl.CreateMemberByQRCode(
                 anyValueCreatorFixture.Create<InsertMemberCommand>()).Result;

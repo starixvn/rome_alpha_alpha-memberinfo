@@ -30,7 +30,7 @@
             var param = new DormantAccountParam(1176070, null, 0, 0, 1, 500);
             repository
                 .FetchMultipleAsync<DormantAccountEntity, YesterdayBalanceEntity>(Arg.Any<ICriteria>())
-                .Returns(new Tuple<IEnumerable<DormantAccountEntity>, IEnumerable<YesterdayBalanceEntity>>(Enumerable.Empty<DormantAccountEntity>(), Enumerable.Empty<YesterdayBalanceEntity>()));
+                .Returns((Enumerable.Empty<DormantAccountEntity>(), Enumerable.Empty<YesterdayBalanceEntity>()));
 
             // Act
             var actual = await service.GetDormantAccountsAsync(param);
@@ -50,7 +50,7 @@
             var param = new DormantAccountParam(1176070, null, 0, 0, 1, 500);
             repository
                 .FetchMultipleAsync<DormantAccountEntity, YesterdayBalanceEntity>(Arg.Any<ICriteria>())
-                .Returns(new Tuple<IEnumerable<DormantAccountEntity>, IEnumerable<YesterdayBalanceEntity>>(FakeDormantAccountEntityList(), FakeYesterdayBalanceEntityList()));
+                .Returns((FakeDormantAccountEntityList(), FakeYesterdayBalanceEntityList()));
 
             // Act
             var actual = await service.GetDormantAccountsAsync(param);

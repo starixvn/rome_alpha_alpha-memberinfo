@@ -7,7 +7,7 @@
     using Fanex.Data.Repository;
     using Models.CreditBalance;
     using Params;
-    using Utilities.IP;
+    using AlphaPlus.Utilities.IP;
 
     public interface CreditBalanceService
     {
