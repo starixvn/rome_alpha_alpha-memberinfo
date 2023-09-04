@@ -987,4 +987,7 @@
     <value>密码必须为 6-10 字符没有空格并包含至少 1  个大写字母、1  个小写字母 、 1  个数字。（例如 493abcDE, 59D7!4$h）
 注意： 您的密码需有大小写</value>
   </data>
+  <data name="BBINNote" xml:space="preserve">
+    <value>注意：BBIN"赢数额巴仙"的栏位显示&lt;b&gt;"N/A"&lt;/b&gt; 的意思是最高的赢数额不适用于BBIN的产品。</value>
+  </data>
 </root>

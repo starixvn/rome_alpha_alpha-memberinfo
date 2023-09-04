@@ -100,7 +100,7 @@
 
         public string GetWinPercent(decimal? winPercent, decimal? currentWinLimit, decimal credit)
             => IsBBin ? "N/A" : !winPercent.HasValue
-            ? UnlimitedOrNoSetting() : (credit == 0 && currentWinLimit > 0) || currentWinLimit == -3 ? "N/A"
+            ? UnlimitedOrNoSetting() : credit == 0 && currentWinLimit > 0 ? "N/A"
             : winPercent > 0 ? winPercent.Value.ToString("#,##0.##") + "%" : "0%";
 
         public static string GetLossPercent(decimal? maxLossLimit, decimal? lossPercent)
