@@ -8,10 +8,6 @@ body:not(.modal-open) {
     padding-right: 0px !important;
 }
 
-.grey-color {
-    color: #838383 !important;
-}
-
 .break-long-word {
     max-width: 200px;
     white-space: normal;
@@ -185,7 +181,7 @@ body:not(.modal-open) {
 }
 
 #status-popup {
-    box-shadow: 0px 0px 6px rgba(0,0,0,0.19);
+    box-shadow: none;
 
     .modal-dialog {
         position: relative;
@@ -223,11 +219,7 @@ body:not(.modal-open) {
                 display: inline-block;
             }
 
-            &.Disable_edit:before {
-                color: #bbb !important;
-            }
-
-            &.icon-edit, &.icon-refresh, &.icon-eye {
+            &.icon-edit, &.icon-eye {
                 font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
                 font-size: 13px;
                 line-height: 24px;

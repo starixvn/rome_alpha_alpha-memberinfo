@@ -9,10 +9,6 @@ body:not(.modal-open) {
     padding-right: 0px !important;
 }
 
-.grey-color {
-    color: #fff;
-}
-
 .break-long-word {
     max-width: 200px;
     white-space: normal;
@@ -229,7 +225,7 @@ table.dataTable {
 }
 
 #status-popup {
-    box-shadow: 0px 0px 6px rgba(0,0,0,0.19);
+    box-shadow: none;
 
     .modal-dialog {
         position: relative;
@@ -263,15 +259,7 @@ table.dataTable {
                 display: inline-block;
             }
 
-            &.Disable_edit:before {
-                color: #888 !important;
-            }
-
-            &.Disable_edit {
-                color: #888;
-            }
-
-            &.icon-edit, &.icon-refresh, &.icon-eye {
+            &.icon-edit, &.icon-eye {
                 font-family: Roboto,Arial,Tahoma,helvetica,sans-serif !important;
                 font-size: 13px;
                 line-height: 24px;
