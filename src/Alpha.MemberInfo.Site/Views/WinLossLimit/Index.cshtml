@@ -93,6 +93,10 @@
         <label>@Resources.Username</label>
         <input type="text" id="txt-username" name="Username" placeholder="@Resources.Username" value="@Model.Username" />
     </div>
+    @if (Model.IsBBin)
+    {
+        <p><span class="star">@Html.Raw(Resources.BBINNote)</span></p>
+    }
     @if (Model.IsSabaclub)
     {
         <div class="form-group">

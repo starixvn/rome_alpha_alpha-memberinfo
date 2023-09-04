@@ -96,11 +96,11 @@
             => currentWinAnmout.HasValue ? currentWinAnmout.Value.ToString("#,##0.00") : Unlimited;
 
         public string GetMaxWinLimit(decimal maxWinLimit)
-            => maxWinLimit == 0 ? UnlimitedOrNoSetting() : maxWinLimit.ToString("#,##0") + "X";
+            => IsBBin ? "N/A" : maxWinLimit == 0 ? UnlimitedOrNoSetting() : maxWinLimit.ToString("#,##0") + "X";
 
         public string GetWinPercent(decimal? winPercent, decimal? currentWinLimit, decimal credit)
-            => !winPercent.HasValue
-            ? UnlimitedOrNoSetting() : credit == 0 && currentWinLimit > 0 ? "N/A"
+            => IsBBin ? "N/A" : !winPercent.HasValue
+            ? UnlimitedOrNoSetting() : (credit == 0 && currentWinLimit > 0) || currentWinLimit == -3 ? "N/A"
             : winPercent > 0 ? winPercent.Value.ToString("#,##0.##") + "%" : "0%";
 
         public static string GetLossPercent(decimal? maxLossLimit, decimal? lossPercent)
@@ -126,6 +126,6 @@
             => Lang.Unlimited;
 
         private string UnlimitedOrNoSetting()
-            => SportTypeHasNoBetlimitSetting.Contains(SportType) ? "-" : Lang.Unlimited;
+            => SportTypeHasNoBetlimitSetting.Contains(SportType) ? "N/A" : Lang.Unlimited;
     }
 }
