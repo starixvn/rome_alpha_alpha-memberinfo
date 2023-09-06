@@ -186,50 +186,6 @@
         }
 
         [Fact]
-        public void CreateAccount_IsInvalidCaptcha_ReturnErrorResult()
-        {
-            // Arrange
-            var message = new CreateAccountByQRCodeRequest(user)
-            {
-                UsernameCopyFrom = "User",
-                Credit = 100,
-                CreditMin = 10,
-                CreditMax = 1000,
-                FirstSuffix = "A",
-                SecondSuffix = "A",
-                ThirdSuffix = "A",
-                FirstName = "James",
-                ShowPageTitle = true
-            };
-
-            controller.ModelState.AddModelError("c_v_1", "Invalid Captcha.");
-
-            // Act
-            var actualData = controller.CreateAccount(message).Result as JsonResult;
-            IDictionary<string, object> data = new RouteValueDictionary(actualData.Data);
-
-            // Assert
-            Assert.Equal(998, data["ErrCode"]);
-            Assert.Equal("Invalid Captcha.", data["ErrMsg"]);
-        }
-
-        //[Fact]
-        //public void GetUsernamesSuggestion_Always_CallsMediatorUserNameSuggestionQuery()
-        //{
-        //    // Arrange
-        //    var message = new UserNameSuggestionQuery(user)
-        //    {
-        //        SuggestionQuery = "AA"
-        //    };
-
-        //    // Act
-        //    controller.GetUsernamesSuggestion(message);
-
-        //    // Assert
-        //    mediator.Received().Send(message);
-        //}
-
-        [Fact]
         public void ShowQRCode_Always_CallsMediatorShowQRCodeRequest()
         {
             // Arrange

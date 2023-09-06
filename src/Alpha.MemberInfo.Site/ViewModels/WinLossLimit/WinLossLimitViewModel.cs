@@ -11,7 +11,9 @@
 
     public class WinLossLimitViewModel
     {
-        private readonly List<int> SportTypeHasNoBetlimitSetting = new List<int> { SportTypeConstants.BBin };
+        private const int MaxItemToShowPager = 100;
+        private const decimal MaxWinLimitToShowNotAvailable = -3.00m;
+        private const int DefaultNumberOfColumns = 13;
 
         private readonly Dictionary<int, int> NumberOfColumnBySportType = new Dictionary<int, int> {
             {SportTypeConstants.VGaming, 14},
@@ -83,9 +85,9 @@
 
         public bool HasData => WinLossLimitPage.NumberOfRows > 0;
 
-        public bool ShowPager => WinLossLimitPage.NumberOfRows >= 100;
+        public bool ShowPager => WinLossLimitPage.NumberOfRows >= MaxItemToShowPager;
 
-        public int NumberOfColumns => NumberOfColumnBySportType.ContainsKey(SportType) ? NumberOfColumnBySportType[SportType] : 13;
+        public int NumberOfColumns => NumberOfColumnBySportType.ContainsKey(SportType) ? NumberOfColumnBySportType[SportType] : DefaultNumberOfColumns;
 
         public static string GetPlayerIdText(string playerId)
             => string.IsNullOrWhiteSpace(playerId) ? "-" : playerId;
@@ -96,36 +98,94 @@
             => currentWinAnmout.HasValue ? currentWinAnmout.Value.ToString("#,##0.00") : Unlimited;
 
         public string GetMaxWinLimit(decimal maxWinLimit)
-            => maxWinLimit == 0 ? UnlimitedOrNoSetting() : maxWinLimit.ToString("#,##0") + "X";
+            => FormatMaxWinLimit(maxWinLimit);
 
-        public string GetWinPercent(decimal? winPercent, decimal? currentWinLimit, decimal credit)
-            => !winPercent.HasValue
-            ? UnlimitedOrNoSetting() : credit == 0 && currentWinLimit > 0 ? "N/A"
-            : winPercent > 0 ? winPercent.Value.ToString("#,##0.##") + "%" : "0%";
+        public string GetWinPercent(decimal? winPercent, decimal? currentWinLimit, decimal credit, decimal maxWinLimit)
+            => FormatWinPercent(credit, currentWinLimit, winPercent, maxWinLimit);
 
         public static string GetLossPercent(decimal? maxLossLimit, decimal? lossPercent)
-            => !maxLossLimit.HasValue ? "-"
-            : !lossPercent.HasValue ? Unlimited
-            : lossPercent > 0 ? lossPercent.Value.ToString("#,##0.##") + "%"
-            : "0%";
+            => FormatLossPercent(maxLossLimit, lossPercent);
 
         public static string GetMaxLossLimit(decimal? maxLossLimit)
-            => !maxLossLimit.HasValue ? "-"
-            : maxLossLimit.Value == 0 ? Unlimited
-            : maxLossLimit.Value.ToString("#,##0.##");
+            => FormatMaxLossLimit(maxLossLimit);
 
         public static string GetRemainingBuyInAmount(decimal? remainingBuyInAmount, decimal? maxLossLimit)
-            => maxLossLimit.HasValue && maxLossLimit.Value == 0 ? Unlimited
-            : remainingBuyInAmount.HasValue ? remainingBuyInAmount.Value.ToString("#,##0.##") : "-";
+            => FormatRemainingBuyInAmount(maxLossLimit, remainingBuyInAmount);
 
         public static string GetRemainingTransferInAmount(decimal? remainingTransferInAmount, decimal? maxLossLimit)
-            => maxLossLimit.HasValue && maxLossLimit.Value == 0 ? Unlimited
-            : remainingTransferInAmount.HasValue ? remainingTransferInAmount.Value.ToString("#,##0.##") : "-";
+            => FormatRemainingTransferInAmmount(maxLossLimit, remainingTransferInAmount);
 
         private static string Unlimited
             => Lang.Unlimited;
 
-        private string UnlimitedOrNoSetting()
-            => SportTypeHasNoBetlimitSetting.Contains(SportType) ? "-" : Lang.Unlimited;
+        private static string FormatMaxWinLimit(decimal maxWinLimit)
+        {
+            if (maxWinLimit == MaxWinLimitToShowNotAvailable)
+            {
+                return "N/A";
+            }
+
+            return maxWinLimit == 0 ? Unlimited : $"{maxWinLimit.ToString("#,##0")}X";
+        }
+
+        private static string FormatWinPercent(decimal credit, decimal? currentWinLimit, decimal? winPercent, decimal maxWinLimit)
+        {
+            if (maxWinLimit == MaxWinLimitToShowNotAvailable || credit == 0 && currentWinLimit > 0)
+            {
+                return "N/A";
+            }
+
+            if (!winPercent.HasValue)
+            {
+                return Unlimited;
+            }
+
+            return winPercent > 0 ? $"{winPercent.Value.ToString("#,##0.##")}%" : "0%";
+        }
+
+        private static string FormatLossPercent(decimal? maxLossLimit, decimal? lossPercent)
+        {
+            if (!maxLossLimit.HasValue)
+            {
+                return "-";
+            }
+
+            if (!lossPercent.HasValue)
+            {
+                return Unlimited;
+            }
+
+            return lossPercent > 0 ? $"{lossPercent.Value.ToString("#,##0.##")}%" : "0%";
+        }
+
+        private static string FormatMaxLossLimit(decimal? maxLossLimit)
+        {
+            if (!maxLossLimit.HasValue)
+            {
+                return "-";
+            }
+
+            return maxLossLimit.Value == 0 ? Unlimited : maxLossLimit.Value.ToString("#,##0.##");
+        }
+
+        private static string FormatRemainingBuyInAmount(decimal? maxLossLimit, decimal? remainingBuyInAmount)
+        {
+            if (maxLossLimit.HasValue && maxLossLimit.Value == 0)
+            {
+                return Unlimited;
+            }
+
+            return remainingBuyInAmount.HasValue ? remainingBuyInAmount.Value.ToString("#,##0.##") : "-";
+        }
+
+        private static string FormatRemainingTransferInAmmount(decimal? maxLossLimit, decimal? remainingTransferInAmount)
+        {
+            if (maxLossLimit.HasValue && maxLossLimit.Value == 0)
+            {
+                return Unlimited;
+            }
+
+            return remainingTransferInAmount.HasValue ? remainingTransferInAmount.Value.ToString("#,##0.##") : "-";
+        }
     }
 }

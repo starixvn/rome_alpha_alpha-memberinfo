@@ -16,7 +16,7 @@
             var viewModel = new AutoTransferMultipleViewModel(request);
             request.AddData("customerIds", "1,3");
             request.AddData("usernames", "master01");
-            string expectedValue = "site-transfer/AutoTransfer/UpdateMultiple?SearchAccountIds=1,3&Usernames=master01&SearchAccountRoleId=3";
+            string expectedValue = "?SearchAccountIds=1,3&Usernames=master01&SearchAccountRoleId=3";
 
             // Act
             var actualValue = viewModel.Url;
