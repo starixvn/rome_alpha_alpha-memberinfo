@@ -988,6 +988,6 @@
 ยกตัวอย่างเช่น : ( 493abcDE, 59D7!4$h)</value>
   </data>
   <data name="BBINNote" xml:space="preserve">
-    <value>หมายเหตุ: ค่า % การชนะของ BBIN แสดงผลเป็น &lt;b&gt;N/A&lt;/b&gt; เนื่องจากผลิตภัณฑ์ BBIN ไม่มีการควบคุมขีดจำกัดการชนะสูงสุด</value>
+    <value>หมายเหตุ: ค่า % การชนะของ BBIN แสดงผลเป็น &lt;b&gt;"N/A"&lt;/b&gt; เนื่องจากผลิตภัณฑ์ BBIN ไม่มีการควบคุมขีดจำกัดการชนะสูงสุด</value>
   </data>
 </root>

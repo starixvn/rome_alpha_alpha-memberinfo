@@ -331,7 +331,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note: BBIN&apos;s Winning% shown as &lt;b&gt;N/A&lt;/b&gt; because Maximum Win Limit control is not applied to the BBIN product..
+        ///   Looks up a localized string similar to Note: BBIN&apos;s Winning% shown as &lt;b&gt;&quot;N/A&quot;&lt;/b&gt; because Maximum Win Limit control is not applied to the BBIN product..
         /// </summary>
         public static string BBINNote {
             get {

@@ -976,6 +976,6 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
 Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="BBINNote" xml:space="preserve">
-    <value>Lưu ý: Phần trăm Thắng (%) của BBIN hiển thị là &lt;b&gt;N/A&lt;/b&gt; nghĩa là không áp dụng Giới Hạn Thắng Tối Đa cho sản phẩm này.</value>
+    <value>Lưu ý: Phần trăm Thắng (%) của BBIN hiển thị là &lt;b&gt;"N/A"&lt;/b&gt; nghĩa là không áp dụng Giới Hạn Thắng Tối Đa cho sản phẩm này.</value>
   </data>
 </root>

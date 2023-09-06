@@ -1003,6 +1003,6 @@ Notes: your password is cAsE sEnSiTiVe&lt;br&gt;</value>
 Notes: your password is cAsE sEnSiTiVe.</value>
   </data>
   <data name="BBINNote" xml:space="preserve">
-    <value>Note: BBIN's Winning% shown as &lt;b&gt;N/A&lt;/b&gt; because Maximum Win Limit control is not applied to the BBIN product.</value>
+    <value>Note: BBIN's Winning% shown as &lt;b&gt;"N/A"&lt;/b&gt; because Maximum Win Limit control is not applied to the BBIN product.</value>
   </data>
 </root>
