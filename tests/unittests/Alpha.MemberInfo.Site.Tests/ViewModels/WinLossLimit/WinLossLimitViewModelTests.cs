@@ -130,7 +130,7 @@
             var viewModel = CreateWinLossLimitViewModel();
 
             // Act
-            var actualText = viewModel.GetWinPercent(null, null, 1);
+            var actualText = viewModel.GetWinPercent(null, null, 1,  0);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -145,7 +145,7 @@
             var viewModel = CreateWinLossLimitViewModel();
 
             // Act
-            var actualText = viewModel.GetWinPercent(winPercent, null, 1);
+            var actualText = viewModel.GetWinPercent(winPercent, null, 1, 0);
 
             // Assert
             Assert.Equal(expectedText, actualText);
@@ -160,7 +160,7 @@
             var viewModel = CreateWinLossLimitViewModel();
 
             // Act
-            var actualText = viewModel.GetWinPercent(winPercent, null, 1);
+            var actualText = viewModel.GetWinPercent(winPercent, null, 1, 0);
 
             // Assert
             Assert.Equal(expectedText, actualText);

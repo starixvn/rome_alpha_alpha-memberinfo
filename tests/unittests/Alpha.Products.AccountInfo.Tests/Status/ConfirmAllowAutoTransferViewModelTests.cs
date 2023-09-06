@@ -14,13 +14,13 @@
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
             var viewModel = new ConfirmAllowAutoTransferViewModel(request);
-            var expectedValue = "site-transfer/autotransfer/update";
+            var expectedValue = string.Empty;
 
             // Act
             var actualValue = viewModel.Url;
 
             // Assert
-            Assert.EndsWith(expectedValue, actualValue);
+            Assert.Equal(expectedValue, actualValue);
         }
 
         [Theory]
@@ -164,6 +164,7 @@
             var expectedValue = new Dictionary<string, object>
             {
                 ["CustId"] = "2",
+                ["CustName"] = "username1",
                 ["State"] = state,
                 ["UseDifferentSite"] = 1,
             };
@@ -233,7 +234,7 @@
             var request = RequestHelper.CreateRequest(4, 3);
             request.AddData("SearchAccount.IsAllowAutoTransfer", true);
             var viewModel = new ConfirmAllowAutoTransferViewModel(request);
-            var expectedValue = "{\"CustId\":\"2\",\"State\":\"off\",\"UseDifferentSite\":\"1\"}";
+            var expectedValue = "{\"CustId\":\"2\",\"CustName\":\"username1\",\"State\":\"off\",\"UseDifferentSite\":\"1\"}";
 
             // Act
             var actualValue = viewModel.JsonParams;

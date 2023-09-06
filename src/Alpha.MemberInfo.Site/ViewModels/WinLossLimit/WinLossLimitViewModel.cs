@@ -97,7 +97,7 @@
         public static string GetCurrentWinAnmout(decimal? currentWinAnmout)
             => currentWinAnmout.HasValue ? currentWinAnmout.Value.ToString("#,##0.00") : Unlimited;
 
-        public string GetMaxWinLimit(decimal maxWinLimit, decimal? winPercent)
+        public string GetMaxWinLimit(decimal maxWinLimit)
             => FormatMaxWinLimit(maxWinLimit);
 
         public string GetWinPercent(decimal? winPercent, decimal? currentWinLimit, decimal credit, decimal maxWinLimit)

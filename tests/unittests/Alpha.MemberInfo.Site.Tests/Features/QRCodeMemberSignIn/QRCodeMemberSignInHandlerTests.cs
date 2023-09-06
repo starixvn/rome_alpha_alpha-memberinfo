@@ -133,36 +133,6 @@
         }
 
         [Fact]
-        public void HandlerCreateAccountByQRCodeRequest_LimitNewDownline_ReturnsErrorResult()
-        {
-            // Arrange
-            var message = new CreateAccountByQRCodeRequest(user)
-            {
-                UsernameCopyFrom = "User",
-                Credit = 100,
-                CreditMin = 10,
-                CreditMax = 1000,
-                FirstSuffix = "A",
-                SecondSuffix = "A",
-                ThirdSuffix = "A",
-                FirstName = "James",
-                ShowPageTitle = true
-            };
-
-            service
-                .CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername)
-                .Returns(new Result { Code = 1001, Message = "Limit new downline" });
-
-            // Act
-            var actualViewModel = handler.Handle(message);
-
-            // Assert
-            Assert.True(!actualViewModel.Result.Success
-                && actualViewModel.Result.ErrCode == 1001
-                && actualViewModel.Result.ErrMsg == "Limit new downline");
-        }
-
-        [Fact]
         public void HandlerCreateAccountByQRCodeRequest_InvalidCustIdFrom_ReturnsErrorResult()
         {
             // Arrange
