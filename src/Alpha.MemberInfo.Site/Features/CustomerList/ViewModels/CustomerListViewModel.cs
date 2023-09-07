@@ -69,6 +69,7 @@
             CustomerListPagingViewModel = customerListPagingViewModel;
             AllowAutoTransfer = request.AllowAutoTransfer;
             EnableAutoTransfer = request.SupportAutoTransfer;
+            EnableAllDayBalanceTransfer = request.EnableAllDayBalanceTransfer;
         }
 
         public bool HideEditMultiple { get; }
@@ -122,6 +123,8 @@
         public int AllowAutoTransfer { get; }
 
         public bool EnableAutoTransfer { get; }
+
+        public bool EnableAllDayBalanceTransfer { get; }
 
         public IEnumerable<CustomerListOption> StatusOptions
              => new List<CustomerListOption>

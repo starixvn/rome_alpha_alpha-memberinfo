@@ -3,6 +3,7 @@
     using System.Web.Mvc;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Controllers;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.Web.Filters;
@@ -15,11 +16,13 @@
         private const string MultipleDoubleCommPath = "~/Features/CustomerList/Views/MultipeDoubleComm.cshtml";
         private readonly Result ErrorDefault = Result.CreateErrorResult(Lang.NotAuthorized);
         private readonly IUserSession userSession;
+        private readonly TransferService transferService;
 
-        public CustomerListController(IMediator mediator, IUserSession userSession)
+        public CustomerListController(IMediator mediator, IUserSession userSession, TransferService transferService)
             : base(mediator)
         {
             this.userSession = userSession;
+            this.transferService = transferService;
         }
 
         [Route("CustomerList/master")]
@@ -35,6 +38,16 @@
             if (!message.IsValid())
             {
                 return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
+            }
+
+            if (!message.EnableAllDayBalanceTransfer && transferService.IsAllDayBalanceTransfer(message.CustId))
+            {
+                return Json(Result.CreateErrorResult(Resources.ADBTOnError, 100), JsonRequestBehavior.AllowGet);
+            }
+
+            if (message.EnableAllDayBalanceTransfer && !transferService.IsAllDayBalanceTransfer(message.CustId))
+            {
+                return Json(Result.CreateErrorResult(Resources.ADBTOffError, 100), JsonRequestBehavior.AllowGet);
             }
 
             return Json(mediator.Send(message), JsonRequestBehavior.AllowGet);

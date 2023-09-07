@@ -105,6 +105,10 @@ class EditStatus {
         else {
             this.$.unblockUI();
             this.topWindow.bootboxAlert(data.Message, this.isMobile ? currentTarget : parentTarget);
+
+            if (data.Code === 100) {
+                window.location.reload();
+            }
         }
     }
 }

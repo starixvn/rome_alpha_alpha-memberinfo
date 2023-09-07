@@ -61,7 +61,7 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li style=&apos;padding: 5px 0;&apos;&gt;Once enabled, the Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8) in accordance with your transfer condition ({0}).&lt;/li&gt;.
+        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Auto Transfer process is scheduled to take place at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; in accordance with your transfer condition &lt;b&gt;({0})&lt;/b&gt;.&lt;/li&gt;.
         /// </summary>
         public static string AutoTransfer_AffectTime_Agent {
             get {
@@ -70,7 +70,7 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li style=&apos;padding: 5px 0;&apos;&gt;Once enabled, the Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8) in accordance with your transfer condition ({0}).&lt;/li&gt;.
+        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Auto Transfer process is scheduled to take place at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; in accordance with your transfer condition &lt;b&gt;({0})&lt;/b&gt;.&lt;/li&gt;.
         /// </summary>
         public static string AutoTransfer_AffectTime_Master {
             get {
@@ -79,7 +79,7 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li style=&apos;padding: 5px 0;&apos;&gt;Once enabled, the Auto Transfer process is scheduled to take place at 12:00 PM (GMT+8)&lt;/li&gt;.
+        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Auto Transfer process is scheduled to take place at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;&lt;/li&gt;.
         /// </summary>
         public static string AutoTransfer_AffectTime_Super {
             get {
@@ -115,10 +115,7 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to disable Auto Transfer for this account: {0}?
-        ///&lt;ul style=&apos;margin-top: 10px;font-size: 12px;&apos;&gt;
-        ///&lt;li style=&apos;padding: 5px 0;&apos;&gt;💡Tip: you can disable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {1}].&lt;/li&gt;
-        ///&lt;/ul&gt;.
+        ///   Looks up a localized string similar to Would you like to disable Auto Transfer for this account: {0}?&lt;ul class=&apos;ul-confirm&apos;&gt;&lt;li class=&apos;tip&apos;&gt;&lt;span class=&apos;icon-lightbulb-on&apos;&gt;&lt;/span&gt;Tip: you can disable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {1}].&lt;/li&gt;&lt;/ul&gt;.
         /// </summary>
         public static string ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage {
             get {
@@ -127,11 +124,7 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to enable Auto Transfer for this account: {0}?
-        ///&lt;ul style=&apos;margin-top: 10px;font-size: 12px;&apos;&gt;
-        ///{1}
-        ///&lt;li style=&apos;padding: 5px 0;&apos;&gt;💡Tip: you can enable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {2}] and monitor the progress on [Transfer &gt;&gt; Auto Transfer Monitor].&lt;/li&gt;
-        ///&lt;/ul&gt;.
+        ///   Looks up a localized string similar to Would you like to enable Auto Transfer for this account: {0}?&lt;ul class=&apos;ul-confirm&apos;&gt;{1}&lt;li class=&apos;tip&apos;&gt;&lt;span class=&apos;icon-lightbulb-on&apos;&gt;&lt;/span&gt;Tip: you can enable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {2}] and monitor the progress on [Transfer &gt;&gt; Auto Transfer Monitor].&lt;/li&gt;&lt;/ul&gt;.
         /// </summary>
         public static string ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage {
             get {
@@ -199,6 +192,15 @@ namespace Alpha.Products.AccountInfo.AppResources {
         public static string Tuesday {
             get {
                 return ResourceManager.GetString("Tuesday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note: Activating All Day Balance Transfer will turn OFF Auto Transfer configured by {0} and its all downlines..
+        /// </summary>
+        public static string TurnOnTransferBalanceDailyNoteMessage {
+            get {
+                return ResourceManager.GetString("TurnOnTransferBalanceDailyNoteMessage", resourceCulture);
             }
         }
         

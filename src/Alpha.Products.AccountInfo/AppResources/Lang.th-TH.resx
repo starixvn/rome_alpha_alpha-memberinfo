@@ -156,4 +156,7 @@
 &lt;li style='padding: 5px 0;'&gt;💡Tip: you can disable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {1}].&lt;/li&gt;
 &lt;/ul&gt;</value>
   </data>
+  <data name="TurnOnTransferBalanceDailyNoteMessage" xml:space="preserve">
+    <value>หมายเหตุ: หากเปิดใช้งานการโอนยอดคงเหลือทั้งวัน จะปิดใช้งานการโอนอัตโนมัติที่ตั้งค่าไว้สำหรับ {0} และดาวน์ไลน์ทั้งหมด</value>
+  </data>
 </root>

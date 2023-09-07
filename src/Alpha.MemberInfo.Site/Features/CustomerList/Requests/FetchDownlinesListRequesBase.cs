@@ -51,5 +51,7 @@
         public int AllowAutoTransfer { get; set; }
 
         public bool SupportAutoTransfer { get; set; }
+
+        public bool EnableAllDayBalanceTransfer { get; set; }
     }
 }

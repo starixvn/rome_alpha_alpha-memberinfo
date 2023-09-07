@@ -8,6 +8,8 @@
     using System.Linq;
     using System.Web;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services.Transfer;
+    using Fanex.Data.Repository;
 
     public static class AppSettings
     {
@@ -101,7 +103,8 @@
 
         public static bool IsEnableAutoTransfer(IUser viewer)
         {
-            if (viewer.IsSubAcc && !viewer.SubPageAccess.Transfer)
+            if (IsAllDayBalanceTransfer(viewer.Id)
+            || (viewer.IsSubAcc && !viewer.SubPageAccess.Transfer))
             {
                 return false;
             }
@@ -138,6 +141,11 @@
                     ? string.Format(betlistDomain, mainDomain)
                     : betlistDomain;
             }
+        }
+
+        public static bool IsAllDayBalanceTransfer(int custId)
+        {
+            return new TransferServiceImpl(new DynamicRepository()).IsAllDayBalanceTransfer(custId);
         }
     }
 }

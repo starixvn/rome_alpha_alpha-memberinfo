@@ -113,6 +113,8 @@
                 }
              );
 
+            message.EnableAllDayBalanceTransfer = transferService.IsAllDayBalanceTransfer(message.CustId);
+
             return new CustomerListViewModel(
                 message,
                 breadcrumbLevel,

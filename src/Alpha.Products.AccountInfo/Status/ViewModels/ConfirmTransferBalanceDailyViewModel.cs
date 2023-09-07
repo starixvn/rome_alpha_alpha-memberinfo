@@ -13,7 +13,21 @@
 
         internal override string SuffixMessage => "Message";
 
-        public override string ConfirmMessage => string.Format(Request.GetResource($"{GetType().Name}{SuffixMessage}"), SearchAccount.Username);
+        public override string ConfirmMessage
+        {
+            get
+            {
+                var confirmMessage = string.Format(Request.GetResource($"{GetType().Name}{SuffixMessage}"), SearchAccount.Username);
+
+                if (Checked)
+                {
+                    return confirmMessage;
+                }
+
+                confirmMessage += "<br />" + string.Format(AppResources.Lang.TurnOnTransferBalanceDailyNoteMessage, SearchAccount.Username);
+                return confirmMessage;
+            }
+        }
 
         internal override string StatusName => DataKey.StatusMapping.IsAllDayBalTransfer;
 

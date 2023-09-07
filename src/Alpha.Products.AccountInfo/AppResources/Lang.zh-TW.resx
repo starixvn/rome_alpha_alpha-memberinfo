@@ -163,4 +163,7 @@
 &lt;li style='padding: 5px 0;'&gt;💡Tip: you can enable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {2}] and monitor the progress on [Transfer &gt;&gt; Auto Transfer Monitor].&lt;/li&gt;
 &lt;/ul&gt;</value>
   </data>
+  <data name="TurnOnTransferBalanceDailyNoteMessage" xml:space="preserve">
+    <value>注意：启用全天余额转账将"关闭"{0}及其所有下线将配置自动转账。</value>
+  </data>
 </root>
