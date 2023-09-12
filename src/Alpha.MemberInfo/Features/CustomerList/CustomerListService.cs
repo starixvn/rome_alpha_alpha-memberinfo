@@ -86,7 +86,7 @@
                     command = new UpdateSuspendedStatusCommand(param);
                     break;
                 case StatusNames.Unlock:
-                    command = new UpdateSuspendedStatusCommand(param);
+                    command = new UpdateUnlockedCommand(param);
                     break;
                 case StatusNames.AllowAutoTransfer:
                     command = new UpdateAllowAutoTransferStatusCommand(param);
