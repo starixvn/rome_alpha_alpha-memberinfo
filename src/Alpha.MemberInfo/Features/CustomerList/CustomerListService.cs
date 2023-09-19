@@ -8,6 +8,7 @@
     using Fanex.Data.Repository;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public interface CustomerListService
     {
@@ -49,7 +50,8 @@
         }
 
         public CustomerListDTO GetCustomerList(CustomerListParam param)
-            => fetchData[param.DirectUplineCustLevel](param);
+            => fetchData.ContainsKey(param.DirectUplineCustLevel) ? fetchData[param.DirectUplineCustLevel](param) : 
+                new CustomerListDTO(Enumerable.Empty<CustomerListModelBase>(), 0, 0);
 
         public CustomerStatusModel GetCustomerStatus(int custId)
             => customerListDataAccess.GetCustomerStatus(new SelectCustomerAllStatusModelCriteria(custId));
