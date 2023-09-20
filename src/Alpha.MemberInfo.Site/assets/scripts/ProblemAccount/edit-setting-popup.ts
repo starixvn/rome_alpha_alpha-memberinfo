@@ -4,8 +4,8 @@ class ProblemAccountPopup {
     private $: JQueryStatic;
     private topWindow: any;
     private indexManager: ProblemAccount
-    private $ckbSelectAll: JQuery;
     private $editPopupContainer: JQuery;
+    private $tblReport: JQuery;
 
     private editText: string;
     private editMultipleText: string;
@@ -21,17 +21,16 @@ class ProblemAccountPopup {
         this.topWindow = topWindow;
     }
 
-    public init(tableReport: JQuery, indexManager: ProblemAccount) {
+    public init($tblReport: JQuery, indexManager: ProblemAccount) {
+        this.$tblReport = $tblReport;
         this.indexManager = indexManager;
         this.cacheDOMElements();
 
-        this.$ckbSelectAll.click(_ => tableReport.find(".checkbox").prop("checked", this.$ckbSelectAll.is(":checked")));
         this.$("#edit-multiple").click(event => this.openMultiplePopup(event.currentTarget));
         this.$editPopupContainer.on("mouseleave", _ => this.$editPopupContainer.modal("hide"));
     }
 
     private cacheDOMElements() {
-        this.$ckbSelectAll = this.$("#select-all");
         this.$editPopupContainer = this.$('#edit-popup');
         this.editText = this.$('#editSettingText').val();
         this.editMultipleText = this.$('#editMultipleSettingText').val();
@@ -52,11 +51,7 @@ class ProblemAccountPopup {
         }
     }
 
-    public bindEvents(tableReport: JQuery) {
-        this.$ckbSelectAll.prop("checked", false);
-        tableReport.find(".checkbox").off().on("click", _ =>
-            this.$ckbSelectAll.prop("checked", tableReport.find(".checkbox").length === tableReport.find(".checkbox:checked").length));
-
+    public bindEvents() {
         this.$(".edit").off().on("click", event => this.openSinglePopup(this.$(event.currentTarget)));
         this.$(".open-button").off().on("click", event => this.changeStatusToSuspend(this.$(event.currentTarget)));
     }
@@ -119,7 +114,7 @@ class ProblemAccountPopup {
     }
 
     private openMultiplePopup(element) {
-        const checkboxs = this.$('input.checkbox:checkbox:checked');
+        const checkboxs = this.$tblReport.find(".checkbox:checked")
         if (!checkboxs.length) {
             return
         }

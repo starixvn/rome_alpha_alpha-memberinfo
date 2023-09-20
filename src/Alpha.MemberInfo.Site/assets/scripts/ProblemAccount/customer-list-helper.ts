@@ -4,7 +4,6 @@ class CustomerListHelper {
     $: JQueryStatic;
     private canUpdateAccount: string;
 
-
     constructor($: JQueryStatic, viewResources: ViewResources) {
         this.$ = $;
         this.viewResources = viewResources;
@@ -23,14 +22,19 @@ class CustomerListHelper {
         return `<tr><td colspan='${colspan}' align='center' class='no-info'>${this.viewResources.NoInformationIsAvailable}</td></tr>`;
     }
 
-    private renderCheckboxColumn = item => {
-        const attrs = {
-            'class': 'checkbox',
-            'data-custid': item.CustId,
-            'data-username': item.UserName,
-        };
+    private renderCheckboxColumn = (item, isAgentLogin: boolean, levelId: number) => {
+        if (isAgentLogin || item.CanEdit) {
+            const attrs = {
+                'class': 'checkbox',
+                'data-custid': item.CustId,
+                'data-username': item.UserName,
+                'data-custrole': levelId
+            };
 
-        return `<input type="checkbox" ${this.buildAttributes(attrs)} />`;
+            return `<input type="checkbox" ${this.buildAttributes(attrs)} />`;
+        }
+
+        return "";
     }
 
     private renderEditColumn = item => {
@@ -56,7 +60,6 @@ class CustomerListHelper {
     }
 
     private renderStatusColumn = item => {
-
         const className = item.Status === 1 ? "open-button" : "";
         const attrs = {
             'class': `${className}`,
@@ -68,13 +71,28 @@ class CustomerListHelper {
         return `<div ${this.buildAttributes(attrs)}>${item.StatusName}</div>`;
     }
 
+    private renderReviewStatusColumn = (item, levelId: number) => {
+        if (item.CanEdit) {
+            const attrs = {
+                'class': 'not-reviewed',
+                'data-custid': item.CustId,
+                'data-username': item.UserName,
+                'data-custrole': levelId
+            };
+
+            return `<div ${this.buildAttributes(attrs)}>${item.ReviewStatus}</div>`;
+        }
+
+        return item.ReviewStatus;
+    };
+
     private buildAttributes = attrs => this.$.map(attrs, (value, key) => `${key}='${value}'`).join(' ');
 
     private buildColumnAttributesJson(customer, levelId: number, actorId: number, customerIndex: number) {
         const memberId = siteInfrastructure.Role.Member.Id, isMember = levelId === memberId,
             isAgentLogin = actorId === siteInfrastructure.Role.Agent.Id,
             isViewNickname = actorId - 1 == levelId,
-            { CustId, UserName, StatusName, NickName, FirstName, LastName, CreatedDateStr, ReviewStatus, Count, CanEdit } = customer,
+            { CustId, UserName, StatusName, NickName, FirstName, LastName, CreatedDateStr, ReviewStatus, Count } = customer,
             commonAttributesJson = this.buildCommonAttributesJson(CustId, UserName, levelId);
 
         return [
@@ -84,9 +102,9 @@ class CustomerListHelper {
                 Visibile: true
             },
             {
-                Content: this.renderCheckboxColumn(customer),
+                Content: this.renderCheckboxColumn(customer, isAgentLogin, levelId),
                 Attributes: [{ Name: 'class', Value: 'center' }],
-                Visibile: isAgentLogin && this.canUpdateAccount
+                Visibile: this.canUpdateAccount
             },
             {
                 Content: this.renderEditColumn(customer),
@@ -129,44 +147,11 @@ class CustomerListHelper {
                 Visibile: !isMember
             },
             {
-                Content: ReviewStatus,
+                Content: isAgentLogin || !this.canUpdateAccount ? ReviewStatus : this.renderReviewStatusColumn(customer, levelId),
                 Attributes: [{ Name: 'class', Value: 'text-center' }],
                 Visibile: true
-            },
-            {
-                Content: this.buildActionColumnOnDesktop(customer, levelId, CanEdit),
-                Attributes: [{ Name: 'class', Value: 'text-center' }],
-                Visibile: !isAgentLogin
             }
         ];
-    }
-
-    private buildActionColumnOnDesktop(customer, levelId, canEdit) {
-        const action = {
-            Attributes: [{ Name: 'class', Value: 'chk icon-uncheck' }],
-            Visibile: canEdit
-        };
-        const actionsJson = [
-            {
-                Content: '',
-                Attributes: [{ Name: 'title', Value: "Check" }].concat(action.Attributes),
-                Visibile: action.Visibile
-            }
-        ];
-
-        const iconAttributesJson = [{ Name: 'data-toggle', Value: 'tooltip' }, { Name: 'data-placement', Value: 'top' }]
-            .concat(this.buildCommonAttributesJson(customer.CustId, customer.UserName, levelId));
-
-        let columnContent = '';
-        actionsJson.forEach(span => {
-            if (span.Visibile) {
-                columnContent += new SpanWrapper(span.Content,
-                    span.Attributes.concat(iconAttributesJson)
-                        .map(attr => new Attribute(attr.Name, attr.Value))).ToString();
-            }
-        });
-
-        return columnContent;
     }
 
     private buildAccountStatusCssClass(customer) {
@@ -234,8 +219,7 @@ class CustomerListHelper {
             const statusAttribute = Customers[i].StatusNameEN === "Open" ? new Attribute('is-open', 'true') : null;
             statusAttribute && rowAttributes.push(statusAttribute);
 
-            bodyContent += new RowWrapper(rowContent,
-                rowAttributes).ToString();
+            bodyContent += new RowWrapper(rowContent, rowAttributes).ToString();
         }
 
         return bodyContent;

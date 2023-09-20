@@ -215,7 +215,6 @@ html {
 }
 
 %btn {
-    width: 80px;
     height: 20px;
     line-height: 20px;
     margin: auto;
@@ -223,13 +222,21 @@ html {
     font-size: 11px;
     color: #fff;
     cursor: pointer;
+    padding-left: 20px;
 }
 
 .open-button {
     @extend %btn;
-    padding-left: 20px;
+    width: 80px;
     background: url('./images/open.png');
 }
+
+.not-reviewed {
+    @extend %btn;
+    width: 110px;
+    background: url('./images/not-reviewed.png');
+}
+
 .nav-tabs {
     .new-function {
         a {

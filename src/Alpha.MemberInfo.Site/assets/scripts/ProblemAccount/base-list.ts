@@ -9,7 +9,6 @@ class BaseList {
 
     $fromDate: JQuery;
     $toDate: JQuery;
-    $updateButton: JQuery;
 
     $dropdownStatus: JQuery;
     $username: JQuery;
@@ -32,6 +31,9 @@ class BaseList {
 
     customerListHelper: CustomerListHelper;
     displayNoneClass = "display-none";
+
+    $btnMarkReviewed: JQuery;
+    $ckbSelectAll: JQuery;
 
     constructor(
         $: JQueryStatic,
@@ -70,6 +72,9 @@ class BaseList {
 
         this.$tblReport.stickyTableHeaders();
 
+        this.$btnMarkReviewed.off().click(() => this.markReviewedMultiple());
+        this.$ckbSelectAll.off().change(() => this.handleCheckboxAllChanged());
+
         this.$(`#btn-submit-${this.levelNameLowerCase}`).off("click").on("click", () => {
             this.viewList();
         });
@@ -94,7 +99,6 @@ class BaseList {
     }
 
     public cacheDOMElements() {
-        this.$updateButton = this.$(`.update-${this.levelNameLowerCase}`);
         this.$usernameAutoSuggestionPath = this.$("#usernameAutoSuggestionPath");
         this.$username = this.$(`#txt-username-${this.levelNameLowerCase}`);
         this.$uplineName = this.$(`#txt-uplinename-${this.levelNameLowerCase}`);
@@ -118,16 +122,8 @@ class BaseList {
             };
         }
 
-        this.$updateButton.on("click", (event) => {
-            this.update();
-        });
-
-        this.$(`#chkAll-${this.levelNameLowerCase}`).on('click touchend', () => {
-            this.clickCheckboxAll(true);
-        });
-        this.$(`#chkNone-${this.levelNameLowerCase}`).on('click touchend', () => {
-            this.clickCheckboxAll(false);
-        });
+        this.$btnMarkReviewed = this.$(`#btn-markReviewed-${this.levelNameLowerCase}`);
+        this.$ckbSelectAll = this.$tblReport.find(`#select-all-${this.levelNameLowerCase}`);
     }
 
     export = () => {
@@ -143,29 +139,15 @@ class BaseList {
         this.$("#export-excel-form").submit();
     }
 
-    clickCheckboxAll = (ischeckAll: boolean) => {
-        const chkids = this.$tblReport.find(".chk");
-        if (ischeckAll) {
-            for (var i = 0; i < chkids.length; i++) {
-                this.$(chkids[i]).removeClass("icon-uncheck");
-                this.$(chkids[i]).addClass("icon-checkbox");
-            }
-            return;
-        }
-
-        for (var i = 0; i < chkids.length; i++) {
-            this.$(chkids[i]).removeClass("icon-checkbox");
-            this.$(chkids[i]).addClass("icon-uncheck");
-        }
-    };
-
     loadData = () => {
+        this.$btnMarkReviewed.attr("disabled", "disabled");
+        this.$ckbSelectAll.prop("checked", false);
         const downlineUsername = this.isIndirectDownlineOfActor ? this.$viewedNameDirectUpline.val() : null;
 
         this.reportParam.UplineName = downlineUsername;
         this.reportParam.SearchRoleId = this.levelId;
         this.reportParam.UserSelectedReviewedStatusId = parseInt(this.$dropdownStatus.find("option:selected").val());
-        this.reportParam.UserName = this.$username.val();
+        this.reportParam.UserName = this.$.trim(this.$username.val());
         this.reportParam.FromDate = this.$fromDate.val();
         this.reportParam.ToDate = this.$toDate.val();
 
@@ -198,54 +180,47 @@ class BaseList {
 
     bindReportEvents() {
         this.$tblReport.find(".view-downline").click(event => this.viewDownlines(event));
-        this.$tblReport.find(".chk").click(event => this.checkbox(event));
+        const checkboxList = this.$tblReport.find(".checkbox");
+        checkboxList.off().change(e => this.handleCheckboxChanged(e, checkboxList));
+        this.$tblReport.find(".not-reviewed").off().click((e) => {
+            const $checkbox = this.$(e.target);
+            this.openPopup([$checkbox.data("custid")], [$checkbox.data("username")], $checkbox.data("custrole"));
+        });
     }
 
-    checkbox(event) {
-        const $this = this.$(event.currentTarget);
-        var uncheck = $this.hasClass('icon-uncheck');
-        if (uncheck) {
-            $this.removeClass('icon-uncheck');
-            $this.addClass('icon-checkbox');
-        } else {
-            $this.removeClass('icon-checkbox');
-            $this.addClass('icon-uncheck');
+    markReviewedMultiple() {
+        const checkboxList = this.$tblReport.find(".checkbox:checked");
+        const checkboxListLength = checkboxList.length;
+        if (!checkboxListLength) {
+            return;
         }
+
+        let ids = [], usernames = [], roleId = 0;
+        for (let i = 0; i < checkboxListLength; i++) {
+            const $checkbox = this.$(checkboxList[i]);
+            ids.push($checkbox.data("custid"));
+            usernames.push($checkbox.data("username"));
+            roleId = $checkbox.data("custrole");
+        }
+
+        this.openPopup(ids, usernames, roleId);
     }
 
-    update() {
-        var chk = this.$tblReport.find(".icon-checkbox");
-        var ids = [], usernames = [], roleId = "";
-
-        for (var i = 0; i < chk.length; i++) {
-            ids.push(this.$(chk[i]).attr("cust-id"));
-            usernames.push(this.$(chk[i]).attr("username"));
-            roleId = this.$(chk[i]).attr("cust-role");
-        }
-
-        if (usernames.length === 0 || ids.length === 0 || roleId === "") return;
-
+    openPopup(ids, usernames, roleId: number) {
         this.$("#Ids").val(ids);
         this.$("#UserNames").val(usernames);
         this.$("#RoleId").val(roleId);
-        var popupTitle = this.indexManager.viewResources.UpdatePopupTitle;
 
-        const popupWidth = 500, popupHeight = parseInt(roleId) == siteInfrastructure.Role.Member.Id ? 250 : 300;
-        this.openPopup(popupTitle, '', popupWidth, popupHeight);
-    }
+        const popupWidth = 500, popupHeight = roleId === siteInfrastructure.Role.Member.Id ? 250 : 300;
+        const action = this.$("target").attr("action");
 
-    openPopup(title: string, popupCss: string, width = 480, height = 300) {
-        var action = this.$("target").attr("action");
-        this.topWindow["indexManager"].reloadProblemAccount = () => {
-            this.viewList();
-        };
-        this.topWindow["popupManager"].open('', title, width, height, popupCss, null, null, null, null, {
+        this.topWindow["indexManager"].reloadProblemAccount = () => this.viewList();
+        this.topWindow["popupManager"].open('', this.indexManager.viewResources.UpdatePopupTitle, popupWidth, popupHeight, '', null, null, null, null, {
             preUrl: action
         });
     }
 
     renderCustomerList(rs) {
-
         if (!rs) {
             return;
         }
@@ -258,7 +233,7 @@ class BaseList {
         this.$(window).trigger('resize.stickyTableHeaders');
 
         this.bindReportEvents();
-        this.problemAccountPopup && this.problemAccountPopup.bindEvents(this.$tblReport);
+        this.problemAccountPopup && this.problemAccountPopup.bindEvents();
     }
 
     reloadPage() {
@@ -275,6 +250,27 @@ class BaseList {
         this.$.blockUI();
 
         this.loadData();
+    }
+
+    handleCheckboxChanged(e, checkboxList) {
+        const checked = this.$(e.target).is(":checked");
+        this.$ckbSelectAll.prop("checked", checked && checkboxList.not(":checked").length === 0);
+        if (checkboxList.filter(":checked").length > 1) {
+            this.$btnMarkReviewed.removeAttr("disabled");
+        } else {
+            this.$btnMarkReviewed.attr("disabled", "disabled");
+        }
+    }
+
+    handleCheckboxAllChanged() {
+        const checked = this.$ckbSelectAll.is(":checked");
+        const checkboxList = this.$tblReport.find(".checkbox");
+        checkboxList.prop("checked", checked);
+        if (checked && checkboxList.filter(":checked").length > 1) {
+            this.$btnMarkReviewed.removeAttr("disabled");
+        } else {
+            this.$btnMarkReviewed.attr("disabled", "disabled");
+        }
     }
 }
 
@@ -314,4 +310,5 @@ class SiteInfrastructure {
         Member: { Id: 1, Name: "Member" },
     };
 }
+
 const siteInfrastructure = new SiteInfrastructure();

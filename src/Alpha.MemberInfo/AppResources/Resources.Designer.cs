@@ -1446,6 +1446,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mark Reviewed.
+        /// </summary>
+        public static string MarkReviewed {
+            get {
+                return ResourceManager.GetString("MarkReviewed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark multiple accounts as Reviewed.
+        /// </summary>
+        public static string MarkReviewedButtonTooltip {
+            get {
+                return ResourceManager.GetString("MarkReviewedButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Master.
         /// </summary>
         public static string Master {
