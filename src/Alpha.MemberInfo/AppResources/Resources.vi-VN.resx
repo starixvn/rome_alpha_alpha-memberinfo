@@ -370,10 +370,10 @@
     <value>Đã cập nhật thành công!</value>
   </data>
   <data name="SetReviewedForDownline" xml:space="preserve">
-    <value>Đánh dấu Đã Xem cho các tài khoản đã chọn và cấp dưới có vấn đề của những tài khoản này.</value>
+    <value>Đánh dấu Đã Duyệt cho các tài khoản đã chọn và cấp dưới có vấn đề của những tài khoản này.</value>
   </data>
   <data name="SetReviewedForAccountOnly" xml:space="preserve">
-    <value>Chỉ đánh dấu Đã Xem cho các tài khoản đã chọn.</value>
+    <value>Chỉ đánh dấu Đã Duyệt cho các tài khoản đã chọn.</value>
   </data>
   <data name="DateNotifiedFrom" xml:space="preserve">
     <value>Ngày Thông Báo Từ</value>
@@ -1028,11 +1028,5 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="PageOf" xml:space="preserve">
     <value>Trang {0} </value>
-  </data>
-  <data name="MarkReviewed" xml:space="preserve">
-    <value>Mark Reviewed</value>
-  </data>
-  <data name="MarkReviewedButtonTooltip" xml:space="preserve">
-    <value>Mark multiple accounts as Reviewed</value>
   </data>
 </root>

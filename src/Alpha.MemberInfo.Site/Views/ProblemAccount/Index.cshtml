@@ -127,7 +127,7 @@
             {
                 <div class="form-group">
                     <label>@level.GetDirectUplineLevel().DisplayName</label>
-                    <input id="@($"txt-uplinename-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="text" value="" />
+                    <input id="@($"txt-uplinename-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="text" value="" autocomplete="off" />
                 </div>
             }
 
@@ -216,7 +216,7 @@
     if (Model.Query.CustLevel.IsNotAgentLevel())
     {
         <div class="checkall-section">
-            <button type="button" class="btn-submit" title="@Resources.MarkReviewedButtonTooltip" id="btn-markReviewed-@level.DisplayName.ToLower()" disabled>@Resources.MarkReviewed</button>
+            <button type="button" class="btn-submit" data-placement="right" title="@Resources.MarkMultipleAsReviewed" id="btn-markReviewed-@level.DisplayName.ToLower()" disabled>@Resources.MarkAsReviewed</button>
         </div>
     }
 }

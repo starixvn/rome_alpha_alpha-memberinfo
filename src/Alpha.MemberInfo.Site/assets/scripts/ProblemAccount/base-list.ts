@@ -72,7 +72,7 @@ class BaseList {
 
         this.$tblReport.stickyTableHeaders();
 
-        this.$btnMarkReviewed.off().click(() => this.markReviewedMultiple());
+        this.$btnMarkReviewed.click(() => this.markReviewedMultiple());
         this.$ckbSelectAll.off().change(() => this.handleCheckboxAllChanged());
 
         this.$(`#btn-submit-${this.levelNameLowerCase}`).off("click").on("click", () => {
@@ -122,7 +122,7 @@ class BaseList {
             };
         }
 
-        this.$btnMarkReviewed = this.$(`#btn-markReviewed-${this.levelNameLowerCase}`);
+        this.$btnMarkReviewed = this.$(`#btn-markReviewed-${this.levelNameLowerCase}`).tooltip();
         this.$ckbSelectAll = this.$tblReport.find(`#select-all-${this.levelNameLowerCase}`);
     }
 
@@ -215,7 +215,7 @@ class BaseList {
         const action = this.$("target").attr("action");
 
         this.topWindow["indexManager"].reloadProblemAccount = () => this.viewList();
-        this.topWindow["popupManager"].open('', this.indexManager.viewResources.UpdatePopupTitle, popupWidth, popupHeight, '', null, null, null, null, {
+        this.topWindow["popupManager"].open('', this.indexManager.viewResources.UpdatePopupTitle, popupWidth, popupHeight, 'modal-mobile-friendly', null, null, null, null, {
             preUrl: action
         });
     }
