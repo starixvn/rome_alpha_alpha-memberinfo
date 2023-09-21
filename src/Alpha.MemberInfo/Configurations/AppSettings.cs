@@ -101,30 +101,6 @@
 
         public static bool IsStandaloneBetlist => !string.IsNullOrWhiteSpace(GetConfigValue("Betlist:Domain"));
 
-        public static bool IsEnableAutoTransfer(IUser viewer)
-        {
-            if (IsAllDayBalanceTransfer(viewer.Id)
-            || (viewer.IsSubAcc && !viewer.SubPageAccess.Transfer))
-            {
-                return false;
-            }
-
-            var currency = viewer.Currency;
-            var s = GetConfigValue("OfferAutoTransfer.Currencies");
-            if (string.IsNullOrWhiteSpace(s))
-            {
-                return false;
-            }
-
-            if (s == "*")
-            {
-                return true;
-            }
-
-            return s.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
-                .Any(c => string.Equals(currency, c.Trim(), StringComparison.OrdinalIgnoreCase));
-        }
-
         public static string BetlistDomain
         {
             get
@@ -141,11 +117,6 @@
                     ? string.Format(betlistDomain, mainDomain)
                     : betlistDomain;
             }
-        }
-
-        public static bool IsAllDayBalanceTransfer(int custId)
-        {
-            return new TransferServiceImpl(new DynamicRepository()).IsAllDayBalanceTransfer(custId);
         }
     }
 }

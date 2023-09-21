@@ -61,7 +61,7 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Auto Transfer process is scheduled to take place at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; in accordance with your transfer condition &lt;b&gt;({0})&lt;/b&gt;.&lt;/li&gt;.
+        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; based on your transfer condition &lt;b&gt;({0})&lt;/b&gt;.&lt;/li&gt;.
         /// </summary>
         public static string AutoTransfer_AffectTime_Agent {
             get {
@@ -70,7 +70,7 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Auto Transfer process is scheduled to take place at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; in accordance with your transfer condition &lt;b&gt;({0})&lt;/b&gt;.&lt;/li&gt;.
+        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; based on your transfer condition &lt;b&gt;({0})&lt;/b&gt;.&lt;/li&gt;.
         /// </summary>
         public static string AutoTransfer_AffectTime_Master {
             get {
@@ -79,7 +79,7 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Auto Transfer process is scheduled to take place at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;&lt;/li&gt;.
+        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;.&lt;/li&gt;.
         /// </summary>
         public static string AutoTransfer_AffectTime_Super {
             get {
@@ -196,7 +196,7 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note: Activating All Day Balance Transfer will turn OFF Auto Transfer configured by {0} and its all downlines..
+        ///   Looks up a localized string similar to &lt;div style=&quot;font-weight:normal&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Activating All Day Balance Transfer will turn OFF Auto Transfer configured by {0} and its all downlines.&lt;/div&gt;.
         /// </summary>
         public static string TurnOnTransferBalanceDailyNoteMessage {
             get {

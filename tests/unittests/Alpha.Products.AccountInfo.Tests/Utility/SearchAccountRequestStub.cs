@@ -55,5 +55,7 @@
         public PageAccess SubPageAccess { get; }
 
         public bool SupportAutoTransfer { get; }
+
+        public bool AutoTransferAffect { get; }
     }
 }

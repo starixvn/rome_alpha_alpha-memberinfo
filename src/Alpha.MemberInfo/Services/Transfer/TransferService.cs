@@ -1,5 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Services.Transfer
 {
+    using System;
+    using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
     using Alpha.MemberInfo.Models;
@@ -14,6 +16,8 @@
         Task<bool> IsAllDayBalanceTransferAsync(int custId);
 
         bool IsAllDayBalanceTransfer(int custId);
+        bool IsAutoTransferAffect(IUser viewer, string offerCurrencies);
+        bool IsEnableAutoTransfer(IUser viewer, string offerCurrencies);
     }
 
     public class TransferServiceImpl : TransferService
@@ -99,6 +103,34 @@
                 new GetIsAllDayBalTransferCriteria(custId));
 
             return customerTransferStatus != null && customerTransferStatus.IsAllDayBalTransfer;
+        }
+
+        public bool IsAutoTransferAffect(IUser viewer, string offerCurrencies)
+        {
+            var currency = viewer.Currency;
+            if (string.IsNullOrWhiteSpace(offerCurrencies))
+            {
+                return false;
+            }
+
+            if (offerCurrencies == "*")
+            {
+                return true;
+            }
+
+            return offerCurrencies.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
+                .Any(c => string.Equals(currency, c.Trim(), StringComparison.OrdinalIgnoreCase));
+        }
+
+        public bool IsEnableAutoTransfer(IUser viewer, string offerCurrencies)
+        {
+            if (IsAllDayBalanceTransfer(viewer.Id)
+                || (viewer.IsSubAcc && !viewer.SubPageAccess.Transfer))
+            {
+                return false;
+            }
+
+            return IsAutoTransferAffect(viewer, offerCurrencies);
         }
     }
 }

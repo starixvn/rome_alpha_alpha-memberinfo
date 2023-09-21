@@ -431,7 +431,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to change Transfer Mode for {0}?.
+        ///   Looks up a localized string similar to &lt;div style=&quot;font-weight: normal&quot;&gt;Are you sure you want to change Transfer Mode for {0}?&lt;/div&gt;.
         /// </summary>
         public static string ConfirmTransferBalanceDailyViewModelMessage {
             get {

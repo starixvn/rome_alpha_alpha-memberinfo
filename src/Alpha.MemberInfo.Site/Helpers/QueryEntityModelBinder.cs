@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Helpers
 {
     using Alpha.MemberInfo.Features.Shared.Models;
+    using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Requests;
     using MemberInfo.Models;
     using Newtonsoft.Json;

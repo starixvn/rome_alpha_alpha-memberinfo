@@ -130,11 +130,11 @@
             container.RegisterSingleton<BrowserHelper, BrowserHelperImpl>();
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
+            container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<IPService, IPServiceImpl>();
             container.RegisterSingleton<SecurityCodeChecker, SecurityCodeCheckerImpl>();
-            container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
 
             container.RegisterPerWebRequest<MemberRequestService, MemberRequestServiceImpl>();
             container.Register<WinLossLimitService>(
@@ -177,8 +177,6 @@
             container.RegisterSingleton<ICacheService>(new CacheService());
             container.Register<IWinlossService, WinlossService>(Lifestyle.Scoped);
             container.RegisterPerWebRequest<ICopyAccountService>(() => new CopyAccountService(CreateCustomerApiHttpClient()));
-
-
         }
 
         private static HttpClient CreateCustomerApiHttpClient()

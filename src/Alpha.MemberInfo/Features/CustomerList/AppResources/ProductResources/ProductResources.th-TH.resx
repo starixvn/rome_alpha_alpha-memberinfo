@@ -232,7 +232,7 @@
     <value>ถูกระงับ</value>
   </data>
   <data name="ConfirmTransferBalanceDailyViewModelMessage" xml:space="preserve">
-    <value>คุณแน่ใจหรือไม่ว่าคุณต้องการเปลี่ยนโหมดการถ่ายโอนสำหรับ{0}</value>
+    <value>&lt;div style="font-weight: normal"&gt;คุณแน่ใจหรือไม่ว่าต้องการเปลี่ยนโหมดการโอนสำหรับ {0}?&lt;/div&gt;</value>
   </data>
   <data name="ConfirmTransferBalanceDailyViewModelText" xml:space="preserve">
     <value>โอนยอดคงเหลือทั้งวัน</value>

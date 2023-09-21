@@ -133,7 +133,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your account can use Auto Transfer because upline has disabled All Day Balance Transfer for you. The page will refresh automatically..
+        ///   Looks up a localized string similar to You can use Auto Transfer because upline has disabled All Day Balance Transfer for you. The page will refresh automatically..
         /// </summary>
         public static string ADBTOffError {
             get {
@@ -142,7 +142,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your account cannot use Auto Transfer because upline has enabled All Day Balance Transfer for you. The page will refresh automatically..
+        ///   Looks up a localized string similar to You cannot use Auto Transfer because upline has enabled All Day Balance Transfer for you. The page will refresh automatically..
         /// </summary>
         public static string ADBTOnError {
             get {

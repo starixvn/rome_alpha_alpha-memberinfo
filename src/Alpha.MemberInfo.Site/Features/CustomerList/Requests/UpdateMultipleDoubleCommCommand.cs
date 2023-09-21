@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.Requests
 {
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services.Transfer;
     using MediatR;
     using System.Collections.Generic;
 

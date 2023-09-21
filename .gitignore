@@ -73,3 +73,4 @@ src/Alpha.Reports.Site/jsUnitTest.xml
 *.ide
 *.lock
 *.dtbcache
+node_modules/

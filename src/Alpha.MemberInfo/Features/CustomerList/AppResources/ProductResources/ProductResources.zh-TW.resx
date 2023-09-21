@@ -232,7 +232,7 @@
     <value>暂停</value>
   </data>
   <data name="ConfirmTransferBalanceDailyViewModelMessage" xml:space="preserve">
-    <value>您確定要更改{0}的轉賬模式嗎？</value>
+    <value>&lt;div style="font-weight: normal"&gt;您確定更改 {0} 的轉賬模式嗎？&lt;/div&gt;</value>
   </data>
   <data name="ConfirmTransferBalanceDailyViewModelText" xml:space="preserve">
     <value>全天餘額轉賬</value>

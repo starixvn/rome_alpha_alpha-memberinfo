@@ -66,6 +66,7 @@
 
         public PageAccess SubPageAccess => viewer.SubPageAccess;
 
-        public bool SupportAutoTransfer => Alpha.MemberInfo.Configurations.AppSettings.IsEnableAutoTransfer(viewer);
+        public bool SupportAutoTransfer { get; set; }
+        public bool AutoTransferAffect { get; set; }
     }
 }

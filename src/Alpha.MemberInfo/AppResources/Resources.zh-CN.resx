@@ -991,6 +991,9 @@
     <value>注意：BBIN"赢数额巴仙"的栏位显示&lt;b&gt;"N/A"&lt;/b&gt; 的意思是最高的赢数额不适用于BBIN的产品。</value>
   </data>
   <data name="ADBTOnError" xml:space="preserve">
-    <value>您的账号无法使用自动转账，因为您的上线已为您开启全天余额转账。该页面将会自动刷新。</value>
+    <value>由于上线已为您启用全天余额转账，所以您无法使用自动转账。 页面将会自动刷新。</value>
+  </data>
+  <data name="ADBTOffError" xml:space="preserve">
+    <value>由于上线已为您禁用全天余额转账，所以您可以使用自动转账。 页面将会自动刷新。</value>
   </data>
 </root>

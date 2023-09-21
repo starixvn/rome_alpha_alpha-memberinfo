@@ -24,7 +24,11 @@
                     return confirmMessage;
                 }
 
-                confirmMessage += "<br />" + string.Format(AppResources.Lang.TurnOnTransferBalanceDailyNoteMessage, SearchAccount.Username);
+                if (Request.AutoTransferAffect)
+                {
+                    confirmMessage += string.Format(AppResources.Lang.TurnOnTransferBalanceDailyNoteMessage, SearchAccount.Username);
+                }
+
                 return confirmMessage;
             }
         }

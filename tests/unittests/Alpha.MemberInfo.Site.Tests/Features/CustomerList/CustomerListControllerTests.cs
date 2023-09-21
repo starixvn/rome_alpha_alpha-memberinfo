@@ -34,7 +34,7 @@
             user.IsInternal.Returns(false);
             user.CanUpdateAccount.Returns(true);
 
-            controller = new CustomerListController(mediator, userSession, transferService);
+            controller = new CustomerListController(mediator, userSession, transferService, null);
         }
 
         [Fact]
