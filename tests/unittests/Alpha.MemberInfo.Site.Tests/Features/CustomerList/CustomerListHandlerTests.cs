@@ -164,7 +164,7 @@
             var expectedStatus = StubStatusViewModel();
 
             var model = fixture.Create<CustomerStatusModel>();
-            service.GetCustomerStatus(Arg.Any<int>()).Returns(model);
+            service.GetCustomerStatus(Arg.Any<int>(), Arg.Any<byte>()).Returns(model);
             var expectedViewModel = new CustomerStatusViewModel(expectedStatus, expectedSetting);
 
             var actualViewModel = handler.Handle(message);
@@ -308,24 +308,28 @@
                       );
 
         private static NonProductStatusModel StubNonProductStatus()
-            => new NonProductStatusModel(
-                             hasDownline: true,
-                             disableAutoMPT: true,
-                             closed: true,
-                             isDirectClosed: 0,
-                             uplineClosed: true,
-                             suspended: true,
-                             isDirectSuspend: true,
-                             uplineSuspend: true,
-                             transferOption: "00000000",
-                             doubleCommLosing: true,
-                             uplineDoubleCommLosing: true,
-                             disableOutright: true,
-                             uplineDisableOutright: true,
-                             isAllDayBalTransfer: false,
-                             locked: 0,
-                             isProtectedMode: false,
-                             isAllowAutoTransfer: false);
+        {
+            var nonProductStatus = new NonProductStatusModel(
+                hasDownline: true,
+                disableAutoMPT: true,
+                closed: true,
+                isDirectClosed: 0,
+                uplineClosed: true,
+                suspended: true,
+                isDirectSuspend: true,
+                uplineSuspend: true,
+                transferOption: "00000000",
+                doubleCommLosing: true,
+                uplineDoubleCommLosing: true,
+                disableOutright: true,
+                uplineDisableOutright: true,
+                isAllDayBalTransfer: false,
+                locked: 0,
+                isAllowAutoTransfer: false);
+            nonProductStatus.IsProtectedMode = false;
+
+            return nonProductStatus;
+        }
 
         private static List<DCSProductStatusModel> StubDcsProducts()
             => new List<DCSProductStatusModel>

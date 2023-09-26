@@ -123,24 +123,28 @@
                             );
 
         private static NonProductStatusModel StubNonProductStatus()
-            => new NonProductStatusModel(
-                             hasDownline: true,
-                             disableAutoMPT: true,
-                             closed: true,
-                             isDirectClosed: 1,
-                             uplineClosed: true,
-                             suspended: true,
-                             isDirectSuspend: true,
-                             uplineSuspend: true,
-                             transferOption: "00000000",
-                             doubleCommLosing: true,
-                             uplineDoubleCommLosing: true,
-                             disableOutright: true,
-                             uplineDisableOutright: true,
-                             isAllDayBalTransfer: false,
-                             locked: 0,
-                             isProtectedMode: false,
-                             isAllowAutoTransfer: false);
+        {
+            var nonProductStatusModel = new NonProductStatusModel(
+                hasDownline: true,
+                disableAutoMPT: true,
+                closed: true,
+                isDirectClosed: 1,
+                uplineClosed: true,
+                suspended: true,
+                isDirectSuspend: true,
+                uplineSuspend: true,
+                transferOption: "00000000",
+                doubleCommLosing: true,
+                uplineDoubleCommLosing: true,
+                disableOutright: true,
+                uplineDisableOutright: true,
+                isAllDayBalTransfer: false,
+                locked: 0,
+                isAllowAutoTransfer: false);
+            nonProductStatusModel.IsProtectedMode = false;
+
+            return nonProductStatusModel;
+        }
 
         private static List<DCSProductStatusModel> StubDcsProducts()
             => new List<DCSProductStatusModel>

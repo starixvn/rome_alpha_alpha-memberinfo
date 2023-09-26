@@ -132,7 +132,7 @@
                 .GetCustomerStatus(Arg.Any<SelectCustomerAllStatusModelCriteria>())
                 .Returns(data);
 
-            var actualModel = service.GetCustomerStatus(2);
+            var actualModel = service.GetCustomerStatus(2, Arg.Any<byte>());
 
             Assert.True(compareLogic.Compare(actualModel, data).AreEqual);
         }
