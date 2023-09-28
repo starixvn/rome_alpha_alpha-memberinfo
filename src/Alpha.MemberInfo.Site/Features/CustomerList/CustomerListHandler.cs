@@ -187,7 +187,7 @@
 
         internal CustomerStatusViewModel BuildCustomerStatus(CustomerStatusQuery message)
         {
-            var customerStatusModel = customerListService.GetCustomerStatus(message.SearchAccountId);
+            var customerStatusModel = customerListService.GetCustomerStatus(message.SearchAccountId, message.SearchAccountRoleId);
             var isAllDayBalTransfer = transferService.IsAllDayBalanceTransfer(message.ActorId);
 
             var actor = new Customer(
@@ -219,7 +219,7 @@
 
         internal IEnumerable<ISettingItemMultipleViewModel> BuildCustomerStatusMultiple(CustomerStatusMultipleQuery message)
         {
-            var customerStatusModel = customerListService.GetCustomerStatus(message.SearchAccountId);
+            var customerStatusModel = customerListService.GetCustomerStatus(message.SearchAccountId, message.SearchAccountRoleId);
 
             var actor = new Customer(
                message.ActorId,

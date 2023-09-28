@@ -333,6 +333,7 @@
     <Compile Include="Features\CustomerList\CustomerListService.cs" />
     <Compile Include="Features\CustomerList\Params\CustomerListParam.cs" />
     <Compile Include="Features\CustomerList\Params\UpdateCustomerStatusParam.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectClosedReasonCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectCustomerAllStatusModelCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMemberListCriteria.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectAgentListCriteria.cs" />

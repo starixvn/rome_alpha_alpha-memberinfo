@@ -15,4 +15,7 @@
       <Mapping DataField="BetCredit" ObjectProperty="BetCredit" />
     </Setting>
   </Function>
+  <Function Name="Account Info">
+    <Setting Key="Age_ClosedReasonSelByCust" SpName="Age_ClosedReasonSelByCust" DbName="DBACC.bodb02.BODBDownlineNet" Plain="0" />
+  </Function>
 </Functions>

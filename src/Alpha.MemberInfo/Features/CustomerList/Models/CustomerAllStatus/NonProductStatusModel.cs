@@ -24,7 +24,6 @@
             bool uplineDisableOutright,
             bool isAllDayBalTransfer,
             byte locked,
-            bool isProtectedMode,
             bool isAllowAutoTransfer)
         {
             HasDownline = hasDownline;
@@ -48,7 +47,6 @@
             IsAllDayBalTransfer = isAllDayBalTransfer;
 
             Locked = locked;
-            IsProtectedMode = isProtectedMode;
             IsAllowAutoTransfer = isAllowAutoTransfer;
         }
 
@@ -86,7 +84,7 @@
 
         public byte Locked { get; }
 
-        public bool IsProtectedMode { get; }
+        public bool IsProtectedMode { get; set; }
 
         public bool IsAllowAutoTransfer { get; private set; }
     }
