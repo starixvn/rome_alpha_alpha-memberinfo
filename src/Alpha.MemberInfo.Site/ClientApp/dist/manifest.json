@@ -29,14 +29,14 @@
     "src": "index.css"
   },
   "src/pages/createAccount.css": {
-    "file": "assets/createAccount-14f2cb15.css",
+    "file": "assets/createAccount-7aaa218c.css",
     "src": "src/pages/createAccount.css"
   },
   "src/pages/createAccount.tsx": {
     "css": [
-      "assets/createAccount-14f2cb15.css"
+      "assets/createAccount-7aaa218c.css"
     ],
-    "file": "assets/createAccount-d73667c3.js",
+    "file": "assets/createAccount-a606c5fd.js",
     "imports": [
       "_index-f54ad37e.js",
       "_index-a8ec759d.js",

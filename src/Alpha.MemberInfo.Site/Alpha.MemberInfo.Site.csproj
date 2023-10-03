@@ -600,8 +600,8 @@
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.min.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
-    <Content Include="ClientApp\dist\assets\createAccount-14f2cb15.css" />
-    <Content Include="ClientApp\dist\assets\createAccount-d73667c3.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-7aaa218c.css" />
+    <Content Include="ClientApp\dist\assets\createAccount-a606c5fd.js" />
     <Content Include="ClientApp\dist\assets\index-89f00ef2.css" />
     <Content Include="ClientApp\dist\assets\index-a8ec759d.js" />
     <Content Include="ClientApp\dist\assets\index-f54ad37e.js" />
