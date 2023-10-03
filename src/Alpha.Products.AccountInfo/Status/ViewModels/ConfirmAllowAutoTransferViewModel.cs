@@ -3,14 +3,20 @@
     using System.Collections.Generic;
     using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
-    using Alpha.Web.Configurations;
+    using Alpha.Products.AccountInfo.Services;
     using Alpha.Web.Helpers;
 
     public class ConfirmAllowAutoTransferViewModel : ConfirmStatusItemViewModelBase
     {
-        public ConfirmAllowAutoTransferViewModel(ISearchAccountInfoRequest request, int displayOrder = 7)
+        private readonly AccountService accountService;
+
+        public ConfirmAllowAutoTransferViewModel(
+            ISearchAccountInfoRequest request,
+            AccountService accountService,
+            int displayOrder = 7)
            : base(request, displayOrder)
         {
+            this.accountService = accountService;
         }
 
         public override bool Visible => Request.SupportAutoTransfer;
@@ -23,6 +29,29 @@
         public override bool ReloadCustomerList => true;
 
         public override bool ShowInCustomerList => true;
+
+        public override string ConfirmMessage
+        {
+            get
+            {
+                if (Checked)
+                {
+                    return string.Format(
+                        AppResources.Lang.ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage,
+                        SearchAccount.Username.ToString(),
+                        AppResources.Lang.ResourceManager.GetString("AutoTransferPageHint_" + SearchAccount.CustomerLevel.DisplayName));
+                }
+
+                var affectTime = AppResources.Lang.ResourceManager.GetString("AutoTransfer_AffectTime_" + SearchAccount.Upline.CustomerLevel.DisplayName);
+                var condition = accountService.GetTransferCondition(SearchAccount.Upline.Id);
+
+                return string.Format(
+                   AppResources.Lang.ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage,
+                   SearchAccount.Username.ToString(),
+                   string.Format(affectTime, condition),
+                   AppResources.Lang.ResourceManager.GetString("AutoTransferPageHint_" + SearchAccount.CustomerLevel.DisplayName));
+            }
+        }
 
         internal override string SuffixMessage
         {

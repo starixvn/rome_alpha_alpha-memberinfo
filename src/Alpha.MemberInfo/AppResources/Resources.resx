@@ -1005,4 +1005,10 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="BBINNote" xml:space="preserve">
     <value>Note: BBIN's Winning% shown as &lt;b&gt;"N/A"&lt;/b&gt; because Maximum Win Limit control is not applied to the BBIN product.</value>
   </data>
+  <data name="ADBTOnError" xml:space="preserve">
+    <value>You cannot use Auto Transfer because upline has enabled All Day Balance Transfer for you. The page will refresh automatically.</value>
+  </data>
+  <data name="ADBTOffError" xml:space="preserve">
+    <value>You can use Auto Transfer because upline has disabled All Day Balance Transfer for you. The page will refresh automatically.</value>
+  </data>
 </root>

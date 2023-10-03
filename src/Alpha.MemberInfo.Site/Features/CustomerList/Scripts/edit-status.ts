@@ -77,7 +77,7 @@ class EditStatus {
                 if (!JSON.parse(this.$(event.currentTarget).data("disabled"))) {
                     this.topWindow.bootboxConfirm(
                         this.$(event.currentTarget).data("message"),
-                        event.currentTarget,
+                        null,
                         () => this.customerListServices.updateCustomerStatus(
                             event.currentTarget,
                             this.$(parentElement).context,
@@ -105,6 +105,10 @@ class EditStatus {
         else {
             this.$.unblockUI();
             this.topWindow.bootboxAlert(data.Message, this.isMobile ? currentTarget : parentTarget);
+
+            if (data.Code === 100) {
+                window.location.reload();
+            }
         }
     }
 }

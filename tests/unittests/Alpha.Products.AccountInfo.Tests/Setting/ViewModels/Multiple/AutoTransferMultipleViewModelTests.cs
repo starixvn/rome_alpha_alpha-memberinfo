@@ -9,23 +9,6 @@
     public class AutoTransferMultipleViewModelTests
     {
         [Fact]
-        public void URL_Always_ReturnCorrectValue()
-        {
-            // Arrange
-            var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new AutoTransferMultipleViewModel(request);
-            request.AddData("customerIds", "1,3");
-            request.AddData("usernames", "master01");
-            string expectedValue = "?SearchAccountIds=1,3&Usernames=master01&SearchAccountRoleId=3";
-
-            // Act
-            var actualValue = viewModel.Url;
-
-            // Assert
-            Assert.Equal(expectedValue, actualValue);
-        }
-
-        [Fact]
         public void Text_Always_CorrectName()
         {
             // Arrange

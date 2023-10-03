@@ -232,7 +232,7 @@
     <value>Bị đình chỉ</value>
   </data>
   <data name="ConfirmTransferBalanceDailyViewModelMessage" xml:space="preserve">
-    <value>Bạn có chắc muốn thay đổi chế độ Chuyển khoản cho tài khoản {0}?</value>
+    <value>&lt;div style="font-weight: normal"&gt;Bạn có chắc muốn thay đổi chế độ Chuyển khoản cho tài khoản {0}?&lt;/div&gt;</value>
   </data>
   <data name="ConfirmTransferBalanceDailyViewModelText" xml:space="preserve">
     <value>Chuyển Khoản Tổng Số Dư</value>

@@ -8,6 +8,8 @@
     using System.Linq;
     using System.Web;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services.Transfer;
+    using Fanex.Data.Repository;
 
     public static class AppSettings
     {
@@ -98,29 +100,6 @@
         public static Uri CustomerApiUri => new Uri(GetConfigValue("CustomerApi:Uri"));
 
         public static bool IsStandaloneBetlist => !string.IsNullOrWhiteSpace(GetConfigValue("Betlist:Domain"));
-
-        public static bool IsEnableAutoTransfer(IUser viewer)
-        {
-            if (viewer.IsSubAcc && !viewer.SubPageAccess.Transfer)
-            {
-                return false;
-            }
-
-            var currency = viewer.Currency;
-            var s = GetConfigValue("OfferAutoTransfer.Currencies");
-            if (string.IsNullOrWhiteSpace(s))
-            {
-                return false;
-            }
-
-            if (s == "*")
-            {
-                return true;
-            }
-
-            return s.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
-                .Any(c => string.Equals(currency, c.Trim(), StringComparison.OrdinalIgnoreCase));
-        }
 
         public static string BetlistDomain
         {

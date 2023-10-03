@@ -54,6 +54,8 @@ namespace Alpha.Products.AccountInfo.Requests
         public PageAccess SubPageAccess { get; set; }
 
         public bool SupportAutoTransfer { get; set; }
+
+        public bool AutoTransferAffect { get; set; }
     }
 
     public class SettingSearchAccountRequest : SearchAccountRequest

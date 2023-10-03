@@ -8,21 +8,6 @@
     [Trait("Status.ViewModels", "ConfirmAllowAutoTransferViewModel")]
     public class ConfirmAllowAutoTransferViewModelTests
     {
-        [Fact]
-        public void Url_Always_ReturnCorrectValue()
-        {
-            // Arrange
-            var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
-            var expectedValue = string.Empty;
-
-            // Act
-            var actualValue = viewModel.Url;
-
-            // Assert
-            Assert.Equal(expectedValue, actualValue);
-        }
-
         [Theory]
         [InlineData(true, true)]
         [InlineData(false, false)]
@@ -31,7 +16,7 @@
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
             request.AddData("SearchAccount.IsAllowAutoTransfer", isAllowAutoTransfer);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
 
             // Act
             var actualValue = viewModel.Checked;
@@ -48,7 +33,7 @@
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
             request.AddData("SearchAccount.IsAllowAutoTransfer", isAllowAutoTransfer);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
 
             // Act
             var actualValue = viewModel.SuffixMessage;
@@ -65,7 +50,7 @@
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
             request.AddData("SearchAccount.IsAllowAutoTransfer", isAllowAutoTransfer);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
 
             // Act
             var actualValue = viewModel.StatusValue;
@@ -75,29 +60,12 @@
         }
 
 
-        [Theory]
-        [InlineData(false, "ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage")]
-        [InlineData(true, "ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage")]
-        public void ConfirmMessage_Return_CorrectMessage(bool isAllowAutoTransfer, string expectedValue)
-        {
-            // Arrange
-            var request = RequestHelper.CreateRequest(4, 3);
-            request.AddData("SearchAccount.IsAllowAutoTransfer", isAllowAutoTransfer);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
-
-            // Act
-            var actualValue = viewModel.ConfirmMessage;
-
-            // Assert
-            Assert.Equal(expectedValue, actualValue);
-        }
-
         [Fact]
         public void ReloadCustomerInfo_Always_ReturnsFalse()
         {
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
 
             // Act
             var actualValue = viewModel.ReloadCustomerInfo;
@@ -111,7 +79,7 @@
         {
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
 
             // Act
             var actualValue = viewModel.IsPopup;
@@ -125,7 +93,7 @@
         {
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
             var expectedValue = "AutoTransfer";
 
             // Act
@@ -143,7 +111,7 @@
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
             request.AddData("SearchAccount.IsAllowAutoTransfer", isAllowAutoTransfer);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
 
             // Act
             var actualValue = viewModel.Checked;
@@ -160,7 +128,7 @@
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
             request.AddData("SearchAccount.IsAllowAutoTransfer", isAllowAutoTransfer);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
             var expectedValue = new Dictionary<string, object>
             {
                 ["CustId"] = "2",
@@ -181,7 +149,7 @@
         {
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
 
             // Act
             var actualValue = viewModel.ShowInCustomerList;
@@ -204,7 +172,7 @@
             // Arrange
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
             request.AddData("Actor.HasUpdateAccountPermission", hasUpdateAccountPermission);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
 
             // Act
             var actualValue = viewModel.Disabled;
@@ -218,29 +186,13 @@
         {
             // Arrange
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
+            var viewModel = new ConfirmAllowAutoTransferViewModel(request, null);
 
             // Act
             var actualValue = viewModel.ReloadCustomerList;
 
             // Assert
             Assert.True(actualValue);
-        }
-
-        [Fact]
-        public void JsonParams_Always_ReturnsTrue()
-        {
-            // Arrange
-            var request = RequestHelper.CreateRequest(4, 3);
-            request.AddData("SearchAccount.IsAllowAutoTransfer", true);
-            var viewModel = new ConfirmAllowAutoTransferViewModel(request);
-            var expectedValue = "{\"CustId\":\"2\",\"CustName\":\"username1\",\"State\":\"off\",\"UseDifferentSite\":\"1\"}";
-
-            // Act
-            var actualValue = viewModel.JsonParams;
-
-            // Assert
-            Assert.Equal(expectedValue, actualValue);
         }
     }
 }

@@ -16,5 +16,7 @@
         PageAccess SubPageAccess { get; }
 
         bool SupportAutoTransfer { get; }
+
+        bool AutoTransferAffect { get; }
     }
 }

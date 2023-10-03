@@ -232,7 +232,7 @@
     <value>Suspended</value>
   </data>
   <data name="ConfirmTransferBalanceDailyViewModelMessage" xml:space="preserve">
-    <value>Are you sure you want to change Transfer Mode for {0}?</value>
+    <value>&lt;div style="font-weight: normal"&gt;Are you sure you want to change Transfer Mode for {0}?&lt;/div&gt;</value>
   </data>
   <data name="ConfirmTransferBalanceDailyViewModelText" xml:space="preserve">
     <value>All Day Bal Transfer</value>
@@ -497,12 +497,6 @@
   </data>
   <data name="EditMultipleProtectedStatusText" xml:space="preserve">
     <value>Edit Multiple Protection Status</value>
-  </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage" xml:space="preserve">
-    <value>Would you like to disable Auto Transfer for this account?</value>
-  </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage" xml:space="preserve">
-    <value>Would you like to enable Auto Transfer for this account?</value>
   </data>
   <data name="EditMultipleAutoTransferText" xml:space="preserve">
     <value>Edit Multiple Auto Transfer</value>

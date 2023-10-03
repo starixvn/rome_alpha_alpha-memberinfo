@@ -52,9 +52,9 @@
     <Setting Key="Acc_DormantAccountList_Sel" SpName="Acc_DormantAccountList_Sel" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Indirect Login Account">
-    <Setting Key="Age_CustomerSelBySAg" SpName="Age_CustomerSelBySAg_xtest" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CustomerSelByMAg" SpName="Age_CustomerSelByMAg_xtest" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
-    <Setting Key="Age_CustomerSelByAg" SpName="Age_CustomerSelByAg_xtest" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelBySAg" SpName="Age_CustomerSelBySAg" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelByMAg" SpName="Age_CustomerSelByMAg" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
+    <Setting Key="Age_CustomerSelByAg" SpName="Age_CustomerSelByAg" DbName="DBCUST.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Customer List">
     <Setting Key="Acc_CustomerUpdClosed" SpName="Acc_CustomerUpdClosed" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />

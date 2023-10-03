@@ -133,6 +133,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can use Auto Transfer because upline has disabled All Day Balance Transfer for you. The page will refresh automatically..
+        /// </summary>
+        public static string ADBTOffError {
+            get {
+                return ResourceManager.GetString("ADBTOffError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You cannot use Auto Transfer because upline has enabled All Day Balance Transfer for you. The page will refresh automatically..
+        /// </summary>
+        public static string ADBTOnError {
+            get {
+                return ResourceManager.GetString("ADBTOnError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string Add {

@@ -232,7 +232,7 @@
     <value>暫停</value>
   </data>
   <data name="ConfirmTransferBalanceDailyViewModelMessage" xml:space="preserve">
-    <value>您确定要更改{0}的转账模式吗？</value>
+    <value>&lt;div style="font-weight: normal"&gt;您确定更改 {0} 的转账模式吗？&lt;/div&gt;</value>
   </data>
   <data name="ConfirmTransferBalanceDailyViewModelText" xml:space="preserve">
     <value>全天余额转账</value>
@@ -497,12 +497,6 @@
   </data>
   <data name="EditMultipleProtectedStatusText" xml:space="preserve">
     <value>修改多重保护状态</value>
-  </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage" xml:space="preserve">
-    <value>您要为此客户禁用自动转账吗？</value>
-  </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage" xml:space="preserve">
-    <value>您要为此客户开启自动转账吗？</value>
   </data>
   <data name="EditMultipleAutoTransferText" xml:space="preserve">
     <value>修改多重自动转账</value>

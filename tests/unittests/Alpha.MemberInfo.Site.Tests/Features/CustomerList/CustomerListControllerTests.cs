@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Tests.Controllers
 {
+    using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Features.CustomerList;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using MediatR;
@@ -15,11 +16,13 @@
         private readonly IUser user;
         private readonly CustomerListController controller;
         private readonly IUserSession userSession;
+        private readonly TransferService transferService;
 
         public CustomerListControllerTests()
         {
             mediator = Substitute.For<IMediator>();
             userSession = Substitute.For<IUserSession>();
+            transferService = Substitute.For<TransferService>();
 
             user = Substitute.For<IUser>();
             user.LoggedInUserId.Returns(1176070);
@@ -31,7 +34,7 @@
             user.IsInternal.Returns(false);
             user.CanUpdateAccount.Returns(true);
 
-            controller = new CustomerListController(mediator, userSession);
+            controller = new CustomerListController(mediator, userSession, transferService, null);
         }
 
         [Fact]

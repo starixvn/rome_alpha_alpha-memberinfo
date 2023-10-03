@@ -1,8 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.Requests
 {
+    using System;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.Shared.Requests;
-    using System;
 
     public class FetchDownlinesListRequesBase : BaseRequest
     {
@@ -13,7 +13,6 @@
             LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
             IsShowMyanmarOdds = viewer.IsShowMyanmarOdds;
             CanViewReports = viewer.CanViewReports;
-            SupportAutoTransfer = Alpha.MemberInfo.Configurations.AppSettings.IsEnableAutoTransfer(viewer);
         }
 
         public string Username { get; set; }
@@ -51,5 +50,9 @@
         public int AllowAutoTransfer { get; set; }
 
         public bool SupportAutoTransfer { get; set; }
+
+        public bool EnableAllDayBalanceTransfer { get; set; }
+
+        public bool AutoTransferAffect { get; set; }
     }
 }

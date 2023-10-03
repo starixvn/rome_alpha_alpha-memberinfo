@@ -12,7 +12,7 @@
         {
             this.viewer = viewer;
         }
-       
+
 
         public bool StatusValue { get; set; }
 

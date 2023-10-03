@@ -15,6 +15,7 @@ class CustomerListDataTable {
     private status: string;
     private doubleComm: string;
     private allowAutoTransfer: string;
+    private enableAllDayBalanceTransfer: string;
 
     constructor(
         $: JQueryStatic,
@@ -107,7 +108,8 @@ class CustomerListDataTable {
                             Username: this.username,
                             Status: this.status,
                             DoubleComm: this.doubleComm,
-                            AllowAutoTransfer: this.allowAutoTransfer
+                            AllowAutoTransfer: this.allowAutoTransfer,
+                            EnableAllDayBalanceTransfer: this.enableAllDayBalanceTransfer
                         };
 
                         this.customerListServices.getCutomerList(params, callback);
@@ -527,6 +529,8 @@ class CustomerListDataTable {
             this.status = this.$('#statusFilter').val();
             this.doubleComm = this.$('#dcommFilter').val();
             this.allowAutoTransfer = this.$('#dautoTransferFilter').val();
+            this.enableAllDayBalanceTransfer = this.$('#enableAllDayBalanceTransfer').val();
+
             this.$('.select-all').prop("checked", false);
             this.$table.ajax.reload();
         });

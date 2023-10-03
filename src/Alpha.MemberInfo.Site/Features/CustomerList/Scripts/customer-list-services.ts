@@ -40,6 +40,13 @@ class CustomerListServices {
             data => {
                 this.$.unblockUI();
                 this.$('.select-all').prop("checked", false);
+
+                if (data.Code === 100) {
+                    this.topWindow.bootboxAlert(data.Message);
+                    location.reload();
+                    return;
+                }
+
                 callback({
                     data: data.DownlinesList,
                     recordsTotal: data.TotalDownlines,

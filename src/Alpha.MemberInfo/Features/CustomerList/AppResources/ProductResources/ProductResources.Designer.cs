@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class ProductResources {
@@ -251,24 +251,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to disable Auto Transfer for this account?.
-        /// </summary>
-        public static string ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage {
-            get {
-                return ResourceManager.GetString("ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Would you like to enable Auto Transfer for this account?.
-        /// </summary>
-        public static string ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage {
-            get {
-                return ResourceManager.GetString("ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Auto Transfer.
         /// </summary>
         public static string ConfirmAllowAutoTransferViewModelText {
@@ -449,7 +431,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to change Transfer Mode for {0}?.
+        ///   Looks up a localized string similar to &lt;div style=&quot;font-weight: normal&quot;&gt;Are you sure you want to change Transfer Mode for {0}?&lt;/div&gt;.
         /// </summary>
         public static string ConfirmTransferBalanceDailyViewModelMessage {
             get {

@@ -97,6 +97,8 @@
             }
 
             breadcrumbLevel.Add(new CustInfo(message.CustId, message.CustName, message.CustLevelId));
+
+            var offerCurrencies = Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies");
             var customerListPagingViewModel = Handle(
                 new FetchDownlinesListRequest(message.Viewer)
                 {
@@ -109,9 +111,13 @@
                     UnconfirmSetting = message.UnconfirmSetting,
                     PageIndex = message.PageIndex,
                     PageSize = message.PageSize,
-                    AllowAutoTransfer = message.AllowAutoTransfer
+                    AllowAutoTransfer = message.AllowAutoTransfer,
+                    AutoTransferAffect = transferService.IsAutoTransferAffect(message.Viewer, offerCurrencies),
+                    SupportAutoTransfer = transferService.IsEnableAutoTransfer(message.Viewer, offerCurrencies)
                 }
              );
+
+            message.EnableAllDayBalanceTransfer = transferService.IsAllDayBalanceTransfer(message.CustId);
 
             return new CustomerListViewModel(
                 message,
@@ -347,6 +353,8 @@
                 .AddData(DataKey.SearchAccount.IsAllowAutoTransfer, model.NonProduct.IsAllowAutoTransfer);
 
             request.SupportAutoTransfer = message.SupportAutoTransfer;
+            request.AutoTransferAffect = message.AutoTransferAffect;
+
             return statusViewModelFactory.GetViewModels(request).Where(status => status.Visible).OrderBy(status => status.DisplayOrder);
         }
 
@@ -377,6 +385,7 @@
             var request = new SettingSearchAccountRequest(actor, searchAccount);
             request.SubPageAccess = message.SubPageAccess;
             request.SupportAutoTransfer = message.SupportAutoTransfer;
+            request.AutoTransferAffect = message.AutoTransferAffect;
 
             request
                  .AddData(DataKey.Actor.CanEditDailyTransferOption, model.NonProduct.TransferDaily)
