@@ -2,7 +2,6 @@
 {
     using System.Web.Mvc;
     using Alpha.MemberInfo.AppResources;
-    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Controllers;
@@ -39,7 +38,7 @@
         public ActionResult Index(CustomerListRequest message)
         {
             message.SupportAutoTransfer = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
-            message.AutoTransferAffect = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
+            message.AutoTransferAffect = transferService.IsAutoTransferAffect(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
             return View(message, IndexPath);
         }
 
@@ -65,7 +64,7 @@
             }
 
             message.SupportAutoTransfer = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
-            message.AutoTransferAffect = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
+            message.AutoTransferAffect = transferService.IsAutoTransferAffect(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
             return Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
         }
 
@@ -77,7 +76,7 @@
             }
 
             message.SupportAutoTransfer = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
-            message.AutoTransferAffect = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
+            message.AutoTransferAffect = transferService.IsAutoTransferAffect(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
             return Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
         }
 
@@ -90,7 +89,7 @@
             }
 
             message.SupportAutoTransfer = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
-            message.AutoTransferAffect = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
+            message.AutoTransferAffect = transferService.IsAutoTransferAffect(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
             return Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
         }
 
@@ -103,7 +102,7 @@
             }
 
             command.SupportAutoTransfer = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
-            command.AutoTransferAffect = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
+            command.AutoTransferAffect = transferService.IsAutoTransferAffect(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
 
             return Json(mediator.Send(command), JsonRequestBehavior.DenyGet);
         }
