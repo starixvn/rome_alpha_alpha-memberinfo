@@ -1044,4 +1044,7 @@
   <data name="ADBTOffError" xml:space="preserve">
     <value>由于上线已为您禁用全天余额转账，所以您可以使用自动转账。 页面将会自动刷新。</value>
   </data>
+  <data name="PageOf" xml:space="preserve">
+    <value>第 {0} 页 共 {1} 页</value>
+  </data>
 </root>

@@ -1048,4 +1048,7 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="ADBTOffError" xml:space="preserve">
     <value>You can use Auto Transfer because upline has disabled All Day Balance Transfer for you. The page will refresh automatically.</value>
   </data>
+  <data name="PageOf" xml:space="preserve">
+    <value>Page {0} of {1}</value>
+  </data>
 </root>

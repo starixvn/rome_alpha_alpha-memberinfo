@@ -1044,4 +1044,8 @@
   <data name="ADBTOffError" xml:space="preserve">
     <value>由於上線已為您禁用全天餘額轉賬，所以您可以使用自動轉賬。頁面將會自動刷新。</value>
   </data>
+  <data name="PageOf" xml:space="preserve">
+    <value>第 {0} 頁 共 {1} 頁
+</value>
+  </data>
 </root>

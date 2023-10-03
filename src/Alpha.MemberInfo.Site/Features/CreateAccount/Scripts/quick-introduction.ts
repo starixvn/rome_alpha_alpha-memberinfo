@@ -15,18 +15,23 @@ class QuickIntroduction {
     localStorageKey = 'quickIntroduction_localStorageKey';
     sessionStorageKey = 'quickIntroduction_sessionStorageKey';
     interval: boolean;
-    
+
     constructor($: JQueryStatic) {
         this.$ = $;
-      
+
+    }
+
+    updatePaging(pageIndex, maxPage) {
+        const sentence = this.$('#PageOf').val();
+        return sentence.replace(/\{0}/g, pageIndex).replace(/\{1}/g, maxPage);
     }
 
     checkItem = () => {
-        const currentActiveItem=this.carouselMain.find('.item.active');
-        const items =  currentActiveItem.parent().children('.item')
-        const pageIndex =  items.index(currentActiveItem) +1;
-       
-        
+        const currentActiveItem = this.carouselMain.find('.item.active');
+        const items = currentActiveItem.parent().children('.item')
+        const pageIndex = items.index(currentActiveItem) + 1;
+
+
         if (this.carouselMain.find(".carousel-inner .item:first").hasClass("active")) {
             this.leftCarousel.hide();
             this.rightCarousel.show();
@@ -36,7 +41,7 @@ class QuickIntroduction {
         } else {
             this.bothCarousel.show();
         }
-        this.slideIndex.text(`Page ${pageIndex} of ${items.length}`)
+        this.slideIndex.text(this.updatePaging(pageIndex, items.length))
     }
     cacheElements = () => {
         this.beginModel = this.$('#beginModal');
@@ -65,9 +70,9 @@ class QuickIntroduction {
         });
 
         this.btnClose.click(() => {
-            sessionStorage.setItem(this.sessionStorageKey,"1")
+            sessionStorage.setItem(this.sessionStorageKey, "1")
         });
-        
+
         this.btnShowUserguide.click(() => {
             this.quickIntroductionModal.on('hidden.bs.modal', () => {
                 this.helpModal.modal('show');
@@ -84,7 +89,7 @@ class QuickIntroduction {
     getCustomerCookiesName = () => {
         return `${this.localStorageKey}_${this.$("#ActorUsername").val()}`;
     }
-        
+
     init = () => {
         const hidePopup = localStorage.getItem(quickIntroduction.getCustomerCookiesName()) || sessionStorage.getItem(this.sessionStorageKey);
         if (hidePopup === "1") {

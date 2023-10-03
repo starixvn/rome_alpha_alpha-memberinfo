@@ -1026,4 +1026,7 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="QuickIntro_Title_Confirm" xml:space="preserve">
     <value>Bắt đầu nào</value>
   </data>
+  <data name="PageOf" xml:space="preserve">
+    <value>Trang {0} </value>
+  </data>
 </root>
