@@ -30,11 +30,6 @@ export default function ProductSettingInformation({ ProductSettingInfo }: { Prod
       {ProductSettingInfo.map((e, index) => (
         <Session key={e.Name + index.toString()} title={e.Name}>
           <table className={styles.table}>
-            <thead className={styles.header}>
-            <tr>
-              <th colSpan={2}>Product Name</th>
-            </tr>
-            </thead>
             <tbody>
             {e.Products?.map((p) => CheckProductsNotNull(p)).includes(true) ? (
               renderMultiple(e.Products)
