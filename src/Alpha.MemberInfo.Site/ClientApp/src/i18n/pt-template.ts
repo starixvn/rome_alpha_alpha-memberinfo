@@ -23,9 +23,9 @@ i18next
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    debug: true,
     supportedLngs: ['en-US', 'th-TH', 'vi-VN', 'zh-CN', 'zh-TW'],
     fallbackLng: 'en-US',
-    lng: 'en-US',
     load: 'currentOnly',
     resources,
     defaultNS,

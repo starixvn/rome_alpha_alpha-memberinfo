@@ -1,4 +1,4 @@
-import i18next from 'i18next';
+import i18next, { changeLanguage } from 'i18next';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Outlet, useNavigate, useParams, useSearchParams } from 'react-router-dom';
@@ -57,7 +57,15 @@ export default function NewAccount() {
       const isDarkMode = searchParams.get('isDarkMode') === 'true';
       setTheme(isDarkMode ? 'dark' : 'light');
     }
-  }, [searchParams, setTheme]);
+
+    if (searchParams.has('lng')) {
+      const lng = searchParams.get('lng') ?? 'en-US';
+      const { languages } = i18next;
+      if (!languages.includes(lng)) {
+        changeLanguage('en-US');
+      }
+    }
+  }, [searchParams, setTheme, changeLanguage]);
 
   useEffect(() => {
     getCustomerSetting()

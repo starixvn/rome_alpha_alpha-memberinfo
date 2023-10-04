@@ -1,3 +1,4 @@
+import i18next, { changeLanguage } from 'i18next';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -43,7 +44,15 @@ export default function PTTemplateTable() {
       const isDarkMode = searchParams.get('isDarkMode') === 'true';
       setTheme(isDarkMode ? 'dark' : 'light');
     }
-  }, [setTheme]);
+
+    if (searchParams.has('lng')) {
+      const lng = searchParams.get('lng') ?? 'en-US';
+      const { languages } = i18next;
+      if (!languages.includes(lng)) {
+        changeLanguage('en-US');
+      }
+    }
+  }, [setTheme, changeLanguage]);
 
   useEffect(() => {
     setLoading(true);
