@@ -41,11 +41,11 @@ export function getOtherGamesValue(otherGamesItem: OtherGamesBetSettingItem): Ot
 }
 
 export function getGreaterErrorMessage(prop: string, value: number | string) {
-  return `${prop}-mustBeGreaterThanOrEqualTo-${value}`;
+  return `${prop}-mustBeGreaterThanOrEqualTo${typeof value === 'string' ? `-${value}` : `#${value}`}`;
 }
 
 export function getLessErrorMessage(prop: string, value: number | string) {
-  return `${prop}-mustBeLessThanOrEqualTo-${value}`;
+  return `${prop}-mustBeLessThanOrEqualTo${typeof value === 'string' ? `-${value}` : `#${value}`}`;
 }
 
 export function isViolateBetSettingConfig(current: BetSettingProp, config: BetSettingConfigProp) {
@@ -61,7 +61,7 @@ export function validateBetSettingValue(
   betSettingValidateOptions: BetSettingValidateOptions,
 ) {
   const { current, config, max, min } = betSettingValidateOptions;
-  if (current.value === undefined) return `${current.name}-RequiredField`;
+  if (current.value === undefined) return `${current.name}#RequiredField`;
   if (isCheckLessThanOne && current.value < 1 && config.value < 1) return getGreaterErrorMessage(current.name, 1);
   const isViolateConfigError = isViolateBetSettingConfig(current, config);
   if (isViolateConfigError) return isViolateConfigError;
@@ -71,7 +71,7 @@ export function validateBetSettingValue(
 }
 
 export function getErrorMessageTranslate(messageKey: string, t: TFunction) {
-  const messageArr = messageKey.split('-');
+  const messageArr = messageKey.split('#');
   if (messageArr.includes('RequiredField')) return t('RequiredField');
   return messageArr
     .map((errKey) => (Number.isNaN(Number(errKey)) ? t(errKey) : formatThousandNumber(errKey)))

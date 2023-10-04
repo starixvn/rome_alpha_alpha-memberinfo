@@ -29,13 +29,16 @@ export const getPTSettings = async (actorLevelId: number) => {
         const subGroupId = parseInt(key, 10);
         if (actorLevelId === UserLevel.Super) {
           const max = Math.min(...(value as SuperPTConfigItem[]).map((item) => item.s4));
-          return { subGroupId, subGroupName: subGroups[subGroupId], min: 0, max };
+          const maxN4 = Math.max(...(value as SuperPTConfigItem[]).map((item) => item.n4));
+          const minM4 = Math.min(...(value as SuperPTConfigItem[]).map((item) => item.m4));
+          return { subGroupId, subGroupName: subGroups[subGroupId], min: Math.max(0, maxN4 - minM4), max };
         }
 
         if (actorLevelId === UserLevel.Master) {
-          const min = Math.max(0, ...(value as MasterPTConfigItem[]).map((item) => item.n3 - item.a4));
           const max = Math.min(...(value as MasterPTConfigItem[]).map((item) => item.m3));
-          return { subGroupId, subGroupName: subGroups[subGroupId], min, max };
+          const maxN3 = Math.max(...(value as MasterPTConfigItem[]).map((item) => item.n3));
+          const minA4 = Math.min(...(value as MasterPTConfigItem[]).map((item) => item.a4));
+          return { subGroupId, subGroupName: subGroups[subGroupId], min: Math.max(0, maxN3 - minA4), max };
         }
 
         const min = Math.max(...(value as AgentPTConfigItem[]).map((item) => item.n2));
