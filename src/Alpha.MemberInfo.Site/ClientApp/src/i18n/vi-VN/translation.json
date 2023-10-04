@@ -62,7 +62,7 @@
   "Member_AvailableGivenCredit": "Hạn mức tín dụng được cấp",
   "unlimited": "Không giới hạn",
   "theValueMustBeAPositiveAmount": "Giá trị phải là một số dương.",
-  "theSettingOfNameMustBeLessThanOrEqualToUpLine": "Cài đặt của {{name}} phải nhỏ hơn hoặc bằng giá trị của upline.",
+  "theSettingOfNameMustBeLessThanOrEqualToUpLine": "Cài đặt của {{name}} phải nhỏ hơn hoặc bằng giá trị của cấp trên.",
   "MixSportParlay": "Mix Sports Parlay",
   "MixSportParlayHint1": "parlay mà các vé cược không chỉ là Bóng Đá",
   "MixSportParlayHint2": "Ví dụ: Bóng Đá - Bóng Đá - Bóng Rổ, Quần Vợt - Quần Vợt - Quần Vợt, Bóng Rổ - Đánh Golf - Bóng Bầu Dục",
