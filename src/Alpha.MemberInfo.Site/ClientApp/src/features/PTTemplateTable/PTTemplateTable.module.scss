@@ -7,3 +7,14 @@
     width: 94px;
   }
 }
+.template-name {
+  position: relative;
+  display: inline-block;
+  padding-right: 25px;
+  [class^='icon-'],
+  [class*=' icon-'] {
+    position: absolute;
+    top: 4px;
+    right: 0;
+  }
+}
