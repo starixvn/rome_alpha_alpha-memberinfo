@@ -25,6 +25,7 @@ i18next
   .init({
     supportedLngs: ['en-US', 'th-TH', 'vi-VN', 'zh-CN', 'zh-TW'],
     fallbackLng: 'en-US',
+    lng: 'en-US',
     load: 'currentOnly',
     resources,
     defaultNS,
