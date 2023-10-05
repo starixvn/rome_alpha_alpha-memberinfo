@@ -50,14 +50,14 @@
                 return Json(ErrorDefault, JsonRequestBehavior.AllowGet);
             }
 
-            if (transferService.IsAutoTransferAffect(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies")))
+            if (message.EnableAllDayBalanceTransfer.HasValue && transferService.IsAutoTransferAffect(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies")))
             {
-                if (!message.EnableAllDayBalanceTransfer && transferService.IsAllDayBalanceTransfer(message.CustId))
+                if (!message.EnableAllDayBalanceTransfer.Value && transferService.IsAllDayBalanceTransfer(message.CustId))
                 {
                     return Json(Result.CreateErrorResult(Resources.ADBTOnError, 100), JsonRequestBehavior.AllowGet);
                 }
 
-                if (message.EnableAllDayBalanceTransfer && !transferService.IsAllDayBalanceTransfer(message.CustId))
+                if (message.EnableAllDayBalanceTransfer.Value && !transferService.IsAllDayBalanceTransfer(message.CustId))
                 {
                     return Json(Result.CreateErrorResult(Resources.ADBTOffError, 100), JsonRequestBehavior.AllowGet);
                 }

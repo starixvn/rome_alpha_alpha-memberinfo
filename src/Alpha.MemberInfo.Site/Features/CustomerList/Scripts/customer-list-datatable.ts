@@ -41,7 +41,8 @@ class CustomerListDataTable {
     }
 
     public bindingEvent = () => {
-        this.enableAllDayBalanceTransfer = this.$('#enableAllDayBalanceTransfer').val();
+        this.allowAutoTransfer = this.$('#dautoTransferFilter').val();
+
         this.editMultipleSetting.bindingEvent();
         this.initDataTable();
     }
@@ -113,6 +114,7 @@ class CustomerListDataTable {
                             EnableAllDayBalanceTransfer: this.enableAllDayBalanceTransfer
                         };
 
+                        this.enableAllDayBalanceTransfer = undefined;
                         this.customerListServices.getCutomerList(params, callback);
                     }
                 },
@@ -530,7 +532,7 @@ class CustomerListDataTable {
             this.status = this.$('#statusFilter').val();
             this.doubleComm = this.$('#dcommFilter').val();
             this.allowAutoTransfer = this.$('#dautoTransferFilter').val();
-            
+            this.enableAllDayBalanceTransfer = this.$('#enableAllDayBalanceTransfer').val();
 
             this.$('.select-all').prop("checked", false);
             this.$table.ajax.reload();

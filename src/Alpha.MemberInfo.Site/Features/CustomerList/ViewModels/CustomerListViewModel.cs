@@ -69,7 +69,7 @@
             CustomerListPagingViewModel = customerListPagingViewModel;
             AllowAutoTransfer = request.AllowAutoTransfer;
             EnableAutoTransfer = request.SupportAutoTransfer;
-            EnableAllDayBalanceTransfer = request.EnableAllDayBalanceTransfer;
+            EnableAllDayBalanceTransfer = request.EnableAllDayBalanceTransfer.HasValue && request.EnableAllDayBalanceTransfer.Value;
         }
 
         public bool HideEditMultiple { get; }
