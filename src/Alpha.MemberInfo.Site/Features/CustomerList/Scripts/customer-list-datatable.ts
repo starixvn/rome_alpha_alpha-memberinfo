@@ -41,6 +41,7 @@ class CustomerListDataTable {
     }
 
     public bindingEvent = () => {
+        this.enableAllDayBalanceTransfer = this.$('#enableAllDayBalanceTransfer').val();
         this.editMultipleSetting.bindingEvent();
         this.initDataTable();
     }
@@ -529,7 +530,7 @@ class CustomerListDataTable {
             this.status = this.$('#statusFilter').val();
             this.doubleComm = this.$('#dcommFilter').val();
             this.allowAutoTransfer = this.$('#dautoTransferFilter').val();
-            this.enableAllDayBalanceTransfer = this.$('#enableAllDayBalanceTransfer').val();
+            
 
             this.$('.select-all').prop("checked", false);
             this.$table.ajax.reload();
