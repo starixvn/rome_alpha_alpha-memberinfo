@@ -16,7 +16,7 @@ const ParlayMaxPayoutMissConfigValue = 0.1;
 
 export function validateParlayMaxPayoutValue(isAllowUnlimit: boolean, parlay: number, maxParlay: number) {
   if (isAllowUnlimit) {
-    return true;
+    return parlay >= 1;
   }
   const isLessThanMax = maxParlay !== 0 ? parlay <= maxParlay : true;
   return isLessThanMax && parlay >= 1;
