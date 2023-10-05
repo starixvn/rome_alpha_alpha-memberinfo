@@ -654,13 +654,13 @@
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.min.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
-    <Content Include="ClientApp\dist\assets\createAccount-1277bc8c.js" />
     <Content Include="ClientApp\dist\assets\createAccount-7aaa218c.css" />
+    <Content Include="ClientApp\dist\assets\createAccount-d05a0cfe.js" />
     <Content Include="ClientApp\dist\assets\index-177f47a2.js" />
     <Content Include="ClientApp\dist\assets\index-1ea51596.css" />
     <Content Include="ClientApp\dist\assets\index-2c37083c.js" />
     <Content Include="ClientApp\dist\assets\productSettingInfo-19dc73f6.css" />
-    <Content Include="ClientApp\dist\assets\productSettingInfo-e9389648.js" />
+    <Content Include="ClientApp\dist\assets\productSettingInfo-1dd39522.js" />
     <Content Include="ClientApp\dist\assets\PTSelect-07858f5e.css" />
     <Content Include="ClientApp\dist\assets\PTSelect-49d02cca.js" />
     <Content Include="ClientApp\dist\assets\ptTemplate-37413b56.js" />
