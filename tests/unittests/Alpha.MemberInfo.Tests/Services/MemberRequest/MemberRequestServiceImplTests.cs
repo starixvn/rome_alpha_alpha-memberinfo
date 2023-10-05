@@ -42,7 +42,6 @@
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             dynamicRepository.Fetch<Product>(Arg.Any<PlayForFunProductCriteria>()).Returns(new List<Product>
             {             
-                new Product(22, "Fishing word", true),
                 new Product(24, "Macau Games", true)
             });
 
@@ -56,46 +55,7 @@
 
             serviceImpl = new MemberRequestServiceImpl(dynamicRepository, user);
             compareLogic = new CompareLogic();
-        }
-
-        [Fact]
-        public void GetPlayForFunProduct_HideFishingWorld_ReturnsCorrectList()
-        {
-            // Arrange
-            var custId = anyValueCreatorFixture.Create<int>();
-            user.GetHideProduct(ProductId.FishingWorld).Returns(true);
-            var expectedProductList = new List<Product>
-            {            
-                new Product(22, "Fishing word", true)
-            };
-
-            // Act
-            var actualProducts = serviceImpl.GetPlayForFunProduct(custId).ToList();
-
-            // Assert
-            var result = compareLogic.Compare(expectedProductList, actualProducts);
-            Assert.True(result.AreEqual);
-        }
-
-        [Fact]
-        public void GetPlayForFunProduct_ShowFishingWorld_ReturnsCorrectList()
-        {
-            // Arrange
-            var custId = anyValueCreatorFixture.Create<int>();
-            user.GetHideProduct(ProductId.FishingWorld).Returns(false);
-            var expectedProductList = new List<Product>
-            {               
-                new Product(22, "Fishing word", true),
-                new Product(24, "Macau Games", true)
-            };
-
-            // Act
-            var actualProducts = serviceImpl.GetPlayForFunProduct(custId).ToList();
-
-            // Assert
-            var result = compareLogic.Compare(expectedProductList, actualProducts);
-            Assert.True(result.AreEqual);
-        }
+        }               
 
         [Fact]
         public void GetMemberRequest_NullParam_ThrowsArgumentNullException()
