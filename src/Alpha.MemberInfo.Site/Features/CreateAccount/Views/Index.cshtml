@@ -1,6 +1,9 @@
 ﻿@model CreateAccountViewModel
 @{
     Layout = "~/Features/CreateAccount/Views/_Layout.cshtml";
+    var userguideLink = AppSettings.IsSiteLabel789y ?
+        MicroSites.MessageUrl("~/StaticMessage/Guide?id=179159") :
+        MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179159");
 }
 
 @section Styles {
@@ -8,7 +11,10 @@
     @StaticResources.RenderStyles("~/Features/CreateAccount/bundles/quick-introduction")
 }
 
-<div class="page-title">@Model.PageTitle</div>
+<div class="page-title">
+    @Model.PageTitle
+    &nbsp;<a href="@userguideLink" target="_blank"><span class="icon icon-information-outline"></span></a>
+</div>
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation">
         @Html.ActionLink(Resources.SearchAndCopy, "Index", "CopyAccount")
