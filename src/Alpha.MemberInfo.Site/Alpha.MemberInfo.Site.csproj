@@ -799,10 +799,10 @@
     <Content Include="IbcKeys\ibckeydec.snk" />
     <Content Include="IbcKeys\Web.config" />
     <Content Include="Views\ProblemAccount\ConfirmAddToWatchlist.cshtml" />
-    <Content Include="Web.AppSettings.pro5.config">
+    <Content Include="Web.AppSettings.pro4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-    <Content Include="Web.pro5.config">
+    <Content Include="Web.pro4.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
     <Content Include="Web.ConnectionStrings.config" />
@@ -1191,6 +1191,7 @@
     <Content Include="Features\CopyAccount\Views\_CopyResult.cshtml" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.scss" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.scss" />
+    <Content Include="deployment.pro4.ignore" />
     <Content Include="Features\CreateAccount\Views\Index.cshtml" />
     <Content Include="Features\CreateAccount\Views\PTTemplate.cshtml" />
     <Content Include="Features\CreateAccount\Views\web.config" />
