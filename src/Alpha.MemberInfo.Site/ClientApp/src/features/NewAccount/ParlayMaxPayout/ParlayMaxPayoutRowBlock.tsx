@@ -14,10 +14,16 @@ import styles from './ParlayMaxPayout.module.scss';
 
 const ParlayMaxPayoutMissConfigValue = 0.1;
 
-export function validateParlayMaxPayoutValue(isAllowUnlimit: boolean, parlay: number, maxParlay: number) {
+export function validateParlayMaxPayoutValue(
+  userLevel: UserLevel,
+  isAllowUnlimit: boolean,
+  parlay: number,
+  maxParlay: number,
+) {
   if (isAllowUnlimit) {
-    return parlay >= 1;
+    return userLevel === UserLevel.Agent ? parlay >= 1 : true;
   }
+
   const isLessThanMax = maxParlay !== 0 ? parlay <= maxParlay : true;
   return isLessThanMax && parlay >= 1;
 }
@@ -55,6 +61,7 @@ export default function ParlayMaxPayoutRowBlock({
   useEffect(() => {
     setIsValid(
       validateParlayMaxPayoutValue(
+        userLevel,
         Boolean(value[isUnlimitedProp]),
         Number(value[valueProp]),
         Number(value[maxValueProp]),

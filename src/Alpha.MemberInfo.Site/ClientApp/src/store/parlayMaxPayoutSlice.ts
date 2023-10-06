@@ -5,6 +5,8 @@ import { validateParlayMaxPayoutValue } from '@/features/NewAccount/ParlayMaxPay
 import { GroupItem, GroupTypeDict, ParlayMaxPayoutItem, ProductGroupDict } from '@/types/new-account';
 import { getNumberOfCommaString } from '@/utils/number-format';
 
+import { UserLevel } from '../constants/index';
+
 const initParlayMaxPayoutsState = (productGroupsDict: ProductGroupDict) => {
   const parlayMaxPayouts = Object.keys(ParlayMaxPayoutTypeIds).reduce((acc: GroupTypeDict, cur) => {
     const parlayMaxPayoutGroup = productGroupsDict[Number(cur)]?.groupTypes.find(
@@ -30,7 +32,7 @@ const initParlayMaxPayoutsState = (productGroupsDict: ProductGroupDict) => {
   return parlayMaxPayouts;
 };
 
-const validateParlayMaxPayout = (parlayMaxPayoutItem: ParlayMaxPayoutItem) => {
+const validateParlayMaxPayout = (userLevel: UserLevel, parlayMaxPayoutItem: ParlayMaxPayoutItem) => {
   const {
     singleMatchParlay,
     maxSingleMatchParlay,
@@ -50,11 +52,19 @@ const validateParlayMaxPayout = (parlayMaxPayoutItem: ParlayMaxPayoutItem) => {
   const combo35Value = getNumberOfCommaString(combo35);
   const comboOver6Value = getNumberOfCommaString(comboOver6);
 
-  if (!validateParlayMaxPayoutValue(isAllowUnlimitSingleMatchParlay, singleMatchParlayValue, maxSingleMatchParlay))
+  if (
+    !validateParlayMaxPayoutValue(
+      userLevel,
+      isAllowUnlimitSingleMatchParlay,
+      singleMatchParlayValue,
+      maxSingleMatchParlay,
+    )
+  )
     return 'singleMatchParlay';
-  if (!validateParlayMaxPayoutValue(isAllowUnlimitCombo2, combo2Value, maxCombo2)) return 'combo2';
-  if (!validateParlayMaxPayoutValue(isAllowUnlimitCombo35, combo35Value, maxCombo35)) return 'combo35';
-  if (!validateParlayMaxPayoutValue(isAllowUnlimitComboOver6, comboOver6Value, maxComboOver6)) return 'comboOver6';
+  if (!validateParlayMaxPayoutValue(userLevel, isAllowUnlimitCombo2, combo2Value, maxCombo2)) return 'combo2';
+  if (!validateParlayMaxPayoutValue(userLevel, isAllowUnlimitCombo35, combo35Value, maxCombo35)) return 'combo35';
+  if (!validateParlayMaxPayoutValue(userLevel, isAllowUnlimitComboOver6, comboOver6Value, maxComboOver6))
+    return 'comboOver6';
   return '';
 };
 
@@ -63,7 +73,7 @@ export type ParlayMaxPayoutSlice = {
   parlayMaxPayoutErrors: string[];
   initParlayMaxPayoutState: (productGroups: ProductGroupDict) => void;
   updateParlayMaxPayoutItem: (groupTypeId: number, parlayMaxPayoutGroupItem: GroupItem) => void;
-  validateParlayMaxPayout: () => boolean;
+  validateParlayMaxPayout: (userLevel: UserLevel) => boolean;
 };
 
 const createParlayMaxPayoutSlice: StateCreator<ParlayMaxPayoutSlice, [], [], ParlayMaxPayoutSlice> = (set, get) => ({
@@ -96,7 +106,7 @@ const createParlayMaxPayoutSlice: StateCreator<ParlayMaxPayoutSlice, [], [], Par
         },
       };
     }),
-  validateParlayMaxPayout: () => {
+  validateParlayMaxPayout: (userLevel: UserLevel) => {
     const parlayMaxPayouts = get().parlayMaxPayouts[GroupTypeIds.ParlayMaxPayout].groupItems as ParlayMaxPayoutItem[];
 
     let [i, errorId] = [0, ''];
@@ -104,7 +114,7 @@ const createParlayMaxPayoutSlice: StateCreator<ParlayMaxPayoutSlice, [], [], Par
       const parlayMaxPayoutItem = parlayMaxPayouts[i];
       const { sportTypeId, betTypeId } = parlayMaxPayoutItem;
 
-      errorId = validateParlayMaxPayout(parlayMaxPayoutItem);
+      errorId = validateParlayMaxPayout(userLevel, parlayMaxPayoutItem);
       errorId = errorId !== '' ? `${sportTypeId}-${betTypeId}-${errorId}` : errorId;
       if (errorId) break;
     }

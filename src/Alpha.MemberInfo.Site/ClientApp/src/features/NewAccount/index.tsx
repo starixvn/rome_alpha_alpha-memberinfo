@@ -38,6 +38,7 @@ export default function NewAccount() {
   const validateTransferCondition = useNewAccountStore((state) => state.validateTransferCondition);
 
   const [theme, setTheme] = useNewAccountStore((state) => [state.theme, state.setTheme], shallow);
+  const userLevel = useNewAccountStore((state) => state.userLevel);
   const showPopup = useNewAccountStore((state) => state.showPopup);
   const getSettings = useNewAccountStore((state) => state.getProductGroupAndUISettings);
   const displayTransferCondition = useNewAccountStore((state) => state.displayTransferCondition);
@@ -108,7 +109,7 @@ export default function NewAccount() {
     if (!validateSportsBookBetSetting()) {
       productError.push(ProductGroupIds.SportsBook);
     }
-    if (!validateParlayMaxPayout()) {
+    if (!validateParlayMaxPayout(userLevel)) {
       productError.push(ProductGroupIds.SportsBook);
     }
     if (!validateRNGBetSetting()) {
@@ -123,7 +124,6 @@ export default function NewAccount() {
 
   const handleCreateNewAccount = async () => {
     setError('');
-    setBlockSubmit(true);
     const { uiBehavior, generalInfo, productGroups, templateName } = getSettings();
     const generalError = await validateGeneralInfo(generalInfo, t);
     let validateSuccess = true;
@@ -148,6 +148,7 @@ export default function NewAccount() {
       return;
     }
 
+    setBlockSubmit(true);
     const { data: result } = await createAccount(uiBehavior, { ...generalInfo, templateName }, productGroups);
     setBlockSubmit(false);
     if (!result.isSuccessful) {
