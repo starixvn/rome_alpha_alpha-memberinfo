@@ -90,12 +90,12 @@
   "agentPT": "代理占成数",
   "minBet-mustBeGreaterThanOrEqualTo": "最大投注額必須大於或等於 ",
   "minBet-mustBeLessThanOrEqualTo-maxBet": "最低投注必须少於或等於最高投注",
-  "maxBet-mustBeGreaterThanOrEqualTo": "Max Bet must be greater than or equal to ",
+  "maxBet-mustBeGreaterThanOrEqualTo": "最高投注必須大於或等於 ",
   "maxBet-mustBeGreaterThanOrEqualTo-minBet": "最高投註限額必須大於或相等於最低投註限額",
   "maxBet-mustBeLessThanOrEqualTo": "最高投注不得多於或相等於 ",
   "maxBet-mustBeLessThanOrEqualTo-maxPerMatch": "最高投注必须少於或等於單場限額",
   "maxBet-mustBeLessThanOrEqualTo-maxPerBall": "最高投注必須少於或等於單粒球最高投注",
-  "maxPerBall-mustBeGreaterThanOrEqualTo": "Max Per Ball must be greater than or equal to ",
+  "maxPerBall-mustBeGreaterThanOrEqualTo": "单粒球最高投注必須大於或等於 ",
   "maxPerBall-mustBeGreaterThanOrEqualTo-maxBet": "單粒球最高投注必須大於或是等於最高投注。",
   "maxPerBall-mustBeLessThanOrEqualTo": "單粒球最高投注必須少於或相等於 ",
   "maxPerBall-mustBeLessThanOrEqualTo-maxPerMatch": "單粒球最高投注必須少於或等於單場限額",
@@ -104,6 +104,6 @@
   "maxPerMatch-mustBeGreaterThanOrEqualTo-maxPerBall": "單場限額必須大於或是等於單粒球最高投注。",
   "maxPerMatch-mustBeLessThanOrEqualTo": "單場最高投注需底於或等於 ",
   "maxPerMatch-mustBeLessThanOrEqualTo-maxPayoutPerMatch": "單場限額必須少於或等於單場最高派彩限額",
-  "maxPayoutPerMatch-mustBeGreaterThanOrEqualTo-maxPerMatch": "Max Payout Per Match must be greater than or equal to Max Per Match",
+  "maxPayoutPerMatch-mustBeGreaterThanOrEqualTo-maxPerMatch": "單場最高派彩必須大於或等於單場限額",
   "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "單場最高派彩必須少於或等於 "
 }
