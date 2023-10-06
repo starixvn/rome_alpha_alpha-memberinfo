@@ -90,7 +90,7 @@
   "agentPT": "ค่าแบ่งสู้ของเอเย่น",
   "minBet-mustBeGreaterThanOrEqualTo": "จำนวนการเดิมพันต่ำสุดต้องมากกว่า หรือเท่ากับ ",
   "minBet-mustBeLessThanOrEqualTo-maxBet": "ค่าเดิมพันขั้นต่ำต้องน้อยกว่าหรือเท่ากับค่าเดิมพันสูงสุด",
-  "maxBet-mustBeGreaterThanOrEqualTo": "最高投注必須大於或等於 ",
+  "maxBet-mustBeGreaterThanOrEqualTo": "Max Bet must be greater than or equal to ",
   "maxBet-mustBeGreaterThanOrEqualTo-minBet": "ค่าการเดิมพันขั้นสูงสุดต้องมากกว่าหรือเท่ากับค่าการเดิมพันขั้นต่ำ",
   "maxBet-mustBeLessThanOrEqualTo": "จำนวนการเดิมพันสูงสุดต้องน้อยกว่า หรือเท่ากับ ",
   "maxBet-mustBeLessThanOrEqualTo-maxPerMatch": "ค่าเดิมพันสูงสุดต้องน้อยกว่าหรือเท่ากับค่าเดิมพันสูงสุดต่อคู่การแข่งขัน",
