@@ -99,7 +99,7 @@
   "maxPerBall-mustBeGreaterThanOrEqualTo-maxBet": "单粒球最高投注必须大于或是等于最高投注。",
   "maxPerBall-mustBeLessThanOrEqualTo": "单粒球最高投注必须少于或相等于 ",
   "maxPerBall-mustBeLessThanOrEqualTo-maxPerMatch": "單粒球最高投注必须少于或等于单场限额",
-  "maxPerMatch-mustBeGreaterThanOrEqualTo": "Max Per Match must be greater than or equal to ",
+  "maxPerMatch-mustBeGreaterThanOrEqualTo": "单场限额必须大于或等于 ",
   "maxPerMatch-mustBeGreaterThanOrEqualTo-maxBet": "单场投注限额必须大于或相等于最高投注限额",
   "maxPerMatch-mustBeGreaterThanOrEqualTo-maxPerBall": "单场限额必须大于或是等于单粒球最高投注。",
   "maxPerMatch-mustBeLessThanOrEqualTo": "单场最高投注需低于或相等于 ",

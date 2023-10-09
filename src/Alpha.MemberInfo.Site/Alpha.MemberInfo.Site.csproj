@@ -654,8 +654,8 @@
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.min.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
-    <Content Include="ClientApp\dist\assets\createAccount-0b32351c.js" />
     <Content Include="ClientApp\dist\assets\createAccount-7aaa218c.css" />
+    <Content Include="ClientApp\dist\assets\createAccount-fdd3e341.js" />
     <Content Include="ClientApp\dist\assets\index-177f47a2.js" />
     <Content Include="ClientApp\dist\assets\index-1ea51596.css" />
     <Content Include="ClientApp\dist\assets\index-2c37083c.js" />
