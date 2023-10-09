@@ -18,7 +18,10 @@
     @StaticResources.RenderStylesWithDarkMode("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
 }
 
-<div class="page-title">@Model.PageTitle</div>
+<div class="page-title">
+    @Model.PageTitle
+    &nbsp;<a href="@userguideLink" target="_blank"><span class="icon icon-information-outline"></span></a>
+</div>
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation">
         @Html.ActionLink(Resources.SearchAndCopy, "Index", "CopyAccount")
