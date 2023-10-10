@@ -673,7 +673,7 @@
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
     <Content Include="ClientApp\dist\assets\createAccount-7aaa218c.css" />
-    <Content Include="ClientApp\dist\assets\createAccount-9cf902d0.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-ab5aeb0d.js" />
     <Content Include="ClientApp\dist\assets\index-177f47a2.js" />
     <Content Include="ClientApp\dist\assets\index-1ea51596.css" />
     <Content Include="ClientApp\dist\assets\index-2c37083c.js" />
@@ -710,13 +710,13 @@
     <Content Include="Features\CopyAccount\bundles\copy-account.min.js">
       <DependentUpon>copy-account.js</DependentUpon>
     </Content>
-    <Content Include="Features\CreateAccount\bundles\quick-introduction.css" />
-    <Content Include="Features\CreateAccount\bundles\quick-introduction.js" />
-    <Content Include="Features\CreateAccount\bundles\quick-introduction.min.css">
-      <DependentUpon>quick-introduction.css</DependentUpon>
+    <Content Include="Features\CreateAccount\bundles\create-account.css" />
+    <Content Include="Features\CreateAccount\bundles\create-account.js" />
+    <Content Include="Features\CreateAccount\bundles\create-account.min.css">
+      <DependentUpon>create-account.css</DependentUpon>
     </Content>
-    <Content Include="Features\CreateAccount\bundles\quick-introduction.min.js">
-      <DependentUpon>quick-introduction.js</DependentUpon>
+    <Content Include="Features\CreateAccount\bundles\create-account.min.js">
+      <DependentUpon>create-account.js</DependentUpon>
     </Content>
     <Content Include="Features\CreateAccount\Styles\quick-introduction.css">
       <DependentUpon>quick-introduction.scss</DependentUpon>

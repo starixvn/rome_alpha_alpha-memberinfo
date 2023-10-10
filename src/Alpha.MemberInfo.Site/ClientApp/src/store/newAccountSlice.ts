@@ -4,6 +4,7 @@ import { StateCreator } from 'zustand';
 import { TransferOptions, UserLevel } from '@/constants';
 import { GeneralInfo, ProductGroup, ProductGroupDict } from '@/types/new-account';
 import { PTTemplate } from '@/types/position-taking';
+import { encrypt } from '@/utils/encryptor';
 
 import createBetSettingSlice, { BetSettingSlice } from './betSettingSlice';
 import { initCommissionState } from './CommissionHandler/commissionHandler';
@@ -122,10 +123,13 @@ const createNewAccountSlice: StateCreator<NewAccountState, [], [], NewAccountSli
 
     const uiHandler = getUIHandler(userLevel, JSON.parse(JSON.stringify(productGroupsDict)));
     const uiSettings = uiHandler?.getCommissionUIs(commissions).getPtUIs(ptSetting).getProductGroupUIs();
+    var secretKey = (document.getElementById('SecretKey') as HTMLInputElement).value;
+    var generalInfo = get().generalInfo;
+    var password = encrypt(generalInfo.password, secretKey);
 
     return {
       uiBehavior: uiSettings as object,
-      generalInfo: get().generalInfo,
+      generalInfo: { ...generalInfo, password },
       productGroups: Object.values(settings),
       templateName: get().selectedPTTemplate ?? '',
     };

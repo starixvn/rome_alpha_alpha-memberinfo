@@ -9,22 +9,34 @@ using Alpha.Web.Filters;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using Sunplus.Agent.Utilities;
+using Alpha.Web.Helpers;
+using Fanex.Cryptography.Aes;
 
 namespace Alpha.MemberInfo.Site.Features.CreateAccount
 {
     public class CreateAccountController : BaseController
     {
+        private const string HashKeySessionKey = "lpha.MemberInfo.Site.Features.CreateAccount.CreateAccountController.PasswordHash";
         private const string IndexPath = "~/Features/CreateAccount/Views/Index.cshtml";
 
         private readonly IUser viewer;
         private readonly Encryptor encryptor;
         private readonly ICreateAccountService createAccountService;
+        private readonly SessionManager sessionManager;
+        private readonly IAesService aesService;
 
-        public CreateAccountController(IUser viewer, Encryptor encryptor, ICreateAccountService createAccountService)
+        public CreateAccountController(
+            IUser viewer, 
+            Encryptor encryptor, 
+            ICreateAccountService createAccountService, 
+            SessionManager sessionManager, 
+            IAesService aesService)
         {
             this.viewer = viewer;
             this.encryptor = encryptor;
             this.createAccountService = createAccountService;
+            this.sessionManager = sessionManager;
+            this.aesService = aesService;
         }
 
         public async Task<ActionResult> Index()
@@ -35,7 +47,15 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
                    viewer.Name,
                    viewer.Language);
 
-            return View(IndexPath, new CreateAccountViewModel(limitNewDownlineResult.IsFailed, limitNewDownlineResult.Message, viewer.LevelId));
+            return View(IndexPath, new CreateAccountViewModel(limitNewDownlineResult.IsFailed, limitNewDownlineResult.Message, viewer.LevelId, GetHashKey()));
+        }
+
+        private string GetHashKey()
+        {
+            var hashKey = encryptor.RandomString(4);
+            sessionManager.Add(HashKeySessionKey, hashKey);
+
+            return hashKey;
         }
 
         [HttpPost, AntiXsrfFilter]
@@ -47,7 +67,8 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
             }
 
             var generalInfo = request.GeneralInfo;
-            generalInfo.Password = encryptor.CfsEnCode(generalInfo.Password);
+            var rawPassword= aesService.Decrypt(generalInfo.Password, sessionManager.Get<string>(HashKeySessionKey));
+            generalInfo.Password = encryptor.CfsEnCode(rawPassword);
             generalInfo.UpLineRoleId = viewer.LevelId;
 
             return Content(await createAccountService.CreateAccount(

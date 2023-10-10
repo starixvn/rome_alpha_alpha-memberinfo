@@ -8,7 +8,7 @@
 
 @section Styles {
     @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/common/common-{Model.CustLevel}")
-    @StaticResources.RenderStyles("~/Features/CreateAccount/bundles/quick-introduction")
+    @StaticResources.RenderStyles("~/Features/CreateAccount/bundles/create-account")
 }
 
 <div class="page-title">
@@ -30,7 +30,7 @@
     }
     <li role="presentation" class="new-function active">
         <a href="javascript:;" aria-controls="home" role="tab" data-toggle="tab">@Resources.LiteMode</a>
-        <span class="bage-new">New</span>
+        <span class="bage-new">@Resources.lblNew</span>
     </li>
 </ul>
 @Html.Action("QuickIntroduction", "Introduction")
@@ -47,6 +47,7 @@
 else
 {
     @Html.AntiForgeryToken()
+    <input type="hidden" id="SecretKey" value="@Model.SecretKey" />
     <div id="root" style="height:100%"></div>
     @section Scripts{
         @if (AppSettings.DevelopmentEnvironment)
@@ -58,9 +59,9 @@ else
         {
             <!-- if production -->
             <link rel="stylesheet" href="~/ClientApp/dist/assets/createAccount-7aaa218c.css" />
-            <script type="module" src="~/ClientApp/dist/assets/createAccount-9cf902d0.js"></script>
+            <script type="module" src="~/ClientApp/dist/assets/createAccount-ab5aeb0d.js"></script>
         }
     }
 }
 @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
-@StaticResources.RenderScripts("~/Features/CreateAccount/bundles/quick-introduction")
+@StaticResources.RenderScripts("~/Features/CreateAccount/bundles/create-account")
