@@ -84,7 +84,6 @@ export default function GeneralInformation() {
 
   const validate = async (value: Partial<GeneralInfo>, field: keyof GeneralInfoErrors) => {
     const result = await validateGeneralInfo({ ...generalInfo, ...value }, t, field);
-    console.log(result);
     const { userName, password, maxCredit, memberMaxCredit } = result;
     if (field === 'userName') setErrors((errors) => ({ ...errors, userName }));
     if (field === 'password') setErrors((errors) => ({ ...errors, password }));

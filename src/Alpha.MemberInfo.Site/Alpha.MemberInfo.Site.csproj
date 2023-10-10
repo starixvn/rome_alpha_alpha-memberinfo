@@ -673,7 +673,7 @@
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
     <Content Include="ClientApp\dist\assets\createAccount-7aaa218c.css" />
-    <Content Include="ClientApp\dist\assets\createAccount-a4d73fde.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-bf057603.js" />
     <Content Include="ClientApp\dist\assets\index-177f47a2.js" />
     <Content Include="ClientApp\dist\assets\index-1ea51596.css" />
     <Content Include="ClientApp\dist\assets\index-2c37083c.js" />
@@ -681,7 +681,7 @@
     <Content Include="ClientApp\dist\assets\productSettingInfo-1dd39522.js" />
     <Content Include="ClientApp\dist\assets\PTSelect-07858f5e.css" />
     <Content Include="ClientApp\dist\assets\PTSelect-49d02cca.js" />
-    <Content Include="ClientApp\dist\assets\ptTemplate-37413b56.js" />
+    <Content Include="ClientApp\dist\assets\ptTemplate-0781ce9c.js" />
     <Content Include="ClientApp\dist\assets\ptTemplate-5f025410.css" />
     <Content Include="ClientApp\dist\images\daily.png" />
     <Content Include="ClientApp\dist\images\icon-select.svg" />

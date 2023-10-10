@@ -71,7 +71,6 @@ export default function PTTemplateTable() {
       if (result.isSuccessful) {
         updateTemplates(templates.filter((template) => template.id !== templateId));
       } else {
-        console.log(result);
         setError(result as SubMessagesResult);
       }
     });

@@ -13,6 +13,7 @@ import Layout from '@/features/Shared/Layout';
 import scrollToElementByClassName from '@/features/Shared/ScrollHelper';
 import useNewAccountStore from '@/store/newAccountStore';
 import { SubMessagesResult } from '@/types';
+import { encrypt } from '@/utils/encryptor';
 
 import ErrorBlock from '../Shared/ErrorBlock';
 import Loader from '../Shared/Loader';
@@ -126,13 +127,11 @@ export default function NewAccount() {
     setError('');
     const { uiBehavior, generalInfo, productGroups, templateName } = getSettings();
     const generalError = await validateGeneralInfo(generalInfo, t);
-    console.log(generalError);
     let validateSuccess = true;
     const { userName, password, maxCredit, memberMaxCredit } = generalError;
     if (userName || password || maxCredit || memberMaxCredit) validateSuccess = false;
 
     const productErrs = validateAllProduct();
-    console.log(productErrs);
     if (productErrs.length > 0) {
       const currentProductId = productId ?? 1;
       if (!productErrs.includes(Number(currentProductId))) {
@@ -150,8 +149,14 @@ export default function NewAccount() {
       return;
     }
 
+    var secretKey = (document.getElementById('SecretKey') as HTMLInputElement).value;
+    var encryptedPassword = encrypt(generalInfo.password, secretKey);
     setBlockSubmit(true);
-    const { data: result } = await createAccount(uiBehavior, { ...generalInfo, templateName }, productGroups);
+    const { data: result } = await createAccount(
+      uiBehavior,
+      { ...generalInfo, password: encryptedPassword, templateName },
+      productGroups,
+    );
     setBlockSubmit(false);
     if (!result.isSuccessful) {
       window.scrollTo(0, 0);
