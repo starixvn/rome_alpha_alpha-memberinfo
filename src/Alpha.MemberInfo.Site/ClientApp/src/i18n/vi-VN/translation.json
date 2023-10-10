@@ -16,7 +16,7 @@
   "memberMaxCreditInvalid": "Hạn mức tín dụng lớn nhất của Member phải từ {{min}} đến {{max}}",
   "accBalanceTransferCondition": "Điều kiện chuyển khoản",
   "usernameIsInvalid": "Tên tài khoản đã được dùng.",
-  "chooseDaily": "Vui lòng chọn 1 ngày trong tuần",
+  "chooseDaily": "Vui lòng chọn Hằng Ngày thay vì toàn bộ 7 ngày.",
   "chooseOneDay": "Chọn ít nhất 1 ngày",
   "daily": "Hằng ngày",
   "weekly": "Hằng tuần",
