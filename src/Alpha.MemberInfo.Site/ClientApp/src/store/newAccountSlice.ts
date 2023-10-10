@@ -126,7 +126,7 @@ const createNewAccountSlice: StateCreator<NewAccountState, [], [], NewAccountSli
     var secretKey = (document.getElementById('SecretKey') as HTMLInputElement).value;
     var generalInfo = get().generalInfo;
     var password = encrypt(generalInfo.password, secretKey);
-
+    console.log(password);
     return {
       uiBehavior: uiSettings as object,
       generalInfo: { ...generalInfo, password },

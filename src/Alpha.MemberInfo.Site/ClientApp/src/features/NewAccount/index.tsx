@@ -126,11 +126,13 @@ export default function NewAccount() {
     setError('');
     const { uiBehavior, generalInfo, productGroups, templateName } = getSettings();
     const generalError = await validateGeneralInfo(generalInfo, t);
+    console.log(generalError);
     let validateSuccess = true;
     const { userName, password, maxCredit, memberMaxCredit } = generalError;
     if (userName || password || maxCredit || memberMaxCredit) validateSuccess = false;
 
     const productErrs = validateAllProduct();
+    console.log(productErrs);
     if (productErrs.length > 0) {
       const currentProductId = productId ?? 1;
       if (!productErrs.includes(Number(currentProductId))) {
