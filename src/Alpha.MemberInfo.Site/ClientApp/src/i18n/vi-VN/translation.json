@@ -100,7 +100,7 @@
   "maxPerBall-mustBeLessThanOrEqualTo": "Tiền cược tối đa cho mỗi lượt banh phải ít hơn hoặc bằng ",
   "maxPerBall-mustBeLessThanOrEqualTo-maxPerMatch": "Tiền Cược Tối Đa Cho 1 Lượt Banh phải nhỏ hơn hoặc bằng Tiền Cược Tối Đa Cho 1 Trận",
   "maxPerMatch-mustBeGreaterThanOrEqualTo": "Tiền Cược Tối Đa Cho 1 Trận phải lớn hơn hoặc bằng ",
-  "maxPerMatch-mustBeGreaterThanOrEqualTo-maxBet": "Max Per Match must be greater than or equal to Max Bet",
+  "maxPerMatch-mustBeGreaterThanOrEqualTo-maxBet": "Tiền Cược Tối Đa Cho 1 Trận phải lớn hơn hoặc bằng Tiền Cược Lớn Nhất",
   "maxPerMatch-mustBeGreaterThanOrEqualTo-maxPerBall": "Tiền Cược Tối Đa Cho 1 Trận phải lớn hơn hoặc bằng Tiền Cược Tối Đa Cho 1 Lượt Banh",
   "maxPerMatch-mustBeLessThanOrEqualTo": "Tiền cược tối đa cho mỗi trận phài ít hơn hoặc bằng ",
   "maxPerMatch-mustBeLessThanOrEqualTo-maxPayoutPerMatch": "Cược Tối Đa Cho 1 Trận phải nhỏ hơn hoặc bằng Thanh Toán Tối Đa Mỗi Trận",
