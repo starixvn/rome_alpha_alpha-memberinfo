@@ -1,4 +1,4 @@
-import {Fragment} from 'react';
+import { Fragment } from 'react';
 
 import { SubMessagesResult } from '@/types';
 
@@ -8,7 +8,7 @@ export default function ErrorBlock({ error }: { error: SubMessagesResult }) {
   return (
     <div className={styles.container}>
       <div className="msg msg-error">
-        {error.message}
+        {error.message ?? error.ErrMsg}
         {error.subMessages?.length > 0 &&
           error.subMessages.map((subMsg) => (
             <Fragment key={subMsg}>
