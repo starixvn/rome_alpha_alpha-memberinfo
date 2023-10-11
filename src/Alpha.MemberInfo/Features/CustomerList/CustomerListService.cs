@@ -6,6 +6,7 @@
     using Alpha.MemberInfo.Features.CustomerList.Criteria;
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.CustomerList.SPs.Criteria;
+    using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
