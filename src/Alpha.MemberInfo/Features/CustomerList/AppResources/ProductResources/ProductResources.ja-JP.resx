@@ -420,6 +420,9 @@
   <data name="YesterdayCash" xml:space="preserve">
     <value>Yesterday Cash</value>
   </data>
+  <data name="EditMultipleSportsbook2Text" xml:space="preserve">
+    <value>Edit Multiple Sportsbook 2</value>
+  </data>
   <data name="EditMultipleSportsbookText" xml:space="preserve">
     <value>Edit Multiple Sportsbook</value>
   </data>
