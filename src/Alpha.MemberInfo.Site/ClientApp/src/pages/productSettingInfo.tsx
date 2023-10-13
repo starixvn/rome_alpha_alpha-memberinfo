@@ -4,12 +4,11 @@ import '../i18n/product-setting-info';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
 
-import productSettingInfoRouter from '@/routers/productSettingInfoRouter';
+import ProductSettingInfo from '@/features/ProductSettingInfo';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={productSettingInfoRouter} />
+    <ProductSettingInfo />
   </React.StrictMode>,
 );

@@ -12,17 +12,17 @@
       "_index-3b99c97c.js"
     ]
   },
+  "_index-2b8daad0.js": {
+    "file": "assets/index-2b8daad0.js",
+    "imports": [
+      "_index-3b99c97c.js"
+    ]
+  },
   "_index-3b99c97c.js": {
     "css": [
       "assets/index-1ea51596.css"
     ],
     "file": "assets/index-3b99c97c.js"
-  },
-  "_index-b3500316.js": {
-    "file": "assets/index-b3500316.js",
-    "imports": [
-      "_index-3b99c97c.js"
-    ]
   },
   "index.css": {
     "file": "assets/index-1ea51596.css",
@@ -36,10 +36,10 @@
     "css": [
       "assets/createAccount-7aaa218c.css"
     ],
-    "file": "assets/createAccount-6701bb21.js",
+    "file": "assets/createAccount-0f50fb9b.js",
     "imports": [
       "_index-3b99c97c.js",
-      "_index-b3500316.js",
+      "_index-2b8daad0.js",
       "_PTSelect-817ba81e.js"
     ],
     "isEntry": true,
@@ -53,10 +53,10 @@
     "css": [
       "assets/productSettingInfo-19dc73f6.css"
     ],
-    "file": "assets/productSettingInfo-33a912f4.js",
+    "file": "assets/productSettingInfo-0a274c5d.js",
     "imports": [
       "_index-3b99c97c.js",
-      "_index-b3500316.js"
+      "_index-2b8daad0.js"
     ],
     "isEntry": true,
     "src": "src/pages/productSettingInfo.tsx"

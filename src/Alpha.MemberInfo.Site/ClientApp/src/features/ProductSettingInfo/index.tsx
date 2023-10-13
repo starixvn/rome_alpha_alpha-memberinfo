@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { siteMemberInfoUrl } from '@/constants';
+import ProductSettingInfoLayout from '@/features/ProductSettingInfo/ProductSettingInfoLayout';
+
 import styles from './ProductSettingInfo.module.scss';
 import ProductSettingInformationTable from './ProductSettingInformationTable';
 import SettingRemarksMarketBuilder from './SettingRemarksMarket';
 import { ProductSetting } from './type';
-import ProductSettingInfoLayout from '@/features/ProductSettingInfo/ProductSettingInfoLayout';
 
 type ProductSettingInfoResponse = {
   ProductSettingInfo: ProductSetting[];
@@ -16,15 +18,14 @@ type ProductSettingInfoResponse = {
   ShowRNGKenoNumberGame: boolean;
 };
 
-const getProductsInformationSetting = async (url: string) =>
-  axios.get<ProductSettingInfoResponse>(`${url}/GetProductSettingInfo`);
-
 export default function ProductSettingInfo() {
-  const { pathname } = useLocation();
   const [data, setData] = useState<ProductSettingInfoResponse>();
   const { t } = useTranslation();
   useEffect(() => {
-    getProductsInformationSetting(pathname)
+    const productSettingInfoUrl = (document.getElementById('productSettingInfoUrl') as HTMLInputElement).value;
+    const getProductsInformationSetting = async () =>
+      axios.get<ProductSettingInfoResponse>(`${productSettingInfoUrl}/GetProductSettingInfo`);
+    getProductsInformationSetting()
       .then(async (response) => {
         const productsInformationData = response.data;
         setData(productsInformationData);
@@ -32,7 +33,7 @@ export default function ProductSettingInfo() {
       .catch(() => {
         setData(undefined);
       });
-  }, [pathname]);
+  }, []);
 
   if (!data) {
     return <div />;
