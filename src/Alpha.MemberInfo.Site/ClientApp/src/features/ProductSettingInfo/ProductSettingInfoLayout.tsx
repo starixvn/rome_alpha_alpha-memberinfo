@@ -1,12 +1,11 @@
 import i18next, { changeLanguage } from 'i18next';
 import { ReactNode, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 interface IProps {
   children: ReactNode;
 }
 export default function ProductSettingInfoLayout({ children }: IProps) {
-  const [searchParams] = useSearchParams();
+  const searchParams = new URLSearchParams(document.location.search);
   const [theme, setTheme] = useState('light');
   useEffect(() => {
     const newState = searchParams.get('theme') === 'light' ? 'light' : 'dark';
