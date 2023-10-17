@@ -1,5 +1,8 @@
-﻿using Alpha.MemberInfo.Models;
+﻿using Alpha.MemberInfo.AppResources;
+using Alpha.MemberInfo.Configurations;
+using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Request;
+using Sentry.Protocol;
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
 {
@@ -14,12 +17,17 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
             FirstChar = UsernameSuffix.Substring(0, 1).ToUpper();
             SecondChar = UsernameSuffix.Substring(1, 1).ToUpper();
             ThirdChar = request.ActorLevel.IsAgentLevel() ? UsernameSuffix.Substring(2, 1).ToUpper() : string.Empty;
+            Language = request.Language;
+            IsDarkMode = request.IsDarkMode;
         }
 
-        public CopyAccountViewModel(bool isLimitNewDownline, string errorMessage)
+        public CopyAccountViewModel(bool isLimitNewDownline, string errorMessage, CopyAccountQuery request)
         {
             IsLimitNewDownline = isLimitNewDownline;
             ErrorMessage = errorMessage;
+            ActorLevel = request.ActorLevel;
+            Language = request.Language;
+            IsDarkMode = request.IsDarkMode;
         }
 
         public UserLevel ActorLevel { get; }
@@ -45,5 +53,15 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
         public bool IsLimitNewDownline { get; }
 
         public string HashKey { get; }
+
+        public bool IsCreateMember => ActorLevel.IsAgentLevel();
+
+        public string PageTitle => ActorLevel.IsSuperLevel() ? Resources.AddNewMaster : (ActorLevel.IsMasterLevel() ? Resources.AddNewAgent : Resources.AddNewMember);
+
+        public string Language { get; }
+
+        public bool IsDarkMode { get; }
+
+        public bool IsOfferLiteMode => AppSettings.IsOfferCreateAccountLiteMode;
     }
 }

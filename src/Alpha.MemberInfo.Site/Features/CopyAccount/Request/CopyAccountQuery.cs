@@ -7,7 +7,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.Request
 {
     public class CopyAccountQuery : MemberInfoBaseQuery, IAsyncRequest<CopyAccountViewModel>
     {
-        public CopyAccountQuery(IUser viewer) 
+        public CopyAccountQuery(IUser viewer)
             : base(viewer)
         {
         }

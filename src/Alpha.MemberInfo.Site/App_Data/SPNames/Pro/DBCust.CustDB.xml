@@ -113,4 +113,8 @@
   <Function Name="Partial UM">
     <Setting Key="Acc_CheckUM_ByReport" SpName="Acc_CheckUM_ByReport" DbName="DBCust.CustDB.BODBDownlineNet" Plain="0" />
   </Function>
+
+  <Function Name="Create Account">
+    <Setting Key="Acc_LiteMode_CustSetting_ProductListInfoSel" SpName="Acc_LiteMode_CustSetting_ProductListInfoSel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+  </Function>
 </Functions>

@@ -423,4 +423,7 @@
   <data name="EditMutipleSetting" xml:space="preserve">
     <value>Edit Multiple Setting</value>
   </data>
+  <data name="lblNew" xml:space="preserve">
+    <value>새로운</value>
+  </data>
 </root>

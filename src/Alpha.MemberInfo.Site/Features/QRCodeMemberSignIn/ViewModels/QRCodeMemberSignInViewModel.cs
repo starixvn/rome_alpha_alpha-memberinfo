@@ -1,25 +1,30 @@
-﻿using Alpha.Web.Helpers;
+﻿using Alpha.MemberInfo.AppResources;
+using Alpha.MemberInfo.Configurations;
+using Alpha.MemberInfo.Models;
+using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
+using Alpha.Web.Helpers;
 
 namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
 {
     public class QRCodeMemberSignInViewModel
     {
         public QRCodeMemberSignInViewModel(
-            string memberNameCopyFrom, 
-            string actorName,
-            decimal credit, 
+            QRCodeMemberSignInRequest request,
             string memberNameSuffix,
-            bool showPageTitle,
-            string errorMessage,
             bool onlyShowErrorMessage)
         {
-            MemberNameCopyFrom = memberNameCopyFrom;
-            ActorName = actorName;
-            ErrorMessage = errorMessage;
-            Credit = credit;
-            ShowPageTitle = showPageTitle;
+            MemberNameCopyFrom = request.MemberName;
+            ActorName = request.CustName;
+            ErrorMessage = request.ErrorMessage;
+            Credit = request.Credit;
             MemberNameSuffix = memberNameSuffix;
             OnlyShowErrorMessage = onlyShowErrorMessage;
+            CustLevel = request.CustLevel.DisplayName.ToLowerInvariant();
+            PageTitle = request.CustLevel.IsSuperLevel()
+                ? Resources.AddNewMaster
+                : (request.CustLevel.IsMasterLevel() ? Resources.AddNewAgent : Resources.AddNewMember);
+            Language = request.Language;
+            IsDarkMode = request.IsDarkMode;
         }
 
         public string MemberNameCopyFrom { get; }
@@ -42,13 +47,21 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
 
         public string FirstChar => MemberNameSuffix.Substring(0, 1).ToUpper();
 
-        public bool ShowPageTitle { get; }
-
         public string ErrorMessage { get; }
 
-        public string ShowQRCodeLink 
+        public string ShowQRCodeLink
             => $"{MicroSites.MemberInfoUrl()}QRCodeMemberSignIn/ShowQRCode";
 
         public bool OnlyShowErrorMessage { get; }
+
+        public string CustLevel { get; }
+
+        public string PageTitle { get; }
+
+        public string Language { get; }
+
+        public bool IsDarkMode { get; }
+
+        public bool IsOfferLiteMode => AppSettings.IsOfferCreateAccountLiteMode;
     }
 }

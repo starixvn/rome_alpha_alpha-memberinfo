@@ -65,13 +65,9 @@
             service.GetSuggestUsername(Arg.Any<string>(), Arg.Any<int>()).Returns("Suggestion Name");
 
             var expectedViewModel = new QRCodeMemberSignInViewModel(
-                message.MemberName,
-                message.CustName,
-                message.Credit,
+                message,
                 "Suggestion Name",
-                false,
-                null,
-                false);
+                true);
 
             // Act
             var actualViewModel = handler.Handle(message);

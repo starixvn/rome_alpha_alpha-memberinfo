@@ -49,7 +49,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
 
             if (limitNewDownlineResult.IsFailed)
             {
-                return new CopyAccountViewModel(true, limitNewDownlineResult.Message);
+                return new CopyAccountViewModel(true, limitNewDownlineResult.Message, message);
             }
 
             return new CopyAccountViewModel(

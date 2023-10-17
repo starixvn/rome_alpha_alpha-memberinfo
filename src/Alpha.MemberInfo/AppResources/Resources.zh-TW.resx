@@ -546,9 +546,6 @@
   <data name="DormantAccountList" xml:space="preserve">
     <value>不活躍賬號名單</value>
   </data>
-  <data name="LastActionDate" xml:space="preserve">
-    <value>Last Action Date</value>
-  </data>
   <data name="DeletedSettings" xml:space="preserve">
     <value>刪除設定</value>
   </data>
@@ -990,10 +987,65 @@
   <data name="BBINNote" xml:space="preserve">
     <value>注意：BBIN"贏數額巴仙"的欄位顯示&lt;b&gt;"N/A"&lt;/b&gt; 的意思是最高的贏數額不適用於BBIN的產品。</value>
   </data>
+  <data name="AddNewMaster" xml:space="preserve">
+    <value>新增總代理</value>
+  </data>
+  <data name="AddNewAgent" xml:space="preserve">
+    <value>新增代理</value>
+  </data>
+  <data name="AddNewMember" xml:space="preserve">
+    <value>增加会员</value>
+  </data>
+  <data name="SearchAndCopy" xml:space="preserve">
+    <value>搜索与複製</value>
+  </data>
+  <data name="FullMode" xml:space="preserve">
+    <value>完全版</value>
+  </data>
+  <data name="QRCode" xml:space="preserve">
+    <value>二維碼</value>
+  </data>
+  <data name="lblNew" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="QuickIntro_Title_Confirm" xml:space="preserve">
+    <value>現在開始</value>
+  </data>
+  <data name="QuickIntro_Title_NotNow" xml:space="preserve">
+    <value>不是現在</value>
+  </data>
+  <data name="QuickIntro_Note" xml:space="preserve">
+    <value>*請注意，精簡模式將相同的佔成數應用於指定組內的所有產品/體育。 如果您只要每種產品/體育運動有不同的佔成數，請切換到完全版</value>
+  </data>
+  <data name="QuickIntro_Popup_3" xml:space="preserve">
+    <value>優化佔成數配置使流程更快、更集中的透過選擇設定佔成數模板數值到產品群組。</value>
+  </data>
+  <data name="QuickIntro_Title" xml:space="preserve">
+    <value>讓我們快速瀏覽精簡模式</value>
+  </data>
+  <data name="QuickIntro_Title_Content" xml:space="preserve">
+    <value>體驗最快、最集中的創建帳號過程。</value>
+  </data>
+  <data name="PTTemplate" xml:space="preserve">
+    <value>佔成數模板</value>
+  </data>
+  <data name="QuickIntro_Popup_1" xml:space="preserve">
+    <value>讓我們通過瀏覽來發現有關此功能所有令人興奮的事情！</value>
+  </data>
+  <data name="QuickIntro_Popup_2" xml:space="preserve">
+    <value>它從一個新的、直觀的目錄開始。</value>
+  </data>
+  <data name="LiteMode" xml:space="preserve">
+    <value>精簡模式</value>
+  </data>
   <data name="ADBTOnError" xml:space="preserve">
     <value>由於上線已為您啟用全天餘額轉賬，所以您無法使用自動轉賬。頁面將會自動刷新。</value>
   </data>
   <data name="ADBTOffError" xml:space="preserve">
     <value>由於上線已為您禁用全天餘額轉賬，所以您可以使用自動轉賬。頁面將會自動刷新。</value>
+  </data>
+  <data name="PageOf" xml:space="preserve">
+    <value>第 {0} 頁 共 {1} 頁
+</value>
   </data>
 </root>

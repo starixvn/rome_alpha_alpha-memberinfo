@@ -14,15 +14,32 @@
 }
 @section Styles {
     @Html.Stylesheet()
+    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/common/common-{Model.CustLevel}")
     @StaticResources.RenderStylesWithDarkMode("~/Features/QRCodeMemberSignIn/Bundles/qr-code-member-sign-in")
 }
-@if (Model.ShowPageTitle)
-{
-    <div class="page-title">
-        <span class="pull-left">@Resources.CreateMemberWithQRCode</span>
-        &nbsp;<a href="@userguideLink" target="_blank"><span class="icon icon-information-outline"></span></a>
-    </div>
-}
+
+<div class="page-title">
+    @Model.PageTitle
+    &nbsp;<a href="@userguideLink" target="_blank"><span class="icon icon-information-outline"></span></a>
+</div>
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation">
+        @Html.ActionLink(Resources.SearchAndCopy, "Index", "CopyAccount")
+    </li>
+    <li role="presentation">
+        <a href="@MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx")" role="tab" data-toggle="tab">@Resources.FullMode</a>
+    </li>
+    <li role="presentation" class="has-icon active">
+        <a href="javascript:;" aria-controls="home" role="tab" data-toggle="tab">@Resources.QRCode</a>
+    </li>
+    @if (Model.IsOfferLiteMode)
+    {
+        <li role="presentation" class="new-function">
+            @Html.ActionLink(Resources.LiteMode, "Index", "CreateAccount", new { lng = Model.Language, isDarkMode = Model.IsDarkMode.ToString().ToLowerInvariant() }, null)
+            <span class="bage-new">@Resources.lblNew</span>
+        </li>
+    }
+</ul>
 @if (Model.OnlyShowErrorMessage)
 {
     <div class="@errorMessageClass">
@@ -83,7 +100,6 @@ else
         <input type="hidden" id="MemberAccountIsInvalid" value="@Resources.MemberAccountIsInvalid" />
         <input type="hidden" id="UsernameIsInvalid" value="@Resources.UsernameIsInvalid" />
         <input type="hidden" id="CannotCreateClosedMemberQRCode" value="@Resources.CannotCreateClosedMemberQRCode" />
-        @Html.HiddenFor(m => m.ShowPageTitle)
         @Html.HiddenFor(m => m.MemberNameCopyFrom)
         @Html.HiddenFor(m => m.ShowQRCodeLink)
         <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />

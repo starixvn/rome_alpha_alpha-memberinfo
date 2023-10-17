@@ -261,6 +261,8 @@
     <Compile Include="Constants\CloseReasonConstants.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
+    <Compile Include="Constants\ProductGroupConstants.cs" />
+    <Compile Include="Constants\ProductSubGroupConstants.cs" />
     <Compile Include="Constants\ReachedThresholdLimitTypeConstants.cs" />
     <Compile Include="Constants\LockedAccessConstant.cs" />
     <Compile Include="Constants\NonDcsProduct.cs" />
@@ -306,8 +308,12 @@
     <Compile Include="DataAccesses\WinLossLimitDataAccess.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\HttpClientExtensions.cs" />
     <Compile Include="Extensions\NumberExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Features\CreateAccount\Criteria\ProductSettingInfoCriteria.cs" />
+    <Compile Include="Features\CreateAccount\Models\ProductSettingInfoModel.cs" />
+    <Compile Include="Features\CreateAccount\ProductSettingInfoService.cs" />
     <Compile Include="Features\CustomerList\AppResources\CustomerListResources\CustomerListResources.Designer.cs">
       <DependentUpon>CustomerListResources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -425,6 +431,7 @@
     <Compile Include="Features\QRCodeMemberSignIn\Models\SelectRnGStatusModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\CreditAndStatusModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\ResultCreateMemberQRCode.cs" />
+    <Compile Include="Features\Shared\CustomerService.cs" />
     <Compile Include="Features\Shared\Models\BelongingInfo.cs" />
     <Compile Include="Features\Shared\Models\CustInfo.cs" />
     <Compile Include="Features\Shared\Models\StatusNames.cs" />
@@ -588,7 +595,6 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.22.0.31243\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.22.0.31243\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

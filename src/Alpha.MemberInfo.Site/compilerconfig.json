@@ -142,5 +142,9 @@
   {
     "outputFile": "Features/CopyAccount/Assets/Styles/copy-account-dark.css",
     "inputFile": "Features/CopyAccount/Assets/Styles/copy-account-dark.scss"
+  },
+  {
+    "outputFile": "Features/CreateAccount/Styles/quick-introduction.css",
+    "inputFile": "Features/CreateAccount/Styles/quick-introduction.scss"
   }
 ]

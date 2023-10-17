@@ -70,13 +70,9 @@
             }
 
             return new QRCodeMemberSignInViewModel(
-                   message.MemberName,
-                   message.CustName,
-                   message.Credit,
-                   qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId),
-                   message.ShowPageTitle,
-                   message.ErrorMessage,
-                   onlyShowErrorMessage);
+                message,
+                qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId),
+                onlyShowErrorMessage);
         }
 
         public async Task<ResultCreateMemberQRCode> Handle(CreateAccountByQRCodeRequest message)
@@ -178,7 +174,7 @@
                         config.Domains[0],
                         config.SiteId,
                         message.SearchAccountName,
-                        config.ExpireSeconds);                
+                        config.ExpireSeconds);
 
                 return new ShowQRCodeViewModel(
                     message.Credit,
@@ -191,7 +187,7 @@
                     qrCodeAdapter.Generate(link),
                     config.Domains,
                     message.CreateMode,
-                    message.ShowPageTitle,                   
+                    message.ShowPageTitle,
                     rawPassword);
             }
 
