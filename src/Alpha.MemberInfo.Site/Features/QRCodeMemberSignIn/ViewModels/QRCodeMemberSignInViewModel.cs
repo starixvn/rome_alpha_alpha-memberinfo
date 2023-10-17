@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
             Credit = request.Credit;
             MemberNameSuffix = memberNameSuffix;
             OnlyShowErrorMessage = onlyShowErrorMessage;
-            CustLevel = request.CustLevel.DisplayName.ToLowerInvariant();
+            CustLevel = request.CustLevel.DisplayName;
             PageTitle = request.CustLevel.IsSuperLevel()
                 ? Resources.AddNewMaster
                 : (request.CustLevel.IsMasterLevel() ? Resources.AddNewAgent : Resources.AddNewMember);

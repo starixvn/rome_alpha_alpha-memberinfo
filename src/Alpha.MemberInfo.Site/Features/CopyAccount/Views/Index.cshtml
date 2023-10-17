@@ -8,7 +8,7 @@
         MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179159");
 }
 @section Styles {
-    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/common/common-{Model.ActorLevel.DisplayName.ToLowerInvariant()}")
+    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/common/common-{Model.ActorLevel.DisplayName}")
     @StaticResources.RenderStylesWithDarkMode("~/Features/CopyAccount/Bundles/copy-account")
 }
 
