@@ -157,7 +157,7 @@
             {
                 var currentSession = UserSession.Current;
                 var cookieNameCurrentPage = GetCookieNameOfCurrentPage(currentSession.CustId, currentSession.SubAccId, Encryption.PearsonEncode);
-                cookieless = $"/(S({HttpContext.Current.Request.Cookies[$"{cookieNameCurrentPage}-betlist-{HttpContext.Current.Session.SessionID}"].Value}))";
+                cookieless = $"/(S({HttpContext.Current.Request.Cookies[$"DFFKDHFJKLDHFJDH-betlist-{HttpContext.Current.Session.SessionID}"].Value}))";
             }
 
             return $"{betlistDomain}{cookieless}{virtualPath?.Replace("~", string.Empty)}";
