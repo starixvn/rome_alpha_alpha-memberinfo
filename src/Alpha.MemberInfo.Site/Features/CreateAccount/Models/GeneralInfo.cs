@@ -7,7 +7,7 @@
         public int UpLineRoleId { get; set; }
 
         public string Password { get; set; }
-    
+
         public string Firstname { get; set; }
 
         public string LastName { get; set; }
@@ -29,6 +29,8 @@
         public bool IsAutomateTransfer { get; set; }
 
         public string Site { get; set; }
+
+        public string SiteLabel { get; set; }
 
         public string Group { get; set; }
 

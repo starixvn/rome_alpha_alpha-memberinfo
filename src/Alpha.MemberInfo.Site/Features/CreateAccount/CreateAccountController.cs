@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using Sunplus.Agent.Utilities;
 using Alpha.Web.Helpers;
 using Fanex.Cryptography.Aes;
+using Alpha.MemberInfo.Configurations;
 
 namespace Alpha.MemberInfo.Site.Features.CreateAccount
 {
@@ -26,10 +27,10 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
         private readonly IAesService aesService;
 
         public CreateAccountController(
-            IUser viewer, 
-            Encryptor encryptor, 
-            ICreateAccountService createAccountService, 
-            SessionManager sessionManager, 
+            IUser viewer,
+            Encryptor encryptor,
+            ICreateAccountService createAccountService,
+            SessionManager sessionManager,
             IAesService aesService)
         {
             this.viewer = viewer;
@@ -67,9 +68,11 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
             }
 
             var generalInfo = request.GeneralInfo;
-            var rawPassword= aesService.Decrypt(generalInfo.Password, sessionManager.Get<string>(HashKeySessionKey));
+            var rawPassword = aesService.Decrypt(generalInfo.Password, sessionManager.Get<string>(HashKeySessionKey));
             generalInfo.Password = encryptor.CfsEnCode(rawPassword);
             generalInfo.UpLineRoleId = viewer.LevelId;
+            generalInfo.Site = viewer.Site;
+            generalInfo.SiteLabel = AppSettings.SiteLabel;
 
             return Content(await createAccountService.CreateAccount(
                 viewer.Id,
