@@ -65,13 +65,8 @@ class ProblemAccount {
     }
 }
 
-
-
 $(() => {
-
     const popup = new ProblemAccountPopup($, window.top);
-
-    const problemAccount = new ProblemAccount($, window.top,  popup);
-
+    const problemAccount = new ProblemAccount($, window.top, popup);
     problemAccount.init();
 });

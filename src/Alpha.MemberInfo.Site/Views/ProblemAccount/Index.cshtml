@@ -127,7 +127,7 @@
             {
                 <div class="form-group">
                     <label>@level.GetDirectUplineLevel().DisplayName</label>
-                    <input id="@($"txt-uplinename-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="text" value="" />
+                    <input id="@($"txt-uplinename-{level.GetDirectUplineLevel().DisplayName.ToLower()}")" class="control txt-username-nickname" type="text" value="" autocomplete="off" />
                 </div>
             }
 
@@ -213,15 +213,10 @@
 
 @helper RenderCheckAll(UserLevel level)
 {
-
     if (Model.Query.CustLevel.IsNotAgentLevel())
     {
-        var levelName = level.DisplayName.ToLower();
-        <div class="pull-right checkall-section">
-            @Resources.Select:
-            <a href="#" id="chkAll-@(levelName)">@Resources.All</a>
-            |
-            <a href="#" id="chkNone-@(levelName)" onclick="CheckAll_onClick(false);">@Resources.None</a>
+        <div class="checkall-section">
+            <button type="button" class="btn-submit" data-placement="right" title="@Resources.MarkMultipleAsReviewed" id="btn-markReviewed-@level.DisplayName.ToLower()" disabled>@Resources.MarkAsReviewed</button>
         </div>
     }
 }
@@ -230,18 +225,18 @@
     var levelName = level.DisplayName.ToLower();
     var columns = new[]
     {
-new { Text = "#", ClassName = "", Show = true},
-new { Text = "<input type='checkbox' class='select-all' id='select-all'/>", ClassName = "", Show = Model.Query.CustLevel.IsAgentLevel() && Model.CanUpdateAccount},
-new { Text = "<div class='edit-multiple icon-table-edit' id='edit-multiple' data-url='' title='"+@Resources.EditMutipleSetting+"'>", ClassName = "", Show = Model.Query.CustLevel.IsAgentLevel() && Model.CanUpdateAccount},
-new { Text = Resources.Username, ClassName = "", Show = true},
-new { Text = Resources.Nickname, ClassName = "", Show = Model.Query.CustLevel.GetDirectDownLineLevel().Is(level)},
-new { Text = Resources.FirstName, ClassName = "", Show = true},
-new { Text = Resources.LastName, ClassName = "", Show = true},
-new { Text = Resources.Status, ClassName = string.Empty, Show = true},
-new { Text = Resources.DateNotified, ClassName = "", Show = true},
-new { Text = level.IsMasterLevel()?Resources.ProblemAgentAccounts:Resources.ProblemMemberAccounts, ClassName = "", Show = !level.IsMemberLevel()},
-new { Text = Resources.ReviewStatus, ClassName = "", Show = true}
-}.ToList();
+        new { Text = "#", ClassName = string.Empty, Show = true },
+        new { Text = $"<input type='checkbox' class='select-all' id='select-all-{levelName}'/>", ClassName = string.Empty, Show = Model.CanUpdateAccount },
+        new { Text = "<div class='edit-multiple icon-table-edit' id='edit-multiple' data-url='' title='"+@Resources.EditMutipleSetting+"'>", ClassName = string.Empty, Show = Model.Query.CustLevel.IsAgentLevel() && Model.CanUpdateAccount },
+        new { Text = Resources.Username, ClassName = string.Empty, Show = true },
+        new { Text = Resources.Nickname, ClassName = string.Empty, Show = Model.Query.CustLevel.GetDirectDownLineLevel().Is(level) },
+        new { Text = Resources.FirstName, ClassName = string.Empty, Show = true },
+        new { Text = Resources.LastName, ClassName = string.Empty, Show = true },
+        new { Text = Resources.Status, ClassName = string.Empty, Show = true },
+        new { Text = Resources.DateNotified, ClassName = string.Empty, Show = true },
+        new { Text = level.IsMasterLevel()?Resources.ProblemAgentAccounts:Resources.ProblemMemberAccounts, ClassName = string.Empty, Show = !level.IsMemberLevel() },
+        new { Text = Resources.ReviewStatus, ClassName = string.Empty, Show = true }
+    };
 
 <div id="@($"container-{levelName}")">
     <table id="@($"tbl-{levelName}")" class="tblRpt tblRpt-bordered alternative-row-table width-100per tablesorter tblRpt-hover @($"level-{levelName}")">
@@ -253,10 +248,6 @@ new { Text = Resources.ReviewStatus, ClassName = "", Show = true}
                     {
                         <th class="@column.ClassName">@Html.Raw(column.Text)</th>
                     }
-                }
-                @if (Model.Query.CustLevel.IsNotAgentLevel())
-                {
-                    <th><span class="icon-review-user update-@levelName" title="@Resources.MarkAsReviewed"></span></th>
                 }
             </tr>
         </thead>

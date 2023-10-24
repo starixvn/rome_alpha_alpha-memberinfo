@@ -40,6 +40,22 @@
         font-weight: bold;
         text-decoration: none;
     }
+
+    .tooltip {
+        border: 0;
+        background: transparent;
+
+        &.right .tooltip-arrow {
+            border-right-color: #333333;
+        }
+    }
+
+    .tooltip-inner {
+        white-space: nowrap;
+        max-width: inherit;
+        background-color: #333333;
+        padding: 7px 10px;
+    }
 }
 
 #tbl-report thead th {
@@ -248,4 +264,18 @@ button {
 
 #edit-popup ul li.Disable_edit:before, #status-popup ol li.Disable_edit:before {
     color: #bbb !important;
+}
+// dropdown
+.dropdown-menu {
+    padding: 0;
+
+    li {
+        a {
+            padding: 0;
+
+            label.radio {
+                display: block;
+            }
+        }
+    }
 }
