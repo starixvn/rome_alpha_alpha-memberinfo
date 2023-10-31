@@ -1,6 +1,8 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting.ViewModels.Products
 {
+    using Alpha.Products.AccountInfo.Helpers;
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.AccountInfo.Services;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
     using System.Collections.Generic;
     using Alpha.Web.Helpers;
@@ -8,22 +10,35 @@
     public class AutoTransferMultipleViewModel : SettingItemViewModel, ISettingItemMultipleViewModel
     {
         private new const int DisplayOrder = 1005;
+        private readonly AccountService accountService;
 
-        public AutoTransferMultipleViewModel(ISearchAccountInfoRequest request) : base(request, DisplayOrder)
+        public AutoTransferMultipleViewModel(ISearchAccountInfoRequest request, AccountService accountService) : base(request, DisplayOrder)
         {
+            this.accountService = accountService;
         }
 
         public override string Text => Request.GetResource("EditMultipleAutoTransferText");
 
         protected override string BaseAddress
-            => MicroSites.TransferUrl("~/AutoTransfer/UpdateMultiple");
+            => MicroSites.TransferUrl("~/AutoTransfer/UpdateMultipleAutoTransfer");
 
         public override Dictionary<string, string> QueryStringParamaters
-              => new Dictionary<string, string>
-              {
-                  ["SearchAccountIds"] = Request.GetData<string>("customerIds"),
-                  ["Usernames"] = Request.GetData<string>("usernames"),
-                  ["SearchAccountRoleId"] = SearchAccount.CusomerLevelValue.ToString()
-              };
+        {
+            get
+            {
+                var condition = accountService.GetTransferOption(SearchAccount.Upline.Id, SearchAccount.Upline.CusomerLevelValue);
+
+                return new Dictionary<string, string>
+                {
+                    ["SearchAccountIds"] = Request.GetData<string>("customerIds"),
+                    ["Usernames"] = Request.GetData<string>("usernames"),
+                    ["SearchAccountRoleId"] = SearchAccount.CusomerLevelValue.ToString(),
+                    ["Func"] = "UpdateMultipleAutoTransfer",
+                    ["UplineCondition"] = string.Join(",", TransferConditionHelper.GetTransferrableDatesFromCondition(condition)),
+                    ["Func"] = "UpdateMultipleAutoTransfer",
+                    ["Old_TransferOption"] = condition,
+                };
+            }
+        }
     }
 }

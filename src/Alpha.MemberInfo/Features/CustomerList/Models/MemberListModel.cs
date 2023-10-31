@@ -39,7 +39,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          decimal discount,
          decimal playerDiscountMyanmarOdds,
          decimal adiscountMyanmarOdds,
-         byte locked)
+         byte locked,
+         bool autoTransfer)
             : base(custId,
             username,
             roleId,
@@ -64,7 +65,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             disableOutright,
             discountCS,
             discount1x2,
-            locked)
+            locked,
+            autoTransfer)
         {
             PlayerDiscount = playerDiscount;
             PlayerDiscountCS = playerDiscountCS;

@@ -39,6 +39,9 @@ class CustomerListPopup {
         };
 
         const params = this.$(currentTarget).data("params");
+        if (params.Func === 'UpdateMultipleAutoTransfer') {
+            this.getUpdateMultipleAutoTransferParams(params);
+        }
 
         this.$productIframeForm.empty();
 
@@ -223,5 +226,32 @@ class CustomerListPopup {
     public removeCursorProgress = (element) => {
         element.css("cursor", "");
         this.$("#tbl-customer-list").css("cursor", "");
+    }
+
+    public getUpdateMultipleAutoTransferParams(params) {
+        var chks = $('#tbl-customer-list .checkbox:checked');
+
+        var onIds = [];
+        var onNames = [];
+        var offIds = [];
+        var offNames = [];
+
+        chks.each((_, e) => {
+            var $this = this.$(e);
+            var autoTransfer = $this.attr('data-autotransfer');
+
+            if (autoTransfer === "1") {
+                onIds.push($this.attr('data-custid'));
+                onNames.push($this.attr('data-username'));
+            } else {
+                offIds.push($this.attr('data-custid'));
+                offNames.push($this.attr('data-username'));
+            }
+        });
+
+        params.OnIds = onIds.join(',');
+        params.OnNames = onNames.join(',');
+        params.OffIds = offIds.join(',');
+        params.OffNames = offNames.join(',');
     }
 }

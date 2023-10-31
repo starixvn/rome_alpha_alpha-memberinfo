@@ -13,9 +13,12 @@ namespace Alpha.Products.AccountInfo.Status
     public sealed class StatusViewModelFactory
         : GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>
     {
+        private readonly AccountService accountService;
+
         public StatusViewModelFactory(ConfigurationService configurationService = null)
             : base(configurationService)
         {
+            accountService = new AccountServiceImpl(new DynamicRepository());
         }
 
         protected override IEnumerable<IStatusItemViewModel> GetNonProductViewModels(ISearchAccountInfoRequest request)
@@ -32,7 +35,7 @@ namespace Alpha.Products.AccountInfo.Status
             if (request.SupportAutoTransfer &&
                 (!request.IsSubAcc || request.SubPageAccess.Transfer))
             {
-                yield return new ConfirmAllowAutoTransferViewModel(request, new AccountServiceImpl(new DynamicRepository()));
+                yield return new ConfirmAllowAutoTransferViewModel(request, accountService);
             }
         }
 

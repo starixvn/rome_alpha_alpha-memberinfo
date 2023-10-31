@@ -18,6 +18,7 @@
             public const string IsAllDayBalTransfer = "SearchAccount.IsAllDayBalTransfer";
             public const string AllowedAllDayBalTransfer = "SearchAccount.AllowedAllDayBalTransfer";
             public const string IsAllowAutoTransfer = "SearchAccount.IsAllowAutoTransfer";
+            public const string ScheduleWeekDays = "SearchAccount.ScheduleWeekDays";
 
             public static class Upline
             {

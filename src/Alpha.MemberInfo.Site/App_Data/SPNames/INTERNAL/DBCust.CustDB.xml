@@ -50,9 +50,15 @@
     <Setting Key="Age_CustomerIndirectLoginAccountPwdCheck" SpName="Age_CustomerIndirectLoginAccountPwdCheck" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
   </Function>
   <Function Name="Indirect Login Account">
-    <Setting Key="Age_CustomerSelBySAg" SpName="Age_CustomerSelBySAg" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
-    <Setting Key="Age_CustomerSelByMAg" SpName="Age_CustomerSelByMAg" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
-    <Setting Key="Age_CustomerSelByAg" SpName="Age_CustomerSelByAg" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0" />
+    <Setting Key="Age_CustomerSelBySAg" SpName="Age_CustomerSelBySAg" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0">
+      <Mapping DataField="IsAllowAutoTransfer" ObjectProperty="AutoTransfer" />
+    </Setting>
+    <Setting Key="Age_CustomerSelByMAg" SpName="Age_CustomerSelByMAg" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0">
+      <Mapping DataField="IsAllowAutoTransfer" ObjectProperty="AutoTransfer" />
+    </Setting>
+    <Setting Key="Age_CustomerSelByAg" SpName="Age_CustomerSelByAg" DbName="DBCUST.CustDB.BODBDownlineNetView" Plain="0">
+      <Mapping DataField="IsAllowAutoTransfer" ObjectProperty="AutoTransfer" />
+    </Setting>
   </Function>
 
   <Function Name="Customer List">

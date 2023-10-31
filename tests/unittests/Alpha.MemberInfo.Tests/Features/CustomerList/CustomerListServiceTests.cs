@@ -214,7 +214,8 @@
                       (decimal)0.05,
                       true,
                       (decimal)0.05,
-                      0)
+                      0,
+                      false)
             };
 
         private IEnumerable<AgentListModel> FakeAgentList() =>
@@ -251,7 +252,8 @@
                       (decimal)0.05,
                       (decimal)0.05,
                       (decimal)0.05,
-                      0)
+                      0,
+                      false)
            };
 
         private IEnumerable<MemberListModel> FakeMemberList() =>
@@ -289,7 +291,8 @@
                       (decimal)0.05,
                       (decimal)0.05,
                       (decimal)0.05,
-                      0)
+                      0,
+                      false)
            };
     }
 }

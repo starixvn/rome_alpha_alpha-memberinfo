@@ -245,6 +245,8 @@
     </Compile>
     <Compile Include="Criteria\GetTransferOptionCriteria.cs" />
     <Compile Include="DataKey.cs" />
+    <Compile Include="GlobalSuppressions2.cs" />
+    <Compile Include="Helpers\TransferConditionHelper.cs" />
     <Compile Include="Requests\SearchAccountRequest.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Requests\ISearchAccountInfoRequest.cs" />

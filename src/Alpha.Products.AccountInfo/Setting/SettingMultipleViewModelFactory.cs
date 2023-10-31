@@ -2,8 +2,10 @@
 namespace Alpha.Products.AccountInfo.Setting
 {
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.AccountInfo.Services;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.ViewModels;
+    using Fanex.Data.Repository;
     using System.Collections.Generic;
     using ViewModels.Base;
     using ViewModels.Products;
@@ -16,10 +18,12 @@ namespace Alpha.Products.AccountInfo.Setting
         private const int ResetPasswordDisplayAfterLastProduct = 1;
         private const int ResetSecurityDisplayAfterLastProduct = 2;
         private const int RemoveOTPDisplayAfterLastProduct = 3;
+        private readonly AccountService accountService;
 
         public SettingMultipleViewModelFactory(ConfigurationService configurationService = null)
             : base(configurationService)
         {
+            accountService = new AccountServiceImpl(new DynamicRepository());
         }
 
         protected override IEnumerable<ISettingItemMultipleViewModel> GetNonProductViewModels(ISearchAccountInfoRequest request)
@@ -33,7 +37,7 @@ namespace Alpha.Products.AccountInfo.Setting
             if (request.SupportAutoTransfer &&
                 (!request.IsSubAcc || request.SubPageAccess.Transfer))
             {
-                yield return new AutoTransferMultipleViewModel(request);
+                yield return new AutoTransferMultipleViewModel(request, accountService);
             }
         }
 

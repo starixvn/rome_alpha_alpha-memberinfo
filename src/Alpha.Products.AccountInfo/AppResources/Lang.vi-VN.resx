@@ -150,4 +150,43 @@
   <data name="AutoTransferPageHint_Member" xml:space="preserve">
     <value>Danh sách Member</value>
   </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Chọn tất cả</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>Thứ 2</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>Thứ 3</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>Thứ 4</value>
+  </data>
+  <data name="Thurs" xml:space="preserve">
+    <value>Thứ 5</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>Thứ 6</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>Thứ 7</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>Chủ nhật</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Tip" xml:space="preserve">
+    <value>Mẹo: bạn có thể bật/tắt Chuyển Khoản Tự Động cho nhiều tài khoản tại [Thông Tin Thành Viên &gt;&gt; {0}] hoặc [Chuyển Khoản &gt;&gt; Chuyển Khoản] và theo dõi tiến trình trên [Chuyển Khoản &gt;&gt; Theo Dõi Chuyển Khoản Tự Động].</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Tip" xml:space="preserve">
+    <value>Mẹo: bạn có thể bật/tắt Chuyển Khoản Tự Động cho nhiều tài khoản tại [Thông Tin Thành Viên &gt;&gt; {0}] hoặc [Chuyển Khoản &gt;&gt; Chuyển Khoản] và theo dõi tiến trình trên [Chuyển Khoản &gt;&gt; Theo Dõi Chuyển Khoản Tự Động].</value>
+  </data>
+  <data name="AutoTransfer_SetSchedule" xml:space="preserve">
+    <value>Bạn có thể đặt lịch Chuyển Khoản Tự Động cho cấp dưới từ các tùy chọn có sẵn dựa trên điều kiện chuyển khoản của bạn.</value>
+  </data>
+  <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
+    <value>*Sau khi tắt, lịch Chuyển Khoản Tự Động hiện tại sẽ bị xóa.</value>
+  </data>
+  <data name="TurnOnTransferBalanceDailyNoteMessage" xml:space="preserve">
+    <value>&lt;div style="font-weight:normal"&gt;&lt;b&gt;Lưu ý：&lt;/b&gt;Kích hoạt Chuyển Khoản Tổng Số Dư sẽ TẮT Chuyển Khoản Tự Động và XÓA tất cả lịch Chuyển Khoản Tự Động do {0} đặt cho cấp dưới của mình.&lt;/div&gt;</value>
+  </data>
 </root>
