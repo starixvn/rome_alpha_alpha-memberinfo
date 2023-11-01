@@ -91,10 +91,11 @@ export default class BaseSettingHandler {
       this.productGroups[productId].groupTypes[groupTypeIndex].groupItems = groupItems.map((item) => ({
         ...item,
         ...resetName(item),
-        singleMatchParlay: getNumberOfCommaString(item.singleMatchParlay),
-        combo2: getNumberOfCommaString(item.combo2),
-        combo35: getNumberOfCommaString(item.combo35),
-        comboOver6: getNumberOfCommaString(item.comboOver6),
+        singleMatchParlay:
+          item.isAllowUnlimitSingleMatchParlay === true ? 0 : getNumberOfCommaString(item.singleMatchParlay),
+        combo2: item.isAllowUnlimitCombo2 === true ? 0 : getNumberOfCommaString(item.combo2),
+        combo35: item.isAllowUnlimitCombo35 === true ? 0 : getNumberOfCommaString(item.combo35),
+        comboOver6: item.isAllowUnlimitComboOver6 === true ? 0 : getNumberOfCommaString(item.comboOver6),
       }));
     });
 
