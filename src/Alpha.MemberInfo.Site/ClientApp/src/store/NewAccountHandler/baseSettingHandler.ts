@@ -29,6 +29,14 @@ export const resetName = (groupItem: GroupItem) => {
   };
 };
 
+export const getParlayMaxPayoutValue = (userLevel: UserLevel, isUnLimited: boolean, value: number) => {
+  if (userLevel !== UserLevel.Agent && isUnLimited) {
+    return 0;
+  }
+
+  return getNumberOfCommaString(value);
+};
+
 export default class BaseSettingHandler {
   protected productGroups: ProductGroupDict;
   protected settings: SettingOptions;
@@ -85,17 +93,21 @@ export default class BaseSettingHandler {
       const groupTypeIndex = this.getGroupTypeIndex(productId, groupTypeId);
 
       if (groupTypeIndex < 0) return;
+      const userLevel = this.settings.userLevel;
       const groupItems = this.settings.parlayMaxPayouts[groupTypeId].groupItems as ParlayMaxPayoutItem[];
       this.productGroups[productId].name = '';
       this.productGroups[productId].groupTypes[groupTypeIndex].name = '';
       this.productGroups[productId].groupTypes[groupTypeIndex].groupItems = groupItems.map((item) => ({
         ...item,
         ...resetName(item),
-        singleMatchParlay:
-          item.isAllowUnlimitSingleMatchParlay === true ? 0 : getNumberOfCommaString(item.singleMatchParlay),
-        combo2: item.isAllowUnlimitCombo2 === true ? 0 : getNumberOfCommaString(item.combo2),
-        combo35: item.isAllowUnlimitCombo35 === true ? 0 : getNumberOfCommaString(item.combo35),
-        comboOver6: item.isAllowUnlimitComboOver6 === true ? 0 : getNumberOfCommaString(item.comboOver6),
+        singleMatchParlay: getParlayMaxPayoutValue(
+          userLevel,
+          item.isAllowUnlimitSingleMatchParlay,
+          item.singleMatchParlay,
+        ),
+        combo2: getParlayMaxPayoutValue(userLevel, item.isAllowUnlimitCombo2, item.combo2),
+        combo35: getParlayMaxPayoutValue(userLevel, item.isAllowUnlimitCombo35, item.combo35),
+        comboOver6: getParlayMaxPayoutValue(userLevel, item.isAllowUnlimitComboOver6, item.comboOver6),
       }));
     });
 
