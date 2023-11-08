@@ -47,10 +47,6 @@ function MemberSportsBookCommission({ uplineCommissions, commissions, handleComm
     return state.generalInfo.commissions.find((e) => e.name === commissionGroup || e.name === lastChar)?.discount || 0;
   });
 
-  useEffect(() => {
-    handleCommissionChange(1, 1, asianHDPCommValue);
-  }, [asianHDPCommValue]);
-
   return (
     <>
       <BlockRow isHeaderRow>

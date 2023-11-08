@@ -38,6 +38,7 @@ export default function GeneralInformation() {
   const submitCount = useNewAccountStore((state) => state.submitCount);
   const generalInfo = useNewAccountStore((state) => state.generalInfo);
   const updateGeneralInfo = useNewAccountStore((state) => state.updateGeneralInfo);
+  const updateSportsBookCommissions = useNewAccountStore((state) => state.updateSportsBookCommissions);
   const { uplineUserName, newUserName, uplineRoleId } = generalInfo;
 
   const [showPassword, setShowPassword] = useState(false);
@@ -297,7 +298,15 @@ export default function GeneralInformation() {
             <BlockItem label={t('Group')}>
               <CommissionGroup
                 value={generalInfo.group}
-                onChange={(e) => updateGeneralInfo({ group: e.target.value })}
+                onChange={(e) => {
+                  const newCommissionGroup = e.target.value;
+                  updateGeneralInfo({ group: newCommissionGroup });
+                  const lastChar = newCommissionGroup[newCommissionGroup.length - 1];
+                  const newCommission =
+                    generalInfo.commissions.find((e) => e.name === newCommissionGroup || e.name === lastChar)
+                      ?.discount ?? 0;
+                  updateSportsBookCommissions(1, 1, newCommission);
+                }}
               />
             </BlockItem>
           )}
