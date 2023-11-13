@@ -6,8 +6,12 @@ import { site3Decimals, site789y, UserLevel } from '@/constants';
 import { GroupTypeIds } from '@/constants/product';
 import useNewAccountStore from '@/store/newAccountStore';
 import {
-    CommissionItem, GroupType, OtherGamesBetSettingItem, ParlayMaxPayoutItem, RNGGamesBetSettingItem,
-    SportsBookBetSettingItem
+  CommissionItem,
+  GroupType,
+  OtherGamesBetSettingItem,
+  ParlayMaxPayoutItem,
+  RNGGamesBetSettingItem,
+  SportsBookBetSettingItem,
 } from '@/types/new-account';
 
 import OtherGamesBetSetting from '../BetSetting/OtherGamesBetSetting';
@@ -20,8 +24,15 @@ import AgentPTSettings from '../PositionTaking/AgentPTSettings';
 import MasterPTSettings from '../PositionTaking/MasterPTSettings';
 import SuperPTSettings from '../PositionTaking/SuperPTSettings';
 
-function RenderSettings(userLevel: number, is789y: boolean, is3Decimals: boolean, productGroupId: number, groupType: GroupType) {
+function RenderSettings(
+  userLevel: number,
+  is789y: boolean,
+  is3Decimals: boolean,
+  productGroupId: number,
+  groupType: GroupType,
+) {
   const { id, groupItems } = groupType;
+  console.log(userLevel);
 
   switch (id) {
     case GroupTypeIds.SportsBookCommission:
@@ -66,7 +77,10 @@ export default function ProductGroupSetting() {
   );
 
   const is789y = siteLabel === site789y;
-  const isSupportPT3Decimals = site3Decimals.split(',').map((item) => item.trim().toLocaleLowerCase()).includes(siteLabel);
+  const isSupportPT3Decimals = site3Decimals
+    .split(',')
+    .map((item) => item.trim().toLocaleLowerCase())
+    .includes(siteLabel);
   const productGroupId = Number(productId) || 1;
   const groupTypes = productGroups[productGroupId]?.groupTypes ?? [];
   return (

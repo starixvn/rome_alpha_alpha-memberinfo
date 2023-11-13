@@ -1,14 +1,19 @@
 ﻿using Alpha.MemberInfo.AppResources;
 using Alpha.MemberInfo.Enumerations;
 using Alpha.MemberInfo.Models;
-using Sentry.Protocol;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Alpha.MemberInfo.Site.Features.CreateAccount.ViewModels
 {
     public class CreateAccountViewModel
     {
-        public CreateAccountViewModel(bool isLimitNewDownline = false, string errorMessage = "", byte levelId = 0, string secretKey="")
+        public CreateAccountViewModel(
+            string language, bool isDarkMode, bool isLimitNewDownline = false, string errorMessage = "",
+            byte levelId = 0, string secretKey = "", string suggestUsername = "", int custId = 0)
         {
+            Language = language;
+            IsDarkMode = isDarkMode;
             IsLimitNewDownline = isLimitNewDownline;
             ErrorMessage = errorMessage;
             IsCreateMember = levelId == UserLevel.Agent.Value;
@@ -18,6 +23,8 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount.ViewModels
             PageTitle = userLevel.IsSuperLevel()
                 ? Resources.AddNewMaster
                 : (userLevel.IsMasterLevel() ? Resources.AddNewAgent : Resources.AddNewMember);
+            Params = JsonConvert.SerializeObject(new { uplineId = custId, suggestUsername, uplineRoleId = levelId },
+                new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
         }
 
         public string ErrorMessage { get; }
@@ -31,5 +38,11 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount.ViewModels
         public string PageTitle { get; }
 
         public string SecretKey { get; }
+
+        public string Language { get; }
+
+        public bool IsDarkMode { get; }
+
+        public string Params { get; }
     }
 }

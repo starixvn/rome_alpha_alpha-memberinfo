@@ -1,11 +1,13 @@
 import { t } from 'i18next';
 import { MouseEvent } from 'react';
 
-import { oldMainUrl } from '@/constants';
+import { productSettingInfoRootUrl } from "@/constants";
 import { IconInfo } from '@/features/Shared/Icons';
+import useNewAccountStore from "@/store/newAccountStore";
 
 export default function PositionTalkingNote() {
-  const url = `${oldMainUrl}/PositionTakingInformation/PositionTakingBetTypeReference`;
+  const theme = useNewAccountStore((state) => state.theme);
+  const url = `${productSettingInfoRootUrl}?tabindex=2&theme=${theme}`;
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();

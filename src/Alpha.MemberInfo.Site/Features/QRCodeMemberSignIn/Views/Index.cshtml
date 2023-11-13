@@ -27,7 +27,7 @@
         @Html.ActionLink(Resources.SearchAndCopy, "Index", "CopyAccount")
     </li>
     <li role="presentation">
-        <a href="@MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx")" role="tab" data-toggle="tab">@Resources.FullMode</a>
+        @Html.ActionLink(Resources.FullMode, "Create", "Customer", new { lng = Model.Language, isDarkMode = Model.IsDarkMode.ToString().ToLowerInvariant() }, null)
     </li>
     <li role="presentation" class="has-icon active">
         <a href="javascript:;" aria-controls="home" role="tab" data-toggle="tab">@Resources.QRCode</a>

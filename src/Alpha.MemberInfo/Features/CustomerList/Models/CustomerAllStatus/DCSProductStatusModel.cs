@@ -2,7 +2,8 @@
 {
     public class DCSProductStatusModel
     {
-        public DCSProductStatusModel() { }
+        public DCSProductStatusModel()
+        { }
 
         public DCSProductStatusModel(
              int productId,

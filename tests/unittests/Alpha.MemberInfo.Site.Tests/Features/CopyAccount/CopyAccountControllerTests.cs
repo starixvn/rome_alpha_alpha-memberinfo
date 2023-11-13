@@ -21,7 +21,6 @@ namespace Alpha.MemberInfo.Site.Tests.Features.CopyAccount
         private const int BadRequestErrorCode = 999;
         private const string NotAuthorizedErrorMessage = "You are not authorized on this function.";
 
-
         public CopyAccountControllerTests()
         {
             mediator = Substitute.For<IMediator>();
@@ -45,7 +44,7 @@ namespace Alpha.MemberInfo.Site.Tests.Features.CopyAccount
 
             // Act
             await copyAccountController.Index(message);
-            
+
             // Assert
             await mediator.Received().SendAsync(message);
         }

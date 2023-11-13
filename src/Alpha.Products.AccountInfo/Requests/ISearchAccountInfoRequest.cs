@@ -18,5 +18,9 @@
         bool SupportAutoTransfer { get; }
 
         bool AutoTransferAffect { get; }
+
+        string Language { get; }
+
+        bool IsDarkMode { get; }
     }
 }

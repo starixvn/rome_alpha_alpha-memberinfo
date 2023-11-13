@@ -364,6 +364,12 @@
       "Features/CreateAccount/Styles/quick-introduction.css"
     ]
   },
+  {
+    "outputFileName": "assets/bundles/customer/create-customer.js",
+    "inputFiles": [
+      "assets/scripts/aes.js"
+    ]
+  },
   /************************** Dark Mode ************************/
   {
     "outputFileName": "assets/bundles/default-dark.css",

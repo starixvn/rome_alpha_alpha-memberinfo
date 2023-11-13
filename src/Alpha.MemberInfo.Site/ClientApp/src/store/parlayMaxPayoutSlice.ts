@@ -17,10 +17,7 @@ const initParlayMaxPayoutsState = (productGroupsDict: ProductGroupDict) => {
       const parlayGroupItems = parlayMaxPayoutGroup.groupItems as ParlayMaxPayoutItem[];
       const groupItems = parlayGroupItems.map((item) => ({
         ...item,
-        combo2: item.maxCombo2,
-        combo35: item.maxCombo35,
-        comboOver6: item.maxComboOver6,
-        singleMatchParlay: item.maxSingleMatchParlay,
+        upline: item,
       }));
 
       acc[ParlayMaxPayoutTypeIds[Number(cur)]] = { ...parlayMaxPayoutGroup, groupItems };
@@ -35,17 +32,14 @@ const initParlayMaxPayoutsState = (productGroupsDict: ProductGroupDict) => {
 const validateParlayMaxPayout = (userLevel: UserLevel, parlayMaxPayoutItem: ParlayMaxPayoutItem) => {
   const {
     singleMatchParlay,
-    maxSingleMatchParlay,
     isAllowUnlimitSingleMatchParlay,
     combo2,
-    maxCombo2,
     isAllowUnlimitCombo2,
     combo35,
-    maxCombo35,
     isAllowUnlimitCombo35,
     comboOver6,
-    maxComboOver6,
     isAllowUnlimitComboOver6,
+    upline
   } = parlayMaxPayoutItem;
   const singleMatchParlayValue = getNumberOfCommaString(singleMatchParlay);
   const combo2Value = getNumberOfCommaString(combo2);
@@ -57,13 +51,13 @@ const validateParlayMaxPayout = (userLevel: UserLevel, parlayMaxPayoutItem: Parl
       userLevel,
       isAllowUnlimitSingleMatchParlay,
       singleMatchParlayValue,
-      maxSingleMatchParlay,
+      upline.singleMatchParlay,
     )
   )
     return 'singleMatchParlay';
-  if (!validateParlayMaxPayoutValue(userLevel, isAllowUnlimitCombo2, combo2Value, maxCombo2)) return 'combo2';
-  if (!validateParlayMaxPayoutValue(userLevel, isAllowUnlimitCombo35, combo35Value, maxCombo35)) return 'combo35';
-  if (!validateParlayMaxPayoutValue(userLevel, isAllowUnlimitComboOver6, comboOver6Value, maxComboOver6))
+  if (!validateParlayMaxPayoutValue(userLevel, isAllowUnlimitCombo2, combo2Value, upline.combo2)) return 'combo2';
+  if (!validateParlayMaxPayoutValue(userLevel, isAllowUnlimitCombo35, combo35Value, upline.combo35)) return 'combo35';
+  if (!validateParlayMaxPayoutValue(userLevel, isAllowUnlimitComboOver6, comboOver6Value, upline.comboOver6))
     return 'comboOver6';
   return '';
 };

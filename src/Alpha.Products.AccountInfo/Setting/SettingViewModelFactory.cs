@@ -27,10 +27,6 @@ namespace Alpha.Products.AccountInfo.Setting
         {
             yield return new EditInfoViewModel(request);
             yield return new TransferViewModel(request);
-            yield return new BetSettingViewModel(request);
-            yield return new CommissionViewModel(request);
-            yield return new ParlayMaxPayoutViewModel(request);
-            yield return new SportsbookMinPTViewModel(request);
             yield return new ResetPasswordViewModel(request, displayOrder: LastProductSettingItemIndex + ResetPasswordDisplayAfterLastProduct);
             yield return new ResetSecurityCodeViewModel(request, displayOrder: LastProductSettingItemIndex + ResetSecurityDisplayAfterLastProduct);
             yield return new RemoveOtpViewModel(request, displayOrder: LastProductSettingItemIndex + RemoveOTPDisplayAfterLastProduct);
@@ -42,9 +38,6 @@ namespace Alpha.Products.AccountInfo.Setting
             {
                 case Sportsbook:
                     return new SportsbookViewModel(request, productItem);              
-
-                case Sportsbook2:
-                    return new Sportsbook2ViewModel(request, productItem);
 
                 default:
                     return new DynamicProductViewModel(request, productItem);

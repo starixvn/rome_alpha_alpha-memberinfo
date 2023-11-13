@@ -37,20 +37,20 @@
         }
 
         [Fact]
-        public void Index_Always_CallsMediatorQRCodeMemberSignInRequest()
+        public async void Index_Always_CallsMediatorQRCodeMemberSignInRequest()
         {
             // Arrange
             var message = new QRCodeMemberSignInRequest(user);
 
             // Act
-            controller.Index(message);
+           await controller.Index(message);
 
             // Assert
-            mediator.Received().Send(message);
+           await mediator.Received().SendAsync(message);
         }
 
         [Fact]
-        public void Index_QueryIsNotValid_ReturnInvalidPageView()
+        public async void Index_QueryIsNotValid_ReturnInvalidPageView()
         {
             // Arrange
             var iuser = Substitute.For<IUser>();
@@ -58,7 +58,7 @@
             var message = new QRCodeMemberSignInRequest(iuser);
 
             // Act
-            var actualView = controller.Index(message) as ViewResult;
+            var actualView = await controller.Index(message) as ViewResult;
 
             // Assert
             Assert.Equal("~/Views/Shared/InvalidPage.cshtml", actualView.ViewName);

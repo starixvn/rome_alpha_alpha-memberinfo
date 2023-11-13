@@ -1,14 +1,14 @@
 .full-line {
   flex: 1;
   input {
-    max-width: 100% !important;
+    max-width: 115px !important;
     margin-right: 0 !important;
   }
 }
 .max-value {
   display: block;
-  width: 53%;
-  padding-left: 8px;
+  width: 52%;
+  padding-left: 4px;
   white-space: nowrap;
 }
 
@@ -23,7 +23,7 @@
     }
     .inline {
       display: flex;
-      width: 53%;
+      width: 51%;
       padding-left: 13px;
       white-space: nowrap;
     }

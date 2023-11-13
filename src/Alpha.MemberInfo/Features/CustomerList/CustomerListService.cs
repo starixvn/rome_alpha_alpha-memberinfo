@@ -51,13 +51,12 @@
 
         public CustomerStatusModel GetCustomerStatus(int custId, byte roleId)
         {
-            var (customerStatus, nonDCSProduct, dcsProducts)
-                = dynamicRepository.FetchMultiple<NonProductStatusModel, NonDCSProductStatusModel, DCSProductStatusModel>(
+            var (customerStatus, dcsProducts)
+                = dynamicRepository.FetchMultiple<NonProductStatusModel, DCSProductStatusModel>(
                     new SelectCustomerAllStatusModelCriteria(custId));
 
             var customerStatusModel = new CustomerStatusModel(
                 customerStatus.FirstOrDefault(),
-                nonDCSProduct.FirstOrDefault(),
                 dcsProducts
                     .GroupBy(product => product.ProductId)
                     .Select(products =>
@@ -99,6 +98,7 @@
                         param.StatusName,
                         param.StatusValue);
                     break;
+
                 case StatusNames.DisableAutoMasterPT:
                     command = new UpdateDisableAutoMPTStatusCommand(
                         param.SearchAccountId,
@@ -109,6 +109,7 @@
                         param.StatusName,
                         param.StatusValue);
                     break;
+
                 case StatusNames.DoubleComm:
                     command = new UpdateDoubleCommLosingStatusCommand(
                         param.SearchAccountId,
@@ -119,6 +120,7 @@
                         param.StatusName,
                         param.StatusValue);
                     break;
+
                 case StatusNames.DisableOutright:
                     command = new UpdateDisableOutrightStatusCommand(
                         param.SearchAccountId,
@@ -129,6 +131,7 @@
                         param.StatusName,
                         param.StatusValue);
                     break;
+
                 case StatusNames.Suspended:
                     command = new UpdateSuspendedStatusCommand(
                         param.SearchAccountId,
@@ -139,6 +142,7 @@
                         param.StatusName,
                         param.StatusValue);
                     break;
+
                 case StatusNames.Unlock:
                     command = new UpdateUnlockedCommand(
                         param.SearchAccountId,
@@ -148,6 +152,7 @@
                         param.IP,
                         param.StatusName);
                     break;
+
                 case StatusNames.AllowAutoTransfer:
                     command = new UpdateAllowAutoTransferStatusCommand(
                         param.SearchAccountId,
@@ -158,6 +163,7 @@
                         param.StatusName,
                         param.StatusValue);
                     break;
+
                 default:
                     return new Result();
             }

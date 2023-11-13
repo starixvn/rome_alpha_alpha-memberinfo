@@ -87,17 +87,14 @@ export interface OtherGamesBetSettingItem extends GroupItem {
 
 export interface ParlayMaxPayoutItem extends GroupItem {
   singleMatchParlay: number;
-  maxSingleMatchParlay: number;
   isAllowUnlimitSingleMatchParlay: boolean;
   combo2: number;
-  maxCombo2: number;
   isAllowUnlimitCombo2: boolean;
   combo35: number;
-  maxCombo35: number;
   isAllowUnlimitCombo35: boolean;
   comboOver6: number;
-  maxComboOver6: number;
   isAllowUnlimitComboOver6: boolean;
+  upline: ParlayMaxPayoutItem;
 }
 
 export interface SubGroup {

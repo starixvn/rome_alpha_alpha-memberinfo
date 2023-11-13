@@ -6,7 +6,8 @@
   color: var(--color-tooltip);
   text-transform: none;
   font-weight: normal;
-  opacity: 1;
+  opacity: 1!important;
+  font-size: 13px!important;
   &.error {
     background: var(--bg-tooltip-error);
   }

@@ -1,9 +1,10 @@
+@model ProductSettingInfoViewModel
 @{
     Layout = "~/Features/CreateAccount/Views/_Layout.cshtml";
 }
 
 <div class="pt-template">
-    <input type="hidden" id="productSettingInfoUrl" value="@MicroSites.MemberInfoUrl("~/ProductSettingInfo")" />
+    <input type="hidden" id="productSettingInfoUrl" value="@MicroSites.MemberInfoUrl(@Model.ProductSettingInfoUrl)" />
     <div id="root" style="height:100%"></div>
 </div>
 
@@ -17,6 +18,6 @@
     {
         <!-- if production -->
         <link rel="stylesheet" href="~/ClientApp/dist/assets/productSettingInfo-19dc73f6.css" />
-        <script type="module" src="~/ClientApp/dist/assets/productSettingInfo-619bace5.js"></script>
+        <script type="module" src="~/ClientApp/dist/assets/productSettingInfo-081ba00c.js"></script>
     }
 }

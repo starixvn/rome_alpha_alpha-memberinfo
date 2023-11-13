@@ -7,6 +7,7 @@ using MediatR;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels;
 
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount
@@ -35,9 +36,13 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
             var result = await mediator.SendAsync(command);
             if (result.Usernames.Any())
             {
-                result.Credit = command.Credit;
-                result.NoOfAccount = command.NumberOfAccounts;
-                return PartialView(ResultPath, result);
+                return PartialView(ResultPath, new CopyAccountResultViewModel
+                {
+                    Result = result,
+                    Credit = command.Credit,
+                    NumberOfAccounts = command.NumberOfAccounts,
+                    NoOfFailedAccount = command.NumberOfAccounts - result.Usernames.Count() 
+                });
             }
             else
             {

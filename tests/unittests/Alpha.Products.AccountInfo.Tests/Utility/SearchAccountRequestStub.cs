@@ -57,5 +57,9 @@
         public bool SupportAutoTransfer { get; }
 
         public bool AutoTransferAffect { get; }
+
+        public string Language { get; }
+
+        public bool IsDarkMode { get; }
     }
 }

@@ -32,7 +32,6 @@ namespace Alpha.Products.AccountInfo.Setting
             yield return new SuspendedMultipleViewModel(request);
             yield return new ClosedMultipleViewModel(request);
             yield return new ProtectedMultipleViewModel(request);
-            yield return new ParlayMaxPayoutMultipleViewModel(request);
 
             if (request.SupportAutoTransfer &&
                 (!request.IsSubAcc || request.SubPageAccess.Transfer))
@@ -48,8 +47,7 @@ namespace Alpha.Products.AccountInfo.Setting
                 case Sportsbook:
                     return new SportsbookMultipleViewModel(request, productItem);
 
-                case Sportsbook2:
-                    return new Sportsbook2MultipeViewModel(request, productItem);
+               
 
                 default:
                     return new DynamicProductMultipleViewModel(request, productItem);

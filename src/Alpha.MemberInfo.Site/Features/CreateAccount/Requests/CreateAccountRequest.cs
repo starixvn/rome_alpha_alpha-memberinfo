@@ -1,4 +1,4 @@
-﻿using Alpha.MemberInfo.Site.Features.CreateAccount.Models;
+﻿using Fanex.Customer.Client.Models;
 
 namespace Alpha.MemberInfo.Site.Features.CreateAccount.Requests
 {

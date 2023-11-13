@@ -87,6 +87,9 @@
     <Reference Include="Fanex.Data.ProxyClient, Version=0.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.ProxyClient.0.0.3-alpha02\lib\netstandard2.0\Fanex.Data.ProxyClient.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.Customer.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Customer.Client.1.0.0-beta39\lib\netstandard2.0\Fanex.Customer.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Logging, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Logging.2.0.1\lib\net461\Fanex.Logging.dll</HintPath>
       <Private>True</Private>
@@ -115,8 +118,8 @@
     <Reference Include="MessagePack.Annotations, Version=2.5.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MessagePack.Annotations.2.5.124\lib\netstandard2.0\MessagePack.Annotations.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
@@ -225,6 +228,12 @@
       <HintPath>..\..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Encodings.Web.8.0.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Json.8.0.0\lib\netstandard2.0\System.Text.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -318,7 +327,6 @@
     <Compile Include="Criteria\Winloss\DailyEnteredSportCriteria.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
-    <Compile Include="Extensions\HttpClientExtensions.cs" />
     <Compile Include="Extensions\NumberExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Features\CreateAccount\Criteria\ProductSettingInfoCriteria.cs" />
@@ -336,7 +344,6 @@
     </Compile>
     <Compile Include="Features\CustomerList\Models\CustomerAllStatus\CustomerStatusModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerAllStatus\DCSProductStatusModel.cs" />
-    <Compile Include="Features\CustomerList\Models\CustomerAllStatus\NonDCSProductStatusModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerAllStatus\NonProductStatusModel.cs" />
     <Compile Include="Features\CustomerList\Models\CustomerListDTO.cs" />
     <Compile Include="Features\CustomerList\Models\ClosedReasonAndIsProtectedMode.cs" />
@@ -426,29 +433,16 @@
     <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutSelectParam.cs" />
     <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutUpdateParam.cs" />
     <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutService.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckExistedCustomerCritieria.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckEnableCustomerCritieria.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\InsertMember\InsertMemberCommand.cs">
-      <SonarQubeExclude>true</SonarQubeExclude>
-    </Compile>
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\InsertMember\InsertMemberCommandProperties.cs">
-      <SonarQubeExclude>true</SonarQubeExclude>
-    </Compile>
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\CheckBelongingByUsernameCritieria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\ResetMainAccountPasswordCommand.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectFirstLoginByQRCodeCriteria.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectRnGStatusCriteria.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectSuggestUsernameCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectCreditAndStatusCriteria.cs" />
     <Compile Include="Features\Shared\CheckBelongingService.cs" />
     <Compile Include="Features\Shared\Criteria\CheckBelongingInDBCustCommand.cs" />
     <Compile Include="Features\Shared\Criteria\SelectAutoSuggestionCriteria.cs" />
-    <Compile Include="Features\QRCodeMemberSignIn\Models\CheckBelongingByUsernameModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\PasswordModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\SelectRnGStatusModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\CreditAndStatusModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\ResultCreateMemberQRCode.cs" />
-    <Compile Include="Features\Shared\CustomerService.cs" />
     <Compile Include="Features\Shared\Models\BelongingInfo.cs" />
     <Compile Include="Features\Shared\Models\CustInfo.cs" />
     <Compile Include="Features\Shared\Models\StatusNames.cs" />

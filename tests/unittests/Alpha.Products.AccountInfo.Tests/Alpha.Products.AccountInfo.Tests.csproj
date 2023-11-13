@@ -184,8 +184,6 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setting\SettingViewModelFactoryTests.cs" />
-    <Compile Include="Setting\ViewModels\BetSettingViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\CommissionViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\EditInfoViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Multiple\AutoTransferMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Multiple\ClosedMultipleViewModelTests.cs" />
@@ -198,7 +196,6 @@
     <Compile Include="Setting\ViewModels\RemoveOtpViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\ResetPasswordViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\ResetSecurityCodeViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\SportsbookMinPTViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\TransferViewModelTests.cs" />
     <Compile Include="Status\Base\ProductStatusItemViewModelTests.cs" />
     <Compile Include="Status\ConfirmAllowAutoTransferViewModelTests.cs" />

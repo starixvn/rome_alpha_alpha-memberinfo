@@ -6,5 +6,8 @@ export interface Result {
 }
 
 export interface SubMessagesResult extends Result {
-  subMessages: string[];
+  subMessages: {
+    isLive: boolean;
+    message: string;
+  }[];
 }

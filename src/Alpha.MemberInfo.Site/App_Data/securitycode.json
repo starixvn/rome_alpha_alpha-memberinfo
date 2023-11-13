@@ -16,7 +16,10 @@
     "MyThresholds",
     "CopyAccount",
     "PTTemplate",
-    "CreateAccount"
+    "CreateAccount",
+    "Customer/Create",
+    "Customer/EditCustomer",
+    "Customer/EditMultiple"
   ],
   "sites": [
   ],

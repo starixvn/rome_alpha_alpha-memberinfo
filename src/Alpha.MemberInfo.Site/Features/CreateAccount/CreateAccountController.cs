@@ -12,6 +12,9 @@ using Sunplus.Agent.Utilities;
 using Alpha.Web.Helpers;
 using Fanex.Cryptography.Aes;
 using Alpha.MemberInfo.Configurations;
+using Fanex.Customer.Client.Services;
+using Fanex.Customer.Client.Params;
+using Fanex.Customer.Client.Constants;
 
 namespace Alpha.MemberInfo.Site.Features.CreateAccount
 {
@@ -22,33 +25,51 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
 
         private readonly IUser viewer;
         private readonly Encryptor encryptor;
-        private readonly ICreateAccountService createAccountService;
         private readonly SessionManager sessionManager;
         private readonly IAesService aesService;
+        private readonly ICustomerService customerService;
 
         public CreateAccountController(
             IUser viewer,
             Encryptor encryptor,
-            ICreateAccountService createAccountService,
             SessionManager sessionManager,
-            IAesService aesService)
+            IAesService aesService,
+            ICustomerService customerService)
         {
             this.viewer = viewer;
             this.encryptor = encryptor;
-            this.createAccountService = createAccountService;
             this.sessionManager = sessionManager;
             this.aesService = aesService;
+            this.customerService = customerService;
         }
 
         public async Task<ActionResult> Index()
         {
-            var limitNewDownlineResult = await createAccountService.CheckAllLimitedRules(
+            var limitNewDownlineResult = await customerService.CheckAllLimitedRules(
                    viewer.Id,
                    viewer.LevelId,
                    viewer.Name,
                    viewer.Language);
 
-            return View(IndexPath, new CreateAccountViewModel(limitNewDownlineResult.IsFailed, limitNewDownlineResult.Message, viewer.LevelId, GetHashKey()));
+            if (limitNewDownlineResult.IsFailed)
+            {
+                return View(IndexPath, new CreateAccountViewModel(
+                    viewer.Language,
+                    !string.IsNullOrWhiteSpace(viewer.DarkModeName),
+                    limitNewDownlineResult.IsFailed,
+                    limitNewDownlineResult.Message,
+                    viewer.LevelId));
+            }
+
+            return View(IndexPath, new CreateAccountViewModel(
+                viewer.Language,
+                !string.IsNullOrWhiteSpace(viewer.DarkModeName),
+                false,
+                string.Empty,
+                viewer.LevelId,
+                GetHashKey(),
+                await customerService.GetSuggestUsername(viewer.Name, viewer.LevelId),
+                viewer.Id));
         }
 
         private string GetHashKey()
@@ -74,18 +95,19 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
             generalInfo.Site = viewer.Site;
             generalInfo.SiteLabel = AppSettings.SiteLabel;
 
-            return Content(await createAccountService.CreateAccount(
+            return Content(await customerService.CreateCustomer(new CreateCustomerParam(
+                generalInfo,
+                request.ProductGroups,
                 viewer.Id,
                 viewer.SubAccId,
                 viewer.IP,
+                CreationModes.LiteMode,
                 viewer.Language,
-                request.UIBehavior,
-                generalInfo,
-                request.ProductGroups));
+                request.UIBehavior)));
         }
 
         public async Task<ActionResult> GetCustomerInfo()
-            => Content(await createAccountService.GetCustomerInfo(viewer.Id, viewer.LevelId, viewer.Language));
+            => Content(await customerService.GetCustomerSetting(viewer.Id, viewer.LevelId, 4, viewer.LevelId, viewer.Language, false, 0));
 
         private ActionResult UnAuthorized()
            => Content(JsonConvert.SerializeObject(Result.CreateErrorResult(Lang.NotAuthorized), new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));

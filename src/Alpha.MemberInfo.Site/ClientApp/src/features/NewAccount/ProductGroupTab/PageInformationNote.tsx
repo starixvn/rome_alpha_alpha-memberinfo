@@ -11,7 +11,7 @@ export default function PageInformationNote() {
   return (
     <>
       <a
-        href={`${productSettingInfoRootUrl}/?theme=${theme}`}
+        href={`${productSettingInfoRootUrl}?tabindex=4&theme=${theme}`}
         target="_blank"
         rel="noopener noreferrer"
         id="productSettingInfo"

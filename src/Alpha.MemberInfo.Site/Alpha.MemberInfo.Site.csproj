@@ -132,6 +132,12 @@
     <Reference Include="Fanex.Data.ProxyClient, Version=0.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.ProxyClient.0.0.3-alpha02\lib\netstandard2.0\Fanex.Data.ProxyClient.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.Customer.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Customer.Client.1.0.0-beta39\lib\netstandard2.0\Fanex.Customer.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Customer.Client.NETFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Customer.Client.NETFramework.1.0.0-beta07\lib\net461\Fanex.Customer.Client.NETFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Logging, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Logging.2.0.1\lib\net461\Fanex.Logging.dll</HintPath>
     </Reference>
@@ -169,8 +175,8 @@
     <Reference Include="MessagePack.Annotations, Version=2.5.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MessagePack.Annotations.2.5.124\lib\netstandard2.0\MessagePack.Annotations.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -344,6 +350,12 @@
       <HintPath>..\..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Encodings.Web.8.0.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Json.8.0.0\lib\netstandard2.0\System.Text.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -440,9 +452,7 @@
     <Content Include="App_Data\SPNames\SIT\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBACC.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\UAT\DBAGE.bodb02.BODBDownlineNet.xml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="App_Data\SPNames\UAT\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBCust.CustDB.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -463,6 +473,10 @@
     <Content Include="assets\bundles\credit-balance\credit-balance.js" />
     <Content Include="assets\bundles\credit-balance\credit-balance.min.js">
       <DependentUpon>credit-balance.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\customer\create-customer.js" />
+    <Content Include="assets\bundles\customer\create-customer.min.js">
+      <DependentUpon>create-customer.js</DependentUpon>
     </Content>
     <Content Include="assets\bundles\default-dark.css" />
     <Content Include="assets\bundles\default-dark.min.css">
@@ -738,15 +752,15 @@
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.min.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
-    <Content Include="ClientApp\dist\assets\createAccount-179a7f97.js" />
-    <Content Include="ClientApp\dist\assets\createAccount-7aaa218c.css" />
-    <Content Include="ClientApp\dist\assets\index-1ea51596.css" />
-    <Content Include="ClientApp\dist\assets\index-4db67b07.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-4f66f64b.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-bb96070b.css" />
+    <Content Include="ClientApp\dist\assets\index-c5462994.js" />
+    <Content Include="ClientApp\dist\assets\index-d81237f8.css" />
+    <Content Include="ClientApp\dist\assets\productSettingInfo-081ba00c.js" />
     <Content Include="ClientApp\dist\assets\productSettingInfo-19dc73f6.css" />
-    <Content Include="ClientApp\dist\assets\productSettingInfo-619bace5.js" />
-    <Content Include="ClientApp\dist\assets\PTSelect-07858f5e.css" />
-    <Content Include="ClientApp\dist\assets\PTSelect-f2d1cf29.js" />
-    <Content Include="ClientApp\dist\assets\ptTemplate-326b7662.js" />
+    <Content Include="ClientApp\dist\assets\PTSelect-13f830b9.css" />
+    <Content Include="ClientApp\dist\assets\PTSelect-4c7c4404.js" />
+    <Content Include="ClientApp\dist\assets\ptTemplate-1c4fb9cb.js" />
     <Content Include="ClientApp\dist\assets\ptTemplate-5f025410.css" />
     <Content Include="ClientApp\dist\images\daily.png" />
     <Content Include="ClientApp\dist\images\icon-select.svg" />
@@ -798,13 +812,20 @@
     <Content Include="IbcKeys\ibckey.snk" />
     <Content Include="IbcKeys\ibckeydec.snk" />
     <Content Include="IbcKeys\Web.config" />
+    <Content Include="Views\Customer\SportBookInformation-Debug.cshtml" />
+    <Content Include="Views\Customer\SportBookInformation.cshtml" />
     <Content Include="Views\ProblemAccount\ConfirmAddToWatchlist.cshtml" />
     <Content Include="Web.AppSettings.pro4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
+    <Content Include="Views\Customer\Create-Debug.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\_PageHeader.cshtml" />
     <Content Include="Web.pro4.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <Content Include="Views\Customer\EditCustomer-Debug.cshtml" />
+    <Content Include="Views\Customer\EditCustomer.cshtml" />
     <Content Include="Web.ConnectionStrings.config" />
     <Content Include="Web.ConnectionStrings.napinternal.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
@@ -855,6 +876,8 @@
     <Content Include="Web.drinternal.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <Content Include="Views\Customer\EditMultiple.cshtml" />
+    <Content Include="Views\Customer\EditMultiple-Debug.cshtml" />
     <Content Include="Web.ConnectionStrings.pro4.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
     </Content>
@@ -1309,22 +1332,6 @@
     <Content Include="Web.AppSettings.backupMNLNap2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-    <Content Include="Web.backupMNL.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.backupMNL2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.backupMNLNap.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.backupMNLNap2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1348,6 +1355,8 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Constants\LanguageCode.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Features\CopyAccount\ViewModels\CopyAccountResultViewModel.cs" />
     <Compile Include="Features\CreateAccount\CreateAccountController.cs" />
     <Compile Include="Controllers\CreditBalanceController.cs" />
     <Compile Include="Controllers\IndirectLoginAccountController.cs" />
@@ -1357,27 +1366,20 @@
     <Compile Include="Controllers\WinLossLimitController.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountController.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountHandler.cs" />
-    <Compile Include="Features\CopyAccount\CopyAccountService.cs" />
-    <Compile Include="Features\CopyAccount\Models\CreditInfo.cs" />
-    <Compile Include="Features\CopyAccount\Models\Downline.cs" />
     <Compile Include="Features\CopyAccount\Request\CheckExistedCustomerQuery.cs" />
     <Compile Include="Features\CopyAccount\Request\CheckUsernameQuery.cs" />
     <Compile Include="Features\CopyAccount\Request\CreditQuery.cs" />
-    <Compile Include="Features\CopyAccount\ViewModels\CopyAccountResponse.cs" />
     <Compile Include="Features\CopyAccount\Request\CopyAccountCommand.cs" />
     <Compile Include="Features\CopyAccount\Request\CopyAccountQuery.cs" />
     <Compile Include="Features\CopyAccount\ViewModels\CopyAccountViewModel.cs" />
-    <Compile Include="Features\CreateAccount\CreateAccountService.cs" />
     <Compile Include="Features\CreateAccount\IntroductionController.cs" />
-    <Compile Include="Features\CreateAccount\Models\GeneralInfo.cs" />
-    <Compile Include="Features\CreateAccount\Models\ProductSetting.cs" />
-    <Compile Include="Features\CreateAccount\Models\PTTemplateSetting.cs" />
     <Compile Include="Features\CreateAccount\ProductSettingInfoController.cs" />
     <Compile Include="Features\CreateAccount\PTTemplateController.cs" />
     <Compile Include="Features\CreateAccount\Requests\CreateAccountRequest.cs" />
     <Compile Include="Features\CreateAccount\Requests\CreatePTTemplateRequest.cs" />
     <Compile Include="Features\CreateAccount\Requests\EditPTTemplateRequest.cs" />
     <Compile Include="Features\CreateAccount\ViewModels\CreateAccountViewModel.cs" />
+    <Compile Include="Features\CreateAccount\ViewModels\ProductSettingInfoViewModel.cs" />
     <Compile Include="Features\CreateAccount\ViewModels\PTTemplateViewModel.cs" />
     <Compile Include="Features\CreateAccount\ViewModels\QuickIntroductionViewModel.cs" />
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
@@ -1417,6 +1419,14 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\DeletePersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\GlobalThresholdQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageGlobalThresholdQuery.cs" />
+    <Compile Include="Requests\Customer\CreateCustomerQuery.cs" />
+    <Compile Include="Requests\Customer\CreateCustomerRequest.cs" />
+    <Compile Include="Requests\Customer\EditCustomerQuery.cs" />
+    <Compile Include="Requests\Customer\EditMultipleCustomersQuery.cs" />
+    <Compile Include="Requests\Customer\GetCustomerSettingRequest.cs" />
+    <Compile Include="Requests\Customer\UpdateCustomerRequest.cs" />
+    <Compile Include="Requests\Customer\SportBookInformationQuery.cs" />
+    <Compile Include="Requests\Customer\UpdateMultipleCustomerRequest.cs" />
     <Compile Include="Requests\ProblemAccount\ConfirmAddToWatchlistQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManagePersonalThresholdPresetQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageWatchlistAccountsQuery.cs" />
@@ -1528,6 +1538,12 @@
     <Compile Include="ViewModels\Components\ProductMultiSelectionViewModel.cs" />
     <Compile Include="ViewModels\Components\ReviewedStatusSelectionViewModel.cs" />
     <Compile Include="ViewModels\CreditBalance\CreditBalanceViewModel.cs" />
+    <Compile Include="ViewModels\Customer\AppConfiguration.cs" />
+    <Compile Include="ViewModels\Customer\CustomerBaseViewModel.cs" />
+    <Compile Include="ViewModels\Customer\CreateCustomerViewModel.cs" />
+    <Compile Include="ViewModels\Customer\EditCustomerViewModel.cs" />
+    <Compile Include="ViewModels\Customer\LimitNewDownlineViewModel.cs" />
+    <Compile Include="ViewModels\Customer\SportBookInformationViewModel.cs" />
     <Compile Include="ViewModels\ExcelFileViewModel.cs" />
     <Compile Include="ViewModels\IndirectLoginAccount\ManageAccountViewModel.cs" />
     <Compile Include="ViewModels\IndirectLoginAccount\NewAccountViewModel.cs" />
@@ -1875,7 +1891,7 @@
       start /MIN xcopy /s /y /R "$(OutDir)roslyn\*.*" "$(WebProjectOutputDir)\bin\Roslyn"
     </PostBuildEvent>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

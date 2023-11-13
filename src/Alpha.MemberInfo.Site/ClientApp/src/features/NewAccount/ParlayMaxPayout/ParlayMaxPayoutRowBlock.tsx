@@ -20,6 +20,7 @@ export function validateParlayMaxPayoutValue(
   parlay: number,
   maxParlay: number,
 ) {
+
   if (isAllowUnlimit) {
     return userLevel === UserLevel.Agent ? parlay >= 1 : true;
   }
@@ -64,7 +65,7 @@ export default function ParlayMaxPayoutRowBlock({
         userLevel,
         Boolean(value[isUnlimitedProp]),
         Number(value[valueProp]),
-        Number(value[maxValueProp]),
+        Number(value.upline[maxValueProp]),
       ),
     );
   }, [value]);

@@ -1,19 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn
 {
-    using System;
-    using System.Diagnostics;
-    using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Mvc;
-    using Alpha.Captcha.Mvc;
     using Alpha.MemberInfo.AppResources;
-    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Alpha.MemberInfo.Site.Controllers;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.Web.Filters;
     using MediatR;
-    using AlphaPlus.User.Models;
 
     public class QRCodeMemberSignInController : SiteBaseController
     {
@@ -29,8 +23,8 @@
         }
 
         [HttpGet]
-        public ActionResult Index(QRCodeMemberSignInRequest message)
-            => View(message, IndexPath);
+        public async Task<ActionResult> Index(QRCodeMemberSignInRequest message)
+            => await ViewAsync(message, IndexPath);
 
         [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> CreateAccount(CreateAccountByQRCodeRequest message)
@@ -72,8 +66,8 @@
         }
 
         [HttpPost, AntiXsrfFilter]
-        public ActionResult GetMemberCreditAndStatus(GetMemberCreditAndStatusRequest message)
-            => Json(mediator.Send(message));
+        public async Task<ActionResult> GetMemberCreditAndStatus(GetMemberCreditAndStatusRequest message)
+            => Json(await mediator.SendAsync(message));
 
         [HttpGet]
         public ActionResult ShowQRCode(ShowQRCodeRequest message)
@@ -92,7 +86,7 @@
             => Json(mediator.Send(message));
 
         [HttpPost, AntiXsrfFilter]
-        public ActionResult CheckExistedCustomer(CheckExistedCustomerRequest message)
-           => Json(mediator.Send(message));
+        public async Task<ActionResult> CheckExistedCustomer(CheckExistedCustomerRequest message)
+           => Json(await mediator.SendAsync(message));
     }
 }

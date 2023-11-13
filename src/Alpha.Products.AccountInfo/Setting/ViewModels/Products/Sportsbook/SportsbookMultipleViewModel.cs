@@ -17,21 +17,14 @@
         public override Dictionary<string, string> QueryStringParamaters
         => new Dictionary<string, string>
         {
-            ["m"] = "1",
-            ["custId"] = SearchAccount.Id.ToString(),
-            ["user"] = SearchAccount.Username,
-            [$"{SearchAccount.Upline.CustomerLevel.DisplayName}id"] = SearchAccount.Upline.Id.ToString()
+            ["roleId"] = SearchAccount.CusomerLevelValue.ToString(),
+            ["lng"] = request.Language,
+            ["isDarkMode"] = request.IsDarkMode.ToString().ToLowerInvariant(),
+            ["custIds"] = request.GetData<string>("customerIds"),
+            ["usernames"] = request.GetData<string>("usernames"),
         };
 
-        protected override string BaseAddress
-        {
-            get
-            {
-                var useCase = $"{Actor.CustomerLevel.DisplayName}/EditMultiple{SearchAccount.CustomerLevel.DisplayName}s";
-
-                return $"{OldMainUrl}_MemberInfo/PositionTaking/{useCase}.aspx";
-            }
-        }
+        protected override string BaseAddress => $"{MemberInfoUrl}Customer/EditMultiple";
 
         public override string Url => BaseAddress;
 

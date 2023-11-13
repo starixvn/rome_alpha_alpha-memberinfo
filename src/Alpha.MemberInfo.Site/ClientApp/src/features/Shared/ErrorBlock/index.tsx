@@ -11,9 +11,16 @@ export default function ErrorBlock({ error }: { error: SubMessagesResult }) {
         {error.message ?? error.ErrMsg}
         {error.subMessages?.length > 0 &&
           error.subMessages.map((subMsg) => (
-            <Fragment key={subMsg}>
+            <Fragment key={subMsg.message}>
               <br />
-              {subMsg}
+              {subMsg.isLive ? (
+                  <>
+                    <span className="live-badge">Live</span>{' '}
+                  </>
+                ) : (
+                  ''
+                )}
+              {subMsg.message}
             </Fragment>
           ))}
       </div>

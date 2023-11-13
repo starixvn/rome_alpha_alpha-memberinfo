@@ -55,7 +55,7 @@ class CustomerListPopup {
         let width = '100%';
         if (!this.isMobile) {
             const bodyWidth = this.topWindow.$('#main').width();
-            width = bodyWidth < 1160 ? `${bodyWidth - 50}px` : '1160px';
+            width = bodyWidth < 1250 ? `${bodyWidth - 50}px` : '1250px';
         }
 
         if (!this.isMobile && url.indexOf('ParlayMaxPayout') > -1) {

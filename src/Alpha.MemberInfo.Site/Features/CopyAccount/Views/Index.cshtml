@@ -21,7 +21,7 @@
         <a href="javascript:;" aria-controls="home" role="tab" data-toggle="tab">@Resources.SearchAndCopy</a>
     </li>
     <li role="presentation">
-        <a href="@MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx")" role="tab" data-toggle="tab">@Resources.FullMode</a>
+        @Html.ActionLink(Resources.FullMode, "Create", "Customer", new { lng = Model.Language, isDarkMode = Model.IsDarkMode.ToString().ToLowerInvariant() }, null)
     </li>
     @if (Model.IsCreateMember)
     {

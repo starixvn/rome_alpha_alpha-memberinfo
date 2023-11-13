@@ -44,8 +44,8 @@ export default function ProductSettingInfo() {
         <div className={styles.session}>
           <div className={styles.title}>{t('SettingRemarks')}</div>
           <SettingRemarksMarketBuilder
-            userRoleId={data?.RoleId}
-            Is789y={data?.Is789y}
+            userRoleId={data.RoleId}
+            Is789y={data.Is789y}
             showNoteBBin={data.ShowBBin}
             showNoteRNGKenoNumberGame={data.ShowRNGKenoNumberGame}
           />

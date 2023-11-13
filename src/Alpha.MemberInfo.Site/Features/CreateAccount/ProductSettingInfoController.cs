@@ -9,9 +9,8 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
     using Alpha.Web;
     using Models;
     using Alpha.MemberInfo.Configurations;
-    using System.Collections.Generic;
-    using Alpha.MemberInfo.Features.CreateAccount.Models;
-
+    using Alpha.MemberInfo.Site.Features.CreateAccount.ViewModels;
+    
     public class ProductSettingInfoController : BaseController
     {
         private readonly IUser viewer;
@@ -35,7 +34,7 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
             this.refService = refService;
         }
 
-        public ActionResult Index() => View(ProductSettingInformationViewPath);
+        public ActionResult Index() => View(ProductSettingInformationViewPath, new ProductSettingInfoViewModel(viewer.DarkModeName, viewer.Language));
 
         [HttpGet]
         public async Task<ActionResult> GetProductSettingInfo()

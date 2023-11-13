@@ -3,7 +3,7 @@
     using Alpha.MemberInfo.Models;
     using MediatR;
 
-    public class CheckExistedCustomerRequest : QRCodeBaseQuery, IRequest<bool>
+    public class CheckExistedCustomerRequest : QRCodeBaseQuery, IAsyncRequest<bool>
     {
         public CheckExistedCustomerRequest(IUser viewer) : base(viewer)
         {

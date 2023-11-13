@@ -84,12 +84,16 @@ export default function NewAccount() {
             isSuccessful: false,
             subMessages: [
               ...ptError.map((err) => {
-                if (err.includes('MinPT')) {
-                  return err.replace('MinPT', t('minPT'));
+                if (err.message.includes('MinPT')) {
+                  return {
+                    isLive: err.isLive,
+                    message: err.message.replace('MinPT', t('minPT'))};
                 }
 
-                if (err.includes('MaxPT')) {
-                  return err.replace('MaxPT', t('maxPT'));
+                if (err.message.includes('MaxPT')) {
+                  return {
+                    isLive: err.isLive,
+                    message: err.message.replace('MaxPT', t('maxPT'))};
                 }
 
                 return err;

@@ -241,7 +241,7 @@
                 new CustomerProductStatus(ProductConstants.ESport, true),
             };
 
-            var actualSearchAccountProduct = handler.BuildSearchAccountProductStatus(StubNonDCSProduct(), Enumerable.Empty<DCSProductStatusModel>());
+            var actualSearchAccountProduct = handler.BuildSearchAccountProductStatus(Enumerable.Empty<DCSProductStatusModel>());
             Assert.True(compareLogic.Compare(actualSearchAccountProduct, customerProductStatus).AreEqual);
         }
 
@@ -254,7 +254,7 @@
                 new CustomerProductStatus(ProductConstants.ESport, true),
             };
 
-            var actualUplineProductStatus = handler.BuildUplineProductStatus(StubNonDCSProduct(), Enumerable.Empty<DCSProductStatusModel>());
+            var actualUplineProductStatus = handler.BuildUplineProductStatus(Enumerable.Empty<DCSProductStatusModel>());
             Assert.True(compareLogic.Compare(actualUplineProductStatus, customerProductStatus).AreEqual);
         }
 
@@ -284,13 +284,10 @@
 
             return new List<ISettingItemViewModel>
                 {
-                    new BetSettingViewModel(request),
-                    new CommissionViewModel(request),
                     new EditInfoViewModel(request),
                     new RemoveOtpViewModel(request),
                     new ResetPasswordViewModel(request),
                     new ResetSecurityCodeViewModel(request),
-                    new SportsbookMinPTViewModel(request),
                     new TransferViewModel(request),
                     new SportsbookViewModel(request, configItem)
                 }
@@ -299,13 +296,7 @@
         }
 
         private static CustomerStatusModel CreateCustomerStatusModelStub()
-            => new CustomerStatusModel(StubNonProductStatus(), StubNonDCSProduct(), StubDcsProducts());
-
-        private static NonDCSProductStatusModel StubNonDCSProduct()
-            => new NonDCSProductStatusModel(
-                       disableEsports: true,
-                       uplineDisableEsports: true
-                      );
+            => new CustomerStatusModel(StubNonProductStatus(), StubDcsProducts());
 
         private static NonProductStatusModel StubNonProductStatus()
         {

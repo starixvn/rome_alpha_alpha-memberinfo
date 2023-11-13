@@ -4,7 +4,7 @@
     using Alpha.MemberInfo.Models;
     using MediatR;
 
-    public class GetMemberCreditAndStatusRequest : QRCodeBaseQuery, IRequest<CreditAndStatusModel>
+    public class GetMemberCreditAndStatusRequest : QRCodeBaseQuery, IAsyncRequest<CreditAndStatusModel>
     {
         public GetMemberCreditAndStatusRequest(IUser viewer) : base(viewer)
         {

@@ -4,7 +4,7 @@ namespace Alpha.MemberInfo.Features.CreateAccount.Criteria
   
     public class ProductSettingInfoCriteria : CriteriaBase
     {
-        public byte CreationStatus { get; set; }
+        public byte SettingStatus { get; set; }
         
         public int CustId { get; set; }
         

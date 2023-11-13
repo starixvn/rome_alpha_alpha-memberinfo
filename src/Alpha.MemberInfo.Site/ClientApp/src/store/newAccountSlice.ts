@@ -12,6 +12,7 @@ import { GeneralInfoSlice } from './generalInfoSlice';
 import BaseSettingHandler from './NewAccountHandler/baseSettingHandler';
 import { AgentUIHandler, MasterUIHandler, SuperUIHandler } from './NewAccountHandler/baseUIHandler';
 import createParlayMaxPayoutSlice, { ParlayMaxPayoutSlice } from './parlayMaxPayoutSlice';
+import { PTError } from './PositionTakingHandler/basePTHandler';
 import createPositionTakingSlice, { PositionTakingSlice } from './positionTakingSlice';
 import createSportsBookCommissionSlice, { SportsBookCommissionSlice } from './sportsBookCommissionSlice';
 
@@ -33,7 +34,7 @@ export type NewAccountSlice = {
   submitCount: number;
   setTheme: (value: string) => void;
   showPopup: (popup: ReactNode) => void;
-  intiNewAccountState: (generalInfo: GeneralInfo, productGroups: ProductGroup[], ptTemplates: PTTemplate[]) => string[];
+  intiNewAccountState: (generalInfo: GeneralInfo, productGroups: ProductGroup[], ptTemplates: PTTemplate[]) => PTError[];
   getProductGroupAndUISettings: () => {
     uiBehavior: object;
     generalInfo: GeneralInfo;
@@ -69,14 +70,17 @@ const createNewAccountSlice: StateCreator<NewAccountState, [], [], NewAccountSli
     set(() => ({
       generalInfo: {
         ...generalInfo,
-        userName: (generalInfo.uplineUserName + generalInfo.newUserName).toUpperCase(),
+        userName: (generalInfo.uplineUserName + params.suggestUsername).toUpperCase(),
+        uplineCustId: params.uplineId,
+        uplineRoleId: params.uplineRoleId,
+        newUserName: params.suggestUsername.toUpperCase(),
         uplineMaxCredit: generalInfo.maxCredit ?? 0,
         uplineMemberMaxCredit: generalInfo.memberMaxCredit ?? 0,
         maxCredit: 0,
         group: 'a',
       },
       disableAutoMPT: generalInfo.disableAutoMPT,
-      userLevel: generalInfo.uplineRoleId,
+      userLevel: params.uplineRoleId,
       siteLabel: generalInfo.siteLabel.toLocaleLowerCase(),
       isAutomateTransfer: generalInfo.isAutomateTransfer,
       displayTransferCondition: generalInfo.transferOption === TransferOptions.Daily,
@@ -88,7 +92,7 @@ const createNewAccountSlice: StateCreator<NewAccountState, [], [], NewAccountSli
     createBetSettingSlice(set, get, api).initBetSettingState(generalInfo.siteLabel, productGroupsDict);
     createParlayMaxPayoutSlice(set, get, api).initParlayMaxPayoutState(productGroupsDict);
     const error = createPositionTakingSlice(set, get, api).initPositionTakingState(
-      generalInfo.uplineRoleId,
+      params.uplineRoleId,
       productGroupsDict,
       ptTemplates,
     );
