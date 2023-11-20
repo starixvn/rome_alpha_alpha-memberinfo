@@ -734,6 +734,12 @@
     <Content Include="IbcKeys\ibckeydec.snk" />
     <Content Include="IbcKeys\Web.config" />
     <Content Include="Views\ProblemAccount\ConfirmAddToWatchlist.cshtml" />
+    <Content Include="Web.AppSettings.pro5.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="Web.pro5.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </Content>
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\edit-setting-popup.ts" />
     <TypeScriptCompile Include="assets\scripts\shared\customer-status-helper.ts" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
@@ -1075,6 +1081,7 @@
     <Content Include="Features\CreateAccount\Views\web.config" />
     <Content Include="Features\CreateAccount\Views\_Layout.cshtml" />
     <Content Include="Features\CreateAccount\Views\QuickIntroduction.cshtml" />
+    <Content Include="deployment.pro5.ignore" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
