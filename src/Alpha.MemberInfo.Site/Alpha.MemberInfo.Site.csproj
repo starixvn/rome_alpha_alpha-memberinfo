@@ -101,9 +101,6 @@
     <Reference Include="AlphaPlus.PartialUM.DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\AlphaPlus.PartialUM.DataAccess.1.0.0\lib\netstandard2.0\AlphaPlus.PartialUM.DataAccess.dll</HintPath>
     </Reference>
-    <Reference Include="AlphaPlus.SecurityCode, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\AlphaPlus.SecurityCode.1.0.0\lib\net461\AlphaPlus.SecurityCode.dll</HintPath>
-    </Reference>
     <Reference Include="AlphaPlus.User.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\AlphaPlus.User.Models.1.0.0\lib\netstandard2.0\AlphaPlus.User.Models.dll</HintPath>
     </Reference>
@@ -246,11 +243,11 @@
     <Reference Include="ONEbook.Common.Auth, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ONEbook.Common.Auth.2.0.0\lib\netstandard2.0\ONEbook.Common.Auth.dll</HintPath>
     </Reference>
-    <Reference Include="ONEbook.SpreadSheets, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ONEbook.SpreadSheets.2.0.0-netstandard01\lib\netstandard2.0\ONEbook.SpreadSheets.dll</HintPath>
+    <Reference Include="ONEbook.SpreadSheets, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ONEbook.SpreadSheets.1.0.0.1\lib\net461\ONEbook.SpreadSheets.dll</HintPath>
     </Reference>
-    <Reference Include="ONEbook.SpreadSheets.NPOI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ONEbook.SpreadSheets.NPOI.2.0.0-netstandard01\lib\netstandard2.0\ONEbook.SpreadSheets.NPOI.dll</HintPath>
+    <Reference Include="ONEbook.SpreadSheets.NPOI, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ONEbook.SpreadSheets.NPOI.1.0.0.3\lib\net461\ONEbook.SpreadSheets.NPOI.dll</HintPath>
     </Reference>
     <Reference Include="ONEbook.UM, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ONEbook.UM.3.1.1\lib\net461\ONEbook.UM.dll</HintPath>

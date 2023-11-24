@@ -42,6 +42,9 @@
     <Reference Include="Alpha.Products.Core, Version=1.0.1.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.Products.Core.1.0.1.5\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Alpha.SecurityCode, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Alpha.SecurityCode.4.0.0\lib\net461\Alpha.SecurityCode.dll</HintPath>
+    </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.SubAccount.1.0.0.1\lib\net40\Alpha.SubAccount.dll</HintPath>
     </Reference>
@@ -56,9 +59,6 @@
     </Reference>
     <Reference Include="AlphaPlus.Logging.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\AlphaPlus.Logging.Web.1.0.0\lib\net461\AlphaPlus.Logging.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="AlphaPlus.SecurityCode, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\AlphaPlus.SecurityCode.1.0.0\lib\net461\AlphaPlus.SecurityCode.dll</HintPath>
     </Reference>
     <Reference Include="AlphaPlus.User.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\AlphaPlus.User.Models.1.0.0\lib\netstandard2.0\AlphaPlus.User.Models.dll</HintPath>
@@ -201,11 +201,11 @@
       <HintPath>..\..\..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ONEbook.SpreadSheets, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\ONEbook.SpreadSheets.2.0.0-netstandard01\lib\netstandard2.0\ONEbook.SpreadSheets.dll</HintPath>
+    <Reference Include="ONEbook.SpreadSheets, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\ONEbook.SpreadSheets.1.0.0.1\lib\net461\ONEbook.SpreadSheets.dll</HintPath>
     </Reference>
-    <Reference Include="ONEbook.SpreadSheets.NPOI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\ONEbook.SpreadSheets.NPOI.2.0.0-netstandard01\lib\netstandard2.0\ONEbook.SpreadSheets.NPOI.dll</HintPath>
+    <Reference Include="ONEbook.SpreadSheets.NPOI, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\ONEbook.SpreadSheets.NPOI.1.0.0.3\lib\net461\ONEbook.SpreadSheets.NPOI.dll</HintPath>
     </Reference>
     <Reference Include="RabbitMQ.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\RabbitMQ.Client.5.0.1\lib\net451\RabbitMQ.Client.dll</HintPath>

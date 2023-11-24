@@ -37,7 +37,6 @@
     using AlphaPlus.PartialUM.DataAccess;
     using AlphaPlus.PartialUM.Helpers;
     using AlphaPlus.PartialUM.Services;
-    using AlphaPlus.SecurityCode.Services;
     using AlphaPlus.User.Models;
     using AlphaPlus.Utilities.IP;
     using Controllers;
@@ -70,16 +69,16 @@
     using System.Threading;
     using System.Web;
     using System.Web.Mvc;
+    using Alpha.SecurityCode.Services;
 
     public static class DependencyConfig
     {
         [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Reviewed")]
         public static void Init()
         {
-
             AlphaPlus.Configurations.ConfigurationManager.Init(new ConfigurationHelper());
 
-            RegisterQRCodeConfiguration();            
+            RegisterQRCodeConfiguration();
 
             var container = new Container();
 
@@ -186,7 +185,7 @@
             container.Register<IWinlossService, WinlossService>(Lifestyle.Scoped);
             container.RegisterPerWebRequest<ICopyAccountService>(() => new CopyAccountService(CreateCustomerApiHttpClient()));
             container.RegisterPerWebRequest<ICreateAccountService>(() => new CreateAccountService(CreateCustomerApiHttpClient()));
-            container.RegisterPerWebRequest<IProductSettingInfoService,ProductSettingInfoService>();
+            container.RegisterPerWebRequest<IProductSettingInfoService, ProductSettingInfoService>();
         }
 
         private static HttpClient CreateCustomerApiHttpClient()
