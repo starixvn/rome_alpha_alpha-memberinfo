@@ -1,8 +1,8 @@
 @{
     Layout = null;
-    var dataThem = Sunplus.Agent.Model.Entities.UserSession.Current.DarkModeName == "" ? "light" : "dark";
-    var language = Sunplus.Agent.Model.Entities.UserSession.Current.Language;
-    var roleId = Sunplus.Agent.Model.Entities.UserSession.Current.RoleId;
+    var dataThem = AlphaPlus.User.Models.UserSession.Current.DarkModeName == "" ? "light" : "dark";
+    var language = AlphaPlus.User.Models.UserSession.Current.Language;
+    var roleId = AlphaPlus.User.Models.UserSession.Current.RoleId;
     var defaultEnUs = $"~/assets/styles/images/createAccount/en-Us/{dataThem}/";
     var img1 = $"{defaultEnUs}lv{roleId}.img1.png";
     var img2 = $"{defaultEnUs}lv{roleId}.img2.png";

@@ -6,8 +6,6 @@
     using System.Text.RegularExpressions;
     using System.Web;
     using Alpha.MemberInfo.Configurations;
-    using Sunplus.Agent.Model.Entities;
-    using Sunplus.Agent.Utilities;
     using Web.Helpers;
 
     public static class UrlHelper
@@ -155,29 +153,10 @@
 
             if (HttpContext.Current.Session.IsCookieless)
             {
-                var currentSession = UserSession.Current;
-                var cookieNameCurrentPage = GetCookieNameOfCurrentPage(currentSession.CustId, currentSession.SubAccId, Encryption.PearsonEncode);
                 cookieless = $"/(S({HttpContext.Current.Request.Cookies[$"DFFKDHFJKLDHFJDH-betlist-{HttpContext.Current.Session.SessionID}"].Value}))";
             }
 
             return $"{betlistDomain}{cookieless}{virtualPath?.Replace("~", string.Empty)}";
-        }
-
-        internal static string GetCookieNameOfCurrentPage(
-            int custId,
-            int subAccId,
-            Func<string, string> encodeDataFunction)
-        {
-            var joinStrings = new[]
-            {
-                custId.ToString(),
-                subAccId.ToString(),
-                "NewMain"
-            };
-
-            var cacheUrlCookieName = string.Join("_", joinStrings);
-
-            return encodeDataFunction?.Invoke(cacheUrlCookieName) ?? cacheUrlCookieName;
         }
     }
 }

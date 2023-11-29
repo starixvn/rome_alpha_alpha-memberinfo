@@ -1,7 +1,7 @@
 ﻿namespace Alpha.Products.AccountInfo.Requests
 {
     using Alpha.Products.Core.Models;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
 
     public interface ISearchAccountInfoRequest : IRequest, IExtendedRequest
     {

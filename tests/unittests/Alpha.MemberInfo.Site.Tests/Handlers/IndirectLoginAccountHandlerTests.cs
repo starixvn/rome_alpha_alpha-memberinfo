@@ -10,7 +10,7 @@
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Handlers;
     using Alpha.MemberInfo.Site.Requests.IndirectLoginAccount;
-    using Alpha.Utilities.IP;
+    using AlphaPlus.Utilities.IP;
     using Alpha.Web.Helpers;
     using NSubstitute;
     using Sunplus.Agent.Utilities;

@@ -3,7 +3,7 @@
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Shared;
-    using Alpha.Web.Configurations;
+    using AlphaPlus.Configurations;
     using System;
     using System.Collections.Generic;
     using System.Linq;

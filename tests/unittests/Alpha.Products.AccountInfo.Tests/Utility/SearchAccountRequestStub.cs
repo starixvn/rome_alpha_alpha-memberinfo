@@ -4,7 +4,7 @@
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Models;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
 
     /// <summary>
     /// should implementation be located in consumer sites.

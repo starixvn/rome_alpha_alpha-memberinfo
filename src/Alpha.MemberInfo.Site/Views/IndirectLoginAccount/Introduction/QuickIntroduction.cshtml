@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
     string slide1, slide2, lang;
-    lang = Sunplus.Agent.Model.Entities.UserSession.Current.Language;
+    lang = AlphaPlus.User.Models.UserSession.Current.Language;
 
     var folder = "~/assets/styles/images/";
     var imgLang = File.Exists(Server.MapPath($"{folder}slide2.{lang}.png")) ?

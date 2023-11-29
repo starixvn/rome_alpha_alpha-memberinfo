@@ -2,8 +2,8 @@
 {
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
-    using Alpha.Web.Helpers;
     using System.Collections.Generic;
+    using Alpha.Web.Helpers;
 
     public class AutoTransferMultipleViewModel : SettingItemViewModel, ISettingItemMultipleViewModel
     {

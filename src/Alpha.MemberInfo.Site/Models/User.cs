@@ -1,13 +1,12 @@
 ﻿namespace Alpha.MemberInfo.Site.Models
 {
+    using Alpha.MemberInfo.Configurations;
+    using AlphaPlus.User.Models;
+    using MemberInfo.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
-    using Alpha.MemberInfo.Configurations;
-    using MemberInfo.Models;
-    using Sunplus.Agent.Model.Entities;
-    using Sunplus.Agent.Model.Entities.Permission;
 
     public class User : IUser
     {

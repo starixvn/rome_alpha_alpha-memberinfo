@@ -1,15 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Net;
-    using System.Net.Http;
-    using System.Reflection;
-    using System.Resources;
-    using System.Threading;
-    using System.Web;
-    using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Features.CustomerList;
@@ -31,8 +21,7 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.Shared.Helpers;
     using Alpha.MemberInfo.Site.Handlers;
-    using Alpha.PartialUM.DataAccess;
-    using Alpha.PartialUM.Services;
+    using Alpha.PartialUM.Helpers;
     using Alpha.Products.AccountInfo;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Services;
@@ -43,10 +32,13 @@
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Services;
     using Alpha.Products.Core.ViewModels;
-    using Alpha.SecurityCode.Services;
-    using Alpha.Utilities.IP;
     using Alpha.Web.Helpers;
     using Alpha.Web.Helpers.Impl;
+    using AlphaPlus.PartialUM.DataAccess;
+    using AlphaPlus.PartialUM.Helpers;
+    using AlphaPlus.PartialUM.Services;
+    using AlphaPlus.User.Models;
+    using AlphaPlus.Utilities.IP;
     using Controllers;
     using DataAccesses;
     using Fanex.Caching;
@@ -66,15 +58,26 @@
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
-    using Sunplus.Agent.Model.Base;
-    using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Utilities;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Net;
+    using System.Net.Http;
+    using System.Reflection;
+    using System.Resources;
+    using System.Threading;
+    using System.Web;
+    using System.Web.Mvc;
+    using Alpha.SecurityCode.Services;
 
     public static class DependencyConfig
     {
         [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Reviewed")]
         public static void Init()
         {
+            AlphaPlus.Configurations.ConfigurationManager.Init(new ConfigurationHelper());
+
             RegisterQRCodeConfiguration();
 
             var container = new Container();
@@ -130,9 +133,11 @@
         private static void RegisterServices(Container container)
         {
             container.RegisterSingleton<BrowserHelper, BrowserHelperImpl>();
-            container.RegisterSingleton<IUserSession, UserSessionExt>();
+            UserSession.Init(new HttpContextHelper());
+            container.RegisterSingleton<IUserSession, AlphaPlus.User.Models.UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
             container.RegisterPerWebRequest<TransferService, TransferServiceImpl>();
+            container.RegisterSingleton<IPartialUMSectionHelper, PartialUMSectionHelper>();
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterPerWebRequest<IPService, IPServiceImpl>();
@@ -180,7 +185,7 @@
             container.Register<IWinlossService, WinlossService>(Lifestyle.Scoped);
             container.RegisterPerWebRequest<ICopyAccountService>(() => new CopyAccountService(CreateCustomerApiHttpClient()));
             container.RegisterPerWebRequest<ICreateAccountService>(() => new CreateAccountService(CreateCustomerApiHttpClient()));
-            container.RegisterPerWebRequest<IProductSettingInfoService,ProductSettingInfoService>();
+            container.RegisterPerWebRequest<IProductSettingInfoService, ProductSettingInfoService>();
         }
 
         private static HttpClient CreateCustomerApiHttpClient()

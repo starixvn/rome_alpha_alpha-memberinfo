@@ -28,8 +28,7 @@
     using Alpha.Products.Core.Services;
     using Alpha.Products.Core.Shared;
     using Alpha.Products.Core.ViewModels;
-    using Alpha.SecurityCode.Services;
-    using Alpha.Utilities.IP;
+    using AlphaPlus.Utilities.IP;
     using Alpha.Web.Helpers;
     using AutoFixture;
     using Fixtures;
@@ -37,6 +36,7 @@
     using MemberInfo.Models;
     using NSubstitute;
     using Xunit;
+    using Alpha.SecurityCode.Services;
 
     [Trait("Category", "CustomerList")]
     [Collection("UserCollection")]

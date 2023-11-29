@@ -30,7 +30,7 @@
             var param = new ParlayMaxPayoutSelectParam(1176070);
 
             repository
-                .Fetch<ParlayMaxPayoutModel>(Arg.Any<ParlayMaxPayoutSelectParam>())
+                .Fetch<ParlayMaxPayoutModel>(Arg.Any<ParlayMaxPayoutSelectCriteria>())
                 .Returns(Enumerable.Empty<ParlayMaxPayoutModel>());
 
             // Action

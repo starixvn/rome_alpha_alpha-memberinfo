@@ -5,7 +5,7 @@
     using Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Requests;
     using Alpha.Web.Helpers;
     using Fanex.Common.Extensions;
-    using Sunplus.Agent.Model.Entities;
+    using AlphaPlus.User.Models;
     using System;
 
     public class MyWatchlistAccountsViewModel

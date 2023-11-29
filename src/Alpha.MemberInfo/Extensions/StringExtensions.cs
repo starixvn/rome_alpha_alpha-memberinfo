@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Sunplus.Agent.Utilities;
 
     public static class StringExtensions
     {
@@ -27,6 +26,6 @@
         public static string FormatDateTimeEn12(this DateTime? dateTime)
             => dateTime == null
                 ? "-"
-                : Formater.FormatDateTimeEn12(dateTime);
+                : DateTimeExtensions.ToLongDateTime12h(dateTime);
     }
 }

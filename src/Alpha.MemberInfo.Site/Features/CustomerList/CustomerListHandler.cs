@@ -18,11 +18,11 @@
     using Alpha.Products.Core.Services;
     using Alpha.Products.Core.Shared;
     using Alpha.Products.Core.ViewModels;
-    using Alpha.SecurityCode.Services;
-    using Alpha.Utilities.IP;
+    using AlphaPlus.Utilities.IP;
     using Alpha.Web.Helpers;
     using Fanex.Common;
     using MediatR;
+    using Alpha.SecurityCode.Services;
 
     public class CustomerListHandler :
         IRequestHandler<CustomerListRequest, CustomerListViewModel>,
@@ -381,7 +381,6 @@
            CustomerStatusMultipleQuery message,
            CustomerStatusModel model)
         {
-
             var request = new SettingSearchAccountRequest(actor, searchAccount);
             request.SubPageAccess = message.SubPageAccess;
             request.SupportAutoTransfer = message.SupportAutoTransfer;

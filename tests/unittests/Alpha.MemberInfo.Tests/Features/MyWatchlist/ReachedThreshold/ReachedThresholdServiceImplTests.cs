@@ -8,7 +8,7 @@
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Params;
     using Alpha.MemberInfo.Tests.Extensions;
-    using Alpha.PartialUM.Services;
+    using AlphaPlus.PartialUM.Services;
     using Fanex.Data.Repository;
     using NSubstitute;
     using Xunit;

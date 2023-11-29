@@ -1,17 +1,17 @@
 ﻿namespace Alpha.MemberInfo.Features.MyWatchlist.MyThresholds
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds.Criteria;
     using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds.Params;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Models;
     using Alpha.MemberInfo.Models;
-    using Alpha.PartialUM.Services;
+    using AlphaPlus.PartialUM.Services;
     using Fanex.Data.Repository;
     using Fanex.Logging.Extensions.Web;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public interface MyThresholdsService
     {

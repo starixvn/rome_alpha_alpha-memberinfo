@@ -12,7 +12,7 @@
     using MemberInfo.Params;
     using MemberInfo.Services.CreditBalance;
     using NSubstitute;
-    using Utilities.IP;
+    using AlphaPlus.Utilities.IP;
     using Xunit;
 
     [Trait("Category", "Transfer")]

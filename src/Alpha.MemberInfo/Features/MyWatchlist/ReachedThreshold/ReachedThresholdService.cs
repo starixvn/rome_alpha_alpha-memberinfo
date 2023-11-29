@@ -6,7 +6,7 @@
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Criteria;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Models;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold.Params;
-    using Alpha.PartialUM.Services;
+    using AlphaPlus.PartialUM.Services;
     using Fanex.Data.Repository;
 
     public interface ReachedThresholdService

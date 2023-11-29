@@ -92,7 +92,7 @@
 
             var reportData = CustWinLossLimitDatabase.Data.CreateDataReader();
             objectDb.ExecuteReader(Arg.Any<GetCustWinLossLimitCriteria>()).Returns(reportData);
-            objectDb.GetOuputParams().Returns(new Hashtable { ["totalrows"] = 2 });
+            objectDb.GetOutputParams().Returns(new Hashtable { ["totalrows"] = 2 });
 
             // Act
             var actualValue = winLossLimitDataAccessImpl.GetWinLossLimits(criteria);

@@ -67,7 +67,7 @@
                         reader.Close();
                     }
 
-                    numberOfRows = Converter.ToInt(objectDb.GetOuputParams()["totalrows"]);
+                    numberOfRows = Converter.ToInt(objectDb.GetOutputParams()["totalrows"]);
                 }
             }
 

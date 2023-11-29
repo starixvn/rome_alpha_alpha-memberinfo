@@ -7,7 +7,7 @@
     using Alpha.MemberInfo.Site.Helpers;
     using Alpha.MemberInfo.Site.Requests.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.ViewModels.IndirectLoginAccount;
-    using Alpha.Utilities.IP;
+    using AlphaPlus.Utilities.IP;
     using Alpha.Web.Helpers;
     using MediatR;
     using Sunplus.Agent.Utilities;
