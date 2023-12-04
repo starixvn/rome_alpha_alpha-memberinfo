@@ -15,10 +15,10 @@ const CheckProductsNotNull = (product: ProductSetting) => product?.Products?.len
 const sortAZ = (a: string, b: string) => a.localeCompare(b, undefined, { sensitivity: "base" });
 
 export default function ProductSettingInformation({ ProductSettingInfo }: { ProductSettingInfo: ProductSetting[] }) {
-  const renderMultiple = (products: ProductSetting[]) =>
+  const renderMultiple = (products: ProductSetting[], groupName: string, numberOfGroup: number) =>
     products.map((p) => (
       <tr key={p.Name}>
-        {p.Name && <td>{p.Name}</td>}
+        {(groupName !== p.Name || numberOfGroup !== 1) && p.Name && <td>{p.Name}</td>}
         <td>
           {p.Products.map((product: ProductSetting) => GetProductName(product)).sort(sortAZ).join(", ")}
         </td>
@@ -32,7 +32,7 @@ export default function ProductSettingInformation({ ProductSettingInfo }: { Prod
           <table className={styles.table}>
             <tbody>
             {e.Products?.map((p) => CheckProductsNotNull(p)).includes(true) ? (
-              renderMultiple(e.Products)
+              renderMultiple(e.Products, e.Name, e.Products.length)
             ) : (
               <td>
                 {e.Products.map((product: ProductSetting) => GetProductName(product)).sort(sortAZ).join(", ")}
