@@ -733,6 +733,9 @@
     <Content Include="Web.pro5.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <Content Include="Features\SubAcc\Views\AddSubAcc.cshtml" />
+    <Content Include="Features\SubAcc\Views\EditSubAcc.cshtml" />
+    <Content Include="Features\SubAcc\Views\SubAccList.cshtml" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\edit-setting-popup.ts" />
     <TypeScriptCompile Include="assets\scripts\shared\customer-status-helper.ts" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
@@ -1697,6 +1700,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Shared\Assets\" />
+    <Folder Include="Features\SubAcc\Assets\" />
+    <Folder Include="Features\SubAcc\Requests\" />
+    <Folder Include="Features\SubAcc\ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
