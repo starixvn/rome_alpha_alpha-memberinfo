@@ -99,7 +99,7 @@ export default function NewAccount() {
         }
         setLoading(false);
       })
-      .catch(() => {
+      .catch((e) => {
         // console.log(e);
         setLoading(true);
       });

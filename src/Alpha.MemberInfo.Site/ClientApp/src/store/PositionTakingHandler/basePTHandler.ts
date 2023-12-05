@@ -44,10 +44,11 @@ export class BasePTHandler {
   }
 
   protected groupPTBySubGroupId(ptGroupItems: GroupType): { [key: number]: GroupItem[] } {
-    const ptGroups = ptGroupItems.groupItems.reduce((acc: { [key: number]: GroupItem[] }, cur) => {
-      if (cur.subGroupId) {
-        acc[cur.subGroupId] = acc[cur.subGroupId] ?? [];
-        acc[cur.subGroupId].push(cur);
+    const ptGroups = ptGroupItems.groupItems.reduce((acc: { [key: number | string]: GroupItem[] }, cur) => {
+      if (cur.subGroupId >= 0) {
+        const subGroupKey = `+${cur.subGroupId}`;
+        acc[subGroupKey] = acc[subGroupKey] ?? [];
+        acc[subGroupKey].push(cur);
       }
       return acc;
     }, {});
