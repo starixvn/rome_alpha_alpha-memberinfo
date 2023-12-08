@@ -2,21 +2,28 @@
 {
     using System;
     using Alpha.MemberInfo.Models;
-    using Alpha.MemberInfo.Params.ProblemAccount;
     using Fanex.Data.Repository;
 
     public class GetProblemAccountCriteria : CriteriaBase
     {
-        public GetProblemAccountCriteria(GetProblemAccountParam param)
+        public GetProblemAccountCriteria(
+            int custId,
+            int subAccId,
+            string uplineUserName,
+            byte searchRoleId,
+            string searchUserName,
+            DateTime fromDate,
+            DateTime toDate,
+            int reviewStatusId)
         {
-            CustId = param.CustId;
-            SubAccId = param.SubAccId;
-            UplineUserName = param.UplineUserName;
-            SearchRoleId = param.SearchRoleId;
-            SearchUserName = param.SearchUserName;
-            FromDate = param.FromDate;
-            ToDate = param.ToDate;
-            ReviewStatusId = param.ReviewStatusId;
+            CustId = custId;
+            SubAccId = subAccId;
+            UplineUserName = uplineUserName;
+            SearchRoleId = searchRoleId;
+            SearchUserName = searchUserName;
+            FromDate = fromDate;
+            ToDate = toDate;
+            ReviewStatusId = reviewStatusId;
         }
 
         public int CustId { get; }

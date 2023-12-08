@@ -1,24 +1,34 @@
 ﻿namespace Alpha.MemberInfo.Criteria.IndirectLoginAccount
 {
-    using Alpha.MemberInfo.Params.IndirectLoginAccount;
     using Fanex.Data;
     using Fanex.Data.Repository;
 
     public class NewAccountCriteria : NonQueryCommand
     {
-        public NewAccountCriteria(NewAccountParam param)
+        public NewAccountCriteria(
+            string username,
+            string password,
+            int actorId,
+            int actorSubAccId,
+            byte actorLevelId,
+            string language,
+            string loginIP,
+            string loginDomain,
+            string browserName,
+            string platform,
+            string countryCode)
         {
-            Username = param.CustName;
-            UserPwd = param.Password;
-            ActorId = param.ActorId;
-            ActorSubAccId = param.ActorSubAccId;
-            ActorLevelId = param.ActorLevelId;
-            IP = param.RequestInfo.LoginIP;
-            Language = param.LanguageKey;
-            LoginDomain = param.RequestInfo.LoginDomain;
-            BrowserName = param.RequestInfo.BrowserName;
-            Platform = param.RequestInfo.Platform;
-            CountryCode = param.RequestInfo.CountryCode;
+            Username = username;
+            UserPwd = password;
+            ActorId = actorId;
+            ActorSubAccId = actorSubAccId;
+            ActorLevelId = actorLevelId;
+            IP = loginIP;
+            Language = language;
+            LoginDomain = loginDomain;
+            BrowserName = browserName;
+            Platform = platform;
+            CountryCode = countryCode;
         }
 
         public string Username { get; }

@@ -48,41 +48,41 @@
             IPLogin = ipLogin;
         }
 
-        public int RowNumber { get; }
+        public int RowNumber { get; set; }
 
-        public bool Enabled { get; }
+        public bool Enabled { get; set; }
 
-        public bool Closed { get; }
+        public bool Closed { get; set; }
 
         public byte ClosedReason { get; set; }
 
-        public bool Suspended { get; }
+        public bool Suspended { get; set; }
 
         public byte Locked { get; set; }
 
-        public int CustId { get; }
+        public int CustId { get; set; }
 
-        public string UserName { get; }
+        public string UserName { get; set; }
 
-        public string FirstName { get; }
+        public string FirstName { get; set; }
 
-        public string LastName { get; }
+        public string LastName { get; set; }
 
-        public decimal Credit { get; }
+        public decimal Credit { get; set; }
 
         public decimal BetCredit { get; set; }
 
-        public decimal Balance { get; }
+        public decimal Balance { get; set; }
 
-        public decimal Yesterday_Balance { get; }
+        public decimal Yesterday_Balance { get; set; }
 
-        public decimal Outstanding { get; }
+        public decimal Outstanding { get; set; }
 
-        public decimal PendingTransfer3rd { get; }
+        public decimal PendingTransfer3rd { get; set; }
 
-        public DateTime? LastLogged { get; }
+        public DateTime? LastLogged { get; set; }
 
-        public DateTime? CreatedDate { get; }
+        public DateTime? CreatedDate { get; set; }
 
         public string IPLogin { get; set; }
 

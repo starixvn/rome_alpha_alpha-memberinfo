@@ -2,20 +2,25 @@
 {
     using Fanex.Data;
     using Fanex.Data.Repository;
-    using Params;
 
     public class GetBalanceCriteria : CriteriaBase
     {
-        public GetBalanceCriteria(WinLossLimitParam param)
+        public GetBalanceCriteria(
+            int custId,
+            int betType,
+            string username,
+            int masterId,
+            int agentId,
+            int pageIndex,
+            int pageSize)
         {
-            CustId = param.CustId;
-            BetType = param.BetType;
-            Username = param.Username;
-            MasterId = param.MasterId;
-            AgentId = param.AgentId;
-
-            PageSize = param.PageSize;
-            PageIndex = param.PageIndex;
+            CustId = custId;
+            BetType = betType;
+            Username = username;
+            MasterId = masterId;
+            AgentId = agentId;
+            PageIndex = pageIndex;
+            PageSize = pageSize;
         }
 
         public int CustId { get; set; }

@@ -7,14 +7,20 @@
 
     public class GetDormantAccountsCriteria : CriteriaBase
     {
-        public GetDormantAccountsCriteria(DormantAccountParam param)
+        public GetDormantAccountsCriteria(
+            int custId,
+            string username,
+            byte roleId,
+            byte statusId,
+            int pageIndex,
+            int pageSize)
         {
-            CustId = param.CustId;
-            FilterUsername = param.Username;
-            FilterRoleId = param.RoleId;
-            FilterStatusId = param.StatusId;
-            PageIndex = param.PageIndex;
-            PageSize = param.PageSize;
+            CustId = custId;
+            FilterUsername = username;
+            FilterRoleId = roleId;
+            FilterStatusId = statusId;
+            PageIndex = pageIndex;
+            PageSize = pageSize;
         }
 
         public int CustId { get; }

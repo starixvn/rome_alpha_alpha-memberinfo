@@ -11,8 +11,16 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var criteria = new UpdateMyThresholdCommand(new UpdateMyThresholdParam(
-                1234, null, 100, 5678, 0, "::1", string.Empty));
+            var param = new UpdateMyThresholdParam(
+                1234, null, 100, 5678, 0, "::1", string.Empty);
+            var criteria = new UpdateMyThresholdCommand(
+                param.CustId,
+                param.SportType,
+                param.WinningThreshold,
+                param.LosingThreshold,
+                param.UserId,
+                param.SubAccId,
+                param.IP);
 
             // Act & Assert
             Assert.Equal("Acc_WLMonitored_SMA_Adjust", criteria.GetSettingKey());
@@ -25,8 +33,16 @@
         public void IsValid_CustId_ReturnsCorrectExpectedValue(int custId, bool expectedValue)
         {
             // Arrange
-            var criteria = new UpdateMyThresholdCommand(new UpdateMyThresholdParam(
-                custId, null, 100, 5678, 0, "::1", string.Empty));
+            var param = new UpdateMyThresholdParam(
+                custId, null, 100, 5678, 0, "::1", string.Empty);
+            var criteria = new UpdateMyThresholdCommand(
+                param.CustId,
+                param.SportType,
+                param.WinningThreshold,
+                param.LosingThreshold,
+                param.UserId,
+                param.SubAccId,
+                param.IP);
 
             // Act & Assert
             Assert.Equal(expectedValue, criteria.IsValid());

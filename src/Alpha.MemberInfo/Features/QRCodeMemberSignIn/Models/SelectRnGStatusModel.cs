@@ -11,6 +11,6 @@
             SyncCS = syncCS;
         }
 
-        public bool SyncCS { get; }
+        public bool SyncCS { get; set; }
     }
 }

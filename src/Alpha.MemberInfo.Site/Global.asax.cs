@@ -1,6 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Site
 {
-    using Alpha.MemberInfo.Site.Utilities;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Reflection;
+    using System.Web.Mvc;
+    using System.Web.Routing;
     using Alpha.PartialUM.Filters;
     using AlphaPlus.Logging;
     using AlphaPlus.Logging.Web;
@@ -10,8 +17,6 @@
     using Configurations;
     using Fanex.Caching;
     using Fanex.Data;
-    using Fanex.Data.SqlServer;
-    using Fanex.Logging.Extensions.Database;
     using Fanex.Logging.Extensions.Web;
     using Fanex.RemotingRef;
     using Helpers;
@@ -21,12 +26,6 @@
     using ONEbook.UM.NETFramework;
     using ONEbook.UM.Services;
     using ONEbook.UM.Transport;
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Reflection;
-    using System.Web.Mvc;
-    using System.Web.Routing;
     using Web;
     using Web.Filters;
     using Web.Helpers;
@@ -42,20 +41,26 @@
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            DependencyConfig.Init();
-
-            DbSettingProviderManager
-                .StartNewSession()               
-                .WithSqlServer(resourcePath: AppSettings.StoreProcedurePath)
-                .UseShardDbSettingProvider()
-                .Run();
-               
-
-            AppSettings.Verify();
-
-            ShareSession.Init();
+            AlphaPlus.Configurations.ConfigurationManager.Init(new ConfigurationHelper());
             LoggingConfig.ExceptionHandler = new ExceptionHandlerAdapter();
-            LoggingConfig.Init(getDbExceptionInfo: DatabaseInfoGetters.GetDbExceptionInfo);
+            LoggingConfig.Init();
+
+            var connectionStrings = ConfigurationManager.ConnectionStrings
+                .Cast<ConnectionStringSettings>()
+                .ToDictionary(
+                    connection => connection.Name,
+                    connection => new ConnectionConfiguration(connection.Name, connection.ConnectionString, connection.ProviderName),
+                    StringComparer.OrdinalIgnoreCase);
+            DbSettingProviderManager
+                .StartNewSession()
+                .Use(connectionStrings)
+                .Use(AppSettings.FanexDataServiceApi)
+                .Register(resourcePath: AppSettings.StoreProcedurePath)
+                .Run();
+
+            DependencyConfig.Init();
+            AppSettings.Verify();
+            ShareSession.Init();
             ModelBinders.Binders.DefaultBinder = new QueryEntityModelBinder();
 
             var umConfig = new UMClientConfiguration().Initialize();

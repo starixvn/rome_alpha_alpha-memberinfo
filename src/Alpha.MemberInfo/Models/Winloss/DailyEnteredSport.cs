@@ -6,7 +6,6 @@
     {
         public DailyEnteredSport()
         {
-
         }
 
         public DailyEnteredSport(int entered, int nonEntered)
@@ -29,14 +28,14 @@
             NonEntered = nonEntered;
         }
 
-        public bool IsToday { get; }
+        public bool IsToday { get; set; }
 
-        public DateTime EventDate { get; }
+        public DateTime EventDate { get; set; }
 
-        public int SportType { get; }
+        public int SportType { get; set; }
 
-        public int Entered { get; }
+        public int Entered { get; set; }
 
-        public int NonEntered { get; }
+        public int NonEntered { get; set; }
     }
 }

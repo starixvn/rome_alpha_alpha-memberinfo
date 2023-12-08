@@ -26,7 +26,8 @@
                 StatusIdentity.All,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
 
             // Act & Assert
             Assert.True(
@@ -46,7 +47,8 @@
                 StatusIdentity.Open,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
 
             // Act & Assert
             Assert.True(
@@ -66,7 +68,8 @@
                 StatusIdentity.Suspended,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
 
             // Act & Assert
             Assert.True(
@@ -86,7 +89,8 @@
                 StatusIdentity.Closed,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
 
             // Act & Assert
             Assert.True(
@@ -106,7 +110,8 @@
                 StatusIdentity.Disabled,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
 
             // Act & Assert
             Assert.True(

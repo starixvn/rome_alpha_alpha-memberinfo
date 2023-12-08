@@ -47,7 +47,8 @@
                 masterId ?? 0,
                 agentId ?? 0,
                 message.PageSize,
-                message.PageIndex);
+                message.PageIndex,
+                message.AGIP);
 
             var noNeedGetData = actorLevel.IsMasterOrSuperLevel() && !agentList.Any();
 

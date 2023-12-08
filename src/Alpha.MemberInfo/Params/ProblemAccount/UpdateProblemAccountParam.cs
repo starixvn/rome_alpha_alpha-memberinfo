@@ -1,7 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Params.ProblemAccount
 {
-    using System;
-
     public class UpdateProblemAccountParam
     {
         public int CustId { get; set; }

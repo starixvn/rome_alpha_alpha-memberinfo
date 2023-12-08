@@ -12,8 +12,18 @@
         {
             // Arrange
             var expectedSettingKey = "Age_CustomerSelCustWinlimit";
-            var param = new WinLossLimitParam(1, 1, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1);
-            var criteria = new GetCustWinLossLimitCriteria(param, 1);
+            var param = new WinLossLimitParam(1, 1, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1, string.Empty);
+            var criteria = new GetCustWinLossLimitCriteria(
+                param.CustId,
+                    param.ProductId,
+                    param.BetType,
+                    param.SportType,
+                    param.Username,
+                    param.MasterId,
+                    param.AgentId,
+                    param.PageIndex,
+                    param.PageSize,
+                    1);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -29,8 +39,18 @@
         public void IsValid_Always_ReturnsCorrectValue(int custId, bool expectedValue)
         {
             // Arrange
-            var param = new WinLossLimitParam(1, custId, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1);
-            var criteria = new GetCustWinLossLimitCriteria(param, 1);
+            var param = new WinLossLimitParam(1, custId, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1, string.Empty);
+            var criteria = new GetCustWinLossLimitCriteria(
+                param.CustId,
+                    param.ProductId,
+                    param.BetType,
+                    param.SportType,
+                    param.Username,
+                    param.MasterId,
+                    param.AgentId,
+                    param.PageIndex,
+                    param.PageSize,
+                    1);
 
             // Act
             var actualIsValid = criteria.IsValid();

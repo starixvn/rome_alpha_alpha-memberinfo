@@ -1,19 +1,25 @@
 ﻿namespace Alpha.MemberInfo.Features.MyWatchlist.MyThresholds.Criteria
 {
-    using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds.Params;
     using Fanex.Data.Repository;
 
     public class UpdateMyThresholdCommand : NonQueryCommand
     {
-        public UpdateMyThresholdCommand(UpdateMyThresholdParam param)
+        public UpdateMyThresholdCommand(
+            int custId,
+            short sportType,
+            decimal? winningThreshold,
+            decimal? losingThreshold,
+            int userId,
+            int subAccId,
+            string ip)
         {
-            CustId = param.CustId;
-            SportType = param.SportType;
-            WinningThreshold = param.WinningThreshold;
-            LosingThreshold = param.LosingThreshold;
-            UserId = param.UserId;
-            SubAccId = param.SubAccId;
-            IP = param.IP;
+            CustId = custId;
+            SportType = sportType;
+            WinningThreshold = winningThreshold;
+            LosingThreshold = losingThreshold;
+            UserId = userId;
+            SubAccId = subAccId;
+            IP = ip;
         }
 
         public int CustId { get; }

@@ -194,7 +194,7 @@
             }
 
             var criteria = GetAgentNetPositionCriteria(param);
-            var agentNetPositions = await repository.FetchAsync<AgentNetPosition>(criteria);
+            var agentNetPositions = await repository.FetchAsync<AgentNetPosition>(criteria, param.AGIP);
 
             return agentNetPositions.ToDictionary(kvp => kvp.CustId, kvp => kvp.NetPosition);
         }

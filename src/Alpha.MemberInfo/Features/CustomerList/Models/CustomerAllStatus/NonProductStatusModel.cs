@@ -12,7 +12,7 @@
             bool hasDownline,
             bool disableAutoMPT,
             bool closed,
-            byte isDirectClosed,
+            bool isDirectClosed,
             bool uplineClosed,
             bool suspended,
             bool uplineSuspend,
@@ -50,43 +50,43 @@
             IsAllowAutoTransfer = isAllowAutoTransfer;
         }
 
-        public bool HasDownline { get; private set; }
+        public bool HasDownline { get; set; }
 
-        public bool Closed { get; private set; }
+        public bool Closed { get; set; }
 
-        public byte IsDirectClosed { get; private set; }
+        public bool IsDirectClosed { get; set; }
 
-        public bool UplineClosed { get; private set; }
+        public bool UplineClosed { get; set; }
 
-        public bool Suspended { get; private set; }
+        public bool Suspended { get; set; }
 
-        public bool IsDirectSuspend { get; private set; }
+        public bool IsDirectSuspend { get; set; }
 
-        public bool UplineSuspend { get; private set; }
+        public bool UplineSuspend { get; set; }
 
-        public string TransferOption { get; private set; }
+        public string TransferOption { get; set; }
 
         public bool TransferDaily =>
             !string.IsNullOrWhiteSpace(TransferOption) &&
             TransferOption[TransferDailyOption].Equals('0');
 
-        public bool DoubleCommLosing { get; private set; }
+        public bool DoubleCommLosing { get; set; }
 
-        public bool UplineDoubleCommLosing { get; private set; }
+        public bool UplineDoubleCommLosing { get; set; }
 
-        public bool DisableAutoMPT { get; private set; }
+        public bool DisableAutoMPT { get; set; }
 
-        public bool DisableOutright { get; private set; }
+        public bool DisableOutright { get; set; }
 
-        public bool UplineDisableOutright { get; private set; }
+        public bool UplineDisableOutright { get; set; }
 
-        public bool IsAllDayBalTransfer { get; }
+        public bool IsAllDayBalTransfer { get; set; }
 
-        public byte Locked { get; }
+        public byte Locked { get; set; }
 
         public bool IsProtectedMode { get; set; }
 
-        public bool IsAllowAutoTransfer { get; private set; }
+        public bool IsAllowAutoTransfer { get; set; }
         public string ScheduleWeekDays { get; set; }
     }
 }

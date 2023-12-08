@@ -332,7 +332,7 @@
             int productId = 0)
         {
             var query = new WinLossLimitQuery(userFixture.User);
-            var param = new WinLossLimitParam(productId, 0, 1, 1, string.Empty, "CP123", 1, 1, 1, 1);
+            var param = new WinLossLimitParam(productId, 0, 1, 1, string.Empty, "CP123", 1, 1, 1, 1, string.Empty);
 
             return new WinLossLimitViewModel(
                 query,

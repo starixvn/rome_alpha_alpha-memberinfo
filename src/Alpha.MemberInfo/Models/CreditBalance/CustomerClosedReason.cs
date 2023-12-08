@@ -13,10 +13,10 @@
             Locked = locked;
         }
 
-        public int CustId { get; }
+        public int CustId { get; set; }
 
-        public byte ClosedReason { get; }
+        public byte ClosedReason { get; set; }
 
-        public byte Locked { get; }
+        public byte Locked { get; set; }
     }
 }

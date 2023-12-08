@@ -1,15 +1,14 @@
 ﻿namespace Alpha.MemberInfo.Services.WinLossLimit
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Criteria;
     using Criteria.WinLossLimit;
-    using DataAccesses;
     using Fanex.Data.Repository;
     using Models;
     using Models.WinLossLimit;
     using Params;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
 
     public interface WinLossLimitService
     {
@@ -25,16 +24,13 @@
     public class WinLossLimitServiceImpl : WinLossLimitService
     {
         private readonly IDynamicRepository dynamicRepository;
-        private readonly WinLossLimitDataAccess winLossLimitDataAccess;
         private readonly Func<int, string> getProductName;
 
         public WinLossLimitServiceImpl(
             IDynamicRepository dynamicRepository,
-            WinLossLimitDataAccess winLossLimitDataAccess,
             Func<int, string> getProductName)
         {
             this.dynamicRepository = dynamicRepository;
-            this.winLossLimitDataAccess = winLossLimitDataAccess;
             this.getProductName = getProductName;
         }
 
@@ -67,17 +63,37 @@
         {
             var result = new WinLossLimitPage();
             var playerIds = !string.IsNullOrWhiteSpace(param.PlayerId) ?
-                winLossLimitDataAccess.MapPlayerIdToCustId(new MapPlayerId3rdToCustIdCriteria(param.ProductId, param.PlayerId, param.CustId, param.MasterId, param.AgentId))
+                MapPlayerIdToCustId(new MapPlayerId3rdToCustIdCriteria(param.ProductId, param.PlayerId, param.CustId, param.MasterId, param.AgentId))
                 : Enumerable.Empty<int>();
 
             if (!playerIds.Any() && string.IsNullOrWhiteSpace(param.PlayerId))
             {
-                result += winLossLimitDataAccess.GetWinLossLimits(new GetCustWinLossLimitCriteria(param, null));
+                result += GetWinLossLimits(new GetCustWinLossLimitCriteria(
+                    param.CustId,
+                    param.ProductId,
+                    param.BetType,
+                    param.SportType,
+                    param.Username,
+                    param.MasterId,
+                    param.AgentId,
+                    param.PageIndex,
+                    param.PageSize,
+                    null));
             }
 
             foreach (var playerId in playerIds)
             {
-                result += winLossLimitDataAccess.GetWinLossLimits(new GetCustWinLossLimitCriteria(param, playerId));
+                result += GetWinLossLimits(new GetCustWinLossLimitCriteria(
+                    param.CustId,
+                    param.ProductId,
+                    param.BetType,
+                    param.SportType,
+                    param.Username,
+                    param.MasterId,
+                    param.AgentId,
+                    param.PageIndex,
+                    param.PageSize,
+                    playerId));
             }
 
             if (!result.WinLossLimitDetail.Any())
@@ -85,7 +101,14 @@
                 return result;
             }
 
-            var balances = dynamicRepository.Fetch<WinLossLimitDetail>(new GetBalanceCriteria(param));
+            var balances = dynamicRepository.Fetch<WinLossLimitDetail>(new GetBalanceCriteria(
+                param.CustId,
+                param.BetType,
+                param.Username,
+                param.MasterId,
+                param.AgentId,
+                param.PageIndex,
+                param.PageSize), param.AGIP);
             IEnumerable<WinLossLimitDetail> outstandings = Enumerable.Empty<WinLossLimitDetail>();
 
             foreach (var custWinLossLimit in result.WinLossLimitDetail)
@@ -107,6 +130,16 @@
             }
 
             return result;
+        }
+
+        private IEnumerable<int> MapPlayerIdToCustId(MapPlayerId3rdToCustIdCriteria criteria)
+            => dynamicRepository.Fetch<int>(criteria);
+
+        private WinLossLimitPage GetWinLossLimits(GetCustWinLossLimitCriteria criteria)
+        {
+            var winLossLimitDetail = dynamicRepository.Fetch<WinLossLimitDetail>(criteria);
+
+            return new WinLossLimitPage(criteria.TotalRows, winLossLimitDetail);
         }
     }
 }

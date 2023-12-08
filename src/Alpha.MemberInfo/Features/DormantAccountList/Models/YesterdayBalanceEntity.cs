@@ -12,8 +12,8 @@
             YesterdayTotalBalance = yesterdayTotalBalance;
         }
 
-        public int CustId { get; }
+        public int CustId { get; set; }
 
-        public decimal YesterdayTotalBalance { get; }
+        public decimal YesterdayTotalBalance { get; set; }
     }
 }

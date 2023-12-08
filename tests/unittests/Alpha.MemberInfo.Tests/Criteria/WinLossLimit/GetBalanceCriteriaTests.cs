@@ -12,8 +12,9 @@
         {
             // Arrange
             var expectedSettingKey = "SiteDB_Age_CustomerSelWinlimitInfo";
-            var param = new WinLossLimitParam(1, 1, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1);
-            var criteria = new GetBalanceCriteria(param);
+            var param = new WinLossLimitParam(1, 1, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1, string.Empty);
+            var criteria = new GetBalanceCriteria(
+                param.CustId, param.BetType, param.Username, param.MasterId, param.AgentId, param.PageIndex, param.PageSize);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -29,8 +30,9 @@
         public void IsValid_Always_ReturnsCorrectValue(int custId, bool expectedValue)
         {
             // Arrange
-            var param = new WinLossLimitParam(1, custId, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1);
-            var criteria = new GetBalanceCriteria(param);
+            var param = new WinLossLimitParam(1, custId, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1, string.Empty);
+            var criteria = new GetBalanceCriteria(
+                param.CustId, param.BetType, param.Username, param.MasterId, param.AgentId, param.PageIndex, param.PageSize);
 
             // Act
             var actualIsValid = criteria.IsValid();

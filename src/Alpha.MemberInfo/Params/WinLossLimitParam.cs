@@ -14,7 +14,8 @@
             int masterId,
             int agentId,
             int pageSize,
-            int pageIndex)
+            int pageIndex,
+            string agIP)
         {
             ProductId = productId;
             CustId = custId;
@@ -26,6 +27,7 @@
             AgentId = agentId;
             PageSize = pageSize;
             PageIndex = pageIndex;
+            AGIP = agIP;
         }
 
         public int ProductId { get; set; }
@@ -49,5 +51,7 @@
         public int PageSize { get; set; }
 
         public int PageIndex { get; set; }
+
+        public string AGIP { get; }
     }
 }

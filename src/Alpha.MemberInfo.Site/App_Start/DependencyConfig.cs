@@ -1,7 +1,18 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Net;
+    using System.Net.Http;
+    using System.Reflection;
+    using System.Resources;
+    using System.Threading;
+    using System.Web;
+    using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Configurations;
+    using Alpha.MemberInfo.Features.CreateAccount;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
     using Alpha.MemberInfo.Features.DormantAccountList;
@@ -9,7 +20,6 @@
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Features.ParlayMaxPayout;
-    using Alpha.MemberInfo.Features.CreateAccount;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
@@ -24,7 +34,6 @@
     using Alpha.PartialUM.Helpers;
     using Alpha.Products.AccountInfo;
     using Alpha.Products.AccountInfo.Requests;
-    using Alpha.Products.AccountInfo.Services;
     using Alpha.Products.AccountInfo.Setting;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
     using Alpha.Products.AccountInfo.Status;
@@ -32,6 +41,7 @@
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Services;
     using Alpha.Products.Core.ViewModels;
+    using Alpha.SecurityCode.Services;
     using Alpha.Web.Helpers;
     using Alpha.Web.Helpers.Impl;
     using AlphaPlus.PartialUM.DataAccess;
@@ -40,7 +50,6 @@
     using AlphaPlus.User.Models;
     using AlphaPlus.Utilities.IP;
     using Controllers;
-    using DataAccesses;
     using Fanex.Caching;
     using Fanex.Cryptography.Aes;
     using Fanex.Data.Repository;
@@ -59,25 +68,12 @@
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
     using Sunplus.Agent.Utilities;
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Net;
-    using System.Net.Http;
-    using System.Reflection;
-    using System.Resources;
-    using System.Threading;
-    using System.Web;
-    using System.Web.Mvc;
-    using Alpha.SecurityCode.Services;
 
     public static class DependencyConfig
     {
         [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Reviewed")]
         public static void Init()
         {
-            AlphaPlus.Configurations.ConfigurationManager.Init(new ConfigurationHelper());
-
             RegisterQRCodeConfiguration();
 
             var container = new Container();
@@ -125,8 +121,6 @@
         private static void RegisterDataAccesses(Container container)
         {
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
-            container.Register<WinLossLimitDataAccess, WinLossLimitDataAccessImpl>(Lifestyle.Singleton);
-            container.Register<CustomerListDataAccess, CustomerListDataAccessImpl>(Lifestyle.Singleton);
             container.Register<IPartialUMDataAccess, PartialUMDataAccess>(Lifestyle.Singleton);
         }
 
@@ -147,7 +141,6 @@
             container.Register<WinLossLimitService>(
                 () => new WinLossLimitServiceImpl(
                     container.GetInstance<IDynamicRepository>(),
-                    container.GetInstance<WinLossLimitDataAccess>(),
                     container.GetInstance<CacheRefService>().GetProductName));
 
             container.Register<ParlayMaxPayoutService, ParlayMaxPayoutServiceImpl>();

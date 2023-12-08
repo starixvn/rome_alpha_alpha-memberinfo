@@ -28,24 +28,24 @@
             HasDownline = hasDownline;
         }
 
-       public int ProductId { get; private set; }
+       public int ProductId { get; set; }
 
-       public int SportType { get; private set; }
+       public int SportType { get; set; }
 
-        public int BetType { get; private set; }
+        public int BetType { get; set; }
 
-        public bool IsSync { get; private set; }
+        public bool IsSync { get; set; }
 
-        public bool IsHidden { get; private set; }
+        public bool IsHidden { get; set; }
 
-        public bool IsDisabled { get; private set; }
+        public bool IsDisabled { get; set; }
 
-        public bool IsSyncedUpline { get; private set; }
+        public bool IsSyncedUpline { get; set; }
 
-        public bool IsHiddenUpline { get; private set; }
+        public bool IsHiddenUpline { get; set; }
 
-        public bool IsDisabledUpline { get; private set; }
+        public bool IsDisabledUpline { get; set; }
 
-        public bool HasDownline { get; private set; }
+        public bool HasDownline { get; set; }
     }
 }

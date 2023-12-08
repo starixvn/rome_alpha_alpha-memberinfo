@@ -1,15 +1,19 @@
-﻿using Alpha.MemberInfo.Site.Features.CustomerList.Params;
-
-namespace Alpha.MemberInfo.Features.CustomerList.Criteria
+﻿namespace Alpha.MemberInfo.Features.CustomerList.Criteria
 {
     public class UpdateDisableOutrightStatusCommand : UpdateCustomerStatusCommand
     {
-        public UpdateDisableOutrightStatusCommand(UpdateCustomerStatusParam param) : base( param.SearchAccountId, param.ActorId, param.SubAccountId, param.Language, param.IP, param.StatusName)
+        public UpdateDisableOutrightStatusCommand(
+            int searchAccountId,
+            int actorId,
+            int subAccountId,
+            string language,
+            string ip,
+            string statusName,
+            bool statusValue) : base(searchAccountId, actorId, subAccountId, language, ip, statusName)
         {
-            DisableOutright = param.StatusValue;
+            DisableOutright = statusValue;
         }
 
         public bool DisableOutright { get; }
-
     }
 }

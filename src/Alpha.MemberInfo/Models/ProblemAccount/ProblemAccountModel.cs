@@ -11,19 +11,19 @@
         {
         }
 
-        public int CustId { get; internal set; }
+        public int CustId { get; set; }
 
-        public string Username2 { get; internal set; }
+        public string Username2 { get; set; }
 
         public string NickName => string.IsNullOrEmpty(Username2) ? string.Empty : Username2;
 
-        public string UserName { get; }
+        public string UserName { get; set; }
 
-        public string FirstName { get; }
+        public string FirstName { get; set; }
 
-        public string LastName { get; }
+        public string LastName { get; set; }
 
-        public byte Status { get; internal set; }
+        public byte Status { get; set; }
 
         public string StatusNameEN
             => ProblemAccountStatusConstants.GetProblemAccountStatus(Status);
@@ -31,15 +31,15 @@
         public string StatusName
             => Resources.ResourceManager.GetString(ProblemAccountStatusConstants.GetProblemAccountStatus(Status));
 
-        public DateTime CreatedDate { get; internal set; }
+        public DateTime CreatedDate { get; set; }
 
         public string CreatedDateStr => CreatedDate.ToLongDateTime24h();
 
-        public int Count { get; }
+        public int Count { get; set; }
 
-        public bool IsReviewed { get; internal set; }
+        public bool IsReviewed { get; set; }
 
-        public int ClosedReason { get; }
+        public int ClosedReason { get; set; }
 
         public string ClosedReasonName => CloseReasonConstants.GetName(ClosedReason);
 
@@ -47,6 +47,6 @@
 
         public bool CanEdit => !IsReviewed;
 
-        public byte Locked { get; }
+        public byte Locked { get; set; }
     }
 }

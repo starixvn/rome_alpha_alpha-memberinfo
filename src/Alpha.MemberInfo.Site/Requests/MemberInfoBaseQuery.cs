@@ -71,6 +71,8 @@
 
         public bool IsDarkMode => !string.IsNullOrWhiteSpace(viewer.DarkModeName);
 
+        public string AGIP => viewer.AGIP;
+
         public virtual bool IsValid()
             => CustId > 0
             && !string.IsNullOrWhiteSpace(CustName)

@@ -1,15 +1,19 @@
-﻿using Alpha.MemberInfo.Site.Features.CustomerList.Params;
-
-namespace Alpha.MemberInfo.Features.CustomerList.Criteria
+﻿namespace Alpha.MemberInfo.Features.CustomerList.Criteria
 {
     public class UpdateSuspendedStatusCommand : UpdateCustomerStatusCommand
     {
-        public UpdateSuspendedStatusCommand(UpdateCustomerStatusParam param) : base( param.SearchAccountId, param.ActorId, param.SubAccountId, param.Language, param.IP, param.StatusName)
+        public UpdateSuspendedStatusCommand(
+            int searchAccountId,
+            int actorId,
+            int subAccountId,
+            string language,
+            string ip,
+            string statusName,
+            bool statusValue) : base(searchAccountId, actorId, subAccountId, language, ip, statusName)
         {
-            Suspended = param.StatusValue;
+            Suspended = statusValue;
         }
 
         public bool Suspended { get; }
-
     }
 }

@@ -24,7 +24,21 @@
                 "supertest1",
                 "E",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new UpdatePasswordCriteria(param);
+            var criteria = new UpdatePasswordCriteria(
+                param.IndirectCustId,
+                param.IndirectSubAccId,
+                param.IndirectUsername,
+                param.IndirectLevelId,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorUsername,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Assert
             Assert.True(
@@ -56,7 +70,21 @@
                 "supertest1",
                 "E",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new UpdatePasswordCriteria(param);
+            var criteria = new UpdatePasswordCriteria(
+                param.IndirectCustId,
+                param.IndirectSubAccId,
+                param.IndirectUsername,
+                param.IndirectLevelId,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorUsername,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
             var expected = "Age_CustomerIndirectLoginAccountPwdCheck";
 
             // Act
@@ -85,7 +113,21 @@
                 "supertest1",
                 "E",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new UpdatePasswordCriteria(param);
+            var criteria = new UpdatePasswordCriteria(
+                param.IndirectCustId,
+                param.IndirectSubAccId,
+                param.IndirectUsername,
+                param.IndirectLevelId,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorUsername,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Act
             var actual = criteria.IsValid();
@@ -113,7 +155,21 @@
                 "supertest1",
                 "E",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new UpdatePasswordCriteria(param);
+            var criteria = new UpdatePasswordCriteria(
+                param.IndirectCustId,
+                param.IndirectSubAccId,
+                param.IndirectUsername,
+                param.IndirectLevelId,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorUsername,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Act
             var actual = criteria.IsValid();
@@ -141,7 +197,21 @@
                 "supertest1",
                 "E",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new UpdatePasswordCriteria(param);
+            var criteria = new UpdatePasswordCriteria(
+                param.IndirectCustId,
+                param.IndirectSubAccId,
+                param.IndirectUsername,
+                param.IndirectLevelId,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorUsername,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Act
             var actual = criteria.IsValid();
@@ -168,7 +238,21 @@
                 "supertest1",
                 "E",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new UpdatePasswordCriteria(param);
+            var criteria = new UpdatePasswordCriteria(
+                param.IndirectCustId,
+                param.IndirectSubAccId,
+                param.IndirectUsername,
+                param.IndirectLevelId,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorUsername,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Act
             var actual = criteria.IsValid();

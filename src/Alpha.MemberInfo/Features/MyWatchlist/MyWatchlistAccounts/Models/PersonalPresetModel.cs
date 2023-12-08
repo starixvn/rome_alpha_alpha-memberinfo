@@ -15,14 +15,14 @@
             LosingThreshold = losingThreshold;
         }
 
-        public int ID { get; }
+        public int ID { get; set; }
 
-        public int Sporttype { get; }
+        public int Sporttype { get; set; }
 
-        public string PresetTitle { get; }
+        public string PresetTitle { get; set; }
 
-        public decimal WinningThreshold { get; }
+        public decimal WinningThreshold { get; set; }
 
-        public decimal LosingThreshold { get; }
+        public decimal LosingThreshold { get; set; }
     }
 }

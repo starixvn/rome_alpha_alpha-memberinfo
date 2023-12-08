@@ -24,7 +24,8 @@
 
         public async Task<DormantAccountReport> GetDormantAccountsAsync(DormantAccountParam param)
         {
-            var criteria = new GetDormantAccountsCriteria(param);
+            var criteria = new GetDormantAccountsCriteria(
+                param.CustId, param.Username, param.RoleId, param.StatusId, param.PageIndex, param.PageSize);
             var rawdata = await dynamicRepository.FetchMultipleAsync<DormantAccountEntity, YesterdayBalanceEntity>(criteria);
 
             var dormantAccounts = new List<DormantAccount>();

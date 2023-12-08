@@ -11,7 +11,15 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var criteria = new UpdateReviewStatusProblemAccountCriteria(new UpdateProblemAccountParam());
+            var param = new UpdateProblemAccountParam();
+            var criteria = new UpdateReviewStatusProblemAccountCriteria(
+                param.CustId,
+                param.SubAccId,
+                param.RoleId,
+                param.CustomerList,
+                param.IsAffectedAllDownlines,
+                param.Language,
+                param.LoginIp);
             var expected = "Age_ProblemAccount_ReviewStatusUpd";
 
             // Act
@@ -29,13 +37,21 @@
         public void GetSettingKey_IncorrectInput_ReturnsFalse(int custId, int subAccId, byte searchRoleId, string ids)
         {
             // Arrange
-            var criteria = new UpdateReviewStatusProblemAccountCriteria(new UpdateProblemAccountParam
+            var param = new UpdateProblemAccountParam
             {
                 CustId = custId,
                 SubAccId = subAccId,
                 RoleId = searchRoleId,
                 CustomerList = ids
-            });
+            };
+            var criteria = new UpdateReviewStatusProblemAccountCriteria(
+                param.CustId,
+                param.SubAccId,
+                param.RoleId,
+                param.CustomerList,
+                param.IsAffectedAllDownlines,
+                param.Language,
+                param.LoginIp);
 
             // Act
             var actual = criteria.IsValid();
@@ -49,13 +65,21 @@
         public void GetSettingKey_CorrectInput_ReturnsTrue(int custId, int subAccId, byte searchRoleId, string ids)
         {
             // Arrange
-            var criteria = new UpdateReviewStatusProblemAccountCriteria(new UpdateProblemAccountParam
+            var param = new UpdateProblemAccountParam
             {
                 CustId = custId,
                 SubAccId = subAccId,
                 RoleId = searchRoleId,
                 CustomerList = ids
-            });
+            };
+            var criteria = new UpdateReviewStatusProblemAccountCriteria(
+                param.CustId,
+                param.SubAccId,
+                param.RoleId,
+                param.CustomerList,
+                param.IsAffectedAllDownlines,
+                param.Language,
+                param.LoginIp);
 
             // Act
             var actual = criteria.IsValid();

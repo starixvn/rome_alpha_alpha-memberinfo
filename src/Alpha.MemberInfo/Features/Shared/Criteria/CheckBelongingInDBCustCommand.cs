@@ -1,16 +1,19 @@
 ﻿namespace Alpha.MemberInfo.Features.Shared.Criteria
 {
-    using Alpha.MemberInfo.Features.Shared.Params;
     using Fanex.Data.Repository;
 
     public class CheckBelongingInDBCustCommand : NonQueryCommand
     {
-        public CheckBelongingInDBCustCommand(CheckBelongingParam param)
+        public CheckBelongingInDBCustCommand(
+            int viewerId,
+            int custId,
+            int subAccId,
+            long transId)
         {
-            SessionCustId = param.ViewerId;
-            CustId = param.CustId;
-            SubAccountId = param.SubAccId;
-            TransId = param.TransId;
+            SessionCustId = viewerId;
+            CustId = custId;
+            SubAccountId = subAccId;
+            TransId = transId;
         }
 
         public int SessionCustId { get; }

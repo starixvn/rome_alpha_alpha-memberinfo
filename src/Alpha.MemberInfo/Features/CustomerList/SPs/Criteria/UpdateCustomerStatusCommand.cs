@@ -1,22 +1,22 @@
 ﻿namespace Alpha.MemberInfo.Features.CustomerList.Criteria
 {
+    using System.Collections.Generic;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Fanex.Data;
     using Fanex.Data.Repository;
-    using System.Collections.Generic;
 
     public class UpdateCustomerStatusCommand : NonQueryCommand
     {
          private static readonly IDictionary<string, string> CustomerStatusSettingKeys =
-         new Dictionary<string, string>
-         {
-                { StatusNames.DisableAutoMasterPT, "Acc_CustomerUpdMaster_DisableAutoMPT" },
-                { StatusNames.Closed, "Acc_CustomerUpdClosed" },
-                { StatusNames.DoubleComm, "Acc_CustomerUpdDoubleCommLosing" },
-                { StatusNames.DisableOutright, "Acc_CustomerUpdDisableOutright" },
-                { StatusNames.Suspended, "Acc_CustomerUpdSuspended" },
-                { StatusNames.Unlock, "Acc_CustomerUpdLocked" },
-         };
+             new Dictionary<string, string>
+             {
+                 [StatusNames.DisableAutoMasterPT]= "Acc_CustomerUpdMaster_DisableAutoMPT",
+                 [StatusNames.Closed] = "Acc_CustomerUpdClosed",
+                 [StatusNames.DoubleComm] = "Acc_CustomerUpdDoubleCommLosing",
+                 [StatusNames.DisableOutright] = "Acc_CustomerUpdDisableOutright",
+                 [StatusNames.Suspended] = "Acc_CustomerUpdSuspended",
+                 [StatusNames.Unlock] = "Acc_CustomerUpdLocked"
+             };
 
         public UpdateCustomerStatusCommand(
             int searchAccountId,

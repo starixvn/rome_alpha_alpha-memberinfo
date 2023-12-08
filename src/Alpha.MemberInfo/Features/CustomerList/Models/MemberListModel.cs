@@ -76,13 +76,13 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             AdiscountMyanmarOdds = adiscountMyanmarOdds;
         }
 
-        public decimal PlayerDiscount { get; private set; }
+        public decimal PlayerDiscount { get; set; }
 
-        public decimal PlayerDiscountCS { get; private set; }
+        public decimal PlayerDiscountCS { get; set; }
 
-        public decimal PlayerDiscount1x2 { get; private set; }
+        public decimal PlayerDiscount1x2 { get; set; }
 
-        public decimal Discount { get; private set; }
+        public decimal Discount { get; set; }
 
         public decimal AdiscountMyanmarOdds { get; set; }
 

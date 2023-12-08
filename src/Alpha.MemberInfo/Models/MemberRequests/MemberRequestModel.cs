@@ -26,12 +26,12 @@
 
         public string Username { get; set; }
 
-        public bool Sync { get; }
+        public bool Sync { get; set; }
 
-        public decimal Balance { get; }
+        public decimal Balance { get; set; }
 
-        public decimal Outstanding { get; }
+        public decimal Outstanding { get; set; }
 
-        public decimal BetCredit { get; }
+        public decimal BetCredit { get; set; }
     }
 }

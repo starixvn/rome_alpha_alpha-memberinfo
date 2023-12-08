@@ -1,8 +1,8 @@
-﻿using System;
-using Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResources;
-
-namespace Alpha.MemberInfo.Features.CustomerList.Models
+﻿namespace Alpha.MemberInfo.Features.CustomerList.Models
 {
+    using System;
+    using Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResources;
+
     public abstract class CustomerListModelBase
     {
         public CustomerListModelBase()
@@ -64,57 +64,57 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             AutoTransfer = autoTransfer;
         }
 
-        public int CustId { get; private set; }
+        public int CustId { get; set; }
 
-        public string Username { get; private set; }
+        public string Username { get; set; }
 
-        public byte RoleId { get; private set; }
+        public byte RoleId { get; set; }
 
-        public string UGroup { get; private set; }
+        public string UGroup { get; set; }
 
-        public string FirstName { get; private set; }
+        public string FirstName { get; set; }
 
-        public string LastName { get; private set; }
+        public string LastName { get; set; }
 
         public string UserName2 { get; set; }
 
-        public string Phone { get; private set; }
+        public string Phone { get; set; }
 
-        public string MobilePhone { get; private set; }
+        public string MobilePhone { get; set; }
 
         public bool AllowOpenInfoPopup { get; set; }
 
         public string LastLoginIP { get; set; }
 
-        public int Currency { get; private set; }
+        public int Currency { get; set; }
 
-        public int MatchLimit { get; private set; }
+        public int MatchLimit { get; set; }
 
-        public int VirtualMultiplier { get; private set; }
+        public int VirtualMultiplier { get; set; }
 
-        public DateTime CreateDate { get; private set; }
+        public DateTime CreateDate { get; set; }
 
         public string CreateDateFormat { get; set; }
 
-        public bool IsInternal { get; private set; }
+        public bool IsInternal { get; set; }
 
-        public bool DoubleCommLosing { get; private set; }
+        public bool DoubleCommLosing { get; set; }
 
-        public int ClosedReason { get; private set; }
+        public int ClosedReason { get; set; }
 
-        public int RowNumber { get; private set; }
+        public int RowNumber { get; set; }
 
-        public bool Enabled { get; private set; }
+        public bool Enabled { get; set; }
 
-        public bool Closed { get; private set; }
+        public bool Closed { get; set; }
 
-        public bool Suspended { get; private set; }
+        public bool Suspended { get; set; }
 
-        public bool DisableOutright { get; private set; }
+        public bool DisableOutright { get; set; }
 
-        public decimal DiscountCS { get; private set; }
+        public decimal DiscountCS { get; set; }
 
-        public decimal Discount1x2 { get; private set; }
+        public decimal Discount1x2 { get; set; }
 
         public string Status
         {
@@ -142,7 +142,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             }
         }
 
-        public byte Locked { get; private set; }
-        public bool AutoTransfer { get; private set; }
+        public byte Locked { get; set; }
+        public bool AutoTransfer { get; set; }
     }
 }

@@ -34,13 +34,13 @@
             Locked = locked;
         }
 
-        public int CustId { get; }
+        public int CustId { get; set; }
 
-        public int SubAccId { get; }
+        public int SubAccId { get; set; }
 
-        public string Username { get; }
+        public string Username { get; set; }
 
-        public byte Level { get; }
+        public byte Level { get; set; }
 
         public UserLevel CustLevel => Enumeration.FromValue<UserLevel>(Level);
 
@@ -64,11 +64,11 @@
             }
         }
 
-        public bool Enabled { get; }
+        public bool Enabled { get; set; }
 
-        public bool Closed { get; }
+        public bool Closed { get; set; }
 
-        public bool Suspended { get; }
+        public bool Suspended { get; set; }
 
         public string Status
         {
@@ -90,11 +90,11 @@
             }
         }
 
-        public DateTime? LastVerifyPwd { get; }
+        public DateTime? LastVerifyPwd { get; set; }
 
-        public DateTime? LastChangedPwdDate { get; }
+        public DateTime? LastChangedPwdDate { get; set; }
 
-        public byte Locked { get; }
+        public byte Locked { get; set; }
 
         public bool IsLock => Locked != 0;
 

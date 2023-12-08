@@ -13,7 +13,8 @@
             // Arrange
             var expectedSettingKey = "Age_CustomerSelCheckBelonging_DBCUST";
             var param = new CheckBelongingParam(1, 1, 1);
-            var criteria = new CheckBelongingInDBCustCommand(param);
+            var criteria = new CheckBelongingInDBCustCommand(
+                param.ViewerId, param.CustId, param.SubAccId, param.TransId);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -30,7 +31,8 @@
         {
             // Arrange
             var param = new CheckBelongingParam(viewerId, custId, subAccId, transId);
-            var criteria = new CheckBelongingInDBCustCommand(param);
+            var criteria = new CheckBelongingInDBCustCommand(
+                param.ViewerId, param.CustId, param.SubAccId, param.TransId);
 
             // Act
             var actualValue = criteria.IsValid();
@@ -47,7 +49,8 @@
         {
             // Arrange
             var param = new CheckBelongingParam(viewerId, custId, subAccId, transId);
-            var criteria = new CheckBelongingInDBCustCommand(param);
+            var criteria = new CheckBelongingInDBCustCommand(
+                param.ViewerId, param.CustId, param.SubAccId, param.TransId);
 
             // Act
             var actualValue = criteria.IsValid();

@@ -1,27 +1,40 @@
 ﻿namespace Alpha.MemberInfo.Criteria.IndirectLoginAccount
 {
-    using Alpha.MemberInfo.Params.IndirectLoginAccount;
     using Fanex.Data;
     using Fanex.Data.Repository;
 
     public class UpdatePasswordCriteria : NonQueryCommand
     {
-        public UpdatePasswordCriteria(UpdatePasswordParam param)
+        public UpdatePasswordCriteria(
+            int indirectCustId,
+            int indirectSubAccId,
+            string indirectUsername,
+            byte indirectLevelId,
+            string password,
+            int actorId,
+            int actorSubAccId,
+            string actorUsername,
+            string language,
+            string loginIP,
+            string loginDomain,
+            string browserName,
+            string platform,
+            string countryCode)
         {
-            IndirectCustId = param.IndirectCustId;
-            IndirectSubAccId = param.IndirectSubAccId;
-            IndirectUsername = param.IndirectUsername;
-            IndirectLevelId = param.IndirectLevelId;
-            UserPwd = param.Password;
-            ActorId = param.ActorId;
-            ActorSubAccId = param.ActorSubAccId;
-            ActorUsername = param.ActorUsername;
-            Language = param.LanguageKey;
-            IP = param.RequestInfo.LoginIP;
-            LoginDomain = param.RequestInfo.LoginDomain;
-            BrowserName = param.RequestInfo.BrowserName;
-            Platform = param.RequestInfo.Platform;
-            CountryCode = param.RequestInfo.CountryCode;
+            IndirectCustId = indirectCustId;
+            IndirectSubAccId = indirectSubAccId;
+            IndirectUsername = indirectUsername;
+            IndirectLevelId = indirectLevelId;
+            UserPwd = password;
+            ActorId = actorId;
+            ActorSubAccId = actorSubAccId;
+            ActorUsername = actorUsername;
+            Language = language;
+            IP = loginIP;
+            LoginDomain = loginDomain;
+            BrowserName = browserName;
+            Platform = platform;
+            CountryCode = countryCode;
         }
 
         [SpParam(SqlParamName = "custidindirect")]

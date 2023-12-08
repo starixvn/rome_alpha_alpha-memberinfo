@@ -74,13 +74,13 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             DiscountMyanmarOdds = discountMyanmarOdds;
         }
 
-        public decimal GroupA { get; private set; }
+        public decimal GroupA { get; set; }
 
-        public decimal GroupB { get; private set; }
+        public decimal GroupB { get; set; }
 
-        public decimal GroupC { get; private set; }
+        public decimal GroupC { get; set; }
 
-        public decimal GroupD { get; private set; }
+        public decimal GroupD { get; set; }
 
         public decimal DiscountMyanmarOdds { get; set; }
     }

@@ -21,7 +21,18 @@
                 4,
                 "en-US",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new NewAccountCriteria(param);
+            var criteria = new NewAccountCriteria(
+                param.CustName,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorLevelId,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Assert
             Assert.True(
@@ -47,7 +58,18 @@
                 4,
                 "en-US",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new NewAccountCriteria(param);
+            var criteria = new NewAccountCriteria(
+                param.CustName,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorLevelId,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
             var expected = "Age_CustomerIndirectLoginAccountIns";
 
             // Act
@@ -70,7 +92,18 @@
                 4,
                 "en-US",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new NewAccountCriteria(param);
+            var criteria = new NewAccountCriteria(
+                param.CustName,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorLevelId,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Act
             var actual = criteria.IsValid();
@@ -95,7 +128,18 @@
                 4,
                 "en-US",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new NewAccountCriteria(param);
+            var criteria = new NewAccountCriteria(
+                param.CustName,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorLevelId,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Act
             var actual = criteria.IsValid();
@@ -120,7 +164,18 @@
                 4,
                 "en-US",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new NewAccountCriteria(param);
+            var criteria = new NewAccountCriteria(
+                param.CustName,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorLevelId,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Act
             var actual = criteria.IsValid();
@@ -145,7 +200,18 @@
                 4,
                 "en-US",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new NewAccountCriteria(param);
+            var criteria = new NewAccountCriteria(
+                param.CustName,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorLevelId,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Act
             var actual = criteria.IsValid();
@@ -170,7 +236,18 @@
                 4,
                 "en-US",
                 new RequestInfo("::1", "localhost", "Chrome 81.0.4044, 1920x920", "Windows 10 0.0.0, Device: Other, IsCrawler: False", "-"));
-            var criteria = new NewAccountCriteria(param);
+            var criteria = new NewAccountCriteria(
+                param.CustName,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorLevelId,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
 
             // Act
             var actual = criteria.IsValid();

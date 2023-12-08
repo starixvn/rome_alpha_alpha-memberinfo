@@ -1,12 +1,12 @@
 ﻿namespace Alpha.MemberInfo.Site.Models
 {
-    using Alpha.MemberInfo.Configurations;
-    using AlphaPlus.User.Models;
-    using MemberInfo.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
+    using Alpha.MemberInfo.Configurations;
+    using AlphaPlus.User.Models;
+    using MemberInfo.Models;
 
     public class User : IUser
     {
@@ -92,7 +92,9 @@
         public string Currency => userSession.Currency;
 
         public bool IsSubAcc => userSession.IsSubAcc;
-        public  int CurrencyId => userSession.CurrencyId;
+        public int CurrencyId => userSession.CurrencyId;
         public PageAccess SubPageAccess => userSession.SubPageAccess;
+
+        public string AGIP => userSession.AGIP;
     }
 }
