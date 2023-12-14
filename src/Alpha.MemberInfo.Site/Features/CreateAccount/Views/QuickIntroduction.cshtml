@@ -3,12 +3,20 @@
     var dataThem = AlphaPlus.User.Models.UserSession.Current.DarkModeName == "" ? "light" : "dark";
     var language = AlphaPlus.User.Models.UserSession.Current.Language;
     var roleId = AlphaPlus.User.Models.UserSession.Current.RoleId;
-    var defaultEnUs = $"~/assets/styles/images/createAccount/en-Us/{dataThem}/";
+    var defaultEnUs = $"~/assets/styles/images/createAccount/default/en-Us/{dataThem}/";
     var img1 = $"{defaultEnUs}lv{roleId}.img1.png";
     var img2 = $"{defaultEnUs}lv{roleId}.img2.png";
     var img3 = $"{defaultEnUs}lv{roleId}.img3.png";
 
-    var folder = $"~/assets/styles/images/createAccount/{language}/{dataThem}/";
+    var folder = $"~/assets/styles/images/createAccount/default/{language}/{dataThem}/";
+    
+    var is789y = AppSettings.IsSiteLabel789y;
+
+    if (is789y)
+    {
+        folder = $"~/assets/styles/images/createAccount/site789y/{language}/{dataThem}/";
+    }
+    
     var isExistsImgOfLang = File.Exists(Server.MapPath($"{folder}lv{roleId}.img1.png"));
     if (isExistsImgOfLang)
     {
