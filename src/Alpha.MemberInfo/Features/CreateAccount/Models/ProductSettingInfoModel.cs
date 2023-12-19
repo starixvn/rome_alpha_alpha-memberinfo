@@ -4,6 +4,8 @@ namespace Alpha.MemberInfo.Features.CreateAccount.Models
     {
         public int GroupId { get; set; }
     
+        public int SubGroupId { get; set; }
+        
         public int ProductId { get; set; }
         
         public int RealProductId { get; set; }

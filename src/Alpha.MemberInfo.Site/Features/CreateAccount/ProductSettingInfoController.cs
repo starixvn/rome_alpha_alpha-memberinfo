@@ -48,13 +48,14 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
                 {
                     Id = group.Key,
                     Name = refService.GetProductGroupName(group.Key),
-                    Products = (group.GroupBy(d => d.ProductId)
-                        .Select(productGroup => new
+                    Products = (group.GroupBy(d => d.SubGroupId)
+                        .Select(subGroup => new
                         {
-                            Id = productGroup.Key,
-                            Name = refService.GetProductName(productGroup.Key),
-                            Products =(productGroup.Select(d => new
+                            Id = subGroup.Key,
+                            Name = refService.GetSubGroupName(subGroup.Key),
+                            Products =(subGroup.Select(d => new
                             {
+                                Id=d.RealProductId,
                                 Name = refService.GetProductName(d.RealProductId),
                                 Products = ""
                             }).ToList())

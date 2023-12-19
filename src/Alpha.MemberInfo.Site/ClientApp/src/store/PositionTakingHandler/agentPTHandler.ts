@@ -1,7 +1,5 @@
 import { PositionTakingIds } from '@/constants/product';
-import {
-    AgentPTConfigItem, AgentPTDict, AgentPTSubGroupConfigAndPTSetting, GroupItem
-} from '@/types/new-account';
+import { AgentPTConfigItem, AgentPTDict, AgentPTSubGroupConfigAndPTSetting, GroupItem } from '@/types/new-account';
 import { PTTemplate } from '@/types/position-taking';
 
 import { BasePTHandler, IPTHandler, PTInitData } from './basePTHandler';
@@ -9,10 +7,10 @@ import { BasePTHandler, IPTHandler, PTInitData } from './basePTHandler';
 export default class AgentPTHandler extends BasePTHandler implements IPTHandler<{ [key: number]: [] }> {
   private initSubGroupPTValues(
     productGroupId: number,
-    ptGroupItemBySubGroupId: { [key: number]: GroupItem[] },
+    ptGroupItemBySubGroupId: { [key: number | string]: GroupItem[] },
   ): AgentPTSubGroupConfigAndPTSetting[] {
     const ptSubGroup = Object.keys(ptGroupItemBySubGroupId).map((subGroupId) => {
-      const groupItemsBySubGroupId = ptGroupItemBySubGroupId[Number(subGroupId)] as AgentPTConfigItem[];
+      const groupItemsBySubGroupId = ptGroupItemBySubGroupId[`+${Number(subGroupId)}`] as AgentPTConfigItem[];
       const minA2 = Math.min(...groupItemsBySubGroupId.map((item) => item.a2));
       const maxN2 = Math.max(...groupItemsBySubGroupId.map((item) => item.n2));
       const { subGroupName } = groupItemsBySubGroupId[0];

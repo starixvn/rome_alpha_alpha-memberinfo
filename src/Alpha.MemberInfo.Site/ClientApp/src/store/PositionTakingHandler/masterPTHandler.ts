@@ -1,10 +1,6 @@
 import { PositionTakingIds } from '@/constants/product';
-import {
-    getMasterPTByChangeM2, maxM2, minM2, minUM2
-} from '@/features/NewAccount/PositionTaking/masterPTRule';
-import {
-    GroupItem, MasterPTConfigItem, MasterPTDict, MasterPTSubGroupConfigAndPTSetting
-} from '@/types/new-account';
+import { getMasterPTByChangeM2, maxM2, minM2, minUM2 } from '@/features/NewAccount/PositionTaking/masterPTRule';
+import { GroupItem, MasterPTConfigItem, MasterPTDict, MasterPTSubGroupConfigAndPTSetting } from '@/types/new-account';
 import { PTTemplate } from '@/types/position-taking';
 
 import { BasePTHandler, IPTHandler, PTInitData } from './basePTHandler';
@@ -12,10 +8,10 @@ import { BasePTHandler, IPTHandler, PTInitData } from './basePTHandler';
 export default class MasterPTHandler extends BasePTHandler implements IPTHandler<{ [key: number]: [] }> {
   private initSubGroupPTValues(
     productGroupId: number,
-    ptGroupItemBySubGroupId: { [key: number]: GroupItem[] },
+    ptGroupItemBySubGroupId: { [key: number | string]: GroupItem[] },
   ): MasterPTSubGroupConfigAndPTSetting[] {
     const ptSubGroup = Object.keys(ptGroupItemBySubGroupId).map((subGroupId) => {
-      const groupItemsBySubGroupId = ptGroupItemBySubGroupId[Number(subGroupId)] as MasterPTConfigItem[];
+      const groupItemsBySubGroupId = ptGroupItemBySubGroupId[`+${Number(subGroupId)}`] as MasterPTConfigItem[];
       const minA4 = Math.min(...groupItemsBySubGroupId.map((item) => item.a4));
       const minM3 = Math.min(...groupItemsBySubGroupId.map((item) => item.m3));
       const maxN3 = Math.max(...groupItemsBySubGroupId.map((item) => item.n3));

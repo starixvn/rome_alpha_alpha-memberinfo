@@ -10,6 +10,8 @@
         string GetProductGroupName(int productGroupId);
 
         string GetProductName(int productId);
+        
+        string GetSubGroupName(int productId);
 
         string GetSportTypeName(int sportTypeId);
     }
@@ -19,6 +21,7 @@
         private readonly IRemotingRefService remotingRefService;
         private const string ProductRefId = "Product";
         private const string ProductGroupRefId = "ProductGroup";
+        private const string SubGroupRefId = "SubGroup";
         private const string DummySportRefId = "DummySport";
 
         public CacheRefServiceImpl(IRemotingRefService remotingRefService)
@@ -31,7 +34,11 @@
 
         public string GetProductGroupName(int productGroupId)
             => remotingRefService.GetResourceDataByRefIdAndResourceId(ProductGroupRefId, productGroupId.ToString(),
-                LanguageCode, productGroupId.ToString());
+                LanguageCode, productGroupId.ToString());        
+        
+        public string GetSubGroupName(int subGroupRefId)
+            => remotingRefService.GetResourceDataByRefIdAndResourceId(SubGroupRefId, subGroupRefId.ToString(),
+                LanguageCode, string.Empty);
         
         public string GetProductName(int productId)
             => remotingRefService.GetResourceDataByRefIdAndResourceId(
