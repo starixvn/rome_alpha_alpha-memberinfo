@@ -61,29 +61,29 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; based on your transfer condition &lt;b&gt;({0})&lt;/b&gt;.&lt;/li&gt;.
+        ///   Looks up a localized string similar to Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;..
         /// </summary>
-        public static string AutoTransfer_AffectTime_Agent {
+        public static string AutoTransfer_AffectTime {
             get {
-                return ResourceManager.GetString("AutoTransfer_AffectTime_Agent", resourceCulture);
+                return ResourceManager.GetString("AutoTransfer_AffectTime", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt; based on your transfer condition &lt;b&gt;({0})&lt;/b&gt;.&lt;/li&gt;.
+        ///   Looks up a localized string similar to *Once disabled, the current Auto Transfer schedule will be cleared..
         /// </summary>
-        public static string AutoTransfer_AffectTime_Master {
+        public static string AutoTransfer_ClearSchedule {
             get {
-                return ResourceManager.GetString("AutoTransfer_AffectTime_Master", resourceCulture);
+                return ResourceManager.GetString("AutoTransfer_ClearSchedule", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li&gt;Once enabled, the Yesterday Balance will be cleared at &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;.&lt;/li&gt;.
+        ///   Looks up a localized string similar to You can set up Auto Transfer schedule for your downline from the available options based on your transfer condition..
         /// </summary>
-        public static string AutoTransfer_AffectTime_Super {
+        public static string AutoTransfer_SetSchedule {
             get {
-                return ResourceManager.GetString("AutoTransfer_AffectTime_Super", resourceCulture);
+                return ResourceManager.GetString("AutoTransfer_SetSchedule", resourceCulture);
             }
         }
         
@@ -115,20 +115,38 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to disable Auto Transfer for this account: {0}?&lt;ul class=&apos;ul-confirm&apos;&gt;&lt;li class=&apos;tip&apos;&gt;&lt;span class=&apos;icon-lightbulb-on&apos;&gt;&lt;/span&gt;Tip: you can disable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {1}].&lt;/li&gt;&lt;/ul&gt;.
+        ///   Looks up a localized string similar to Would you like to disable Auto Transfer for this account: {0}?.
         /// </summary>
-        public static string ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage {
+        public static string ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Message {
             get {
-                return ResourceManager.GetString("ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage", resourceCulture);
+                return ResourceManager.GetString("ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Would you like to enable Auto Transfer for this account: {0}?&lt;ul class=&apos;ul-confirm&apos;&gt;{1}&lt;li class=&apos;tip&apos;&gt;&lt;span class=&apos;icon-lightbulb-on&apos;&gt;&lt;/span&gt;Tip: you can enable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {2}] and monitor the progress on [Transfer &gt;&gt; Auto Transfer Monitor].&lt;/li&gt;&lt;/ul&gt;.
+        ///   Looks up a localized string similar to Tip: you can enable or disable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {0}] or [Transfer &gt;&gt; Transfer] and monitor the progress on [Transfer &gt; Auto Transfer Monitoring]. .
         /// </summary>
-        public static string ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage {
+        public static string ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Tip {
             get {
-                return ResourceManager.GetString("ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage", resourceCulture);
+                return ResourceManager.GetString("ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Tip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to enable Auto Transfer for this account: {0}?.
+        /// </summary>
+        public static string ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Message {
+            get {
+                return ResourceManager.GetString("ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tip: you can enable or disable Auto Transfer for multiple accounts on [Member Information &gt;&gt; {0}] or [Transfer &gt;&gt; Transfer] and monitor the progress on [Transfer &gt; Auto Transfer Monitoring]. .
+        /// </summary>
+        public static string ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Tip {
+            get {
+                return ResourceManager.GetString("ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Tip", resourceCulture);
             }
         }
         
@@ -142,11 +160,29 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fri.
+        /// </summary>
+        public static string Fri {
+            get {
+                return ResourceManager.GetString("Fri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Friday.
         /// </summary>
         public static string Friday {
             get {
                 return ResourceManager.GetString("Friday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mon.
+        /// </summary>
+        public static string Mon {
+            get {
+                return ResourceManager.GetString("Mon", resourceCulture);
             }
         }
         
@@ -160,11 +196,38 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sat.
+        /// </summary>
+        public static string Sat {
+            get {
+                return ResourceManager.GetString("Sat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Saturday.
         /// </summary>
         public static string Saturday {
             get {
                 return ResourceManager.GetString("Saturday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select All.
+        /// </summary>
+        public static string SelectAll {
+            get {
+                return ResourceManager.GetString("SelectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sun.
+        /// </summary>
+        public static string Sun {
+            get {
+                return ResourceManager.GetString("Sun", resourceCulture);
             }
         }
         
@@ -178,11 +241,29 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thurs.
+        /// </summary>
+        public static string Thurs {
+            get {
+                return ResourceManager.GetString("Thurs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thursday.
         /// </summary>
         public static string Thursday {
             get {
                 return ResourceManager.GetString("Thursday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tue.
+        /// </summary>
+        public static string Tue {
+            get {
+                return ResourceManager.GetString("Tue", resourceCulture);
             }
         }
         
@@ -196,11 +277,20 @@ namespace Alpha.Products.AccountInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;div style=&quot;font-weight:normal&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Activating All Day Balance Transfer will turn OFF Auto Transfer configured by {0} and its all downlines.&lt;/div&gt;.
+        ///   Looks up a localized string similar to &lt;div style=&quot;font-weight:normal&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Activating All Day Balance Transfer will DISABLE Auto Transfer and CLEAR all Auto Transfer Schedule configured by {0} and its all downlines.&lt;/div&gt;.
         /// </summary>
         public static string TurnOnTransferBalanceDailyNoteMessage {
             get {
                 return ResourceManager.GetString("TurnOnTransferBalanceDailyNoteMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wed.
+        /// </summary>
+        public static string Wed {
+            get {
+                return ResourceManager.GetString("Wed", resourceCulture);
             }
         }
         

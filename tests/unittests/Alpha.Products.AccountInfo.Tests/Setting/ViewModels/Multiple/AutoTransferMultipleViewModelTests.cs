@@ -14,7 +14,7 @@
             // Arrange
             var expectedText = "EditMultipleAutoTransferText";
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new AutoTransferMultipleViewModel(request);
+            var viewModel = new AutoTransferMultipleViewModel(request, null);
 
             // Act
             var actualValue = viewModel.Text;
@@ -30,7 +30,7 @@
             var request = RequestHelper.CreateRequest(4, 3);
             request.AddData("customerIds", "1, 3");
             request.AddData("usernames", "master01");
-            var viewModel = new AutoTransferMultipleViewModel(request);
+            var viewModel = new AutoTransferMultipleViewModel(request, null);
             var epectedQueryStringParamaters = new Dictionary<string, string>
             {
                 ["SearchAccountIds"] = "1, 3",
@@ -56,7 +56,7 @@
         {
             // Arrange
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
-            var viewModel = new AutoTransferMultipleViewModel(request);
+            var viewModel = new AutoTransferMultipleViewModel(request, null);
 
             // Act
             var actualValue = viewModel.Visible;

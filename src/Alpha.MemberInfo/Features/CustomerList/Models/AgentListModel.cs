@@ -38,7 +38,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          decimal groupC,
          decimal groupD,
          decimal discountMyanmarOdds,
-         byte locked)
+         byte locked,
+         bool autoTransfer)
             : base(custId,
             username,
             roleId,
@@ -63,7 +64,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             disableOutright,
             discountCS,
             discount1x2,
-            locked)
+            locked,
+            autoTransfer)
         {
             GroupA = groupA;
             GroupB = groupB;

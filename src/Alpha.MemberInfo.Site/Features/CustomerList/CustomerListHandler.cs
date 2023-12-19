@@ -350,7 +350,8 @@
 
                 .AddData(DataKey.SearchAccount.AllowedAllDayBalTransfer, allowedAllDayBalTransfer)
                 .AddData(DataKey.SearchAccount.IsAllDayBalTransfer, model.NonProduct.IsAllDayBalTransfer)
-                .AddData(DataKey.SearchAccount.IsAllowAutoTransfer, model.NonProduct.IsAllowAutoTransfer);
+                .AddData(DataKey.SearchAccount.IsAllowAutoTransfer, model.NonProduct.IsAllowAutoTransfer)
+                .AddData(DataKey.SearchAccount.ScheduleWeekDays, model.NonProduct.ScheduleWeekDays);
 
             request.SupportAutoTransfer = message.SupportAutoTransfer;
             request.AutoTransferAffect = message.AutoTransferAffect;

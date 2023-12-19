@@ -150,22 +150,52 @@
   <data name="AutoTransferPageHint_Master" xml:space="preserve">
     <value>总代理名单</value>
   </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage" xml:space="preserve">
-    <value>您要为此客户禁用自动转账吗: {0}?&lt;ul class='ul-confirm'&gt;&lt;li class='tip'&gt;&lt;span class='icon-lightbulb-on'&gt;&lt;/span&gt;提醒：您可以在「会员信息」中的「{1}」列表中，为多组账户停用自动转账功能。&lt;/li&gt;&lt;/ul&gt;</value>
-  </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage" xml:space="preserve">
-    <value>您要为此客户开启自动转账吗: {0}?&lt;ul class='ul-confirm'&gt;{1}&lt;li class='tip'&gt;&lt;span class='icon-lightbulb-on'&gt;&lt;/span&gt;提醒：您可以在「会员信息」中的「{2}」列表中，为多组账户启用自动转账功能，也能在「转账」中的「监视自动转账」确认转账进度。&lt;/li&gt;&lt;/ul&gt;</value>
-  </data>
   <data name="TurnOnTransferBalanceDailyNoteMessage" xml:space="preserve">
-    <value>&lt;div style="font-weight:normal"&gt;&lt;b&gt;注意：&lt;/b&gt;启用全天余额转账将"关闭"{0}及其所有下线将配置自动转账。&lt;/div&gt;</value>
+    <value>&lt;div style="font-weight:normal"&gt;&lt;b&gt;备注：&lt;/b&gt;启用全天余额转账将禁用自动转账，并清除{0}为其下线设定的所有自动转账日程表。&lt;/div&gt;</value>
   </data>
-  <data name="AutoTransfer_AffectTime_Agent" xml:space="preserve">
-    <value>&lt;li&gt;一旦启用，昨天余额将根据您的转账设定&lt;b&gt;({0})&lt;/b&gt;于中午 &lt;span&gt;12:00 (GMT+8)&lt;/span&gt; 清算。&lt;/li&gt;</value>
+  <data name="AutoTransfer_AffectTime" xml:space="preserve">
+    <value>一旦启用自动转账功能，系统将于 &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;清除昨日余额。</value>
   </data>
-  <data name="AutoTransfer_AffectTime_Master" xml:space="preserve">
-    <value>&lt;li&gt;一旦启用，昨天余额将根据您的转账设定&lt;b&gt;({0})&lt;/b&gt;于中午 &lt;span&gt;12:00 (GMT+8)&lt;/span&gt; 清算。&lt;/li&gt;</value>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Message" xml:space="preserve">
+    <value>您要为此客户禁用自动转账吗: {0}?</value>
   </data>
-  <data name="AutoTransfer_AffectTime_Super" xml:space="preserve">
-    <value>&lt;li&gt;一旦启用自动转账功能，系统将于 &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;清除昨日余额。&lt;/li&gt;</value>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Tip" xml:space="preserve">
+    <value>提示：您可以在【会员资料&gt;&gt;{0}】或【转账&gt;&gt;转账】中启用或禁用多重账号的自动转账，并在【转账&gt;监控自动转账】中监控进度。</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Message" xml:space="preserve">
+    <value>您要为此客户开启自动转账吗: {0}?</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Tip" xml:space="preserve">
+    <value>提示：您可以在【会员资料&gt;&gt;{0}】或【转账&gt;&gt;转账】中启用或禁用多重账号的自动转账，并在【转账&gt;监控自动转账】中监控进度。</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>一</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>二</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>三</value>
+  </data>
+  <data name="Thurs" xml:space="preserve">
+    <value>四</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>六</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="AutoTransfer_SetSchedule" xml:space="preserve">
+    <value>您可以为您的下线设置自动转账日程表根据您转账设定可有的选项。</value>
+  </data>
+  <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
+    <value>*一旦禁用，当前的自动转账日程表将被清除。</value>
   </data>
 </root>

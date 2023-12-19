@@ -33,7 +33,8 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          bool disableOutright,
          decimal discountCS,
          decimal discount1x2,
-         byte locked)
+         byte locked,
+         bool autoTransfer)
         {
             CustId = custId;
             Username = username;
@@ -60,6 +61,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             Discount1x2 = discount1x2;
             IsInternal = isInternal;
             Locked = locked;
+            AutoTransfer = autoTransfer;
         }
 
         public int CustId { get; private set; }
@@ -141,5 +143,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
         }
 
         public byte Locked { get; private set; }
+        public bool AutoTransfer { get; private set; }
     }
 }

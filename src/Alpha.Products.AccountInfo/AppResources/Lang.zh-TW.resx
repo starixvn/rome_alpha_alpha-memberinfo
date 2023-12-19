@@ -150,22 +150,52 @@
   <data name="AutoTransferPageHint_Master" xml:space="preserve">
     <value>總代理名單</value>
   </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage" xml:space="preserve">
-    <value>您要為此客戶禁用自動轉賬嗎: {0}?&lt;ul class='ul-confirm'&gt;&lt;li class='tip'&gt;&lt;span class='icon-lightbulb-on'&gt;&lt;/span&gt;提醒：您可以在「會員資訊」中的「{1}」清單中，為多組帳戶停用自動轉賬功能。&lt;/li&gt;&lt;/ul&gt;</value>
-  </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage" xml:space="preserve">
-    <value>您要為此客戶開啟自動轉賬嗎: {0}?&lt;ul class='ul-confirm'&gt;{1}&lt;li class='tip'&gt;&lt;span class='icon-lightbulb-on'&gt;&lt;/span&gt;提醒：您可以在「會員資訊」中的「{2}」清單中，為多組帳戶啟用自動轉賬功能，也能在「轉賬」中的「監視自動轉賬」確認轉賬進度。&lt;/li&gt;&lt;/ul&gt;</value>
-  </data>
   <data name="TurnOnTransferBalanceDailyNoteMessage" xml:space="preserve">
-    <value>&lt;div style="font-weight:normal"&gt;&lt;b&gt;注意：&lt;/b&gt;啟用全天餘額轉賬將"關閉"{0}及其所有下線將配置自動轉賬。&lt;/div&gt;</value>
+    <value>&lt;div style="font-weight:normal"&gt;&lt;b&gt;備註：&lt;/b&gt;啟用全天餘額轉帳將禁用自動轉賬，並清除{0}為其下線設定的所有自動轉帳日程表。&lt;/div&gt;</value>
   </data>
-  <data name="AutoTransfer_AffectTime_Agent" xml:space="preserve">
-    <value>&lt;li&gt;一旦啟用，昨天餘額將根據您的轉賬設定&lt;b&gt;({0})&lt;/b&gt;於中午 &lt;span&gt;12:00 (GMT+8)&lt;/span&gt; 清算。&lt;/li&gt;</value>
+  <data name="AutoTransfer_AffectTime" xml:space="preserve">
+    <value>一旦啟用自動轉賬功能，系統將於 &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;清除昨日餘額。</value>
   </data>
-  <data name="AutoTransfer_AffectTime_Master" xml:space="preserve">
-    <value>&lt;li&gt;一旦啟用，昨天餘額將根據您的轉賬設定&lt;b&gt;({0})&lt;/b&gt;於中午 &lt;span&gt;12:00 (GMT+8)&lt;/span&gt; 清算。&lt;/li&gt;</value>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Message" xml:space="preserve">
+    <value>您要為此客戶禁用自動轉賬嗎: {0}?</value>
   </data>
-  <data name="AutoTransfer_AffectTime_Super" xml:space="preserve">
-    <value>&lt;li&gt;一旦啟用自動轉賬功能，系統將於 &lt;span&gt;12:00 PM (GMT+8)&lt;/span&gt;清除昨日餘額。&lt;/li&gt;</value>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Tip" xml:space="preserve">
+    <value>提示：您可以在【會員資料&gt;&gt;{0}】或【轉賬&gt;&gt;轉賬】中啓用或禁用多重賬號的自動轉賬，並在【轉賬&gt;監控自動轉賬】中監控進度。</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Tip" xml:space="preserve">
+    <value>提示：您可以在【會員資料&gt;&gt;{0}】或【轉賬&gt;&gt;轉賬】中啓用或禁用多重賬號的自動轉賬，並在【轉賬&gt;監控自動轉賬】中監控進度。</value>
+  </data>
+  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Message" xml:space="preserve">
+    <value>您要為此客戶開啟自動轉賬嗎: {0}?</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>全選</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>一</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>二</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>三</value>
+  </data>
+  <data name="Thurs" xml:space="preserve">
+    <value>四</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>六</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="AutoTransfer_SetSchedule" xml:space="preserve">
+    <value>您可以為您的下線設定自動轉帳日程表根據您轉帳設定可有的選項。</value>
+  </data>
+  <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
+    <value>*壹旦禁用，當前的自動轉賬日程表將被清除。</value>
   </data>
 </root>

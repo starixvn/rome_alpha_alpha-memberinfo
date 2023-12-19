@@ -87,5 +87,6 @@
         public bool IsProtectedMode { get; set; }
 
         public bool IsAllowAutoTransfer { get; private set; }
+        public string ScheduleWeekDays { get; set; }
     }
 }
