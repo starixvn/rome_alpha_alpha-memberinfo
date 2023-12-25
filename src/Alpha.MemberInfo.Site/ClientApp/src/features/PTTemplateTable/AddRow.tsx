@@ -19,6 +19,7 @@ interface IProps {
 export default function AddRow({ onCreateFailed, onCreateSuccess, refreshSettings }: IProps) {
   const setEditingTemplateId = usePTTemplateStore((state) => state.setEditingTemplateId);
   const isSpecialSite = usePTTemplateStore((state) => state.isSpecialSite);
+  const is3DecimalSite = usePTTemplateStore((state) => state.is3DecimalSite);
   const initSettings = usePTTemplateStore((state) =>
     state.ptSettings
       .map((setting) =>
@@ -125,6 +126,7 @@ export default function AddRow({ onCreateFailed, onCreateSuccess, refreshSetting
             max={setting.max}
             value={settings.find((s) => s.subGroupId === setting.subGroupId)?.pt ?? setting.max}
             onSelectChange={(e) => handlePTSelectChange(setting.groupId, setting.subGroupId, Number(e.target.value))}
+            is789y={is3DecimalSite}
           />
         </td>
       ));
@@ -141,7 +143,7 @@ export default function AddRow({ onCreateFailed, onCreateSuccess, refreshSetting
             max={max}
             value={value}
             onSelectChange={(e) => handleY7PTSelectChange(Number(e.target.value))}
-            is789y
+            is789y={is3DecimalSite}
           />
         </td>
       );
