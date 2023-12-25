@@ -764,8 +764,8 @@
     <Content Include="ClientApp\dist\assets\productSettingInfo-619bace5.js" />
     <Content Include="ClientApp\dist\assets\PTSelect-07858f5e.css" />
     <Content Include="ClientApp\dist\assets\PTSelect-5d0f7ac7.js" />
+    <Content Include="ClientApp\dist\assets\ptTemplate-3746f9db.js" />
     <Content Include="ClientApp\dist\assets\ptTemplate-5f025410.css" />
-    <Content Include="ClientApp\dist\assets\ptTemplate-d3616efc.js" />
     <Content Include="ClientApp\dist\images\daily.png" />
     <Content Include="ClientApp\dist\images\icon-select.svg" />
     <Content Include="ClientApp\dist\images\weekly.png" />
