@@ -32,6 +32,10 @@
 
         public static bool IsSiteLabel789y => SiteLabel.Equals(SiteLabel789y);
 
+        public static string[] SupportPT3DecimalSites => GetConfigValue("SupportPT3DecimalSites")?.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries) ?? new string[] { };
+
+        public static bool IsSupportPT3DecimalSites => SupportPT3DecimalSites.Contains(SiteLabel, StringComparer.InvariantCultureIgnoreCase);
+
         public static string GetConfigValue(string configName) => AppSettingValues[configName];
 
         public static void Verify()

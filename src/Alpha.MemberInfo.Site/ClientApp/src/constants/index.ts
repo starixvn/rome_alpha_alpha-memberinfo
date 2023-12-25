@@ -41,3 +41,4 @@ export const TransferOptions = {
 };
 
 export const site789y = '789y';
+export const site3Decimals = '789y,TH7a5';
