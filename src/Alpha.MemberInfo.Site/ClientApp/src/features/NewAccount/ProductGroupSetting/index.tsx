@@ -66,7 +66,7 @@ export default function ProductGroupSetting() {
   );
 
   const is789y = siteLabel === site789y;
-  const isSupportPT3Decimals = site3Decimals.split(',').map((item) => item.trim()).includes(siteLabel);
+  const isSupportPT3Decimals = site3Decimals.split(',').map((item) => item.trim().toLocaleLowerCase()).includes(siteLabel);
   const productGroupId = Number(productId) || 1;
   const groupTypes = productGroups[productGroupId]?.groupTypes ?? [];
   return (
