@@ -126,7 +126,7 @@ export default function AddRow({ onCreateFailed, onCreateSuccess, refreshSetting
             max={setting.max}
             value={settings.find((s) => s.subGroupId === setting.subGroupId)?.pt ?? setting.max}
             onSelectChange={(e) => handlePTSelectChange(setting.groupId, setting.subGroupId, Number(e.target.value))}
-            is789y={is3DecimalSite}
+            is3DecimalSite={is3DecimalSite}
           />
         </td>
       ));
@@ -143,7 +143,7 @@ export default function AddRow({ onCreateFailed, onCreateSuccess, refreshSetting
             max={max}
             value={value}
             onSelectChange={(e) => handleY7PTSelectChange(Number(e.target.value))}
-            is789y={is3DecimalSite}
+            is3DecimalSite={is3DecimalSite}
           />
         </td>
       );

@@ -34,13 +34,13 @@ function RenderSettings(userLevel: number, is789y: boolean, is3Decimals: boolean
       return <ParlayMaxPayout groupTypeId={id} groupItems={groupItems as ParlayMaxPayoutItem[]} />;
     case GroupTypeIds.PositionTaking:
       if (userLevel === UserLevel.Super) {
-        return <SuperPTSettings is789y={is3Decimals} productGroupId={productGroupId} />;
+        return <SuperPTSettings is3DecimalSite={is3Decimals} productGroupId={productGroupId} />;
       }
       if (userLevel === UserLevel.Master) {
-        return <MasterPTSettings is789y={is3Decimals} productGroupId={productGroupId} />;
+        return <MasterPTSettings is3DecimalSite={is3Decimals} productGroupId={productGroupId} />;
       }
       if (userLevel === UserLevel.Agent) {
-        return <AgentPTSettings is789y={is3Decimals} productGroupId={productGroupId} />;
+        return <AgentPTSettings is3DecimalSite={is3Decimals} productGroupId={productGroupId} />;
       }
       return '';
     case GroupTypeIds.RNGGamesBetSetting:

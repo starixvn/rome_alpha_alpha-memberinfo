@@ -86,7 +86,7 @@ export default function EditingRow({ index, template, onEditSuccess, onEditFaile
             max={max}
             value={value}
             onSelectChange={(e) => handleY7PTSelectChange(Number(e.target.value))}
-            is789y={is3DecimalSite}
+            is3DecimalSite={is3DecimalSite}
           />
         </td>
       );
@@ -100,7 +100,7 @@ export default function EditingRow({ index, template, onEditSuccess, onEditFaile
             max={subGroup.max}
             value={editingTemplate.settings.find((x) => x.subGroupId === subGroup.subGroupId)?.pt ?? 0}
             onSelectChange={(e) => handlePTSelectChange(setting.groupId, subGroup.subGroupId, Number(e.target.value))}
-            is789y={is3DecimalSite}
+            is3DecimalSite={is3DecimalSite}
           />
         </td>
       )),
