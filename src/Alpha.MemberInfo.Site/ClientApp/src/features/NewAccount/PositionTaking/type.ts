@@ -1,10 +1,10 @@
 export type PTProps = {
   productGroupId: number;
-  is789y: boolean;
+  is3DecimalSite: boolean;
 };
 
 export type PTRowProps = {
   productGroupId: number;
   subGroupId: number;
-  is789y: boolean;
+  is3DecimalSite: boolean;
 };

@@ -23,6 +23,7 @@ export default function PTTemplateTable() {
   const [theme, setTheme] = useState('light');
   const [error, setError] = useState<SubMessagesResult>();
   const updateIsSpecialSite = usePTTemplateStore((state) => state.updateIsSpecialSite);
+  const updateIs3DecimalSite = usePTTemplateStore((state) => state.updateIs3DecimalSite);
   const updatePTSettings = usePTTemplateStore((state) => state.updatePTSettings);
   const templates = usePTTemplateStore((state) => state.templates);
   const updateTemplates = usePTTemplateStore((state) => state.updateTemplates);
@@ -36,6 +37,7 @@ export default function PTTemplateTable() {
 
   useEffect(() => {
     updateIsSpecialSite((document.getElementById('IsSpecialSite') as HTMLInputElement).value === 'true');
+    updateIs3DecimalSite((document.getElementById('Is3DecimalSite') as HTMLInputElement).value === 'true');
   }, [updateIsSpecialSite]);
 
   useEffect(() => {

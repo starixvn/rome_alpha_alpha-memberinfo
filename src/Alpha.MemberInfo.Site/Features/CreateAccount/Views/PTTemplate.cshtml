@@ -6,6 +6,7 @@
 @Html.AntiForgeryToken()
 <input type="hidden" id="ActorLevelId" value="@Model.ActorLevelId" />
 <input type="hidden" id="IsSpecialSite" value="@AppSettings.IsSiteLabel789y.ToString().ToLowerInvariant()" />
+<input type="hidden" id="Is3DecimalSite" value="@AppSettings.IsSupportPT3DecimalSites.ToString().ToLowerInvariant()" />
 <div id="root" style="height:100%"></div>
 
 @section Scripts{
@@ -19,6 +20,6 @@
     {
         <!-- if production -->
         <link rel="stylesheet" href="~/ClientApp/dist/assets/ptTemplate-5f025410.css" />
-        <script type="module" src="~/ClientApp/dist/assets/ptTemplate-b865758b.js"></script>
+        <script type="module" src="~/ClientApp/dist/assets/ptTemplate-326b7662.js"></script>
     }
 }

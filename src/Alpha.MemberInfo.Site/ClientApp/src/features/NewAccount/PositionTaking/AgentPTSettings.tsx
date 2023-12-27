@@ -12,7 +12,7 @@ import PTSelect from './PTSelect';
 import PTTemplateSelect from './PTTemplateSelect';
 import { PTProps, PTRowProps } from './type';
 
-function AgentPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
+function AgentPTRow({ is3DecimalSite, productGroupId, subGroupId }: PTRowProps) {
   const value = useNewAccountStore(
     (state) =>
       (state.ptSetting[productGroupId] as SubGroup[]).find(
@@ -37,7 +37,7 @@ function AgentPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
             max={value.minA2}
             value={value.a1}
             onSelectChange={(e) => handleChangeValue({ a1: Number(e.target.value) })}
-            is789y={is789y}
+            is3DecimalSite={is3DecimalSite}
           />
         </BlockColumn>
       </BlockRow>
@@ -45,7 +45,7 @@ function AgentPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
   );
 }
 
-export default function AgentPTSettings({ is789y, productGroupId }: PTProps) {
+export default function AgentPTSettings({ is3DecimalSite, productGroupId }: PTProps) {
   const { t } = useTranslation();
   const groupItems = useNewAccountStore(
     (state) => state.ptConfig[productGroupId],
@@ -67,7 +67,7 @@ export default function AgentPTSettings({ is789y, productGroupId }: PTProps) {
         </BlockRow>
         {groupItems.map((value) => (
           <AgentPTRow
-            is789y={is789y}
+            is3DecimalSite={is3DecimalSite}
             key={value.subGroupId}
             productGroupId={productGroupId}
             subGroupId={value.subGroupId}

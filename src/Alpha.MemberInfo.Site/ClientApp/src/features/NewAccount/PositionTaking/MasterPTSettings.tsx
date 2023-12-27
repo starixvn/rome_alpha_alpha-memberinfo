@@ -7,8 +7,8 @@ import useNewAccountStore from '@/store/newAccountStore';
 import { MasterPTSetting, MasterPTSubGroupConfigAndPTSetting, SubGroup } from '@/types/new-account';
 
 import {
-    getMasterPTByChangeM2, getMasterPTByChangeUM2, maxA2, maxA2Auto, maxM2, maxN2, maxUM2, minA2,
-    minA2Auto, minM2, minN2, minUM2
+    getMasterPTByChangeM2, getMasterPTByChangeUM2, maxA2, maxA2Auto, maxM2, maxN2, maxUM2, minA2, minA2Auto, minM2,
+    minN2, minUM2
 } from './masterPTRule';
 import styles from './PositionTaking.module.scss';
 import PositionTalkingNote from './PositionTalkingNote';
@@ -18,11 +18,11 @@ import { PTProps, PTRowProps } from './type';
 
 interface PTColumnProps {
   value: MasterPTSubGroupConfigAndPTSetting;
-  is789y: boolean;
+  is3DecimalSite: boolean;
   handleChangeValue: (newValue: Partial<MasterPTSetting>) => void;
 }
 
-function UM2({ value, is789y, handleChangeValue }: PTColumnProps) {
+function UM2({ value, is3DecimalSite, handleChangeValue }: PTColumnProps) {
   return (
     <PTSelect
       min={minUM2(value.maxN3SubtractA4)}
@@ -33,12 +33,12 @@ function UM2({ value, is789y, handleChangeValue }: PTColumnProps) {
           ...getMasterPTByChangeUM2(value.minA4, value.maxN3, value.minM3, value.a2, value.n2, Number(e.target.value)),
         });
       }}
-      is789y={is789y}
+      is3DecimalSite={is3DecimalSite}
     />
   );
 }
 
-function M2({ value, is789y, handleChangeValue }: PTColumnProps) {
+function M2({ value, is3DecimalSite, handleChangeValue }: PTColumnProps) {
   return (
     <PTSelect
       min={minM2(value.maxN3SubtractA4)}
@@ -49,12 +49,12 @@ function M2({ value, is789y, handleChangeValue }: PTColumnProps) {
           ...getMasterPTByChangeM2(value.minA4, value.maxN3, value.minM3, value.a2, value.n2, Number(e.target.value)),
         });
       }}
-      is789y={is789y}
+      is3DecimalSite={is3DecimalSite}
     />
   );
 }
 
-function A2Auto({ value, is789y, handleChangeValue }: PTColumnProps) {
+function A2Auto({ value, is3DecimalSite, handleChangeValue }: PTColumnProps) {
   return (
     <PTSelect
       min={minA2Auto(value.maxN3, value.uM2)}
@@ -66,12 +66,12 @@ function A2Auto({ value, is789y, handleChangeValue }: PTColumnProps) {
           n2: Number(e.target.value) > value.n2 ? value.n2 : Number(e.target.value),
         })
       }
-      is789y={is789y}
+      is3DecimalSite={is3DecimalSite}
     />
   );
 }
 
-function A2({ value, is789y, handleChangeValue }: PTColumnProps) {
+function A2({ value, is3DecimalSite, handleChangeValue }: PTColumnProps) {
   return (
     <PTSelect
       min={minA2(value.maxN3, value.m2)}
@@ -83,7 +83,7 @@ function A2({ value, is789y, handleChangeValue }: PTColumnProps) {
           n2: Number(e.target.value) > value.n2 ? value.n2 : Number(e.target.value),
         })
       }
-      is789y={is789y}
+      is3DecimalSite={is3DecimalSite}
     />
   );
 }
@@ -124,7 +124,7 @@ function IsAuto({
   );
 }
 
-function MasterPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
+function MasterPTRow({ is3DecimalSite, productGroupId, subGroupId }: PTRowProps) {
   const value = useNewAccountStore(
     (state) =>
       (state.ptSetting[productGroupId] as SubGroup[]).find(
@@ -146,9 +146,9 @@ function MasterPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
       <BlockRow label={value.subGroupName}>
         <BlockColumn>
           {value.iM2 ? (
-            <UM2 value={value} is789y={is789y} handleChangeValue={handleChangeValue} />
+            <UM2 value={value} is3DecimalSite={is3DecimalSite} handleChangeValue={handleChangeValue} />
           ) : (
-            <M2 value={value} is789y={is789y} handleChangeValue={handleChangeValue} />
+            <M2 value={value} is3DecimalSite={is3DecimalSite} handleChangeValue={handleChangeValue} />
           )}
         </BlockColumn>
         {!disableAutoMPT && (
@@ -159,9 +159,9 @@ function MasterPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
 
         <BlockColumn>
           {value.iM2 ? (
-            <A2Auto value={value} is789y={is789y} handleChangeValue={handleChangeValue} />
+            <A2Auto value={value} is3DecimalSite={is3DecimalSite} handleChangeValue={handleChangeValue} />
           ) : (
-            <A2 value={value} is789y={is789y} handleChangeValue={handleChangeValue} />
+            <A2 value={value} is3DecimalSite={is3DecimalSite} handleChangeValue={handleChangeValue} />
           )}
         </BlockColumn>
         <BlockColumn>
@@ -170,7 +170,7 @@ function MasterPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
             max={maxN2(value.a2)}
             value={value.n2}
             onSelectChange={(e) => handleChangeValue({ n2: Number(e.target.value) })}
-            is789y={is789y}
+            is3DecimalSite={is3DecimalSite}
           />
         </BlockColumn>
       </BlockRow>
@@ -178,7 +178,7 @@ function MasterPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
   );
 }
 
-export default function MasterPTSettings({ is789y, productGroupId }: PTProps) {
+export default function MasterPTSettings({ is3DecimalSite, productGroupId }: PTProps) {
   const { t } = useTranslation();
   const disableAutoMPT = useNewAccountStore((state) => state.disableAutoMPT);
   const groupItems = useNewAccountStore(
@@ -203,7 +203,7 @@ export default function MasterPTSettings({ is789y, productGroupId }: PTProps) {
       </BlockRow>
       {groupItems.map((value) => (
         <MasterPTRow
-          is789y={is789y}
+          is3DecimalSite={is3DecimalSite}
           key={value.subGroupId}
           productGroupId={productGroupId}
           subGroupId={value.subGroupId}

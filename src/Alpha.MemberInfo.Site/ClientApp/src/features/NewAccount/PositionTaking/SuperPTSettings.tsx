@@ -11,18 +11,18 @@ import PositionTalkingNote from './PositionTalkingNote';
 import PTSelect from './PTSelect';
 import PTTemplateSelect from './PTTemplateSelect';
 import {
-    getPTSettingByChangeS3, getPTSettingByChangeUS3, maxM3, maxM3Auto, maxN3, maxS3, maxUS3, minM3,
-    minM3Auto, minN3, minS3, minUS3
+    getPTSettingByChangeS3, getPTSettingByChangeUS3, maxM3, maxM3Auto, maxN3, maxS3, maxUS3, minM3, minM3Auto, minN3,
+    minS3, minUS3
 } from './superPTRule';
 import { PTProps, PTRowProps } from './type';
 
 interface PTColumnProps {
   value: SuperPTSubGroupConfigAndPTSetting;
-  is789y: boolean;
+  is3DecimalSite: boolean;
   handleChangeValue: (newValue: Partial<SuperPTSetting>) => void;
 }
 
-function US3({ value, is789y, handleChangeValue }: PTColumnProps) {
+function US3({ value, is3DecimalSite, handleChangeValue }: PTColumnProps) {
   return (
     <PTSelect
       min={minUS3(value.maxN4SubtractM4)}
@@ -33,12 +33,12 @@ function US3({ value, is789y, handleChangeValue }: PTColumnProps) {
           ...getPTSettingByChangeUS3(value.maxN4, value.minM4, value.minS4, value.m3, value.n3, Number(e.target.value)),
         });
       }}
-      is789y={is789y}
+      is3DecimalSite={is3DecimalSite}
     />
   );
 }
 
-function S3({ value, is789y, handleChangeValue }: PTColumnProps) {
+function S3({ value, is3DecimalSite, handleChangeValue }: PTColumnProps) {
   return (
     <PTSelect
       min={minS3(value.maxN4SubtractM4)}
@@ -49,12 +49,12 @@ function S3({ value, is789y, handleChangeValue }: PTColumnProps) {
           ...getPTSettingByChangeS3(value.maxN4, value.minM4, value.minS4, value.m3, value.n3, Number(e.target.value)),
         });
       }}
-      is789y={is789y}
+      is3DecimalSite={is3DecimalSite}
     />
   );
 }
 
-function M3Auto({ value, is789y, handleChangeValue }: PTColumnProps) {
+function M3Auto({ value, is3DecimalSite, handleChangeValue }: PTColumnProps) {
   return (
     <PTSelect
       min={minM3Auto(value.maxN4, value.uS3)}
@@ -66,12 +66,12 @@ function M3Auto({ value, is789y, handleChangeValue }: PTColumnProps) {
           n3: Number(e.target.value) > value.n3 ? value.n3 : Number(e.target.value),
         })
       }
-      is789y={is789y}
+      is3DecimalSite={is3DecimalSite}
     />
   );
 }
 
-function M3({ value, is789y, handleChangeValue }: PTColumnProps) {
+function M3({ value, is3DecimalSite, handleChangeValue }: PTColumnProps) {
   return (
     <PTSelect
       min={minM3(value.maxN4, value.s3)}
@@ -83,7 +83,7 @@ function M3({ value, is789y, handleChangeValue }: PTColumnProps) {
           n3: Number(e.target.value) > value.n3 ? value.n3 : Number(e.target.value),
         })
       }
-      is789y={is789y}
+      is3DecimalSite={is3DecimalSite}
     />
   );
 }
@@ -123,7 +123,7 @@ function IsAuto({
   );
 }
 
-function SuperPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
+function SuperPTRow({ is3DecimalSite, productGroupId, subGroupId }: PTRowProps) {
   const value = useNewAccountStore(
     (state) =>
       (state.ptSetting[productGroupId] as SubGroup[]).find(
@@ -144,9 +144,9 @@ function SuperPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
       <BlockRow label={value.subGroupName}>
         <BlockColumn>
           {value.iS3 ? (
-            <US3 value={value} is789y={is789y} handleChangeValue={handleChangeValue} />
+            <US3 value={value} is3DecimalSite={is3DecimalSite} handleChangeValue={handleChangeValue} />
           ) : (
-            <S3 value={value} is789y={is789y} handleChangeValue={handleChangeValue} />
+            <S3 value={value} is3DecimalSite={is3DecimalSite} handleChangeValue={handleChangeValue} />
           )}
         </BlockColumn>
         <BlockColumn>
@@ -154,9 +154,9 @@ function SuperPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
         </BlockColumn>
         <BlockColumn>
           {value.iS3 ? (
-            <M3Auto value={value} is789y={is789y} handleChangeValue={handleChangeValue} />
+            <M3Auto value={value} is3DecimalSite={is3DecimalSite} handleChangeValue={handleChangeValue} />
           ) : (
-            <M3 value={value} is789y={is789y} handleChangeValue={handleChangeValue} />
+            <M3 value={value} is3DecimalSite={is3DecimalSite} handleChangeValue={handleChangeValue} />
           )}
         </BlockColumn>
         <BlockColumn>
@@ -165,7 +165,7 @@ function SuperPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
             max={maxN3(value.m3)}
             value={value.n3}
             onSelectChange={(e) => handleChangeValue({ n3: Number(e.target.value) })}
-            is789y={is789y}
+            is3DecimalSite={is3DecimalSite}
           />
         </BlockColumn>
       </BlockRow>
@@ -173,7 +173,7 @@ function SuperPTRow({ is789y, productGroupId, subGroupId }: PTRowProps) {
   );
 }
 
-export default function SuperPTSettings({ is789y, productGroupId }: PTProps) {
+export default function SuperPTSettings({ is3DecimalSite, productGroupId }: PTProps) {
   const { t } = useTranslation();
   const groupItems = useNewAccountStore(
     (state) => state.ptConfig[productGroupId],
@@ -198,7 +198,7 @@ export default function SuperPTSettings({ is789y, productGroupId }: PTProps) {
       {groupItems.map((value) => (
         <SuperPTRow
           key={value.subGroupId}
-          is789y={is789y}
+          is3DecimalSite={is3DecimalSite}
           productGroupId={productGroupId}
           subGroupId={value.subGroupId}
         />

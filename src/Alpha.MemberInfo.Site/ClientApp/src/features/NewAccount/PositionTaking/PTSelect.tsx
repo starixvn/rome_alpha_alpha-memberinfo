@@ -7,16 +7,16 @@ interface PTSelectProps {
   max: number;
   value: number;
   onSelectChange: (event: ChangeEvent<HTMLSelectElement>) => void;
-  is789y?: boolean;
+  is3DecimalSite?: boolean;
 }
 
-export default function PTSelect({ min, max, value, onSelectChange, is789y = false }: PTSelectProps) {
+export default function PTSelect({ min, max, value, onSelectChange, is3DecimalSite = false }: PTSelectProps) {
   let options = [];
   let pt = max;
 
   while (min <= pt) {
     options.push(pt);
-    pt -= is789y ? 0.5 : 1;
+    pt -= is3DecimalSite ? 0.5 : 1;
   }
 
   options = options.includes(value) ? options : [...options, value].sort((a, b) => b - a);

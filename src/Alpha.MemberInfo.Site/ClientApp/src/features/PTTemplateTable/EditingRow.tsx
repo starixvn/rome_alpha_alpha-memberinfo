@@ -18,6 +18,7 @@ interface IProps {
 
 export default function EditingRow({ index, template, onEditSuccess, onEditFailed, refreshSettings }: IProps) {
   const isSpecialSite = usePTTemplateStore((state) => state.isSpecialSite);
+  const is3DecimalSite = usePTTemplateStore((state) => state.is3DecimalSite);
   const ptSettings = usePTTemplateStore((state) => state.ptSettings);
   const setEditingTemplateId = usePTTemplateStore((state) => state.setEditingTemplateId);
   const [editingTemplate, setEditingTemplate] = useState(template);
@@ -85,7 +86,7 @@ export default function EditingRow({ index, template, onEditSuccess, onEditFaile
             max={max}
             value={value}
             onSelectChange={(e) => handleY7PTSelectChange(Number(e.target.value))}
-            is789y
+            is3DecimalSite={is3DecimalSite}
           />
         </td>
       );
@@ -99,6 +100,7 @@ export default function EditingRow({ index, template, onEditSuccess, onEditFaile
             max={subGroup.max}
             value={editingTemplate.settings.find((x) => x.subGroupId === subGroup.subGroupId)?.pt ?? 0}
             onSelectChange={(e) => handlePTSelectChange(setting.groupId, subGroup.subGroupId, Number(e.target.value))}
+            is3DecimalSite={is3DecimalSite}
           />
         </td>
       )),
