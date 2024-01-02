@@ -823,6 +823,19 @@
     <Content Include="Web.pro5.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <Content Include="Web.AppSettings.dr.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="Web.dr.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.AppSettings.drinternal.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="Web.drinternal.config">
+      <DependentUpon>Web.local.config</DependentUpon>
+    </Content>
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\edit-setting-popup.ts" />
     <TypeScriptCompile Include="assets\scripts\shared\customer-status-helper.ts" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
@@ -1165,6 +1178,8 @@
     <Content Include="Features\CreateAccount\Views\_Layout.cshtml" />
     <Content Include="Features\CreateAccount\Views\QuickIntroduction.cshtml" />
     <Content Include="deployment.pro5.ignore" />
+    <Content Include="deployment.dr.ignore" />
+    <Content Include="deployment.drinternal.ignore" />
     <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
     <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
