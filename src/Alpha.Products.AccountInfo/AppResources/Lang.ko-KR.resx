@@ -117,34 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AutoTransferPageHint_Member" xml:space="preserve">
-    <value>고객 리스트</value>
-  </data>
-  <data name="AutoTransferPageHint_Agent" xml:space="preserve">
-    <value>에이전트 목록</value>
-  </data>
-  <data name="AutoTransferPageHint_Master" xml:space="preserve">
-    <value>마스터 에이전트 목록</value>
-  </data>
-  <data name="Mon" xml:space="preserve">
-    <value>월</value>
-  </data>
-  <data name="Tue" xml:space="preserve">
-    <value>화</value>
-  </data>
-  <data name="Wed" xml:space="preserve">
-    <value>수요일</value>
-  </data>
-  <data name="Thurs" xml:space="preserve">
-    <value>목요일</value>
-  </data>
-  <data name="Fri" xml:space="preserve">
-    <value>금</value>
-  </data>
-  <data name="Sat" xml:space="preserve">
-    <value>토</value>
-  </data>
-  <data name="Sun" xml:space="preserve">
-    <value>일</value>
-  </data>
 </root>

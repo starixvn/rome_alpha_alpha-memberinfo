@@ -141,61 +141,10 @@
   <data name="Wednesday" xml:space="preserve">
     <value>วันพุธ</value>
   </data>
-  <data name="AutoTransferPageHint_Member" xml:space="preserve">
-    <value>รายชื่อลูกค้า</value>
-  </data>
-  <data name="AutoTransferPageHint_Agent" xml:space="preserve">
-    <value>รายชื่อ เอเจนต์</value>
-  </data>
-  <data name="AutoTransferPageHint_Master" xml:space="preserve">
-    <value>รายชื่อตัวแทนหลัก</value>
-  </data>
   <data name="TurnOnTransferBalanceDailyNoteMessage" xml:space="preserve">
     <value>&lt;div style="font-weight:normal"&gt;&lt;b&gt;หมายเหตุ: &lt;/b&gt;การเปิดใช้งานการโอนยอดคงเหลือทั้งวันจะทำให้การโอนอัตโนมัติถูกปิดลงและจะล้างค่ากำหนดการการโอนอัตโนมัติทั้งหมดที่กำหนดโดย {0} สำหรับดาวน์ไลน์&lt;/div&gt;</value>
   </data>
-  <data name="AutoTransfer_AffectTime" xml:space="preserve">
-    <value>เมื่อเปิดใช้งานแล้ว ยอดคงเหลือเมื่อวานจะถูกเคลีย ณ เวลา &lt;span&gt;12:00 น. (GMT+8)&lt;/span&gt;</value>
-  </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Message" xml:space="preserve">
-    <value>คุณต้องการปิดใช้งานระบบโอนอัตโนมัติสำหรับบัญชีนี้หรือไม่: {0}?</value>
-  </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Tip" xml:space="preserve">
-    <value>เคล็ดลับ: คุณสามารถเปิดหรือปิดใช้งานการโอนอัตโนมัติสำหรับหลายบัญชีได้ใน [ข้อมูลสมาชิก &gt;&gt; {0}] หรือ [โอน &gt;&gt; โอน] และติดตามความคืบหน้าใน [โอน &gt; การตรวจสอบการโอนอัตโนมัติ]</value>
-  </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Message" xml:space="preserve">
-    <value>คุณต้องการเปิดใช้งานระบบโอนอัตโนมัติสำหรับบัญชีนี้หรือไม่: {0}?</value>
-  </data>
-  <data name="ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Tip" xml:space="preserve">
-    <value>เคล็ดลับ: คุณสามารถเปิดหรือปิดใช้งานการโอนอัตโนมัติสำหรับหลายบัญชีได้ใน [ข้อมูลสมาชิก &gt;&gt; {0}] หรือ [โอน &gt;&gt; โอน] และติดตามความคืบหน้าใน [โอน &gt; การตรวจสอบการโอนอัตโนมัติ]</value>
-  </data>
-  <data name="SelectAll" xml:space="preserve">
-    <value>เลือกทั้งหมด</value>
-  </data>
-  <data name="Mon" xml:space="preserve">
-    <value>วันจันทร์</value>
-  </data>
-  <data name="Tue" xml:space="preserve">
-    <value>วันอังคาร</value>
-  </data>
-  <data name="Wed" xml:space="preserve">
-    <value>วันพุธ</value>
-  </data>
-  <data name="Thurs" xml:space="preserve">
-    <value>วันพฤหัส</value>
-  </data>
-  <data name="Fri" xml:space="preserve">
-    <value>วันศุกร์</value>
-  </data>
-  <data name="Sat" xml:space="preserve">
-    <value>วันเสาร์</value>
-  </data>
-  <data name="Sun" xml:space="preserve">
-    <value>วันอาทิตย์</value>
-  </data>
-  <data name="AutoTransfer_SetSchedule" xml:space="preserve">
-    <value>คุณสามารถตั้งค่ากำหนดการโอนอัตโนมัติสำหรับดาวน์ไลน์ของคุณได้จากตัวเลือกที่มีให้ตามเงื่อนไขการโอนของคุณ</value>
-  </data>
-  <data name="AutoTransfer_ClearSchedule" xml:space="preserve">
-    <value>*เมื่อปิดใช้งานแล้ว ตารางการโอนอัตโนมัติปัจจุบันจะถูกล้าง</value>
+  <data name="Update" xml:space="preserve">
+    <value>ล่าสุด</value>
   </data>
 </root>

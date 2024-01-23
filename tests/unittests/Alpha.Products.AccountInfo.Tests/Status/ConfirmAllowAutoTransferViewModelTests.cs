@@ -134,7 +134,6 @@
                 ["CustId"] = "2",
                 ["CustName"] = "username1",
                 ["State"] = state,
-                ["UseDifferentSite"] = 1,
             };
 
             // Act
