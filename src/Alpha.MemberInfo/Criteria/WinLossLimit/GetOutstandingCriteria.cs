@@ -2,21 +2,30 @@
 {
     using Fanex.Data;
     using Fanex.Data.Repository;
-    using Params;
 
     public class GetOutstandingCriteria : CriteriaBase
     {
-        public GetOutstandingCriteria(WinLossLimitParam param, int? playerId, int minCustId, int maxCustId)
+        public GetOutstandingCriteria(
+            int custId,
+            int productId,
+            int betType,
+            int sportType,
+            string username,
+            int masterId,
+            int agentId,
+            int? playerId,
+            int minCustId,
+            int maxCustId)
         {
             PlayerId = playerId;
 
-            CustId = param.CustId;
-            ProductId = param.ProductId;
-            BetType = param.BetType;
-            SportType = param.SportType;
-            Username = param.Username;
-            MasterId = param.MasterId;
-            AgentId = param.AgentId;
+            CustId = custId;
+            ProductId = productId;
+            BetType = betType;
+            SportType = sportType;
+            Username = username;
+            MasterId = masterId;
+            AgentId = agentId;
             MinCustId = minCustId;
             MaxCustId = maxCustId;
         }

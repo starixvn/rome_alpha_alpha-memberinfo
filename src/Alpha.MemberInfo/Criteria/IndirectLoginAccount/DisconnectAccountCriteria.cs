@@ -1,21 +1,28 @@
 ﻿namespace Alpha.MemberInfo.Criteria.IndirectLoginAccount
 {
-    using Alpha.MemberInfo.Params.IndirectLoginAccount;
     using Fanex.Data;
     using Fanex.Data.Repository;
 
     public class DisconnectAccountCriteria : NonQueryCommand
     {
-        public DisconnectAccountCriteria(DisconnectAccountParam param)
+        public DisconnectAccountCriteria(
+            int indirectCustId,
+            int indirectSubAccId,
+            string indirectUsername,
+            int actorId,
+            int actorSubAccId,
+            string actorUsername,
+            string language,
+            string ip)
         {
-            IndirectCustId = param.IndirectCustId;
-            IndirectSubAccId = param.IndirectSubAccId;
-            IndirectUsername = param.IndirectUsername;
-            ActorId = param.ActorId;
-            ActorSubAccId = param.ActorSubAccId;
-            ActorUsername = param.ActorUsername;
-            Language = param.LanguageKey;
-            IP = param.IP;
+            IndirectCustId = indirectCustId;
+            IndirectSubAccId = indirectSubAccId;
+            IndirectUsername = indirectUsername;
+            ActorId = actorId;
+            ActorSubAccId = actorSubAccId;
+            ActorUsername = actorUsername;
+            Language = language;
+            IP = ip;
         }
 
         [SpParam(SqlParamName = "custidindirect")]

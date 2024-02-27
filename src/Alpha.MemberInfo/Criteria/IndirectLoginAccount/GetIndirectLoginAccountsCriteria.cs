@@ -4,6 +4,10 @@
 
     public class GetIndirectLoginAccountsCriteria : CriteriaBase
     {
+        public GetIndirectLoginAccountsCriteria()
+        {
+        }
+
         public GetIndirectLoginAccountsCriteria(int custId, int subAccId)
         {
             CustId = custId;

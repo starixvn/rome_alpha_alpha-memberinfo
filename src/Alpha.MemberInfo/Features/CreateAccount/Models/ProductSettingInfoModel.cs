@@ -9,6 +9,5 @@ namespace Alpha.MemberInfo.Features.CreateAccount.Models
         public int ProductId { get; set; }
         
         public int RealProductId { get; set; }
-        
     }
 }

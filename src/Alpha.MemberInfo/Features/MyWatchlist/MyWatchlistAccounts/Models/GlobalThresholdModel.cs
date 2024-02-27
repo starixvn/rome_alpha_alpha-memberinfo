@@ -12,8 +12,8 @@
             LosingThreshold = losingThreshold;
         }
 
-        public decimal? WinningThreshold { get; }
+        public decimal? WinningThreshold { get; set; }
 
-        public decimal? LosingThreshold { get; }
+        public decimal? LosingThreshold { get; set; }
     }
 }

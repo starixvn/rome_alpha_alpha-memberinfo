@@ -36,38 +36,36 @@
             IsPA = isPA;
         }
 
-        public int RowNumber { get; }
+        public int RowNumber { get; set; }
 
-        public int CustId { get; }
+        public int CustId { get; set; }
 
-        public int Sporttype { get; }
+        public int Sporttype { get; set; }
 
-        public string Username { get; }
+        public string Username { get; set; }
 
-        public DateTime LastLogged { get; internal set; }
+        public DateTime LastLogged { get; set; }
 
         public string LastLoggedString => LastLogged.ToLongDateTime12hWithHyphen();
 
-        public string Status { get; internal set; }
+        public string Status { get; set; }
 
         public string TranslatedStatus => Resources.ResourceManager.GetString(Status);
 
-        public decimal? WinningThreshold { get; internal set; } 
+        public decimal? WinningThreshold { get; set; } 
 
         public string WinningThresholdString => WinningThreshold.ToMoneyFormatWithUnlimited();
 
-        public decimal? LosingThreshold { get; internal set; }
+        public decimal? LosingThreshold { get; set; }
 
         public string LosingThresholdString => LosingThreshold.ToMoneyFormatWithUnlimited();
 
-        public byte ClosedReason { get; }
+        public byte ClosedReason { get; set; }
 
-        public byte Locked { get; }
+        public byte Locked { get; set; }
 
-        public bool IsPA { get; }
+        public bool IsPA { get; set; }
 
         public string IsPAText => IsPA ? Resources.Yes : Resources.No2;
-
-        public bool isExistedThreshold { get; }
     }
 }

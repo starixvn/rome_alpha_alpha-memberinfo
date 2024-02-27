@@ -24,7 +24,8 @@
 
         public BelongingInfo GetBelongingInfo(CheckBelongingParam param)
         {
-            var command = new CheckBelongingInDBCustCommand(param);
+            var command = new CheckBelongingInDBCustCommand(
+                param.ViewerId, param.CustId, param.SubAccId, param.TransId);
             dynamicRepository.Execute(command);
 
             return new BelongingInfo(command.IsActive, command.RoleId, command.Username);
@@ -32,7 +33,8 @@
 
         public async Task<BelongingInfo> GetBelongingInfoAsync(CheckBelongingParam param)
         {
-            var command = new CheckBelongingInDBCustCommand(param);
+            var command = new CheckBelongingInDBCustCommand(
+                param.ViewerId, param.CustId, param.SubAccId, param.TransId);
             await dynamicRepository.ExecuteAsync(command);
 
             return new BelongingInfo(command.IsActive, command.RoleId, command.Username);

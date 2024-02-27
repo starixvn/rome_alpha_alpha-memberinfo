@@ -12,7 +12,8 @@
             byte statusId,
             int pageIndex,
             int pageSize,
-            bool isAdminCanViewVNIP)
+            bool isAdminCanViewVNIP,
+            string agIP)
         {
             CustId = custId;
             CustLevel = custLevel;
@@ -21,6 +22,7 @@
             PageIndex = pageIndex;
             PageSize = pageSize;
             IsAdminCanViewVNIP = isAdminCanViewVNIP;
+            AGIP = agIP;
         }
 
         public int CustId { get; }
@@ -40,6 +42,8 @@
         public int PageSize { get; }
 
         public bool IsAdminCanViewVNIP { get; }
+
+        public string AGIP { get; }
 
         private void MapStatusIdToParam(byte statusId)
         {

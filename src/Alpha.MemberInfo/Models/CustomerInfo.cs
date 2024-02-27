@@ -12,8 +12,8 @@
             CustId = custId;
         }
 
-        public string Username { get; }
+        public string Username { get; set; }
 
-        public int CustId { get; }
+        public int CustId { get; set; }
     }
 }

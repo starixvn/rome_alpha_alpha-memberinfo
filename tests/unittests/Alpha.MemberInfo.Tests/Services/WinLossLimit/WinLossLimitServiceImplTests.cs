@@ -1,25 +1,23 @@
 ﻿namespace Alpha.MemberInfo.Tests.Services.WinLossLimit
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Fanex.Data.Repository;
     using KellermanSoftware.CompareNetObjects;
     using MemberInfo.Criteria;
     using MemberInfo.Criteria.WinLossLimit;
-    using MemberInfo.DataAccesses;
     using MemberInfo.Models;
     using MemberInfo.Models.WinLossLimit;
     using MemberInfo.Params;
     using MemberInfo.Services.WinLossLimit;
     using NSubstitute;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using Xunit;
 
     [Trait("Category", "WinLossLimit")]
     public class WinLossLimitServiceImplTests
     {
         private readonly IDynamicRepository dynamicRepository;
-        private readonly WinLossLimitDataAccess winLossLimitDataAccess;
         private readonly WinLossLimitServiceImpl winLossLimitServiceImpl;
         private readonly CompareLogic compareLogic;
         private readonly Func<int, string> getProductName;
@@ -27,9 +25,8 @@
         public WinLossLimitServiceImplTests()
         {
             dynamicRepository = Substitute.For<IDynamicRepository>();
-            winLossLimitDataAccess = Substitute.For<WinLossLimitDataAccess>();
             getProductName = Substitute.For<Func<int, string>>();
-            winLossLimitServiceImpl = new WinLossLimitServiceImpl(dynamicRepository, winLossLimitDataAccess, getProductName);
+            winLossLimitServiceImpl = new WinLossLimitServiceImpl(dynamicRepository, getProductName);
 
             compareLogic = new CompareLogic();
         }
@@ -80,8 +77,8 @@
         public void GetWinLossLimitPage_NotHaveWinLossLimits_ReturnCorrectValue()
         {
             // Arrange
-            var param = new WinLossLimitParam(1, 0, 1, 1, string.Empty, "123", 1, 1, 1, 1);
-            winLossLimitDataAccess.GetWinLossLimits(Arg.Any<GetCustWinLossLimitCriteria>()).Returns(new WinLossLimitPage());
+            var param = new WinLossLimitParam(1, 0, 1, 1, string.Empty, "123", 1, 1, 1, 1, string.Empty);
+            //winLossLimitDataAccess.GetWinLossLimits(Arg.Any<GetCustWinLossLimitCriteria>()).Returns(new WinLossLimitPage());
             var expectedValue = new WinLossLimitPage();
 
             // Act
@@ -95,7 +92,7 @@
         public void GetWinLossLimitPage_HaveWinLossLimitsAndNotPokerGames_ReturnCorrectValue()
         {
             // Arrange
-            var param = new WinLossLimitParam(1, 0, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1);
+            var param = new WinLossLimitParam(1, 0, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1, string.Empty);
             var winLossLimits = new List<WinLossLimitDetail> {
                 new WinLossLimitDetail { CustId = 1 },
                 new WinLossLimitDetail { CustId = 2 },
@@ -106,7 +103,7 @@
                 new WinLossLimitDetail { CustId = 2, CreditBalance = 10, DebitBalance = 20, Balance = 30 }
             });
 
-            winLossLimitDataAccess.GetWinLossLimits(Arg.Any<GetCustWinLossLimitCriteria>()).Returns(new WinLossLimitPage(2, winLossLimits));
+            //winLossLimitDataAccess.GetWinLossLimits(Arg.Any<GetCustWinLossLimitCriteria>()).Returns(new WinLossLimitPage(2, winLossLimits));
 
             var expectedLimits = new List<WinLossLimitDetail> {
                 new WinLossLimitDetail { CustId = 1 },
@@ -126,7 +123,7 @@
         public void GetWinLossLimitPage_HaveWinLossLimits_ReturnCorrectValue()
         {
             // Arrange
-            var param = new WinLossLimitParam(1, 0, 1, 1, "123", string.Empty, 1, 1, 1, 1);
+            var param = new WinLossLimitParam(1, 0, 1, 1, "123", string.Empty, 1, 1, 1, 1, string.Empty);
             var winLossLimits = new List<WinLossLimitDetail> {
                 new WinLossLimitDetail { CustId = 1 },
                 new WinLossLimitDetail { CustId = 2 },
@@ -139,7 +136,7 @@
                 new WinLossLimitDetail { CustId = 2, CreditBalance = 10, DebitBalance = 20, Balance = 30 }
             });
 
-            winLossLimitDataAccess.GetWinLossLimits(Arg.Any<GetCustWinLossLimitCriteria>()).Returns(new WinLossLimitPage(2, winLossLimits));
+            //winLossLimitDataAccess.GetWinLossLimits(Arg.Any<GetCustWinLossLimitCriteria>()).Returns(new WinLossLimitPage(2, winLossLimits));
 
             var expectedLimits = new List<WinLossLimitDetail> {
                 new WinLossLimitDetail { CustId = 1 },

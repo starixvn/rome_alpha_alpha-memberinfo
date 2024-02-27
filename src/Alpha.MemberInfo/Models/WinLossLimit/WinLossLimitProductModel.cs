@@ -24,20 +24,20 @@
             OrderNo = orderNo;
         }
 
-        public int ProductId { get; }
+        public int ProductId { get; set; }
 
-        public int BetType { get; }
+        public int BetType { get; set; }
 
-        public int SportType { get; }
+        public int SportType { get; set; }
 
         public string ProductName { get; set; }
 
-        public string PlayerId { get; }
+        public string PlayerId { get; set; }
 
-        public int Type { get; }
+        public int Type { get; set; }
 
         public string TypeName { get; set;  }
 
-        public int OrderNo { get; }
+        public int OrderNo { get; set; }
     }
 }

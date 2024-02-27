@@ -1,7 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Tests.Features.DormantAccountList.Criteria
 {
     using Alpha.MemberInfo.Features.DormantAccountList.Criteria;
-    using Alpha.MemberInfo.Features.DormantAccountList.Params;
     using Xunit;
 
     [Trait("Category", "DormantAccountList")]
@@ -12,8 +11,7 @@
         {
             // Arrange
             var expected = "Acc_DormantAccountList_Sel";
-            var param = new DormantAccountParam(1176070, null, 0, 0, 1, 500);
-            var criteria = new GetDormantAccountsCriteria(param);
+            var criteria = new GetDormantAccountsCriteria(1176070, null, 0, 0, 1, 500);
 
             // Act
             var actual = criteria.GetSettingKey();
@@ -29,8 +27,7 @@
         public void IsValid_CustId_ReturnsValid(int custId, bool expected)
         {
             // Arrange
-            var param = new DormantAccountParam(custId, null, 0, 0, 1, 500);
-            var criteria = new GetDormantAccountsCriteria(param);
+            var criteria = new GetDormantAccountsCriteria(custId, null, 0, 0, 1, 500);
 
             // Act
             var actual = criteria.IsValid();
@@ -49,8 +46,7 @@
         public void IsValid_RoleId_ReturnsValid(byte roleId, bool expected)
         {
             // Arrange
-            var param = new DormantAccountParam(1176070, null, roleId, 0, 1, 500);
-            var criteria = new GetDormantAccountsCriteria(param);
+            var criteria = new GetDormantAccountsCriteria(1176070, null, roleId, 0, 1, 500);
 
             // Act
             var actual = criteria.IsValid();
@@ -69,8 +65,7 @@
         public void IsValid_StatusId_ReturnsValid(byte statusId, bool expected)
         {
             // Arrange
-            var param = new DormantAccountParam(1176070, null, 0, statusId, 1, 500);
-            var criteria = new GetDormantAccountsCriteria(param);
+            var criteria = new GetDormantAccountsCriteria(1176070, null, 0, statusId, 1, 500);
 
             // Act
             var actual = criteria.IsValid();
@@ -83,8 +78,7 @@
         public void Constructor_Always_AssignsCorrectValues()
         {
             // Arrange & Act
-            var param = new DormantAccountParam(1176070, "master1", 3, 4, 2, 100);
-            var criteria = new GetDormantAccountsCriteria(param) { TotalItems = 1001 };
+            var criteria = new GetDormantAccountsCriteria(1176070, "master1", 3, 4, 2, 100) { TotalItems = 1001 };
 
             // Assert
             Assert.True(

@@ -1,6 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Features.MyWatchlist.MyThresholds
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.AppResources;
+    using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds.Criteria;
     using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds.Params;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
@@ -9,9 +13,6 @@
     using AlphaPlus.PartialUM.Services;
     using Fanex.Data.Repository;
     using Fanex.Logging.Extensions.Web;
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
 
     public interface MyThresholdsService
     {
@@ -37,7 +38,13 @@
 
         public Task<IEnumerable<ReachHistoryModel>> GetMyThresholdHistory(SelectMyThresholdHistoryParam param)
         {
-            var criteria = new SelectMyThresholdHistoryCriteria(param);
+            var criteria = new SelectMyThresholdHistoryCriteria(
+                param.CustId,
+                param.SportType,
+                param.FromDate.GetGreaterDate(param.LimitedDateToShowInfo),
+                param.ToDate,
+                param.SortType,
+                param.IsDesc);
             partialUMService.ThrowIfUM(criteria.GetSettingKey(), param.SiteName);
 
             return dynamicRepository.FetchAsync<ReachHistoryModel>(criteria);
@@ -53,7 +60,14 @@
 
         public async Task<Result> UpdateMyThreshold(UpdateMyThresholdParam param)
         {
-            var command = new UpdateMyThresholdCommand(param);
+            var command = new UpdateMyThresholdCommand(
+                param.CustId,
+                param.SportType,
+                param.WinningThreshold,
+                param.LosingThreshold,
+                param.UserId,
+                param.SubAccId,
+                param.IP);
             partialUMService.ThrowIfUM(command.GetSettingKey(), param.SiteName);
 
             await dynamicRepository.ExecuteAsync(command);

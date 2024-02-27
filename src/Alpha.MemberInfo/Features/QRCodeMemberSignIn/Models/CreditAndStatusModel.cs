@@ -20,13 +20,13 @@
             Status = status;
         }
 
-        public decimal Credit { get; }
+        public decimal Credit { get; set; }
 
-        public decimal CreditMin { get; }
+        public decimal CreditMin { get; set; }
 
-        public decimal CreditMax { get; }
+        public decimal CreditMax { get; set; }
 
-        public string Status { get; }
+        public string Status { get; set; }
 
         public string GivenCreditMustBeBetweenMinMaxMessage
             => string.Format(

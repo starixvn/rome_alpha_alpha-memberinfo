@@ -7,7 +7,6 @@ namespace Alpha.MemberInfo.Features.Shared
 {
     public interface ICustomerService
     {
-
         Task<Result> CheckAllLimitedRules(int custId, byte custLevel, string actorUsername, string language);
     }
 

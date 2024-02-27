@@ -21,7 +21,6 @@
     {
         private readonly IDynamicRepository repository;
         private readonly CustomerListServiceImpl service;
-        private readonly CustomerListDataAccess dataAccess;
         private readonly IDictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>> fetchData;
         private readonly AnyValueCreatorFixture anyValueCreatorFixture;
         private readonly CompareLogic compareLogic = new CompareLogic();
@@ -37,8 +36,7 @@
             };
 
             repository = Substitute.For<IDynamicRepository>();
-            dataAccess = Substitute.For<CustomerListDataAccess>();
-            service = new CustomerListServiceImpl(repository, dataAccess);
+            service = new CustomerListServiceImpl(repository);
         }
 
         [Fact]
@@ -128,9 +126,9 @@
         {
             var data = anyValueCreatorFixture.Create<CustomerStatusModel>();
 
-            dataAccess
-                .GetCustomerStatus(Arg.Any<SelectCustomerAllStatusModelCriteria>())
-                .Returns(data);
+            //dataAccess
+            //    .GetCustomerStatus(Arg.Any<SelectCustomerAllStatusModelCriteria>())
+            //    .Returns(data);
 
             var actualModel = service.GetCustomerStatus(2, Arg.Any<byte>());
 
@@ -142,9 +140,9 @@
         {
             var result = new Result() { Code = 0, Message = string.Empty };
 
-            dataAccess
-                .UpdateCustomerStatus(Arg.Any<UpdateCustomerStatusCommand>())
-                .Returns(result);
+            //dataAccess
+            //    .UpdateCustomerStatus(Arg.Any<UpdateCustomerStatusCommand>())
+            //    .Returns(result);
 
             var actualModel = service.UpdateCustomerStatus(anyValueCreatorFixture.Create<UpdateCustomerStatusParam>());
 

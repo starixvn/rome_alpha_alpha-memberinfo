@@ -1,15 +1,19 @@
-﻿using Alpha.MemberInfo.Site.Features.CustomerList.Params;
-
-namespace Alpha.MemberInfo.Features.CustomerList.Criteria
+﻿namespace Alpha.MemberInfo.Features.CustomerList.Criteria
 {
     public class UpdateAllowAutoTransferStatusCommand : UpdateCustomerStatusCommand
     {
-        public UpdateAllowAutoTransferStatusCommand(UpdateCustomerStatusParam param) : base( param.SearchAccountId, param.ActorId, param.SubAccountId, param.Language, param.IP, param.StatusName)
+        public UpdateAllowAutoTransferStatusCommand(
+            int searchAccountId,
+            int actorId,
+            int subAccountId,
+            string language,
+            string ip,
+            string statusName,
+            bool statusValue) : base(searchAccountId, actorId, subAccountId, language, ip, statusName)
         {
-            AllowAutoTransfer = param.StatusValue;
+            AllowAutoTransfer = statusValue;
         }
 
         public bool AllowAutoTransfer { get; }
-
     }
 }

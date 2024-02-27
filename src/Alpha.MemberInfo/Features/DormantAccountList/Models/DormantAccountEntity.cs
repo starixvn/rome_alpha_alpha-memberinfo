@@ -40,33 +40,32 @@
             RowNumber = rowNumber;
         }
 
-        public int CustId { get; }
+        public int CustId { get; set; }
 
-        public string Username { get; }
+        public string Username { get; set; }
 
-        public byte RoleId { get; }
+        public byte RoleId { get; set; }
 
-        public byte StatusId { get; }
+        public byte StatusId { get; set; }
 
-        public byte StageId { get; }
+        public byte StageId { get; set; }
 
-        public decimal? ToBeClearedGivenCredit { get; }
+        public decimal? ToBeClearedGivenCredit { get; set; }
 
-        public decimal? ClearedGivenCredit { get; }
+        public decimal? ClearedGivenCredit { get; set; }
 
-        public DateTime? LastLogged { get; }
+        public DateTime? LastLogged { get; set; }
 
-        public DateTime? ClosedDate { get; }
+        public DateTime? ClosedDate { get; set; }
 
-        public DateTime? DisabledDate { get; }
+        public DateTime? DisabledDate { get; set; }
 
-        public DateTime? SettingDeletedDate { get; }
+        public DateTime? SettingDeletedDate { get; set; }
 
-        public DateTime? AccountDeletedDate { get; }
+        public DateTime? AccountDeletedDate { get; set; }
 
-        public bool IsWarningTicket { get; }
+        public bool IsWarningTicket { get; set; }
 
-        public int RowNumber { get; }
-
+        public int RowNumber { get; set; }
     }
 }

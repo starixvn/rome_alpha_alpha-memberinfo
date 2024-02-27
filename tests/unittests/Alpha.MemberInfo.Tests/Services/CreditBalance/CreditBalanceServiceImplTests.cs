@@ -48,7 +48,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var creditBalances = new List<CreditBalanceItem>
             {
                 new CreditBalanceItem(
@@ -98,7 +99,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var creditBalances = new List<CreditBalanceItem>
             {
                 new CreditBalanceItem(
@@ -145,7 +147,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var creditBalances = new List<CreditBalanceItem>
             {
                 new CreditBalanceItem(
@@ -199,7 +202,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var creditBalances = new List<CreditBalanceItem>
             {
                 new CreditBalanceItem(
@@ -242,7 +246,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var creditBalances = new List<CreditBalanceItem>
             {
                 new CreditBalanceItem(
@@ -285,7 +290,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var creditBalances = new List<CreditBalanceItem>
             {
                 new CreditBalanceItem(
@@ -328,7 +334,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
 
             // Act
             var actual = await service.GetCreditBalancesAsync(param);
@@ -348,7 +355,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var closedReasons = new List<CustomerClosedReason>
             {
                 new CustomerClosedReason(1, 0, 1),
@@ -378,7 +386,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var closedReasons = new List<CustomerClosedReason>
             {
                 new CustomerClosedReason(1, 0, 1),
@@ -408,7 +417,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var closedReasons = new List<CustomerClosedReason>
             {
                 new CustomerClosedReason(1, 0, 1),
@@ -438,7 +448,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var closedReasons = Enumerable.Empty<CustomerClosedReason>();
             dynamicRepository.FetchAsync<CustomerClosedReason>(Arg.Any<GetAgentClosedReasonCriteria>())
                 .Returns(closedReasons);
@@ -461,7 +472,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
             var agentNetPositions = new List<AgentNetPosition>
             {
                 new AgentNetPosition(1, 99802.05m),
@@ -493,7 +505,8 @@
                 StatusIdTest,
                 PageIndexTest,
                 PageSizeTest,
-                IsAdminCanViewVNIPTest);
+                IsAdminCanViewVNIPTest,
+                string.Empty);
 
             // Act
             var actual = await service.GetAgentNetPositionsAsync(param);

@@ -87,9 +87,19 @@
         {
             param.Password = DecryptAndEncodePassword(param.Password, param.HashKey);
 
-            var criteria = new NewAccountCriteria(param);
+            var criteria = new NewAccountCriteria(
+                param.CustName,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorLevelId,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
             await dynamicRepository.ExecuteAsync(criteria);
-
             var result = new Result { Code = criteria.ErrCode, Message = criteria.ErrMsg };
 
             if (result.IsOk)
@@ -104,7 +114,21 @@
         {
             param.Password = DecryptAndEncodePassword(param.Password, param.HashKey);
 
-            var criteria = new UpdatePasswordCriteria(param);
+            var criteria = new UpdatePasswordCriteria(
+                param.IndirectCustId,
+                param.IndirectSubAccId,
+                param.IndirectUsername,
+                param.IndirectLevelId,
+                param.Password,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorUsername,
+                param.LanguageKey,
+                param.RequestInfo.LoginIP,
+                param.RequestInfo.LoginDomain,
+                param.RequestInfo.BrowserName,
+                param.RequestInfo.Platform,
+                param.RequestInfo.CountryCode);
             await dynamicRepository.ExecuteAsync(criteria);
 
             return new Result
@@ -123,9 +147,16 @@
 
         public async Task<Result> DisconnectAsync(DisconnectAccountParam param)
         {
-            var criteria = new DisconnectAccountCriteria(param);
+            var criteria = new DisconnectAccountCriteria(
+                param.IndirectCustId,
+                param.IndirectSubAccId,
+                param.IndirectUsername,
+                param.ActorId,
+                param.ActorSubAccId,
+                param.ActorUsername,
+                param.LanguageKey,
+                param.IP);
             await dynamicRepository.ExecuteAsync(criteria);
-
             var result = new Result { Code = criteria.ErrCode, Message = criteria.ErrMsg };
 
             if (result.IsOk)

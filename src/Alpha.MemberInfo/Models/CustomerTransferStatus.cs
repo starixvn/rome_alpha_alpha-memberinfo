@@ -12,8 +12,8 @@
             IsAllDayBalTransfer = isAllDayBalTransfer;
         }
 
-        public int CustId { get; }
+        public int CustId { get; set; }
 
-        public bool IsAllDayBalTransfer { get; }
+        public bool IsAllDayBalTransfer { get; set; }
     }
 }

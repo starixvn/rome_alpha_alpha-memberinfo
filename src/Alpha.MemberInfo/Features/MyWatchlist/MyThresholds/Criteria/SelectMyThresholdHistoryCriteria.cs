@@ -1,20 +1,24 @@
 ﻿namespace Alpha.MemberInfo.Features.MyWatchlist.MyThresholds.Criteria
 {
     using System;
-    using Alpha.MemberInfo.Extensions;
-    using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds.Params;
     using Fanex.Data.Repository;
 
     public class SelectMyThresholdHistoryCriteria : CriteriaBase
     {
-        public SelectMyThresholdHistoryCriteria(SelectMyThresholdHistoryParam param)
+        public SelectMyThresholdHistoryCriteria(
+            int custId,
+            short sportType,
+            DateTime fromDate,
+            DateTime toDate,
+            byte sortType,
+            bool isDesc)
         {
-            CustId = param.CustId;
-            SportType = param.SportType;
-            FromDate = param.FromDate.GetGreaterDate(param.LimitedDateToShowInfo);
-            ToDate = param.ToDate;
-            SortType = param.SortType;
-            IsDesc = param.IsDesc;
+            CustId = custId;
+            SportType = sportType;
+            FromDate = fromDate;
+            ToDate = toDate;
+            SortType = sortType;
+            IsDesc = isDesc;
         }
 
         public int CustId { get; }

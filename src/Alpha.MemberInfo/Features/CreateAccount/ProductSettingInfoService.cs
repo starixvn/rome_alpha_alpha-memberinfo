@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.Features.CreateAccount
 
         public ProductSettingInfoService(IDynamicRepository dynamicRepository, ICacheService cacheService)
         {
-            this.repository = dynamicRepository ?? new DynamicRepository();
+            repository = dynamicRepository ?? new DynamicRepository();
         }
 
         public async Task<IEnumerable<ProductSettingInfoModel>> GetProductsSettingInfo(int cusId)

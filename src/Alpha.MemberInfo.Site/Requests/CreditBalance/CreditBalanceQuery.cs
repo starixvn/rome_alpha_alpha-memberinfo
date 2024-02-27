@@ -30,6 +30,7 @@
             LimitedDateToShowInfo = user.LimitedDateToShowInfo;
             IsAdminCanViewVNIP = user.IsAdminCanViewVNIP;
             Language = user.Language;
+            AGIP = user.AGIP;
         }
 
         public string Language { get; }
@@ -128,6 +129,8 @@
         public DateTime LimitedDateToShowInfo { get; }
 
         public bool IsAdminCanViewVNIP { get; }
+
+        public string AGIP { get; }
 
         public bool IsValid()
             => ActorLevel.IsEqualOrUplineOf(CustLevel);

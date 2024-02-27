@@ -3,23 +3,32 @@
     using Alpha.MemberInfo.Configurations;
     using Fanex.Data;
     using Fanex.Data.Repository;
-    using Params;
 
     public class GetCustWinLossLimitCriteria : CriteriaBase
     {
-        public GetCustWinLossLimitCriteria(WinLossLimitParam param, int? playerId)
+        public GetCustWinLossLimitCriteria(
+            int custId,
+            int productId,
+            int betType,
+            int sportType,
+            string username,
+            int masterId,
+            int agentId,
+            int pageIndex,
+            int pageSize,
+            int? playerId)
         {
             PlayerId = playerId;
 
-            CustId = param.CustId;
-            ProductId = param.ProductId;
-            BetType = param.BetType;
-            SportType = param.SportType;
-            Username = param.Username;
-            MasterId = param.MasterId;
-            AgentId = param.AgentId;
-            PageSize = param.PageSize;
-            PageIndex = param.PageIndex;
+            CustId = custId;
+            ProductId = productId;
+            BetType = betType;
+            SportType = sportType;
+            Username = username;
+            MasterId = masterId;
+            AgentId = agentId;
+            PageIndex = pageIndex;
+            PageSize = pageSize;
         }
 
         public int ProductId { get; set; }

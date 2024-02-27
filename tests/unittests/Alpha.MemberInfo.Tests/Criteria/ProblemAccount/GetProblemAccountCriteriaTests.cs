@@ -11,7 +11,16 @@
         public void GetSettingKey_Always_ReturnsValidSettingKey()
         {
             // Arrange
-            var criteria = new GetProblemAccountCriteria(new GetProblemAccountParam());
+            var param = new GetProblemAccountParam();
+            var criteria = new GetProblemAccountCriteria(
+                param.CustId,
+                param.SubAccId,
+                param.UplineUserName,
+                param.SearchRoleId,
+                param.SearchUserName,
+                param.FromDate,
+                param.ToDate,
+                param.ReviewStatusId);
             var expected = "Age_ProblemAccount_CustomerList";
 
             // Act
@@ -29,12 +38,21 @@
         public void GetSettingKey_IncorrectInput_ReturnsFalse(int custId, int subAccId, byte searchRoleId)
         {
             // Arrange
-            var criteria = new GetProblemAccountCriteria(new GetProblemAccountParam
+            var param = new GetProblemAccountParam
             {
                 CustId = custId,
                 SubAccId = subAccId,
                 SearchRoleId = searchRoleId
-            });
+            };
+            var criteria = new GetProblemAccountCriteria(
+                param.CustId,
+                param.SubAccId,
+                param.UplineUserName,
+                param.SearchRoleId,
+                param.SearchUserName,
+                param.FromDate,
+                param.ToDate,
+                param.ReviewStatusId);
 
             // Act
             var actual = criteria.IsValid();
@@ -48,12 +66,21 @@
         public void GetSettingKey_CorrectInput_ReturnsTrue(int custId, int subAccId, byte searchRoleId)
         {
             // Arrange
-            var criteria = new GetProblemAccountCriteria(new GetProblemAccountParam
+            var param = new GetProblemAccountParam
             {
                 CustId = custId,
                 SubAccId = subAccId,
                 SearchRoleId = searchRoleId
-            });
+            };
+            var criteria = new GetProblemAccountCriteria(
+                param.CustId,
+                param.SubAccId,
+                param.UplineUserName,
+                param.SearchRoleId,
+                param.SearchUserName,
+                param.FromDate,
+                param.ToDate,
+                param.ReviewStatusId);
 
             // Act
             var actual = criteria.IsValid();

@@ -76,6 +76,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             DisableAutoMPT = disableAutoMPT;
         }
 
-        public bool DisableAutoMPT { get; private set; }
+        public bool DisableAutoMPT { get; set; }
     }
 }

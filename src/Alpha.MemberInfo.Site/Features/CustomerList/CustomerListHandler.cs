@@ -334,7 +334,7 @@
 
                 .AddData(DataKey.SearchAccount.Upline.IsClosed, model.NonProduct.UplineClosed)
                 .AddData(DataKey.SearchAccount.IsClosed, model.NonProduct.Closed)
-                .AddData(DataKey.SearchAccount.IsDirectClosed, model.NonProduct.IsDirectClosed > 0)
+                .AddData(DataKey.SearchAccount.IsDirectClosed, model.NonProduct.IsDirectClosed)
 
                 .AddData(DataKey.SearchAccount.IsLockedAccess, model.NonProduct.Locked)
 

@@ -13,8 +13,8 @@
             UplineDisableEsports = uplineDisableEsports;
         }
 
-        public bool DisableEsports { get; private set; }
+        public bool DisableEsports { get; set; }
 
-        public bool UplineDisableEsports { get; private set; }
+        public bool UplineDisableEsports { get; set; }
     }
 }

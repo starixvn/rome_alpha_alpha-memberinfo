@@ -7,9 +7,6 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Web;
-    using Alpha.MemberInfo.Models;
-    using Alpha.MemberInfo.Services.Transfer;
-    using Fanex.Data.Repository;
 
     public static class AppSettings
     {
@@ -25,6 +22,8 @@
         }
 
         public static string StoreProcedurePath => GetConfigValue("StoredProcedurePath");
+
+        public static string FanexDataServiceApi => GetConfigValue("FanexDataServiceApi");
 
         public static string SiteLabel => GetConfigValue("SiteLabel");
 
