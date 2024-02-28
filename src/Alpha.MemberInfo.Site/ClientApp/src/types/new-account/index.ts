@@ -1,5 +1,6 @@
 export interface GeneralInfo {
   userName: string;
+  uplineCustId?: number;
   uplineRoleId: number;
   uplineUserName: string;
   newUserName: string;

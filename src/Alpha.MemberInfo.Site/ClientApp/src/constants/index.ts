@@ -25,7 +25,7 @@ export const oldMainUrl = window.top?.alpha?.urls.oldMainRootPath;
 
 export const createAccountRootUrl = `${siteMemberInfoUrl}CreateAccount`;
 
-export const productSettingInfoRootUrl = `${siteMemberInfoUrl}/Customer/SportBookInformation`;
+export const customerSettingInfoRootUrl = `${siteMemberInfoUrl}/Customer/SportBookInformation`;
 
 export const copyAccountRootUrl = `${siteMemberInfoUrl}CopyAccount`;
 
