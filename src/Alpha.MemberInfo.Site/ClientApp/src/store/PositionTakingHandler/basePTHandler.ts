@@ -70,11 +70,11 @@ export class BasePTHandler {
   ) {
     if (this.violateMinMaxPTError.length === 0) {
       const isSportBookProduct = productGroupId === ProductGroupIds.SportsBook;
-      const minPTError = `${minPTItem?.sportTypeName}${
-        isSportBookProduct ? ` - ${minPTItem?.betTypeName}` : ''
+      const minPTError = `${
+        isSportBookProduct ? `${minPTItem?.betTypeName}` : `${minPTItem?.sportTypeName}`
       } - MinPT: ${minPTValue / 100}`;
-      const maxPTError = `${maxPTItem?.sportTypeName}${
-        isSportBookProduct ? ` - ${maxPTItem?.betTypeName}` : ''
+      const maxPTError = `${
+        isSportBookProduct ? `${maxPTItem?.betTypeName}` : `${maxPTItem?.sportTypeName}`
       } - MaxPT: ${maxPTValue / 100}`;
 
       this.violateMinMaxPTError = [{isLive: minPTItem.isLive, message: minPTError}, {isLive: maxPTItem.isLive, message: maxPTError}];
