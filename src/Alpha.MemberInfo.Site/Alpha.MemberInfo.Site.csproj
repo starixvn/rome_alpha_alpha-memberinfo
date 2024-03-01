@@ -752,7 +752,7 @@
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.min.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
-    <Content Include="ClientApp\dist\assets\createAccount-4f66f64b.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-ade00b61.js" />
     <Content Include="ClientApp\dist\assets\createAccount-bb96070b.css" />
     <Content Include="ClientApp\dist\assets\index-c5462994.js" />
     <Content Include="ClientApp\dist\assets\index-d81237f8.css" />
