@@ -205,21 +205,6 @@
     ]
   },
   {
-    "outputFileName": "Features/ParlayMaxPayout/Bundles/parlay-max-payout.css",
-    "inputFiles": [
-      "Features/ParlayMaxPayout/Styles/parlay-max-payout.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/ParlayMaxPayout/Bundles/parlay-max-payout.js",
-    "inputFiles": [
-      "Features/ParlayMaxPayout/Scripts/parlay-max-payout-helper.js",
-      "Features/ParlayMaxPayout/Scripts/parlay-max-payout-alert.js",
-      "Features/ParlayMaxPayout/Scripts/parlay-max-payout-service.js",
-      "Features/ParlayMaxPayout/Scripts/parlay-max-payout.js"
-    ]
-  },
-  {
     "outputFileName": "Features/MyWatchlist/Shared/Bundles/my-watchlist.css",
     "inputFiles": [
       "assets/styles/common.css",
@@ -433,12 +418,6 @@
       "assets/styles/common-dark.css",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css",
       "Features/CustomerList/Styles/customer-list-dark.css"
-    ]
-  },
-  {
-    "outputFileName": "Features/ParlayMaxPayout/Bundles/parlay-max-payout-dark.css",
-    "inputFiles": [
-      "Features/ParlayMaxPayout/Styles/parlay-max-payout-dark.css"
     ]
   },
   {

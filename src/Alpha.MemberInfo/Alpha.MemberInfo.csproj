@@ -424,15 +424,6 @@
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Params\SelectReachDetailParam.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Params\SelectReachListParam.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdService.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutCheckDownlineCriteria.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutSelectCriteria.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutUpdateCriteria.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Criteria\ResultCriteria.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Models\ParlayMaxPayoutModel.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutCheckDownlineParam.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutSelectParam.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Params\ParlayMaxPayoutUpdateParam.cs" />
-    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutService.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\ResetMainAccountPasswordCommand.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectFirstLoginByQRCodeCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectCreditAndStatusCriteria.cs" />

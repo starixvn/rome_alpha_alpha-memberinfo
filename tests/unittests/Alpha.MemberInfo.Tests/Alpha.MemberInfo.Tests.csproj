@@ -360,10 +360,6 @@
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Criteria\SelectReachListByAgCriteriaTests.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\Criteria\SelectReachListCriteriaTests.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdServiceImplTests.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutCheckDownlineCriteriaTests.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutSelectCriteriaTests.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Criteria\ParlayMaxPayoutUpdateCriteriaTests.cs" />
-    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutServiceImplTests.cs" />
     <Compile Include="Features\DormantAccountList\Criteria\GetDormantAccountsCriteriaTests.cs" />
     <Compile Include="Features\DormantAccountList\DormantAccountServiceTests.cs" />
     <Compile Include="Features\DormantAccountList\Models\DormantAccountTests.cs" />

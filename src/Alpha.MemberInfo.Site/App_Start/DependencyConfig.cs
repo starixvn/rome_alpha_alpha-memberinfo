@@ -2,16 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Net;
-    using System.Net.Http;
     using System.Reflection;
     using System.Resources;
-    using System.Threading;
     using System.Web;
     using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
-    using Alpha.MemberInfo.Features.CreateAccount;
     using Alpha.MemberInfo.Features.CreateAccount;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
@@ -19,7 +14,6 @@
     using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold;
-    using Alpha.MemberInfo.Features.ParlayMaxPayout;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
@@ -60,7 +54,6 @@
     using Models;
     using ONEbook.SpreadSheets;
     using ONEbook.SpreadSheets.NPOI;
-    using ONEbook.UM.Configurations;
     using Services;
     using Services.CreditBalance;
     using Services.MemberRequest;
@@ -144,7 +137,6 @@
                     container.GetInstance<IDynamicRepository>(),
                     container.GetInstance<CacheRefService>().GetProductName));
 
-            container.Register<ParlayMaxPayoutService, ParlayMaxPayoutServiceImpl>();
             container.Register<CheckUMService, CheckUMServiceImpl>();
 
             container.RegisterPerWebRequest<CreditBalanceService, CreditBalanceServiceImpl>();
