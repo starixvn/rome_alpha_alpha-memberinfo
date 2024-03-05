@@ -1,10 +1,13 @@
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { SubMessagesResult } from '@/types';
 
 import styles from './ErrorBlock.module.scss';
 
 export default function ErrorBlock({ error }: { error: SubMessagesResult }) {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.container}>
       <div className="msg msg-error">
@@ -15,7 +18,7 @@ export default function ErrorBlock({ error }: { error: SubMessagesResult }) {
               <br />
               {subMsg.isLive ? (
                   <>
-                    <span className="live-badge">Live</span>{' '}
+                    <span className="live-badge">{t('Live')}</span>{' '}
                   </>
                 ) : (
                   ''

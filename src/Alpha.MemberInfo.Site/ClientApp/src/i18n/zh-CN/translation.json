@@ -105,5 +105,6 @@
   "maxPerMatch-mustBeLessThanOrEqualTo": "单场最高投注需低于或相等于 ",
   "maxPerMatch-mustBeLessThanOrEqualTo-maxPayoutPerMatch": "单场限额必須少於或等於单场最高派彩限额",
   "maxPayoutPerMatch-mustBeGreaterThanOrEqualTo-maxPerMatch": "单场最高派彩必须大于或等于单场限额",
-  "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "单场最高派彩必须少于或等于 "
+  "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "单场最高派彩必须少于或等于 ",
+  "Live": "现场"
 }
