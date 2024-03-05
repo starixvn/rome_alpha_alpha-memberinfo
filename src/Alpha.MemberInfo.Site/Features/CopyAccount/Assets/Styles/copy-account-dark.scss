@@ -820,20 +820,18 @@ select:-webkit-autofill:focus {
     }
 }
 
-.msg-error {
-    .sub-message {
-        padding-top: 2px;
-        padding-bottom: 2px;
-        margin-top: -3px;
-        line-height: 20px;
-    }
+.sub-message {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: -3px;
+    line-height: 20px;
+}
 
-    .live-badge {
-        background: #dd3333;
-        font-size: 11px;
-        color: #ededed;
-        padding: 2px 5px;
-        margin-right: 3px;
-        border-radius: 3px;
-    }
+.live-badge {
+    background: #dd3333;
+    font-size: 11px;
+    color: #ededed;
+    padding: 2px 5px;
+    margin-right: 3px;
+    border-radius: 3px;
 }
