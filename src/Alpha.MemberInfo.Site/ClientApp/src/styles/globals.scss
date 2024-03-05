@@ -1,77 +1,4 @@
-:root {
-  --bg-main: #f4f4f4;
-  --bg-head-tab: #bccbdc;
-  --bg-body-tab: #ffffff;
-  --border-color: #d1d1d1;
-
-  --bg-row-even: #f4f4f4;
-
-  //tab
-  --color-tab: #666666;
-  --color-tab-active: #537090;
-  --bg-tab: #e6e6e6;
-  --bg-tab-active: #ffffff;
-  --bg-tab-product: url('data:image/svg+xml,<svg width="15" height="32" viewBox="0 0 15 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_1149_2773)"><path d="M0 0L15 32H0V0Z" fill="%23E6E6E6"/><path d="M0 0L15 32" stroke="%23D1D1D1"/></g><defs><clipPath id="clip0_1149_2773"><rect width="15" height="32" fill="white"/></clipPath></defs></svg>');
-  --bg-tab-product-active: url('data:image/svg+xml,<svg width="15" height="32" viewBox="0 0 15 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_1149_2773)"><path d="M0 0L15 32H0V0Z" fill="white"/><path d="M0 0L15 32" stroke="%23D1D1D1"/></g><defs><clipPath id="clip0_1149_2773"><rect width="15" height="32" fill="white"/></clipPath></defs></svg>');
-
-  //input
-  --bg-input: #ffffff;
-  --border-input: #d1d1d1;
-  --border-input-error: #eb5757;
-  --bg-input-error: #ffdfdf;
-  --border-input-copy: #1bac69;
-  --bg-input-copy: #e5f4ee;
-  --bg-username: #e6e6e6;
-  --bg-username-select: #ffffff;
-  //button
-  --bg-btn-create: #0b599c;
-  --bg-btn-create-hover: #094a82;
-  --color-btn: #ededed;
-  //select
-  --bg-select-header: #ffffff;
-  --bg-select-header-hover: #e6e6e6;
-  --bg-select-content: #ffffff;
-  --border-color-highlight: #537090;
-  //label
-  --color-label: #333333;
-  //transfer
-  --border-color-transfer-active: #537090;
-  --bg-transfer: #f4f4f4;
-  --bg-transfer-active: #ebf2f9;
-  --border-button-transfer: #828282;
-  --border-button-transfer-active: #537090;
-  --border-white-button-transfer-active: #ffffff;
-  --bg-button-transfer-active: #537090;
-  --color-button-transfer: #828282;
-  --color-button-transfer-active: #ffffff;
-  //icon
-  --icon-info-link: #325275;
-  --border-icon-collapse: #333333;
-  --color-icon-collapse: #333333;
-  --border-icon-success: #f4f4f4;
-  //product setting
-  --border-color-product-setting: #5f626b;
-  --color-header-table: #ffffff;
-  --color-product-setting: #333333;
-  --bg-header-product-setting: #666666;
-  --bg-thead-product-setting: #f3f5e0;
-  --bg-tbody-product-setting: #ffffff;
-
-  // max credit
-  --color-max-credit: #666666;
-  --color-max-credit-b: #333333;
-  //same color dark and light
-  --color-require: #a11515;
-  --color-tooltip: #ffffff;
-
-  //popup
-  --bg-popup: #ffffff;
-  --border-popup: #23a858;
-  --color-success: #23a858;
-  --color-name: #3873e9;
-}
-
-:root [data-theme='light'] {
+:root, :root [data-theme='light'] {
   --bg-main: #f4f4f4;
   --bg-head-tab: #bccbdc;
   --bg-body-tab: #ffffff;
@@ -143,6 +70,10 @@
   --bg-tooltip-warning: #644800;
   --bg-tooltip-success: #065229;
   --bg-tooltip-default: #333333;
+
+  //same color dark and light
+  --color-require: #a11515;
+  --color-tooltip: #ffffff;
 }
 
 :root [data-theme='dark'] {
