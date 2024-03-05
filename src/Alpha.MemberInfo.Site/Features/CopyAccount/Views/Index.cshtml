@@ -161,6 +161,7 @@
                         <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
                         @Html.Hidden("InvalidMaxCreditPerAccount", Resources.InvalidMaxCreditPerAccount)
                         @Html.Hidden("InvalidMemberMaxCredit", Resources.InvalidMemberMaxCredit)
+                        @Html.Hidden("Live", Resources.Live)
                         @Html.Hidden("old-version-url", MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx"))
                         @Html.Hidden("ActorUsername", Model.ActorUsername)
                         @Html.AntiForgeryToken()

@@ -1048,4 +1048,7 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="Commission" xml:space="preserve">
     <value>Hoa hồng</value>
   </data>
+  <data name="Live" xml:space="preserve">
+    <value>Trực Tuyến</value>
+  </data>
 </root>

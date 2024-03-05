@@ -64,6 +64,7 @@ class CopyAccount {
     resource = {
         invalidMaxCreditPerAccount: (<HTMLInputElement>document.getElementById('InvalidMaxCreditPerAccount')).value,
         invalidMemberMaxCredit: (<HTMLInputElement>document.getElementById('InvalidMemberMaxCredit')).value,
+        live: (<HTMLInputElement>document.getElementById('Live')).value
     }
 
     init = () => {
@@ -320,8 +321,12 @@ class CopyAccount {
             url: "CopyAccount/Index",
             success: (data) => {
                 var result = this.safelyParseJSON(data);
-                if (result && result.IsNotOk) {
-                    this.showErrorMessage(result.Message);
+                if (result && result.IsFailed) {
+                    if (result.MsgType) {
+                        this.showMessageContent(result.MessageContent);
+                    } else {
+                        this.showErrorMessage(result.Message);
+                    }
                 } else {
                     this.$result.append(data);
                     this.$result.removeClass("hidden");
@@ -481,6 +486,21 @@ class CopyAccount {
             __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
             'X-Requested-With': 'XMLHttpRequest'
         };
+    }
+
+    showMessageContent = (messageContent) => {
+        var message = `<div class="main-message">${messageContent.MainMessage}</div>`
+        if (messageContent.SubMessages && messageContent.SubMessages.length) {
+            messageContent.SubMessages.forEach((subMessage) => {
+                message += `<div class="sub-message">`
+                if (subMessage.IsLive) {
+                    message += `<span class="live-badge">${this.resource.live}</span> `;
+                }
+                message += `${subMessage.Message}</div>`;
+            });
+        }
+        this.$messageContainer.removeClass('hidden').addClass('msg msg-error');
+        this.$messageContent.html(message);
     }
 
     showErrorMessage = (message) => {

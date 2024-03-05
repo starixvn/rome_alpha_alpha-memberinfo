@@ -100,6 +100,7 @@ else
         <input type="hidden" id="MemberAccountIsInvalid" value="@Resources.MemberAccountIsInvalid" />
         <input type="hidden" id="UsernameIsInvalid" value="@Resources.UsernameIsInvalid" />
         <input type="hidden" id="CannotCreateClosedMemberQRCode" value="@Resources.CannotCreateClosedMemberQRCode" />
+        @Html.Hidden("Live", Resources.Live)
         @Html.HiddenFor(m => m.MemberNameCopyFrom)
         @Html.HiddenFor(m => m.ShowQRCodeLink)
         <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels;
 
-
 namespace Alpha.MemberInfo.Site.Features.CopyAccount
 {
     public class CopyAccountController : SiteBaseController
@@ -41,12 +40,12 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
                     Result = result,
                     Credit = command.Credit,
                     NumberOfAccounts = command.NumberOfAccounts,
-                    NoOfFailedAccount = command.NumberOfAccounts - result.Usernames.Count() 
+                    NoOfFailedAccount = command.NumberOfAccounts - result.Usernames.Count()
                 });
             }
             else
             {
-                return Json(Result.CreateErrorResult(result.Message, result.Code));
+                return Json(result);
             }
         }
 

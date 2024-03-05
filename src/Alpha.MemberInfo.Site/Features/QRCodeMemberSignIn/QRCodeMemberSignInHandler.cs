@@ -133,7 +133,9 @@
                     ErrCode = result.Code,
                     ErrMsg = result.Message,
                     Success = result.IsSuccessful,
-                    RawPassword = result.IsSuccessful ? passwordModel.RawPassword : string.Empty
+                    RawPassword = result.IsSuccessful ? passwordModel.RawPassword : string.Empty,
+                    MsgType = result.MsgType,
+                    MessageContent = result.MessageContent,
                 };
             }
 

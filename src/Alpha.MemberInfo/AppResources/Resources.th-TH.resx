@@ -1066,4 +1066,7 @@
   <data name="Commission" xml:space="preserve">
     <value>คอมมิชชั่น</value>
   </data>
+  <data name="Live" xml:space="preserve">
+    <value>สด</value>
+  </data>
 </root>

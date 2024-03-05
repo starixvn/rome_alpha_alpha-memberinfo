@@ -1064,4 +1064,7 @@
   <data name="Commission" xml:space="preserve">
     <value>佣金</value>
   </data>
+  <data name="Live" xml:space="preserve">
+    <value>現場</value>
+  </data>
 </root>

@@ -1,5 +1,5 @@
 ﻿@model CopyAccountResultViewModel
-<p class="msg msg-success msg-result">@string.Format(Resources.CreateCustomerSuccessMessage,Model.Result.Usernames.Count())</p>
+<p class="msg msg-success msg-result">@string.Format(Resources.CreateCustomerSuccessMessage, Model.Result.Usernames.Count())</p>
 <div class="form-row">
     <label>@Resources.Usernames:</label>
     <div class="relative-input result-area">
@@ -18,7 +18,37 @@
 {
     <div class="failed-account-created">
         <p class="msg msg-error result-text">@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</p>
-        <p class="result-text"><span>@Resources.FailureReason:</span> <span>@Model.Result.Message</span></p>
+        <p class="result-text">
+            <span>@Resources.FailureReason: </span>
+            @if (Model.Result.MsgType > 0)
+            {
+                <div class="msg msg-error">
+                    <div class="main-message">@Model.Result.MessageContent.MainMessage</div>
+                    @{
+                        var subMessages = Model.Result.MessageContent?.SubMessages;
+                        if (subMessages != null && subMessages.Count() > 0)
+                        {
+                            foreach (var subMessage in subMessages)
+                            {
+
+                                <div class="sub-message">
+                                    @if (subMessage.IsLive)
+                                    {
+                                        <span class="live-badge">@Resources.Live </span>
+                                    }
+                                    @subMessage.Message
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+
+            }
+            else
+            {
+                <span>@Model.Result.Message</span>
+            }
+        </p>
     </div>
 }
 
