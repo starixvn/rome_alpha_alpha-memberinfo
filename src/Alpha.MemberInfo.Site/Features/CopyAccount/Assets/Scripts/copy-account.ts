@@ -322,7 +322,7 @@ class CopyAccount {
             success: (data) => {
                 var result = this.safelyParseJSON(data);
                 if (result && result.IsFailed) {
-                    if (result.MsgType) {
+                    if (result.MessageContent) {
                         this.showMessageContent(result.MessageContent);
                     } else {
                         this.showErrorMessage(result.Message);

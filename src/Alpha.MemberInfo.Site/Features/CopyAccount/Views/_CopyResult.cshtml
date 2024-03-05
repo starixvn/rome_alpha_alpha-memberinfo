@@ -20,7 +20,7 @@
         <p class="msg msg-error result-text">@string.Format(Resources.NoAccountCreatedFailed, Model.NoOfFailedAccount)</p>
         <p class="result-text">
             <span>@Resources.FailureReason: </span>
-            @if (Model.Result.MsgType > 0)
+            @if (Model.Result.MessageContent != null)
             {
                 <div class="msg msg-error">
                     <div class="main-message">@Model.Result.MessageContent.MainMessage</div>
