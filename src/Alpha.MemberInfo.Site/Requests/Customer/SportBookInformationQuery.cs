@@ -13,6 +13,8 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
 
         public byte RoleId { get; set; }
         public int TabIndex { get; set; }
+        
+        public int Currency { get; set; }
         public bool IsSiteLabel789Y { get; set; }
 
         internal string ToJson() => JsonConvert.SerializeObject(

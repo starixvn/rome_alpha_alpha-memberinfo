@@ -191,16 +191,16 @@ namespace Alpha.MemberInfo.Site.Controllers
             => Content(await customerService.GetCustomerSetting(request.CustId, request.RoleId, systemId, request.UplineRoleId, request.Language, request.IsGetUpLine, request.ProductGroupId));
 
         public async Task<ActionResult> GetPTSettingInformation(SportBookInformationQuery request)
-            => Content(await customerService.GetPTSettingInformation(request.CustId, AppSettings.LocalTest, request.Language));
+            => Content(await customerService.GetPTSettingInformation(request.CustId, AppSettings.LocalTest,request.Site, request.Language));
 
         public async Task<ActionResult> GetMaxPayoutSettingInformation(SportBookInformationQuery request)
             => Content(await customerService.GetMaxPayoutSettingInformation(request.Site, false, request.Language));
 
         public async Task<ActionResult> GetProductCategories(SportBookInformationQuery request)
-            => Content(await customerService.GetProductCategories(request.CustId, request.Language));
+            => Content(await customerService.GetProductCategories(request.CustId,request.Site, request.Currency, request.Language));
 
         public async Task<ActionResult> GetCommissionHint(SportBookInformationQuery request)
-            => Content(await customerService.GetCommissionHint(request.CustId, request.Language));
+            => Content(await customerService.GetCommissionHint(request.CustId,request.Site, request.Language));
 
         public async Task<ActionResult> CheckExistedCustomer(string username)
            => Json(await customerService.CheckExistedCustomer(username), JsonRequestBehavior.AllowGet);
