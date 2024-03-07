@@ -7,23 +7,17 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
 
     public class SportBookInformationQuery : MemberInfoBaseQuery
     {
-        public SportBookInformationQuery(IUser viewer) : base(viewer)
-        {
-        }
-
+        public SportBookInformationQuery(IUser viewer) : base(viewer) { }
         public byte RoleId { get; set; }
         public int TabIndex { get; set; }
-        
         public int Currency { get; set; }
 
-        internal string ToJson() => JsonConvert.SerializeObject(
-            new
-            {
-                tabs = BuildTabs(),
-                roleId = RoleId,
-                isShowMyanmarOdds = viewer.IsShowMyanmarOdds
-            }
-            , new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+        internal string ToJson() => JsonConvert.SerializeObject(new
+        {
+            tabs = BuildTabs(),
+            roleId = RoleId,
+            isShowMyanmarOdds = viewer.IsShowMyanmarOdds
+        }, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
 
 
         private object BuildTabs()
@@ -35,56 +29,54 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
                 PTSettingTab,
                 PTCommissionSettingTab,
                 ProductCategorySettingTab,
+                WinLossLimitTab
             };
         }
 
-        private object BetSettingTab
-            => new
-            {
-                name = "BetSetting",
-                id = "BetSettingTab",
-                index = 0,
-                isActive = TabIndex == 0,
-            };
+        private object BetSettingTab => new
+        {
+            name = "BetSetting",
+            id = "BetSettingTab",
+            isActive = TabIndex == 0,
+        };
 
-        private object MaxPayoutSettingTab
-            => new
-            {
-                name = "MaxPayout",
-                id = "MaxPayoutSettingTab", 
-                alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetMaxPayoutSettingInformation"),
-                index = 1,
-                isActive = TabIndex == 1,
-            };
+        private object MaxPayoutSettingTab => new
+        {
+            name = "MaxPayout",
+            id = "MaxPayoutSettingTab",
+            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetMaxPayoutSettingInformation"),
+            isActive = TabIndex == 1,
+        };
 
-        private object PTSettingTab
-            => new
-            {
-                name = "PositionTaking",
-                id = "PTSettingTab",
-                alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetPTSettingInformation"),
-                index = 2,
-                isActive = TabIndex == 2,
-            };
+        private object PTSettingTab => new
+        {
+            name = "PositionTaking",
+            id = "PTSettingTab",
+            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetPTSettingInformation"),
+            isActive = TabIndex == 2,
+        };
 
-        private object PTCommissionSettingTab
-            => new
-            {
-                name = "Commission",
-                id = "CommissionHintTab",
-                alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetCommissionHint"),
-                index = 3,
-                isActive = TabIndex == 3,
-            };
+        private object PTCommissionSettingTab => new
+        {
+            name = "Commission",
+            id = "CommissionHintTab",
+            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetCommissionHint"),
+            isActive = TabIndex == 3,
+        };
 
-        private object ProductCategorySettingTab
-            => new
-            {
-                name = "ProductCategories",
-                id = "ProductCategorySettingTab",
-                alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetProductCategories"),
-                index = 4,
-                isActive = TabIndex == 4,
-            };
+        private object ProductCategorySettingTab => new
+        {
+            name = "ProductCategories",
+            id = "ProductCategorySettingTab",
+            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetProductCategories"),
+            isActive = TabIndex == 4,
+        };
+        
+        private object WinLossLimitTab => new
+        {
+            name = "WinLossLimit",
+            id = "WinLossLimitTab",
+            isActive = TabIndex == 5,
+        };
     }
 }
