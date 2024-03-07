@@ -15,13 +15,11 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         public int TabIndex { get; set; }
         
         public int Currency { get; set; }
-        public bool IsSiteLabel789Y { get; set; }
 
         internal string ToJson() => JsonConvert.SerializeObject(
             new
             {
                 tabs = BuildTabs(),
-                is789y = IsSiteLabel789Y,
                 roleId = RoleId,
                 isShowMyanmarOdds = viewer.IsShowMyanmarOdds
             }
@@ -52,7 +50,7 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         private object MaxPayoutSettingTab
             => new
             {
-                name = "MaxPayoutSetting", // chua dich
+                name = "MaxPayout",
                 id = "MaxPayoutSettingTab", 
                 alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetMaxPayoutSettingInformation"),
                 index = 1,

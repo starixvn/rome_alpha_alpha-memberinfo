@@ -99,7 +99,6 @@ namespace Alpha.MemberInfo.Site.Controllers
 
         public ActionResult SportBookInformation(SportBookInformationQuery query)
         {
-            query.IsSiteLabel789Y = AppSettings.IsSiteLabel789y;
             var viewModel = new SportBookInformationViewModel(
                 query,
                 new AppConfiguration(GetApplicationPath(), systemId),
