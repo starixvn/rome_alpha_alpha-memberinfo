@@ -30,7 +30,7 @@
 
         public override string Icon => "icon-edit Enable";
 
-        public override bool ShowGuideLine => true;
+        public override bool ShowGuideLine => false;
 
         public string GuideLineUrl => $"{OldMainUrl}MemberInformation/MultipleEditSportsBook/GuideLine";
     }
