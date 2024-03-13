@@ -11,12 +11,14 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         public byte RoleId { get; set; }
         public int TabIndex { get; set; }
         public int Currency { get; set; }
+        public string SiteLabel { get; set; }
 
         internal string ToJson() => JsonConvert.SerializeObject(new
         {
             tabs = BuildTabs(),
             roleId = RoleId,
-            isShowMyanmarOdds = viewer.IsShowMyanmarOdds
+            site = Site,
+            siteLabel = SiteLabel,
         }, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
 
 

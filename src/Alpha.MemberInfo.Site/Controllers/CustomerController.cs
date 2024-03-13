@@ -203,7 +203,7 @@ namespace Alpha.MemberInfo.Site.Controllers
             => Content(await customerService.GetPTSettingInformation(request.CustId, AppSettings.LocalTest, request.Site, request.Language));
 
         public async Task<ActionResult> GetMaxPayoutSettingInformation(SportBookInformationQuery request)
-            => Content(await customerService.GetMaxPayoutSettingInformation(request.Site, false, request.Language));
+            => Content(await customerService.GetMaxPayoutSettingInformation(request.Site, request.SiteLabel, request.Language));
 
         public async Task<ActionResult> GetProductCategories(SportBookInformationQuery request)
             => Content(await customerService.GetProductCategories(request.CustId, request.Site, request.Currency, request.Language));
