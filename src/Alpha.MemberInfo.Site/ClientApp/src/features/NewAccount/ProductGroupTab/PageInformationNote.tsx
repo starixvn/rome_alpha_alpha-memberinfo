@@ -10,7 +10,7 @@ export default function PageInformationNote() {
   const generalInfo = useNewAccountStore((state) => state.generalInfo);
   const url = `${customerSettingInfoRootUrl}?tabindex=4&theme=${theme}&custId=${generalInfo.uplineCustId}&roleId=${
     generalInfo?.uplineRoleId - 1
-  }&site=${generalInfo.site}`;
+  }&site=${generalInfo.site}&siteLabel=${generalInfo.siteLabel}`;
   return (
     <>
       <a href={url} target="_blank" rel="noopener noreferrer" id="productSettingInfo">

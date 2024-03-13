@@ -11,7 +11,7 @@ export default function PositionTalkingNote() {
 
   const url = `${customerSettingInfoRootUrl}?tabindex=2&theme=${theme}&custId=${generalInfo.uplineCustId}&roleId=${
     generalInfo?.uplineRoleId - 1
-  }&site=${generalInfo.site}`;
+  }&site=${generalInfo.site}&siteLabel=${generalInfo.siteLabel}`;
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();

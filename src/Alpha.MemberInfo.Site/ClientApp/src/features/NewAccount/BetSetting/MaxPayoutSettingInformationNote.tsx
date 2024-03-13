@@ -10,7 +10,7 @@ export default function MaxPayoutSettingInformationNote() {
 
   const url = `${customerSettingInfoRootUrl}?tabindex=1&theme=${theme}&custId=${generalInfo.uplineCustId}&roleId=${
     generalInfo?.uplineRoleId - 1
-  }&site=${generalInfo.site}`;
+  }&site=${generalInfo.site}&siteLabel=${generalInfo.siteLabel}`;
 
   const tooltipContent = t('MaxPayoutInfoTitle');
 
