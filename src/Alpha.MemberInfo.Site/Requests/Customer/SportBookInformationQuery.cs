@@ -46,7 +46,7 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         {
             name = "MaxPayout",
             id = "MaxPayoutSettingTab",
-            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetMaxPayoutSettingInformation"),
+            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetMaxPayoutSettingInformation?site=" + Site + "&siteLabel=" + SiteLabel),
             isActive = TabIndex == 1,
         };
 
@@ -54,7 +54,7 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         {
             name = "PositionTaking",
             id = "PTSettingTab",
-            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetPTSettingInformation"),
+            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetPTSettingInformation?custId=" + CustId + "&site=" + Site),
             isActive = TabIndex == 2,
         };
 
@@ -62,7 +62,7 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         {
             name = "Commission",
             id = "CommissionHintTab",
-            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetCommissionHint"),
+            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetCommissionHint?custId=" + CustId + "&site=" + Site),
             isActive = TabIndex == 3,
         };
 
@@ -70,7 +70,7 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         {
             name = "ProductCategories",
             id = "ProductCategorySettingTab",
-            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetProductCategories"),
+            alphaUrl = MicroSites.MemberInfoUrl("~/Customer/GetProductCategories?custId=" + CustId + "&site=" + Site + "&currency=" + Currency),
             isActive = TabIndex == 4,
         };
         
