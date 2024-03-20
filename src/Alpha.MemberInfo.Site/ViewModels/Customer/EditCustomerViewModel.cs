@@ -12,7 +12,13 @@ namespace Alpha.MemberInfo.Site.ViewModels.Customer
             string assetsVersion)
             : base(appConfig, cndUri, assetsVersion)
         {
-            Params = JsonConvert.SerializeObject(new { custId = query.CustId, roleId = query.RoleId, uplineRoleId = query.ViewerLevelId }, jsonSerializerSettings);
+            Params = JsonConvert.SerializeObject(new
+            {
+                custId = query.CustId,
+                roleId = query.RoleId,
+                uplineRoleId = query.ViewerLevelId,
+                productGroupId = query.ProductGroupId
+            }, jsonSerializerSettings);
         }
     }
 
@@ -22,7 +28,15 @@ namespace Alpha.MemberInfo.Site.ViewModels.Customer
             : base(appConfig, cndUri, assetsVersion)
         {
             Params = JsonConvert.SerializeObject(
-                new { uplineId = query.CustId, uplineRoleId = query.CustLevelId, custIds = query.CustIds, usernames = query.Usernames, roleId = query.RoleId },
+                new
+                {
+                    uplineId = query.CustId,
+                    uplineRoleId = query.CustLevelId,
+                    custIds = query.CustIds,
+                    usernames = query.Usernames,
+                    roleId = query.RoleId,
+                    productGroupId = query.ProductGroupId
+                },
                 jsonSerializerSettings);
         }
     }

@@ -98,7 +98,7 @@
 
             breadcrumbLevel.Add(new CustInfo(message.CustId, message.CustName, message.CustLevelId));
 
-            var offerCurrencies = Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies");
+            var offerCurrencies = Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies");
             var customerListPagingViewModel = Handle(
                 new FetchDownlinesListRequest(message.Viewer)
                 {
@@ -255,7 +255,7 @@
         internal IEnumerable<CustomerProductStatus> BuildSearchAccountProductStatus(
             IEnumerable<DCSProductStatusModel> dcsProducts)
         {
-            return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabled, product.IsHidden, product.IsSync));
+            return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabled, product.IsHidden));
         }
 
         internal IEnumerable<CustomerProductStatus> BuildUplineProductStatus(
