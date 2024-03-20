@@ -1,11 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Reflection;
-    using System.Resources;
-    using System.Web;
-    using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
     using Alpha.MemberInfo.Features.CreateAccount;
     using Alpha.MemberInfo.Features.CustomerList;
@@ -23,6 +17,10 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
     using Alpha.MemberInfo.Site.Features.Shared.Helpers;
     using Alpha.MemberInfo.Site.Handlers;
+    using Alpha.NetThrottling;
+    using Alpha.NetThrottling.Models;
+    using Alpha.NetThrottling.Resolvers;
+    using Alpha.NetThrottling.Utils;
     using Alpha.PartialUM.Helpers;
     using Alpha.Products.AccountInfo;
     using Alpha.Products.AccountInfo.Requests;
@@ -63,6 +61,16 @@
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
     using Sunplus.Agent.Utilities;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Net;
+    using System.Net.Http;
+    using System.Reflection;
+    using System.Resources;
+    using System.Threading;
+    using System.Web;
+    using System.Web.Mvc;
 
     public static class DependencyConfig
     {
@@ -79,6 +87,8 @@
             RegisterDataAccesses(container);
 
             RegisterServices(container);
+
+            RegisterNetThrottling(container);
 
             // This is an extension method from the integration package.
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
@@ -200,6 +210,16 @@
                 .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>>(new SettingViewModelFactory())
                 .Register<GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>>(new SettingMultipleViewModelFactory())
                 .Register<QRCodeLoginConfigsHelper>(new QRCodeLoginConfigsHelperImpl(qrCodeconfigFilePath));
+        }
+
+        private static void RegisterNetThrottling(Container container)
+        {
+            container.Register<INetThrottler>(() => new NetThrottler(false));
+            container.Register<IThrottleSetting>(() => new ThrottleSetting(false));
+            container.Register<IClock, Clock>(Lifestyle.Scoped);
+            container.Register<ILogger, NetThrottling.Utils.Logger>(Lifestyle.Scoped);
+            container.Register<ICacheServiceFactory, CacheServiceFactory>(Lifestyle.Scoped);
+            container.Register<IResolver, BaseResolver>(Lifestyle.Scoped);
         }
     }
 }

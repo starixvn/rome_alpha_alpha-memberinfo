@@ -30,6 +30,7 @@
     using Web;
     using Web.Filters;
     using Web.Helpers;
+    using Alpha.NetThrottling.Mvc;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -78,7 +79,7 @@
             GlobalFilters.Filters.Add(new ProtectedModeFilter());
 
             StaticResources.Init(GetBuildVersion());
-
+            GlobalFilters.Filters.Add(new NetThrottlingFilterAttribute(false));
             RefDataTypeContainer
                 .ConnectTo(new Uri(AppSettings.RemoteRefURL))
                 .FromApplication("Alpha.MemberInfo.Site");
