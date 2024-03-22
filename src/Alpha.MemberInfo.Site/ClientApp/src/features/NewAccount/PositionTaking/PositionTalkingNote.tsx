@@ -1,11 +1,17 @@
 import { t } from 'i18next';
 import { MouseEvent } from 'react';
 
-import { oldMainUrl } from '@/constants';
+import { customerSettingInfoRootUrl } from "@/constants";
 import { IconInfo } from '@/features/Shared/Icons';
+import useNewAccountStore from "@/store/newAccountStore";
 
 export default function PositionTalkingNote() {
-  const url = `${oldMainUrl}/PositionTakingInformation/PositionTakingBetTypeReference`;
+  const theme = useNewAccountStore((state) => state.theme);
+  const generalInfo = useNewAccountStore((state) => state.generalInfo);
+
+  const url = `${customerSettingInfoRootUrl}?tabindex=2&theme=${theme}&custId=${generalInfo.uplineCustId}&roleId=${
+    generalInfo?.uplineRoleId - 1
+  }&site=${generalInfo.site}&siteLabel=${generalInfo.siteLabel}`;
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();

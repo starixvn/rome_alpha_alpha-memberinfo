@@ -14,64 +14,69 @@
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Requests;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels;
     using Alpha.Products.Core.Services;
+    using Fanex.Customer.Client.Params;
+    using Fanex.Customer.Client.Services;
     using MediatR;
 
     public class QRCodeMemberSignInHandler :
-        IRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
+        IAsyncRequestHandler<QRCodeMemberSignInRequest, QRCodeMemberSignInViewModel>,
         IAsyncRequestHandler<CreateAccountByQRCodeRequest, ResultCreateMemberQRCode>,
-        IRequestHandler<GetMemberCreditAndStatusRequest, CreditAndStatusModel>,
+        IAsyncRequestHandler<GetMemberCreditAndStatusRequest, CreditAndStatusModel>,
         IRequestHandler<ShowQRCodeRequest, ShowQRCodeViewModel>,
         IRequestHandler<GenerateQRCodeRequest, QRCodeLinkViewModel>,
-        IRequestHandler<CheckExistedCustomerRequest, bool>
+        IAsyncRequestHandler<CheckExistedCustomerRequest, bool>
     {
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
+        private readonly ICustomerService customerService;
         private readonly PasswordService passwordService;
         private readonly CheckBelongingService checkBelongingService;
 
         public QRCodeMemberSignInHandler(
            QrCodeAdapter qrCodeAdapter,
-           QRCodeMemberSignInService qrCodeMemberSignInService,
+           ICustomerService customerService,
+            QRCodeMemberSignInService qrCodeMemberSignInService,
            PasswordService passwordService,
            CheckBelongingService checkBelongingService)
-            : this(qrCodeAdapter, qrCodeMemberSignInService, passwordService, checkBelongingService, null)
+            : this(qrCodeAdapter, customerService, qrCodeMemberSignInService, passwordService, checkBelongingService, null)
         {
         }
 
         internal QRCodeMemberSignInHandler(
             QrCodeAdapter qrCodeAdapter,
+            ICustomerService customerService,
             QRCodeMemberSignInService qrCodeMemberSignInService,
             PasswordService passwordService,
             CheckBelongingService checkBelongingService,
             QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper)
         {
             this.qrCodeAdapter = qrCodeAdapter;
+            this.customerService = customerService;
             this.qrCodeMemberSignInService = qrCodeMemberSignInService;
             this.passwordService = passwordService;
             this.checkBelongingService = checkBelongingService;
-            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper ??
-                    SimpleServiceLocator.GetService<QRCodeLoginConfigsHelper>();
+            this.qrCodeLoginConfigsHelper = qrCodeLoginConfigsHelper ?? SimpleServiceLocator.GetService<QRCodeLoginConfigsHelper>();
         }
 
-        public QRCodeMemberSignInViewModel Handle(QRCodeMemberSignInRequest message)
+        public async Task<QRCodeMemberSignInViewModel> Handle(QRCodeMemberSignInRequest message)
         {
             var onlyShowErrorMessage = false;
 
             if (string.IsNullOrWhiteSpace(message.ErrorMessage))
             {
-                var limitNewDownlineResult = qrCodeMemberSignInService.CheckLimitNewDownline(
+                var limitNewDownlineResult = await customerService.CheckAllLimitedRules(
                     message.ViewerId,
                     message.ViewerLevelId,
-                    message.Language,
-                    message.ActorUsername);
+                    message.ActorUsername,
+                    message.Language);
                 onlyShowErrorMessage = limitNewDownlineResult.IsFailed;
                 message.ErrorMessage = limitNewDownlineResult.Message;
             }
 
             return new QRCodeMemberSignInViewModel(
                 message,
-                qrCodeMemberSignInService.GetSuggestUsername(message.CustName, message.CustId),
+                await customerService.GetSuggestUsername(message.CustName, message.CustLevelId),
                 onlyShowErrorMessage);
         }
 
@@ -90,40 +95,48 @@
                 };
             }
 
-            var model = qrCodeMemberSignInService.CheckBelongingByUsername(message.CustId, message.UsernameCopyFrom, message.SubAccId);
+            var model = await customerService.GetDownlineByUsername(message.CustId, message.SubAccId, message.UsernameCopyFrom);
+
             var custIdCopyFrom = model.CustId;
 
             if (custIdCopyFrom > 0 &&
-                Enumeration.FromValue<UserLevel>((byte)model.RoleId).IsMemberLevel() &&
-                qrCodeMemberSignInService.IsEnableCustomer(custIdCopyFrom))
+                Enumeration.FromValue<UserLevel>(model.RoleId).IsMemberLevel() &&
+                await customerService.IsCustomerEnabled(custIdCopyFrom))
             {
                 var passwordModel = passwordService.CreateMemberPasswordRandom();
 
-                var result = await qrCodeMemberSignInService.CreateMemberByQRCode(
-                    new InsertMemberCommand(
-                        message.Username,
-                        message.FirstName ?? string.Empty,
-                        message.CustId,
-                        custIdCopyFrom,
-                        message.IP,
-                        message.Language,
-                        message.SubAccId,
-                        message.Credit,
-                        passwordModel.RawPassword,
-                        message.UsernameCopyFrom,
-                        message.CreditMax,
-                        message.SubUsername,
-                        message.SiteDBGroupIp,
-                        message.ActorUsername)).ConfigureAwait(false);
-
-                result.CustIdCopyFrom = custIdCopyFrom;
-
-                if (result.Success)
+                var param = new CopyCustomerParam(
+                    message.ViewerId,
+                    message.SubAccId,
+                    message.CustId,
+                    message.CustLevel.GetDirectDownLineLevel().Value,
+                    message.ActorUsername,
+                    message.Username,
+                    passwordModel.EncodePassword,
+                    message.Credit,
+                    message.CreditMax,
+                    custIdCopyFrom,
+                    message.Site,
+                    true,
+                    message.IP,
+                    message.Language)
                 {
-                    result.RawPassword = passwordModel.RawPassword;
-                }
+                    FirstName = message.FirstName
+                };
 
-                return result;
+                var result = await customerService.CopyCustomer(param).ConfigureAwait(false);
+
+                return new ResultCreateMemberQRCode
+                {
+                    CustIdCopyFrom = custIdCopyFrom,
+                    CustId = result.CustId,
+                    ErrCode = result.Code,
+                    ErrMsg = result.Message,
+                    Success = result.IsSuccessful,
+                    RawPassword = result.IsSuccessful ? passwordModel.RawPassword : string.Empty,
+                    MsgType = result.MsgType,
+                    MessageContent = result.MessageContent,
+                };
             }
 
             return new ResultCreateMemberQRCode
@@ -134,13 +147,11 @@
             };
         }
 
-        public CreditAndStatusModel Handle(GetMemberCreditAndStatusRequest message)
-            => IsValidBelongingByUsername(
-                message.CustId,
-                message.SearchAccountName,
-                message.SubAccId) ?
-                qrCodeMemberSignInService.GetCreditAndStatus(message.SearchAccountName) :
-                new CreditAndStatusModel();
+        public async Task<CreditAndStatusModel> Handle(GetMemberCreditAndStatusRequest message)
+        {
+            var isValid = await IsValidBelongingByUsername(message.CustId, message.SearchAccountName, message.SubAccId);
+            return isValid ? qrCodeMemberSignInService.GetCreditAndStatus(message.SearchAccountName) : new CreditAndStatusModel();
+        }
 
         public ShowQRCodeViewModel Handle(ShowQRCodeRequest message)
         {
@@ -213,19 +224,14 @@
             return new QRCodeLinkViewModel();
         }
 
-        public bool Handle(CheckExistedCustomerRequest message)
-            => IsValidBelongingByUsername(
-                message.CustId,
-                message.Username,
-                message.SubAccId) &&
-            qrCodeMemberSignInService.CheckExistedCustomer(message.Username);
+        public async Task<bool> Handle(CheckExistedCustomerRequest message)
+            => await IsValidBelongingByUsername(message.CustId, message.Username, message.SubAccId)
+            && await customerService.CheckExistedCustomer(message.Username);
 
-        internal bool IsValidBelongingByUsername(int custId, string username, int subAccountId)
+        internal async Task<bool> IsValidBelongingByUsername(int custId, string username, int subAccountId)
         {
-            var model = qrCodeMemberSignInService.CheckBelongingByUsername(custId, username, subAccountId);
-
-            return model.CustId > 0 &&
-                Enumeration.FromValue<UserLevel>((byte)model.RoleId).IsMemberLevel();
+            var model = await customerService.GetDownlineByUsername(custId, subAccountId, username);
+            return model.CustId > 0 && Enumeration.FromValue<UserLevel>(model.RoleId).IsMemberLevel();
         }
     }
 }

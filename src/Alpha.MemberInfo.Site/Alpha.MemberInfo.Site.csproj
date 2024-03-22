@@ -129,6 +129,12 @@
     <Reference Include="Fanex.Cryptography.Aes, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Cryptography.Aes.1.0.0.5\lib\net461\Fanex.Cryptography.Aes.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.Customer.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Customer.Client.1.0.0-beta51\lib\netstandard2.0\Fanex.Customer.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Customer.Client.NETFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Customer.Client.NETFramework.1.0.0-beta08\lib\net461\Fanex.Customer.Client.NETFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Data.ProxyClient, Version=0.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.ProxyClient.0.0.3-alpha02\lib\netstandard2.0\Fanex.Data.ProxyClient.dll</HintPath>
     </Reference>
@@ -169,8 +175,8 @@
     <Reference Include="MessagePack.Annotations, Version=2.5.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MessagePack.Annotations.2.5.124\lib\netstandard2.0\MessagePack.Annotations.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -344,6 +350,12 @@
       <HintPath>..\..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Encodings.Web.8.0.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Json.8.0.0\lib\netstandard2.0\System.Text.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -440,9 +452,7 @@
     <Content Include="App_Data\SPNames\SIT\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBACC.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\UAT\DBAGE.bodb02.BODBDownlineNet.xml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="App_Data\SPNames\UAT\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBCust.CustDB.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -463,6 +473,10 @@
     <Content Include="assets\bundles\credit-balance\credit-balance.js" />
     <Content Include="assets\bundles\credit-balance\credit-balance.min.js">
       <DependentUpon>credit-balance.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\customer\create-customer.js" />
+    <Content Include="assets\bundles\customer\create-customer.min.js">
+      <DependentUpon>create-customer.js</DependentUpon>
     </Content>
     <Content Include="assets\bundles\default-dark.css" />
     <Content Include="assets\bundles\default-dark.min.css">
@@ -738,16 +752,16 @@
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.min.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
     <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
-    <Content Include="ClientApp\dist\assets\createAccount-179a7f97.js" />
-    <Content Include="ClientApp\dist\assets\createAccount-7aaa218c.css" />
-    <Content Include="ClientApp\dist\assets\index-1ea51596.css" />
-    <Content Include="ClientApp\dist\assets\index-4db67b07.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-0260a057.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-bb96070b.css" />
+    <Content Include="ClientApp\dist\assets\index-a15013df.js" />
+    <Content Include="ClientApp\dist\assets\index-c9811a1f.css" />
     <Content Include="ClientApp\dist\assets\productSettingInfo-19dc73f6.css" />
-    <Content Include="ClientApp\dist\assets\productSettingInfo-619bace5.js" />
-    <Content Include="ClientApp\dist\assets\PTSelect-07858f5e.css" />
-    <Content Include="ClientApp\dist\assets\PTSelect-f2d1cf29.js" />
-    <Content Include="ClientApp\dist\assets\ptTemplate-326b7662.js" />
+    <Content Include="ClientApp\dist\assets\productSettingInfo-51cad093.js" />
+    <Content Include="ClientApp\dist\assets\PTSelect-13f830b9.css" />
+    <Content Include="ClientApp\dist\assets\PTSelect-4399177e.js" />
     <Content Include="ClientApp\dist\assets\ptTemplate-5f025410.css" />
+    <Content Include="ClientApp\dist\assets\ptTemplate-d216a619.js" />
     <Content Include="ClientApp\dist\images\daily.png" />
     <Content Include="ClientApp\dist\images\icon-select.svg" />
     <Content Include="ClientApp\dist\images\weekly.png" />
@@ -798,13 +812,20 @@
     <Content Include="IbcKeys\ibckey.snk" />
     <Content Include="IbcKeys\ibckeydec.snk" />
     <Content Include="IbcKeys\Web.config" />
+    <Content Include="Views\Customer\SportBookInformation-Debug.cshtml" />
+    <Content Include="Views\Customer\SportBookInformation.cshtml" />
     <Content Include="Views\ProblemAccount\ConfirmAddToWatchlist.cshtml" />
     <Content Include="Web.AppSettings.pro4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
+    <Content Include="Views\Customer\Create-Debug.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\_PageHeader.cshtml" />
     <Content Include="Web.pro4.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <Content Include="Views\Customer\EditCustomer-Debug.cshtml" />
+    <Content Include="Views\Customer\EditCustomer.cshtml" />
     <Content Include="Web.ConnectionStrings.config" />
     <Content Include="Web.ConnectionStrings.napinternal.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
@@ -855,6 +876,8 @@
     <Content Include="Web.drinternal.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <Content Include="Views\Customer\EditMultiple.cshtml" />
+    <Content Include="Views\Customer\EditMultiple-Debug.cshtml" />
     <Content Include="Web.ConnectionStrings.pro4.config">
       <DependentUpon>Web.ConnectionStrings.config</DependentUpon>
     </Content>
@@ -1144,27 +1167,10 @@
     <Content Include="Features\MyWatchlist\Shared\Styles\my-watchlist.min.css">
       <DependentUpon>my-watchlist.css</DependentUpon>
     </Content>
-    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout-dark.css" />
-    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout-dark.min.css">
-      <DependentUpon>parlay-max-payout-dark.css</DependentUpon>
-    </Content>
-    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout-dark.css">
-      <DependentUpon>parlay-max-payout-dark.scss</DependentUpon>
-    </Content>
-    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout-dark.min.css">
-      <DependentUpon>parlay-max-payout-dark.css</DependentUpon>
-    </Content>
-    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.css">
-      <DependentUpon>parlay-max-payout.scss</DependentUpon>
-    </Content>
-    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.min.css">
-      <DependentUpon>parlay-max-payout.css</DependentUpon>
-    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in-dark.css" />
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in-dark.min.css">
       <DependentUpon>qr-code-member-sign-in-dark.css</DependentUpon>
     </Content>
-    <Content Include="Features\ParlayMaxPayout\Styles\parlay-max-payout-dark.scss" />
     <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Views\Index.cshtml" />
     <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Views\web.config" />
     <Content Include="Features\MyWatchlist\MyWatchlistAccounts\Views\ManageGlobalThreshold.cshtml" />
@@ -1209,15 +1215,6 @@
     <Content Include="deployment.pro5.ignore" />
     <Content Include="deployment.dr.ignore" />
     <Content Include="deployment.drinternal.ignore" />
-    <None Include="Features\ParlayMaxPayout\Styles\parlay-max-payout.scss" />
-    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.css" />
-    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.js" />
-    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.min.css">
-      <DependentUpon>parlay-max-payout.css</DependentUpon>
-    </Content>
-    <Content Include="Features\ParlayMaxPayout\Bundles\parlay-max-payout.min.js">
-      <DependentUpon>parlay-max-payout.js</DependentUpon>
-    </Content>
     <Content Include="Features\QRCodeMemberSignIn\Bundles\qr-code-member-sign-in.css">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Content>
@@ -1309,29 +1306,9 @@
     <Content Include="Web.AppSettings.backupMNLNap2.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
-    <Content Include="Web.backupMNL.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.backupMNL2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.backupMNLNap.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.backupMNLNap2.config">
-      <DependentUpon>Web.local.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Features\ParlayMaxPayout\Views\ParlayMaxPayoutSetting.cshtml" />
-    <Content Include="Features\ParlayMaxPayout\Styles\_mixins.scss" />
-    <Content Include="Features\ParlayMaxPayout\Styles\_variables.scss" />
-    <Content Include="Features\ParlayMaxPayout\Styles\_variables-dark.scss" />
     <Content Include="Views\CreditBalance\Legend.en-US.cshtml" />
     <Content Include="Views\CreditBalance\Legend.zh-CN.cshtml" />
     <Content Include="Views\CreditBalance\Legend.zh-TW.cshtml" />
@@ -1348,6 +1325,8 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Constants\LanguageCode.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Features\CopyAccount\ViewModels\CopyAccountResultViewModel.cs" />
     <Compile Include="Features\CreateAccount\CreateAccountController.cs" />
     <Compile Include="Controllers\CreditBalanceController.cs" />
     <Compile Include="Controllers\IndirectLoginAccountController.cs" />
@@ -1357,27 +1336,20 @@
     <Compile Include="Controllers\WinLossLimitController.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountController.cs" />
     <Compile Include="Features\CopyAccount\CopyAccountHandler.cs" />
-    <Compile Include="Features\CopyAccount\CopyAccountService.cs" />
-    <Compile Include="Features\CopyAccount\Models\CreditInfo.cs" />
-    <Compile Include="Features\CopyAccount\Models\Downline.cs" />
     <Compile Include="Features\CopyAccount\Request\CheckExistedCustomerQuery.cs" />
     <Compile Include="Features\CopyAccount\Request\CheckUsernameQuery.cs" />
     <Compile Include="Features\CopyAccount\Request\CreditQuery.cs" />
-    <Compile Include="Features\CopyAccount\ViewModels\CopyAccountResponse.cs" />
     <Compile Include="Features\CopyAccount\Request\CopyAccountCommand.cs" />
     <Compile Include="Features\CopyAccount\Request\CopyAccountQuery.cs" />
     <Compile Include="Features\CopyAccount\ViewModels\CopyAccountViewModel.cs" />
-    <Compile Include="Features\CreateAccount\CreateAccountService.cs" />
     <Compile Include="Features\CreateAccount\IntroductionController.cs" />
-    <Compile Include="Features\CreateAccount\Models\GeneralInfo.cs" />
-    <Compile Include="Features\CreateAccount\Models\ProductSetting.cs" />
-    <Compile Include="Features\CreateAccount\Models\PTTemplateSetting.cs" />
     <Compile Include="Features\CreateAccount\ProductSettingInfoController.cs" />
     <Compile Include="Features\CreateAccount\PTTemplateController.cs" />
     <Compile Include="Features\CreateAccount\Requests\CreateAccountRequest.cs" />
     <Compile Include="Features\CreateAccount\Requests\CreatePTTemplateRequest.cs" />
     <Compile Include="Features\CreateAccount\Requests\EditPTTemplateRequest.cs" />
     <Compile Include="Features\CreateAccount\ViewModels\CreateAccountViewModel.cs" />
+    <Compile Include="Features\CreateAccount\ViewModels\ProductSettingInfoViewModel.cs" />
     <Compile Include="Features\CreateAccount\ViewModels\PTTemplateViewModel.cs" />
     <Compile Include="Features\CreateAccount\ViewModels\QuickIntroductionViewModel.cs" />
     <Compile Include="Features\CustomerList\CustomerListHandler.cs" />
@@ -1417,6 +1389,14 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\DeletePersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\GlobalThresholdQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageGlobalThresholdQuery.cs" />
+    <Compile Include="Requests\Customer\CreateCustomerQuery.cs" />
+    <Compile Include="Requests\Customer\CreateCustomerRequest.cs" />
+    <Compile Include="Requests\Customer\EditCustomerQuery.cs" />
+    <Compile Include="Requests\Customer\EditMultipleCustomersQuery.cs" />
+    <Compile Include="Requests\Customer\GetCustomerSettingRequest.cs" />
+    <Compile Include="Requests\Customer\UpdateCustomerRequest.cs" />
+    <Compile Include="Requests\Customer\SportBookInformationQuery.cs" />
+    <Compile Include="Requests\Customer\UpdateMultipleCustomerRequest.cs" />
     <Compile Include="Requests\ProblemAccount\ConfirmAddToWatchlistQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManagePersonalThresholdPresetQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageWatchlistAccountsQuery.cs" />
@@ -1451,16 +1431,6 @@
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\ReachHistoryViewModel.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ViewModels\StatusSelectionViewModel.cs" />
     <Compile Include="Features\MyWatchlist\ReachedThreshold\ReachedThresholdWorkbook.cs" />
-    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutController.cs" />
-    <Compile Include="Features\ParlayMaxPayout\ParlayMaxPayoutHandler.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutCheckDownlineQuery.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutMultipleSelectQuery.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutSingleSelectQuery.cs" />
-    <Compile Include="Features\ParlayMaxPayout\Requests\ParlayMaxPayoutUpdateQuery.cs" />
-    <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutMultiplePageViewModel.cs" />
-    <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutBasePageViewModel.cs" />
-    <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutSinglePageViewModel.cs" />
-    <Compile Include="Features\ParlayMaxPayout\ViewModels\ParlayMaxPayoutViewModel.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QRCodeLoginConfigsHelperImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Helpers\QrCodeAdapterImpl.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\QRCodeMemberSignInController.cs" />
@@ -1528,6 +1498,12 @@
     <Compile Include="ViewModels\Components\ProductMultiSelectionViewModel.cs" />
     <Compile Include="ViewModels\Components\ReviewedStatusSelectionViewModel.cs" />
     <Compile Include="ViewModels\CreditBalance\CreditBalanceViewModel.cs" />
+    <Compile Include="ViewModels\Customer\AppConfiguration.cs" />
+    <Compile Include="ViewModels\Customer\CustomerBaseViewModel.cs" />
+    <Compile Include="ViewModels\Customer\CreateCustomerViewModel.cs" />
+    <Compile Include="ViewModels\Customer\EditCustomerViewModel.cs" />
+    <Compile Include="ViewModels\Customer\LimitNewDownlineViewModel.cs" />
+    <Compile Include="ViewModels\Customer\SportBookInformationViewModel.cs" />
     <Compile Include="ViewModels\ExcelFileViewModel.cs" />
     <Compile Include="ViewModels\IndirectLoginAccount\ManageAccountViewModel.cs" />
     <Compile Include="ViewModels\IndirectLoginAccount\NewAccountViewModel.cs" />
@@ -1719,11 +1695,6 @@
     <Content Include="Features\CustomerList\Styles\customer-list-dark.scss" />
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list-dark.scss" />
     <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in-dark.scss" />
-    <Content Include="Features\ParlayMaxPayout\Views\EditSingle.cshtml" />
-    <Content Include="Features\ParlayMaxPayout\Views\EditMultiple.cshtml" />
-    <Content Include="Features\ParlayMaxPayout\Views\web.config">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
@@ -1799,10 +1770,6 @@
     <TypeScriptCompile Include="Features\MyWatchlist\ReachedThreshold\Scripts\reached-threshold.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\Shared\Scripts\my-watchlist-alert.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\Shared\Scripts\my-watchlist-base.ts" />
-    <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-alert.ts" />
-    <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-helper.ts" />
-    <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout-service.ts" />
-    <TypeScriptCompile Include="Features\ParlayMaxPayout\Scripts\parlay-max-payout.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\show-qr-code.ts" />
     <TypeScriptCompile Include="Features\QRCodeMemberSignIn\Scripts\qr-code-member-sign-in.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
@@ -1875,7 +1842,7 @@
       start /MIN xcopy /s /y /R "$(OutDir)roslyn\*.*" "$(WebProjectOutputDir)\bin\Roslyn"
     </PostBuildEvent>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

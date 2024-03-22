@@ -37,7 +37,7 @@ export default function ParlayMaxPayout({ groupTypeId, groupItems }: ParlayMaxPa
               groupTypeId={groupTypeId}
               groupItem={groupItem}
               valueProp="singleMatchParlay"
-              maxValueProp="maxSingleMatchParlay"
+              maxValueProp="singleMatchParlay"
               isUnlimitedProp="isAllowUnlimitSingleMatchParlay"
             />
           </BlockColumn>
@@ -46,7 +46,7 @@ export default function ParlayMaxPayout({ groupTypeId, groupItems }: ParlayMaxPa
               groupTypeId={groupTypeId}
               groupItem={groupItem}
               valueProp="combo2"
-              maxValueProp="maxCombo2"
+              maxValueProp="combo2"
               isUnlimitedProp="isAllowUnlimitCombo2"
             />
           </BlockColumn>
@@ -55,7 +55,7 @@ export default function ParlayMaxPayout({ groupTypeId, groupItems }: ParlayMaxPa
               groupTypeId={groupTypeId}
               groupItem={groupItem}
               valueProp="combo35"
-              maxValueProp="maxCombo35"
+              maxValueProp="combo35"
               isUnlimitedProp="isAllowUnlimitCombo35"
             />
           </BlockColumn>
@@ -64,7 +64,7 @@ export default function ParlayMaxPayout({ groupTypeId, groupItems }: ParlayMaxPa
               groupTypeId={groupTypeId}
               groupItem={groupItem}
               valueProp="comboOver6"
-              maxValueProp="maxComboOver6"
+              maxValueProp="comboOver6"
               isUnlimitedProp="isAllowUnlimitComboOver6"
             />
           </BlockColumn>

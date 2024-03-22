@@ -28,7 +28,7 @@ namespace Alpha.MemberInfo.Features.CreateAccount
             (
                 new ProductSettingInfoCriteria
                 {
-                    CreationStatus = AppSettings.CreationStatus,
+                    SettingStatus = AppSettings.SettingStatus,
                     CustId = cusId
                 }
             );

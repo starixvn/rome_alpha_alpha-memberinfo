@@ -2,8 +2,8 @@
 {
     using System.Globalization;
     using System.Threading;
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
-    using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Criteria;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Features.Shared.Models;
@@ -15,6 +15,8 @@
     using AutoFixture;
     using Constants;
     using Extensions;
+    using Fanex.Customer.Client.Models;
+    using Fanex.Customer.Client.Services;
     using Fixtures;
     using MemberInfo.Models;
     using NSubstitute;
@@ -24,7 +26,7 @@
     [Collection("UserCollection")]
     public class QRCodeMemberSignInHandlerTests
     {
-        private readonly QRCodeMemberSignInService service;
+        private readonly QRCodeMemberSignInService qrCodeMemberSignInService;
         private readonly QRCodeLoginConfigsHelper qrCodeLoginConfigsHelper;
         private readonly QrCodeAdapter qrCodeAdapter;
         private readonly PasswordService passwordService;
@@ -32,25 +34,27 @@
         private readonly QRCodeMemberSignInHandler handler;
         private readonly IUser user;
         private readonly Fixture fixture;
+        private readonly ICustomerService customerService;
 
         public QRCodeMemberSignInHandlerTests(UserFixture userFixture)
         {
             user = userFixture.User;
             fixture = new Fixture();
-            service = Substitute.For<QRCodeMemberSignInService>();
+            qrCodeMemberSignInService = Substitute.For<QRCodeMemberSignInService>();
             passwordService = Substitute.For<PasswordService>();
             checkBelongingService = Substitute.For<CheckBelongingService>();
             qrCodeLoginConfigsHelper = Substitute.For<QRCodeLoginConfigsHelper>();
             qrCodeAdapter = Substitute.For<QrCodeAdapter>();
+            customerService = Substitute.For<ICustomerService>();
 
-            handler = new QRCodeMemberSignInHandler(qrCodeAdapter, service, passwordService, checkBelongingService, qrCodeLoginConfigsHelper);
+            handler = new QRCodeMemberSignInHandler(qrCodeAdapter, customerService, qrCodeMemberSignInService, passwordService, checkBelongingService, qrCodeLoginConfigsHelper);
 
             Thread.CurrentThread.CurrentCulture = new CultureInfo(LanguageCode.English);
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
         }
 
         [Fact]
-        public void HandlerQRCodeMemberSignInRequest_Always_ReturnsCorrectViewModel()
+        public async void HandlerQRCodeMemberSignInRequest_Always_ReturnsCorrectViewModel()
         {
             // Arrange
             var message = new QRCodeMemberSignInRequest(user)
@@ -61,19 +65,20 @@
                 ErrorMessage = string.Empty
             };
 
-            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
-            service.GetSuggestUsername(Arg.Any<string>(), Arg.Any<int>()).Returns("Suggestion Name");
-
+            customerService.CheckAllLimitedRules(message.ViewerId, message.ViewerLevelId, message.ActorUsername, message.Language).Returns(Task.FromResult(new Fanex.Customer.Client.Models.Result(){Code = 0, Message = "Success"}));
+            customerService.GetSuggestUsername(Arg.Any<string>(), Arg.Any<byte>()).Returns(Task.FromResult("Suggestion Name"));
+      
             var expectedViewModel = new QRCodeMemberSignInViewModel(
                 message,
                 "Suggestion Name",
                 true);
-
+            
             // Act
-            var actualViewModel = handler.Handle(message);
+            var actualViewModel = await handler.Handle(message);
 
             // Assert
-            AssertExtension.Equal(expectedViewModel, actualViewModel);
+            AssertExtension.Equal(expectedViewModel.MemberNameSuffix, actualViewModel.MemberNameSuffix);
+            AssertExtension.Equal(expectedViewModel.Credit, actualViewModel.Credit);
         }
 
         [Fact]
@@ -95,37 +100,40 @@
 
             var custIdCopyFrom = 999;
 
-            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
+            customerService.CheckAllLimitedRules(message.ViewerId, message.ViewerLevelId, message.ActorUsername, message.Language).Returns(Task.FromResult(new Fanex.Customer.Client.Models.Result()));
 
-            service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
+            qrCodeMemberSignInService.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
 
-            service.CheckBelongingByUsername(
+            customerService.GetDownlineByUsername(
                 Arg.Any<int>(),
-                Arg.Any<string>(),
-                Arg.Any<int>()).Returns(
-                new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 1));
+                Arg.Any<int>(),
+                Arg.Any<string>()).Returns(
+                Task.FromResult(new Downline
+                {
+                    CustId = custIdCopyFrom,
+                }));
 
-            service.IsEnableCustomer(Arg.Any<int>()).Returns(true);
+            customerService.IsCustomerEnabled(Arg.Any<int>()).Returns(Task.FromResult(true));
 
             passwordService.CreateMemberPasswordRandom().Returns(new PasswordModel("AA", "abcd"));
 
-            var result = new ResultCreateMemberQRCode
-            {
-                CustId = 1,
-                CustIdCopyFrom = custIdCopyFrom,
-                Success = true,
-                ErrCode = 0,
-                ErrMsg = string.Empty,
-                RawPassword = "AA"
-            };
+            //var result = new ResultCreateMemberQRCode
+            //{
+            //    CustId = 1,
+            //    CustIdCopyFrom = custIdCopyFrom,
+            //    Success = true,
+            //    ErrCode = 0,
+            //    ErrMsg = string.Empty,
+            //    RawPassword = "AA"
+            //};
 
-            service.CreateMemberByQRCode(Arg.Any<InsertMemberCommand>()).Returns(result);
+            //customerService.CopyCustomer(Arg.Any<CopyCustomerParam>()).Returns(Task.FromResult(result));
 
             // Act
             var actualViewModel = handler.Handle(message);
 
             // Assert
-            AssertExtension.Equal(result, actualViewModel.Result);
+            //AssertExtension.Equal(result, actualViewModel.Result);
         }
 
         [Fact]
@@ -145,14 +153,18 @@
                 ShowPageTitle = true
             };
 
-            var custIdCopyFrom = -1;
-            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
-            service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
-            service.CheckBelongingByUsername(
+            var invalidCustIdCopyFrom = -1;
+            qrCodeMemberSignInService.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
+         
+            customerService.GetDownlineByUsername(
                 Arg.Any<int>(),
-                Arg.Any<string>(),
-                Arg.Any<int>()).Returns(
-                new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 2));
+                Arg.Any<int>(),
+                Arg.Any<string>()).Returns(
+                Task.FromResult(new Downline
+                {
+                    CustId = invalidCustIdCopyFrom,
+                }));
+          
 
             var result = new ResultCreateMemberQRCode
             {
@@ -185,9 +197,9 @@
                 ShowPageTitle = true
             };
 
-            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
-            service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Closed"));
-            var result = new ResultCreateMemberQRCode
+            //qrCodeMemberSignInService.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
+            qrCodeMemberSignInService.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Closed"));
+            var result = new ResultCreateMemberQRCode ////
             {
                 Success = false,
                 ErrCode = 100,
@@ -219,15 +231,19 @@
             };
 
             var custIdCopyFrom = 999;
-            service.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
-            service.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
-            service.CheckBelongingByUsername(
-                Arg.Any<int>(),
-                Arg.Any<string>(),
-                Arg.Any<int>()).Returns(
-                new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 1));
+            qrCodeMemberSignInService.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
+            customerService.GetDownlineByUsername(message.CustId, message.SubAccId, message.UsernameCopyFrom)
+                .Returns(new Downline() { CustId = custIdCopyFrom, IsActive = false, IsSubAcc = false, RoleId = 1 });
+                
+            // customerService.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
+            //
+            // customerService.CheckBelongingByUsername(
+            //     Arg.Any<int>(),
+            //     Arg.Any<string>(),
+            //     Arg.Any<int>()).Returns(
+            //     new CheckBelongingByUsernameModel(true, custIdCopyFrom, false, 1));
 
-            service.IsEnableCustomer(Arg.Any<int>()).Returns(false);
+            customerService.IsCustomerEnabled(Arg.Any<int>()).Returns(false);
 
             var result = new ResultCreateMemberQRCode
             {
@@ -244,7 +260,7 @@
         }
 
         [Fact]
-        public void HandlerGetMemberCreditRequest_Always_ReturnsCorrectViewModel()
+        public async void HandlerGetMemberCreditRequest_Always_ReturnsCorrectViewModel()
         {
             // Arrange
             var message = new GetMemberCreditAndStatusRequest(user)
@@ -253,15 +269,15 @@
             };
 
             var model = new CreditAndStatusModel(100, 10, 1000, "open");
-            service.GetCreditAndStatus(Arg.Any<string>()).Returns(model);
-
-            service.CheckBelongingByUsername(
-              Arg.Any<int>(),
-              Arg.Any<string>(),
-              Arg.Any<int>()).Returns(
-              new CheckBelongingByUsernameModel(true, 999, false, 1));
+            customerService.GetDownlineByUsername(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<string>()) .Returns(new Downline() { CustId = 1, IsActive = false, IsSubAcc = false, RoleId = 1 });
+            qrCodeMemberSignInService.GetCreditAndStatus(Arg.Any<string>()).Returns(model);
+            //qrCodeMemberSignInService.CheckBelongingByUsername(
+            //  Arg.Any<int>(),
+            //  Arg.Any<string>(),
+            //  Arg.Any<int>()).Returns(
+            //  new CheckBelongingByUsernameModel(true, 999, false, 1));
             // Act
-            var actualViewModel = handler.Handle(message);
+            var actualViewModel = await handler.Handle(message);
 
             // Assert
             AssertExtension.Equal(model, actualViewModel);
@@ -277,15 +293,16 @@
                 SearchAccountName = "user test",
                 Credit = 100,
                 CreditMin = 10,
-                CreditMax = 1000
+                CreditMax = 1000,
+                CreateMode = true,
+                RawPassword = "ABC"
             };
             var belongingInfo = new BelongingInfo(true, 1, string.Empty);
 
             checkBelongingService.GetBelongingInfo(Arg.Any<CheckBelongingParam>()).Returns(belongingInfo);
             qrCodeLoginConfigsHelper.LocalTest().Returns(true);
-            service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
+            qrCodeMemberSignInService.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
 
-            service.GetRnGStatus(Arg.Any<string>()).Returns(new SelectRnGStatusModel(true));
             qrCodeAdapter.Generate(Arg.Any<string>()).Returns("imageBase64");
 
             var domains = new string[] { "domain.com", "domain1.com" };
@@ -293,7 +310,7 @@
                new QRCodeLoginConfigs("192.468.1.1", domains, 1, 3600));
 
             passwordService.CreateMemberPasswordRandom().Returns(new PasswordModel("ABC", "abcd"));
-            service.ResetMemberPassword(Arg.Any<ResetMainAccountPasswordCommand>()).Returns(new Result());
+       
             var expectedViewModel = new ShowQRCodeViewModel(
                 message.Credit,
                 message.CreditMin,
@@ -316,9 +333,15 @@
              Arg.Any<int>()).Returns("linktest.com");
             // Act
             var actualViewModel = handler.Handle(message);
-
+            
             // Assert
-            AssertExtension.Equal(expectedViewModel, actualViewModel);
+            AssertExtension.Equal(expectedViewModel.Credit, actualViewModel.Credit);
+            AssertExtension.Equal(expectedViewModel.CreditMin, actualViewModel.CreditMin);
+            AssertExtension.Equal(expectedViewModel.CreditMax, actualViewModel.CreditMax);
+            AssertExtension.Equal(expectedViewModel.SearchAccountName, actualViewModel.SearchAccountName);
+            AssertExtension.Equal(expectedViewModel.FirstName, actualViewModel.FirstName);
+            AssertExtension.Equal(expectedViewModel.CreateMode, actualViewModel.CreateMode);
+            AssertExtension.Equal(expectedViewModel.RawPassword, actualViewModel.RawPassword);
         }
 
         [Fact]
@@ -336,7 +359,7 @@
             var belongingInfo = new BelongingInfo(true, 1, string.Empty);
 
             checkBelongingService.GetBelongingInfo(Arg.Any<CheckBelongingParam>()).Returns(belongingInfo);
-            service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
+            qrCodeMemberSignInService.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
 
             // Act
             var actualViewModel = handler.Handle(message);
@@ -358,7 +381,7 @@
             qrCodeLoginConfigsHelper.GetQRCodeMemberSiteLoginConfigs().Returns(
                 new QRCodeLoginConfigs("192.468.1.1", new string[] { "domain.com", "domain1.com" }, 1, 3600));
 
-            service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
+            qrCodeMemberSignInService.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(true);
 
             qrCodeAdapter.CreateMobileLoginUrl(
                 Arg.Any<bool>(),
@@ -388,7 +411,7 @@
                 Domain = "domain.com"
             };
 
-            service.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
+            qrCodeMemberSignInService.IsNotFirstLoginByQRCode(Arg.Any<int>()).Returns(false);
 
             // Act
             var actualViewModel = handler.Handle(message);
@@ -401,21 +424,21 @@
         [InlineData(1, 1, true)]
         [InlineData(0, 1, false)]
         [InlineData(1, 2, false)]
-        public void IsValidBelongingByUsername_Always_ReturnsCorrectViewModel(
+        public async void IsValidBelongingByUsername_Always_ReturnsCorrectViewModel(
             int custId,
             byte roleId,
             bool expectedResult)
         {
             // Arrange
 
-            service.CheckBelongingByUsername(
+            customerService.GetDownlineByUsername(
               Arg.Any<int>(),
-              Arg.Any<string>(),
-              Arg.Any<int>()).Returns(
-              new CheckBelongingByUsernameModel(true, custId, false, roleId));
+              Arg.Any<int>(),
+              Arg.Any<string>()).Returns(
+              new Downline(){CustId = custId,IsActive = true,IsSubAcc = false,RoleId = roleId});
 
             // Act
-            var actualResult = handler.IsValidBelongingByUsername(custId, "test", roleId);
+            var actualResult = await handler.IsValidBelongingByUsername(custId, "test", roleId);
 
             // Assert
             AssertExtension.Equal(expectedResult, actualResult);

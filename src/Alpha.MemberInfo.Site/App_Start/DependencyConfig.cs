@@ -2,16 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Net;
-    using System.Net.Http;
     using System.Reflection;
     using System.Resources;
-    using System.Threading;
     using System.Web;
     using System.Web.Mvc;
     using Alpha.CopyAccount.App_Start;
-    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Features.CreateAccount;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
@@ -19,12 +14,9 @@
     using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold;
-    using Alpha.MemberInfo.Features.ParlayMaxPayout;
     using Alpha.MemberInfo.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
-    using Alpha.MemberInfo.Site.Features.CopyAccount;
-    using Alpha.MemberInfo.Site.Features.CreateAccount;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
@@ -52,6 +44,9 @@
     using Controllers;
     using Fanex.Caching;
     using Fanex.Cryptography.Aes;
+    using Fanex.Customer.Client.Configurations;
+    using Fanex.Customer.Client.NETFramework;
+    using Fanex.Customer.Client.Services;
     using Fanex.Data.Repository;
     using Fanex.RemotingRef;
     using MediatR;
@@ -71,7 +66,6 @@
 
     public static class DependencyConfig
     {
-        [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Reviewed")]
         public static void Init()
         {
             RegisterQRCodeConfiguration();
@@ -143,7 +137,6 @@
                     container.GetInstance<IDynamicRepository>(),
                     container.GetInstance<CacheRefService>().GetProductName));
 
-            container.Register<ParlayMaxPayoutService, ParlayMaxPayoutServiceImpl>();
             container.Register<CheckUMService, CheckUMServiceImpl>();
 
             container.RegisterPerWebRequest<CreditBalanceService, CreditBalanceServiceImpl>();
@@ -176,22 +169,10 @@
 
             container.RegisterSingleton<ICacheService>(new CacheService());
             container.Register<IWinlossService, WinlossService>(Lifestyle.Scoped);
-            container.RegisterPerWebRequest<ICopyAccountService>(() => new CopyAccountService(CreateCustomerApiHttpClient()));
-            container.RegisterPerWebRequest<ICreateAccountService>(() => new CreateAccountService(CreateCustomerApiHttpClient()));
             container.RegisterPerWebRequest<IProductSettingInfoService, ProductSettingInfoService>();
-        }
 
-        private static HttpClient CreateCustomerApiHttpClient()
-        {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
-            var httpClient = new HttpClient()
-            {
-                BaseAddress = AppSettings.CustomerApiUri
-            };
-            httpClient.DefaultRequestHeaders.Add("Accept-Language", Thread.CurrentThread.CurrentCulture.Name);
-
-            return httpClient;
+            container.RegisterSingleton(new CustomerClientConfiguration().Initialize());
+            container.RegisterSingleton<ICustomerService, CustomerService>();
         }
 
         private static void StartConfiguration(Container container)

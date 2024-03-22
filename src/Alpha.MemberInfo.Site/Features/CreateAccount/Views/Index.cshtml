@@ -20,7 +20,7 @@
         @Html.ActionLink(Resources.SearchAndCopy, "Index", "CopyAccount")
     </li>
     <li role="presentation">
-        <a href="@MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx")" role="tab" data-toggle="tab">@Resources.FullMode</a>
+        @Html.ActionLink(Resources.FullMode, "Create", "Customer", new { lng = Model.Language, isDarkMode = Model.IsDarkMode.ToString().ToLowerInvariant() }, null)
     </li>
     @if (Model.IsCreateMember)
     {
@@ -50,6 +50,9 @@ else
     <input type="hidden" id="SecretKey" value="@Model.SecretKey" />
     <div id="root" style="height:100%"></div>
     @section Scripts{
+        <script type="text/javascript">
+            const params = @Html.Raw(Model.Params);
+        </script>
         @if (AppSettings.DevelopmentEnvironment)
         {
             <!-- if development -->
@@ -58,8 +61,8 @@ else
         else
         {
             <!-- if production -->
-            <link rel="stylesheet" href="~/ClientApp/dist/assets/createAccount-7aaa218c.css" />
-            <script type="module" src="~/ClientApp/dist/assets/createAccount-179a7f97.js"></script>
+            <link rel="stylesheet" href="~/ClientApp/dist/assets/createAccount-bb96070b.css" />
+            <script type="module" src="~/ClientApp/dist/assets/createAccount-0260a057.js"></script>
         }
     }
 }

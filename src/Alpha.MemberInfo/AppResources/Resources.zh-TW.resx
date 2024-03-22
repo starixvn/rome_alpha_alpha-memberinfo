@@ -1048,4 +1048,23 @@
     <value>第 {0} 頁 共 {1} 頁
 </value>
   </data>
+  <data name="BetSetting" xml:space="preserve">
+    <value>Bet Setting</value>
+  </data>
+  <data name="PTSetting" xml:space="preserve">
+    <value>Position Taking Setting</value>
+  </data>
+  <data name="SMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>
+      Inputting all fields of bet setting = 0 means you do not set limit to the bet setting of this account.&lt;br/&gt;
+      To prevent members from playing the game, set Min Bet = 0 and other fields = 0.1.&lt;br/&gt;
+      Updating upline's bet setting might decrease all downlines' bet settings to ensure that they are not greater than upline's bet setting.
+    </value>
+  </data>
+  <data name="Commission" xml:space="preserve">
+    <value>佣金</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>現場</value>
+  </data>
 </root>

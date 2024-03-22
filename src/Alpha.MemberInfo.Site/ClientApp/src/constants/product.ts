@@ -1,4 +1,4 @@
-export const MaxNumberInputLength = 14; // 99,999,999,999
+export const MaxNumberInputLength = 18; // 99,999,999,999,999
 
 export const enum ProductGroupIds {
   SportsBook = 1,

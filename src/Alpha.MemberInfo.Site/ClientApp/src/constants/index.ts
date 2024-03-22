@@ -1,4 +1,12 @@
+export interface Params {
+  suggestUsername: string;
+  uplineId: number;
+  uplineRoleId: number;
+}
+
 declare global {
+  const params: Params;
+
   interface Window {
     alpha: {
       urls: {
@@ -16,7 +24,9 @@ export const siteMemberInfoUrl = window.top?.alpha?.urls.memberInfoRootPath;
 export const oldMainUrl = window.top?.alpha?.urls.oldMainRootPath;
 
 export const createAccountRootUrl = `${siteMemberInfoUrl}CreateAccount`;
-export const productSettingInfoRootUrl = `${siteMemberInfoUrl}ProductSettingInfo`;
+
+export const customerSettingInfoRootUrl = `${siteMemberInfoUrl}/Customer/SportBookInformation`;
+
 export const copyAccountRootUrl = `${siteMemberInfoUrl}CopyAccount`;
 
 export const bootBoxConfirm = window.top?.bootboxConfirm;

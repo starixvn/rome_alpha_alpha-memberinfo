@@ -1,12 +1,12 @@
 ﻿using Alpha.MemberInfo.Configurations;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Requests;
-using Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels;
 using MediatR;
+using Fanex.Customer.Client.Models;
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount.Request
 {
-    public class CopyAccountCommand : MemberInfoBaseQuery, IAsyncRequest<CopyAccountResponse>
+    public class CopyAccountCommand : MemberInfoBaseQuery, IAsyncRequest<CopyMultipleCustomersResult>
     {
         public CopyAccountCommand(IUser viewer) : base(viewer)
         {

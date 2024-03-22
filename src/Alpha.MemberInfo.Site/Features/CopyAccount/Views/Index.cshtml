@@ -21,7 +21,7 @@
         <a href="javascript:;" aria-controls="home" role="tab" data-toggle="tab">@Resources.SearchAndCopy</a>
     </li>
     <li role="presentation">
-        <a href="@MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx")" role="tab" data-toggle="tab">@Resources.FullMode</a>
+        @Html.ActionLink(Resources.FullMode, "Create", "Customer", new { lng = Model.Language, isDarkMode = Model.IsDarkMode.ToString().ToLowerInvariant() }, null)
     </li>
     @if (Model.IsCreateMember)
     {
@@ -161,6 +161,7 @@
                         <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
                         @Html.Hidden("InvalidMaxCreditPerAccount", Resources.InvalidMaxCreditPerAccount)
                         @Html.Hidden("InvalidMemberMaxCredit", Resources.InvalidMemberMaxCredit)
+                        @Html.Hidden("Live", Resources.Live)
                         @Html.Hidden("old-version-url", MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx"))
                         @Html.Hidden("ActorUsername", Model.ActorUsername)
                         @Html.AntiForgeryToken()

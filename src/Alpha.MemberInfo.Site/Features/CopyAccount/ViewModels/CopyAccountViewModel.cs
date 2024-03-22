@@ -2,7 +2,6 @@
 using Alpha.MemberInfo.Configurations;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Request;
-using Sentry.Protocol;
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
 {

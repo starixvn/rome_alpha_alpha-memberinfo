@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { NumericFormat } from 'react-number-format';
 
 import { UserLevel, UserLevelName } from '@/constants';
+import { MaxNumberInputLength } from '@/constants/product';
 import CommissionGroup from '@/features/NewAccount/GeneralInformation/CommissionGroup';
 import { Block, BlockItem } from '@/features/Shared/Block';
 import Checkbox from '@/features/Shared/Checkbox';
@@ -18,6 +19,7 @@ import styles from './GeneralInfo.module.scss';
 import { GeneralInfoErrors, validateGeneralInfo } from './generalInfoValidator';
 import PasswordRule from './PasswordRule';
 import Username from './Username';
+
 
 function ToNumberFormat(value: string) {
   const RegexAllowedCharsRegex = /,/g;
@@ -192,7 +194,7 @@ export default function GeneralInformation() {
               <NumericFormat
                 id="maxCredit"
                 name="maxCredit"
-                maxLength={14}
+                maxLength={MaxNumberInputLength}
                 value={generalInfo.maxCredit}
                 className={cn({ error: errors.maxCredit })}
                 onChange={(e) => {
@@ -239,7 +241,7 @@ export default function GeneralInformation() {
                 <NumericFormat
                   id="memberMaxCredit"
                   name="memberMaxCredit"
-                  maxLength={14}
+                  maxLength={MaxNumberInputLength}
                   value={generalInfo.memberMaxCredit}
                   className={cn({ error: errors.memberMaxCredit })}
                   onChange={(e) => {

@@ -16,6 +16,7 @@
     using Auth.Filters;
     using Configurations;
     using Fanex.Caching;
+    using Fanex.Customer.Client.NETFramework;
     using Fanex.Data;
     using Fanex.Logging.Extensions.Web;
     using Fanex.RemotingRef;

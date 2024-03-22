@@ -65,7 +65,7 @@ export default function AgentPTSettings({ is3DecimalSite, productGroupId }: PTPr
         <BlockRow isHeaderRow>
           <BlockColumn>{t('agentPT')}</BlockColumn>
         </BlockRow>
-        {groupItems.map((value) => (
+        {groupItems?.map((value) => (
           <AgentPTRow
             is3DecimalSite={is3DecimalSite}
             key={value.subGroupId}

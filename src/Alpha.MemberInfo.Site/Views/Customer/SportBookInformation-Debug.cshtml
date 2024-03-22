@@ -1,0 +1,27 @@
+@using Alpha.MemberInfo.Site.ViewModels.Customer;
+@model SportBookInformationViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://localhost:4205/src/styles.scss" />
+</head>
+<body>
+<div id="root" style="height: calc(100% - 90px);"></div>
+    <script type="module">
+        import RefreshRuntime from "http://localhost:4205/@@react-refresh";
+        RefreshRuntime.injectIntoGlobalHook(window);
+        window.$RefreshReg$ = () => { };
+        window.$RefreshSig$ = () => (type) => type;
+        window.__vite_plugin_react_preamble_installed__ = true;
+    </script>        
+    <script type="module" src=@("http://localhost:4205/@vite/client")></script>
+    <script type="text/javascript">
+        const appConfig = @Html.Raw(Model.AppConfig);
+        const informationPageParams = @Html.Raw(Model.Params);
+    </script>
+    <script type="module" src="http://localhost:4205/src/main.tsx"></script>  
+</body>
+</html>

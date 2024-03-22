@@ -6,7 +6,7 @@
 
     public class QRCodeMemberSignInRequest :
         QRCodeBaseQuery,
-        IRequest<QRCodeMemberSignInViewModel>
+        IAsyncRequest<QRCodeMemberSignInViewModel>
     {
         public QRCodeMemberSignInRequest(IUser viewer) : base(viewer)
         {

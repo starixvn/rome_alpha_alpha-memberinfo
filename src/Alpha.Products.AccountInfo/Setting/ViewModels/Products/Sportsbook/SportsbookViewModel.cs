@@ -24,20 +24,12 @@
         public override Dictionary<string, string> QueryStringParamaters
          => new Dictionary<string, string>
          {
-             ["m"] = "0",
              ["custId"] = SearchAccount.Id.ToString(),
-             ["user"] = SearchAccount.Username,
-             [$"{SearchAccount.Upline.CustomerLevel.DisplayName}id"] = SearchAccount.Upline.Id.ToString()
+             ["roleId"] = SearchAccount.CusomerLevelValue.ToString(),
+             ["lng"] = request.Language,
+             ["isDarkMode"] = request.IsDarkMode.ToString().ToLowerInvariant()
          };
 
-        protected override string BaseAddress
-        {
-            get
-            {
-                var useCase = $"{Actor.CustomerLevel.DisplayName}/Edit{SearchAccount.CustomerLevel.DisplayName}";
-
-                return $"{OldMainUrl}_MemberInfo/PositionTaking/{useCase}.aspx";
-            }
-        }
+        protected override string BaseAddress => $"{MemberInfoUrl}Customer/EditCustomer";
     }
 }

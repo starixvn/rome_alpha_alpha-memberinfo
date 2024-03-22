@@ -4,5 +4,6 @@
         openWithHanlder: Function,
         close: Function,
         closeAllPopup: Function
-    }
+    },
+    customerListNew: boolean;
 }

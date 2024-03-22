@@ -37,6 +37,7 @@ class QRCodeMemberSignIn {
 
     showCreateFromUnopenedMemberMessage: boolean;
     cannotCreateClosedMemberQRCodeMessage: string;
+    liveText: string;
 
     constructor(
         $: JQueryStatic,
@@ -99,6 +100,7 @@ class QRCodeMemberSignIn {
         this.usernameIsInvalid = this.$('#UsernameIsInvalid').val();
         this.iconMessageUsernameCopyFrom = 'icon-message-UsernameCopyFrom';
         this.cannotCreateClosedMemberQRCodeMessage = this.$('#CannotCreateClosedMemberQRCode').val();
+        this.liveText = this.$("#Live").val();
     }
 
     getMemberCredit = () => {
@@ -137,6 +139,21 @@ class QRCodeMemberSignIn {
     }
 
     showErrorMessage = (message) => {
+        this.$messageContainer.removeClass('hidden').addClass('msg msg-error');
+        this.$messageContent.html(message);
+    }
+
+    showMessageContent = (messageContent) => {
+        var message = `<div class="main-message">${messageContent.MainMessage}</div>`
+        if (messageContent.SubMessages && messageContent.SubMessages.length) {
+            messageContent.SubMessages.forEach((subMessage) => {
+                message += `<div class="sub-message">`
+                if (subMessage.IsLive) {
+                    message += `<span class="live-badge">${this.liveText}</span> `;
+                }
+                message += `${subMessage.Message}</div>`;
+            });
+        }
         this.$messageContainer.removeClass('hidden').addClass('msg msg-error');
         this.$messageContent.html(message);
     }
@@ -197,7 +214,11 @@ class QRCodeMemberSignIn {
                     }, 1000);
                 }
                 else {
-                    this.showErrorMessage(result.ErrMsg);
+                    if (result.MsgType) {
+                        this.showMessageContent(result.MessageContent);
+                    } else {
+                        this.showErrorMessage(result.ErrMsg);
+                    }
                     this.$.unblockUI();
                 }
             },

@@ -1,17 +1,19 @@
 import { StateCreator } from 'zustand';
 
 import { UserLevel } from '@/constants';
-import {
-    AgentPTSetting, MasterPTSetting, ProductGroupDict, SubGroup, SuperPTSetting
-} from '@/types/new-account';
+import { AgentPTSetting, MasterPTSetting, ProductGroupDict, SubGroup, SuperPTSetting } from '@/types/new-account';
 import { PTTemplate } from '@/types/position-taking';
 
 import AgentPTHandler from './PositionTakingHandler/agentPTHandler';
-import PTHandlerContext from './PositionTakingHandler/basePTHandler';
+import PTHandlerContext, { PTError } from './PositionTakingHandler/basePTHandler';
 import MasterPTHandler from './PositionTakingHandler/masterPTHandler';
 import {
-    handleAgentSelectDefaultTemplate, handleAgentSelectTemplate, handleMasterSelectTemplate,
-    handlerMasterSelectDefaultTemplate, handleSuperSelectDefaultTemplate, handleSuperSelectTemplate
+  handleAgentSelectDefaultTemplate,
+  handleAgentSelectTemplate,
+  handleMasterSelectTemplate,
+  handlerMasterSelectDefaultTemplate,
+  handleSuperSelectDefaultTemplate,
+  handleSuperSelectTemplate,
 } from './PositionTakingHandler/ptTemplateHandler';
 import SuperPTHandler from './PositionTakingHandler/superPTHandler';
 
@@ -34,7 +36,7 @@ export type PositionTakingSlice = {
   selectedPTTemplate: string;
   isSelectingPTTemplate: boolean;
   setIsSelectingPTTemplate: (isSelectingPTTemplate: boolean) => void;
-  initPositionTakingState: (userLevel: number, productGroups: ProductGroupDict, ptTemplates: PTTemplate[]) => string[];
+  initPositionTakingState: (userLevel: number, productGroups: ProductGroupDict, ptTemplates: PTTemplate[]) => PTError[];
   updatePTSetting: (
     productGroupId: number,
     subGroupId: number,

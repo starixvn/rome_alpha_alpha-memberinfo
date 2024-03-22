@@ -27,7 +27,7 @@
         @Html.ActionLink(Resources.SearchAndCopy, "Index", "CopyAccount")
     </li>
     <li role="presentation">
-        <a href="@MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx")" role="tab" data-toggle="tab">@Resources.FullMode</a>
+        @Html.ActionLink(Resources.FullMode, "Create", "Customer", new { lng = Model.Language, isDarkMode = Model.IsDarkMode.ToString().ToLowerInvariant() }, null)
     </li>
     <li role="presentation" class="has-icon active">
         <a href="javascript:;" aria-controls="home" role="tab" data-toggle="tab">@Resources.QRCode</a>
@@ -100,6 +100,7 @@ else
         <input type="hidden" id="MemberAccountIsInvalid" value="@Resources.MemberAccountIsInvalid" />
         <input type="hidden" id="UsernameIsInvalid" value="@Resources.UsernameIsInvalid" />
         <input type="hidden" id="CannotCreateClosedMemberQRCode" value="@Resources.CannotCreateClosedMemberQRCode" />
+        @Html.Hidden("Live", Resources.Live)
         @Html.HiddenFor(m => m.MemberNameCopyFrom)
         @Html.HiddenFor(m => m.ShowQRCodeLink)
         <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />

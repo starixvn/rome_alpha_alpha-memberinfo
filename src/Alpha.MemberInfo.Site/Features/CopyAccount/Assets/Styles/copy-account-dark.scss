@@ -2,8 +2,6 @@
     @return $num / $scale;
 }
 
-
-
 .tooltip {
     background-color: transparent;
     border-color: transparent;
@@ -54,10 +52,9 @@
     }
 }
 
-
 .panel {
     box-sizing: border-box;
-    max-width: 930px; 
+    max-width: 930px;
     margin: 12px 0 0 0;
     overflow: unset;
     border-radius: 4px;
@@ -225,7 +222,6 @@
             }
         }
 
-
         label {
             font-weight: 400;
             font-size: 14px;
@@ -278,7 +274,6 @@
         }
     }
 
-
     .relative-input {
         position: relative;
         display: flex;
@@ -314,8 +309,6 @@
             }
         }
     }
-
-
 
     .require {
         color: #EB5757;
@@ -364,7 +357,6 @@
     border-radius: 3px;
 }
 
-
 #credit-max-label {
     font-weight: bold;
 }
@@ -391,7 +383,6 @@
         }
     }
 }
-
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -421,7 +412,6 @@ select:-webkit-autofill:focus {
     margin-top: 0;
 }
 
-
 .failed-account-created {
     padding-top: 12px;
     border-top: 1px solid #3E3F41;
@@ -448,7 +438,6 @@ select:-webkit-autofill:focus {
     }
 }
 
-
 .input-pass {
     font-family: 'password';
 }
@@ -456,9 +445,6 @@ select:-webkit-autofill:focus {
 .input-pass::placeholder {
     font-family: 'Roboto';
 }
-
-
-
 
 .result {
     position: relative;
@@ -544,8 +530,6 @@ select:-webkit-autofill:focus {
     }
 }
 
-
-
 .form-submit {
     button {
         margin-top: 10px;
@@ -553,9 +537,6 @@ select:-webkit-autofill:focus {
         font-size: 13px;
     }
 }
-
-
-
 
 .easy-autocomplete-container {
     ul {
@@ -609,13 +590,16 @@ select:-webkit-autofill:focus {
         border-radius: 0 0 3px 3px;
     }
 }
-.btn-submit{
+
+.btn-submit {
     border-radius: 3px;
     box-shadow: none;
 }
+
 .msg {
     border-radius: 3px;
 }
+
 @media (max-width : 767px) {
     .result {
         position: unset;
@@ -683,7 +667,6 @@ select:-webkit-autofill:focus {
         padding: calculateScale(4px) calculateScale(8px) !important;
         font-size: calculateScale(13px) !important;
     }
-
 
     .panel-heading {
         align-items: flex-start !important;
@@ -785,7 +768,6 @@ select:-webkit-autofill:focus {
         line-height: calculateScale(20px) !important;
     }
 
-
     .result {
         .relative-input {
             width: 100% !important;
@@ -836,4 +818,20 @@ select:-webkit-autofill:focus {
             line-height: calculateScale(20px);
         }
     }
+}
+
+.sub-message {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: -3px;
+    line-height: 20px;
+}
+
+.live-badge {
+    background: #dd3333;
+    font-size: 11px;
+    color: #ededed;
+    padding: 2px 5px;
+    margin-right: 3px;
+    border-radius: 3px;
 }

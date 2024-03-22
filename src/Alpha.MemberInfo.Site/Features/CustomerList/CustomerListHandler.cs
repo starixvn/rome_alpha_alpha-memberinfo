@@ -208,14 +208,14 @@
                  message.SubAccountId,
                  message.UplineName,
                  message.UplineRoleId,
-                 BuildUplineProductStatus(customerStatusModel.NonDCSProduct, customerStatusModel.DCSProducts.ToList()));
+                 BuildUplineProductStatus(customerStatusModel.DCSProducts.ToList()));
 
             var searchAccount = new Customer(
                message.SearchAccountId,
                message.SubAccountId,
                message.SearchAccountName,
                message.SearchAccountRoleId,
-               BuildSearchAccountProductStatus(customerStatusModel.NonDCSProduct, customerStatusModel.DCSProducts.ToList()),
+               BuildSearchAccountProductStatus(customerStatusModel.DCSProducts.ToList()),
                upline);
 
             return new CustomerStatusViewModel(
@@ -239,55 +239,29 @@
                  message.SubAccountId,
                  message.UplineName,
                  message.UplineRoleId,
-                 BuildUplineProductStatus(customerStatusModel.NonDCSProduct, customerStatusModel.DCSProducts.ToList()));
+                 BuildUplineProductStatus(customerStatusModel.DCSProducts.ToList()));
 
             var searchAccount = new Customer(
                message.SearchAccountId,
                message.SubAccountId,
                message.SearchAccountName,
                message.SearchAccountRoleId,
-               BuildSearchAccountProductStatus(customerStatusModel.NonDCSProduct, customerStatusModel.DCSProducts.ToList()),
+               BuildSearchAccountProductStatus(customerStatusModel.DCSProducts.ToList()),
                upline);
 
             return BuildCustomerProductMultipleSettings(actor, searchAccount, message, customerStatusModel);
         }
 
         internal IEnumerable<CustomerProductStatus> BuildSearchAccountProductStatus(
-            NonDCSProductStatusModel nonDCSProduct,
             IEnumerable<DCSProductStatusModel> dcsProducts)
         {
-            var customerProductStatus = new List<CustomerProductStatus>
-            {
-                new CustomerProductStatus(ProductConstants.Sportsbook, true),
-                new CustomerProductStatus(ProductConstants.ESport, nonDCSProduct.DisableEsports),
-            };
-
-            dcsProducts.ToList().ForEach(product =>
-            {
-                customerProductStatus.Add(
-                    new CustomerProductStatus(product.ProductId, product.IsDisabled, product.IsHidden, product.IsSync));
-            });
-
-            return customerProductStatus;
+            return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabled, product.IsHidden, product.IsSync));
         }
 
         internal IEnumerable<CustomerProductStatus> BuildUplineProductStatus(
-            NonDCSProductStatusModel nonDCSProduct,
             IEnumerable<DCSProductStatusModel> dcsProducts)
         {
-            var customerProductStatus = new List<CustomerProductStatus>
-            {
-                new CustomerProductStatus(ProductConstants.Sportsbook, true),
-                new CustomerProductStatus(ProductConstants.ESport, nonDCSProduct.UplineDisableEsports),
-            };
-
-            dcsProducts.ToList().ForEach(product =>
-            {
-                customerProductStatus.Add(
-                    new CustomerProductStatus(product.ProductId, product.IsDisabledUpline, product.IsHiddenUpline, product.IsSyncedUpline));
-            });
-
-            return customerProductStatus;
+            return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabledUpline, product.IsHiddenUpline, product.IsSyncedUpline));
         }
 
         internal IEnumerable<CustomerProductStatus> BuildActorProductStatus(
@@ -321,8 +295,10 @@
             CustomerStatusModel model,
             bool allowedAllDayBalTransfer)
         {
-            var request = new StatusSearchAccountRequest(actor, searchAccount);
-            request.SubPageAccess = message.SubPageAccess;
+            var request = new StatusSearchAccountRequest(actor, searchAccount, message.Language, message.IsDarkMode)
+            {
+                SubPageAccess = message.SubPageAccess
+            };
 
             request
                 .AddData(DataKey.Actor.HasUpdateAccountPermission, message.CanUpdateAccount)
@@ -365,8 +341,10 @@
             CustomerStatusQueryBase message,
             CustomerStatusModel model)
         {
-            var request = new SettingSearchAccountRequest(actor, searchAccount);
-            request.SubPageAccess = message.SubPageAccess;
+            var request = new SettingSearchAccountRequest(actor, searchAccount, message.Language, message.IsDarkMode)
+            {
+                SubPageAccess = message.SubPageAccess
+            };
             request
                  .AddData(DataKey.Actor.CanEditDailyTransferOption, model.NonProduct.TransferDaily)
                  .AddData(DataKey.Actor.HasUpdateAccountPermission, message.CanUpdateAccount)
@@ -382,10 +360,12 @@
            CustomerStatusMultipleQuery message,
            CustomerStatusModel model)
         {
-            var request = new SettingSearchAccountRequest(actor, searchAccount);
-            request.SubPageAccess = message.SubPageAccess;
-            request.SupportAutoTransfer = message.SupportAutoTransfer;
-            request.AutoTransferAffect = message.AutoTransferAffect;
+            var request = new SettingSearchAccountRequest(actor, searchAccount, message.Language, message.IsDarkMode)
+            {
+                SubPageAccess = message.SubPageAccess,
+                SupportAutoTransfer = message.SupportAutoTransfer,
+                AutoTransferAffect = message.AutoTransferAffect
+            };
 
             request
                  .AddData(DataKey.Actor.CanEditDailyTransferOption, model.NonProduct.TransferDaily)

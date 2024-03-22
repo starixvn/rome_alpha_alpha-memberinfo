@@ -106,8 +106,8 @@
     <Reference Include="MessagePack.Annotations, Version=2.5.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MessagePack.Annotations.2.5.124\lib\netstandard2.0\MessagePack.Annotations.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
@@ -252,31 +252,24 @@
     <Compile Include="Setting\SettingViewModelFactory.cs" />
     <Compile Include="Setting\ViewModels\Base\ISettingItemMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Base\ISettingItemViewModel.cs" />
-    <Compile Include="Setting\ViewModels\BetSettingViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\ClosedMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\AutoTransferMultipleViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Multiple\ParlayMaxPayoutMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\ProtectedMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\SuspendedMultipleViewModel.cs" />
-    <Compile Include="Setting\ViewModels\ParlayMaxPayoutViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Base\ProductSettingItemViewModel.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
-    <Compile Include="Setting\ViewModels\Products\Sportsbook2\Sportsbook2MultipeViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Products\Sportsbook2\Sportsbook2ViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\RemoveOtpViewModel.cs" />
     <Compile Include="Setting\ViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="Setting\ViewModels\TransferViewModel.cs" />
-    <Compile Include="Setting\ViewModels\CommissionViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductViewModel.cs" />
     <Compile Include="Setting\ViewModels\EditInfoViewModel.cs" />
     <Compile Include="Setting\ViewModels\Base\SettingItemViewModel.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Setting\ViewModels\ResetSecurityCodeViewModel.cs" />
-    <Compile Include="Setting\ViewModels\SportsbookMinPTViewModel.cs" />
     <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookViewModel.cs" />
     <Compile Include="Status\StatusViewModelFactory.cs" />
     <Compile Include="Status\ViewModels\Base\ConfirmStatusItemViewModelBase.cs">

@@ -4,8 +4,13 @@ import { GroupItem, ProductGroupDict } from '@/types/new-account';
 import { GroupType } from '../../types/new-account/index';
 import { PTTemplate } from '../../types/position-taking/index';
 
+export type PTError = {
+  isLive: boolean;
+  message: string
+}
+
 export type PTInitData<T> = {
-  violateMinMaxPTErr: string[];
+  violateMinMaxPTErr: PTError[];
   ptSetting: T;
   ptConfig: T;
   selectedPTTemplate: string;
@@ -35,7 +40,7 @@ export default class PTHandlerContext {
 export class BasePTHandler {
   protected productGroups: ProductGroupDict;
   protected ptTemplates: PTTemplate[];
-  protected violateMinMaxPTError: string[];
+  protected violateMinMaxPTError: PTError[];
 
   constructor(productGroups: ProductGroupDict, ptTemplate: PTTemplate[]) {
     this.productGroups = productGroups;
@@ -65,14 +70,14 @@ export class BasePTHandler {
   ) {
     if (this.violateMinMaxPTError.length === 0) {
       const isSportBookProduct = productGroupId === ProductGroupIds.SportsBook;
-      const minPTError = `${minPTItem?.sportTypeName}${
-        isSportBookProduct ? ` - ${minPTItem?.betTypeName}` : ''
+      const minPTError = `${
+        isSportBookProduct ? `${minPTItem?.betTypeName}` : `${minPTItem?.sportTypeName}`
       } - MinPT: ${minPTValue / 100}`;
-      const maxPTError = `${maxPTItem?.sportTypeName}${
-        isSportBookProduct ? ` - ${maxPTItem?.betTypeName}` : ''
+      const maxPTError = `${
+        isSportBookProduct ? `${maxPTItem?.betTypeName}` : `${maxPTItem?.sportTypeName}`
       } - MaxPT: ${maxPTValue / 100}`;
 
-      this.violateMinMaxPTError = [minPTError, maxPTError];
+      this.violateMinMaxPTError = [{isLive: minPTItem.isLive, message: minPTError}, {isLive: maxPTItem.isLive, message: maxPTError}];
     }
   }
 

@@ -117,18 +117,18 @@
       flex: 1;
       height: 100%;
       position: relative;
-      padding: 4px 7px;
+      padding: 4px;
       border-left: 1px solid var(--border-color);
       border-top: 1px solid var(--border-color);
       flex-wrap: nowrap;
       white-space: nowrap;
       font-size: 12px;
       input {
-        margin-right: 8px;
+        margin-right: 4px;
         &:not([type='checkbox']) {
           height: 26px;
           width: 100%;
-          max-width: 95px;
+          max-width: 115px;
           font-size: 12px;
         }
       }

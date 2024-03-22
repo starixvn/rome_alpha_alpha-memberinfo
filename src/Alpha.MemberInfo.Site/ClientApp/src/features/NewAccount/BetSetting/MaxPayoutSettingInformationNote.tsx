@@ -1,10 +1,17 @@
 import { t } from 'i18next';
 
-import { oldMainUrl } from '@/constants';
+import { customerSettingInfoRootUrl } from '@/constants';
 import { IconInfo } from '@/features/Shared/Icons';
+import useNewAccountStore from "@/store/newAccountStore";
 
 export default function MaxPayoutSettingInformationNote() {
-  const url = `${oldMainUrl}/ViewMaxPayoutSettingInformation/Index.aspx`;
+  const theme = useNewAccountStore((state) => state.theme);
+  const generalInfo = useNewAccountStore((state) => state.generalInfo);
+
+  const url = `${customerSettingInfoRootUrl}?tabindex=1&theme=${theme}&custId=${generalInfo.uplineCustId}&roleId=${
+    generalInfo?.uplineRoleId - 1
+  }&site=${generalInfo.site}&siteLabel=${generalInfo.siteLabel}`;
+
   const tooltipContent = t('MaxPayoutInfoTitle');
 
   return (
