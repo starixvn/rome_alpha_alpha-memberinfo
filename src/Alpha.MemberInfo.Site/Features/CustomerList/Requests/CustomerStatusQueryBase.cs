@@ -6,12 +6,9 @@
 
     public class CustomerStatusQueryBase : BaseRequest
     {
-        private readonly IUser viewer;
-
         public CustomerStatusQueryBase(IUser viewer)
             : base(viewer)
         {
-            this.viewer = viewer;
         }
 
         public virtual int SearchAccountId { get; set; }
@@ -37,10 +34,6 @@
         public bool GetDisabledProduct(int productId) => viewer.GetDisabledProduct(productId);
 
         public bool GetHideProduct(int productId) => viewer.GetHideProduct(productId);
-
-        public bool GetSyncedProduct(int productId) => viewer.GetSyncedProduct(productId);
-
-        public bool IsDisabledESports => viewer.IsDisabledESports;
 
         public override bool IsValid() => IsValidSearchAccount && IsValidUpline;
 

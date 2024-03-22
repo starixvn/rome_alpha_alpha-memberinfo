@@ -1,15 +1,13 @@
-﻿namespace Alpha.Products.AccountInfo.Status.ViewModels.Base
-{
-    using System;
-    using System.Collections.Generic;
-    using Alpha.Products.AccountInfo.Requests;
-    using Alpha.Products.Core.Configuration;
-    using Alpha.Products.Core.Shared;
+﻿using System;
+using Alpha.Products.AccountInfo.Requests;
+using Alpha.Products.Core.Configuration;
 
+namespace Alpha.Products.AccountInfo.Status.ViewModels.Base
+{
     public class ProductStatusItemViewModel : StatusItemViewModel
     {
         private readonly IConfigurationItem productItem;
-        private const int DisplayOrderStep = 10;
+        private const int DisplayOrderStep = 100;
 
         public ProductStatusItemViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request)
@@ -31,8 +29,8 @@
                                           $"uid={Guid.NewGuid()}");
 
         public override bool Disabled
-            => base.Disabled || 
-            Actor.IsNotDirectUplineOf(SearchAccount) || 
+            => base.Disabled ||
+            Actor.IsNotDirectUplineOf(SearchAccount) ||
             SearchAccount.Upline.ProductStatusOf(productItem.ProductId).Disabled;
 
         public override bool Visible => Actor.IsDirectUplineOf(SearchAccount) && SearchAccount.CanSeeProduct(productItem.ProductId);

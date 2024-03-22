@@ -40,8 +40,8 @@
     <Reference Include="Alpha.PartialUM, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.PartialUM.2.0.0\lib\net461\Alpha.PartialUM.dll</HintPath>
     </Reference>
-    <Reference Include="Alpha.Products.Core, Version=1.0.1.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Products.Core.1.0.1.5\lib\net461\Alpha.Products.Core.dll</HintPath>
+    <Reference Include="Alpha.Products.Core, Version=1.0.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Products.Core.1.0.1.6-UnifyLiveRNGCasino05\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.SubAccount.1.0.0.1\lib\net40\Alpha.SubAccount.dll</HintPath>
@@ -252,6 +252,8 @@
     <Compile Include="Setting\SettingViewModelFactory.cs" />
     <Compile Include="Setting\ViewModels\Base\ISettingItemMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Base\ISettingItemViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Multiple\ProductGroupMultipleSettingItemViewModel.cs" />
+    <Compile Include="Setting\ViewModels\Base\ProductGroupSettingItemViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\ClosedMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\AutoTransferMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\ProtectedMultipleViewModel.cs" />
@@ -275,6 +277,7 @@
     <Compile Include="Status\ViewModels\Base\ConfirmStatusItemViewModelBase.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
+    <Compile Include="Status\ViewModels\Base\ProductGroupStatusItemViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmAllowAutoMasterPTViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmAllowOutrightViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmClosedViewModel.cs" />
@@ -343,6 +346,7 @@
       <LastGenOutput>Lang.zh-TW.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

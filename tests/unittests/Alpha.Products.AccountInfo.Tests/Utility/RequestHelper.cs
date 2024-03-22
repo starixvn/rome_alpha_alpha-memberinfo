@@ -7,11 +7,12 @@
     public static class RequestHelper
     {
         private static readonly Func<string, string> GetString = (key) => key;
+        private static readonly Func<int, string> GetProductGroupName = (productId) => $"ProductGroupName-{productId}";
         private static readonly Func<int, string> GetProductName = (productId) => $"ProductName-{productId}";
         private static readonly Func<string, string, string> GetMicroSiteUrl = (microSiteName, virtualPath) => $"MicroSiteName/";
 
         public static ISearchAccountInfoRequest CreateRequestFromCustomers(ICustomer actor, ICustomer searchAccount)
-            => new SearchAccountRequestStub(actor, searchAccount, GetString, GetProductName);
+            => new SearchAccountRequestStub(actor, searchAccount, GetProductGroupName, GetString, GetProductName);
 
         public static ISearchAccountInfoRequest CreateRequest(
             byte actorLevel,
@@ -25,9 +26,10 @@
             var searchAccount = CustomerHelper.CreateCustomer(2, searchAccountLevel);
 
             return new SearchAccountRequestStub(
-                actor, 
-                searchAccount, 
-                getString ?? GetString, 
+                actor,
+                searchAccount,
+                getProductName ?? GetProductGroupName,
+                getString ?? GetString,
                 getProductName ?? GetProductName,
                 getMicroSiteUrl ?? GetMicroSiteUrl);
         }

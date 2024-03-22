@@ -83,7 +83,7 @@
             ipService = Substitute.For<IPService>();
             transferService = Substitute.For<TransferService>();
 
-            handler = new CustomerListHandler(service, null, null, null, ipService, securityCodeChecker, browserHelper, transferService);
+            handler = new CustomerListHandler(service, null, null, null, ipService, securityCodeChecker, browserHelper, transferService, cacheRefService);
         }
 
         [Fact]
@@ -335,7 +335,8 @@
                                   isSyncedUpline: true,
                                   isHiddenUpline: true,
                                   isDisabledUpline: true,
-                                  hasDownline: true),
+                                  hasDownline: true,
+                                  groupId:1),
                      new DCSProductStatusModel(
                                   productId: 6,
                                   sportType: 13,
@@ -346,7 +347,8 @@
                                   isSyncedUpline: true,
                                   isHiddenUpline: true,
                                   isDisabledUpline: true,
-                                  hasDownline: true)
+                                  hasDownline: true,
+                                  groupId:1)
                     };
     }
 }

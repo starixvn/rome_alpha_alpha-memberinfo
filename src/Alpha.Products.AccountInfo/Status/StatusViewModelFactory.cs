@@ -39,6 +39,9 @@ namespace Alpha.Products.AccountInfo.Status
             }
         }
 
+        protected override IStatusItemViewModel GetProductGroupViewModel(int productGroupId, ISearchAccountInfoRequest request)
+            => new ProductGroupStatusItemViewModel(request, productGroupId);
+
         protected override IStatusItemViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)
             => new ProductStatusItemViewModel(request, productItem);
     }
