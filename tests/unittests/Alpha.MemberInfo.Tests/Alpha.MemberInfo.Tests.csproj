@@ -89,7 +89,7 @@
       <HintPath>..\..\..\packages\Fanex.Cryptography.Aes.1.0.0.5\lib\net461\Fanex.Cryptography.Aes.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Customer.Client, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Customer.Client.1.0.0.1\lib\netstandard2.0\Fanex.Customer.Client.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.Customer.Client.1.0.1-beta01\lib\netstandard2.0\Fanex.Customer.Client.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Data.ProxyClient, Version=0.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Data.ProxyClient.0.0.3-alpha02\lib\netstandard2.0\Fanex.Data.ProxyClient.dll</HintPath>
