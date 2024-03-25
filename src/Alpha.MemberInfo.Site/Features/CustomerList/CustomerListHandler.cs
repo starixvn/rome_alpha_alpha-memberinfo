@@ -206,7 +206,7 @@
                message.SubAccountId,
                message.ActorName,
                message.ActorRoleId,
-               BuildActorProductStatus(message, customerStatusModel.DCSProducts.ToList()));
+               BuildActorProductStatus(customerStatusModel.DCSProducts.ToList()));
 
             var upline = new Customer(
                  message.UplineId,
@@ -237,7 +237,7 @@
                message.SubAccountId,
                message.ActorName,
                message.ActorRoleId,
-               BuildActorProductStatus(message, customerStatusModel.DCSProducts.ToList()));
+               BuildActorProductStatus(customerStatusModel.DCSProducts.ToList()));
 
             var upline = new Customer(
                  message.UplineId,
@@ -269,15 +269,9 @@
             return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabledUpline, product.IsHiddenUpline, product.GroupId));
         }
 
-        internal IEnumerable<CustomerProductStatus> BuildActorProductStatus(
-            CustomerStatusQueryBase message,
-            IEnumerable<DCSProductStatusModel> dcsProducts)
+        internal IEnumerable<CustomerProductStatus> BuildActorProductStatus(IEnumerable<DCSProductStatusModel> dcsProducts)
         {
-            return dcsProducts.Select(product => new CustomerProductStatus(
-                product.ProductId,
-                message.GetDisabledProduct(product.ProductId),
-                product.ProductId != ProductConstants.Sportsbook && message.GetHideProduct(product.ProductId),
-                product.GroupId));
+            return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabled, product.IsHidden, product.GroupId));
         }
 
         internal IEnumerable<IStatusItemViewModel> BuildCustomerProductStatus(

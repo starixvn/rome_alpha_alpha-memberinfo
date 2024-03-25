@@ -15,18 +15,15 @@
         private const string IndexPath = "~/Features/CustomerList/Views/Index.cshtml";
         private const string MultipleDoubleCommPath = "~/Features/CustomerList/Views/MultipeDoubleComm.cshtml";
         private readonly Result ErrorDefault = Result.CreateErrorResult(Lang.NotAuthorized);
-        private readonly IUserSession userSession;
         private readonly TransferService transferService;
         private readonly IUser viewer;
 
         public CustomerListController(
             IMediator mediator,
-            IUserSession userSession,
             TransferService transferService,
             IUser viewer)
             : base(mediator)
         {
-            this.userSession = userSession;
             this.transferService = transferService;
             this.viewer = viewer;
         }

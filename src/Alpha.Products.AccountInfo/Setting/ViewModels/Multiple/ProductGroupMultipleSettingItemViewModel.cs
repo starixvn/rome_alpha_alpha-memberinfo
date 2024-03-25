@@ -1,4 +1,5 @@
-﻿using Alpha.Products.AccountInfo.Requests;
+﻿using System.Collections.Generic;
+using Alpha.Products.AccountInfo.Requests;
 using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
 
 namespace Alpha.Products.AccountInfo.Setting.ViewModels.Multiple
@@ -21,6 +22,17 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Multiple
                     break;
             }
         }
+
+        public override Dictionary<string, string> QueryStringParamaters
+       => new Dictionary<string, string>
+       {
+           ["productGroupId"] = ProductGroupId.ToString(),
+           ["roleId"] = SearchAccount.CusomerLevelValue.ToString(),
+           ["lng"] = request.Language,
+           ["isDarkMode"] = request.IsDarkMode.ToString().ToLowerInvariant(),
+           ["custIds"] = request.GetData<string>("customerIds"),
+           ["usernames"] = request.GetData<string>("usernames"),
+       };
 
         public override string Text => $"{request.GetResource("EditMultiple")} {request.GetProductGroupName(ProductGroupId)}";
 

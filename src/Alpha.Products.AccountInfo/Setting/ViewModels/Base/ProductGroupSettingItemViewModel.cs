@@ -26,6 +26,8 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Base
 
         public override bool Enabled => true;
 
+        public override bool Visible => Actor.IsNotSuper || SearchAccount.IsNotAgent;
+
         public override Dictionary<string, string> QueryStringParamaters
          => new Dictionary<string, string>
          {

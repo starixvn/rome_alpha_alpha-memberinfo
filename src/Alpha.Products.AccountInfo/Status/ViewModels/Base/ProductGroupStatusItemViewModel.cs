@@ -1,4 +1,5 @@
-﻿using Alpha.Products.AccountInfo.Requests;
+﻿using System;
+using Alpha.Products.AccountInfo.Requests;
 using Alpha.Products.Core.Shared;
 
 namespace Alpha.Products.AccountInfo.Status.ViewModels.Base
@@ -19,7 +20,13 @@ namespace Alpha.Products.AccountInfo.Status.ViewModels.Base
 
         public override string Text => Request.GetProductGroupName(ProductGroupId);
 
-        public override string Url => string.Empty;
+        public override string Url => AccountInfoUrl + "ProductStatus?" + string.Join("&",
+                                           $"isGroup=true",
+                                           $"productid={ProductGroupId}",
+                                           $"custId={SearchAccount.Id}",
+                                           $"custName={SearchAccount.Username}",
+                                           $"custRoleId={SearchAccount.CusomerLevelValue}",
+                                           $"uid={Guid.NewGuid()}");
 
         public override bool Visible => ProductGroupId != ProductConstants.Sportsbook;
 
