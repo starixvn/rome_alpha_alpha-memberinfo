@@ -12,8 +12,8 @@
 
         public string SearchAccountName { get; set; }
 
-        public override bool IsValid() => 
-            base.IsValid() && 
-            !string.IsNullOrEmpty(SearchAccountName);
+        public override bool IsValid() =>
+            base.IsValid() &&
+            !string.IsNullOrWhiteSpace(SearchAccountName);
     }
 }

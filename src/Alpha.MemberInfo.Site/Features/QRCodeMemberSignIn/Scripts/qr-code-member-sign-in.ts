@@ -270,8 +270,11 @@ class QRCodeMemberSignIn {
     }
 
     blurEventCustomerCopyFrom = () => {
-        this.checkExistedCustomer(this.$usernameCopyFrom.val(), this.iconMessageUsernameCopyFrom);
-        this.getMemberCredit();
+        var sourceUsername: string = this.$usernameCopyFrom.val().trim();
+        if (sourceUsername && sourceUsername.length) {
+            this.checkExistedCustomer(this.$usernameCopyFrom.val(), this.iconMessageUsernameCopyFrom);
+            this.getMemberCredit();
+        }
     }
 
     bidingEasyAutoComplete = () => {
@@ -301,7 +304,13 @@ class QRCodeMemberSignIn {
             }, 300);
         });
 
-        this.$usernameCopyFrom.on('input', this.checkErrorAndShowMessage);
+        this.$usernameCopyFrom.on('input', () => {
+            this.$(`#${this.iconMessageUsernameCopyFrom}`).removeClass().addClass('hidden');
+            if (!this.$usernameCopyFrom.val()) {
+                this.inValidCustomerCopyFrom = true;
+                this.checkErrorAndShowMessage();
+            }
+        });
     }
 
     checkErrorAndShowMessage = () => {
