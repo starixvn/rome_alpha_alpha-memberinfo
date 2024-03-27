@@ -11,8 +11,8 @@
 
         public string Username { get; set; }
 
-        public override bool IsValid() => 
-            base.IsValid() && 
-            !string.IsNullOrEmpty(Username);
+        public override bool IsValid() =>
+            base.IsValid() &&
+            !string.IsNullOrWhiteSpace(Username);
     }
 }

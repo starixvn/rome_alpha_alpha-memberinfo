@@ -14,8 +14,7 @@
         private const string IndexPath = "~/Features/QRCodeMemberSignIn/Views/Index.cshtml";
         private const string ShowQRCodePath = "~/Features/QRCodeMemberSignIn/Views/ShowQRCode.cshtml";
         private const string NotAuthorizedPath = "~/Features/QRCodeMemberSignIn/Views/_NotAuthorized.cshtml";
-
-        private readonly int ErrorCodeDefault = 998;
+        private const int ErrorCodeDefault = 998;
 
         public QRCodeMemberSignInController(IMediator mediator)
             : base(mediator)
@@ -66,8 +65,8 @@
         }
 
         [HttpPost, AntiXsrfFilter]
-        public async Task<ActionResult> GetMemberCreditAndStatus(GetMemberCreditAndStatusRequest message)
-            => Json(await mediator.SendAsync(message));
+        public Task<ActionResult> GetMemberCreditAndStatus(GetMemberCreditAndStatusRequest message)
+            => JsonAsync(message);
 
         [HttpGet]
         public ActionResult ShowQRCode(ShowQRCodeRequest message)
@@ -86,7 +85,7 @@
             => Json(mediator.Send(message));
 
         [HttpPost, AntiXsrfFilter]
-        public async Task<ActionResult> CheckExistedCustomer(CheckExistedCustomerRequest message)
-           => Json(await mediator.SendAsync(message));
+        public Task<ActionResult> CheckExistedCustomer(CheckExistedCustomerRequest message)
+            => JsonAsync(message);
     }
 }
