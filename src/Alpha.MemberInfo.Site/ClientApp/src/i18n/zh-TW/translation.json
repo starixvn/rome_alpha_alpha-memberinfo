@@ -8,7 +8,7 @@
   "mobilePhone": "手機",
   "masterMaxCredit": "總代理最高信用額",
   "agentMaxCredit": "代理信用額",
-  "memberMaxCredit": "會員最高信用額",
+  "memberMaxCredit": "信用額度",
   "fax": "傳真",
   "allowAutoPt": "允許自動佔成",
   "masterMaxCreditInvalid": "總代理最高信用額應在{{min}}和{{max}}之間",
