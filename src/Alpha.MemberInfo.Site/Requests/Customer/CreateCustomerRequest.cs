@@ -13,5 +13,12 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         public GeneralInfo GeneralInfo { get; set; }
 
         public string ProductGroups { get; set; }
+
+        public override bool IsValid()
+            => base.IsValid()
+            && GeneralInfo != null
+            && !string.IsNullOrWhiteSpace(GeneralInfo.Username)
+            && !string.IsNullOrWhiteSpace(GeneralInfo.Password)
+            && !string.IsNullOrWhiteSpace(ProductGroups);
     }
 }

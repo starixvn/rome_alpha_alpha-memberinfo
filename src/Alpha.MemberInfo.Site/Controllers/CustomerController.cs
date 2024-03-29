@@ -124,7 +124,7 @@ namespace Alpha.MemberInfo.Site.Controllers
         [HttpPost, AntiXsrfFilter]
         public async Task<ActionResult> Create(CreateCustomerRequest request)
         {
-            if (request.IsInternal)
+            if (request.IsInternal || !request.IsValid())
             {
                 return UnAuthorized();
             }
