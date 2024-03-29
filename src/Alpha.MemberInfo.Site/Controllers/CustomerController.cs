@@ -25,9 +25,9 @@ namespace Alpha.MemberInfo.Site.Controllers
 {
     public class CustomerController : BaseController
     {
+        private const string DCSStaticSessionKey = "DCSStaicAppPathSessionKey";
         private const string HashKeySessionKey = "Alpha.MemberInfo.Site.Controllers.CustomerController.PasswordHash";
         private const string AssetsVersionCacheKey = "Customer:AssetsVersion";
-        private readonly string cdnUri;
         private readonly int systemId;
         private readonly Encryptor encryptor;
         private readonly SessionManager sessionManager;
@@ -44,11 +44,12 @@ namespace Alpha.MemberInfo.Site.Controllers
             this.encryptor = encryptor;
             this.sessionManager = sessionManager;
             this.aesService = aesService;
-            cdnUri = ConfigurationManager.AppSettings["Fanex.Customer:CdnUri"];
             systemId = clientConfiguration.SystemId;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             this.customerService = customerService;
         }
+
+        private string CDNUri => sessionManager.Get<string>(DCSStaticSessionKey) ?? ConfigurationManager.AppSettings["Fanex.Customer:CdnUri"];
 
         public async Task<ActionResult> Create(CreateCustomerQuery query)
         {
@@ -59,7 +60,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                 : new CreateCustomerViewModel(
                 query,
                 new AppConfiguration(GetApplicationPath(), systemId),
-                cdnUri,
+                CDNUri,
                 GetAssetsVersion(),
                 GetHashKey(),
                 await customerService.GetSuggestUsername(query.CustName, query.ViewerLevelId));
@@ -75,7 +76,7 @@ namespace Alpha.MemberInfo.Site.Controllers
             var viewModel = new EditCustomerViewModel(
                 query,
                 new AppConfiguration(GetApplicationPath(), systemId),
-                cdnUri,
+                CDNUri,
                 GetAssetsVersion());
 
             return View(
@@ -89,7 +90,7 @@ namespace Alpha.MemberInfo.Site.Controllers
             var viewModel = new EditMultipleCustomersViewModel(
                 query,
                 new AppConfiguration(GetApplicationPath(), systemId),
-                cdnUri,
+                CDNUri,
                 GetAssetsVersion());
 
             return View(HttpContext.IsDebuggingEnabled
@@ -102,7 +103,7 @@ namespace Alpha.MemberInfo.Site.Controllers
             var viewModel = new SportBookInformationViewModel(
                 query,
                 new AppConfiguration(GetApplicationPath(), systemId),
-                cdnUri,
+                CDNUri,
                 GetAssetsVersion()
             );
 
