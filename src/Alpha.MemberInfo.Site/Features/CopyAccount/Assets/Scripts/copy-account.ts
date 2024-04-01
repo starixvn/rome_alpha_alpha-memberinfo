@@ -23,6 +23,7 @@ class CopyAccount {
     credit: number = 0;
     creditMin: number = 0;
     creditMax: number = 0;
+    maxGivenCreditPerMember?: number = null;
     memberMaxCredit: number;
     $memberMaxCreditInput: JQuery;
 
@@ -446,6 +447,7 @@ class CopyAccount {
 
                 this.creditMin = 0;
                 this.creditMax = result.MaxCredit;
+                this.maxGivenCreditPerMember = result.MemberMaxCredit;
                 this.$creditRange.removeClass('hidden');
                 this.$creditMinLabel.html(numeral(this.creditMin).format(this.numberFormat));
                 this.$creditMaxLabel.html(numeral(this.creditMax).format(this.numberFormat));
@@ -462,6 +464,9 @@ class CopyAccount {
         var credit = parseFloat(this.cleave.getRawValue());
         var noOfAccounts = parseInt(this.$noOfAccounts.val());
         var perAccountMaxCredit = this.creditMax / noOfAccounts;
+        if (this.isCreateMember && this.maxGivenCreditPerMember > 0) {
+            perAccountMaxCredit = Math.min(perAccountMaxCredit, this.maxGivenCreditPerMember);
+        }
         this.invalidCredit = this.isInValidCredit(credit, perAccountMaxCredit);
         if (this.invalidCredit && !this.inValidSourceAccount) {
             this.addTooltipError(this.$creditErrMsg, this.resource.invalidMaxCreditPerAccount.replace("{0}", numeral(perAccountMaxCredit).format(this.numberFormat)));
