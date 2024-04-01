@@ -106,5 +106,7 @@
   "maxPerMatch-mustBeLessThanOrEqualTo-maxPayoutPerMatch": "Max Per Match must be less than or equal to Max Payout Per Match",
   "maxPayoutPerMatch-mustBeGreaterThanOrEqualTo-maxPerMatch": "Max Payout Per Match must be greater than or equal to Max Per Match.",
   "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "Max Payout Per Match must be less than or equal to ",
-  "Live": "Live"
+  "Live": "Live",
+  "GivenCredit": "Given Credit",
+  "givenMaxCreditInvalid": "Member Given Credit must be between {{min}} and {{max}}"
 }

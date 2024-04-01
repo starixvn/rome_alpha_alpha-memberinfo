@@ -92,11 +92,9 @@ export default class AgentPTHandler extends BasePTHandler implements IPTHandler<
 
   initPTAndTemplateValues(): PTInitData<{ [key: number]: [] }> {
     const agentPTValue = this.initGroupPTValues();
-    console.log(agentPTValue);
     this.updateIsValidTemplateProp(agentPTValue);
     const defaultPTTemplate = this.getValidDefaultPTTemplate();
     const agentPT = defaultPTTemplate ? this.updateDefaultPTValue(defaultPTTemplate, agentPTValue) : agentPTValue;
-    console.log(agentPT);
 
     return {
       violateMinMaxPTErr: this.violateMinMaxPTError ?? [],

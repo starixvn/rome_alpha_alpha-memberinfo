@@ -32,7 +32,6 @@ function RenderSettings(
   groupType: GroupType,
 ) {
   const { id, groupItems } = groupType;
-  console.log(userLevel);
 
   switch (id) {
     case GroupTypeIds.SportsBookCommission:

@@ -64,10 +64,16 @@ export default class GeneralInfoValidator {
     if (field && field !== 'maxCredit') return this;
     const { maxCredit, uplineMaxCredit, uplineRoleId } = this.generalInfo;
     if (maxCredit === undefined) return this.setError({ maxCredit: 'RequiredField' });
-    if (maxCredit < 0 || maxCredit > uplineMaxCredit)
+    if (maxCredit < 0 || maxCredit > uplineMaxCredit) {
+      if (uplineRoleId === UserLevel.Agent) {
+        return this.setError({
+          maxCredit: `givenMaxCreditInvalid-0-${uplineMaxCredit}`,
+        });
+      }
       return this.setError({
         maxCredit: `${UserLevelName[uplineRoleId - 1].toLowerCase()}MaxCreditInvalid-0-${uplineMaxCredit}`,
       });
+    }
 
     return this;
   }
