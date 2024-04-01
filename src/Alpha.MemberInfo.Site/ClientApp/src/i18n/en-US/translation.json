@@ -8,12 +8,12 @@
   "mobilePhone": "Mobile Phone",
   "masterMaxCredit": "Master Max Credit",
   "agentMaxCredit": "Agent Max Credit",
-  "memberMaxCredit": "Given Credit",
+  "memberMaxCredit": "Member Max Credit",
   "fax": "Fax",
   "allowAutoPt": "Allow Auto PT",
   "masterMaxCreditInvalid": "Master Max Credit must be between {{min}} and {{max}}",
   "agentMaxCreditInvalid": "Agent Max Credit must be between {{min}} and {{max}}",
-  "memberMaxCreditInvalid": "Member Given Credit must be between {{min}} and {{max}}",
+  "memberMaxCreditInvalid": "Member Max Credit must be between {{min}} and {{max}}",
   "accBalanceTransferCondition": "Account Balance Transfer Condition",
   "usernameIsInvalid": "This username is not available.",
   "chooseDaily": "Please choose Daily instead of 7 days.",
@@ -106,5 +106,7 @@
   "maxPerMatch-mustBeLessThanOrEqualTo-maxPayoutPerMatch": "Max Per Match must be less than or equal to Max Payout Per Match",
   "maxPayoutPerMatch-mustBeGreaterThanOrEqualTo-maxPerMatch": "Max Payout Per Match must be greater than or equal to Max Per Match.",
   "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "Max Payout Per Match must be less than or equal to ",
-  "Live": "Live"
+  "Live": "Live",
+  "GivenCredit": "Given Credit",
+  "givenMaxCreditInvalid": "Member Given Credit must be between {{min}} and {{max}}"
 }

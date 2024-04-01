@@ -8,7 +8,7 @@
   "mobilePhone": "Điện thoại di động",
   "masterMaxCredit": "Hạn mức tín dụng tối đa của Master",
   "agentMaxCredit": "Hạn mức tín dụng tối đa của Agent",
-  "memberMaxCredit": "Hạn mức được cấp",
+  "memberMaxCredit": "Hạn mức tín dụng tối đa của Member",
   "fax": "Fax",
   "allowAutoPt": "Cho Auto PT",
   "masterMaxCreditInvalid": "Hạn mức tín dụng lớn nhất của Master phải từ {{min}} đến {{max}}",
@@ -106,5 +106,7 @@
   "maxPerMatch-mustBeLessThanOrEqualTo-maxPayoutPerMatch": "Cược Tối Đa Cho 1 Trận phải nhỏ hơn hoặc bằng Thanh Toán Tối Đa Mỗi Trận",
   "maxPayoutPerMatch-mustBeGreaterThanOrEqualTo-maxPerMatch": "Thanh Toán Tối Đa Mỗi Trận phải lớn hơn hoặc bằng Tiền Cược Tối Đa Cho 1 Trận.",
   "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "Thanh Toán Tối Đa Mỗi Trận phải nhỏ hơn hoặc bằng ",
-  "Live": "Trực Tuyến"
+  "Live": "Trực Tuyến",
+  "GivenCredit": "Hạn mức được cấp",
+  "givenMaxCreditInvalid": "Hạn mức tín dụng của Member phải từ {{min}} đến {{max}}"
 }

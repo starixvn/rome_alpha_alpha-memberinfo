@@ -20,7 +20,6 @@ import { GeneralInfoErrors, validateGeneralInfo } from './generalInfoValidator';
 import PasswordRule from './PasswordRule';
 import Username from './Username';
 
-
 function ToNumberFormat(value: string) {
   const RegexAllowedCharsRegex = /,/g;
   return Number(value.replace(RegexAllowedCharsRegex, ''));
@@ -186,7 +185,11 @@ export default function GeneralInformation() {
             <BlockItem
               label={
                 <>
-                  {`${t(`${UserLevelName[uplineRoleId - 1].toLowerCase()}MaxCredit`)} `}
+                  {`${
+                    uplineRoleId === UserLevel.Agent
+                      ? t('GivenCredit')
+                      : t(`${UserLevelName[uplineRoleId - 1].toLowerCase()}MaxCredit`)
+                  } `}
                   <Require />
                 </>
               }

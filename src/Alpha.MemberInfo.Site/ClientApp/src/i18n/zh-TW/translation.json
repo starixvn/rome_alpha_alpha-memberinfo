@@ -8,7 +8,7 @@
   "mobilePhone": "手機",
   "masterMaxCredit": "總代理最高信用額",
   "agentMaxCredit": "代理信用額",
-  "memberMaxCredit": "信用額度",
+  "memberMaxCredit": "會員最高信用額",
   "fax": "傳真",
   "allowAutoPt": "允許自動佔成",
   "masterMaxCreditInvalid": "總代理最高信用額應在{{min}}和{{max}}之間",
@@ -106,5 +106,7 @@
   "maxPerMatch-mustBeLessThanOrEqualTo-maxPayoutPerMatch": "單場限額必須少於或等於單場最高派彩限額",
   "maxPayoutPerMatch-mustBeGreaterThanOrEqualTo-maxPerMatch": "單場最高派彩必須大於或等於單場限額",
   "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "單場最高派彩必須少於或等於 ",
-  "Live": "現場"
+  "Live": "現場",
+  "GivenCredit": "信用額度",
+  "givenMaxCreditInvalid": "會員信用額應在{{min}}和{{max}}之間"
 }

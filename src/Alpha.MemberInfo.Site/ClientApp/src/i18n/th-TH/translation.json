@@ -8,7 +8,7 @@
   "mobilePhone": "โทรศัพท์มือถือ",
   "masterMaxCredit": "จำนวนเงินในบัญชีสูงสุดสำหรับตัวแทนหลัก",
   "agentMaxCredit": "จำนวนเงินสูงสุดในบัญชีของตัวแทน",
-  "memberMaxCredit": "เครดิตทั้งหมด",
+  "memberMaxCredit": "เครดิตโอนเงินสูงสุดของสมาชิก",
   "fax": "แฟกซ์",
   "allowAutoPt": "อนุญาตให้มีแบ่งสู้อัตโนมัติ",
   "masterMaxCreditInvalid": "เครดิตสูงสุดของมาสเตอร์ต้องอยู่ระหว่าง {{min}} และ {{max}}",
@@ -106,5 +106,7 @@
   "maxPerMatch-mustBeLessThanOrEqualTo-maxPayoutPerMatch": "ค่าเดิมพันสูงสุดต่อคู่การแข่งขันต้องน้อยกว่าหรือเท่ากับการจ่ายสูงสุดต่อคู่การแข่งขัน",
   "maxPayoutPerMatch-mustBeGreaterThanOrEqualTo-maxPerMatch": "การจ่ายเงินสูงสุดต่อคู่การแข่งขัน  จะต้องมากกว่าหรือเท่ากับ ค่าเดิมพันสูงสุดต่อคู่การแข่งขัน",
   "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "การจ่ายเงินสูงสุดต่อคู่การแข่งขันต้องน้อยกว่าหรือเท่ากับ ",
-  "Live": "สด"
+  "Live": "สด",
+  "GivenCredit": "เครดิตทั้งหมด",
+  "givenMaxCreditInvalid": "เครดิตของสมาชิกต้องอยู่ระหว่าง {{min}} และ {{max}}"
 }
