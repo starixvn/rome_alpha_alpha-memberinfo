@@ -25,13 +25,16 @@
     {
         private readonly IDynamicRepository dynamicRepository;
         private readonly Func<int, string> getProductName;
+        private readonly Func<int, string> getSportTypeName;
 
         public WinLossLimitServiceImpl(
             IDynamicRepository dynamicRepository,
-            Func<int, string> getProductName)
+            Func<int, string> getProductName,
+            Func<int, string> getSportTypeName)
         {
             this.dynamicRepository = dynamicRepository;
             this.getProductName = getProductName;
+            this.getSportTypeName = getSportTypeName;
         }
 
         public IEnumerable<WinLossLimitGroupProductModel> GetWinLossLimitProducts(int custId)
@@ -44,7 +47,7 @@
             {
                 foreach (var product in group)
                 {
-                    product.ProductName = getProductName(product.ProductId);
+                    product.ProductName = getSportTypeName(product.SportType);
                 }
 
                 yield return new WinLossLimitGroupProductModel(
