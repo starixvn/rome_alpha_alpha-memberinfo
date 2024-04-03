@@ -141,9 +141,12 @@ class CopyAccount {
         this.$password.keyup(() => this.validatePassword());
         this.$showPass.click(this.showPass);
 
-        this.$creditInput.keypress(() => {
+        this.$creditInput.on("input", () => {
             this.validateCredit();
             this.validateInputs();
+            if (this.isCreateAgent) {
+                this.validateMemberMaxCredit();
+            }
         });
         this.cleave = new Cleave('#Credit', {
             numeral: true,
@@ -162,7 +165,7 @@ class CopyAccount {
                 delimiter: ','
             });
 
-            this.$memberMaxCreditInput.keypress(() => {
+            this.$memberMaxCreditInput.on("input", () => {
                 this.validateMemberMaxCredit();
                 this.validateInputs();
             });
