@@ -228,7 +228,7 @@
                 new CustomerProductStatus(ProductConstants.ESport, true),
             };
 
-            var actualActorProductStatus = handler.BuildActorProductStatus(message, Enumerable.Empty<DCSProductStatusModel>());
+            var actualActorProductStatus = handler.BuildActorProductStatus(Enumerable.Empty<DCSProductStatusModel>());
             Assert.True(compareLogic.Compare(actualActorProductStatus, customerProductStatus).AreEqual);
         }
 

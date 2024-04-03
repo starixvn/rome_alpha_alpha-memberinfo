@@ -2,12 +2,14 @@
 namespace Alpha.Products.AccountInfo.Status
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Services;
     using Alpha.Products.AccountInfo.Status.ViewModels;
     using Alpha.Products.AccountInfo.Status.ViewModels.Base;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.ViewModels;
+    using AlphaPlus.Configurations;
     using Fanex.Data.Repository;
 
     public sealed class StatusViewModelFactory
@@ -44,5 +46,15 @@ namespace Alpha.Products.AccountInfo.Status
 
         protected override IStatusItemViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)
             => new ProductStatusItemViewModel(request, productItem);
+
+        protected override IEnumerable<int> GetEnabledProductGroupIds(ISearchAccountInfoRequest request)
+        {
+            if (AppSettings.IsSiteLabel789y)
+            {
+                return Enumerable.Empty<int>();
+            }
+
+            return base.GetEnabledProductGroupIds(request);
+        }
     }
 }
