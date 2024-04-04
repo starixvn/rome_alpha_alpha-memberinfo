@@ -141,9 +141,12 @@ class CopyAccount {
         this.$password.keyup(() => this.validatePassword());
         this.$showPass.click(this.showPass);
 
-        this.$creditInput.keyup(() => {
+        this.$creditInput.on("input", () => {
             this.validateCredit();
             this.validateInputs();
+            if (this.isCreateAgent) {
+                this.validateMemberMaxCredit();
+            }
         });
         this.cleave = new Cleave('#Credit', {
             numeral: true,
@@ -162,7 +165,7 @@ class CopyAccount {
                 delimiter: ','
             });
 
-            this.$memberMaxCreditInput.keyup(() => {
+            this.$memberMaxCreditInput.on("input", () => {
                 this.validateMemberMaxCredit();
                 this.validateInputs();
             });
@@ -235,7 +238,7 @@ class CopyAccount {
 
     validateMemberMaxCredit = () => {
         var memberMaxCredit = parseFloat(this.memberMaxCreditCleave.getRawValue());
-        this.invalidMemberMaxCredit = this.invalidCredit || this.isInValidCredit(memberMaxCredit, this.credit);
+        this.invalidMemberMaxCredit = this.isInValidCredit(memberMaxCredit, this.credit);
         if (!this.invalidMemberMaxCredit) {
             this.memberMaxCredit = memberMaxCredit;
             this.removeTooltipError(this.$memberMaxCreditErrMsg);
@@ -461,17 +464,17 @@ class CopyAccount {
     }
 
     validateCredit = () => {
-        var credit = parseFloat(this.cleave.getRawValue());
+        this.credit = parseFloat(this.cleave.getRawValue());
         var noOfAccounts = parseInt(this.$noOfAccounts.val());
         var perAccountMaxCredit = this.creditMax / noOfAccounts;
         if (this.isCreateMember && this.maxGivenCreditPerMember > 0) {
             perAccountMaxCredit = Math.min(perAccountMaxCredit, this.maxGivenCreditPerMember);
         }
-        this.invalidCredit = this.isInValidCredit(credit, perAccountMaxCredit);
+
+        this.invalidCredit = this.isInValidCredit(this.credit, perAccountMaxCredit);
         if (this.invalidCredit && !this.inValidSourceAccount) {
             this.addTooltipError(this.$creditErrMsg, this.resource.invalidMaxCreditPerAccount.replace("{0}", numeral(perAccountMaxCredit).format(this.numberFormat)));
         } else {
-            this.credit = credit;
             this.removeTooltipError(this.$creditErrMsg);
             if (this.isCreateAgent) {
                 this.validateMemberMaxCredit();
