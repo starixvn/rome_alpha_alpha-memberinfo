@@ -77,6 +77,23 @@ class CopyAccount {
         }
     };
 
+    resetValidationState = () => {
+        this.inValidSourceAccount = true;
+        this.invalidCredit = false;
+        this.invalidMemberMaxCredit = false;
+        this.invalidUsername = false;
+        this.$("#icon-message-username").removeClass().addClass("hidden");
+        this.$("#icon-message-username").parent().removeClass("error-input");
+        this.$('#icon-message-password').removeClass().addClass("hidden");
+        this.$password.parent().removeClass("error-input");
+        this.removeTooltipError(this.$creditErrMsg);
+        this.$('#icon-message-credit').removeClass().addClass("hidden");
+        if (this.isCreateAgent) {
+            this.removeTooltipError(this.$memberMaxCreditErrMsg);
+            this.$('#icon-message-member-max-credit').removeClass().addClass("hidden");
+        }
+    }
+
     cacheDOMElement = () => {
         this.$form = this.$('#copyAccountForm');
         this.$result = this.$("#result");
@@ -142,10 +159,12 @@ class CopyAccount {
         this.$showPass.click(this.showPass);
 
         this.$creditInput.on("input", () => {
-            this.validateCredit();
-            this.validateInputs();
-            if (this.isCreateAgent) {
-                this.validateMemberMaxCredit();
+            if (!this.inValidSourceAccount) {
+                this.validateCredit();
+                this.validateInputs();
+                if (this.isCreateAgent) {
+                    this.validateMemberMaxCredit();
+                }
             }
         });
         this.cleave = new Cleave('#Credit', {
@@ -166,16 +185,14 @@ class CopyAccount {
             });
 
             this.$memberMaxCreditInput.on("input", () => {
-                this.validateMemberMaxCredit();
-                this.validateInputs();
+                if (!this.inValidSourceAccount) {
+                    this.validateMemberMaxCredit();
+                    this.validateInputs();
+                }
             });
-
-            this.validateMemberMaxCredit();
 
             this.$memberMaxCreditInput.focus(() => this.showTooltipError(this.$memberMaxCreditErrMsg));
         }
-
-        this.validateCredit();
 
         window.addEventListener("click", (e) => {
             if (this.$(e.target).parent().hasClass("error-input") || this.$(e.target).attr("id") == "NoOfAccounts") {
@@ -277,8 +294,10 @@ class CopyAccount {
         });
 
         this.$noOfAccounts.on('input', () => {
-            this.validateCredit();
-            this.validateInputs();
+            if (!this.inValidSourceAccount) {
+                this.validateCredit();
+                this.validateInputs();
+            }
         });
 
         this.$sourceUsername.on('input', () => {
@@ -425,11 +444,15 @@ class CopyAccount {
                         this.getCustomerCredit(this.$sourceUsername.val());
                         this.removeTooltipError(this.$sourceAccountErrMsg);
                         this.inValidSourceAccount = false;
+                        this.checkExistedUsernameByChangeSuffix();
+                        this.validatePassword();
+                        this.validateCredit();
                     } else {
                         this.addTooltipError(this.$sourceAccountErrMsg, result.Message);
                         this.$creditRange.addClass("hidden");
-                        this.inValidSourceAccount = true;
+                        this.resetValidationState();
                     }
+
                     this.validateInputs();
                 }
             });
