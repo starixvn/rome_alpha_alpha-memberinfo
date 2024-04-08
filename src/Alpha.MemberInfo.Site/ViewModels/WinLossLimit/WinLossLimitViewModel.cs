@@ -30,7 +30,7 @@
             WinLossLimitParam param)
         {
             ViewerLevel = message.ActorLevel;
-            UserSelectedProductId = param.ProductId;
+            UserSelectedId = $"{param.ProductId}-{param.SportType}";
             Username = message.Username ?? string.Empty;
             PlayerId = message.PlayerId ?? string.Empty;
             MasterId = param.MasterId;
@@ -50,7 +50,7 @@
 
         public UserLevel ViewerLevel { get; }
 
-        public int UserSelectedProductId { get; }
+        public string UserSelectedId { get; }
 
         public IEnumerable<WinLossLimitGroupProductModel> GroupProducts { get; }
 
