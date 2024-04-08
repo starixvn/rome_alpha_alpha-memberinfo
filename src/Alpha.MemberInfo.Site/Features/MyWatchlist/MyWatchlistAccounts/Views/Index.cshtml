@@ -37,13 +37,62 @@
         </li>
         @Html.Partial("~/Features/MyWatchlist/Shared/Views/InfoUserGuideTabs.cshtml", Model.UserGuideLink)
     </ul>
+    <div class="ttl-box-watchlist">Watchlist Summary</div>
+    <div class="list-total-statement">
+        <div class="item">
+            <div class="title-total">
+                Total Members
+            </div>
+            <div class="text-total">
+                1000
+            </div>
+        </div>
+        <div class="item">
+            <div class="title-total">
+                Monitored Members
+            </div>
+            <div class="text-total">
+                100
+            </div>
+        </div>
+        <div class="item">
+            <div class="title-total">
+                Reached Daily Limit Members
+            </div>
+            <div class="text-total">
+                10
+            </div>
+        </div>
 
+        <div class="item last-item">
+            <span class="title-total" data-title="Click to set thresholds">
+                Unlimited Threshold Members
+            </span>
+            <div class="text-total">                 
+                <a id="detail-link" href="#">5</a> 
+            </div>
+        </div>
+    </div>
+    <div class="ttl-box-watchlist">Watchlist Detail</div>
     @using (Html.BeginForm("GetWatchlistAccounts", "MyWatchlistAccounts", FormMethod.Post, new { @class = "form-inline filter form-report", id = "report-form" }))
     {
         <div class="form-group username-box">
-            <label>@Resources.Username</label>
+            <label class="label-form-control">Added Date</label>
+            <input type="text" class="txt-search" />
+        </div>
+        <div class="form-group username-box">
+            <label class="label-form-control">Status</label>
+            <input type="text" class="txt-search" />
+        </div>
+        <div class="form-group username-box">
+            <label class="label-form-control">Problem Account</label>
+            <input type="text" class="txt-search" />
+        </div>
+        <div class="form-group username-box">
+            <label class="label-form-control">@Resources.Username</label>
             <input type="text" class="txt-search" id="txt-username" placeholder="@Resources.Username" />
         </div>
+
         <div class="form-group">
             <input type="submit" value="@Resources.Submit" class="btn-submit" id="btn-submit" />
         </div>
