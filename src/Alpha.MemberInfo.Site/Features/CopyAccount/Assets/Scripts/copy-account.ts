@@ -81,17 +81,14 @@ class CopyAccount {
         this.inValidSourceAccount = true;
         this.invalidCredit = false;
         this.invalidMemberMaxCredit = false;
-        this.invalidUsername = false;
-        this.$("#icon-message-username").removeClass().addClass("hidden");
-        this.$("#icon-message-username").parent().removeClass("error-input");
-        this.$('#icon-message-password').removeClass().addClass("hidden");
-        this.$password.parent().removeClass("error-input");
+
         this.removeTooltipError(this.$creditErrMsg);
         this.$('#icon-message-credit').removeClass().addClass("hidden");
         if (this.isCreateAgent) {
             this.removeTooltipError(this.$memberMaxCreditErrMsg);
             this.$('#icon-message-member-max-credit').removeClass().addClass("hidden");
         }
+        this.$creditRange.removeClass().addClass('hidden');
     }
 
     cacheDOMElement = () => {
@@ -444,8 +441,6 @@ class CopyAccount {
                         this.getCustomerCredit(this.$sourceUsername.val());
                         this.removeTooltipError(this.$sourceAccountErrMsg);
                         this.inValidSourceAccount = false;
-                        this.checkExistedUsernameByChangeSuffix();
-                        this.validatePassword();
                         this.validateCredit();
                     } else {
                         this.addTooltipError(this.$sourceAccountErrMsg, result.Message);
@@ -456,6 +451,9 @@ class CopyAccount {
                     this.validateInputs();
                 }
             });
+        }
+        else {
+            this.resetValidationState();
         }
     }
 
