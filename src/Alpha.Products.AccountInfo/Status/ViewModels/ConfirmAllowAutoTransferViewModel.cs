@@ -1,12 +1,10 @@
 ﻿namespace Alpha.Products.AccountInfo.Status.ViewModels
 {
-    using Alpha.Products.AccountInfo.AppResources;
-    using Alpha.Products.AccountInfo.Helpers;
+    using System.Collections.Generic;
+    using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Services;
     using Alpha.Web.Helpers;
-    using System.Collections.Generic;
-    using System.Linq;
 
     public class ConfirmAllowAutoTransferViewModel : ConfirmStatusItemViewModelBase
     {
@@ -32,24 +30,28 @@
 
         public override bool ShowInCustomerList => true;
 
-        public override string ConfirmMessage
-        {
-            get => Checked ? GetConfirmMessage_Disable() : GetConfirmMessage_Enable();
-        }
+        public override bool IsPopup => true;
 
-        internal override string SuffixMessage
-        {
-            get
-            {
-                return Checked ? "InCaseDisabledMemberMessage" : "InCaseEnabledMemberMessage";
-            }
-        }
+        public override string PopupHeaderText => AppResources.Lang.Update;
 
         internal override string StatusName => DataKey.StatusMapping.AutoTransfer;
 
         internal override bool StatusValue => !Checked;
 
-        public override string Url => MicroSites.TransferUrl("~/autotransfer/update");
+        public override string Url
+        {
+            get
+            {
+                var uplineCondition = accountService.GetTransferOption(SearchAccount.Upline.Id, SearchAccount.Upline.CusomerLevelValue);
+                var url = "~/autotransfer/UpdateSingleAutoTransfer?";
+                url += "CustId=" + SearchAccount.Id.ToString();
+                url += "&CustName=" + SearchAccount.Username.ToString();
+                url += "&State=" + (StatusValue ? "on" : "off");
+                url += "&Old_TransferOption=" + uplineCondition;
+
+                return MicroSites.TransferUrl(url);
+            }
+        }
 
         internal new IDictionary<string, object> Params
         {
@@ -61,64 +63,14 @@
                         {"CustId", SearchAccount.Id.ToString()},
                         {"CustName", SearchAccount.Username.ToString()},
                         {"State", StatusValue? "on" : "off"},
-                        {"UseDifferentSite", 1},
-                        {"Func", "UpdateAutoTransfer"},
                         { "Old_TransferOption", uplineCondition },
                     };
             }
         }
 
-
         public new string JsonParams =>
             string.Format("{0}{1}{2}", "{", string.Join(",", Params.Select(x => $"\"{x.Key}\":\"{x.Value.ToString()}\"")), "}");
 
-        private string GetConfirmMessage_Disable()
-        {
-            var hintPath = Lang.ResourceManager.GetString("AutoTransferPageHint_" + SearchAccount.CustomerLevel.DisplayName);
-            var message = string.Format(Lang.ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Message, SearchAccount.Username.ToString());
-
-            message += "<ul class='ul-confirm'>";
-            message += "<li class='clear-schedule-note'>" + AppResources.Lang.AutoTransfer_ClearSchedule + "</li>";
-            message += "<li class='tip'><span class='icon-lightbulb-on'></span>";
-            message += string.Format(Lang.ConfirmAllowAutoTransferViewModelInCaseDisabledMemberMessage_Tip, hintPath);
-            message += "</li></ul>";
-
-            return message;
-        }
-
-        private string GetConfirmMessage_Enable()
-        {
-            var hintPath = Lang.ResourceManager.GetString("AutoTransferPageHint_" + SearchAccount.CustomerLevel.DisplayName);
-            var uplineCondition = accountService.GetTransferOption(SearchAccount.Upline.Id, SearchAccount.Upline.CusomerLevelValue);
-            var transferrableDates = TransferConditionHelper.GetTransferrableDatesFromCondition(uplineCondition);
-
-            string[] dates = { Lang.Sun, Lang.Mon, Lang.Tue, Lang.Wed, Lang.Thurs, Lang.Fri, Lang.Sat };
-            var schedule = Request.GetData<string>(DataKey.SearchAccount.ScheduleWeekDays);
-            var selectedDates = string.IsNullOrWhiteSpace(schedule)
-                ? transferrableDates
-                : TransferConditionHelper.GetTransferrableDatesFromSchedule(schedule);
-
-            var scheduleChecks = "<span class='spn-schedule'>" +
-                "<input id='opt-schedule-all' type='checkbox' class='opt-schedule-all' "
-                    + (selectedDates.Count == transferrableDates.Count ? " checked='checked'" : "") + " />" + Lang.SelectAll + "</span>";
-
-            foreach (var d in transferrableDates)
-            {
-                scheduleChecks += "<span class='spn-schedule'>" +
-                    "<input type='checkbox' class='opt-schedule'" +
-                        (selectedDates.Any(s => s == d) ? " checked='checked'" : "") + " data-val='" + d + "' />" + dates[d - 1] + "</span>";
-            }
-
-            var message = string.Format(Lang.ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Message, SearchAccount.Username.ToString());
-            message += "<ul class='ul-confirm'>";
-            message += "<li>" + Lang.AutoTransfer_AffectTime + "</li>";
-            message += "<li>" + Lang.AutoTransfer_SetSchedule + "</li>";
-            message += "<li class='li-schedule'>" + scheduleChecks + "</li>";
-            message += "<li class='tip'><span class='icon-lightbulb-on'></span>";
-            message += string.Format(Lang.ConfirmAllowAutoTransferViewModelInCaseEnabledMemberMessage_Tip, hintPath);
-            message += "</li></ul>";
-
-            return message;
-        }
+        public override string ConfirmMessage => "ShowCheckboxOnCustInfo_AutoTransfer";
     }
 }

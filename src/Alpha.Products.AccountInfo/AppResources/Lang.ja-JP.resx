@@ -117,13 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AutoTransferPageHint_Member" xml:space="preserve">
-    <value>お客様リスト</value>
-  </data>
-  <data name="AutoTransferPageHint_Agent" xml:space="preserve">
-    <value>エージェントリスト</value>
-  </data>
-  <data name="AutoTransferPageHint_Master" xml:space="preserve">
-    <value>Master Agent List</value>
-  </data>
 </root>
