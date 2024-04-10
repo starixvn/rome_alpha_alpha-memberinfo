@@ -37,7 +37,7 @@ else
             const params = @Html.Raw(Model.Params);
             const username = response.username;
             const custId = response.custId;
-            const redirectUrl = @MicroSites.OldMainUrl() + "MemberInfo/RedirectPT.aspx?username=" + username + "&custid=" + custId
+            const redirectUrl = '@MicroSites.OldMainUrl()' + "MemberInfo/RedirectPT.aspx?username=" + username + "&custid=" + custId
                 + "&userId=" + @Model.ActorId + "&subAccId=" + @Model.SubAccId
                 + "&isedit=false" + "&insert=true";
             window.location.replace(redirectUrl);
