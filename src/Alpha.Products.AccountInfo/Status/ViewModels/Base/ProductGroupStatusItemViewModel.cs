@@ -28,7 +28,7 @@ namespace Alpha.Products.AccountInfo.Status.ViewModels.Base
                                            $"custRoleId={SearchAccount.CusomerLevelValue}",
                                            $"uid={Guid.NewGuid()}");
 
-        public override bool Visible => ProductGroupId != ProductConstants.Sportsbook;
+        public override bool Visible => ProductGroupId != ProductConstants.Sportsbook && Actor.IsDirectUplineOf(SearchAccount);
 
         public override bool Checked => true;
     }

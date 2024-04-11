@@ -262,7 +262,6 @@
     <Compile Include="Setting\ViewModels\Base\ProductSettingItemViewModel.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
-    <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\RemoveOtpViewModel.cs" />
     <Compile Include="Setting\ViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="Setting\ViewModels\TransferViewModel.cs" />
@@ -272,7 +271,6 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Setting\ViewModels\ResetSecurityCodeViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookViewModel.cs" />
     <Compile Include="Status\StatusViewModelFactory.cs" />
     <Compile Include="Status\ViewModels\Base\ConfirmStatusItemViewModelBase.cs">
       <SonarQubeExclude>true</SonarQubeExclude>

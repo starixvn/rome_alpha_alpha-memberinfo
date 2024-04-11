@@ -289,7 +289,6 @@
                     new ResetPasswordViewModel(request),
                     new ResetSecurityCodeViewModel(request),
                     new TransferViewModel(request),
-                    new SportsbookViewModel(request, configItem)
                 }
                 .Where(setting => setting.Visible)
                 .OrderBy(setting => setting.DisplayOrder);

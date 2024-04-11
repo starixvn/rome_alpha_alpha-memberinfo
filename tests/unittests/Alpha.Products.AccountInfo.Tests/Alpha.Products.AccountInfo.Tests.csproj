@@ -191,8 +191,6 @@
     <Compile Include="Setting\ViewModels\Multiple\DoubleCommMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookMultipleViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\RemoveOtpViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\ResetPasswordViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\ResetSecurityCodeViewModelTests.cs" />
