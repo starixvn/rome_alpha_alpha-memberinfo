@@ -56,11 +56,13 @@ class CustomerStatusHelper {
         }
 
         if (data.ClosedReason !== 0) {
-            return CustomerStatusClasses.Closed.filter(closedReason => data.ClosedReason === closedReason.Id)[0].Css;
+            const closed = CustomerStatusClasses.Closed.filter(closedReason => data.ClosedReason === closedReason.Id);
+            return (closed && closed.length) ? closed[0].Css : "";
         }
 
         if (data.Locked !== 0) {
-            return CustomerStatusClasses.Locked.filter(locked => data.Locked === locked.Id)[0].Css;
+            const locked = CustomerStatusClasses.Locked.filter(locked => data.Locked === locked.Id);
+            return (locked && locked.length) ? locked[0].Css : "";
         }
 
         return "";
