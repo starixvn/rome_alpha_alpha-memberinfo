@@ -912,6 +912,7 @@
     <Content Include="Web.pro5.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="assets\scripts\components\daterangepicker-jquery.ts" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\edit-setting-popup.ts" />
     <TypeScriptCompile Include="assets\scripts\shared\customer-status-helper.ts" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
@@ -1519,6 +1520,7 @@
     <Compile Include="Requests\ProblemAccount\UpdateProblemAccountRequest.cs" />
     <Compile Include="Requests\ProblemAccount\GetProblemAccountRequest.cs" />
     <Compile Include="Requests\WinLossLimit\WinLossLimitQuery.cs" />
+    <Compile Include="ViewModels\Components\DateRangePickerJQueryViewModel.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
     <Compile Include="ViewModels\Components\PagerViewModel.cs" />
     <Compile Include="ViewModels\Components\ProductMultiSelectionViewModel.cs" />
@@ -1591,6 +1593,7 @@
     <Content Include="assets\styles\indirect-login-account-dark.scss" />
     <Content Include="assets\styles\member-info-dark.scss" />
     <Content Include="assets\styles\win-loss-limit-dark.scss" />
+    <Content Include="App_Code\Components\DateRangePickerJQuery.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>

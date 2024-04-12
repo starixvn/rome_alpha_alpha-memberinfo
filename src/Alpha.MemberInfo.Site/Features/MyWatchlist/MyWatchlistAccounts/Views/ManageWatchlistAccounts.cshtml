@@ -53,19 +53,7 @@
     }
     else
     {
-        <div class="form-group">
-            <label class="lbl-threshold" for="winningThreshold">@Resources.WinningThreshold</label>
-            <input type="text" class="txt-threshold text-right" id="winningThreshold" maxlength="18" autocomplete="off" />
-            <input type="checkbox" class="ckb-unlimited" id="winning-unlimited" />
-            <label for="winning-unlimited" class="lbl-unlimited">@Resources.Unlimited</label>
-        </div>
-
-        <div class="form-group">
-            <label class="lbl-threshold" for="losingThreshold">@Resources.LosingThreshold</label>
-            <input type="text" class="txt-threshold text-right" id="losingThreshold" maxlength="18" autocomplete="off" />
-            <input type="checkbox" class="ckb-unlimited" id="losing-unlimited" />
-            <label for="losing-unlimited" class="lbl-unlimited">@Resources.Unlimited</label>
-        </div>
+        @Html.Partial("~/Features/MyWatchlist/Shared/Views/ThresholdInputGroup.cshtml", Model.Threshold)
         <button class="btn-submit" id="btn-add">@Resources.Add</button>
     }
 </div>

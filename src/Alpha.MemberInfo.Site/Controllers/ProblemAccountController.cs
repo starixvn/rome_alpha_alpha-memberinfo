@@ -26,7 +26,6 @@
         public ActionResult Update(UpdateProblemAccountRequest message)
             => View(message, "Update");
         
-
         public ActionResult GetProblemAccounts(GetProblemAccountRequest message)
             => Json(message);
 

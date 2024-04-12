@@ -261,6 +261,8 @@
   {
     "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/my-watchlist-accounts.js",
     "inputFiles": [
+      "assets/scripts/components/daterangepicker-jquery.js",
+      "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/shared/datatable-helper.js",
       "assets/scripts/shared/ajax-helper.js",
       "assets/scripts/shared/customer-status-helper.js",

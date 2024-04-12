@@ -21,7 +21,8 @@
             decimal? losingThreshold, 
             byte closedReason, 
             byte locked,
-            bool isPA)
+            bool isPA,
+            DateTime addedDate)
         {
             RowNumber = rowNumber;
             CustId = custId;
@@ -34,6 +35,7 @@
             ClosedReason = closedReason;
             Locked = locked;
             IsPA = isPA;
+            AddedDate = addedDate;
         }
 
         public int RowNumber { get; set; }
@@ -46,7 +48,8 @@
 
         public DateTime LastLogged { get; set; }
 
-        public string LastLoggedString => LastLogged.ToLongDateTime12hWithHyphen();
+        public string LastLoggedString
+            => LastLogged == DateTime.MinValue ? string.Empty : LastLogged.ToLongDateTime12hWithHyphen();
 
         public string Status { get; set; }
 
@@ -67,5 +70,9 @@
         public bool IsPA { get; set; }
 
         public string IsPAText => IsPA ? Resources.Yes : Resources.No2;
+
+        public DateTime AddedDate { get; set; }
+
+        public string AddedDateString => AddedDate.ToLongDateTime12hWithHyphen();
     }
 }

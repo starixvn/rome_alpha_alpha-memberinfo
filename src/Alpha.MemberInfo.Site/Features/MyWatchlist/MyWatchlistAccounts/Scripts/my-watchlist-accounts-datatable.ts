@@ -9,6 +9,9 @@ class MyWatchlistAccountsDataTable {
     private isShowLastLoginColumn: boolean;
     private canUpdateAccount: boolean;
     private $username: JQuery;
+    private dateRangePicker: DateRangePickerJQueryComponent;
+    private statusDropdown: SingleSelectionDropdownComponent;
+    private problemAccountDropdown: SingleSelectionDropdownComponent; 
 
     private $tableReport: JQuery;
     private $dataTable: JQuery;
@@ -25,9 +28,16 @@ class MyWatchlistAccountsDataTable {
         this.$dataTable.ajax.reload();
     }
 
-    public init(baseUrl: string) {
+    public init(
+        baseUrl: string,
+        dateRangePicker: DateRangePickerJQueryComponent,
+        statusDropdown: SingleSelectionDropdownComponent,
+        problemAccountDropdown: SingleSelectionDropdownComponent) {
         this.cacheDOMElements();
         const $reportForm = this.$("#report-form");
+        this.dateRangePicker = dateRangePicker;
+        this.statusDropdown = statusDropdown;
+        this.problemAccountDropdown = problemAccountDropdown;
 
         this.editSettingPopup.init(this.$tableReport, baseUrl);
         this.$dataTable = DataTableHelper.initDataTable(
@@ -75,11 +85,13 @@ class MyWatchlistAccountsDataTable {
                         isDesc: data.order[0].dir === 'desc',
                         pageIndex: (data.start / data.length) + 1,
                         pageSize: data.length,
+                        status: this.statusDropdown.getSelectedItem(),
+                        isProblemAccount: this.problemAccountDropdown.getSelectedItem(),
                         username: this.$username.val().trim()
                     };
                     AJAXHelper.postJSON(
                         myWatchlistUrl,
-                        formData,
+                        this.$.extend(formData, this.dateRangePicker.getDateRangeValues()),
                         jsonData => callback({
                             data: jsonData.WatchlistAccounts,
                             recordsTotal: jsonData.TotalItems,
@@ -128,8 +140,10 @@ class MyWatchlistAccountsDataTable {
 
         columns.push({ className: 'left', data: "Username", name: "Username" });
 
-        this.isShowLastLoginColumn &&
+        if (this.isShowLastLoginColumn) {
             columns.push({ className: 'center', data: "LastLoggedString", name: "LastLogin" });
+            columns.push({ className: 'center', data: "AddedDateString", name: "AddedDate" });
+        }
 
         columns.push(
             { className: 'center', data: "TranslatedStatus", name: "Status" },

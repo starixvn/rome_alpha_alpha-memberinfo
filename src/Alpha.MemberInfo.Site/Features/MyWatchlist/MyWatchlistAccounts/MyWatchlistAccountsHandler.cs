@@ -203,8 +203,20 @@
 
         public async Task<ManageWatchlistAccountsViewModel> Handle(ManageWatchlistAccountsQuery message)
         {
-            var personalPresets = await service.GetPresets(new SelectPresetsParam(message.CustId, message.Site));
-            return new ManageWatchlistAccountsViewModel(message, personalPresets);
+            var personalPresets = await service.GetPresets(new SelectPresetsParam(message.ViewerId, message.Site));
+
+            ThresholdViewModel thresholdViewModel;
+            if (message.IsEdit)
+            {
+                thresholdViewModel = new ThresholdViewModel(message.WinningThreshold, message.LosingThreshold);
+            }
+            else
+            {
+                var globalThreshold = await service.GetGlobalThreshold(new SelectGlobalThresholdParam(message.ViewerId, message.Site));
+                thresholdViewModel = new ThresholdViewModel(globalThreshold.WinningThreshold, globalThreshold.LosingThreshold);
+            }
+
+            return new ManageWatchlistAccountsViewModel(message, personalPresets, thresholdViewModel);
         }
 
         public async Task<ManageGlobalThresholdViewModel> Handle(ManageGlobalThresholdQuery message)

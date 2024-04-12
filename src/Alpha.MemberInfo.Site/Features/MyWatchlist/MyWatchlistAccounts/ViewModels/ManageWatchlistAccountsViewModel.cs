@@ -1,17 +1,18 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.ViewModels
 {
-    using Alpha.MemberInfo.Extensions;
-    using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
-    using Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Requests;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Alpha.MemberInfo.Extensions;
+    using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
+    using Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Requests;
 
     public class ManageWatchlistAccountsViewModel
     {
         public ManageWatchlistAccountsViewModel(
             ManageWatchlistAccountsQuery message, 
-            IEnumerable<PersonalPresetModel> presets)
+            IEnumerable<PersonalPresetModel> presets,
+            ThresholdViewModel threshold)
         {
             PresetSelectionViewModel = new PresetSelectionViewModel(
                 presets.Select(preset => new SelectListItem
@@ -24,10 +25,10 @@
 
             IsEditWatchlistAccountsPopup = message.IsEdit;
             Usernames = message.Usernames;
+            Threshold = threshold;
             if (IsEditWatchlistAccountsPopup)
             {
                 CustIds = message.CustIds;
-                Threshold = new ThresholdViewModel(message.WinningThreshold, message.LosingThreshold);
             }
         }
 

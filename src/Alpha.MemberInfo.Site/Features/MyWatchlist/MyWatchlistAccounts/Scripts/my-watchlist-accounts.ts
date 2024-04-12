@@ -7,15 +7,23 @@
 class MyWatchlistAccounts extends MyWatchlistBase {
     private topWindow: any;
     private dataTable: MyWatchlistAccountsDataTable;
-
+    private dateRangePicker: DateRangePickerJQueryComponent;
+    private statusDropdown: SingleSelectionDropdownComponent;
+    private problemAccountDropdown: SingleSelectionDropdownComponent;
 
     constructor(
         $: JQueryStatic,
         topWindow: any,
-        dataTable: MyWatchlistAccountsDataTable) {
+        dataTable: MyWatchlistAccountsDataTable,
+        dateRangePicker: DateRangePickerJQueryComponent,
+        statusDropdown: SingleSelectionDropdownComponent,
+        problemAccountDropdown: SingleSelectionDropdownComponent) {
         super($);
         this.topWindow = topWindow;
         this.dataTable = dataTable;
+        this.dateRangePicker = dateRangePicker;
+        this.statusDropdown = statusDropdown;
+        this.problemAccountDropdown = problemAccountDropdown;
     }
 
     public init() {
@@ -45,7 +53,10 @@ class MyWatchlistAccounts extends MyWatchlistBase {
                 550,
                 "modal-mobile-friendly"));
 
-        this.dataTable.init(baseUrl);
+        this.dateRangePicker.render();
+        this.statusDropdown.render(new SingleSelectionDropdownOption("status-dropdown"));
+        this.problemAccountDropdown.render(new SingleSelectionDropdownOption("pa-dropdown"));
+        this.dataTable.init(baseUrl, this.dateRangePicker, this.statusDropdown, this.statusDropdown);
     }
 
     private initUsernameAutoSuggestion(baseUrl: string, searchAccountId: string) {
@@ -73,5 +84,11 @@ $(function () {
     const dataTable = new MyWatchlistAccountsDataTable($, editSettingPopup, window.watchlistAccountData, window.top);
     window.top.reloadMyWatchlistDataTable = () => dataTable.reloadData();
 
-    new MyWatchlistAccounts($, window.top, dataTable).init();
+    new MyWatchlistAccounts(
+        $,
+        window.top,
+        dataTable,
+        new DateRangePickerJQueryComponent($),
+        new SingleSelectionDropdownComponent($),
+        new SingleSelectionDropdownComponent($)).init();
 });
