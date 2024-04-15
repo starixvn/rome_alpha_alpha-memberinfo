@@ -1079,4 +1079,7 @@
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>您的上線已設置會員最高信用：{0}</value>
   </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>Monitored Member</value>
+  </data>
 </root>

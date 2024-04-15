@@ -41,19 +41,26 @@
     <div class="list-total-statement">
         <div class="item">
             <div class="title-total">@Resources.ActiveMembers</div>
-            <div class="text-total">1000</div>
+            <div class="text-total">@HtmlHelpers.FormatNumber(Model.Summary.ActiveMembers)</div>
         </div>
         <div class="item">
             <div class="title-total">@Resources.MonitoredMembers</div>
-            <div class="text-total">100</div>
+            <div class="text-total">@HtmlHelpers.FormatNumber(Model.Summary.MonitoredMembers)</div>
         </div>
         <div class="item">
             <div class="title-total">@Resources.ReachedDailyLimitMembers</div>
-            <div class="text-total">10</div>
+            <div class="text-total">@HtmlHelpers.FormatNumber(Model.Summary.ReachedDailyLimitMembers)</div>
         </div>
         <div class="item last-item">
-            <span class="title-total" data-title="@Resources.ClickToSetThresholds">@Resources.UnlimitedThresholdMembers</span>
-            <div class="text-total"><a href="javascript:;" id="detail-link">5</a> </div>
+            <span class="title-total">@Resources.UnlimitedThresholdMembers</span>
+            @if (Model.CanAddUnlimitedThresholdMembers)
+            {
+                <div class="text-total" id="summary-add-members" data-usernames="@Model.Summary.UnlimitedThresholdUsers" data-title="@Resources.ClickToSetThresholds">@HtmlHelpers.FormatNumber(Model.Summary.UnlimitedThresholdMembers)</div>
+            }
+            else
+            {
+                <div class="text-total">@HtmlHelpers.FormatNumber(Model.Summary.UnlimitedThresholdMembers)</div>
+            }
         </div>
     </div>
     <div class="ttl-box-watchlist">@Resources.WatchlistDetail</div>
@@ -189,6 +196,3 @@
 <input type="hidden" id="is-show-last-login" value="@(Model.IsShowLastLoginColumn ? "true" : "false")" />
 <input type="hidden" id="edit-text" value="@Resources.Edit" />
 <input type="hidden" id="edit-multiple-text" value="@Resources.EditMultiple" />
-<input type="hidden" id="isOpenFromProblemAccount" value="@(Model.IsOpenFromProblemAccount? "true" : "false")" />
-<input type="hidden" id="custIds" value="@Model.CustIds" />
-

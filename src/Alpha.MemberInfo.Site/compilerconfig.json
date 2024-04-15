@@ -16,10 +16,6 @@
     "inputFile": "assets/styles/problem-account/index.scss"
   },
   {
-    "outputFile": "assets/styles/problem-account/confirm-add-to-watchlist.css",
-    "inputFile": "assets/styles/problem-account/confirm-add-to-watchlist.scss"
-  },
-  {
     "outputFile": "assets/styles/problem-account/update.css",
     "inputFile": "assets/styles/problem-account/update.scss"
   },
@@ -62,10 +58,6 @@
   {
     "outputFile": "assets/styles/problem-account/index-dark.css",
     "inputFile": "assets/styles/problem-account/index-dark.scss"
-  },
-  {
-    "outputFile": "assets/styles/problem-account/confirm-add-to-watchlist-dark.css",
-    "inputFile": "assets/styles/problem-account/confirm-add-to-watchlist-dark.scss"
   },
   {
     "outputFile": "assets/styles/problem-account/update-dark.css",

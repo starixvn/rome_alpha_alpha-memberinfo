@@ -9,7 +9,7 @@
             string language,
             DateTime fromDate,
             DateTime toDate,
-            DateTime minDate,
+            DateTime? minDate = null,
             DateTime? maxDate = null)
         {
             DateRangeText = dateRangeText;
@@ -28,7 +28,7 @@
 
         public DateTime ToDate { get; }
 
-        public DateTime MinDate { get; }
+        public DateTime? MinDate { get; }
 
         public DateTime? MaxDate { get; }
     }

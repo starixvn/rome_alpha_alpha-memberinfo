@@ -10,7 +10,7 @@
     public class ManageWatchlistAccountsViewModel
     {
         public ManageWatchlistAccountsViewModel(
-            ManageWatchlistAccountsQuery message, 
+            ManageWatchlistAccountsQuery message,
             IEnumerable<PersonalPresetModel> presets,
             ThresholdViewModel threshold)
         {
@@ -20,26 +20,21 @@
                     Text = $"{preset.PresetTitle} ({preset.WinningThreshold.ToMoneyFormat()} - {preset.LosingThreshold.ToMoneyFormat()})",
                     Value = $"{preset.WinningThreshold.ToMoneyFormat()} - {preset.LosingThreshold.ToMoneyFormat()} - {preset.PresetTitle}",
                     Selected = false
-                }),
-                1);
-
-            IsEditWatchlistAccountsPopup = message.IsEdit;
-            Usernames = message.Usernames;
+                }), 1);
             Threshold = threshold;
-            if (IsEditWatchlistAccountsPopup)
-            {
-                CustIds = message.CustIds;
-            }
+            CustIds = message.CustIds;
+            Usernames = message.Usernames;
+            IsEditWatchlistAccountsPopup = message.IsEdit;
         }
 
         public PresetSelectionViewModel PresetSelectionViewModel { get; }
 
-        public bool IsEditWatchlistAccountsPopup { get; }
+        public ThresholdViewModel Threshold { get; }
 
         public string CustIds { get; }
 
         public string Usernames { get; }
 
-        public ThresholdViewModel Threshold { get; }
+        public bool IsEditWatchlistAccountsPopup { get; }
     }
 }

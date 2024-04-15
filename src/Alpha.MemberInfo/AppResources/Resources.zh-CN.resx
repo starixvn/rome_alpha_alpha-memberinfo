@@ -1081,4 +1081,7 @@
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>您的上线已设置会员最高信用：{0}</value>
   </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>Monitored Member</value>
+  </data>
 </root>

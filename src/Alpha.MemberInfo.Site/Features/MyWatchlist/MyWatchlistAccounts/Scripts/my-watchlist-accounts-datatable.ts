@@ -65,7 +65,8 @@ class MyWatchlistAccountsDataTable {
             Status: 3,
             WinningThreshold: 4,
             LosingThreshold: 5,
-            IsPA: 7
+            IsPA: 7,
+            AddedDate: 8
         };
 
         return {
@@ -86,7 +87,7 @@ class MyWatchlistAccountsDataTable {
                         pageIndex: (data.start / data.length) + 1,
                         pageSize: data.length,
                         status: this.statusDropdown.getSelectedItem(),
-                        isProblemAccount: this.problemAccountDropdown.getSelectedItem(),
+                        problemAccount: this.problemAccountDropdown.getSelectedItem(),
                         username: this.$username.val().trim()
                     };
                     AJAXHelper.postJSON(
@@ -197,26 +198,5 @@ class MyWatchlistAccountsDataTable {
     private drawCallback() {
         this.$tableReport.removeClass("hidden");
         this.editSettingPopup.bindEvents(this.$tableReport);
-
-        const isOpenFromProblemAccount = this.$('#isOpenFromProblemAccount').val();
-        isOpenFromProblemAccount && JSON.parse(isOpenFromProblemAccount) && setTimeout(() => {
-            this.openAddMultiplePopup();
-            this.topWindow.menuBar.activeMyWatchlistSubMenuItem();
-        }, 1500);
-    }
-
-    private openAddMultiplePopup() {
-        const custIds = this.$('#custIds').val();
-        this.$('#custIds').val("");
-        this.$('#isOpenFromProblemAccount').val("");
-
-        const baseUrl = this.$('#member-info-url').val();
-
-        this.topWindow.popupManager.open(
-            `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?Usernames=${custIds}&isEdite=true`,
-            undefined,
-            820,
-            550,
-            "modal-mobile-friendly");
     }
 }

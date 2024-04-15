@@ -48,5 +48,7 @@
         public bool CanEdit => !IsReviewed;
 
         public byte Locked { get; set; }
+
+        public bool IsExistedWatchlist { get; set; }
     }
 }

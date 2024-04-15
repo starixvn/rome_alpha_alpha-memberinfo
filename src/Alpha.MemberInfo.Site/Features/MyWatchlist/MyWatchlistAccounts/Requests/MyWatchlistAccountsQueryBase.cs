@@ -12,6 +12,14 @@
             IsShowLastLoginColumn = viewer.LimitedDateToShowInfo == default(DateTime);
         }
 
+        public DateTime FromDate { get; set; } = DateTime.Today.AddDays(-1);
+
+        public DateTime ToDate { get; set; } = DateTime.Today;
+
+        public byte Status { get; set; }
+
+        public byte ProblemAccount { get; set; }
+
         [AllowHtml]
         public string Username { get; set; }
 

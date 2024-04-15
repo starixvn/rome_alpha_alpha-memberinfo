@@ -45,19 +45,16 @@
             }
         </select>
     </div>
-
+    @Html.Partial("~/Features/MyWatchlist/Shared/Views/ThresholdInputGroup.cshtml", Model.Threshold)
     @if (Model.IsEditWatchlistAccountsPopup)
     {
-        @Html.Partial("~/Features/MyWatchlist/Shared/Views/ThresholdInputGroup.cshtml", Model.Threshold)
         <button class="btn-submit" id="btn-update">@Resources.Update</button>
     }
     else
     {
-        @Html.Partial("~/Features/MyWatchlist/Shared/Views/ThresholdInputGroup.cshtml", Model.Threshold)
         <button class="btn-submit" id="btn-add">@Resources.Add</button>
     }
 </div>
-
 @Html.AntiForgeryToken()
 <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()">
 <input type="hidden" id="no-change-to-update-error" value="@Resources.NoChangeToUpdateError" />

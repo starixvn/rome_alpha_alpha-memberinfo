@@ -1112,4 +1112,7 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>The Maximum Member Credit set by your upline: {0}</value>
   </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>Monitored Member</value>
+  </data>
 </root>

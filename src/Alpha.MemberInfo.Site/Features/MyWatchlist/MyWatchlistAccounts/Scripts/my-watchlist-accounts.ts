@@ -35,8 +35,8 @@ class MyWatchlistAccounts extends MyWatchlistBase {
             this.topWindow.popupManager.open(
                 `${baseUrl}MyWatchlistAccounts/ManageGlobalThreshold`,
                 undefined,
-                600,
-                310,
+                620,
+                320,
                 "modal-mobile-friendly"));
         this.$("#btn-manage-preset").click(_ =>
             this.topWindow.popupManager.open(
@@ -52,11 +52,22 @@ class MyWatchlistAccounts extends MyWatchlistBase {
                 820,
                 550,
                 "modal-mobile-friendly"));
+        this.$("#summary-add-members").click((e) => {
+            const usernames = this.$(e.target).data("usernames");
+            if (usernames) {
+                this.topWindow.popupManager.open(
+                    `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?usernames=${usernames}`,
+                    undefined,
+                    820,
+                    550,
+                    "modal-mobile-friendly");
+            }
+        });
 
         this.dateRangePicker.render();
         this.statusDropdown.render(new SingleSelectionDropdownOption("status-dropdown"));
         this.problemAccountDropdown.render(new SingleSelectionDropdownOption("pa-dropdown"));
-        this.dataTable.init(baseUrl, this.dateRangePicker, this.statusDropdown, this.statusDropdown);
+        this.dataTable.init(baseUrl, this.dateRangePicker, this.statusDropdown, this.problemAccountDropdown);
     }
 
     private initUsernameAutoSuggestion(baseUrl: string, searchAccountId: string) {

@@ -43,19 +43,23 @@ class CustomerListHelper {
             'id': `setting-${item.CustId}`,
             'data-custid': item.CustId,
             'data-username': item.UserName,
-            'title': this.$('#editSettingText').val()
+            'title': this.viewResources.EditSettingText
         };
 
         return `<div ${this.buildAttributes(attrs)}/>`;
     }
 
     private renderUsernameColumn = item => {
-        const textLocked = this.$("#text-locked").val();
-        return item.Locked
-            ? `<div class="cell-username">
-                ${item.UserName}
-                <span class="pull-right icon-locked" title="${textLocked}"></span>
-                </div>`
+        let lockedOrMonitored = "";
+        if (item.IsExistedWatchlist) {
+            lockedOrMonitored += `<span class="pull-right icon-mywatchlist" title="${this.viewResources.MonitoredMemberText}"></span>`;
+        }
+        if (item.Locked) {
+            lockedOrMonitored += `<span class="pull-right icon-locked" title="${this.viewResources.LockedText}"></span>`;
+        }
+
+        return lockedOrMonitored.length
+            ? `<div class="cell-username">${item.UserName}${lockedOrMonitored}</div>`
             : `${item.UserName}`;
     }
 
@@ -218,6 +222,9 @@ class CustomerListHelper {
 
             const statusAttribute = Customers[i].StatusNameEN === "Open" ? new Attribute('is-open', 'true') : null;
             statusAttribute && rowAttributes.push(statusAttribute);
+
+            const monitoredAttribute = Customers[i].IsExistedWatchlist ? new Attribute('is-monitored', Customers[i].IsExistedWatchlist) : null;
+            monitoredAttribute && rowAttributes.push(monitoredAttribute);
 
             bodyContent += new RowWrapper(rowContent, rowAttributes).ToString();
         }

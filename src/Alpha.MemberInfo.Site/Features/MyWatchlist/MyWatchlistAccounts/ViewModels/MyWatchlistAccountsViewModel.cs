@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.ViewModels
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -11,12 +10,12 @@
     using Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Requests;
     using Alpha.MemberInfo.Site.ViewModels.Components;
     using Alpha.Web.Helpers;
-    using Fanex.Common.Extensions;
 
     public class MyWatchlistAccountsViewModel
     {
         public MyWatchlistAccountsViewModel(
             MyWatchlistAccountsQuery request,
+            WatchlistSummaryModel summary,
             GlobalThresholdModel globalThresholdModel,
             bool isMobile,
             bool canUpdateAccount,
@@ -25,21 +24,24 @@
             SearchAccountId = request.CustId;
             IsMobile = isMobile;
             CanUpdateAccount = canUpdateAccount;
+            Summary = summary;
+            CanAddUnlimitedThresholdMembers = CanUpdateAccount && !string.IsNullOrWhiteSpace(Summary.UnlimitedThresholdUsers);
             GlobalThresholdModel = globalThresholdModel;
             MyWatchListAccountPagingViewModel = myWatchListAccountPagingViewModel;
             IsShowLastLoginColumn = request.IsShowLastLoginColumn;
             CustLevel = request.CustLevel.DisplayName;
-            IsOpenFromProblemAccount = request.IsOpenFromProblemAccount;
-            CustIds = request.CustIds;
             DateRangePicker = new DateRangePickerJQueryViewModel(
                 Resources.AddedDate,
                 request.Language,
                 request.FromDate,
-                request.ToDate,
-                DateTime.Today.AddMonths(-3).FirstDayOfMonth());
+                request.ToDate);
         }
 
         public int SearchAccountId { get; }
+
+        public WatchlistSummaryModel Summary { get; }
+
+        public bool CanAddUnlimitedThresholdMembers { get; }
 
         public GlobalThresholdModel GlobalThresholdModel { get; }
 
@@ -52,10 +54,6 @@
         public string CustLevel { get; }
 
         public bool CanUpdateAccount { get; }
-
-        public bool IsOpenFromProblemAccount { get; }
-
-        public string CustIds { get; }
 
         public DateRangePickerJQueryViewModel DateRangePicker { get; }
 
@@ -71,9 +69,9 @@
         {
             get
             {
-                yield return new SelectListItem { Text = Resources.All, Value = "0", Selected = true };
-                yield return new SelectListItem { Text = Resources.Yes, Value = "true" };
-                yield return new SelectListItem { Text = Resources.No2, Value = "false" };
+                yield return new SelectListItem { Text = Resources.All, Value = "2", Selected = true };
+                yield return new SelectListItem { Text = Resources.Yes, Value = "1" };
+                yield return new SelectListItem { Text = Resources.No2, Value = "0" };
             }
         }
 

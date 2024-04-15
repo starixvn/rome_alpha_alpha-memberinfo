@@ -393,7 +393,9 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\SelectGlobalThresholdCriteria.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\SelectMultipleWatchlistCriteria.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\SelectPresetsCriteria.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\SelectReachedMemberCountCriteria.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\SelectWatchlistAccountsCriteria.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\SelectWatchlistSummaryCriteria.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\UpdateGlobalThresholdCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\UpdatePersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\UpdatePersonalThresholdCommand.cs" />
@@ -402,14 +404,14 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\PersonalPresetModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\WatchlistAccountModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\WatchlistAccountReport.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\MultipleWatchlistAccountModel.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\WatchlistSummaryModel.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\MyWatchlistAccountsService.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\AddPersonalPresetParam.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\AddPersonalThresholdParam.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\DeletePersonalPresetParam.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\DeletePersonalThresholdParam.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\SelectGlobalThresholdParam.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\SelectMultipleWatchlistParam.cs" />
+    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\SelectWatchlistSummaryParam.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\SelectPresetsParam.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\UpdateGlobalThresholdParam.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Params\UpdatePersonalPresetParam.cs" />

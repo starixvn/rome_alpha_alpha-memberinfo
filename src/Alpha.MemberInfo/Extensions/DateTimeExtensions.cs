@@ -34,5 +34,8 @@ namespace Alpha.MemberInfo.Extensions
 
         public static string ToMMDDWithSlash(this DateTime dateTime)
             => dateTime.ToString(MMDDWithSlash);
+
+        public static DateTime FirstDayOfYear(this DateTime dateTime)
+            => new DateTime(dateTime.Year, 1, 1);
     }
 }

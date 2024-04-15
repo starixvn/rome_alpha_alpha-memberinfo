@@ -1081,4 +1081,7 @@
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>เครดิตสมาชิกสูงสุดที่กำหนดโดยอัพไลน์ของคุณ: {0}</value>
   </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>Monitored Member</value>
+  </data>
 </root>

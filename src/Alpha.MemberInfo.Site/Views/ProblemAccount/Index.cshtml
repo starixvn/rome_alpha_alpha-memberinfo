@@ -83,7 +83,7 @@
 @Html.Hidden("suspended-text", Resources.Suspended)
 @Html.Hidden("changeStatusToSuspendText", @ProductResources.ConfirmSuspendedViewModelInCaseSuspendedMemberMessage)
 @Html.Hidden("text-locked", Resources.Locked)
-
+@Html.Hidden("MonitoredMemberText", Resources.MonitoredMember)
 @Html.Hidden("memberInfoUrl", @MicroSites.MemberInfoUrl())
 @Html.Hidden("accountInfoUrl", @MicroSites.AccountInfoUrl())
 
@@ -225,18 +225,18 @@
     var levelName = level.DisplayName.ToLower();
     var columns = new[]
     {
-        new { Text = "#", ClassName = string.Empty, Show = true },
-        new { Text = $"<input type='checkbox' class='select-all' id='select-all-{levelName}'/>", ClassName = string.Empty, Show = Model.CanUpdateAccount },
-        new { Text = "<div class='edit-multiple icon-table-edit' id='edit-multiple' data-url='' title='"+@Resources.EditMutipleSetting+"'>", ClassName = string.Empty, Show = Model.Query.CustLevel.IsAgentLevel() && Model.CanUpdateAccount },
-        new { Text = Resources.Username, ClassName = string.Empty, Show = true },
-        new { Text = Resources.Nickname, ClassName = string.Empty, Show = Model.Query.CustLevel.GetDirectDownLineLevel().Is(level) },
-        new { Text = Resources.FirstName, ClassName = string.Empty, Show = true },
-        new { Text = Resources.LastName, ClassName = string.Empty, Show = true },
-        new { Text = Resources.Status, ClassName = string.Empty, Show = true },
-        new { Text = Resources.DateNotified, ClassName = string.Empty, Show = true },
-        new { Text = level.IsMasterLevel()?Resources.ProblemAgentAccounts:Resources.ProblemMemberAccounts, ClassName = string.Empty, Show = !level.IsMemberLevel() },
-        new { Text = Resources.ReviewStatus, ClassName = string.Empty, Show = true }
-    };
+new { Text = "#", ClassName = string.Empty, Show = true },
+new { Text = $"<input type='checkbox' class='select-all' id='select-all-{levelName}'/>", ClassName = string.Empty, Show = Model.CanUpdateAccount },
+new { Text = "<div class='edit-multiple icon-table-edit' id='edit-multiple' data-url='' title='"+@Resources.EditMutipleSetting+"'>", ClassName = string.Empty, Show = Model.Query.CustLevel.IsAgentLevel() && Model.CanUpdateAccount },
+new { Text = Resources.Username, ClassName = string.Empty, Show = true },
+new { Text = Resources.Nickname, ClassName = string.Empty, Show = Model.Query.CustLevel.GetDirectDownLineLevel().Is(level) },
+new { Text = Resources.FirstName, ClassName = string.Empty, Show = true },
+new { Text = Resources.LastName, ClassName = string.Empty, Show = true },
+new { Text = Resources.Status, ClassName = string.Empty, Show = true },
+new { Text = Resources.DateNotified, ClassName = string.Empty, Show = true },
+new { Text = level.IsMasterLevel()?Resources.ProblemAgentAccounts:Resources.ProblemMemberAccounts, ClassName = string.Empty, Show = !level.IsMemberLevel() },
+new { Text = Resources.ReviewStatus, ClassName = string.Empty, Show = true }
+};
 
 <div id="@($"container-{levelName}")">
     <table id="@($"tbl-{levelName}")" class="tblRpt tblRpt-bordered alternative-row-table width-100per tablesorter tblRpt-hover @($"level-{levelName}")">

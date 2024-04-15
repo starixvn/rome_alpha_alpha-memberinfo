@@ -1063,4 +1063,7 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>Hạn Mức Tín Dụng Tối Đa Của Member Cấp Bởi Cấp Trên：{0}</value>
   </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>Monitored Member</value>
+  </data>
 </root>

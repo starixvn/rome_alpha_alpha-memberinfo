@@ -772,10 +772,6 @@
     <Content Include="assets\styles\images\createAccount\default\zh-TW\light\lv4.img3.png" />
     <Content Include="assets\styles\images\not-reviewed.png" />
     <Content Include="assets\styles\images\open.png" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.css" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.min.css" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
     <Content Include="ClientApp\dist\assets\createAccount-8769a10f.js" />
     <Content Include="ClientApp\dist\assets\createAccount-a50e7ae2.css" />
     <Content Include="ClientApp\dist\assets\index-06d353a9.css" />
@@ -839,7 +835,6 @@
     <Content Include="IbcKeys\Web.config" />
     <Content Include="Views\Customer\SportBookInformation-Debug.cshtml" />
     <Content Include="Views\Customer\SportBookInformation.cshtml" />
-    <Content Include="Views\ProblemAccount\ConfirmAddToWatchlist.cshtml" />
     <Content Include="Web.AppSettings.pro4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
@@ -1230,8 +1225,6 @@
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account.scss" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.scss" />
     <Content Include="Features\CopyAccount\Views\_CopyResult.cshtml" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.scss" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.scss" />
     <Content Include="deployment.pro4.ignore" />
     <Content Include="Features\CreateAccount\Views\Index.cshtml" />
     <Content Include="Features\CreateAccount\Views\PTTemplate.cshtml" />
@@ -1424,7 +1417,6 @@
     <Compile Include="Requests\Customer\UpdateCustomerRequest.cs" />
     <Compile Include="Requests\Customer\SportBookInformationQuery.cs" />
     <Compile Include="Requests\Customer\UpdateMultipleCustomerRequest.cs" />
-    <Compile Include="Requests\ProblemAccount\ConfirmAddToWatchlistQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManagePersonalThresholdPresetQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageWatchlistAccountsQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\MyWatchlistAccountsQuery.cs" />
@@ -1538,7 +1530,6 @@
     <Compile Include="ViewModels\IndirectLoginAccount\UpdatePasswordViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
-    <Compile Include="ViewModels\ProblemAccount\ConfirmAddToWatchlistViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\ProblemAccountReportViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\UpdateReviewStatusViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -1786,7 +1777,6 @@
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyThresholds\Scripts\my-thresholds-settings.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyThresholds\Scripts\my-thresholds.ts" />
-    <TypeScriptCompile Include="assets\scripts\ProblemAccount\confirm-add-to-watchlist.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\Shared\Scripts\threshold-inputs-base.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\manage-global-threshold.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\manage-presets.ts" />

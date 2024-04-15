@@ -164,15 +164,11 @@ class ManageWatchlistAccounts extends ThresholdInputsBase {
                 return;
             }
 
-            isFailed || this.reloadPage()
+            isFailed || setTimeout(() => {
+                this.topWindow.popupManager.close();
+                this.topWindow.reloadMyWatchlistDataTable();
+            }, 3000)
         }
-    }
-
-    private reloadPage() {
-        setTimeout(() => {
-            this.topWindow.$('#main').attr('src', `${this.baseUrl}MyWatchlistAccounts`);
-        }, 3000)
-
     }
 }
 

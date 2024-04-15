@@ -1645,6 +1645,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monitored Member.
+        /// </summary>
+        public static string MonitoredMember {
+            get {
+                return ResourceManager.GetString("MonitoredMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Monitored Members.
         /// </summary>
         public static string MonitoredMembers {

@@ -7,7 +7,7 @@
         <label class="label-form-control">@model.DateRangeText</label>
         <div class="input-group date datepicker">
             <input type="text" class="form-control" id="daterange-picker" autocomplete="off" readonly
-                   data-mindate="@model.MinDate.ToShortDateWithSlash()"
+                   data-mindate="@(model.MinDate == null ? string.Empty : model.MinDate.Value.ToShortDateWithSlash())"
                    data-maxdate="@(model.MaxDate == null ? string.Empty : model.MaxDate.Value.ToShortDateWithSlash())"
                    data-fromdate="@model.FromDate.ToShortDateWithSlash()"
                    data-todate="@model.ToDate.ToShortDateWithSlash()"
