@@ -52,13 +52,15 @@ class CustomerListDataTable {
             return statusClasses.Disabled.Css;
         }
         else if (data.Closed) {
-            return statusClasses.Closed.filter(closedReason => data.ClosedReason === closedReason.Id)[0].Css;
+            const closed = statusClasses.Closed.filter(closedReason => data.ClosedReason === closedReason.Id);
+            return (closed && closed.length) ? closed[0].Css : "";
         }
         else if (data.Suspended) {
             return statusClasses.Suspended.Css;
         }
         else if (data.Locked) {
-            return statusClasses.Locked.filter(locked => data.Locked === locked.Id)[0].Css;
+            const locked = statusClasses.Locked.filter(locked => data.Locked === locked.Id);
+            return (locked && locked.length) ? locked[0].Css : "";
         }
 
         return data.Enabled.Css;
