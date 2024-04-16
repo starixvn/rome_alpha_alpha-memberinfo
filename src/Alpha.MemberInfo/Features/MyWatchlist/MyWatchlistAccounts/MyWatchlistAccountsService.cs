@@ -204,7 +204,8 @@
             partialUMService.ThrowIfUM(reachedMemberCountCriteria.GetSettingKey(), param.SiteName);
             await dynamicRepository.ExecuteAsync(reachedMemberCountCriteria);
 
-            var summaryCriteria = new SelectWatchlistSummaryCriteria(param.AgentId, reachedMemberCountCriteria.ReachedDailyLimitCount);
+            var summaryCriteria = new SelectWatchlistSummaryCriteria(
+                param.AgentId, reachedMemberCountCriteria.ReachedDailyLimitCount, param.SportType);
             partialUMService.ThrowIfUM(reachedMemberCountCriteria.GetSettingKey(), param.SiteName);
 
             return await dynamicRepository.GetAsync<WatchlistSummaryModel>(summaryCriteria);
