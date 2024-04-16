@@ -15,7 +15,6 @@
     {
         public MyWatchlistAccountsViewModel(
             MyWatchlistAccountsQuery request,
-            WatchlistSummaryModel summary,
             GlobalThresholdModel globalThresholdModel,
             bool isMobile,
             bool canUpdateAccount,
@@ -24,8 +23,6 @@
             SearchAccountId = request.CustId;
             IsMobile = isMobile;
             CanUpdateAccount = canUpdateAccount;
-            Summary = summary;
-            CanAddUnlimitedThresholdMembers = CanUpdateAccount && !string.IsNullOrWhiteSpace(Summary.UnlimitedThresholdUsers);
             GlobalThresholdModel = globalThresholdModel;
             MyWatchListAccountPagingViewModel = myWatchListAccountPagingViewModel;
             IsShowLastLoginColumn = request.IsShowLastLoginColumn;
@@ -38,10 +35,6 @@
         }
 
         public int SearchAccountId { get; }
-
-        public WatchlistSummaryModel Summary { get; }
-
-        public bool CanAddUnlimitedThresholdMembers { get; }
 
         public GlobalThresholdModel GlobalThresholdModel { get; }
 

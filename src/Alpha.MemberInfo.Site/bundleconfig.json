@@ -256,6 +256,7 @@
       "assets/scripts/shared/customer-status-helper.js",
       "Features/MyWatchlist/Shared/Scripts/my-watchlist-base.js",
       "Features/MyWatchlist/MyWatchlistAccounts/Scripts/edit-setting-popup.js",
+      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-summary.js",
       "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-datatable.js",
       "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts.js"
     ]

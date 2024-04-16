@@ -18,7 +18,7 @@
 
         public byte Status { get; set; }
 
-        public byte ProblemAccount { get; set; }
+        public byte ProblemAccount { get; set; } = 2;
 
         [AllowHtml]
         public string Username { get; set; }

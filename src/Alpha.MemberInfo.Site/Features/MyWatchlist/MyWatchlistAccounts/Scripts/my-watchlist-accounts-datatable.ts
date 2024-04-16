@@ -3,7 +3,6 @@
 class MyWatchlistAccountsDataTable {
     private $: JQueryStatic;
     private editSettingPopup: EditSettingPopup;
-    private topWindow: any;
 
     private isMobile: boolean;
     private isShowLastLoginColumn: boolean;
@@ -11,17 +10,17 @@ class MyWatchlistAccountsDataTable {
     private $username: JQuery;
     private dateRangePicker: DateRangePickerJQueryComponent;
     private statusDropdown: SingleSelectionDropdownComponent;
-    private problemAccountDropdown: SingleSelectionDropdownComponent; 
+    private problemAccountDropdown: SingleSelectionDropdownComponent;
+    private watchlistSummary: MyWatchlistSummary
 
     private $tableReport: JQuery;
     private $dataTable: JQuery;
     private myWatchlistAccountData: any;
 
-    constructor($: JQueryStatic, editSettingPopup: EditSettingPopup, myWatchlistAccountData: any, topWindow: any) {
+    constructor($: JQueryStatic, editSettingPopup: EditSettingPopup, myWatchlistAccountData: any) {
         this.$ = $;
         this.editSettingPopup = editSettingPopup;
         this.myWatchlistAccountData = myWatchlistAccountData;
-        this.topWindow = topWindow;
     }
 
     public reloadData() {
@@ -32,12 +31,14 @@ class MyWatchlistAccountsDataTable {
         baseUrl: string,
         dateRangePicker: DateRangePickerJQueryComponent,
         statusDropdown: SingleSelectionDropdownComponent,
-        problemAccountDropdown: SingleSelectionDropdownComponent) {
+        problemAccountDropdown: SingleSelectionDropdownComponent,
+        watchlistSummary: MyWatchlistSummary) {
         this.cacheDOMElements();
         const $reportForm = this.$("#report-form");
         this.dateRangePicker = dateRangePicker;
         this.statusDropdown = statusDropdown;
         this.problemAccountDropdown = problemAccountDropdown;
+        this.watchlistSummary = watchlistSummary;
 
         this.editSettingPopup.init(this.$tableReport, baseUrl);
         this.$dataTable = DataTableHelper.initDataTable(
@@ -72,6 +73,7 @@ class MyWatchlistAccountsDataTable {
         return {
             ajax: (data, callback) => {
                 if (this.myWatchlistAccountData) {
+                    this.watchlistSummary.render(this.myWatchlistAccountData.WatchlistSummary);
                     callback({
                         data: this.myWatchlistAccountData.WatchlistAccounts,
                         recordsTotal: this.myWatchlistAccountData.TotalItems,
@@ -93,11 +95,14 @@ class MyWatchlistAccountsDataTable {
                     AJAXHelper.postJSON(
                         myWatchlistUrl,
                         this.$.extend(formData, this.dateRangePicker.getDateRangeValues()),
-                        jsonData => callback({
-                            data: jsonData.WatchlistAccounts,
-                            recordsTotal: jsonData.TotalItems,
-                            recordsFiltered: jsonData.TotalItems
-                        }));
+                        jsonData => {
+                            this.watchlistSummary.render(jsonData.WatchlistSummary);
+                            callback({
+                                data: jsonData.WatchlistAccounts,
+                                recordsTotal: jsonData.TotalItems,
+                                recordsFiltered: jsonData.TotalItems
+                            });
+                        });
                 }
             },
             columns: this.buildDataTableColumns(),

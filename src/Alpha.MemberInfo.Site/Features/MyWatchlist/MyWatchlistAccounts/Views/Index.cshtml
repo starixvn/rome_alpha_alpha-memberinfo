@@ -4,6 +4,7 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = Resources.MyWatchlist;
+    var watchlistSummary = Model.MyWatchListAccountPagingViewModel.WatchlistSummary;
 }
 
 @section Styles {
@@ -41,26 +42,19 @@
     <div class="list-total-statement">
         <div class="item">
             <div class="title-total">@Resources.ActiveMembers</div>
-            <div class="text-total">@HtmlHelpers.FormatNumber(Model.Summary.ActiveMembers)</div>
+            <div class="text-total" id="summary-active-members"></div>
         </div>
         <div class="item">
             <div class="title-total">@Resources.MonitoredMembers</div>
-            <div class="text-total">@HtmlHelpers.FormatNumber(Model.Summary.MonitoredMembers)</div>
+            <div class="text-total" id="summary-monitored-members"></div>
         </div>
         <div class="item">
             <div class="title-total">@Resources.ReachedDailyLimitMembers</div>
-            <div class="text-total">@HtmlHelpers.FormatNumber(Model.Summary.ReachedDailyLimitMembers)</div>
+            <div class="text-total" id="summary-reached-daily-limit-members"></div>
         </div>
         <div class="item last-item">
             <span class="title-total">@Resources.UnlimitedThresholdMembers</span>
-            @if (Model.CanAddUnlimitedThresholdMembers)
-            {
-                <div class="text-total" id="summary-add-members" data-usernames="@Model.Summary.UnlimitedThresholdUsers" data-title="@Resources.ClickToSetThresholds">@HtmlHelpers.FormatNumber(Model.Summary.UnlimitedThresholdMembers)</div>
-            }
-            else
-            {
-                <div class="text-total">@HtmlHelpers.FormatNumber(Model.Summary.UnlimitedThresholdMembers)</div>
-            }
+            <div class="text-total" id="summary-unlimited-threshold-members"></div>
         </div>
     </div>
     <div class="ttl-box-watchlist">@Resources.WatchlistDetail</div>
@@ -196,3 +190,4 @@
 <input type="hidden" id="is-show-last-login" value="@(Model.IsShowLastLoginColumn ? "true" : "false")" />
 <input type="hidden" id="edit-text" value="@Resources.Edit" />
 <input type="hidden" id="edit-multiple-text" value="@Resources.EditMultiple" />
+<input type="hidden" id="click-to-set-thresholds-text" value="@Resources.ClickToSetThresholds" />

@@ -7,23 +7,14 @@
 class MyWatchlistAccounts extends MyWatchlistBase {
     private topWindow: any;
     private dataTable: MyWatchlistAccountsDataTable;
-    private dateRangePicker: DateRangePickerJQueryComponent;
-    private statusDropdown: SingleSelectionDropdownComponent;
-    private problemAccountDropdown: SingleSelectionDropdownComponent;
 
     constructor(
         $: JQueryStatic,
         topWindow: any,
-        dataTable: MyWatchlistAccountsDataTable,
-        dateRangePicker: DateRangePickerJQueryComponent,
-        statusDropdown: SingleSelectionDropdownComponent,
-        problemAccountDropdown: SingleSelectionDropdownComponent) {
+        dataTable: MyWatchlistAccountsDataTable) {
         super($);
         this.topWindow = topWindow;
         this.dataTable = dataTable;
-        this.dateRangePicker = dateRangePicker;
-        this.statusDropdown = statusDropdown;
-        this.problemAccountDropdown = problemAccountDropdown;
     }
 
     public init() {
@@ -52,22 +43,14 @@ class MyWatchlistAccounts extends MyWatchlistBase {
                 820,
                 550,
                 "modal-mobile-friendly"));
-        this.$("#summary-add-members").click((e) => {
-            const usernames = this.$(e.target).data("usernames");
-            if (usernames) {
-                this.topWindow.popupManager.open(
-                    `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?usernames=${usernames}`,
-                    undefined,
-                    820,
-                    550,
-                    "modal-mobile-friendly");
-            }
-        });
 
-        this.dateRangePicker.render();
-        this.statusDropdown.render(new SingleSelectionDropdownOption("status-dropdown"));
-        this.problemAccountDropdown.render(new SingleSelectionDropdownOption("pa-dropdown"));
-        this.dataTable.init(baseUrl, this.dateRangePicker, this.statusDropdown, this.problemAccountDropdown);
+        const dateRangePicker = new DateRangePickerJQueryComponent(this.$);
+        dateRangePicker.render();
+        const statusDropdown = new SingleSelectionDropdownComponent(this.$);
+        statusDropdown.render(new SingleSelectionDropdownOption("status-dropdown"));
+        const problemAccountDropdown = new SingleSelectionDropdownComponent(this.$);
+        problemAccountDropdown.render(new SingleSelectionDropdownOption("pa-dropdown"));
+        this.dataTable.init(baseUrl, dateRangePicker, statusDropdown, problemAccountDropdown, new MyWatchlistSummary(this.$, this.topWindow, baseUrl));
     }
 
     private initUsernameAutoSuggestion(baseUrl: string, searchAccountId: string) {
@@ -92,14 +75,8 @@ class MyWatchlistAccounts extends MyWatchlistBase {
 
 $(function () {
     const editSettingPopup = new EditSettingPopup($, window.top);
-    const dataTable = new MyWatchlistAccountsDataTable($, editSettingPopup, window.watchlistAccountData, window.top);
+    const dataTable = new MyWatchlistAccountsDataTable($, editSettingPopup, window.watchlistAccountData);
     window.top.reloadMyWatchlistDataTable = () => dataTable.reloadData();
 
-    new MyWatchlistAccounts(
-        $,
-        window.top,
-        dataTable,
-        new DateRangePickerJQueryComponent($),
-        new SingleSelectionDropdownComponent($),
-        new SingleSelectionDropdownComponent($)).init();
+    new MyWatchlistAccounts($, window.top, dataTable).init();
 });
