@@ -73,7 +73,7 @@ class MyWatchlistAccountsDataTable {
         return {
             ajax: (data, callback) => {
                 if (this.myWatchlistAccountData) {
-                    this.watchlistSummary.render(this.myWatchlistAccountData.WatchlistSummary);
+                    this.watchlistSummary.render(this.myWatchlistAccountData.WatchlistSummary, this.canUpdateAccount);
                     callback({
                         data: this.myWatchlistAccountData.WatchlistAccounts,
                         recordsTotal: this.myWatchlistAccountData.TotalItems,
@@ -96,7 +96,7 @@ class MyWatchlistAccountsDataTable {
                         myWatchlistUrl,
                         this.$.extend(formData, this.dateRangePicker.getDateRangeValues()),
                         jsonData => {
-                            this.watchlistSummary.render(jsonData.WatchlistSummary);
+                            this.watchlistSummary.render(jsonData.WatchlistSummary, this.canUpdateAccount);
                             callback({
                                 data: jsonData.WatchlistAccounts,
                                 recordsTotal: jsonData.TotalItems,

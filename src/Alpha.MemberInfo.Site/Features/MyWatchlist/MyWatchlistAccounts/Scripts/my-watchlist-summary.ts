@@ -20,27 +20,31 @@ class MyWatchlistSummary {
         this.unlimitedThresholdMembersTitle = $("#click-to-set-thresholds-text").val();
     }
 
-    render(summary) {
+    render(summary, canUpdateAccount: boolean) {
         this.$activeMembers.text(summary.ActiveMembers.toLocaleString());
         this.$monitoredMembers.text(summary.MonitoredMembers.toLocaleString());
         this.$reachedDailyLimitMembers.text(summary.ReachedDailyLimitMembers.toLocaleString());
         this.$unlimitedThresholdMembers.text(summary.UnlimitedThresholdMembers.toLocaleString());
-        this.$unlimitedThresholdMembers
-            .removeAttr("data-usernames")
-            .removeAttr("data-title")
-            .off("click");
 
-        if (summary.UnlimitedThresholdUsers) {
-            this.$unlimitedThresholdMembers.attr("data-usernames", summary.UnlimitedThresholdUsers);
-            this.$unlimitedThresholdMembers.attr("data-title", this.unlimitedThresholdMembersTitle);
-            this.$unlimitedThresholdMembers.click(() => {
-                this.topWindow.popupManager.open(
-                    `${this.baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?usernames=${summary.UnlimitedThresholdUsers}`,
-                    undefined,
-                    820,
-                    550,
-                    "modal-mobile-friendly");
-            });
+        if (canUpdateAccount) {
+            this.$unlimitedThresholdMembers
+                .removeAttr("data-usernames")
+                .removeAttr("data-title")
+                .off("click");
+
+            if (summary.UnlimitedThresholdUsers && summary.UnlimitedThresholdCustId) {
+                this.$unlimitedThresholdMembers.attr("data-usernames", summary.UnlimitedThresholdUsers);
+                this.$unlimitedThresholdMembers.attr("data-title", this.unlimitedThresholdMembersTitle);
+                this.$unlimitedThresholdMembers.click(() => {
+                    const queryString = `custIds=${summary.UnlimitedThresholdCustId}&usernames=${summary.UnlimitedThresholdUsers}&winningThreshold=&losingThreshold=&isEdit=true`;
+                    this.topWindow.popupManager.open(
+                        `${this.baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?${queryString}`,
+                        undefined,
+                        820,
+                        550,
+                        "modal-mobile-friendly");
+                });
+            }
         }
     }
 }

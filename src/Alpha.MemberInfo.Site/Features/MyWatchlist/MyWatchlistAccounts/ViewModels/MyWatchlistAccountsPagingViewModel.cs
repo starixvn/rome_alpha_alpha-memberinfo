@@ -19,8 +19,5 @@
         public int TotalItems { get; }
 
         public WatchlistSummaryModel WatchlistSummary { get; }
-
-        public bool CanAddUnlimitedThresholdMembers
-            => !string.IsNullOrWhiteSpace(WatchlistSummary.UnlimitedThresholdUsers);
     }
 }

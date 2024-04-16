@@ -11,5 +11,7 @@
         public int UnlimitedThresholdMembers { get; set; }
 
         public string UnlimitedThresholdUsers { get; set; }
+
+        public string UnlimitedThresholdCustId { get; set; }
     }
 }

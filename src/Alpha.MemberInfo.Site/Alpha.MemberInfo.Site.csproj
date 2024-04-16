@@ -826,6 +826,7 @@
     </Content>
     <Content Include="Features\CreateAccount\Styles\quick-introduction.scss" />
     <Content Include="Features\CreateAccount\Views\ProductSettingInfo.cshtml" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-summary.ts" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.js" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.min.js">
       <DependentUpon>reached-threshold-datatable.js</DependentUpon>
