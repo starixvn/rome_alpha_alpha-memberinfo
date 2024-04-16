@@ -321,6 +321,7 @@ table.dataTable {
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
+
     + .ttl-box-watchlist {
         margin-top: 0;
     }
@@ -340,7 +341,7 @@ table.dataTable {
         margin-bottom: 10px;
 
         &:hover {
-            .title-total {
+            .text-total {
                 &[data-title] {
                     &:after, &:before {
                         opacity: 1;
@@ -359,6 +360,13 @@ table.dataTable {
             justify-content: center;
             border-radius: 3px;
             line-height: 15px;
+            position: relative;
+        }
+
+        .text-total {
+            color: #EDEDED;
+            font-weight: bold;
+            padding: 7px 0;
             position: relative;
 
             &[data-title] {
@@ -389,15 +397,10 @@ table.dataTable {
                     border-width: 7px 6px 0 6px;
                     border-color: #333333 transparent transparent transparent;
                     bottom: 100%;
-                    left: 30px;
+                    left: 50%;
+                    margin-left: -6px;
                 }
             }
-        }
-
-        .text-total {
-            color: #EDEDED;
-            font-weight: bold;
-            padding: 7px 0;
         }
 
         &.last-item {

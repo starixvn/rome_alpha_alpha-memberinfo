@@ -149,6 +149,15 @@
         display: flex;
         align-items: center;
 
+        .icon-mywatchlist {
+            margin-left: 6px;
+            font-size: 20px;
+
+            &:before {
+                color: #ededed;
+            }
+        }
+
         .pull-right {
             margin-left: auto;
         }

@@ -68,11 +68,11 @@
     {
         @DateRangePickerJQuery.Render(Model.DateRangePicker);
         <div class="form-group">
-            <label for="status-dropdown">@Resources.Status</label>
+            <label class="label-form-control" for="status-dropdown">@Resources.Status</label>
             @Html.DropDownList("status-dropdown", Model.Status, new { id = "status-dropdown" })
         </div>
         <div class="form-group">
-            <label for="pa-dropdown">@Resources.ProblemAccount</label>
+            <label class="label-form-control" for="pa-dropdown">@Resources.ProblemAccount</label>
             @Html.DropDownList("pa-dropdown", Model.ProblemAccounts, new { id = "pa-dropdown" })
         </div>
         <div class="form-group username-box">

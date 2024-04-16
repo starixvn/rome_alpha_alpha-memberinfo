@@ -52,7 +52,7 @@ class CustomerListHelper {
     private renderUsernameColumn = item => {
         let lockedOrMonitored = "";
         if (item.IsExistedWatchlist) {
-            lockedOrMonitored += `<span class="pull-right icon-mywatchlist" title="${this.viewResources.MonitoredMemberText}"></span>`;
+            lockedOrMonitored += `<span class="icon-mywatchlist" title="${this.viewResources.MonitoredMemberText}"></span>`;
         }
         if (item.Locked) {
             lockedOrMonitored += `<span class="pull-right icon-locked" title="${this.viewResources.LockedText}"></span>`;
