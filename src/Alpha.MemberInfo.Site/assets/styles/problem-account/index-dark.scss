@@ -151,11 +151,18 @@
 
         .icon-mywatchlist {
             margin-left: 6px;
-            font-size: 20px;
+            font-size: 16px;
+            cursor: pointer;
 
             &:before {
-                color: #ededed;
+                color: #cbcbcb;
             }
+        }
+
+        .right-icon {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
         }
 
         .pull-right {

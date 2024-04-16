@@ -55,11 +55,11 @@ class CustomerListHelper {
             lockedOrMonitored += `<span class="icon-mywatchlist" title="${this.viewResources.MonitoredMemberText}"></span>`;
         }
         if (item.Locked) {
-            lockedOrMonitored += `<span class="pull-right icon-locked" title="${this.viewResources.LockedText}"></span>`;
+            lockedOrMonitored += `<span class="icon-locked" title="${this.viewResources.LockedText}"></span>`;
         }
 
         return lockedOrMonitored.length
-            ? `<div class="cell-username">${item.UserName}${lockedOrMonitored}</div>`
+            ? `<div class="cell-username">${item.UserName}<span class="right-icon">${lockedOrMonitored}</span></div>`
             : `${item.UserName}`;
     }
 
