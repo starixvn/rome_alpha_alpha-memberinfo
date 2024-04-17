@@ -1,17 +1,14 @@
-﻿using System;
-using System.Threading.Tasks;
-
+﻿
 namespace Alpha.MemberInfo.Site.Tests.Controllers
 {
+    using System;
     using System.Web.Mvc;
     using Alpha.MemberInfo.Site.Requests.ProblemAccount;
     using Alpha.MemberInfo.Site.ViewModels;
-    using Fixtures;
     using MediatR;
     using MemberInfo.Models;
     using NSubstitute;
     using Site.Controllers;
-    using Site.Requests.MemberRequest;
     using Xunit;
 
     [Trait("Category", "ProblemAccount")]
@@ -65,33 +62,6 @@ namespace Alpha.MemberInfo.Site.Tests.Controllers
 
             // Act
             var actualView = controller.Index(message) as ViewResult;
-
-            // Assert
-            Assert.Equal(InvalidPageViewPath, actualView.ViewName);
-        }
-
-        [Fact]
-        public async Task ConfirmAddToWatchlist_QueryIsValid_CallsMediatorIndexRequest()
-        {
-            // Arrange
-            var message = new ConfirmAddToWatchlistQuery(user);
-            message.CustIds = "1,2,3";
-            // Act
-            await controller.ConfirmAddToWatchlist(message);
-
-            // Assert
-            await mediator.Received().SendAsync(message);
-        }
-
-        [Fact]
-        public async Task ConfirmAddToWatchlist_QueryIsNotValid_ReturnInvalidPageView()
-        {
-            // Arrange
-            user.Id.Returns(0);
-            var message = new ConfirmAddToWatchlistQuery(user);
-
-            // Act
-            var actualView = await controller.ConfirmAddToWatchlist(message) as ViewResult;
 
             // Assert
             Assert.Equal(InvalidPageViewPath, actualView.ViewName);

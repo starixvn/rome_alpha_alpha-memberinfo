@@ -30,11 +30,13 @@ class MyWatchlistSummary {
             this.$unlimitedThresholdMembers
                 .removeAttr("data-usernames")
                 .removeAttr("data-title")
+                .css("cursor", "")
                 .off("click");
 
             if (summary.UnlimitedThresholdUsers && summary.UnlimitedThresholdCustId) {
                 this.$unlimitedThresholdMembers.attr("data-usernames", summary.UnlimitedThresholdUsers);
                 this.$unlimitedThresholdMembers.attr("data-title", this.unlimitedThresholdMembersTitle);
+                this.$unlimitedThresholdMembers.css("cursor", "pointer");
                 this.$unlimitedThresholdMembers.click(() => {
                     const queryString = `custIds=${summary.UnlimitedThresholdCustId}&usernames=${summary.UnlimitedThresholdUsers}&winningThreshold=&losingThreshold=&isEdit=true`;
                     this.topWindow.popupManager.open(

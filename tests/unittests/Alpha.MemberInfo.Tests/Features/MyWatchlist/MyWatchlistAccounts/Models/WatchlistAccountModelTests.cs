@@ -24,7 +24,7 @@
             bool isPA = true;
 
             // Act
-            var model = new WatchlistAccountModel(rowNumber, custId, sporttype, username, lastLogged, status, winningThreshold, losingThreshold, closedReason, locked, isPA);
+            var model = new WatchlistAccountModel(rowNumber, custId, sporttype, username, lastLogged, status, winningThreshold, losingThreshold, closedReason, locked, isPA, DateTime.Now);
 
             // Assert
             Assert.True(model.RowNumber == rowNumber

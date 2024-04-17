@@ -1,8 +1,6 @@
 ﻿using Alpha.MemberInfo.AppResources;
 using Alpha.MemberInfo.Constants;
 using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
-using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
-using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Params;
 using Alpha.MemberInfo.Params.ProblemAccount;
 using Alpha.MemberInfo.Site.ViewModels.ProblemAccount;
 using Alpha.Web.Helpers;
@@ -12,13 +10,10 @@ namespace Alpha.MemberInfo.Site.Tests.Handlers.ProblemAccount
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
     using Alpha.MemberInfo.Services;
     using MemberInfo.Models;
     using MemberInfo.Models.ProblemAccount;
     using NSubstitute;
-    using Params;
-    using Services.Transfer;
     using Site.Handlers;
     using Site.Requests.ProblemAccount;
     using Xunit;
@@ -160,54 +155,6 @@ namespace Alpha.MemberInfo.Site.Tests.Handlers.ProblemAccount
 
             // Assert
             Assert.True(actual.Count() == 3);
-        }
-
-        [Fact]
-        public async Task HandlerConfirmAddToWatchlistQuery_AgentLevel_ReturnsCorrectViewModel()
-        {
-            // Arrange
-            user.LevelId.Returns((byte)2);
-            var message = new ConfirmAddToWatchlistQuery(user);
-
-            var newlyAddedAccounts = new List<WatchlistAccountModel>()
-            {
-                new WatchlistAccountModel()
-                {
-                    Status = Resources.Open
-                },
-                new WatchlistAccountModel()
-                {
-                    Status = Resources.Open
-                },
-                new WatchlistAccountModel()
-                {
-                    Status = Resources.Open
-                }
-            };
-            var alreadyAddedAccounts = new List<WatchlistAccountModel>()
-            {
-                new WatchlistAccountModel()
-                {
-                    Status = Resources.Open
-                },
-                new WatchlistAccountModel()
-                {
-                    Status = Resources.Open
-                }
-            };
-            
-            var multipleWatchlistAccountModel = new MultipleWatchlistAccountModel(alreadyAddedAccounts, newlyAddedAccounts);
-            myWatchlistAccountsService.GetMultipleWatchlistAccount(Arg.Any<SelectMultipleWatchlistParam>()).Returns(multipleWatchlistAccountModel);
-            // Act
-
-            var actual = await handler.Handle(message);
-
-            // Assert
-            Assert.True(actual.HasAlreadyAddedAccounts
-                        &&actual.HasNewlyAddedAccounts
-                        &&!actual.IsExceedLimit
-                        && !string.IsNullOrEmpty(actual.NewlyAddedAccounts)
-                        && !string.IsNullOrEmpty(actual.AlreadyAddedAccounts));
         }
     }
 }

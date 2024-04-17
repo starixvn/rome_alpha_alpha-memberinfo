@@ -344,13 +344,11 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\DeletePersonalThresholdCommandTests.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\InsertMultiplePersonalThresholdCriteriaTests.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\SelectGlobalThresholdCriteriaTests.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\SelectMultipleWatchlistCriteriaTests.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\SelectPresetsCriteriaTests.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\SelectWatchlistAccountsTests.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\UpdateGlobalThresholdCommandTests.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\UpdatePersonalPresetCommandTests.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Criteria\UpdatePersonalThresholdCommandTests.cs" />
-    <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\MultipleWatchlistAccountModelTests.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\GlobalThresholdModelTests.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\NamedResultTests.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Models\PersonalPresetModelTests.cs" />
