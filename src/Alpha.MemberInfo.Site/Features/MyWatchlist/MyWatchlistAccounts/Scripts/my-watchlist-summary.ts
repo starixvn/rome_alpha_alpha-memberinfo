@@ -11,6 +11,7 @@ class MyWatchlistSummary {
     unlimitedThresholdMembersTitle: string;
 
     constructor($: JQueryStatic, topWindow: any, baseUrl: string) {
+        this.$ = $;
         this.topWindow = topWindow;
         this.baseUrl = baseUrl;
         this.$activeMembers = $("#summary-active-members");
@@ -39,9 +40,12 @@ class MyWatchlistSummary {
                 this.$unlimitedThresholdMembers.css("cursor", "pointer");
                 this.$unlimitedThresholdMembers.click(() => {
                     const queryString = `custIds=${summary.UnlimitedThresholdCustId}&usernames=${summary.UnlimitedThresholdUsers}&winningThreshold=&losingThreshold=&isEdit=true`;
+                    const title = summary.UnlimitedThresholdMembers === 1
+                        ? summary.UnlimitedThresholdUsers + " - " + this.$("#edit-account-popup-title").val()
+                        : this.$("#edit-account-popup-title").val();
                     this.topWindow.popupManager.open(
                         `${this.baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?${queryString}`,
-                        undefined,
+                        title,
                         820,
                         550,
                         "modal-mobile-friendly");
