@@ -26,6 +26,8 @@
 
         public decimal CreditMax { get; set; }
 
+        public decimal MemberMaxCredit { get; set; }
+
         public string Status { get; set; }
 
         public string GivenCreditMustBeBetweenMinMaxMessage

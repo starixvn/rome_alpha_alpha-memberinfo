@@ -102,3 +102,42 @@
     margin-right: 3px;
     border-radius: 3px;
 }
+
+.tooltip {
+    background-color: transparent;
+    border-color: transparent;
+
+    .tooltip-inner {
+        padding: 8px;
+        background: #2E2E2E;
+        font-size: 12px;
+        line-height: 20px;
+        max-width: 250px;
+        color: #EDEDED;
+        text-align: inherit;
+    }
+
+    .tooltip-arrow {
+        border-bottom-color: #2E2E2E !important;
+    }
+}
+
+.icon-credit {
+    font-size: 20px !important;
+    color: #2267b6;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        bottom: 2px;
+        left: 2px;
+        background: #fff;
+        z-index: -1;
+        border-radius: 30px;
+    }
+}

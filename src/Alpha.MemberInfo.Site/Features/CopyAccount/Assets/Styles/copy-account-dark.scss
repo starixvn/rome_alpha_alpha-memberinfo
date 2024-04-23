@@ -835,3 +835,24 @@ select:-webkit-autofill:focus {
     margin-right: 3px;
     border-radius: 3px;
 }
+
+.icon-credit {
+    font-size: 20px;
+    color: #2267b6;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    z-index: 1;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        bottom: 2px;
+        left: 2px;
+        background: #fff;
+        z-index: -1;
+        border-radius: 30px;
+    }
+}
