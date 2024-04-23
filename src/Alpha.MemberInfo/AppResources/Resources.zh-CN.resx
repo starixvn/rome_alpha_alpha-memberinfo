@@ -1069,4 +1069,13 @@
   <data name="Live" xml:space="preserve">
     <value>现场</value>
   </data>
+  <data name="Min" xml:space="preserve">
+    <value>最低</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>最高</value>
+  </data>
+  <data name="creditHint" xml:space="preserve">
+    <value>可用信用额: {0}</value>
+  </data>
 </root>

@@ -673,6 +673,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Available Credit: {0}.
+        /// </summary>
+        public static string creditHint {
+            get {
+                return ResourceManager.GetString("creditHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current Loss Limit (%).
         /// </summary>
         public static string CurrentLossLimit {
@@ -1483,6 +1492,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max.
+        /// </summary>
+        public static string Max {
+            get {
+                return ResourceManager.GetString("Max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Max Credit per Member.
         /// </summary>
         public static string MaxCreditPerMember {
@@ -1564,11 +1582,29 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Maximum Member Credit set by your upline: {0}.
+        /// </summary>
+        public static string memberMaxCreditHint {
+            get {
+                return ResourceManager.GetString("memberMaxCreditHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Member Win/Loss Limit.
         /// </summary>
         public static string MemberWinLossLimit {
             get {
                 return ResourceManager.GetString("MemberWinLossLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min.
+        /// </summary>
+        public static string Min {
+            get {
+                return ResourceManager.GetString("Min", resourceCulture);
             }
         }
         

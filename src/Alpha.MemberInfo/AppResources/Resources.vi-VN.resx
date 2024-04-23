@@ -1051,4 +1051,13 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="Live" xml:space="preserve">
     <value>Trực Tuyến</value>
   </data>
+  <data name="Min" xml:space="preserve">
+    <value>Nhỏ nhất</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Lớn nhất</value>
+  </data>
+  <data name="creditHint" xml:space="preserve">
+    <value>Hạn mức khả dụng: {0}</value>
+  </data>
 </root>
