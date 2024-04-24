@@ -3,37 +3,44 @@
     "file": "assets/PTSelect-13f830b9.css",
     "src": "PTSelect.css"
   },
-  "_PTSelect-cf68d3c0.js": {
+  "_PTSelect-4e8ff19f.js": {
     "css": [
       "assets/PTSelect-13f830b9.css"
     ],
-    "file": "assets/PTSelect-cf68d3c0.js",
+    "file": "assets/PTSelect-4e8ff19f.js",
     "imports": [
-      "_index-d197453f.js"
+      "_index-c06b01bc.js"
     ]
   },
-  "_index-d197453f.js": {
+  "_Trans-291f94db.js": {
+    "file": "assets/Trans-291f94db.js",
+    "imports": [
+      "_index-c06b01bc.js"
+    ]
+  },
+  "_index-c06b01bc.js": {
     "css": [
-      "assets/index-c9811a1f.css"
+      "assets/index-fb59efb7.css"
     ],
-    "file": "assets/index-d197453f.js"
+    "file": "assets/index-c06b01bc.js"
   },
   "index.css": {
-    "file": "assets/index-c9811a1f.css",
+    "file": "assets/index-fb59efb7.css",
     "src": "index.css"
   },
   "src/pages/createAccount.css": {
-    "file": "assets/createAccount-bb96070b.css",
+    "file": "assets/createAccount-a50e7ae2.css",
     "src": "src/pages/createAccount.css"
   },
   "src/pages/createAccount.tsx": {
     "css": [
-      "assets/createAccount-bb96070b.css"
+      "assets/createAccount-a50e7ae2.css"
     ],
-    "file": "assets/createAccount-5f6a3652.js",
+    "file": "assets/createAccount-abc6ab2a.js",
     "imports": [
-      "_index-d197453f.js",
-      "_PTSelect-cf68d3c0.js"
+      "_index-c06b01bc.js",
+      "_PTSelect-4e8ff19f.js",
+      "_Trans-291f94db.js"
     ],
     "isEntry": true,
     "src": "src/pages/createAccount.tsx"
@@ -46,9 +53,10 @@
     "css": [
       "assets/productSettingInfo-19dc73f6.css"
     ],
-    "file": "assets/productSettingInfo-07b60568.js",
+    "file": "assets/productSettingInfo-cfc2918f.js",
     "imports": [
-      "_index-d197453f.js"
+      "_index-c06b01bc.js",
+      "_Trans-291f94db.js"
     ],
     "isEntry": true,
     "src": "src/pages/productSettingInfo.tsx"
@@ -61,10 +69,10 @@
     "css": [
       "assets/ptTemplate-5f025410.css"
     ],
-    "file": "assets/ptTemplate-81373c08.js",
+    "file": "assets/ptTemplate-8b19725b.js",
     "imports": [
-      "_index-d197453f.js",
-      "_PTSelect-cf68d3c0.js"
+      "_index-c06b01bc.js",
+      "_PTSelect-4e8ff19f.js"
     ],
     "isEntry": true,
     "src": "src/pages/ptTemplate.tsx"

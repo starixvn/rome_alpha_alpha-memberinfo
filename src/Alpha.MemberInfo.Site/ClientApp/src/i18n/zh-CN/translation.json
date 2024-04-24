@@ -108,5 +108,6 @@
   "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "单场最高派彩必须少于或等于 ",
   "Live": "现场",
   "GivenCredit": "信用额度",
-  "givenMaxCreditInvalid": "会员信用额应在{{min}}和{{max}}之间"
+  "givenMaxCreditInvalid": "会员信用额应在{{min}}和{{max}}之间",
+  "creditRange": "最低: <strong>0</strong> | 最高: <strong>{{max}}</strong>"
 }

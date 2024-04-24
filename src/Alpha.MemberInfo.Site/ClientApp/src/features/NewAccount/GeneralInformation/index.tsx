@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { NumericFormat } from 'react-number-format';
 
 import { UserLevel, UserLevelName } from '@/constants';
@@ -15,6 +15,7 @@ import useNewAccountStore from '@/store/newAccountStore';
 import { GeneralInfo } from '@/types/new-account';
 import { formatNumber } from '@/utils/number-format';
 
+import CreditNote from './CreditNote';
 import styles from './GeneralInfo.module.scss';
 import { GeneralInfoErrors, validateGeneralInfo } from './generalInfoValidator';
 import PasswordRule from './PasswordRule';
@@ -40,7 +41,8 @@ export default function GeneralInformation() {
   const generalInfo = useNewAccountStore((state) => state.generalInfo);
   const updateGeneralInfo = useNewAccountStore((state) => state.updateGeneralInfo);
   const updateSportsBookCommissions = useNewAccountStore((state) => state.updateSportsBookCommissions);
-  const { uplineUserName, newUserName, uplineRoleId } = generalInfo;
+  const { uplineUserName, newUserName, uplineRoleId, uplineMaxCredit, memberMaxCredit } = generalInfo;
+  const availableCredit = memberMaxCredit ? Math.min(uplineMaxCredit, memberMaxCredit) : uplineMaxCredit;
 
   const [showPassword, setShowPassword] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
@@ -226,9 +228,12 @@ export default function GeneralInformation() {
                 valueIsNumericString
               />
               <span>{errors.maxCredit ? IconWrong : IconCorrect}</span>
+
               <span className={styles['max-credit']}>
-                {`${t(`${UserLevelName[uplineRoleId]}_AvailableGivenCredit`)}: `}
-                <b>{formatNumber(generalInfo.uplineMaxCredit)}</b>
+                <Trans i18nKey="creditRange" values={{ max: formatNumber(availableCredit) }} />
+                {uplineRoleId === UserLevel.Agent && memberMaxCredit && (
+                  <CreditNote availableCredit={uplineMaxCredit} memberMaxCredit={memberMaxCredit} />
+                )}
               </span>
             </BlockItem>
 
@@ -267,8 +272,7 @@ export default function GeneralInformation() {
                 />
                 <span>{errors.memberMaxCredit ? IconWrong : IconCorrect}</span>
                 <span className={styles['max-credit']}>
-                  {`${t('Member_AvailableGivenCredit')}: `}
-                  <b>{formatNumber(generalInfo.uplineMemberMaxCredit)}</b>
+                  <Trans i18nKey="creditRange" values={{ max: formatNumber(generalInfo.uplineMemberMaxCredit) }} />
                 </span>
               </BlockItem>
             )}

@@ -106,7 +106,7 @@ function getCreditTranslate(t: TFunction, messageKey: string) {
   if (messageKey.includes('MaxCreditInvalid')) {
     const [key, min, max] = messageKey.split('-');
     if (key && min !== undefined && max !== undefined) {
-      return t(key, { min: formatThousandNumber(min), max: formatThousandNumber(max) });
+      return t(key, { min: formatThousandNumber(min, 4), max: formatThousandNumber(max, 4) });
     }
   }
 

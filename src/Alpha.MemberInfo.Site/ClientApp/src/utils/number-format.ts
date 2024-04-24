@@ -11,6 +11,5 @@ export const formatThousandNumber = (number: string) => {
 };
 
 export const formatNumber = (number: number) => {
-  const formatter = Intl.NumberFormat('en-US', { maximumFractionDigits: 2 });
-  return formatter.format(number);
+  return Number(Math.trunc(number * 100) / 100).toLocaleString('en-US');
 };

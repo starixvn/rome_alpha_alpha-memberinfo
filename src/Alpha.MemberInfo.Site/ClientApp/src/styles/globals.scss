@@ -1,4 +1,5 @@
-:root, :root [data-theme='light'] {
+:root,
+:root [data-theme='light'] {
   --bg-main: #f4f4f4;
   --bg-head-tab: #bccbdc;
   --bg-body-tab: #ffffff;
@@ -228,4 +229,26 @@ select {
   margin-right: 3px;
   border-radius: 3px;
   color: #ededed;
+}
+
+.icon-credit {
+  font-size: 20px;
+  color: #2267b6;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme='dark'] .icon-credit {
+  &:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    background: #fff;
+    z-index: -1;
+    border-radius: 30px;
+  }
 }

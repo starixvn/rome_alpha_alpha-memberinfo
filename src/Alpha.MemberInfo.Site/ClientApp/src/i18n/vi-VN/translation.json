@@ -108,5 +108,6 @@
   "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "Thanh Toán Tối Đa Mỗi Trận phải nhỏ hơn hoặc bằng ",
   "Live": "Trực Tuyến",
   "GivenCredit": "Hạn mức được cấp",
-  "givenMaxCreditInvalid": "Hạn mức tín dụng của Member phải từ {{min}} đến {{max}}"
+  "givenMaxCreditInvalid": "Hạn mức tín dụng của Member phải từ {{min}} đến {{max}}",
+  "creditRange": "Nhỏ nhất: <strong>0</strong> | Lớn nhất: <strong>{{max}}</strong>"
 }

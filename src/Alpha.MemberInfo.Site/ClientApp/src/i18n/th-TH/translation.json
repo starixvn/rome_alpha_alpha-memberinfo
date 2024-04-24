@@ -108,5 +108,6 @@
   "maxPayoutPerMatch-mustBeLessThanOrEqualTo": "การจ่ายเงินสูงสุดต่อคู่การแข่งขันต้องน้อยกว่าหรือเท่ากับ ",
   "Live": "สด",
   "GivenCredit": "เครดิตทั้งหมด",
-  "givenMaxCreditInvalid": "เครดิตของสมาชิกต้องอยู่ระหว่าง {{min}} และ {{max}}"
+  "givenMaxCreditInvalid": "เครดิตของสมาชิกต้องอยู่ระหว่าง {{min}} และ {{max}}",
+  "creditRange": "ต่ำสุด: <strong>0</strong> | สูงสุด: <strong>{{max}}</strong>"
 }

@@ -135,6 +135,10 @@ class QRCodeMemberSignIn {
         this.memberMaxCreditHint = this.$("#MemberMaxCreditHint").val();
     }
 
+    formatNumber = (number: number) => {
+        return (Math.trunc(number * 100) / 100).toLocaleString("en-US");
+    }
+
     getMemberCredit = () => {
         this.$.blockUI();
 
@@ -152,20 +156,19 @@ class QRCodeMemberSignIn {
                     this.$(`#${this.iconMessageUsernameCopyFrom}`).removeClass().addClass('icon-close') :
                     this.$messageContainer.removeClass('msg msg-error').addClass('hidden');
 
-                const numberFormat = '0,0.##';
                 this.creditMin = result.CreditMin;
                 this.availableCredit = result.CreditMax
                 this.creditMax = result.MemberMaxCredit ? Math.min(result.MemberMaxCredit, result.CreditMax) : result.CreditMax;
                 this.givenCreditMustBeBetweenMinMaxMessage = result.GivenCreditMustBeBetweenMinMaxMessage;
 
                 this.$creditRange.removeClass('hidden');
-                this.$creditMinLabel.html(numeral(this.creditMin).format(numberFormat));
-                this.$creditMaxLabel.html(numeral(this.creditMax).format(numberFormat));
-                this.$creditInput.val(numeral(result.Credit).format(numberFormat));
+                this.$creditMinLabel.html(this.formatNumber(this.creditMin));
+                this.$creditMaxLabel.html(this.formatNumber(this.creditMax));
+                this.$creditInput.val(this.formatNumber(result.Credit));
 
                 console.log(result.MemberMaxCredit);
                 if (result.MemberMaxCredit) {
-                    const creditHint = `${this.creditHint.replace("{0}", numeral(this.availableCredit).format(numberFormat))}<br>${this.memberMaxCreditHint.replace("{0}", numeral(result.MemberMaxCredit).format(numberFormat))}`;
+                    const creditHint = `${this.creditHint.replace("{0}", this.formatNumber(this.availableCredit))}<br>${this.memberMaxCreditHint.replace("{0}", this.formatNumber(result.MemberMaxCredit))}`;
                     this.$creditHintTooltip.removeClass("hidden").attr("data-original-title", creditHint);
                 } else {
                     this.$creditHintTooltip.addClass("hidden");
