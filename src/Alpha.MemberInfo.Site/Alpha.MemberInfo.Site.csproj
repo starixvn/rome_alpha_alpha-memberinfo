@@ -1415,6 +1415,7 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageGlobalThresholdQuery.cs" />
     <Compile Include="Requests\Customer\CreateCustomerQuery.cs" />
     <Compile Include="Requests\Customer\CreateCustomerRequest.cs" />
+    <Compile Include="Requests\Customer\CustomerWinLossAmountQuery.cs" />
     <Compile Include="Requests\Customer\EditCustomerQuery.cs" />
     <Compile Include="Requests\Customer\EditMultipleCustomersQuery.cs" />
     <Compile Include="Requests\Customer\GetCustomerSettingRequest.cs" />
