@@ -51,7 +51,7 @@
                 .UseTemplate(GetTemplateInfo(isShowDateTimeColumn))
                 .Title(GetReportTitle())
                 .Header(Resources.ResourceManager.GetString)
-                .Sheet(Resources.DormantAccountList)
+                .Sheet(Resources.DormantAccountList)    
                 .ExportToBytes();
 
             return new ExcelFileViewModel(GetExcelFileName(), fileContent);

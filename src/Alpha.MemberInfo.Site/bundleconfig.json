@@ -319,6 +319,19 @@
     ]
   },
   {
+    "outputFileName": "Features/MemberBettingBehavior/Bundles/member-betting-behavior.css",
+    "inputFiles": [
+      "Features/MemberBettingBehavior/Styles/member-betting-behavior.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/MemberBettingBehavior/Bundles/member-betting-behavior.js",
+    "inputFiles": [
+      "assets/scripts/aes.js",
+      "Features/MemberBettingBehavior/Scripts/member-betting-behavior.js"
+    ]
+  },
+  {
     "outputFileName": "Features/CopyAccount/Bundles/copy-account.js",
     "inputFiles": [
       "assets/scripts/aes.js",
