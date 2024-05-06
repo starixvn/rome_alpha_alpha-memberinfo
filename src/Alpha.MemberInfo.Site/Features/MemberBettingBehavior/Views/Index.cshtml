@@ -8,12 +8,28 @@
 }
 
 @section Scripts {
+    @StaticResources.AssetScripts.Render("/bundles-v2/site-memberinfo/member-betting-behavior")
     @StaticResources.RenderScripts("~/Features/MemberBettingBehavior/Bundles/member-betting-behavior")
 }
-
-
-
+<div class="page-title">Member Betting Behavior</div>
 <div class="test1">
     Member Betting Behavior
     <span id="txt-username"></span>
+</div>
+<div>Customer Profile</div>
+<div>Betting Statistic</div>
+<div style="width: 25%; float: left">
+    <canvas id="doughnutChart" aria-label="Turnover by sport" role="img">
+        <p>@Resources.NoInformationIsAvailable</p>
+    </canvas>
+</div>
+<div style="width: 50%; float: left">
+    <canvas id="barChart" aria-label="Turnover by bet type" role="img">
+        <p>@Resources.NoInformationIsAvailable</p>
+    </canvas>
+</div>
+<div style="width: 50%; float: left">
+    <canvas id="lineChart" aria-label="Turnover and win loss by date" role="img">
+        <p>@Resources.NoInformationIsAvailable</p>
+    </canvas>
 </div>
