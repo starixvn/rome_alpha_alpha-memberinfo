@@ -109,5 +109,5 @@
   "Live": "Trực Tuyến",
   "GivenCredit": "Hạn mức được cấp",
   "givenMaxCreditInvalid": "Hạn mức tín dụng của Member phải từ {{min}} đến {{max}}",
-  "creditRange": "Nhỏ nhất: <strong>0</strong> | Lớn nhất: <strong>{{max}}</strong>"
+  "creditRange": "Nhỏ nhất: <strong>0</strong> - Lớn nhất: <strong>{{max}}</strong>"
 }

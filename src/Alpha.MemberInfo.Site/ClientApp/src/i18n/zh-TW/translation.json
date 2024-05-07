@@ -109,5 +109,5 @@
   "Live": "現場",
   "GivenCredit": "信用額度",
   "givenMaxCreditInvalid": "會員信用額應在{{min}}和{{max}}之間",
-  "creditRange": "最低: <strong>0</strong> | 最高: <strong>{{max}}</strong>"
+  "creditRange": "最低: <strong>0</strong> - 最高: <strong>{{max}}</strong>"
 }

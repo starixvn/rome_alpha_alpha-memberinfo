@@ -233,13 +233,15 @@ select {
 
 .icon-credit {
   font-size: 20px;
-  color: #2267b6;
+  color: #325275;
   vertical-align: middle;
   position: relative;
   z-index: 1;
 }
 
 [data-theme='dark'] .icon-credit {
+  color: #2e83cc;
+
   &:after {
     content: '';
     position: absolute;

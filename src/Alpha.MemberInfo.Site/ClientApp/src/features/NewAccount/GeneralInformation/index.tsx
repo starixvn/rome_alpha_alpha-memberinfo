@@ -209,13 +209,15 @@ export default function GeneralInformation() {
                     maxCredit: value,
                   });
                   validate({ maxCredit: value }, 'maxCredit');
-                  validate({ memberMaxCredit }, 'memberMaxCredit');
+                  validate({ memberMaxCredit, maxCredit: value }, 'memberMaxCredit');
                 }}
                 onBlur={() => {
                   setTargetTooltip('');
                   setOpenTooltip(false);
                 }}
                 onFocus={() => {
+                  validate({ maxCredit: generalInfo.maxCredit }, 'maxCredit');
+                  validate({ memberMaxCredit }, 'memberMaxCredit');
                   setTargetTooltip('maxCredit');
                   setOpenTooltip(true);
                 }}
@@ -259,6 +261,7 @@ export default function GeneralInformation() {
                     setOpenTooltip(false);
                   }}
                   onFocus={() => {
+                    validate({ memberMaxCredit: generalInfo.memberMaxCredit }, 'memberMaxCredit');
                     setTargetTooltip('memberMaxCredit');
                     setOpenTooltip(true);
                   }}
