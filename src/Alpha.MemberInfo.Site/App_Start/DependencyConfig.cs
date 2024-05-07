@@ -12,6 +12,7 @@
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
+    using Alpha.MemberInfo.Site.Features.MemberBettingBehavior;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
@@ -168,6 +169,7 @@
 
             container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();
             container.RegisterPerWebRequest<DormantAccountWorkbook, DormantAccountWorkbookImpl>();
+            container.RegisterPerWebRequest<MemberBettingBehaviorWorkbook, MemberBettingBehaviorWorkbookImpl>();
             container.RegisterCopyAccountServices("CloneAccount:BaseUri", "CloneAccount:ApiKey");
 
             container.RegisterPerWebRequest<CheckBelongingService, CheckBelongingServiceImpl>();

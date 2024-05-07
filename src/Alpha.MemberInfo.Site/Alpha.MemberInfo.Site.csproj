@@ -1420,6 +1420,7 @@
     <Compile Include="Features\DormantAccountList\ViewModels\DormantAccountViewModel.cs" />
     <Compile Include="Features\MemberBettingBehavior\MemberBettingBehaviorController.cs" />
     <Compile Include="Features\MemberBettingBehavior\MemberBettingBehaviorHandler.cs" />
+    <Compile Include="Features\MemberBettingBehavior\MemberBettingBehaviorWorkbook.cs" />
     <Compile Include="Features\MemberBettingBehavior\Requests\MemberBettingBehaviorExcelQuery.cs" />
     <Compile Include="Features\MemberBettingBehavior\Requests\MemberBettingBehaviorQuery.cs" />
     <Compile Include="Features\MemberBettingBehavior\ViewModels\MemberBettingBehaviorViewModel.cs" />

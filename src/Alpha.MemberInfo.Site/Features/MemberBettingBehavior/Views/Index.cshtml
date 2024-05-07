@@ -11,10 +11,16 @@
     @StaticResources.AssetScripts.Render("/bundles-v2/site-memberinfo/member-betting-behavior")
     @StaticResources.RenderScripts("~/Features/MemberBettingBehavior/Bundles/member-betting-behavior")
 }
+
+@using (Html.BeginForm("Excel", "MemberBettingBehavior", FormMethod.Get, new { id = "export-excel-form" }))
+{
+    <input type="hidden" name="Username" value="username" />
+}
+
 <div class="page-title">Member Betting Behavior</div>
-<div class="test1">
-    Member Betting Behavior
-    <span id="txt-username"></span>
+
+<div class="form-group">
+    <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
 </div>
 <div>Customer Profile</div>
 <div>Betting Statistic</div>

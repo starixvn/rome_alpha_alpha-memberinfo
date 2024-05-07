@@ -4,6 +4,7 @@ declare var Chart;
 
 class MemberBettingBehavior {
     private $: JQueryStatic;
+    $exportExcelForm: JQuery;
 
     constructor(
         $: JQueryStatic
@@ -11,12 +12,24 @@ class MemberBettingBehavior {
         this.$ = $
     }
 
+    cacheDOMElements(): void {
+        this.$exportExcelForm = this.$("#export-excel-form");
+    }
+
     init() {
-        const $txtUsername = this.$('#txt-username');
-        $txtUsername.text("Test");
+        this.cacheDOMElements();
+        this.bindEvents();
 
         this.initCharts();
     }
+
+    bindEvents(): void {
+        this.$("#icon-excel").on("click", this.exportExcel);
+    }
+
+    exportExcel = () => {
+        this.$exportExcelForm.submit();
+    };
 
     initCharts() {
         Chart.defaults.plugins.legend.position = 'bottom';
