@@ -1073,8 +1073,8 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="Live" xml:space="preserve">
     <value>Live</value>
   </data>
-  <data name="ActiveMembers" xml:space="preserve">
-    <value>Active Members</value>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
   </data>
   <data name="AddedDate" xml:space="preserve">
     <value>Added Date</value>
@@ -1082,23 +1082,23 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="ClickToSetThresholds" xml:space="preserve">
     <value>Click to Set thresholds</value>
   </data>
-  <data name="MonitoredMembers" xml:space="preserve">
-    <value>Monitored Members</value>
+  <data name="Monitored" xml:space="preserve">
+    <value>Monitored</value>
   </data>
-  <data name="ReachedDailyLimitMembers" xml:space="preserve">
-    <value>Reached Daily Limit Members</value>
+  <data name="ReachedLimitToday" xml:space="preserve">
+    <value>Reached Limit Today</value>
   </data>
-  <data name="UnlimitedThresholdMembers" xml:space="preserve">
-    <value>Unlimited Threshold Members</value>
+  <data name="UnlimitedThreshold" xml:space="preserve">
+    <value>Unlimited Threshold</value>
   </data>
   <data name="UnlimitedThresholdNote" xml:space="preserve">
     <value>Unlimited threshold means you ignore the threshold and do not receive notifications.</value>
   </data>
-  <data name="WatchlistDetail" xml:space="preserve">
-    <value>Watchlist Detail</value>
+  <data name="WatchlistDetails" xml:space="preserve">
+    <value>Watchlist Details</value>
   </data>
-  <data name="WatchlistSummary" xml:space="preserve">
-    <value>Watchlist Summary</value>
+  <data name="WatchlistMemberSummary" xml:space="preserve">
+    <value>Watchlist Member Summary</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>Min</value>

@@ -4,7 +4,6 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = Resources.MyWatchlist;
-    var watchlistSummary = Model.MyWatchListAccountPagingViewModel.WatchlistSummary;
 }
 
 @section Styles {
@@ -38,120 +37,128 @@
         </li>
         @Html.Partial("~/Features/MyWatchlist/Shared/Views/InfoUserGuideTabs.cshtml", Model.UserGuideLink)
     </ul>
-    <div class="ttl-box-watchlist">@Resources.WatchlistSummary</div>
-    <div class="list-total-statement">
-        <div class="item">
-            <div class="title-total">@Resources.ActiveMembers</div>
-            <div class="text-total" id="summary-active-members"></div>
-        </div>
-        <div class="item">
-            <div class="title-total">@Resources.MonitoredMembers</div>
-            <div class="text-total" id="summary-monitored-members"></div>
-        </div>
-        <div class="item">
-            <div class="title-total">@Resources.ReachedDailyLimitMembers</div>
-            <div class="text-total" id="summary-reached-daily-limit-members"></div>
-        </div>
-        <div class="item last-item">
-            <span class="title-total">@Resources.UnlimitedThresholdMembers</span>
-            <div class="text-total" id="summary-unlimited-threshold-members"></div>
+    <div class="box-watchlist">
+        <div class="ttl-box-watchlist">@Resources.WatchlistMemberSummary</div>
+        <div class="body-box-watchlist">
+            <div class="list-total-statement">
+                <div class="item">
+                    <div class="title-total">@Resources.Active</div>
+                    <div class="text-total" id="summary-active-members"></div>
+                </div>
+                <div class="item">
+                    <div class="title-total">@Resources.Monitored</div>
+                    <div class="text-total" id="summary-monitored-members"></div>
+                </div>
+                <div class="item">
+                    <div class="title-total">@Resources.ReachedLimitToday</div>
+                    <div class="text-total" id="summary-reached-daily-limit-members"></div>
+                </div>
+                <div class="item last-item">
+                    <span class="title-total">@Resources.UnlimitedThreshold</span>
+                    <div class="text-total" id="summary-unlimited-threshold-members"></div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="ttl-box-watchlist">@Resources.WatchlistDetail</div>
-    @using (Html.BeginForm("GetWatchlistAccounts", "MyWatchlistAccounts", FormMethod.Post, new { @class = "form-inline filter form-report", id = "report-form" }))
-    {
-        @DateRangePickerJQuery.Render(Model.DateRangePicker);
-        <div class="form-group">
-            <label class="label-form-control" for="status-dropdown">@Resources.Status</label>
-            @Html.DropDownList("status-dropdown", Model.Status, new { id = "status-dropdown" })
-        </div>
-        <div class="form-group">
-            <label class="label-form-control" for="pa-dropdown">@Resources.ProblemAccount</label>
-            @Html.DropDownList("pa-dropdown", Model.ProblemAccounts, new { id = "pa-dropdown" })
-        </div>
-        <div class="form-group username-box">
-            <label class="label-form-control">@Resources.Username</label>
-            <input type="text" class="txt-search" id="txt-username" placeholder="@Resources.Username" />
-        </div>
-        <div class="form-group">
-            <input type="submit" value="@Resources.Submit" class="btn-submit" id="btn-submit" />
-        </div>
-        if (Model.CanUpdateAccount)
-        {
-            <div class="form-group">
-                <button type="button" class="btn-default btn-manage-preset" id="btn-manage-preset">@Resources.PersonalThresholdPresets</button>
-            </div>
-            <div class="form-group">
-                <button type="button" class="btn-default btn-global-threshold" id="btn-global-threshold">@Resources.GlobalThresholds</button>
-            </div>
-        }
-    }
-    @Html.Partial("~/Features/MyWatchlist/Shared/Views/GlobalThresholdsNote.cshtml", Model.GlobalThresholdModel, new ViewDataDictionary())
-    <p class="note"><span class="star"></span>@Resources.UnlimitedThresholdNote</p>
-    <div class="table-container">
-        <div class="table-title">
-            <div class="title">@Resources.MyWatchlist</div>
-            @if (Model.CanUpdateAccount)
+    <div class="box-watchlist">
+        <div class="ttl-box-watchlist">@Resources.WatchlistDetails</div>
+        <div class="body-box-watchlist">
+            @using (Html.BeginForm("GetWatchlistAccounts", "MyWatchlistAccounts", FormMethod.Post, new { @class = "form-inline filter form-report", id = "report-form" }))
             {
-                <div class="btn-box">
-                    <button class="btn-submit" id="btn-add-members">@Resources.AddMember</button>
+                @DateRangePickerJQuery.Render(Model.DateRangePicker);
+                <div class="form-group">
+                    <label class="label-form-control" for="status-dropdown">@Resources.Status</label>
+                    @Html.DropDownList("status-dropdown", Model.Status, new { id = "status-dropdown" })
                 </div>
+                <div class="form-group">
+                    <label class="label-form-control" for="pa-dropdown">@Resources.ProblemAccount</label>
+                    @Html.DropDownList("pa-dropdown", Model.ProblemAccounts, new { id = "pa-dropdown" })
+                </div>
+                <div class="form-group username-box">
+                    <label class="label-form-control">@Resources.Username</label>
+                    <input type="text" class="txt-search" id="txt-username" placeholder="@Resources.Username" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="@Resources.Submit" class="btn-submit" id="btn-submit" />
+                </div>
+                if (Model.CanUpdateAccount)
+                {
+                    <div class="form-group">
+                        <button type="button" class="btn-default btn-manage-preset" id="btn-manage-preset">@Resources.PersonalThresholdPresets</button>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn-default btn-global-threshold" id="btn-global-threshold">@Resources.GlobalThresholds</button>
+                    </div>
+                }
             }
+            @Html.Partial("~/Features/MyWatchlist/Shared/Views/GlobalThresholdsNote.cshtml", Model.GlobalThresholdModel, new ViewDataDictionary())
+            <p class="note"><span class="star"></span>@Resources.UnlimitedThresholdNote</p>
+            <div class="table-container">
+                <div class="table-title">
+                    <div class="title">@Resources.MyWatchlist</div>
+                    @if (Model.CanUpdateAccount)
+                    {
+                        <div class="btn-box">
+                            <button class="btn-submit" id="btn-add-members">@Resources.AddMember</button>
+                        </div>
+                    }
+                </div>
+                <table id="tblRpt" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%">
+                    <thead>
+                        <tr>
+                            @if (!Model.IsMobile)
+                            {
+                                <th></th>
+                            }
+                            @if (Model.CanUpdateAccount)
+                            {
+                                <th></th>
+                                <th></th>
+                            }
+                            <th></th>
+                            @if (Model.IsShowLastLoginColumn)
+                            {
+                                <th></th>
+                                <th></th>
+                            }
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            @if (!Model.IsMobile)
+                            {
+                                <th class="header padding-icon">
+                                    @Resources.No
+                                </th>
+                            }
+                            @if (Model.CanUpdateAccount)
+                            {
+                                <th class="header all padding-icon">
+                                    <input type="checkbox" class="select-all" id="select-all" />
+                                </th>
+                                <th class="header all padding-icon">
+                                    <div class="edit-multiple icon-table-edit" data-url="" title="Edit Multiple Setting" id="edit-multiple"></div>
+                                </th>
+                            }
+                            <th class="header all username">@Resources.Username</th>
+                            @if (Model.IsShowLastLoginColumn)
+                            {
+                                <th class="header desktop">@Resources.LastLogin</th>
+                                <th class="header desktop">@Resources.AddedDate</th>
+                            }
+                            <th class="header desktop">@Resources.Status</th>
+                            <th class="header desktop">@Resources.ProblemAccount</th>
+                            <th class="header all winning">@Resources.WinningThreshold</th>
+                            <th class="header all losing">@Resources.LosingThreshold</th>
+                            <th class="header" style="width: 100px !important;"></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
-        <table id="tblRpt" class="hidden tblRpt tblRpt-bordered tblRpt-hover display nowrap" style="width: 100%">
-            <thead>
-                <tr>
-                    @if (!Model.IsMobile)
-                    {
-                        <th></th>
-                    }
-                    @if (Model.CanUpdateAccount)
-                    {
-                        <th></th>
-                        <th></th>
-                    }
-                    <th></th>
-                    @if (Model.IsShowLastLoginColumn)
-                    {
-                        <th></th>
-                        <th></th>
-                    }
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr>
-                    @if (!Model.IsMobile)
-                    {
-                        <th class="header padding-icon">
-                            @Resources.No
-                        </th>
-                    }
-                    @if (Model.CanUpdateAccount)
-                    {
-                        <th class="header all padding-icon">
-                            <input type="checkbox" class="select-all" id="select-all" />
-                        </th>
-                        <th class="header all padding-icon">
-                            <div class="edit-multiple icon-table-edit" data-url="" title="Edit Multiple Setting" id="edit-multiple"></div>
-                        </th>
-                    }
-                    <th class="header all username">@Resources.Username</th>
-                    @if (Model.IsShowLastLoginColumn)
-                    {
-                        <th class="header desktop">@Resources.LastLogin</th>
-                        <th class="header desktop">@Resources.AddedDate</th>
-                    }
-                    <th class="header desktop">@Resources.Status</th>
-                    <th class="header desktop">@Resources.ProblemAccount</th>
-                    <th class="header all winning">@Resources.WinningThreshold</th>
-                    <th class="header all losing">@Resources.LosingThreshold</th>
-                    <th class="header" style="width: 100px !important;"></th>
-                </tr>
-            </thead>
-        </table>
     </div>
 </div>
 <div class="modal modal-sm fade" id="edit-popup" tabindex="-1" role="dialog">
@@ -191,3 +198,4 @@
 <input type="hidden" id="edit-text" value="@Resources.Edit" />
 <input type="hidden" id="edit-multiple-text" value="@Resources.EditMultiple" />
 <input type="hidden" id="click-to-set-thresholds-text" value="@Resources.ClickToSetThresholds" />
+<input type="hidden" id="today-string" value="@DateTime.Today.ToShortDateWithSlash()" />

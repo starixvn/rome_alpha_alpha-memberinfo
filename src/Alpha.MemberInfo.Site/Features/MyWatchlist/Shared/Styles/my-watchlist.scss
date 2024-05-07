@@ -151,11 +151,12 @@ table.dataTable {
 .my-watchlist-accounts .table-container {
     width: 100%;
     max-width: 1280px;
+    margin-bottom: 10px;
 }
 
 .my-thresholds .table-container {
     width: 100%;
-    max-width: 860px;
+    max-width: 860px;    
 }
 
 /*
@@ -277,21 +278,40 @@ table.dataTable {
         }
     }
 }
+.box-watchlist {
+    border: 1px solid #d1d1d1;
+    margin-top: 12px;
+    border-radius: 5px;
+
+    .dataTables_wrapper .dataTables_length {
+        position: relative;
+        float: right
+    }
+
+    .dataTables_wrapper .bottom{
+        margin-bottom: 0;
+    }
+}
 .ttl-box-watchlist {
-    background: #BCD7EE;
+    background: #BCCBDC;
     font-size: 13px;
-    padding: 5px;
-    margin-top: 10px;
+    padding: 6px 11px 7px;
+    border-radius: 4px 4px 0 0;
     font-weight: bold;
-    + .filter{
+
+    + .filter {
         padding-bottom: 0;
     }
+}
+.body-box-watchlist {
+    padding: 12px 11px 2px 11px;
+    background: #fff;
+    border-radius: 0 0 5px 5px;
 }
 // total
 .list-total-statement {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10px;
 
     + .ttl-box-watchlist {
         margin-top: 0;
@@ -375,6 +395,11 @@ table.dataTable {
                     transform: rotate(90deg);
                 }
             }
+
+            &.link {
+                color: #215ACE;
+                cursor: pointer;
+            }
         }
 
         &.last-item {
@@ -384,10 +409,6 @@ table.dataTable {
             .title-total {
                 color: #7E3D00;
                 background: #F6C699;
-            }
-
-            .text-total {
-                color: #215ACE;
             }
         }
     }

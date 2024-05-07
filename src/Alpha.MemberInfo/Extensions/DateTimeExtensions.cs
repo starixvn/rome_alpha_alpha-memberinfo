@@ -37,5 +37,11 @@ namespace Alpha.MemberInfo.Extensions
 
         public static DateTime FirstDayOfYear(this DateTime dateTime)
             => new DateTime(dateTime.Year, 1, 1);
+
+        public static DateTime FirstDayOfLastMonth(this DateTime dateTime)
+            => dateTime.FirstDayOfMonth().AddMonths(-1);
+
+        public static DateTime FirstDayOfMonth(this DateTime dateTime)
+            => new DateTime(dateTime.Year, dateTime.Month, 1);
     }
 }

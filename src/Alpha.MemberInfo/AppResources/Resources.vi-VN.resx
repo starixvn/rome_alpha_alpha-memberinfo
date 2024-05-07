@@ -1064,6 +1064,33 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Hạn Mức Tín Dụng Tối Đa Của Member Cấp Bởi Cấp Trên：{0}</value>
   </data>
   <data name="MonitoredMember" xml:space="preserve">
-    <value>Monitored Member</value>
+    <value>Đang theo dõi</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Đang hoạt động</value>
+  </data>
+  <data name="AddedDate" xml:space="preserve">
+    <value>Ngày thêm</value>
+  </data>
+  <data name="ClickToSetThresholds" xml:space="preserve">
+    <value>Nhấn để cài đặt giới hạn cược</value>
+  </data>
+  <data name="Monitored" xml:space="preserve">
+    <value>Đang theo dõi</value>
+  </data>
+  <data name="ReachedLimitToday" xml:space="preserve">
+    <value>Đã đạt giới hạn hôm nay</value>
+  </data>
+  <data name="UnlimitedThreshold" xml:space="preserve">
+    <value>Ngưỡng không giới hạn</value>
+  </data>
+  <data name="UnlimitedThresholdNote" xml:space="preserve">
+    <value>Ngưỡng không giới hạn nghĩa là bạn bỏ qua ngưỡng và không nhận thông báo.</value>
+  </data>
+  <data name="WatchlistDetails" xml:space="preserve">
+    <value>Chi Tiết Danh Sách Theo Dõi</value>
+  </data>
+  <data name="WatchlistMemberSummary" xml:space="preserve">
+    <value>Tổng Hợp Danh Sách Theo Dõi Member</value>
   </data>
 </root>

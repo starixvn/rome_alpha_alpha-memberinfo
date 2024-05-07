@@ -1,5 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models
 {
+    using System;
+    using Alpha.MemberInfo.Extensions;
+
     public class WatchlistSummaryModel
     {
         public int ActiveMembers { get; set; }
@@ -13,5 +16,10 @@
         public string UnlimitedThresholdUsers { get; set; }
 
         public string UnlimitedThresholdCustId { get; set; }
+
+        public DateTime? MinAddedDate { get; set; }
+
+        public string MinAddedDateString
+            => MinAddedDate == null ? string.Empty : MinAddedDate.Value.ToShortDateWithSlash();
     }
 }

@@ -1080,6 +1080,33 @@
     <value>您的上線已設置會員最高信用：{0}</value>
   </data>
   <data name="MonitoredMember" xml:space="preserve">
-    <value>Monitored Member</value>
+    <value>監控會員</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>活躍</value>
+  </data>
+  <data name="AddedDate" xml:space="preserve">
+    <value>添加日期</value>
+  </data>
+  <data name="ClickToSetThresholds" xml:space="preserve">
+    <value>點擊以設置限額</value>
+  </data>
+  <data name="Monitored" xml:space="preserve">
+    <value>監控</value>
+  </data>
+  <data name="ReachedLimitToday" xml:space="preserve">
+    <value>已達今日上限</value>
+  </data>
+  <data name="UnlimitedThreshold" xml:space="preserve">
+    <value>無限限額</value>
+  </data>
+  <data name="UnlimitedThresholdNote" xml:space="preserve">
+    <value>無限限額意味着您已忽略限額並且不會收到通知。</value>
+  </data>
+  <data name="WatchlistDetails" xml:space="preserve">
+    <value>監控列表詳情</value>
+  </data>
+  <data name="WatchlistMemberSummary" xml:space="preserve">
+    <value>監控列表會員摘要</value>
   </data>
 </root>

@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Requests
 {
+    using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Requests;
     using System;
@@ -12,7 +13,7 @@
             IsShowLastLoginColumn = viewer.LimitedDateToShowInfo == default(DateTime);
         }
 
-        public DateTime FromDate { get; set; } = DateTime.Today.AddDays(-1);
+        public DateTime FromDate { get; set; } = DateTime.Today.FirstDayOfLastMonth();
 
         public DateTime ToDate { get; set; } = DateTime.Today;
 

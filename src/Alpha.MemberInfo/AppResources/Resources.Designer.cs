@@ -133,11 +133,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active Members.
+        ///   Looks up a localized string similar to Active.
         /// </summary>
-        public static string ActiveMembers {
+        public static string Active {
             get {
-                return ResourceManager.GetString("ActiveMembers", resourceCulture);
+                return ResourceManager.GetString("Active", resourceCulture);
             }
         }
         
@@ -1645,20 +1645,20 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monitored.
+        /// </summary>
+        public static string Monitored {
+            get {
+                return ResourceManager.GetString("Monitored", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Monitored Member.
         /// </summary>
         public static string MonitoredMember {
             get {
                 return ResourceManager.GetString("MonitoredMember", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Monitored Members.
-        /// </summary>
-        public static string MonitoredMembers {
-            get {
-                return ResourceManager.GetString("MonitoredMembers", resourceCulture);
             }
         }
         
@@ -2321,11 +2321,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reached Daily Limit Members.
+        ///   Looks up a localized string similar to Reached Limit Today.
         /// </summary>
-        public static string ReachedDailyLimitMembers {
+        public static string ReachedLimitToday {
             get {
-                return ResourceManager.GetString("ReachedDailyLimitMembers", resourceCulture);
+                return ResourceManager.GetString("ReachedLimitToday", resourceCulture);
             }
         }
         
@@ -2829,11 +2829,11 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unlimited Threshold Members.
+        ///   Looks up a localized string similar to Unlimited Threshold.
         /// </summary>
-        public static string UnlimitedThresholdMembers {
+        public static string UnlimitedThreshold {
             get {
-                return ResourceManager.GetString("UnlimitedThresholdMembers", resourceCulture);
+                return ResourceManager.GetString("UnlimitedThreshold", resourceCulture);
             }
         }
         
@@ -2946,20 +2946,20 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Watchlist Detail.
+        ///   Looks up a localized string similar to Watchlist Details.
         /// </summary>
-        public static string WatchlistDetail {
+        public static string WatchlistDetails {
             get {
-                return ResourceManager.GetString("WatchlistDetail", resourceCulture);
+                return ResourceManager.GetString("WatchlistDetails", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Watchlist Summary.
+        ///   Looks up a localized string similar to Watchlist Member Summary.
         /// </summary>
-        public static string WatchlistSummary {
+        public static string WatchlistMemberSummary {
             get {
-                return ResourceManager.GetString("WatchlistSummary", resourceCulture);
+                return ResourceManager.GetString("WatchlistMemberSummary", resourceCulture);
             }
         }
         
