@@ -1076,6 +1076,9 @@
     <value>สูงสุด</value>
   </data>
   <data name="creditHint" xml:space="preserve">
-    <value>ยอดคงเหลือที่ใช้ได้ : {0}</value>
+    <value>ยอดคงเหลือที่ใช้ได้: {0}</value>
+  </data>
+  <data name="memberMaxCreditHint" xml:space="preserve">
+    <value>เครดิตสมาชิกสูงสุดที่กำหนดโดยอัพไลน์ของคุณ: {0}</value>
   </data>
 </root>

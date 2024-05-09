@@ -109,5 +109,6 @@
   "Live": "สด",
   "GivenCredit": "เครดิตทั้งหมด",
   "givenMaxCreditInvalid": "เครดิตของสมาชิกต้องอยู่ระหว่าง {{min}} และ {{max}}",
-  "creditRange": "ต่ำสุด: <strong>0</strong> - สูงสุด: <strong>{{max}}</strong>"
+  "creditRange": "ต่ำสุด: <strong>0</strong> - สูงสุด: <strong>{{max}}</strong>",
+  "creditNote": "ยอดคงเหลือที่ใช้ได้ {{availableCredit}}<br>เครดิตสมาชิกสูงสุดที่กำหนดโดยอัพไลน์ของคุณ: {{memberMaxCredit}}"
 }

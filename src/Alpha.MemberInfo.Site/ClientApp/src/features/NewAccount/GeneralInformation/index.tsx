@@ -230,7 +230,7 @@ export default function GeneralInformation() {
 
               <span className={styles['max-credit']}>
                 <Trans i18nKey="creditRange" values={{ max: formatNumber(availableCredit) }} />
-                {uplineRoleId === UserLevel.Agent && uplineMemberMaxCredit && (
+                {uplineRoleId === UserLevel.Agent && uplineMemberMaxCredit > 0 && (
                   <CreditNote availableCredit={uplineMaxCredit} memberMaxCredit={uplineMemberMaxCredit} />
                 )}
               </span>
