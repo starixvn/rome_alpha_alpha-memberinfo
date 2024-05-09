@@ -5,6 +5,7 @@
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
     using Alpha.MemberInfo.Features.DormantAccountList;
+    using Alpha.MemberInfo.Features.MemberBettingBehavior;
     using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold;
@@ -170,6 +171,7 @@
             container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();
             container.RegisterPerWebRequest<DormantAccountWorkbook, DormantAccountWorkbookImpl>();
             container.RegisterPerWebRequest<MemberBettingBehaviorWorkbook, MemberBettingBehaviorWorkbookImpl>();
+            container.RegisterPerWebRequest<MemberBettingBehaviorService, MemberBettingBehaviorServiceImpl>();
             container.RegisterCopyAccountServices("CloneAccount:BaseUri", "CloneAccount:ApiKey");
 
             container.RegisterPerWebRequest<CheckBelongingService, CheckBelongingServiceImpl>();

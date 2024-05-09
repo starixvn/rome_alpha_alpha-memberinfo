@@ -1,58 +1,42 @@
 ﻿
 namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
 {
+    using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
     using ONEbook.SpreadSheets;
     using ONEbook.SpreadSheets.NPOI;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Web;
-
-    public class MemberBettingBehavior
-    {
-        public MemberBettingBehavior()
-        {
-
-        }
-
-        public int Win { get; set; }
-
-        public int Lose { get; set; }
-
-        public int Canceled { get; set; }
-
-        public int Total { get; set; }
-    }
 
     public interface MemberBettingBehaviorWorkbook
     {
-        Workbook<MemberBettingBehavior> UseTemplate(TemplateInfo templateInfo);
+        Workbook<MemberBettingStatistic> UseTemplate(TemplateInfo templateInfo);
 
-        MemberBettingBehaviorWorkbook SetData(IEnumerable<MemberBettingBehavior> memberBettingBehaviors);
+        MemberBettingBehaviorWorkbook SetData(IEnumerable<MemberBettingStatistic> memberBettingBehaviors);
 
-        MemberBettingBehaviorWorkbook SetRowMappers(Mapper<MemberBettingBehavior> memberBettingBehaviorMapper);
+        MemberBettingBehaviorWorkbook SetRowMappers(Mapper<MemberBettingStatistic> memberBettingBehaviorMapper);
     }
 
-    public class MemberBettingBehaviorWorkbookImpl : NpoiWorkbook<MemberBettingBehavior>, MemberBettingBehaviorWorkbook
+    public class MemberBettingBehaviorWorkbookImpl : NpoiWorkbook<MemberBettingStatistic>, MemberBettingBehaviorWorkbook
     {
         private const int DataSheetIndex = 1;
         private int currentRowIndex;
 
-        internal IEnumerable<MemberBettingBehavior> MemberBettingBehaviors { get; set; }
+        internal IEnumerable<MemberBettingStatistic> MemberBettingBehaviors { get; set; }
 
-        internal Mapper<MemberBettingBehavior> MemberBettingBehaviorMapper { get; set; }
+        internal Mapper<MemberBettingStatistic> MemberBettingBehaviorMapper { get; set; }
 
         private Row NormalRowTemplate { get; set; }
 
         internal Row TotalRowTemplate { get; set; }
 
-        public MemberBettingBehaviorWorkbook SetData(IEnumerable<MemberBettingBehavior> memberBettingBehaviors)
+        public MemberBettingBehaviorWorkbook SetData(IEnumerable<MemberBettingStatistic> memberBettingBehaviors)
         {
             MemberBettingBehaviors = memberBettingBehaviors;
             return this;
         }
 
-        public MemberBettingBehaviorWorkbook SetRowMappers(Mapper<MemberBettingBehavior> memberBettingBehaviorMapper)
+        public MemberBettingBehaviorWorkbook SetRowMappers(Mapper<MemberBettingStatistic> memberBettingBehaviorMapper)
         {
             MemberBettingBehaviorMapper = memberBettingBehaviorMapper;
             return this;
