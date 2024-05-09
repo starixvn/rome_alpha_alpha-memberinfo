@@ -4,6 +4,7 @@
 }
 
 @section Styles {
+    @StaticResources.AssetStyles.RenderCommon("/bundles-v2/site-memberinfo/member-betting-behavior")
     @StaticResources.RenderStyles("~/Features/MemberBettingBehavior/Bundles/member-betting-behavior")
 }
 
@@ -22,20 +23,25 @@
 <div class="form-group">
     <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
 </div>
-<div>Customer Profile</div>
+<div>
+    <input type="text" id="txt-username" autocomplete="off" maxlength="50" />
+    <button class="btn-submit" id="btn-submit">@Resources.Submit</button>
+</div>
 <div>Betting Statistic</div>
-<div style="width: 25%; float: left">
-    <canvas id="doughnutChart" aria-label="Turnover by sport" role="img">
+<div class="turnover-by-sport-chart">
+    <canvas id="canvas-turnover-by-sport-chart" aria-label="@Resources.TurnoverBySport" role="img">
         <p>@Resources.NoInformationIsAvailable</p>
     </canvas>
 </div>
-<div style="width: 50%; float: left">
-    <canvas id="barChart" aria-label="Turnover by bet type" role="img">
+<div class="turnover-by-bettype-chart">
+    <canvas id="canvas-turnover-by-bettype-chart" aria-label="@Resources.TurnoverByBetType"
+            data-live="@Resources.Live" data-nonlive="@Resources.NonLive" role="img">
         <p>@Resources.NoInformationIsAvailable</p>
     </canvas>
 </div>
-<div style="width: 50%; float: left">
-    <canvas id="lineChart" aria-label="Turnover and win loss by date" role="img">
+<div class="turnover-winloss-by-date-chart">
+    <canvas id="canvas-turnover-winloss-by-date-chart" aria-label="@Resources.TurnoverAndWinLossByDate"
+            data-turnover="@Resources.Turnover" data-winloss="@Resources.WinLoss" role="img">
         <p>@Resources.NoInformationIsAvailable</p>
     </canvas>
 </div>

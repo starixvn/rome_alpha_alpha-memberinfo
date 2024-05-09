@@ -1069,6 +1069,12 @@
   <data name="Live" xml:space="preserve">
     <value>现场</value>
   </data>
+  <data name="Turnover" xml:space="preserve">
+    <value>投注额</value>
+  </data>
+  <data name="WinLoss" xml:space="preserve">
+    <value>輸贏</value>
+  </data>
   <data name="Min" xml:space="preserve">
     <value>最低</value>
   </data>

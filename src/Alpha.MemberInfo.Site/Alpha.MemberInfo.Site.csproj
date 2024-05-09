@@ -842,6 +842,8 @@
     <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior.min.js">
       <DependentUpon>member-betting-behavior.js</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Features\MemberBettingBehavior\Scripts\turnover-by-bettype-chart.ts" />
+    <TypeScriptCompile Include="Features\MemberBettingBehavior\Scripts\turnover-by-sport-chart.ts" />
     <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior.css">
       <DependentUpon>member-betting-behavior.scss</DependentUpon>
     </Content>
@@ -1814,6 +1816,7 @@
     <TypeScriptCompile Include="Features\CustomerList\Scripts\unlock.ts" />
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
     <TypeScriptCompile Include="Features\MemberBettingBehavior\Scripts\member-betting-behavior.ts" />
+    <TypeScriptCompile Include="Features\MemberBettingBehavior\Scripts\turnover-winloss-by-date-chart.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyThresholds\Scripts\my-thresholds-settings.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyThresholds\Scripts\my-thresholds.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\Shared\Scripts\threshold-inputs-base.ts" />

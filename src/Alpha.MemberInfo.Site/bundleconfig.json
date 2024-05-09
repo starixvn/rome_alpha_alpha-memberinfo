@@ -327,7 +327,10 @@
   {
     "outputFileName": "Features/MemberBettingBehavior/Bundles/member-betting-behavior.js",
     "inputFiles": [
-      "assets/scripts/aes.js",
+      "assets/scripts/shared/site-helper.js",
+      "Features/MemberBettingBehavior/Scripts/turnover-by-sport-chart.js",
+      "Features/MemberBettingBehavior/Scripts/turnover-by-bettype-chart.js",
+      "Features/MemberBettingBehavior/Scripts/turnover-winloss-by-date-chart.js",
       "Features/MemberBettingBehavior/Scripts/member-betting-behavior.js"
     ]
   },

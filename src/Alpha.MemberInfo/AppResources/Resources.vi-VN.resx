@@ -1051,6 +1051,12 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="Live" xml:space="preserve">
     <value>Trực Tuyến</value>
   </data>
+  <data name="Turnover" xml:space="preserve">
+    <value>Tiền Cược</value>
+  </data>
+  <data name="WinLoss" xml:space="preserve">
+    <value>Thắng thua</value>
+  </data>
   <data name="Min" xml:space="preserve">
     <value>Nhỏ nhất</value>
   </data>

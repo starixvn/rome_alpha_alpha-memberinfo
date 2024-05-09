@@ -1,0 +1,77 @@
+﻿"use strict"
+
+class TurnoverByBetTypeChart {
+    private chart: any;
+    private canvasId: string;
+
+    constructor(canvasId = 'canvas-turnover-by-bettype-chart') {
+        this.canvasId = canvasId;
+    }
+
+    draw(betTypes: string[], lives: number[], nonLives: number[]) {
+        if (this.chart) {
+            this.redraw(betTypes, lives, nonLives);
+            return;
+        }
+
+        const canvas = document.getElementById(this.canvasId);
+        const chartTitle = canvas.getAttribute('aria-label');
+
+        const data = {
+            labels: betTypes,
+            datasets: [
+                {
+                    label: canvas.getAttribute('data-live'),
+                    data: lives,
+                    backgroundColor: 'rgb(54, 162, 235)'
+                },
+                {
+                    label: canvas.getAttribute('data-nonlive'),
+                    data: nonLives,
+                    backgroundColor: 'rgb(255, 159, 64)'
+                }
+            ]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                barThickness: 25,
+                indexAxis: 'y',
+                plugins: {
+                    title: {
+                        text: chartTitle,
+                        padding: {
+                            bottom: 30
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            callback: (value) => SiteHelper.FormatCompactNumber(value)
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+
+            }
+        };
+
+        this.chart = new Chart(canvas, config);
+    }
+
+    redraw(betTypes: string[], lives: number[], nonLives: number[]) {
+        this.chart.data.labels = betTypes
+        this.chart.data.datasets[0].data = lives;
+        this.chart.data.datasets[1].data = nonLives;
+        this.chart.update();
+    }
+}
