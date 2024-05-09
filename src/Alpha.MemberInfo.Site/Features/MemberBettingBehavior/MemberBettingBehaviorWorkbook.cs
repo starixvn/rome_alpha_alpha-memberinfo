@@ -61,7 +61,7 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
         protected override Sheet LoadTemplateSheet()
         {
             var sheet = GetSheetAt(TemplateInfo.SheetIndex);
-            var currentRowIndex = 2;
+            var currentRowIndex = TemplateInfo.BodyStartIndex;
 
             NormalRowTemplate = sheet.GetRow(currentRowIndex++);
 
@@ -69,7 +69,7 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
             reportSheet.FooterRowsTemplate = new List<Row> { TotalRowTemplate };
             // OddRowTemplate is for showing No Data.
             reportSheet.OddRowTemplate = NormalRowTemplate;
-
+            
             return reportSheet;
         }
 

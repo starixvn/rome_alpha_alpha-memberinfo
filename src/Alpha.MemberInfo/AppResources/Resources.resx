@@ -1073,6 +1073,24 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="Live" xml:space="preserve">
     <value>Live</value>
   </data>
+  <data name="Bettype" xml:space="preserve">
+    <value>Bettype</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="Lose" xml:space="preserve">
+    <value>Lose</value>
+  </data>
+  <data name="Sports" xml:space="preserve">
+    <value>Sports</value>
+  </data>
+  <data name="Win" xml:space="preserve">
+    <value>Win</value>
+  </data>
   <data name="TurnoverBySport" xml:space="preserve">
     <value>Turnover By Sport</value>
   </data>

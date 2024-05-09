@@ -32,6 +32,7 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
                 .SetData(memberBettingBehaviors)
                 .SetRowMappers(GetBodyRowMapper())
                 .UseTemplate(GetTemplateInfo())
+                .Title("")
                 .Header(Resources.ResourceManager.GetString)
                 .ExportToBytes();
 
@@ -43,13 +44,14 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
             var mapper = new Mapper<MemberBettingBehavior>()
                 .Map(B, memberBettingBehavior => memberBettingBehavior.Win)
                 .Map(C, memberBettingBehavior => memberBettingBehavior.Lose)
-                .Map(D, memberBettingBehavior => memberBettingBehavior.Canceled);
+                .Map(D, memberBettingBehavior => memberBettingBehavior.Canceled)
+                .Map(E, membetBettingBehavior => membetBettingBehavior.Total);
 
             return mapper;
         }
 
         private TemplateInfo GetTemplateInfo()
-            => new TemplateInfo(GetExcelTemplatePath("MemberBettingBehavior"), Resources.NoInformationIsAvailable, bodyStartIndex: 3);
+            => new TemplateInfo(GetExcelTemplatePath("MemberBettingBehavior"), Resources.NoInformationIsAvailable, bodyStartIndex: 4);
 
         protected override string GetExcelTemplateDir()
             => "~/App_Data/ExcelTemplates/MemberBettingBehavior";
