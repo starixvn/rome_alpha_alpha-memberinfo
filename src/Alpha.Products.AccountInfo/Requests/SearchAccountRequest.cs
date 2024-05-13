@@ -17,6 +17,7 @@ namespace Alpha.Products.AccountInfo.Requests
             ICustomer searchAccount,
             string language,
             bool isDarkMode,
+            Func<int, string> getProductGroupName,
             Func<string, string> getResource = null,
             Func<int, string> getProductName = null,
             Func<string, string, string> getMicroSiteUrl = null)
@@ -25,6 +26,7 @@ namespace Alpha.Products.AccountInfo.Requests
             SearchAccount = searchAccount;
             Language = language;
             IsDarkMode = isDarkMode;
+            GetProductGroupName = getProductGroupName;
             GetResource = getResource ?? SimpleServiceLocator.GetService<Func<string, string>>();
             GetProductName = getProductName ?? SimpleServiceLocator.GetService<Func<int, string>>();
             GetMicroSiteUrl = getMicroSiteUrl ?? SimpleServiceLocator.GetService<Func<string, string, string>>();
@@ -51,6 +53,8 @@ namespace Alpha.Products.AccountInfo.Requests
 
         public Func<string, string> GetResource { get; }
 
+        public Func<int, string> GetProductGroupName { get; }
+
         public Func<int, string> GetProductName { get; }
 
         public Func<string, string, string> GetMicroSiteUrl { get; }
@@ -73,10 +77,11 @@ namespace Alpha.Products.AccountInfo.Requests
             ICustomer searchAccount,
             string language,
             bool isDarkMode,
+            Func<int, string> getProductGroupName,
             Func<string, string> getResource = null,
             Func<int, string> getProductName = null,
             Func<string, string, string> getMicroSiteUrl = null)
-            : base(actor, searchAccount, language,isDarkMode, getResource, getProductName, getMicroSiteUrl)
+            : base(actor, searchAccount, language, isDarkMode, getProductGroupName, getResource, getProductName, getMicroSiteUrl)
         {
         }
 
@@ -94,10 +99,11 @@ namespace Alpha.Products.AccountInfo.Requests
             ICustomer searchAccount,
             string language,
             bool isDarkMode,
+            Func<int, string> getProductGroupName,
             Func<string, string> getResource = null,
             Func<int, string> getProductName = null,
             Func<string, string, string> getMicroSiteUrl = null)
-            : base(actor, searchAccount,language, isDarkMode, getResource, getProductName, getMicroSiteUrl)
+            : base(actor, searchAccount, language, isDarkMode, getProductGroupName, getResource, getProductName, getMicroSiteUrl)
         {
         }
 

@@ -145,7 +145,8 @@
             container.Register<WinLossLimitService>(
                 () => new WinLossLimitServiceImpl(
                     container.GetInstance<IDynamicRepository>(),
-                    container.GetInstance<CacheRefService>().GetProductName));
+                    container.GetInstance<CacheRefService>().GetProductName,
+                    container.GetInstance<CacheRefService>().GetSportTypeName));
 
             container.Register<CheckUMService, CheckUMServiceImpl>();
 

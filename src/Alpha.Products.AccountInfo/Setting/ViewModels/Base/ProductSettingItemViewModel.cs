@@ -6,13 +6,13 @@
 
     public abstract class ProductSettingItemViewModel : SettingItemViewModel
     {
-        private const int MaxSettingTypesOfAProduct = 5;
+        private const int ProductStartIndex = 100;
         protected readonly ISearchAccountInfoRequest request;
         protected readonly IConfigurationItem productItem;
         protected readonly CustomerProductStatus customerStatus;
 
         protected ProductSettingItemViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
-            : base(request, productItem.ProductId * MaxSettingTypesOfAProduct)
+            : base(request, productItem.ProductId + ProductStartIndex)
         {
             this.productItem = productItem;
             this.request = request;

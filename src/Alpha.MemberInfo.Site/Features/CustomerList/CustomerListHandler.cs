@@ -16,13 +16,14 @@
     using Alpha.Products.AccountInfo.Status.ViewModels.Base;
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Services;
-    using Alpha.Products.Core.Shared;
     using Alpha.Products.Core.ViewModels;
     using AlphaPlus.Utilities.IP;
     using Alpha.Web.Helpers;
     using Fanex.Common;
     using MediatR;
     using Alpha.SecurityCode.Services;
+    using Alpha.MemberInfo.Services;
+    using Alpha.Products.Core.Shared;
 
     public class CustomerListHandler :
         IRequestHandler<CustomerListRequest, CustomerListViewModel>,
@@ -41,14 +42,16 @@
         private readonly BrowserHelper browserHelper;
         private readonly IPService ipService;
         private readonly TransferService transferService;
+        private readonly CacheRefService cacheRefService;
 
         public CustomerListHandler(
             CustomerListService customerListService,
             SecurityCodeChecker securityCodeChecker,
             IPService ipService,
             BrowserHelper browserHelper,
-            TransferService transferService)
-            : this(customerListService, null, null, null, ipService, securityCodeChecker, browserHelper, transferService)
+            TransferService transferService,
+            CacheRefService cacheRefService)
+            : this(customerListService, null, null, null, ipService, securityCodeChecker, browserHelper, transferService, cacheRefService)
         {
         }
 
@@ -60,7 +63,8 @@
             IPService ipService,
             SecurityCodeChecker securityCodeChecker,
             BrowserHelper browserHelper,
-            TransferService transferService)
+            TransferService transferService,
+            CacheRefService cacheRefService)
         {
             this.customerListService = customerListService;
 
@@ -77,6 +81,7 @@
             this.securityCodeChecker = securityCodeChecker;
             this.browserHelper = browserHelper;
             this.transferService = transferService;
+            this.cacheRefService = cacheRefService;
         }
 
         public CustomerListViewModel Handle(CustomerListRequest message)
@@ -98,7 +103,7 @@
 
             breadcrumbLevel.Add(new CustInfo(message.CustId, message.CustName, message.CustLevelId));
 
-            var offerCurrencies = Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies");
+            var offerCurrencies = Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies");
             var customerListPagingViewModel = Handle(
                 new FetchDownlinesListRequest(message.Viewer)
                 {
@@ -201,7 +206,7 @@
                message.SubAccountId,
                message.ActorName,
                message.ActorRoleId,
-               BuildActorProductStatus(message, customerStatusModel.DCSProducts.ToList()));
+               BuildActorProductStatus(customerStatusModel.DCSProducts.ToList()));
 
             var upline = new Customer(
                  message.UplineId,
@@ -232,7 +237,7 @@
                message.SubAccountId,
                message.ActorName,
                message.ActorRoleId,
-               BuildActorProductStatus(message, customerStatusModel.DCSProducts.ToList()));
+               BuildActorProductStatus(customerStatusModel.DCSProducts.ToList()));
 
             var upline = new Customer(
                  message.UplineId,
@@ -255,37 +260,18 @@
         internal IEnumerable<CustomerProductStatus> BuildSearchAccountProductStatus(
             IEnumerable<DCSProductStatusModel> dcsProducts)
         {
-            return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabled, product.IsHidden, product.IsSync));
+            return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabled, product.IsHidden, product.GroupId));
         }
 
         internal IEnumerable<CustomerProductStatus> BuildUplineProductStatus(
             IEnumerable<DCSProductStatusModel> dcsProducts)
         {
-            return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabledUpline, product.IsHiddenUpline, product.IsSyncedUpline));
+            return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabledUpline, product.IsHiddenUpline, product.GroupId));
         }
 
-        internal IEnumerable<CustomerProductStatus> BuildActorProductStatus(
-            CustomerStatusQueryBase message,
-            IEnumerable<DCSProductStatusModel> dcsProducts)
+        internal IEnumerable<CustomerProductStatus> BuildActorProductStatus(IEnumerable<DCSProductStatusModel> dcsProducts)
         {
-            var customerProductStatus = new List<CustomerProductStatus>
-            {
-                new CustomerProductStatus(ProductConstants.Sportsbook, true),
-                new CustomerProductStatus(ProductConstants.ESport, message.IsDisabledESports)
-            };
-
-            dcsProducts.ToList().ForEach(product =>
-            {
-                var productId = product.ProductId;
-                customerProductStatus.Add(
-                    new CustomerProductStatus(
-                        productId,
-                        message.GetDisabledProduct(productId),
-                        message.GetHideProduct(productId),
-                        message.GetSyncedProduct(productId)));
-            });
-
-            return customerProductStatus;
+            return dcsProducts.Select(product => new CustomerProductStatus(product.ProductId, product.IsDisabled, product.IsHidden, product.GroupId));
         }
 
         internal IEnumerable<IStatusItemViewModel> BuildCustomerProductStatus(
@@ -295,7 +281,7 @@
             CustomerStatusModel model,
             bool allowedAllDayBalTransfer)
         {
-            var request = new StatusSearchAccountRequest(actor, searchAccount, message.Language, message.IsDarkMode)
+            var request = new StatusSearchAccountRequest(actor, searchAccount, message.Language, message.IsDarkMode, cacheRefService.GetProductGroupName)
             {
                 SubPageAccess = message.SubPageAccess
             };
@@ -341,7 +327,7 @@
             CustomerStatusQueryBase message,
             CustomerStatusModel model)
         {
-            var request = new SettingSearchAccountRequest(actor, searchAccount, message.Language, message.IsDarkMode)
+            var request = new SettingSearchAccountRequest(actor, searchAccount, message.Language, message.IsDarkMode, cacheRefService.GetProductGroupName)
             {
                 SubPageAccess = message.SubPageAccess
             };
@@ -360,7 +346,7 @@
            CustomerStatusMultipleQuery message,
            CustomerStatusModel model)
         {
-            var request = new SettingSearchAccountRequest(actor, searchAccount, message.Language, message.IsDarkMode)
+            var request = new SettingSearchAccountRequest(actor, searchAccount, message.Language, message.IsDarkMode, cacheRefService.GetProductGroupName)
             {
                 SubPageAccess = message.SubPageAccess,
                 SupportAutoTransfer = message.SupportAutoTransfer,

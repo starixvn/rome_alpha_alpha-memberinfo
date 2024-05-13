@@ -41,8 +41,8 @@
     <SonarQubeExclude>true</SonarQubeExclude>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.Products.Core, Version=1.0.1.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Alpha.Products.Core.1.0.1.5\lib\net461\Alpha.Products.Core.dll</HintPath>
+    <Reference Include="Alpha.Products.Core, Version=1.0.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Alpha.Products.Core.1.0.1.6\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.SubAccount.1.0.0.1\lib\net40\Alpha.SubAccount.dll</HintPath>
@@ -191,8 +191,6 @@
     <Compile Include="Setting\ViewModels\Multiple\DoubleCommMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductMultipleViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookMultipleViewModelTests.cs" />
-    <Compile Include="Setting\ViewModels\Products\Sportsbook\SportsbookViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\RemoveOtpViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\ResetPasswordViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\ResetSecurityCodeViewModelTests.cs" />

@@ -200,6 +200,9 @@ namespace Alpha.MemberInfo.Site.Controllers
         public async Task<ActionResult> GetCustomerSetting(GetCustomerSettingRequest request)
             => Content(await customerService.GetCustomerSetting(request.CustId, request.RoleId, systemId, request.UplineRoleId, request.Language, request.IsGetUpLine, request.ProductGroupId, request.SiteLabel));
 
+        public async Task<ActionResult> GetCurrentWinLossAmount(CustomerWinLossAmountQuery request)
+         => Content(await customerService.GetCustomerCurrentWinLossAmounts(request.CustId, request.SportType, request.BetType, request.Language));
+
         public async Task<ActionResult> GetPTSettingInformation(SportBookInformationQuery request)
             => Content(await customerService.GetPTSettingInformation(request.CustId, AppSettings.LocalTest, request.Site, request.Language));
 
@@ -207,7 +210,7 @@ namespace Alpha.MemberInfo.Site.Controllers
             => Content(await customerService.GetMaxPayoutSettingInformation(request.Site, request.SiteLabel, request.Language));
 
         public async Task<ActionResult> GetProductCategories(SportBookInformationQuery request)
-            => Content(await customerService.GetProductCategories(request.CustId, request.Site, request.Currency, request.Language));
+            => Content(await customerService.GetProductCategories(request.CustId, request.Site, AppSettings.SiteLabel, request.Currency, request.Language));
 
         public async Task<ActionResult> GetCommissionHint(SportBookInformationQuery request)
             => Content(await customerService.GetCommissionHint(request.CustId, request.Site, request.Language));

@@ -15,13 +15,11 @@
         private readonly IMediator mediator;
         private readonly IUser user;
         private readonly CustomerListController controller;
-        private readonly IUserSession userSession;
         private readonly TransferService transferService;
 
         public CustomerListControllerTests()
         {
             mediator = Substitute.For<IMediator>();
-            userSession = Substitute.For<IUserSession>();
             transferService = Substitute.For<TransferService>();
 
             user = Substitute.For<IUser>();
@@ -34,7 +32,7 @@
             user.IsInternal.Returns(false);
             user.CanUpdateAccount.Returns(true);
 
-            controller = new CustomerListController(mediator, userSession, transferService, null);
+            controller = new CustomerListController(mediator, transferService, null);
         }
 
         [Fact]

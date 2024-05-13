@@ -3,13 +3,13 @@ namespace Alpha.Products.AccountInfo.Setting
 {
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Services;
+    using Alpha.Products.AccountInfo.Setting.ViewModels.Multiple;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.ViewModels;
     using Fanex.Data.Repository;
     using System.Collections.Generic;
     using ViewModels.Base;
     using ViewModels.Products;
-    using static Alpha.Products.Core.Shared.ProductConstants;
 
     // TODO: simple first, better later
     public class SettingMultipleViewModelFactory : GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemMultipleViewModel>
@@ -40,18 +40,14 @@ namespace Alpha.Products.AccountInfo.Setting
             }
         }
 
+        protected override ISettingItemMultipleViewModel GetProductGroupViewModel(int productGroupId, ISearchAccountInfoRequest request)
+        {
+            return new ProductGroupMultipleSettingItemViewModel(request, productGroupId);
+        }
+
         protected override ISettingItemMultipleViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)
         {
-            switch (productItem.ProductId)
-            {
-                case Sportsbook:
-                    return new SportsbookMultipleViewModel(request, productItem);
-
-               
-
-                default:
-                    return new DynamicProductMultipleViewModel(request, productItem);
-            }
+            return new DynamicProductMultipleViewModel(request, productItem);
         }
     }
 }

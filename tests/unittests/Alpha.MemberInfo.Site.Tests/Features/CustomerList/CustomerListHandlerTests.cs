@@ -83,7 +83,7 @@
             ipService = Substitute.For<IPService>();
             transferService = Substitute.For<TransferService>();
 
-            handler = new CustomerListHandler(service, null, null, null, ipService, securityCodeChecker, browserHelper, transferService);
+            handler = new CustomerListHandler(service, null, null, null, ipService, securityCodeChecker, browserHelper, transferService, cacheRefService);
         }
 
         [Fact]
@@ -228,7 +228,7 @@
                 new CustomerProductStatus(ProductConstants.ESport, true),
             };
 
-            var actualActorProductStatus = handler.BuildActorProductStatus(message, Enumerable.Empty<DCSProductStatusModel>());
+            var actualActorProductStatus = handler.BuildActorProductStatus(Enumerable.Empty<DCSProductStatusModel>());
             Assert.True(compareLogic.Compare(actualActorProductStatus, customerProductStatus).AreEqual);
         }
 
@@ -289,7 +289,6 @@
                     new ResetPasswordViewModel(request),
                     new ResetSecurityCodeViewModel(request),
                     new TransferViewModel(request),
-                    new SportsbookViewModel(request, configItem)
                 }
                 .Where(setting => setting.Visible)
                 .OrderBy(setting => setting.DisplayOrder);
@@ -335,7 +334,8 @@
                                   isSyncedUpline: true,
                                   isHiddenUpline: true,
                                   isDisabledUpline: true,
-                                  hasDownline: true),
+                                  hasDownline: true,
+                                  groupId:1),
                      new DCSProductStatusModel(
                                   productId: 6,
                                   sportType: 13,
@@ -346,7 +346,8 @@
                                   isSyncedUpline: true,
                                   isHiddenUpline: true,
                                   isDisabledUpline: true,
-                                  hasDownline: true)
+                                  hasDownline: true,
+                                  groupId:1)
                     };
     }
 }

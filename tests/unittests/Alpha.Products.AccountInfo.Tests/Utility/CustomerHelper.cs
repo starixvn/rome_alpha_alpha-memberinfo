@@ -20,7 +20,7 @@
                         new CustomerProductStatus(16),
                         new CustomerProductStatus(21),
                         new CustomerProductStatus(22),
-                        new CustomerProductStatus(23, true, true, true),
+                        new CustomerProductStatus(23, true, true),
                         new CustomerProductStatus(24, true),
                         new CustomerProductStatus(26, true),
                         new CustomerProductStatus(28),

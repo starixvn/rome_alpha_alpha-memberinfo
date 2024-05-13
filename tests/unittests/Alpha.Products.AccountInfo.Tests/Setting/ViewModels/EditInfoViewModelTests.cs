@@ -61,14 +61,12 @@
             Assert.Equal($"{typeof(EditInfoViewModel).Name}Text", viewModel.Text);
         }
 
-        [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
-        public void QueryStringParamaters_With_Correctvalues(bool searchAccountSynced)
+        [Fact]
+        public void QueryStringParamaters_With_Correctvalues()
         {
             var customerProductStatus = new List<CustomerProductStatus>
             {
-                new CustomerProductStatus(6, synced: searchAccountSynced)
+                new CustomerProductStatus(6)
             };
 
             var actorAccount = CustomerHelper.CreateCustomer(1, 4);

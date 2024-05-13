@@ -110,14 +110,12 @@
             Assert.False(model.AddEditTextToPopupTitle);
         }
 
-        [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
-        public void QueryStringParamaters_With_Correctvalues(bool searchAccountSynced)
+        [Fact]
+        public void QueryStringParamaters_With_Correctvalues()
         {
             var customerProductStatus = new List<CustomerProductStatus>
             {
-                new CustomerProductStatus(6, synced: searchAccountSynced)
+                new CustomerProductStatus(6)
             };
 
             var actorAccount = CustomerHelper.CreateCustomer(1, 4);
@@ -127,7 +125,7 @@
 
             Assert.Equal("2", viewModel.QueryStringParamaters["custId"]);
             Assert.Equal("username1", viewModel.QueryStringParamaters["username"]);
-            Assert.Equal("3", viewModel.QueryStringParamaters["custRoleId"]);           
+            Assert.Equal("3", viewModel.QueryStringParamaters["custRoleId"]);
         }
     }
 }

@@ -66,7 +66,6 @@
             sportsbook.ProductId.Returns(1);
             return new List<object[]>()
             {
-                new object[] { request, 1, new SportsbookViewModel(request, sportsbook) },
                 new object[] { request, 5, new DynamicProductViewModel(request, CreateDynamicProduct(5)) },
                 new object[] { request, 16, new DynamicProductViewModel(request, CreateDynamicProduct(16)) },
                 new object[] { request, 21, new DynamicProductViewModel(request, CreateDynamicProduct(21)) },

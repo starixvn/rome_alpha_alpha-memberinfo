@@ -14,12 +14,14 @@
         public SearchAccountRequestStub(
             ICustomer actor,
             ICustomer searchAccount,
+            Func<int, string> GetProductGroupName = null,
             Func<string, string> GetResource = null,
             Func<int, string> GetProductName = null,
             Func<string, string, string> GetMicroSiteUrl = null)
         {
             Actor = actor;
             SearchAccount = searchAccount;
+            this.GetProductGroupName = GetProductGroupName ?? ((productGroupId) => $"Product Group Name of {productGroupId}");
             this.GetResource = GetResource ?? ((key) => key);
             this.GetProductName = GetProductName ?? ((productId) => $"Product Name of {productId}");
             this.GetMicroSiteUrl = GetMicroSiteUrl ?? ((microSiteName, virtualPath) => $"microSiteName/");
@@ -45,6 +47,8 @@
         public Func<string, string> GetResource { get; }
 
         public Func<int, string> GetProductName { get; }
+
+        public Func<int, string> GetProductGroupName { get; }
 
         public Func<IConfigurationItem, bool> Predicate => _ => true;
 

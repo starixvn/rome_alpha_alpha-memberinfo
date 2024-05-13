@@ -23,11 +23,11 @@
                                     data-product-id="@product.ProductId"
                                     data-sport-type="@product.SportType"
                                     data-bet-type="@product.BetType"
-                                    @(Model.UserSelectedProductId == product.ProductId ? " selected=\"selected\"" : string.Empty)
+                                    @(Model.UserSelectedId.Equals($"{product.ProductId}-{product.SportType}") ? " selected=\"selected\"" : string.Empty)
                                     data-isnested="1">
                                 @product.ProductName
-                                </option>
-                            }
+                            </option>
+                        }
                     </optgroup>
                 }
                 else
@@ -38,12 +38,12 @@
                                 data-product-id="@product.ProductId"
                                 data-sport-type="@product.SportType"
                                 data-bet-type="@product.BetType"
-                                @(Model.UserSelectedProductId == product.ProductId ? " selected=\"selected\"" : string.Empty)>
+                                @(Model.Equals($"{product.ProductId}-{product.SportType}") ? " selected=\"selected\"" : string.Empty)>
                             @product.ProductName
-                            </option>
-                        }
+                        </option>
                     }
                 }
+            }
         </select>
     </div>
     @if (Model.ViewerLevel.IsSuperLevel())
@@ -192,7 +192,7 @@
             </tfoot>
         }
     </table>
-    @Html.Hidden("UserSelectedProductId", Model.UserSelectedProductId)
+    @Html.Hidden("UserSelectedProductId", Model.UserSelectedId)
     @Html.Hidden("SportType", Model.SportType)
     @Html.Hidden("BetType", Model.BetType)
     @Html.Hidden("MasterId", Model.MasterId)

@@ -14,5 +14,7 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         public string Usernames { get; set; }
 
         public byte RoleId { get; set; }
+
+        public int ProductGroupId { get; set; }
     }
 }

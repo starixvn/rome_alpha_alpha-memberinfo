@@ -15,7 +15,8 @@
              bool isSyncedUpline,
              bool isHiddenUpline,
              bool isDisabledUpline,
-             bool hasDownline)
+             bool hasDownline,
+             int? groupId)
         {
             ProductId = productId;
             SportType = sportType;
@@ -27,11 +28,12 @@
             IsHiddenUpline = isHiddenUpline;
             IsDisabledUpline = isDisabledUpline;
             HasDownline = hasDownline;
+            GroupId = groupId;
         }
 
-       public int ProductId { get; set; }
+        public int ProductId { get; set; }
 
-       public int SportType { get; set; }
+        public int SportType { get; set; }
 
         public int BetType { get; set; }
 
@@ -48,5 +50,7 @@
         public bool IsDisabledUpline { get; set; }
 
         public bool HasDownline { get; set; }
+
+        public int? GroupId { get; set; }
     }
 }

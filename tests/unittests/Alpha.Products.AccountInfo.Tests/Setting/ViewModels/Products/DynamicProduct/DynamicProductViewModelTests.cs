@@ -100,19 +100,17 @@
         }
 
         [Theory]
-        [InlineData(true, false, true)]
-        [InlineData(true, true, false)]
-        [InlineData(false, true, false)]
-        [InlineData(false, false, false)]
+        [InlineData(false, true)]
+        [InlineData(true, false)]
+        [InlineData(false, false)]
         public void Visible_Return_CorrectValueByActorStatus(
-        bool synced,
         bool hidden,
         bool expectedValue)
         {
             //Arrange
             var customerProductStatus = new List<CustomerProductStatus>
             {
-                new CustomerProductStatus(21, synced: synced, hidden: hidden)
+                new CustomerProductStatus(21, hidden: hidden)
             };
 
             var actorAccount = CustomerHelper.CreateCustomer(1, 4, customerProductStatus: customerProductStatus);
@@ -142,7 +140,7 @@
             //Arrange
             var customerProductStatus = new List<CustomerProductStatus>
             {
-                new CustomerProductStatus(21, synced: true, hidden: false)
+                new CustomerProductStatus(21, hidden: false)
             };
 
             var actorAccount = CustomerHelper.CreateCustomer(1, actorLevel, customerProductStatus: customerProductStatus);

@@ -21,12 +21,14 @@
         private readonly WinLossLimitServiceImpl winLossLimitServiceImpl;
         private readonly CompareLogic compareLogic;
         private readonly Func<int, string> getProductName;
+        private readonly Func<int, string> getSportTypeName;
 
         public WinLossLimitServiceImplTests()
         {
             dynamicRepository = Substitute.For<IDynamicRepository>();
             getProductName = Substitute.For<Func<int, string>>();
-            winLossLimitServiceImpl = new WinLossLimitServiceImpl(dynamicRepository, getProductName);
+            getSportTypeName = Substitute.For<Func<int, string>>();
+            winLossLimitServiceImpl = new WinLossLimitServiceImpl(dynamicRepository, getProductName, getSportTypeName);
 
             compareLogic = new CompareLogic();
         }
