@@ -131,7 +131,7 @@
                                         <div id="creditErrMsg" class="error-input-text hidden"></div>
                                     </div>
                                     <div id="credit-range" class="hidden sub-input">
-                                        @Resources.AvailableGivenCredit: <span id="credit-max-label"></span>
+                                        @Resources.Min: <strong>0</strong> - @Resources.Max: <span id="credit-max-label"></span> <span id="credit-hint-tooltip" data-toggle="tooltip" data-placement="bottom" title=""> <span class="icon-credit"></span> </span>
                                     </div>
                                 </div>
 
@@ -142,10 +142,10 @@
                                         <div class="form-input relative-input">
                                             <input type="text" name="MemberMaxCredit" id="MemberMaxCredit" value="0" maxlength="14" />
                                             <span id="icon-message-member-max-credit"> </span>
-                                            <div id="member-max-credit-range" class="hidden">
-                                                <span id="member-credit-min-label"></span> <=  @Resources.MemberMaxCredit <= <span id="member-credit-max-label"></span>
-                                            </div>
                                             <div id="memberMaxCreditErrMsg" class="error-input-text hidden"></div>
+                                        </div>
+                                        <div id="member-max-credit-range" class="hidden sub-input">
+                                            @Resources.Min: <strong>0</strong> - @Resources.Max: <span id="member-credit-max-label"><strong>0</strong></span>
                                         </div>
                                     </div>
 
@@ -164,6 +164,8 @@
                         @Html.Hidden("Live", Resources.Live)
                         @Html.Hidden("old-version-url", MicroSites.OldMainUrl("~/_MemberInfo/SearchAndCopy/MasterPage.aspx"))
                         @Html.Hidden("ActorUsername", Model.ActorUsername)
+                        @Html.Hidden("CreditHint", Resources.creditHint)
+                        @Html.Hidden("MemberMaxCreditHint", Resources.memberMaxCreditHint)
                         @Html.AntiForgeryToken()
                     </form>
                     <div id="result" class="result hidden">

@@ -62,16 +62,17 @@ export default class GeneralInfoValidator {
 
   private validateMaxCredit(field?: keyof GeneralInfoErrors) {
     if (field && field !== 'maxCredit') return this;
-    const { maxCredit, uplineMaxCredit, uplineRoleId } = this.generalInfo;
+    const { maxCredit, uplineMaxCredit, uplineRoleId, uplineMemberMaxCredit } = this.generalInfo;
     if (maxCredit === undefined) return this.setError({ maxCredit: 'RequiredField' });
-    if (maxCredit < 0 || maxCredit > uplineMaxCredit) {
+    const max = uplineMemberMaxCredit ? Math.min(uplineMaxCredit, uplineMemberMaxCredit) : uplineMaxCredit;
+    if (maxCredit < 0 || maxCredit > max) {
       if (uplineRoleId === UserLevel.Agent) {
         return this.setError({
-          maxCredit: `givenMaxCreditInvalid-0-${uplineMaxCredit}`,
+          maxCredit: `givenMaxCreditInvalid-0-${max}`,
         });
       }
       return this.setError({
-        maxCredit: `${UserLevelName[uplineRoleId - 1].toLowerCase()}MaxCreditInvalid-0-${uplineMaxCredit}`,
+        maxCredit: `${UserLevelName[uplineRoleId - 1].toLowerCase()}MaxCreditInvalid-0-${max}`,
       });
     }
 
@@ -80,11 +81,11 @@ export default class GeneralInfoValidator {
 
   private validateMemberMaxCredit(field?: keyof GeneralInfoErrors) {
     if ((field && field !== 'memberMaxCredit') || this.generalInfo.uplineRoleId !== UserLevel.Master) return this;
-    const { memberMaxCredit, uplineMemberMaxCredit } = this.generalInfo;
+    const { memberMaxCredit, maxCredit } = this.generalInfo;
     if (memberMaxCredit === undefined) return this.setError({ memberMaxCredit: 'RequiredField' });
-    if (memberMaxCredit < 0 || memberMaxCredit > uplineMemberMaxCredit)
+    if (memberMaxCredit < 0 || (maxCredit && memberMaxCredit > maxCredit))
       return this.setError({
-        memberMaxCredit: `${UserLevelName[UserLevel.Member].toLowerCase()}MaxCreditInvalid-0-${uplineMemberMaxCredit}`,
+        memberMaxCredit: `${UserLevelName[UserLevel.Member].toLowerCase()}MaxCreditInvalid-0-${maxCredit}`,
       });
 
     return this;

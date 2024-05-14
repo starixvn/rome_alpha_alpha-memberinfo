@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { NumericFormat } from 'react-number-format';
 
 import { UserLevel, UserLevelName } from '@/constants';
@@ -15,6 +15,7 @@ import useNewAccountStore from '@/store/newAccountStore';
 import { GeneralInfo } from '@/types/new-account';
 import { formatNumber } from '@/utils/number-format';
 
+import CreditNote from './CreditNote';
 import styles from './GeneralInfo.module.scss';
 import { GeneralInfoErrors, validateGeneralInfo } from './generalInfoValidator';
 import PasswordRule from './PasswordRule';
@@ -40,7 +41,9 @@ export default function GeneralInformation() {
   const generalInfo = useNewAccountStore((state) => state.generalInfo);
   const updateGeneralInfo = useNewAccountStore((state) => state.updateGeneralInfo);
   const updateSportsBookCommissions = useNewAccountStore((state) => state.updateSportsBookCommissions);
-  const { uplineUserName, newUserName, uplineRoleId } = generalInfo;
+  const { uplineUserName, newUserName, uplineRoleId, uplineMaxCredit, memberMaxCredit, uplineMemberMaxCredit } =
+    generalInfo;
+  const availableCredit = uplineMemberMaxCredit ? Math.min(uplineMaxCredit, uplineMemberMaxCredit) : uplineMaxCredit;
 
   const [showPassword, setShowPassword] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
@@ -204,19 +207,17 @@ export default function GeneralInformation() {
                   const value = e.target.value ? ToNumberFormat(e.target.value) : undefined;
                   updateGeneralInfo({
                     maxCredit: value,
-                    uplineMemberMaxCredit: value === undefined || isNaN(value) ? 0 : value,
                   });
                   validate({ maxCredit: value }, 'maxCredit');
-                  validate(
-                    { uplineMemberMaxCredit: value === undefined || isNaN(value) ? 0 : value },
-                    'memberMaxCredit',
-                  );
+                  validate({ memberMaxCredit, maxCredit: value }, 'memberMaxCredit');
                 }}
                 onBlur={() => {
                   setTargetTooltip('');
                   setOpenTooltip(false);
                 }}
                 onFocus={() => {
+                  validate({ maxCredit: generalInfo.maxCredit }, 'maxCredit');
+                  validate({ memberMaxCredit }, 'memberMaxCredit');
                   setTargetTooltip('maxCredit');
                   setOpenTooltip(true);
                 }}
@@ -226,9 +227,12 @@ export default function GeneralInformation() {
                 valueIsNumericString
               />
               <span>{errors.maxCredit ? IconWrong : IconCorrect}</span>
+
               <span className={styles['max-credit']}>
-                {`${t(`${UserLevelName[uplineRoleId]}_AvailableGivenCredit`)}: `}
-                <b>{formatNumber(generalInfo.uplineMaxCredit)}</b>
+                <Trans i18nKey="creditRange" values={{ max: formatNumber(availableCredit) }} />
+                {uplineRoleId === UserLevel.Agent && uplineMemberMaxCredit > 0 && (
+                  <CreditNote availableCredit={uplineMaxCredit} memberMaxCredit={uplineMemberMaxCredit} />
+                )}
               </span>
             </BlockItem>
 
@@ -257,6 +261,7 @@ export default function GeneralInformation() {
                     setOpenTooltip(false);
                   }}
                   onFocus={() => {
+                    validate({ memberMaxCredit: generalInfo.memberMaxCredit }, 'memberMaxCredit');
                     setTargetTooltip('memberMaxCredit');
                     setOpenTooltip(true);
                   }}
@@ -267,8 +272,7 @@ export default function GeneralInformation() {
                 />
                 <span>{errors.memberMaxCredit ? IconWrong : IconCorrect}</span>
                 <span className={styles['max-credit']}>
-                  {`${t('Member_AvailableGivenCredit')}: `}
-                  <b>{formatNumber(generalInfo.uplineMemberMaxCredit)}</b>
+                  <Trans i18nKey="creditRange" values={{ max: formatNumber(generalInfo.maxCredit || 0) }} />
                 </span>
               </BlockItem>
             )}

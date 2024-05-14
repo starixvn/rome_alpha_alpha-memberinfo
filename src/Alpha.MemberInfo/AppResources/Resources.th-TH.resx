@@ -1069,4 +1069,16 @@
   <data name="Live" xml:space="preserve">
     <value>สด</value>
   </data>
+  <data name="Min" xml:space="preserve">
+    <value>ต่ำสุด</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>สูงสุด</value>
+  </data>
+  <data name="creditHint" xml:space="preserve">
+    <value>ยอดคงเหลือที่ใช้ได้: {0}</value>
+  </data>
+  <data name="memberMaxCreditHint" xml:space="preserve">
+    <value>เครดิตสมาชิกสูงสุดที่กำหนดโดยอัพไลน์ของคุณ: {0}</value>
+  </data>
 </root>

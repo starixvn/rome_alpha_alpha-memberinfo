@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Features.QRCodeMemberSignIn.Models
 {
+    using System;
     using Alpha.MemberInfo.AppResources;
 
     public class CreditAndStatusModel
@@ -26,12 +27,14 @@
 
         public decimal CreditMax { get; set; }
 
+        public decimal MemberMaxCredit { get; set; }
+
         public string Status { get; set; }
 
         public string GivenCreditMustBeBetweenMinMaxMessage
             => string.Format(
                 Resources.GivenCreditMustBeBetweenMinMax,
                 string.Format("{0:#,0.##}", CreditMin),
-                string.Format("{0:#,0.##}", CreditMax));
+                string.Format("{0:#,0.##}", MemberMaxCredit > 0 ? Math.Min(MemberMaxCredit, CreditMax) : CreditMax));
     }
 }
