@@ -8,9 +8,9 @@ class TurnoverByBetTypeChart {
         this.canvasId = canvasId;
     }
 
-    draw(betTypes: string[], lives: number[], nonLives: number[]) {
+    draw(betTypes: string[], lives: number[], nonLives: number[], mixes: number[]) {
         if (this.chart) {
-            this.redraw(betTypes, lives, nonLives);
+            this.redraw(betTypes, lives, nonLives, mixes);
             return;
         }
 
@@ -29,6 +29,11 @@ class TurnoverByBetTypeChart {
                     label: canvas.getAttribute('data-nonlive'),
                     data: nonLives,
                     backgroundColor: 'rgb(255, 159, 64)'
+                },
+                {
+                    label: canvas.getAttribute('data-mix'),
+                    data: mixes,
+                    backgroundColor: 'rgb(201, 203, 207)'
                 }
             ]
         };
@@ -68,10 +73,11 @@ class TurnoverByBetTypeChart {
         this.chart = new Chart(canvas, config);
     }
 
-    redraw(betTypes: string[], lives: number[], nonLives: number[]) {
+    redraw(betTypes: string[], lives: number[], nonLives: number[], mixes: number[]) {
         this.chart.data.labels = betTypes
         this.chart.data.datasets[0].data = lives;
         this.chart.data.datasets[1].data = nonLives;
+        this.chart.data.datasets[2].data = mixes;
         this.chart.update();
     }
 }

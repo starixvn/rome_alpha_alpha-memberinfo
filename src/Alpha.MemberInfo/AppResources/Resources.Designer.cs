@@ -1689,6 +1689,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mix.
+        /// </summary>
+        public static string Mix {
+            get {
+                return ResourceManager.GetString("Mix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Min.
         /// </summary>
         public static string Min {

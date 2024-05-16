@@ -1109,6 +1109,9 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="WinLoss" xml:space="preserve">
     <value>Win/Loss</value>
   </data>
+  <data name="Mix" xml:space="preserve">
+    <value>Mix</value>
+  </data>
   <data name="Active" xml:space="preserve">
     <value>Active</value>
   </data>

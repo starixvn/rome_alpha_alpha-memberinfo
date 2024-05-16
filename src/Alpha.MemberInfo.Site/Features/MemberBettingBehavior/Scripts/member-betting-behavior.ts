@@ -60,11 +60,13 @@ class MemberBettingBehavior {
             const betTypes = ['Over/Under', 'Handicap', '1H Over/Under', 'Others'];
             const lives = [];
             const nonLives = [];
+            const mixes = [];
             for (let i = 0; i < betTypes.length; i++) {
                 lives.push(getRandomInt(10, 1000));
                 nonLives.push(getRandomInt(10, 1000));
+                mixes.push(getRandomInt(10, 100));
             }
-            this.turnoverByBetTypeChart.draw(betTypes, lives, nonLives);
+            this.turnoverByBetTypeChart.draw(betTypes, lives, nonLives, mixes);
 
             const dates = [];
             const turnover1s = [];
