@@ -23,5 +23,9 @@
         [HttpGet]
         public async Task<ActionResult> Excel(MemberBettingBehaviorExcelQuery message)
             => await ExcelViewAsync(message);
+
+        [HttpGet]
+        public async Task<ActionResult> CustomerProfile(CustomerProfileQuery message)
+            => await JsonAsync(message);
     }
 }

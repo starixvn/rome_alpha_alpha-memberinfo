@@ -379,6 +379,7 @@
     <Compile Include="Features\DormantAccountList\Models\DormantAccountReport.cs" />
     <Compile Include="Features\DormantAccountList\Models\YesterdayBalanceEntity.cs" />
     <Compile Include="Features\DormantAccountList\Params\DormantAccountParam.cs" />
+    <Compile Include="Features\MemberBettingBehavior\Criteria\GetCustomerProfileCriteria.cs" />
     <Compile Include="Features\MemberBettingBehavior\Criteria\GetMemberBettingStatisticsCriteria.cs" />
     <Compile Include="Features\MemberBettingBehavior\MemberBettingBehaviorService.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\BetCount.cs" />

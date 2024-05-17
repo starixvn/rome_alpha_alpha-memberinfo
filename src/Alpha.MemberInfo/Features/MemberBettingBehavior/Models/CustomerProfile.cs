@@ -14,11 +14,7 @@ namespace Alpha.MemberInfo.Features.MemberBettingBehavior.Models
 
         }
 
-        public string Status { get; set; }
-
-        public string Level { get; set; }
-
-        public bool IsRelatedToOtherAccounts { get; set; }
+        public int CategoryID { get; set; }
 
         public bool IsMonitoredMember { get; set; }
 

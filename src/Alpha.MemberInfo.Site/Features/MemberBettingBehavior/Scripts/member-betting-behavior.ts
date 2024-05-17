@@ -37,6 +37,7 @@ class MemberBettingBehavior {
         //});
 
         this.$('#btn-submit').click(() => {
+            this.getCustomerProfile();
             //const username = this.$.trim($txtUsername.val());
             //if (!username.length) {
             //    TipsyHelper.showError($txtUsername, 'Please enter member username');
@@ -120,6 +121,41 @@ class MemberBettingBehavior {
         this.turnoverBySportChart = new TurnoverBySportChart();
         this.turnoverByBetTypeChart = new TurnoverByBetTypeChart();
         this.turnoverWinLossByDateChart = new TurnoverWinLossByDateChart();
+    }
+
+    callAjax = (url, type, params, onSuccess) => {
+        this.$.blockUI();
+        const xhr = this.callAjaxWithoutBlocking(url, type, params, onSuccess);
+        xhr.error = this.$.unblockUI;
+    }
+
+    callAjaxWithoutBlocking = (url, type, params, onSuccess): JQueryXHR => {
+        return this.$.ajax({
+            url: url,
+            dataType: "json",
+            type: type,
+            headers: {
+                __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            data: params,
+            success: onSuccess
+        });
+    }
+
+    getCustomerProfile() {
+        const url = this.$('#member-info-url').val() + "MemberBettingBehavior/CustomerProfile";
+        this.callAjax(
+            url,
+            'GET',
+            {
+                username: "u"
+            },
+            data => {
+                this.$.unblockUI();
+                console.log(data);
+            }
+        )
     }
 }
 

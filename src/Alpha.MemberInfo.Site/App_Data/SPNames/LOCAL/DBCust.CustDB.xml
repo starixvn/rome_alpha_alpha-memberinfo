@@ -121,4 +121,7 @@
   <Function Name="Create Account">
     <Setting Key="Acc_LiteMode_CustSetting_ProductListInfoSel" SpName="Acc_LiteMode_CustSetting_ProductListInfoSel" DbName="DBAGE.bodb02.wsv_alp" Plain="0" />
   </Function>
+	<Function Name="Member Betting Behavior">
+		<Setting Key="Age_CustomerBehaviorProfile_Sel" SpName="Age_CustomerBehaviorProfile_Sel" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
+	</Function>
 </Functions>

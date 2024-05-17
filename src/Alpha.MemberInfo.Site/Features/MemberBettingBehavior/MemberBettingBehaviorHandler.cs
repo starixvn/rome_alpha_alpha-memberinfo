@@ -12,7 +12,9 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
     using System.Threading.Tasks;
     using static ONEbook.SpreadSheets.Column;
 
-    public class MemberBettingBehaviorHandler : ExcelBaseHandler, IAsyncRequestHandler<MemberBettingBehaviorExcelQuery, ExcelFileViewModel>
+    public class MemberBettingBehaviorHandler : ExcelBaseHandler, 
+        IAsyncRequestHandler<MemberBettingBehaviorExcelQuery, ExcelFileViewModel>,
+        IAsyncRequestHandler<CustomerProfileQuery, CustomerProfile>
     {
         private readonly MemberBettingBehaviorService service;
         private readonly MemberBettingBehaviorWorkbook workbook;
@@ -65,5 +67,10 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
 
         protected override string GetExcelTemplateDir()
             => "~/App_Data/ExcelTemplates/MemberBettingBehavior";
+
+        public Task<CustomerProfile> Handle(CustomerProfileQuery message)
+        {
+            return service.GetCustomerProfile("u");
+        }
     }
 }
