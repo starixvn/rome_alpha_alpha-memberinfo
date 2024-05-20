@@ -1,5 +1,4 @@
-﻿
-namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
+﻿namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
 {
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
     using ONEbook.SpreadSheets;
@@ -10,35 +9,41 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
 
     public interface MemberBettingBehaviorWorkbook
     {
-        Workbook<MemberBettingStatistic> UseTemplate(TemplateInfo templateInfo);
+        Workbook<BettingStatisticExportRow> UseTemplate(TemplateInfo templateInfo);
 
-        MemberBettingBehaviorWorkbook SetData(IEnumerable<MemberBettingStatistic> memberBettingBehaviors);
+        MemberBettingBehaviorWorkbook SetData(IEnumerable<BettingStatisticExportRow> bettingStatistics, BettingStatisticExportRow total);
 
-        MemberBettingBehaviorWorkbook SetRowMappers(Mapper<MemberBettingStatistic> memberBettingBehaviorMapper);
+        MemberBettingBehaviorWorkbook SetRowMappers(Mapper<BettingStatisticExportRow> memberBettingBehaviorMapper, Mapper<BettingStatisticExportRow> totalMapper);
     }
 
-    public class MemberBettingBehaviorWorkbookImpl : NpoiWorkbook<MemberBettingStatistic>, MemberBettingBehaviorWorkbook
+    public class MemberBettingBehaviorWorkbookImpl : NpoiWorkbook<BettingStatisticExportRow>, MemberBettingBehaviorWorkbook
     {
         private const int DataSheetIndex = 1;
         private int currentRowIndex;
 
-        internal IEnumerable<MemberBettingStatistic> MemberBettingBehaviors { get; set; }
+        internal IEnumerable<BettingStatisticExportRow> BettingStatistics { get; set; }
 
-        internal Mapper<MemberBettingStatistic> MemberBettingBehaviorMapper { get; set; }
+        internal BettingStatisticExportRow Total { get; set; }
+
+        internal Mapper<BettingStatisticExportRow> MemberBettingBehaviorMapper { get; set; }
+
+        internal Mapper<BettingStatisticExportRow> TotalMapper { get; set; }
 
         private Row NormalRowTemplate { get; set; }
 
         internal Row TotalRowTemplate { get; set; }
 
-        public MemberBettingBehaviorWorkbook SetData(IEnumerable<MemberBettingStatistic> memberBettingBehaviors)
+        public MemberBettingBehaviorWorkbook SetData(IEnumerable<BettingStatisticExportRow> bettingStatistics, BettingStatisticExportRow total)
         {
-            MemberBettingBehaviors = memberBettingBehaviors;
+            BettingStatistics = bettingStatistics;
+            Total = total;
             return this;
         }
 
-        public MemberBettingBehaviorWorkbook SetRowMappers(Mapper<MemberBettingStatistic> memberBettingBehaviorMapper)
+        public MemberBettingBehaviorWorkbook SetRowMappers(Mapper<BettingStatisticExportRow> memberBettingBehaviorMapper, Mapper<BettingStatisticExportRow> totalMapper)
         {
             MemberBettingBehaviorMapper = memberBettingBehaviorMapper;
+            TotalMapper = totalMapper;
             return this;
         }
 
@@ -48,6 +53,7 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
             var currentRowIndex = TemplateInfo.BodyStartIndex;
 
             NormalRowTemplate = sheet.GetRow(currentRowIndex++);
+            TotalRowTemplate = sheet.GetRow(currentRowIndex++);
 
             var reportSheet = GetSheetAt(DataSheetIndex);
             reportSheet.FooterRowsTemplate = new List<Row> { TotalRowTemplate };
@@ -66,7 +72,7 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
 
             RemoveTemplateRows(sheet);
 
-            if (MemberBettingBehaviors.Any())
+            if (BettingStatistics.Any())
             {
                 FillBodyRows(sheet);
                 FillFooterRows(sheet);
@@ -84,20 +90,16 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
         {
             currentRowIndex = TemplateInfo.BodyStartIndex;
 
-            foreach (var item in MemberBettingBehaviors)
+            foreach (var item in BettingStatistics)
             {
                 var row = sheet.GetRow(currentRowIndex++);
-                row.CopyCellsFrom(GetRowTemplate());
+                row.CopyCellsFrom(NormalRowTemplate);
                 FillCells(row, item, MemberBettingBehaviorMapper.Mappings);
             }
-        }
-        private Row GetRowTemplate()
-        {
-            Row templateRow;
-            templateRow = NormalRowTemplate;
 
-            return templateRow;
+            var totalRow = sheet.GetRow(currentRowIndex++);
+            totalRow.CopyCellsFrom(TotalRowTemplate);
+            FillCells(totalRow, Total, TotalMapper.Mappings);
         }
-
     }
 }

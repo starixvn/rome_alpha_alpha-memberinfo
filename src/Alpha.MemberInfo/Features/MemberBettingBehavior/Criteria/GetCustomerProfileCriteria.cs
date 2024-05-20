@@ -1,18 +1,12 @@
-﻿
-namespace Alpha.MemberInfo.Features.MemberBettingBehavior.Criteria
+﻿namespace Alpha.MemberInfo.Features.MemberBettingBehavior.Criteria
 {
     using Fanex.Data.Repository;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class GetCustomerProfileCriteria : CriteriaBase
     {
         public GetCustomerProfileCriteria(int custId)
         {
-            this.CustId = custId;
+            CustId = custId;
         }
 
         public int CustId { get; }

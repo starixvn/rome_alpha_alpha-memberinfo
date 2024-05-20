@@ -1,26 +1,17 @@
-﻿
-namespace Alpha.MemberInfo.Features.MemberBettingBehavior.Models
+﻿namespace Alpha.MemberInfo.Features.MemberBettingBehavior.Models
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class MemberBettingStatistic
     {
-        public MemberBettingStatistic()
-        {
-        }
+        public MemberBettingStatistic() {}
 
-        public string Sports { get; set; }
+        public SummaryStatistic SummaryStatistic { get; set; }
 
-        public string BetType { get; set; }
+        public IEnumerable<TurnOverBySport> TurnOverBySports { get; set; }
 
-        public BetCount BetCount { get; set; }
+        public IEnumerable<TurnoverByBettype> TurnoverByBettypes { get; set; }
 
-        public WinLoss WinLoss { get; set; }
-
-        public Stake Stake { get; set; }
+        public IEnumerable<TurnoverWinLossByDate> TurnoverWinLossByDates { get; set; }
     }
 }

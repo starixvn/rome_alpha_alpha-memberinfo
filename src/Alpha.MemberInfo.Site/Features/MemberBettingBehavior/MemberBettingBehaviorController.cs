@@ -21,11 +21,11 @@
         }
 
         [HttpGet]
-        public async Task<ActionResult> Excel(MemberBettingBehaviorExcelQuery message)
-            => await ExcelViewAsync(message);
+        public async Task<ActionResult> MemberBettingBehavior(MemberBettingBehaviorQuery message)
+            => await JsonAsync(message);
 
         [HttpGet]
-        public async Task<ActionResult> CustomerProfile(CustomerProfileQuery message)
-            => await JsonAsync(message);
+        public async Task<ActionResult> Excel(MemberBettingBehaviorExcelQuery message)
+            => await ExcelViewAsync(message);
     }
 }

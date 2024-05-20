@@ -1,13 +1,15 @@
-﻿.filter{
+﻿.filter {
     margin-top: 10px;
     padding: 10px;
     background: #d1d1d1;
 }
+
 .box-member {
     border: 1px solid #d1d1d1;
     margin-top: 12px;
     border-radius: 5px;
 }
+
 .ttl-box-member {
     background: #BCCBDC;
     font-size: 13px;
@@ -15,6 +17,7 @@
     border-radius: 4px 4px 0 0;
     font-weight: bold;
 }
+
 .body-box-member {
     padding: 12px 11px 10px 11px;
     background: #fff;
@@ -26,8 +29,7 @@
         padding-bottom: 0;
     }
 
-    &-chart{
-
+    &-chart {
     }
 }
 
@@ -53,25 +55,30 @@
         font-weight: bold;
     }
 }
-.body-box-member-chart{
-  
+
+.body-box-member-chart {
 }
-.statistics{
+
+.statistics {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 20px;
 }
+
 .range {
     display: flex;
     align-items: center;
     width: 300px;
     margin-bottom: 10px;
+
     > * {
         margin-right: 10px;
     }
-    select{
+
+    select {
         width: 150px;
     }
+
     label {
         font-size: 13px;
         color: #333;
@@ -82,6 +89,7 @@
         float: none;
     }
 }
+
 .value {
     display: flex;
     align-items: center;
@@ -100,16 +108,20 @@
         }
     }
 }
-.chart{
+
+.chart {
     display: flex;
     flex-wrap: wrap;
 }
+
 .turnover-by-sport-chart {
     width: 350px;
 }
+
 .turnover-by-bettype-chart {
-    width: 600px;
+    width: 700px;
 }
+
 .turnover-winloss-by-date-chart {
     width: 70%;
 }

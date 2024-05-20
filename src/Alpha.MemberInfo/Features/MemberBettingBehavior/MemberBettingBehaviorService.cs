@@ -8,14 +8,15 @@ namespace Alpha.MemberInfo.Features.MemberBettingBehavior
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
 
     public interface MemberBettingBehaviorService
     {
-        Task<IEnumerable<MemberBettingStatistic>> GetMemberBettinBehaviorStatistics();
-
         Task<CustomerProfile> GetCustomerProfile(string username);
+
+        Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics();
+
+        Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData();
     }
 
     public class MemberBettingBehaviorServiceImpl : MemberBettingBehaviorService
@@ -42,17 +43,62 @@ namespace Alpha.MemberInfo.Features.MemberBettingBehavior
             return customerProfile;
         }
 
-        public async Task<IEnumerable<MemberBettingStatistic>> GetMemberBettinBehaviorStatistics()
+        public async Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics()
         {
-            var criteria1 = new GetMemberBettingStatisticsCriteria(119272758, new DateTime(2024, 4, 14), new DateTime(2024, 5, 14));
-            var rawdata = await dynamicRepository.FetchMultipleAsync<SummaryStatistic, TurnOverBySport>(criteria1);
+            var criteria = new GetMemberBettingStatisticsCriteria(119272758, new DateTime(2024, 4, 14), new DateTime(2024, 5, 14));
+            var rawdata = await dynamicRepository.FetchMultipleAsync<SummaryStatistic, TurnOverBySport, TurnoverByBettype, TurnoverWinLossByDate>(criteria);
 
-            var betCount = new BetCount { Win = 1, Lose = 1, Draw = 1, Canceled = 1, Total = 4 };
-            var winLoss = new WinLoss { Winning = 1, Losing = 1, Total = 1, Margin = 2 };
-            var stake = new Stake { Average = 1, TurnoverLive = 1, TurnoverNonLive = 1, TotalTurnover = 3, NetTurnover = 4 };
-            var temp = new MemberBettingStatistic { Sports = "Soccer", BetType = "Handicap", BetCount = betCount, WinLoss = winLoss, Stake = stake };
+            var summaryStatistic = new SummaryStatistic();
+            var turnOverBySports = new List<TurnOverBySport>();
+            var turnOverBybettypes = new List<TurnoverByBettype>();
+            var turnOverWinLossByDates = new List<TurnoverWinLossByDate>();
 
-            return await Task.FromResult<IEnumerable<MemberBettingStatistic>>(new[] { temp, temp, temp });
+            if (rawdata.Item1.Any())
+            {
+                summaryStatistic = rawdata.Item1.FirstOrDefault();
+            }
+            if (rawdata.Item2.Any())
+            {
+                turnOverBySports.AddRange(rawdata.Item2);
+            }
+            if (rawdata.Item3.Any())
+            {
+                turnOverBybettypes.AddRange(rawdata.Item3);
+            }
+            if (rawdata.Item4.Any())
+            {
+                turnOverWinLossByDates.AddRange(rawdata.Item4);
+            }
+
+            return new MemberBettingStatistic
+            { 
+                SummaryStatistic = summaryStatistic,
+                TurnOverBySports = turnOverBySports,
+                TurnoverByBettypes = turnOverBybettypes,
+                TurnoverWinLossByDates = turnOverWinLossByDates
+            };
+        }
+
+        public async Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData()
+        {
+            var criteria = new GetMemberBettingStatisticsExportCriteria(119272758, new DateTime(2024, 4, 14), new DateTime(2024, 5, 14));
+            var rawdata = await dynamicRepository.FetchMultipleAsync<BettingStatisticExportRow, BettingStatisticExportRow>(criteria);
+            var bettingStatisticExports = new List<BettingStatisticExportRow>();
+            var total = new BettingStatisticExportRow();
+
+            if (rawdata.Item1.Any())
+            {
+                bettingStatisticExports.AddRange(rawdata.Item1);
+            }
+            if (rawdata.Item2.Any())
+            {
+                total = rawdata.Item2.FirstOrDefault();
+            }
+
+            return new BettingStatisticExportData {
+                BettingStatisticExportRows = bettingStatisticExports,
+                Total = total
+            };
         }
     }
 }

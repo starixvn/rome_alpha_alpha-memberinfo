@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior.Requests
 {
-    using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Requests;
     using Alpha.MemberInfo.Site.ViewModels;
@@ -11,7 +10,5 @@
         public MemberBettingBehaviorExcelQuery(IUser viewer) : base(viewer)
         {
         }
-
-
     }
 }

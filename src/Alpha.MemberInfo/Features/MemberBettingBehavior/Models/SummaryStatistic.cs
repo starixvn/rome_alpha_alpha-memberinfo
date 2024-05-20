@@ -1,18 +1,8 @@
-﻿
-namespace Alpha.MemberInfo.Features.MemberBettingBehavior.Models
+﻿namespace Alpha.MemberInfo.Features.MemberBettingBehavior.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     public class SummaryStatistic
     {
-        public SummaryStatistic()
-        {
-
-        }
+        public SummaryStatistic() {}
 
         public decimal Turnover { get; set; }
 

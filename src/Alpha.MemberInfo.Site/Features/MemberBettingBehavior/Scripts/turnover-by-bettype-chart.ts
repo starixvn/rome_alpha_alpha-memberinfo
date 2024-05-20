@@ -42,8 +42,7 @@ class TurnoverByBetTypeChart {
             type: 'bar',
             data: data,
             options: {
-                barThickness: 25,
-                indexAxis: 'y',
+                barThickness: 50,
                 plugins: {
                     title: {
                         text: chartTitle,
@@ -55,18 +54,17 @@ class TurnoverByBetTypeChart {
                 scales: {
                     x: {
                         stacked: true,
-                        ticks: {
-                            callback: (value) => SiteHelper.FormatCompactNumber(value)
+                        grid: {
+                            display: false
                         }
                     },
                     y: {
                         stacked: true,
-                        grid: {
-                            display: false
+                        ticks: {
+                            callback: (value) => SiteHelper.FormatCompactNumber(value)
                         }
                     }
                 }
-
             }
         };
 

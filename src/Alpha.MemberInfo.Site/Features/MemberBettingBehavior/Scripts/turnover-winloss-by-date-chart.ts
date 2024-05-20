@@ -27,16 +27,16 @@ class TurnoverWinLossByDateChart {
                     backgroundColor: 'rgb(54, 162, 235, 0.5)',
                     fill: true,
                     yAxisID: 'y',
-                    pointStyle: false,
-                    order: 2
+                    pointStyle: false
+                    //order: 2
                 },
                 {
                     label: canvas.getAttribute('data-winloss'),
                     data: winloss,
                     borderColor: 'rgb(255, 159, 64)',
                     yAxisID: 'y1',
-                    pointStyle: false,
-                    order: 1 // this dataset is drawn on top
+                    pointStyle: false
+                    //order: 1 // this dataset is drawn on top
                 }
             ]
         };
@@ -76,7 +76,6 @@ class TurnoverWinLossByDateChart {
                         },
                         position: 'left',
                         ticks: {
-                            //stepSize: this.calculateStepSize(turnovers),
                             callback: (value) => SiteHelper.FormatCompactNumber(value)
                         }
                     },
@@ -91,7 +90,6 @@ class TurnoverWinLossByDateChart {
                         },
                         position: 'right',
                         ticks: {
-                            //stepSize: this.calculateStepSize(winloss),
                             callback: (value) => SiteHelper.FormatCompactNumber(value)
                         }
                     }
@@ -107,35 +105,6 @@ class TurnoverWinLossByDateChart {
         this.chart.data.labels = dates
         this.chart.data.datasets[0].data = turnovers;
         this.chart.data.datasets[1].data = winloss;
-        //this.chart.options.scales.y.ticks.stepSize = this.calculateStepSize(turnovers);
-        //this.chart.options.scales.y1.ticks.stepSize = this.calculateStepSize(winloss);
         this.chart.update();
     }
-
-    //private calculateStepSize(array: number[]) {
-    //    const step = 2;
-    //    const minMax = this.findMinMax(array);
-    //    const minMaxGap = minMax[1] - minMax[0];
-
-    //    console.dir(`Max: ${minMax[1]} -- Min: ${minMax[0]}`);
-    //    console.dir(Math.ceil(minMaxGap / step));
-    //    return Math.ceil(minMaxGap / step);
-    //}
-
-    //private findMinMax(array: number[]) {
-    //    let minValue = array[0];
-    //    let maxValue = array[0];
-
-    //    for (let item of array) {
-    //        if (item < minValue) {
-    //            minValue = item;
-    //        }
-
-    //        if (item > maxValue) {
-    //            maxValue = item;
-    //        }
-    //    }
-
-    //    return [minValue, maxValue];
-    //}
 }

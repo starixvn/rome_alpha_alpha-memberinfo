@@ -1,10 +1,10 @@
-﻿
-namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
+﻿namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
 {
     using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Features.MemberBettingBehavior;
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
     using Alpha.MemberInfo.Site.Features.MemberBettingBehavior.Requests;
+    using Alpha.MemberInfo.Site.Features.MemberBettingBehavior.ViewModels;
     using Alpha.MemberInfo.Site.Handlers;
     using Alpha.MemberInfo.Site.ViewModels;
     using MediatR;
@@ -12,9 +12,9 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
     using System.Threading.Tasks;
     using static ONEbook.SpreadSheets.Column;
 
-    public class MemberBettingBehaviorHandler : ExcelBaseHandler, 
-        IAsyncRequestHandler<MemberBettingBehaviorExcelQuery, ExcelFileViewModel>,
-        IAsyncRequestHandler<CustomerProfileQuery, CustomerProfile>
+    public class MemberBettingBehaviorHandler : ExcelBaseHandler,
+        IAsyncRequestHandler<MemberBettingBehaviorQuery, MemberBettingBehaviorViewModel>,
+        IAsyncRequestHandler<MemberBettingBehaviorExcelQuery, ExcelFileViewModel>
     {
         private readonly MemberBettingBehaviorService service;
         private readonly MemberBettingBehaviorWorkbook workbook;
@@ -27,11 +27,11 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
 
         public async Task<ExcelFileViewModel> Handle(MemberBettingBehaviorExcelQuery message)
         {
-            var memberBettingBehaviors = await service.GetMemberBettinBehaviorStatistics();
+            var memberBettingBehaviors = await service.GetMemberBettingStatisticExcelData();
 
             var fileContent = workbook
-                .SetData(memberBettingBehaviors)
-                .SetRowMappers(GetBodyRowMapper())
+                .SetData(memberBettingBehaviors.BettingStatisticExportRows, memberBettingBehaviors.Total)
+                .SetRowMappers(GetNormalRowMapper(), GetTotalRowMapper())
                 .UseTemplate(GetTemplateInfo())
                 .Title(string.Empty)
                 .Header(Resources.ResourceManager.GetString)
@@ -40,26 +40,40 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
             return new ExcelFileViewModel("MemberBettingBehavior", fileContent);
         }
 
-        private static Mapper<MemberBettingStatistic> GetBodyRowMapper()
+        private static Mapper<BettingStatisticExportRow> GetBodyRowMapper()
         {
-            var mapper = new Mapper<MemberBettingStatistic>()
-                .Map(A, memberBettingBehavior => memberBettingBehavior.Sports)
-                .Map(B, memberBettingBehavior => memberBettingBehavior.BetCount.Win)
-                .Map(C, memberBettingBehavior => memberBettingBehavior.BetCount.Lose)
-                .Map(D, memberBettingBehavior => memberBettingBehavior.BetCount.Draw)
-                .Map(E, memberBettingBehavior => memberBettingBehavior.BetCount.Canceled)
-                .Map(F, membetBettingBehavior => membetBettingBehavior.BetCount.Total)
-                .Map(G, membetBettingBehavior => membetBettingBehavior.WinLoss.Winning)
-                .Map(H, membetBettingBehavior => membetBettingBehavior.WinLoss.Losing)
-                .Map(I, membetBettingBehavior => membetBettingBehavior.WinLoss.Total)
-                .Map(J, membetBettingBehavior => membetBettingBehavior.WinLoss.Margin)
-                .Map(K, membetBettingBehavior => membetBettingBehavior.Stake.Average)
-                .Map(L, membetBettingBehavior => membetBettingBehavior.Stake.TurnoverLive)
-                .Map(M, membetBettingBehavior => membetBettingBehavior.Stake.TurnoverNonLive)
-                .Map(N, membetBettingBehavior => membetBettingBehavior.Stake.TotalTurnover)
-                .Map(O, membetBettingBehavior => membetBettingBehavior.Stake.NetTurnover);
+            var mapper = new Mapper<BettingStatisticExportRow>()
+                .Map(C, bettingStatistics => bettingStatistics.WinBetCount)
+                .Map(D, bettingStatistics => bettingStatistics.LoseBetCount)
+                .Map(E, bettingStatistics => bettingStatistics.DrawBetCount)
+                .Map(F, bettingStatistics => bettingStatistics.CanceledBetCount)
+                .Map(G, bettingStatistics => bettingStatistics.TotalBetCount)
+                .Map(H, bettingStatistics => bettingStatistics.WinningWinLoss)
+                .Map(I, bettingStatistics => bettingStatistics.LosingWinLoss)
+                .Map(J, bettingStatistics => bettingStatistics.TotalWinLoss)
+                .Map(K, bettingStatistics => bettingStatistics.Margin)
+                .Map(L, bettingStatistics => bettingStatistics.AverageTurnover)
+                .Map(M, bettingStatistics => bettingStatistics.LiveTurnover)
+                .Map(N, bettingStatistics => bettingStatistics.NonLiveTurnover)
+                .Map(O, bettingStatistics => bettingStatistics.MixTurnover)
+                .Map(P, bettingStatistics => bettingStatistics.Turnover)
+                .Map(Q, bettingStatistics => bettingStatistics.NetTurnOver);
 
             return mapper;
+        }
+
+        private static Mapper<BettingStatisticExportRow> GetNormalRowMapper()
+        {
+            var mapper = GetBodyRowMapper()
+                .Map(A, bettingStatistics => bettingStatistics.Sporttype)
+                .Map(B, bettingStatistics => bettingStatistics.Bettype);
+
+            return mapper;
+        }
+
+        private static Mapper<BettingStatisticExportRow> GetTotalRowMapper()
+        {
+            return GetBodyRowMapper().Map(A, total => Resources.Total);
         }
 
         private TemplateInfo GetTemplateInfo()
@@ -68,9 +82,16 @@ namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
         protected override string GetExcelTemplateDir()
             => "~/App_Data/ExcelTemplates/MemberBettingBehavior";
 
-        public Task<CustomerProfile> Handle(CustomerProfileQuery message)
+        public async Task<MemberBettingBehaviorViewModel> Handle(MemberBettingBehaviorQuery message)
         {
-            return service.GetCustomerProfile("u");
+            var customerProfile = await service.GetCustomerProfile("u");
+            var memberBettingStatistic = await service.GetMemberBettingBehaviorStatistics();
+
+            return new MemberBettingBehaviorViewModel()
+            {
+                CustomerProfile = customerProfile,
+                MemberBettingStatistic = memberBettingStatistic
+            };
         }
     }
 }
