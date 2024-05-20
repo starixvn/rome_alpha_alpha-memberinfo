@@ -20,59 +20,114 @@
 
 <div class="page-title">Member Betting Behavior</div>
 
-<div>
+<div class="filter">
     <input type="text" id="txt-username" autocomplete="off" maxlength="50" />
     <button class="btn-submit" id="btn-submit">@Resources.Submit</button>
 </div>
 
-<div id="customer-profile" hidden>
-    <div>Customer Profile</div>
-    <div>
-        <div>
-            <div>Status</div>
-            <div id="customer-status"></div>
+<div id="customer-profile" hidden class="box-member">
+    <div class="ttl-box-member">Customer Profile</div>
+    <div class="body-box-member body-box-member-profile">
+        <div class="item">
+            <div class="left-icon">
+                <span class="icon-account-circle"></span>
+            </div>
+            <div>
+                <div class="info">Status</div>
+                <div class="value" id="customer-status"></div>
+            </div>
         </div>
-        <div>
-            <div>Level</div>
-            <div id="customer-level"></div>
+        <div class="item">
+            <div class="left-icon">
+                <span class="icon-bell"></span>
+            </div>
+            <div>
+                <div class="info">Level</div>
+                <div class="value" id="customer-level"></div>
+            </div>
         </div>
-        <div>
-            <div>Related to Other Accounts</div>
-            <div id="customer-related-account"></div>
+        <div class="item">
+            <div class="left-icon">
+                <span class="icon-link"></span>
+            </div>
+            <div>
+                <div class="info">Related to Other Accounts</div>
+                <div class="value" id="customer-related-account"></div>
+            </div>
         </div>
-        <div>
-            <div>Monitored Member</div>
-            <div id="monitored-member"></div>
+        <div class="item">
+            <div class="left-icon">
+                <span class="icon-mywatchlist"></span>
+            </div>
+            <div class="">
+                <div class="info">Monitored Member</div>
+                <div class="value" id="monitored-member"></div>
+            </div>
         </div>
-        <div>
-            <div>Problem Account</div>
-            <div id="problem-account"></div>
+        <div class="item">
+            <div class="left-icon">
+                <span class="icon-alert"></span>
+            </div>
+            <div class="">
+                <div class="info">Problem Account</div>
+                <div class="value" id="problem-account"></div>
+            </div>
         </div>
     </div>
 </div>
 
 
-<div>
-    <div>Betting Statistic</div>
-    <div class="form-group">
-        <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
-    </div>
-    <div class="turnover-by-sport-chart">
-        <canvas id="canvas-turnover-by-sport-chart" aria-label="@Resources.TurnoverBySport" role="img">
-            <p>@Resources.NoInformationIsAvailable</p>
-        </canvas>
-    </div>
-    <div class="turnover-by-bettype-chart">
-        <canvas id="canvas-turnover-by-bettype-chart" aria-label="@Resources.TurnoverByBetType"
-                data-live="@Resources.Live" data-nonlive="@Resources.NonLive" data-mix="@Resources.Mix" role="img">
-            <p>@Resources.NoInformationIsAvailable</p>
-        </canvas>
-    </div>
-    <div class="turnover-winloss-by-date-chart">
-        <canvas id="canvas-turnover-winloss-by-date-chart" aria-label="@Resources.TurnoverAndWinLossByDate"
-                data-turnover="@Resources.Turnover" data-winloss="@Resources.WinLoss" role="img">
-            <p>@Resources.NoInformationIsAvailable</p>
-        </canvas>
+<div class="box-member">
+    <div class="ttl-box-member">Betting Statistic</div>
+    <div class="body-box-member body-box-member-chart">
+        <div class="statistics">
+            <div class="range">
+                <label>Date Range</label>
+                <select>
+                    <option>Last 90 days</option>
+                </select>
+                <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
+            </div>
+            <div class="value">
+                <div class="item">
+                    <div class="number">73.1K</div>
+                    <div class="text">Turnover</div>
+                </div>
+                <div class="item">
+                    <div class="number">-21.9K</div>
+                    <div class="text">Win loss</div>
+                </div>
+                <div class="item">
+                    <div class="number">-30%</div>
+                    <div class="text">Margin</div>
+                </div>
+                <div class="item">
+                    <div class="number">66</div>
+                    <div class="text">Bet count</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="chart">
+            <div class="turnover-by-sport-chart">
+                <canvas id="canvas-turnover-by-sport-chart" aria-label="@Resources.TurnoverBySport" role="img">
+                    <p>@Resources.NoInformationIsAvailable</p>
+                </canvas>
+            </div>
+            <div class="turnover-by-bettype-chart">
+                <canvas id="canvas-turnover-by-bettype-chart" aria-label="@Resources.TurnoverByBetType"
+                        data-live="@Resources.Live" data-nonlive="@Resources.NonLive" data-mix="@Resources.Mix" role="img">
+                    <p>@Resources.NoInformationIsAvailable</p>
+                </canvas>
+            </div>
+            <div class="turnover-winloss-by-date-chart">
+                <canvas id="canvas-turnover-winloss-by-date-chart" aria-label="@Resources.TurnoverAndWinLossByDate"
+                        data-turnover="@Resources.Turnover" data-winloss="@Resources.WinLoss" role="img">
+                    <p>@Resources.NoInformationIsAvailable</p>
+                </canvas>
+            </div>
+        </div>
+       
     </div>
 </div>
 
