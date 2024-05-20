@@ -58,16 +58,20 @@
 }
 .statistics{
     display: flex;
-    
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 .range {
     display: flex;
     align-items: center;
-    width: 350px;
+    width: 300px;
+    margin-bottom: 10px;
     > * {
         margin-right: 10px;
     }
-
+    select{
+        width: 150px;
+    }
     label {
         font-size: 13px;
         color: #333;
@@ -81,12 +85,13 @@
 .value {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     .item {
         display: flex;
         align-items: center;
         flex-direction: column;
-        min-width: 160px;
+        min-width: 100px;
         text-align: center;
 
         .number {
