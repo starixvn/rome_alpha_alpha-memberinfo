@@ -14,6 +14,8 @@
         string GetSubGroupName(int productId);
 
         string GetSportTypeName(int sportTypeId);
+
+        string GetCustomerProfileStatus(int categoryID);
     }
 
     public class CacheRefServiceImpl : CacheRefService
@@ -23,6 +25,7 @@
         private const string ProductGroupRefId = "ProductGroup";
         private const string SubGroupRefId = "SubGroup";
         private const string DummySportRefId = "DummySport";
+        private const string CustomerProfileStatus = "CategoryStatus";
 
         public CacheRefServiceImpl(IRemotingRefService remotingRefService)
         {
@@ -60,6 +63,11 @@
             }
 
             return sportTypeName;
+        }
+
+        public string GetCustomerProfileStatus(int categoryID)
+        {
+            return remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileStatus, categoryID.ToString(), LanguageCode, string.Empty);
         }
 
         private static string LanguageCode

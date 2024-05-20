@@ -386,6 +386,8 @@
     <Compile Include="Features\MemberBettingBehavior\Models\CustomerProfile.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\MemberBettingStatistic.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\Stake.cs" />
+    <Compile Include="Features\MemberBettingBehavior\Models\SummaryStatistic.cs" />
+    <Compile Include="Features\MemberBettingBehavior\Models\TurnOverBySport.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\WinLoss.cs" />
     <Compile Include="Features\MyWatchlist\MyThresholds\Criteria\SelectMyThresholdCriteria.cs" />
     <Compile Include="Features\MyWatchlist\MyThresholds\Criteria\SelectMyThresholdHistoryCriteria.cs" />

@@ -6,10 +6,12 @@ declare var TipsyHelper;
 
 class MemberBettingBehavior {
     private $: JQueryStatic;
+    private $customerProfile: JQuery;
     private $exportExcelForm: JQuery;
     private turnoverBySportChart: TurnoverBySportChart;
     private turnoverByBetTypeChart: TurnoverByBetTypeChart;
     private turnoverWinLossByDateChart: TurnoverWinLossByDateChart;
+
 
     constructor(
         $: JQueryStatic
@@ -25,6 +27,7 @@ class MemberBettingBehavior {
 
     cacheDOMElements(): void {
         this.$exportExcelForm = this.$("#export-excel-form");
+        this.$customerProfile = this.$("#customer-profile");
     }
 
     bindEvents(): void {
@@ -154,8 +157,18 @@ class MemberBettingBehavior {
             data => {
                 this.$.unblockUI();
                 console.log(data);
+                this.renderCustomerProfile(data);
             }
         )
+    }
+
+    renderCustomerProfile(data) {
+        this.$("#customer-status").text(data.Status);
+        this.$("#customer-level").text(data.Level);
+        this.$("#customer-related-account").text(data.RelatedToOtherAccount ? "Yes" : "No");
+        this.$("#monitored-member").text(data.IsMonitoredMember ? "Yes" : "No");
+        this.$("#problem-account").text(data.IsProblemAccount ? "Yes" : "No");
+        this.$customerProfile.show();
     }
 }
 

@@ -3,6 +3,7 @@ namespace Alpha.MemberInfo.Features.MemberBettingBehavior
 {
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Criteria;
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
+    using Alpha.MemberInfo.Services;
     using Fanex.Data.Repository;
     using System;
     using System.Collections.Generic;
@@ -21,25 +22,37 @@ namespace Alpha.MemberInfo.Features.MemberBettingBehavior
     {
         private readonly IDynamicRepository dynamicRepository;
 
-        public MemberBettingBehaviorServiceImpl(IDynamicRepository dynamicRepository)
+        private readonly CacheRefService refService;
+
+        public MemberBettingBehaviorServiceImpl(IDynamicRepository dynamicRepository, CacheRefService refService)
         {
             this.dynamicRepository = dynamicRepository;
+            this.refService = refService;
         }
 
         public async Task<CustomerProfile> GetCustomerProfile(string username)
         {
             var criteria = new GetCustomerProfileCriteria(117834959);
-            return await dynamicRepository.GetAsync<CustomerProfile>(criteria);
+            var customerProfile = await dynamicRepository.GetAsync<CustomerProfile>(criteria);
+            //customerProfile.Status = refService.GetCustomerProfileStatus(54);
+            customerProfile.Status = "Arbitrage";
+            customerProfile.Level = "Observation";
+            customerProfile.RelatedToOtherAccount = true;
+
+            return customerProfile;
         }
 
-        public Task<IEnumerable<MemberBettingStatistic>> GetMemberBettinBehaviorStatistics()
+        public async Task<IEnumerable<MemberBettingStatistic>> GetMemberBettinBehaviorStatistics()
         {
+            var criteria1 = new GetMemberBettingStatisticsCriteria(119272758, new DateTime(2024, 4, 14), new DateTime(2024, 5, 14));
+            var rawdata = await dynamicRepository.FetchMultipleAsync<SummaryStatistic, TurnOverBySport>(criteria1);
+
             var betCount = new BetCount { Win = 1, Lose = 1, Draw = 1, Canceled = 1, Total = 4 };
             var winLoss = new WinLoss { Winning = 1, Losing = 1, Total = 1, Margin = 2 };
             var stake = new Stake { Average = 1, TurnoverLive = 1, TurnoverNonLive = 1, TotalTurnover = 3, NetTurnover = 4 };
             var temp = new MemberBettingStatistic { Sports = "Soccer", BetType = "Handicap", BetCount = betCount, WinLoss = winLoss, Stake = stake };
 
-            return Task.FromResult<IEnumerable<MemberBettingStatistic>>(new[] { temp, temp, temp });
+            return await Task.FromResult<IEnumerable<MemberBettingStatistic>>(new[] { temp, temp, temp });
         }
     }
 }
