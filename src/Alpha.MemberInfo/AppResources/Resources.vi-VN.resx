@@ -247,10 +247,10 @@
     <value>Nhấp chuột phải trên đầu cột để Ẩn/Hiện các cột</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Có</value>
   </data>
   <data name="No2" xml:space="preserve">
-    <value>No</value>
+    <value>Không</value>
   </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>Hạn mức thắng/thua của Member</value>
@@ -1082,10 +1082,10 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Đã đạt giới hạn hôm nay</value>
   </data>
   <data name="UnlimitedThreshold" xml:space="preserve">
-    <value>Ngưỡng không giới hạn</value>
+    <value>Không giới hạn</value>
   </data>
   <data name="UnlimitedThresholdNote" xml:space="preserve">
-    <value>Ngưỡng không giới hạn nghĩa là bạn bỏ qua ngưỡng và không nhận thông báo.</value>
+    <value>Không giới hạn nghĩa là bạn bỏ qua giới hạn và không nhận thông báo.</value>
   </data>
   <data name="WatchlistDetails" xml:space="preserve">
     <value>Chi Tiết Danh Sách Theo Dõi</value>

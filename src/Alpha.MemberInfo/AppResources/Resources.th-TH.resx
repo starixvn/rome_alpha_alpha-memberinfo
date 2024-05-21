@@ -268,10 +268,10 @@
     <value>คลิกขวาที่ด้านบนเพื่อแสดง / ซ่อนคอลัมน์</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>มี</value>
   </data>
   <data name="No2" xml:space="preserve">
-    <value>No</value>
+    <value>ไม่มี</value>
   </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>จำกัด ได้/เสีย ของสมาชิก</value>

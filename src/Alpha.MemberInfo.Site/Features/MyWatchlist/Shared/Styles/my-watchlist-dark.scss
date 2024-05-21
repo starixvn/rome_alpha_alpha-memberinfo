@@ -23,6 +23,7 @@
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
+    z-index: 10;
 
     .form-group {
         margin: 0 16px 15px 0;
@@ -339,6 +340,19 @@ table.dataTable {
 
     .input-group.date.datepicker, .btn-group button.multiselect {
         border-color: #515151;
+    }
+
+    .note {
+        margin-bottom: 0;
+        line-height: 1.6;
+    }
+
+    .filter {
+        padding: 0;
+    }
+
+    .table-container {
+        margin-top: 10px;
     }
 }
 // total

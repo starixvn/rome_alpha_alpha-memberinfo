@@ -29,6 +29,8 @@ class AJAXHelper {
         if (jqXHR) {
             if (jqXHR.status === 401) {
                 window.top["age"].SignOut();
+            } else if (jqXHR.status === 429) {
+                location.href = `${window.top["alpha"].urls.mainRootPath}error/blocked`;
             } else if (jqXHR.status === 500 && jqXHR.responseText) {
                 const jsonData = JSON.parse(jqXHR.responseText);
                 if (jsonData.UMFrom && jsonData.UMTo) {

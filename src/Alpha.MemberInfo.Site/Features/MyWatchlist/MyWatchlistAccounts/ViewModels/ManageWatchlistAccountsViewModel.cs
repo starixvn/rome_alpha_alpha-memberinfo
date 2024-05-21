@@ -25,6 +25,7 @@
             CustIds = message.CustIds;
             Usernames = message.Usernames;
             IsEditWatchlistAccountsPopup = message.IsEdit;
+            MyWatchlistPage = message.MyWatchlistPage;
         }
 
         public PresetSelectionViewModel PresetSelectionViewModel { get; }
@@ -36,5 +37,7 @@
         public string Usernames { get; }
 
         public bool IsEditWatchlistAccountsPopup { get; }
+
+        public bool MyWatchlistPage { get; }
     }
 }

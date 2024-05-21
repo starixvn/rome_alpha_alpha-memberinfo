@@ -20,5 +20,7 @@
         public decimal? LosingThreshold { get; set; }
 
         public bool IsEdit { get; set; }
+
+        public bool MyWatchlistPage { get; set; }
     }
 }

@@ -226,6 +226,10 @@
             {
                 thresholdViewModel = new ThresholdViewModel(message.WinningThreshold, message.LosingThreshold);
             }
+            else if (message.MyWatchlistPage)
+            {
+                thresholdViewModel = new ThresholdViewModel();
+            }
             else
             {
                 var globalThreshold = await service.GetGlobalThreshold(new SelectGlobalThresholdParam(message.ViewerId, message.Site));

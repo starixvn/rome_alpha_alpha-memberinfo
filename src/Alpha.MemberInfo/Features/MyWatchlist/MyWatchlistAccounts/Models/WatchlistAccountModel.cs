@@ -49,7 +49,7 @@
         public DateTime LastLogged { get; set; }
 
         public string LastLoggedString
-            => LastLogged == DateTime.MinValue ? string.Empty : LastLogged.ToLongDateTime12hWithHyphen();
+            => LastLogged == DateTime.MinValue ? "-" : LastLogged.ToLongDateTime12hWithHyphen();
 
         public string Status { get; set; }
 

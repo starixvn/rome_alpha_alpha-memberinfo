@@ -268,10 +268,10 @@
     <value>右鍵單擊以顯示/隱藏列行</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>是</value>
   </data>
   <data name="No2" xml:space="preserve">
-    <value>No</value>
+    <value>否</value>
   </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>會員輸贏限制</value>

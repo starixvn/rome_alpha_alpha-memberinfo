@@ -38,7 +38,7 @@ class MyWatchlistAccounts extends MyWatchlistBase {
                 "modal-mobile-friendly"));
         this.$("#btn-add-members").click(_ =>
             this.topWindow.popupManager.open(
-                `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts`,
+                `${baseUrl}MyWatchlistAccounts/ManageWatchlistAccounts?MyWatchlistPage=true`,
                 undefined,
                 820,
                 550,
