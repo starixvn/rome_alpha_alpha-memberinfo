@@ -1,12 +1,10 @@
-﻿
-namespace Alpha.MemberInfo.Features.MemberBettingBehavior
+﻿namespace Alpha.MemberInfo.Features.MemberBettingBehavior
 {
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Criteria;
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
     using Alpha.MemberInfo.Services;
     using Fanex.Data.Repository;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -35,9 +33,8 @@ namespace Alpha.MemberInfo.Features.MemberBettingBehavior
         {
             var criteria = new GetCustomerProfileCriteria(117834959);
             var customerProfile = await dynamicRepository.GetAsync<CustomerProfile>(criteria);
-            //customerProfile.Status = refService.GetCustomerProfileStatus(54);
-            customerProfile.Status = "Arbitrage";
-            customerProfile.Level = "Observation";
+            customerProfile.Status = refService.GetCustomerProfileStatus(customerProfile.CategoryID);
+            customerProfile.Level = refService.GetCustomerProfileLevel(customerProfile.CategoryID);
             customerProfile.RelatedToOtherAccount = true;
 
             return customerProfile;
@@ -46,33 +43,22 @@ namespace Alpha.MemberInfo.Features.MemberBettingBehavior
         public async Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics()
         {
             var criteria = new GetMemberBettingStatisticsCriteria(119272758, new DateTime(2024, 4, 14), new DateTime(2024, 5, 14));
-            var rawdata = await dynamicRepository.FetchMultipleAsync<SummaryStatistic, TurnOverBySport, TurnoverByBettype, TurnoverWinLossByDate>(criteria);
+            var (summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates) 
+                = await dynamicRepository.FetchMultipleAsync<SummaryStatistic, TurnOverBySport, TurnoverByBettype, TurnoverWinLossByDate>(criteria);
+            
+            foreach (var item in turnOverBySports)
+            {
+                item.SportType = GetMemberStatisticSportTypeName(item.SportType);
+            }
 
-            var summaryStatistic = new SummaryStatistic();
-            var turnOverBySports = new List<TurnOverBySport>();
-            var turnOverBybettypes = new List<TurnoverByBettype>();
-            var turnOverWinLossByDates = new List<TurnoverWinLossByDate>();
-
-            if (rawdata.Item1.Any())
+            foreach (var item in turnOverBybettypes)
             {
-                summaryStatistic = rawdata.Item1.FirstOrDefault();
-            }
-            if (rawdata.Item2.Any())
-            {
-                turnOverBySports.AddRange(rawdata.Item2);
-            }
-            if (rawdata.Item3.Any())
-            {
-                turnOverBybettypes.AddRange(rawdata.Item3);
-            }
-            if (rawdata.Item4.Any())
-            {
-                turnOverWinLossByDates.AddRange(rawdata.Item4);
+                item.Bettype = GetMemberStatisticBetTypeName(item.Bettype);
             }
 
             return new MemberBettingStatistic
             { 
-                SummaryStatistic = summaryStatistic,
+                SummaryStatistic = summaryStatistic.FirstOrDefault(),
                 TurnOverBySports = turnOverBySports,
                 TurnoverByBettypes = turnOverBybettypes,
                 TurnoverWinLossByDates = turnOverWinLossByDates
@@ -82,23 +68,32 @@ namespace Alpha.MemberInfo.Features.MemberBettingBehavior
         public async Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData()
         {
             var criteria = new GetMemberBettingStatisticsExportCriteria(119272758, new DateTime(2024, 4, 14), new DateTime(2024, 5, 14));
-            var rawdata = await dynamicRepository.FetchMultipleAsync<BettingStatisticExportRow, BettingStatisticExportRow>(criteria);
-            var bettingStatisticExports = new List<BettingStatisticExportRow>();
-            var total = new BettingStatisticExportRow();
+            var (bettingStatisticExports, total) = await dynamicRepository.FetchMultipleAsync<BettingStatisticExportRow, BettingStatisticExportRow>(criteria);
 
-            if (rawdata.Item1.Any())
+            foreach(var item in bettingStatisticExports)
             {
-                bettingStatisticExports.AddRange(rawdata.Item1);
-            }
-            if (rawdata.Item2.Any())
-            {
-                total = rawdata.Item2.FirstOrDefault();
+                item.Sporttype = GetMemberStatisticSportTypeName(item.Sporttype);
+                item.Bettype = GetMemberStatisticBetTypeName(item.Bettype);
             }
 
             return new BettingStatisticExportData {
                 BettingStatisticExportRows = bettingStatisticExports,
-                Total = total
+                Total = total.FirstOrDefault()
             };
+        }
+
+        private string GetMemberStatisticSportTypeName(string sportType)
+        {
+            int.TryParse(sportType, out int sportTypeId);
+            var sportTypeName = refService.GetSportTypeName(sportTypeId);
+            return sportTypeName != "" ? sportTypeName : refService.GetCustBetBehavior(sportType);
+        }
+
+        private string GetMemberStatisticBetTypeName(string betType)
+        {
+            int.TryParse(betType, out int betTypeId);
+            var betTypeName = refService.GetBetTypeName(betTypeId);
+            return betTypeName != "" ? betTypeName : refService.GetCustBetBehavior(betType);
         }
     }
 }

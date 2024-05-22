@@ -1,4 +1,6 @@
-﻿@{
+﻿@model MemberBettingBehaviorViewModel
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Member Betting Behavior";
 }
@@ -18,7 +20,7 @@
     <input type="hidden" name="Username" value="username" />
 }
 
-<div class="page-title">Member Betting Behavior</div>
+<div class="page-title">@Resources.MemberBettingBehavior</div>
 
 <div class="filter">
     <input type="text" id="txt-username" autocomplete="off" maxlength="50" />
@@ -26,14 +28,14 @@
 </div>
 
 <div id="customer-profile" hidden class="box-member">
-    <div class="ttl-box-member">Customer Profile</div>
+    <div class="ttl-box-member">@Resources.CustomerProfile</div>
     <div class="body-box-member body-box-member-profile">
         <div class="item">
             <div class="left-icon">
                 <span class="icon-account-circle"></span>
             </div>
             <div>
-                <div class="info">Status</div>
+                <div class="info">@Resources.Status</div>
                 <div class="value" id="customer-status"></div>
             </div>
         </div>
@@ -42,7 +44,7 @@
                 <span class="icon-bell"></span>
             </div>
             <div>
-                <div class="info">Level</div>
+                <div class="info">@Resources.Level</div>
                 <div class="value" id="customer-level"></div>
             </div>
         </div>
@@ -51,7 +53,7 @@
                 <span class="icon-link"></span>
             </div>
             <div>
-                <div class="info">Related to Other Accounts</div>
+                <div class="info">@Resources.RelatedToOtherAccounts</div>
                 <div class="value" id="customer-related-account"></div>
             </div>
         </div>
@@ -60,7 +62,7 @@
                 <span class="icon-mywatchlist"></span>
             </div>
             <div class="">
-                <div class="info">Monitored Member</div>
+                <div class="info">@Resources.MonitoredMember</div>
                 <div class="value" id="monitored-member"></div>
             </div>
         </div>
@@ -69,7 +71,7 @@
                 <span class="icon-alert"></span>
             </div>
             <div class="">
-                <div class="info">Problem Account</div>
+                <div class="info">@Resources.ProblemAccount</div>
                 <div class="value" id="problem-account"></div>
             </div>
         </div>
@@ -77,33 +79,33 @@
 </div>
 
 
-<div class="box-member">
-    <div class="ttl-box-member">Betting Statistic</div>
+<div class="box-member" id="statisticId" hidden>
+    <div class="ttl-box-member">@Resources.BettingStatistic</div>
     <div class="body-box-member body-box-member-chart">
         <div class="statistics">
-            <div class="range">
-                <label>Date Range</label>
-                <select>
-                    <option>Last 90 days</option>
-                </select>
+            <div class="range"> 
+                <div class="form-group">
+                    <label>@Resources.DateRange</label>
+                    @Html.DropDownList("DateRangeId", Model.DateRange)
+                </div>
                 <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
             </div>
-            <div id="summary-statistic" hidden >
+            <div id="summary-statistic" hidden>
                 <div class="item">
                     <div id="summary-turnover" class="number">73.1K</div>
-                    <div class="text">Turnover</div>
+                    <div class="text">@Resources.Turnover</div>
                 </div>
                 <div class="item">
                     <div id="summary-winloss" class="number">-21.9K</div>
-                    <div class="text">Win loss</div>
+                    <div class="text">@Resources.WinLoss</div>
                 </div>
                 <div class="item">
                     <div id="summary-margin" class="number">-30%</div>
-                    <div class="text">Margin</div>
+                    <div class="text">@Resources.Margin</div>
                 </div>
-                <div  class="item">
+                <div class="item">
                     <div id="summary-betcount" class="number">66</div>
-                    <div class="text">Bet count</div>
+                    <div class="text">@Resources.BetCount</div>
                 </div>
             </div>
 
@@ -127,7 +129,7 @@
                 </canvas>
             </div>
         </div>
-       
+
     </div>
 </div>
 

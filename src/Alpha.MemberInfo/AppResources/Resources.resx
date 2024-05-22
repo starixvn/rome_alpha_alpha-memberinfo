@@ -1112,6 +1112,60 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="Mix" xml:space="preserve">
     <value>Mix</value>
   </data>
+  <data name="MemberBettingBehavior" xml:space="preserve">
+    <value>MemberBettingBehavior</value>
+  </data>
+  <data name="Average" xml:space="preserve">
+    <value>Average</value>
+  </data>
+  <data name="BetCount" xml:space="preserve">
+    <value>Bet Count</value>
+  </data>
+  <data name="BettingStatistic" xml:space="preserve">
+    <value>Betting Statistic</value>
+  </data>
+  <data name="CustomerProfile" xml:space="preserve">
+    <value>Customer Profile</value>
+  </data>
+  <data name="DateRange" xml:space="preserve">
+    <value>Date Range</value>
+  </data>
+  <data name="Losing" xml:space="preserve">
+    <value>Losing</value>
+  </data>
+  <data name="Margin" xml:space="preserve">
+    <value>Margin</value>
+  </data>
+  <data name="MixTurnover" xml:space="preserve">
+    <value>Mix Turnover</value>
+  </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>Monitored Member</value>
+  </data>
+  <data name="NetTurnover" xml:space="preserve">
+    <value>Net Turnover</value>
+  </data>
+  <data name="RelatedToOtherAccounts" xml:space="preserve">
+    <value>Related to Other Accounts</value>
+  </data>
+  <data name="Stake" xml:space="preserve">
+    <value>Stake</value>
+  </data>
+  <data name="TotalTurnover" xml:space="preserve">
+    <value>Total Turnover</value>
+  </data>
+  <data name="Turnover_(Live)" xml:space="preserve">
+    <value>Turnover (Live)</value>
+  </data>
+  <data name="Turnover_(NonLive)" xml:space="preserve">
+    <value>Turnover (Non-Live)</value>
+  </data>
+  <data name="Winning" xml:space="preserve">
+    <value>Winning</value>
+  </data>
+  <data name="WinLossText" xml:space="preserve">
+    <value>Win Loss</value>
+  </data>
   <data name="Active" xml:space="preserve">
     <value>Active</value>
   </data>

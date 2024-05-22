@@ -6,30 +6,38 @@ declare var TipsyHelper;
 
 class MemberBettingBehavior {
     private $: JQueryStatic;
-    private $customerProfile: JQuery;
-    private $summaryStatistic: JQuery;
-    private $exportExcelForm: JQuery;
+    private customerProfile: JQuery;
+    private statisticBlock: JQuery;
+    private summaryStatistic: JQuery;
+    private exportExcelForm: JQuery;
+    private levelComponent: SingleSelectionDropdownComponent;
     private turnoverBySportChart: TurnoverBySportChart;
     private turnoverByBetTypeChart: TurnoverByBetTypeChart;
     private turnoverWinLossByDateChart: TurnoverWinLossByDateChart;
 
 
     constructor(
-        $: JQueryStatic
+        $: JQueryStatic,
+        levelComponent: SingleSelectionDropdownComponent,
     ) {
-        this.$ = $
+        this.$ = $;
+        this.levelComponent = levelComponent;
     }
 
     init() {
         this.cacheDOMElements();
         this.bindEvents();
         this.initCharts();
+
+        this.levelComponent.render(
+            new SingleSelectionDropdownOption("DateRangeId", "HiddenLevelId"));
     }
 
     cacheDOMElements(): void {
-        this.$exportExcelForm = this.$("#export-excel-form");
-        this.$customerProfile = this.$("#customer-profile");
-        this.$summaryStatistic = this.$("#summary-statistic");
+        this.exportExcelForm = this.$("#export-excel-form");
+        this.customerProfile = this.$("#customer-profile");
+        this.statisticBlock = this.$("#statisticId");
+        this.summaryStatistic = this.$("#summary-statistic");
     }
 
     bindEvents(): void {
@@ -48,14 +56,15 @@ class MemberBettingBehavior {
             }
             //TipsyHelper.clear($txtUsername);
 
-            this.getMemberBettingBehaviorData(username);
+            this.getMemberProfile(username);
+            this.getMemberStatistic(username, 90);
         });
 
         this.$("#icon-excel").on("click", this.exportExcel);
     }
 
     exportExcel = () => {
-        this.$exportExcelForm.submit();
+        this.exportExcelForm.submit();
     };
 
     initCharts() {
@@ -91,42 +100,57 @@ class MemberBettingBehavior {
         });
     }
 
-    getMemberBettingBehaviorData(username: string) {
-        const url = this.$('#member-info-url').val() + "MemberBettingBehavior/MemberBettingBehavior";
+    getMemberProfile(username: string) {
+        const url = this.$('#member-info-url').val() + "MemberBettingBehavior/MemberProfile";
         this.callAjax(
             url,
             'GET',
             {
                 username
             },
-            data => {
+            memberProfile => {
+                this.renderCustomerProfile(memberProfile);
                 this.$.unblockUI();
-                this.renderCustomerProfile(data.CustomerProfile);
-                this.renderSummaryStatistic(data.MemberBettingStatistic.SummaryStatistic);
-                this.renderTurnoverBySportChart(data.MemberBettingStatistic.TurnOverBySports);
-                this.renderTurnoverByBettypeChart(data.MemberBettingStatistic.TurnoverByBettypes);
-                this.renderTurnoverWinLossByDatesChart(data.MemberBettingStatistic.TurnoverWinLossByDates)
             }
         )
     }
 
-    renderCustomerProfile(data) {
-        if (data === null) {
-            this.$customerProfile.hide();
+    getMemberStatistic(username: string, dateRange?: number) {
+        const url = this.$('#member-info-url').val() + "MemberBettingBehavior/MemberBettingStatistic";
+        this.callAjax(
+            url,
+            'GET',
+            {
+                username,
+                dateRange
+            },
+            memberStatistic => {
+                this.statisticBlock.show();
+                this.renderSummaryStatistic(memberStatistic.SummaryStatistic);
+                this.renderTurnoverBySportChart(memberStatistic.TurnOverBySports);
+                this.renderTurnoverByBettypeChart(memberStatistic.TurnoverByBettypes);
+                this.renderTurnoverWinLossByDatesChart(memberStatistic.TurnoverWinLossByDates)
+                this.$.unblockUI();
+            }
+        )
+    }
+
+    renderCustomerProfile(memberProfile) {
+        if (memberProfile === null) {
+            this.customerProfile.hide();
             return;
         }
-
-        this.$("#customer-status").text(data.Status);
-        this.$("#customer-level").text(data.Level);
-        this.$("#customer-related-account").text(data.RelatedToOtherAccount ? "Yes" : "No");
-        this.$("#monitored-member").text(data.IsMonitoredMember ? "Yes" : "No");
-        this.$("#problem-account").text(data.IsProblemAccount ? "Yes" : "No");
-        this.$customerProfile.show();
+        this.$("#customer-status").text(memberProfile.Status);
+        this.$("#customer-level").text(memberProfile.Level);
+        this.$("#customer-related-account").text(memberProfile.RelatedToOtherAccount ? "Yes" : "No");
+        this.$("#monitored-member").text(memberProfile.IsMonitoredMember ? "Yes" : "No");
+        this.$("#problem-account").text(memberProfile.IsProblemAccount ? "Yes" : "No");
+        this.customerProfile.show();
     }
 
     renderSummaryStatistic(data) {
         if (data === null) {
-            this.$summaryStatistic.hide();
+            this.summaryStatistic.hide();
             return;
         }
 
@@ -134,8 +158,8 @@ class MemberBettingBehavior {
         this.$("#summary-margin").text(data.Margin);
         this.$("#summary-winloss").text(data.WinLoss);
         this.$("#summary-betcount").text(data.BetCount);
-        this.$summaryStatistic.addClass("value");
-        this.$summaryStatistic.show();
+        this.summaryStatistic.addClass("value");
+        this.summaryStatistic.show();
     }
 
     renderTurnoverBySportChart(data) {
@@ -170,6 +194,6 @@ class MemberBettingBehavior {
 }
 
 $(function () {
-    const memberBettingBehavior = new MemberBettingBehavior($);
+    const memberBettingBehavior = new MemberBettingBehavior($, new SingleSelectionDropdownComponent($));
     memberBettingBehavior.init();
-})
+})                                         

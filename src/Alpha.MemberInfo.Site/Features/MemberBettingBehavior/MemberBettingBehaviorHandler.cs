@@ -4,7 +4,6 @@
     using Alpha.MemberInfo.Features.MemberBettingBehavior;
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
     using Alpha.MemberInfo.Site.Features.MemberBettingBehavior.Requests;
-    using Alpha.MemberInfo.Site.Features.MemberBettingBehavior.ViewModels;
     using Alpha.MemberInfo.Site.Handlers;
     using Alpha.MemberInfo.Site.ViewModels;
     using MediatR;
@@ -13,7 +12,8 @@
     using static ONEbook.SpreadSheets.Column;
 
     public class MemberBettingBehaviorHandler : ExcelBaseHandler,
-        IAsyncRequestHandler<MemberBettingBehaviorQuery, MemberBettingBehaviorViewModel>,
+        IAsyncRequestHandler<MemberProfileQuery, CustomerProfile>,
+        IAsyncRequestHandler<MemberBettingStatisticQuery, MemberBettingStatistic>,
         IAsyncRequestHandler<MemberBettingBehaviorExcelQuery, ExcelFileViewModel>
     {
         private readonly MemberBettingBehaviorService service;
@@ -82,16 +82,16 @@
         protected override string GetExcelTemplateDir()
             => "~/App_Data/ExcelTemplates/MemberBettingBehavior";
 
-        public async Task<MemberBettingBehaviorViewModel> Handle(MemberBettingBehaviorQuery message)
+        public async Task<CustomerProfile> Handle(MemberProfileQuery message)
         {
-            var customerProfile = await service.GetCustomerProfile("u");
-            var memberBettingStatistic = await service.GetMemberBettingBehaviorStatistics();
+            var customerProfile = await service.GetCustomerProfile(message.UserName);
+            return customerProfile;
+        }
 
-            return new MemberBettingBehaviorViewModel()
-            {
-                CustomerProfile = customerProfile,
-                MemberBettingStatistic = memberBettingStatistic
-            };
+        public async Task<MemberBettingStatistic> Handle(MemberBettingStatisticQuery message)
+        {
+            var memberBettingStatistic = await service.GetMemberBettingBehaviorStatistics();
+            return memberBettingStatistic;
         }
     }
 }

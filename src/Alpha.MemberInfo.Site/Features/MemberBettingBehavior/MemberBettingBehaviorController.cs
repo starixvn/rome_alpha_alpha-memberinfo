@@ -2,6 +2,7 @@
 {
     using Alpha.MemberInfo.Site.Controllers;
     using Alpha.MemberInfo.Site.Features.MemberBettingBehavior.Requests;
+    using Alpha.MemberInfo.Site.Features.MemberBettingBehavior.ViewModels;
     using MediatR;
     using System.Threading.Tasks;
     using System.Web.Mvc;
@@ -17,11 +18,16 @@
 
         public ActionResult Index()
         {
-            return View(IndexPath);
+            var viewModel = new MemberBettingBehaviorViewModel();
+            return View(IndexPath, viewModel);
         }
 
         [HttpGet]
-        public async Task<ActionResult> MemberBettingBehavior(MemberBettingBehaviorQuery message)
+        public async Task<ActionResult> MemberProfile(MemberProfileQuery message)
+            => await JsonAsync(message);
+
+        [HttpGet]
+        public async Task<ActionResult> MemberBettingStatistic(MemberBettingStatisticQuery message)
             => await JsonAsync(message);
 
         [HttpGet]

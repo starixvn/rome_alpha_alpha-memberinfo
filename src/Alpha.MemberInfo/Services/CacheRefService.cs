@@ -16,6 +16,10 @@
         string GetSportTypeName(int sportTypeId);
 
         string GetCustomerProfileStatus(int categoryID);
+
+        string GetCustomerProfileLevel(int categoryID);
+
+        string GetCustBetBehavior(string id);
     }
 
     public class CacheRefServiceImpl : CacheRefService
@@ -26,6 +30,8 @@
         private const string SubGroupRefId = "SubGroup";
         private const string DummySportRefId = "DummySport";
         private const string CustomerProfileStatus = "CategoryStatus";
+        private const string CustomerProfileLevel = "CategoryLevel";
+        private const string CustBetBehavior = "CustBetBehaviour";
 
         public CacheRefServiceImpl(IRemotingRefService remotingRefService)
         {
@@ -68,6 +74,15 @@
         public string GetCustomerProfileStatus(int categoryID)
         {
             return remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileStatus, categoryID.ToString(), LanguageCode, string.Empty);
+        }
+
+        public string GetCustomerProfileLevel(int categoryID)
+        {
+            return remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileLevel, categoryID.ToString(), LanguageCode, string.Empty);
+        }
+        public string GetCustBetBehavior(string id)
+        {
+            return remotingRefService.GetResourceDataByRefIdAndResourceId(CustBetBehavior, id, LanguageCode, string.Empty);
         }
 
         private static string LanguageCode
