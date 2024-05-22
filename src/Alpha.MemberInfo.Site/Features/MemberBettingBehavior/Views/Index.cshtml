@@ -85,10 +85,13 @@
         <div class="statistics">
             <div class="range"> 
                 <div class="form-group">
-                    <label>@Resources.DateRange</label>
+                    <div class="label">
+                        <label>@Resources.DateRange</label>
+                        <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
+                    </div>
                     @Html.DropDownList("DateRangeId", Model.DateRange)
                 </div>
-                <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
+                
             </div>
             <div id="summary-statistic" hidden>
                 <div class="item">

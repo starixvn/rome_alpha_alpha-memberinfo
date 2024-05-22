@@ -27,16 +27,13 @@
         display: flex;
         flex-wrap: wrap;
         padding-bottom: 0;
-    }
-
-    &-chart {
-    }
+    }    
 }
 
 .body-box-member-profile .item {
     display: flex;
     align-items: center;
-    min-width: 250px;
+    min-width: 220px;
     margin-bottom: 10px;
 
     .left-icon {
@@ -46,10 +43,6 @@
         display: flex;
         align-items: center;
     }
-
-    .info {
-    }
-
     .value {
         font-size: 16px;
         font-weight: bold;
@@ -74,32 +67,45 @@
     > * {
         margin-right: 10px;
     }
-
+    .form-group{
+        margin-top: 0;
+    }
     select {
         width: 150px;
+    }
+
+    .label {
+        display: flex;
+        align-items: center;
+        background: transparent;
     }
 
     label {
         font-size: 13px;
         color: #333;
         margin-bottom: 0;
+        font-weight: bold;
     }
 
     .icon-excel {
+        margin-left: auto;
         float: none;
+    }
+
+    .btn-group {
+        margin-top: 0;
     }
 }
 
 .value {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
 
     .item {
         display: flex;
         align-items: center;
         flex-direction: column;
-        min-width: 100px;
+        min-width: 110px;
         text-align: center;
 
         .number {
@@ -123,5 +129,6 @@
 }
 
 .turnover-winloss-by-date-chart {
-    width: 70%;
+    width: 100%;
+    max-width: 1050px;
 }
