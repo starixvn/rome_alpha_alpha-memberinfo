@@ -441,6 +441,7 @@
     <Content Include="App_Data\SPNames\Internal\DBCust.CustDB.xml" />
     <Content Include="App_Data\SPNames\Internal\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\DBWH.bodb_dwrs.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\SiteDB.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Local\DB042.bodb02.BODBDownlineNet.xml" />
@@ -463,6 +464,7 @@
     <Content Include="App_Data\SPNames\Pro\DBCust.CustDB.xml" />
     <Content Include="App_Data\SPNames\Pro\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Pro\DBWH.bodb_dwrs.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\SiteDB.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DB042.bodb02.BODBDownlineNet.xml" />
@@ -473,6 +475,7 @@
     <Content Include="App_Data\SPNames\SIT\DBCust.CustDB.xml" />
     <Content Include="App_Data\SPNames\SIT\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\SIT\DBWH.bodb_dwrs.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\SiteDB.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\SIT\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DB042.bodb02.BODBDownlineNet.xml" />
@@ -483,6 +486,7 @@
     </Content>
     <Content Include="App_Data\SPNames\UAT\DBCust.IPDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\UAT\DBWH.bodb_dwrs.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\SiteDB.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="assets\bundles\account-info-tab-dark.css" />
