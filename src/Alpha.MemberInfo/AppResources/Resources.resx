@@ -1166,6 +1166,18 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="WinLossText" xml:space="preserve">
     <value>Win Loss</value>
   </data>
+  <data name="MemberUsernameIsInvalid" xml:space="preserve">
+    <value>Member username is invalid</value>
+  </data>
+  <data name="Last30Days" xml:space="preserve">
+    <value>Last 30 days</value>
+  </data>
+  <data name="Last60Days" xml:space="preserve">
+    <value>Last 60 days</value>
+  </data>
+  <data name="Last90Days" xml:space="preserve">
+    <value>Last 90 days</value>
+  </data>
   <data name="Active" xml:space="preserve">
     <value>Active</value>
   </data>

@@ -2,6 +2,10 @@
     margin-top: 10px;
     padding: 10px;
     background: #d1d1d1;
+
+    .form {
+        display: inline-block;
+    }
 }
 
 .box-member {
@@ -58,6 +62,10 @@
     margin-bottom: 20px;
 }
 
+.multiselect-selected-text {
+    text-transform: none;
+}
+
 .range {
     display: flex;
     align-items: center;
@@ -67,9 +75,11 @@
     > * {
         margin-right: 10px;
     }
-    .form-group{
+
+    .form-group {
         margin-top: 0;
     }
+
     select {
         width: 150px;
     }

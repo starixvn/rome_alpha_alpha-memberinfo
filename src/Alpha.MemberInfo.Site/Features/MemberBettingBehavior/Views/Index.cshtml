@@ -15,15 +15,19 @@
     @StaticResources.RenderScripts("~/Features/MemberBettingBehavior/Bundles/member-betting-behavior")
 }
 
-@using (Html.BeginForm("Excel", "MemberBettingBehavior", FormMethod.Get, new { id = "export-excel-form" }))
-{
-    <input type="hidden" name="Username" value="username" />
-}
 
 <div class="page-title">@Resources.MemberBettingBehavior</div>
 
+@using (Html.BeginForm("Excel", "MemberBettingBehavior", FormMethod.Get, new { id = "export-excel-form" }))
+{
+    <input type="hidden" name="username" id="txt-username-hidden" />
+    <input type="hidden" name="dateRange" id="date-range-hidden">
+}
+
 <div class="filter">
-    <input type="text" id="txt-username" autocomplete="off" maxlength="50" />
+    <div class="form">
+        <input type="text" name="username" id="txt-username" autocomplete="off" maxlength="50" />
+    </div>
     <button class="btn-submit" id="btn-submit">@Resources.Submit</button>
 </div>
 
@@ -83,7 +87,7 @@
     <div class="ttl-box-member">@Resources.BettingStatistic</div>
     <div class="body-box-member body-box-member-chart">
         <div class="statistics">
-            <div class="range"> 
+            <div class="range">
                 <div class="form-group">
                     <div class="label">
                         <label>@Resources.DateRange</label>
@@ -91,7 +95,7 @@
                     </div>
                     @Html.DropDownList("DateRangeId", Model.DateRange)
                 </div>
-                
+
             </div>
             <div id="summary-statistic" hidden>
                 <div class="item">
@@ -137,3 +141,8 @@
 </div>
 
 <input type="hidden" id="member-info-url" value="@MicroSites.MemberInfoUrl()" />
+<input type="hidden" id="mustEnterUserNameText" value="@Resources.MustEnterUsernameError" />
+<input type="hidden" id="memberUserNameIsInvalidText" value="@Resources.MemberUsernameIsInvalid" />
+<input type="hidden" id="yesText" value="@Resources.Yes" />
+<input type="hidden" id="noText" value="@Resources.No" />
+

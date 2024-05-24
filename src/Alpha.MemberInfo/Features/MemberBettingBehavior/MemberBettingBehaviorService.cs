@@ -10,11 +10,11 @@
 
     public interface MemberBettingBehaviorService
     {
-        Task<CustomerProfile> GetCustomerProfile(string username);
+        Task<CustomerProfile> GetCustomerProfile(int custId);
 
-        Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics();
+        Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics(int custId, DateTime startDate, DateTime endDate);
 
-        Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData();
+        Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData(int custId, DateTime startDate, DateTime endDate);
     }
 
     public class MemberBettingBehaviorServiceImpl : MemberBettingBehaviorService
@@ -29,20 +29,23 @@
             this.refService = refService;
         }
 
-        public async Task<CustomerProfile> GetCustomerProfile(string username)
+        public async Task<CustomerProfile> GetCustomerProfile(int custId)
         {
-            var criteria = new GetCustomerProfileCriteria(117834959);
+            var criteria = new GetCustomerProfileCriteria(custId);
             var customerProfile = await dynamicRepository.GetAsync<CustomerProfile>(criteria);
-            customerProfile.Status = refService.GetCustomerProfileStatus(customerProfile.CategoryID);
-            customerProfile.Level = refService.GetCustomerProfileLevel(customerProfile.CategoryID);
-            customerProfile.RelatedToOtherAccount = true;
+            if(criteria.ErrCode == 0)
+            {
+                customerProfile.Status = refService.GetCustomerProfileStatus(customerProfile.CategoryID);
+                customerProfile.Level = refService.GetCustomerProfileLevel(customerProfile.CategoryID);
+                customerProfile.RelatedToOtherAccount = true;
+            }
 
             return customerProfile;
         }
 
-        public async Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics()
+        public async Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics(int custId, DateTime startDate, DateTime endDate)
         {
-            var criteria = new GetMemberBettingStatisticsCriteria(119272758, new DateTime(2024, 4, 14), new DateTime(2024, 5, 14));
+            var criteria = new GetMemberBettingStatisticsCriteria(custId, startDate, endDate);
             var (summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates) 
                 = await dynamicRepository.FetchMultipleAsync<SummaryStatistic, TurnOverBySport, TurnoverByBettype, TurnoverWinLossByDate>(criteria);
             
@@ -65,9 +68,9 @@
             };
         }
 
-        public async Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData()
+        public async Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData(int custId, DateTime startDate, DateTime endDate)
         {
-            var criteria = new GetMemberBettingStatisticsExportCriteria(119272758, new DateTime(2024, 4, 14), new DateTime(2024, 5, 14));
+            var criteria = new GetMemberBettingStatisticsExportCriteria(custId, startDate, endDate);
             var (bettingStatisticExports, total) = await dynamicRepository.FetchMultipleAsync<BettingStatisticExportRow, BettingStatisticExportRow>(criteria);
 
             foreach(var item in bettingStatisticExports)

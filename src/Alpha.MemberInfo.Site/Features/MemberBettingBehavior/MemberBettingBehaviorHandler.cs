@@ -8,6 +8,7 @@
     using Alpha.MemberInfo.Site.ViewModels;
     using MediatR;
     using ONEbook.SpreadSheets;
+    using System;
     using System.Threading.Tasks;
     using static ONEbook.SpreadSheets.Column;
 
@@ -27,7 +28,7 @@
 
         public async Task<ExcelFileViewModel> Handle(MemberBettingBehaviorExcelQuery message)
         {
-            var memberBettingBehaviors = await service.GetMemberBettingStatisticExcelData();
+            var memberBettingBehaviors = await service.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndState);
 
             var fileContent = workbook
                 .SetData(memberBettingBehaviors.BettingStatisticExportRows, memberBettingBehaviors.Total)
@@ -84,13 +85,13 @@
 
         public async Task<CustomerProfile> Handle(MemberProfileQuery message)
         {
-            var customerProfile = await service.GetCustomerProfile(message.UserName);
+            var customerProfile = await service.GetCustomerProfile(message.MemberCustId);
             return customerProfile;
         }
 
         public async Task<MemberBettingStatistic> Handle(MemberBettingStatisticQuery message)
         {
-            var memberBettingStatistic = await service.GetMemberBettingBehaviorStatistics();
+            var memberBettingStatistic = await service.GetMemberBettingBehaviorStatistics(message.MemberCustId, message.StartDate, message.EndState);
             return memberBettingStatistic;
         }
     }

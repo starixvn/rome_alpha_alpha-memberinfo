@@ -1419,6 +1419,33 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last 30 days.
+        /// </summary>
+        public static string Last30Days {
+            get {
+                return ResourceManager.GetString("Last30Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 60 days.
+        /// </summary>
+        public static string Last60Days {
+            get {
+                return ResourceManager.GetString("Last60Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 90 days.
+        /// </summary>
+        public static string Last90Days {
+            get {
+                return ResourceManager.GetString("Last90Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Login.
         /// </summary>
         public static string LastLogin {
@@ -1739,6 +1766,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string MemberMaxCredit {
             get {
                 return ResourceManager.GetString("MemberMaxCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member username is invalid.
+        /// </summary>
+        public static string MemberUsernameIsInvalid {
+            get {
+                return ResourceManager.GetString("MemberUsernameIsInvalid", resourceCulture);
             }
         }
         

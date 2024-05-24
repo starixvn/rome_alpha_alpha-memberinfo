@@ -283,6 +283,7 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Constants\ProductGroupConstants.cs" />
+    <Compile Include="Constants\MemberStatisticDateRange.cs" />
     <Compile Include="Constants\ProductSubGroupConstants.cs" />
     <Compile Include="Constants\ReachedThresholdLimitTypeConstants.cs" />
     <Compile Include="Constants\LockedAccessConstant.cs" />

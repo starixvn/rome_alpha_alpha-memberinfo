@@ -11,6 +11,8 @@
         {
         }
 
+        public int MemberCustId { get; set; }
+
         public string UserName { get; set; }
     }
 }
