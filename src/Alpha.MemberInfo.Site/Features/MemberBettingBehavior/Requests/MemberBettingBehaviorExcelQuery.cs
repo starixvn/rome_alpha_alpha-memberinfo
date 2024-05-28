@@ -19,6 +19,6 @@
 
         public DateTime EndState => DateTime.Now;
 
-        public DateTime StartDate => EndState.AddDays(-DateRange);
+        public DateTime StartDate => EndState.AddDays(-DateRange) > viewer.LimitedDateToShowInfo ? EndState.AddDays(-DateRange) : viewer.LimitedDateToShowInfo;
     }
 }
