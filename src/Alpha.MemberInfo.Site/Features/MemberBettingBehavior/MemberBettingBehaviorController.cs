@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
 {
+    using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Controllers;
     using Alpha.MemberInfo.Site.Features.MemberBettingBehavior.Requests;
@@ -67,7 +68,7 @@
         private async Task<int> GetMemberCustId(int custId, int subAccId, string username)
         {
             var customer = await customerService.GetDownlineByUsername(custId, subAccId, username);
-            if (customer.CustId > 0 && customer.RoleId == 1)
+            if (customer.CustId > 0 && customer.RoleId == UserLevelConstant.Member)
             {
                 return customer.CustId;
             }

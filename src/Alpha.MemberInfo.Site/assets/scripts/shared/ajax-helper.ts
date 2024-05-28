@@ -25,6 +25,28 @@ class AJAXHelper {
         });
     }
 
+    static callAjax(url, type, params, onSuccess) {
+        $.blockUI();
+        const xhr = this.callAjaxWithoutBlocking(url, type, params, onSuccess);
+        xhr.error = $.unblockUI;
+    }
+
+    static callAjaxWithoutBlocking(url, type, params, onSuccess): JQueryXHR {
+        return $.ajax({
+            url: url,
+            dataType: "json",
+            type: type,
+            headers: {
+                __RequestVerificationToken: $("input[name='__RequestVerificationToken']").val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            data: params,
+            success: onSuccess,
+            error: jqXHR => this.handleOnFail(jqXHR),
+            complete: $.unblockUI
+        });
+    }
+
     private static handleOnFail(jqXHR) {
         if (jqXHR) {
             if (jqXHR.status === 401) {

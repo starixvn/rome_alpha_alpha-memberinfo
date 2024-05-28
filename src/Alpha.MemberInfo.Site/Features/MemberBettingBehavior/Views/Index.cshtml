@@ -7,7 +7,7 @@
 
 @section Styles {
     @StaticResources.AssetStyles.RenderCommon("/bundles-v2/site-memberinfo/member-betting-behavior")
-    @StaticResources.RenderStyles("~/Features/MemberBettingBehavior/Bundles/member-betting-behavior")
+    @StaticResources.RenderStylesWithDarkMode("~/Features/MemberBettingBehavior/Bundles/member-betting-behavior")
 }
 
 @section Scripts {
@@ -61,7 +61,7 @@
                 <div class="value" id="customer-related-account"></div>
             </div>
         </div>
-        <div class="item">
+        <div class="item" id="monitored-item">
             <div class="left-icon">
                 <span class="icon-mywatchlist"></span>
             </div>
@@ -144,5 +144,5 @@
 <input type="hidden" id="mustEnterUserNameText" value="@Resources.MustEnterUsernameError" />
 <input type="hidden" id="memberUserNameIsInvalidText" value="@Resources.MemberUsernameIsInvalid" />
 <input type="hidden" id="yesText" value="@Resources.Yes" />
-<input type="hidden" id="noText" value="@Resources.No" />
+<input type="hidden" id="noText" value="@Resources.No2" />
 

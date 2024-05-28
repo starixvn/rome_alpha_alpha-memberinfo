@@ -329,6 +329,7 @@
     "inputFiles": [
       "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/shared/site-helper.js",
+      "assets/scripts/shared/ajax-helper.js",
       "Features/MemberBettingBehavior/Scripts/turnover-by-sport-chart.js",
       "Features/MemberBettingBehavior/Scripts/turnover-by-bettype-chart.js",
       "Features/MemberBettingBehavior/Scripts/turnover-winloss-by-date-chart.js",
@@ -443,6 +444,12 @@
     "inputFiles": [
       "Features/CopyAccount/Assets/Styles/copy-account-dark.css",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css"
+    ]
+  },
+  {
+    "outputFileName": "Features/MemberBettingBehavior/Bundles/member-betting-behavior-dark.css",
+    "inputFiles": [
+      "Features/MemberBettingBehavior/Styles/member-betting-behavior-dark.css"
     ]
   },
   {

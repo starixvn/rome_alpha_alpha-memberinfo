@@ -1743,7 +1743,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MemberBettingBehavior.
+        ///   Looks up a localized string similar to Member Betting Behavior.
         /// </summary>
         public static string MemberBettingBehavior {
             get {
@@ -1770,20 +1770,20 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Member username is invalid.
-        /// </summary>
-        public static string MemberUsernameIsInvalid {
-            get {
-                return ResourceManager.GetString("MemberUsernameIsInvalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The Maximum Member Credit set by your upline: {0}.
         /// </summary>
         public static string memberMaxCreditHint {
             get {
                 return ResourceManager.GetString("memberMaxCreditHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member username is invalid.
+        /// </summary>
+        public static string MemberUsernameIsInvalid {
+            get {
+                return ResourceManager.GetString("MemberUsernameIsInvalid", resourceCulture);
             }
         }
         
@@ -1797,20 +1797,20 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mix.
-        /// </summary>
-        public static string Mix {
-            get {
-                return ResourceManager.GetString("Mix", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Min.
         /// </summary>
         public static string Min {
             get {
                 return ResourceManager.GetString("Min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mix.
+        /// </summary>
+        public static string Mix {
+            get {
+                return ResourceManager.GetString("Mix", resourceCulture);
             }
         }
         

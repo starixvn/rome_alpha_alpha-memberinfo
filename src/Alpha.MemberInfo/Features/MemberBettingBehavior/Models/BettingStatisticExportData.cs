@@ -4,7 +4,13 @@
 
     public class BettingStatisticExportData
     {
-        public BettingStatisticExportData() { }
+        public BettingStatisticExportData(
+            IEnumerable<BettingStatisticExportRow> bettingStatisticExportRows,
+            BettingStatisticExportRow total)
+        {
+            BettingStatisticExportRows = bettingStatisticExportRows;
+            Total = total;
+        }
 
         public IEnumerable<BettingStatisticExportRow> BettingStatisticExportRows { get; set; }
 

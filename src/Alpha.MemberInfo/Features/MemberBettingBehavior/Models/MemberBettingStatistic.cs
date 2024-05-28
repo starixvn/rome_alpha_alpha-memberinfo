@@ -4,7 +4,18 @@
 
     public class MemberBettingStatistic
     {
-        public MemberBettingStatistic() {}
+        public MemberBettingStatistic(
+             SummaryStatistic summaryStatistic,
+             IEnumerable<TurnOverBySport> turnOverBySports,
+             IEnumerable<TurnoverByBettype> turnoverByBettypes,
+             IEnumerable<TurnoverWinLossByDate> turnoverWinLossByDates
+            )
+        {
+            SummaryStatistic = summaryStatistic;
+            TurnOverBySports = turnOverBySports;
+            TurnoverByBettypes = turnoverByBettypes;
+            TurnoverWinLossByDates = turnoverWinLossByDates;
+        }
 
         public SummaryStatistic SummaryStatistic { get; set; }
 

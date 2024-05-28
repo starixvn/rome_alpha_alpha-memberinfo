@@ -839,6 +839,10 @@
     </Content>
     <Content Include="Features\CreateAccount\Styles\quick-introduction.scss" />
     <Content Include="Features\CreateAccount\Views\ProductSettingInfo.cshtml" />
+    <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior-dark.css" />
+    <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior-dark.min.css">
+      <DependentUpon>member-betting-behavior-dark.css</DependentUpon>
+    </Content>
     <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior.css" />
     <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior.js" />
     <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior.min.css">
@@ -849,6 +853,12 @@
     </Content>
     <TypeScriptCompile Include="Features\MemberBettingBehavior\Scripts\turnover-by-bettype-chart.ts" />
     <TypeScriptCompile Include="Features\MemberBettingBehavior\Scripts\turnover-by-sport-chart.ts" />
+    <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior-dark.css">
+      <DependentUpon>member-betting-behavior-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior-dark.min.css">
+      <DependentUpon>member-betting-behavior-dark.css</DependentUpon>
+    </Content>
     <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior.css">
       <DependentUpon>member-betting-behavior.scss</DependentUpon>
     </Content>
@@ -1761,6 +1771,7 @@
     <Content Include="Features\MemberBettingBehavior\Views\Web.config" />
     <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior.scss" />
     <Content Include="Feature" />
+    <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior-dark.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">

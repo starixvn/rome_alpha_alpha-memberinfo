@@ -42,13 +42,13 @@ class MemberBettingBehavior {
     }
 
     bindEvents(): void {
-        this.$('#btn-submit').click(() => {
-            const username = this.checkMemberUsername();
-            if (username) {
-                this.getMemberProfile(username);
-                this.getMemberStatistic(username, Number(this.dateRange.selectedValue));
+        this.txtUsername.keypress((e) => {
+            if (e.which == 13) {
+                this.handleSubmit();
             }
         });
+
+        this.$('#btn-submit').click(() => this.handleSubmit());
 
         this.$("#DateRangeId").on("change", () => {
             const username = this.checkMemberUsername();
@@ -63,6 +63,14 @@ class MemberBettingBehavior {
                 this.exportExcel(username)
             }
         });
+    }
+
+    handleSubmit = () => {
+        const username = this.checkMemberUsername();
+        if (username) {
+            this.getMemberProfile(username);
+            this.getMemberStatistic(username, Number(this.dateRange.selectedValue));
+        }
     }
 
     checkMemberUsername = () => {
@@ -95,29 +103,9 @@ class MemberBettingBehavior {
         this.turnoverWinLossByDateChart = new TurnoverWinLossByDateChart();
     }
 
-    callAjax = (url, type, params, onSuccess) => {
-        this.$.blockUI();
-        const xhr = this.callAjaxWithoutBlocking(url, type, params, onSuccess);
-        xhr.error = this.$.unblockUI;
-    }
-
-    callAjaxWithoutBlocking = (url, type, params, onSuccess): JQueryXHR => {
-        return this.$.ajax({
-            url: url,
-            dataType: "json",
-            type: type,
-            headers: {
-                __RequestVerificationToken: this.$("input[name='__RequestVerificationToken']").val(),
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            data: params,
-            success: onSuccess
-        });
-    }
-
     getMemberProfile(username: string) {
         const url = this.$('#member-info-url').val() + "MemberBettingBehavior/MemberProfile";
-        this.callAjax(
+        AJAXHelper.callAjax(
             url,
             'GET',
             {
@@ -139,7 +127,7 @@ class MemberBettingBehavior {
 
     getMemberStatistic(username: string, dateRange?: number) {
         const url = this.$('#member-info-url').val() + "MemberBettingBehavior/MemberBettingStatistic";
-        this.callAjax(
+        AJAXHelper.callAjax(
             url,
             'GET',
             {
@@ -170,15 +158,20 @@ class MemberBettingBehavior {
         this.$("#customer-status").text(memberProfile.Status);
         this.$("#customer-level").text(memberProfile.Level);
         this.$("#customer-related-account").text(memberProfile.RelatedToOtherAccount ? yesText : noText);
-        this.$("#monitored-member").text(memberProfile.IsMonitoredMember ? yesText : noText);
+        if (memberProfile.IsMonitoredMember === null) {
+            this.$("#monitored-item").hide();
+        } else {
+            this.$("#monitored-member").text(memberProfile.IsMonitoredMember ? yesText : noText);
+            this.$("#monitored-item").show();
+        }
         this.$("#problem-account").text(memberProfile.IsProblemAccount ? yesText : noText);
         this.customerProfile.show();
     }
 
     renderSummaryStatistic(data) {
-        this.$("#summary-turnover").text(`${data.Turnover}K`);
+        this.$("#summary-turnover").text(`${SiteHelper.FormatCompactNumber(data.Turnover)}`);
         this.$("#summary-margin").text(`${data.Margin}%`);
-        this.$("#summary-winloss").text(`${data.WinLoss}K`);
+        this.$("#summary-winloss").text(`${SiteHelper.FormatCompactNumber(data.WinLoss)}`);
         this.$("#summary-betcount").text(data.BetCount);
         this.summaryStatistic.addClass("value");
         this.summaryStatistic.show();

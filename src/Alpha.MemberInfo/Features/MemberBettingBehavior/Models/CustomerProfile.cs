@@ -6,7 +6,7 @@
 
         public int CategoryID { get; set; }
 
-        public bool IsMonitoredMember { get; set; }
+        public bool? IsMonitoredMember { get; set; }
 
         public bool IsProblemAccount { get; set; }
 

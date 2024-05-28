@@ -136,6 +136,10 @@
     "inputFile": "Features/MemberBettingBehavior/Styles/member-betting-behavior.scss"
   },
   {
+    "outputFile": "Features/MemberBettingBehavior/Styles/member-betting-behavior-dark.css",
+    "inputFile": "Features/MemberBettingBehavior/Styles/member-betting-behavior-dark.scss"
+  },
+  {
     "outputFile": "assets/styles/account-info-tab.css",
     "inputFile": "assets/styles/account-info-tab.scss"
   },

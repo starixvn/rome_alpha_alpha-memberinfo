@@ -72,18 +72,14 @@
         }
 
         public string GetCustomerProfileStatus(int categoryID)
-        {
-            return remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileStatus, categoryID.ToString(), LanguageCode, string.Empty);
-        }
+            => remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileStatus, categoryID.ToString(), LanguageCode, string.Empty);
 
         public string GetCustomerProfileLevel(int categoryID)
-        {
-            return remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileLevel, categoryID.ToString(), LanguageCode, string.Empty);
-        }
+            => remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileLevel, categoryID.ToString(), LanguageCode, string.Empty);
+        
         public string GetCustBetBehavior(string id)
-        {
-            return remotingRefService.GetResourceDataByRefIdAndResourceId(CustBetBehavior, id, LanguageCode, string.Empty);
-        }
+            => remotingRefService.GetResourceDataByRefIdAndResourceId(CustBetBehavior, id, LanguageCode, string.Empty);
+        
 
         private static string LanguageCode
             => Thread.CurrentThread.CurrentCulture.Name;

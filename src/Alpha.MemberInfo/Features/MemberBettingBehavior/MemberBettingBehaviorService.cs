@@ -3,35 +3,55 @@
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Criteria;
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
     using Alpha.MemberInfo.Services;
+    using AlphaPlus.PartialUM.Services;
+    using Fanex.Caching;
     using Fanex.Data.Repository;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
     public interface MemberBettingBehaviorService
     {
-        Task<CustomerProfile> GetCustomerProfile(int custId);
+        Task<CustomerProfile> GetCustomerProfile(int custId, string siteName);
 
-        Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics(int custId, DateTime startDate, DateTime endDate);
+        Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics(int custId, DateTime startDate, DateTime endDate, string siteName);
 
-        Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData(int custId, DateTime startDate, DateTime endDate);
+        Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData(int custId, DateTime startDate, DateTime endDate, string siteName);
     }
 
     public class MemberBettingBehaviorServiceImpl : MemberBettingBehaviorService
     {
+        private const string StatisticCacheKey = "Alpha.MemberInfo.Features.MemberBettingBehavior.Statistic";
+
+        private const string StatisticExportCacheKey = "Alpha.MemberInfo.Features.MemberBettingBehavior.StatisticExport";
+
+        private const byte MinuteTimeCache = 5;
+
         private readonly IDynamicRepository dynamicRepository;
+
+        private readonly ICacheService cacheService;
 
         private readonly CacheRefService refService;
 
-        public MemberBettingBehaviorServiceImpl(IDynamicRepository dynamicRepository, CacheRefService refService)
+        private readonly IPartialUMService partialUMService;
+
+        public MemberBettingBehaviorServiceImpl(
+            IDynamicRepository dynamicRepository,
+            ICacheService cacheService,
+            IPartialUMService partialUMService,
+            CacheRefService refService)
         {
             this.dynamicRepository = dynamicRepository;
+            this.cacheService = cacheService;
+            this.partialUMService = partialUMService;
             this.refService = refService;
         }
 
-        public async Task<CustomerProfile> GetCustomerProfile(int custId)
+        public async Task<CustomerProfile> GetCustomerProfile(int custId, string siteName)
         {
             var criteria = new GetCustomerProfileCriteria(custId);
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), siteName);
             var customerProfile = await dynamicRepository.GetAsync<CustomerProfile>(criteria);
             if(criteria.ErrCode == 0)
             {
@@ -43,11 +63,37 @@
             return customerProfile;
         }
 
-        public async Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics(int custId, DateTime startDate, DateTime endDate)
+        public async Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics(int custId, DateTime startDate, DateTime endDate, string siteName)
         {
             var criteria = new GetMemberBettingStatisticsCriteria(custId, startDate, endDate);
-            var (summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates) 
-                = await dynamicRepository.FetchMultipleAsync<SummaryStatistic, TurnOverBySport, TurnoverByBettype, TurnoverWinLossByDate>(criteria);
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), siteName);
+
+            SummaryStatistic summaryStatistic;
+            var turnOverBySports = new List<TurnOverBySport>();
+            var turnOverBybettypes = new List<TurnoverByBettype>();
+            var turnOverWinLossByDates = new List<TurnoverWinLossByDate>();
+
+            var cacheKey = $"{StatisticCacheKey}.{custId}.{startDate.Day}";
+            var memberStatisticCacheData = await cacheService.GetAsync<MemberBettingStatistic>(cacheKey);
+
+            if(memberStatisticCacheData != null)
+            {
+                summaryStatistic = memberStatisticCacheData.SummaryStatistic;
+                turnOverBySports.AddRange(memberStatisticCacheData.TurnOverBySports);
+                turnOverBybettypes.AddRange(memberStatisticCacheData.TurnoverByBettypes);
+                turnOverWinLossByDates.AddRange(memberStatisticCacheData.TurnoverWinLossByDates);
+
+            } else {
+                var rawData = await dynamicRepository.FetchMultipleAsync<SummaryStatistic, TurnOverBySport, TurnoverByBettype, TurnoverWinLossByDate>(criteria);
+                summaryStatistic = rawData.Item1.FirstOrDefault();
+                turnOverBySports.AddRange(rawData.Item2);
+                turnOverBybettypes.AddRange(rawData.Item3);
+                turnOverWinLossByDates.AddRange(rawData.Item4);
+                await cacheService.SetAsync(
+                    cacheKey,
+                    new MemberBettingStatistic(summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates),
+                    new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(MinuteTimeCache)));
+            }
             
             foreach (var item in turnOverBySports)
             {
@@ -59,19 +105,34 @@
                 item.Bettype = GetMemberStatisticBetTypeName(item.Bettype);
             }
 
-            return new MemberBettingStatistic
-            { 
-                SummaryStatistic = summaryStatistic.FirstOrDefault(),
-                TurnOverBySports = turnOverBySports,
-                TurnoverByBettypes = turnOverBybettypes,
-                TurnoverWinLossByDates = turnOverWinLossByDates
-            };
+            return new MemberBettingStatistic(summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates);
         }
 
-        public async Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData(int custId, DateTime startDate, DateTime endDate)
+        public async Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData(int custId, DateTime startDate, DateTime endDate, string siteName)
         {
             var criteria = new GetMemberBettingStatisticsExportCriteria(custId, startDate, endDate);
-            var (bettingStatisticExports, total) = await dynamicRepository.FetchMultipleAsync<BettingStatisticExportRow, BettingStatisticExportRow>(criteria);
+            partialUMService.ThrowIfUM(criteria.GetSettingKey(), siteName);
+
+            var bettingStatisticExports = new List<BettingStatisticExportRow>();
+            BettingStatisticExportRow total;
+
+            var cacheKey = $"{StatisticExportCacheKey}.{custId}.{startDate.Day}";
+            var memberStatisticExportCacheData = await cacheService.GetAsync<BettingStatisticExportData>(cacheKey);
+
+            if(memberStatisticExportCacheData != null)
+            {
+                bettingStatisticExports.AddRange(memberStatisticExportCacheData.BettingStatisticExportRows);
+                total = memberStatisticExportCacheData.Total;
+            } else
+            {
+                var rawData = await dynamicRepository.FetchMultipleAsync<BettingStatisticExportRow, BettingStatisticExportRow>(criteria);
+                bettingStatisticExports.AddRange(rawData.Item1);
+                total = rawData.Item2.FirstOrDefault();
+                await cacheService.SetAsync(
+                   cacheKey,
+                   new BettingStatisticExportData(bettingStatisticExports, total),
+                   new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(MinuteTimeCache)));
+            }
 
             foreach(var item in bettingStatisticExports)
             {
@@ -79,10 +140,7 @@
                 item.Bettype = GetMemberStatisticBetTypeName(item.Bettype);
             }
 
-            return new BettingStatisticExportData {
-                BettingStatisticExportRows = bettingStatisticExports,
-                Total = total.FirstOrDefault()
-            };
+            return new BettingStatisticExportData(bettingStatisticExports, total);
         }
 
         private string GetMemberStatisticSportTypeName(string sportType)

@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
 {
     using Alpha.MemberInfo.AppResources;
+    using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Features.MemberBettingBehavior;
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
     using Alpha.MemberInfo.Site.Features.MemberBettingBehavior.Requests;
@@ -8,7 +9,6 @@
     using Alpha.MemberInfo.Site.ViewModels;
     using MediatR;
     using ONEbook.SpreadSheets;
-    using System;
     using System.Threading.Tasks;
     using static ONEbook.SpreadSheets.Column;
 
@@ -28,7 +28,7 @@
 
         public async Task<ExcelFileViewModel> Handle(MemberBettingBehaviorExcelQuery message)
         {
-            var memberBettingBehaviors = await service.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndState);
+            var memberBettingBehaviors = await service.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndState, message.Site);
 
             var fileContent = workbook
                 .SetData(memberBettingBehaviors.BettingStatisticExportRows, memberBettingBehaviors.Total)
@@ -73,9 +73,7 @@
         }
 
         private static Mapper<BettingStatisticExportRow> GetTotalRowMapper()
-        {
-            return GetBodyRowMapper().Map(A, total => Resources.Total);
-        }
+            => GetBodyRowMapper().Map(A, total => Resources.Total);
 
         private TemplateInfo GetTemplateInfo()
             => new TemplateInfo(GetExcelTemplatePath("MemberBettingBehavior"), Resources.NoInformationIsAvailable, bodyStartIndex: 4);
@@ -85,14 +83,15 @@
 
         public async Task<CustomerProfile> Handle(MemberProfileQuery message)
         {
-            var customerProfile = await service.GetCustomerProfile(message.MemberCustId);
-            return customerProfile;
+            var profile = await service.GetCustomerProfile(message.MemberCustId, message.Site);
+            if(message.ViewerLevelId != UserLevelConstant.Agent)
+            {
+                profile.IsMonitoredMember = null;
+            }
+            return profile;
         }
 
         public async Task<MemberBettingStatistic> Handle(MemberBettingStatisticQuery message)
-        {
-            var memberBettingStatistic = await service.GetMemberBettingBehaviorStatistics(message.MemberCustId, message.StartDate, message.EndState);
-            return memberBettingStatistic;
-        }
+            => await service.GetMemberBettingBehaviorStatistics(message.MemberCustId, message.StartDate, message.EndState, message.Site);
     }
 }
