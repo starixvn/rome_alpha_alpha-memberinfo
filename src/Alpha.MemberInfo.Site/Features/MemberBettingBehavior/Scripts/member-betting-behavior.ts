@@ -42,11 +42,9 @@ class MemberBettingBehavior {
     }
 
     bindEvents(): void {
-        this.txtUsername.keypress((e) => {
-            if (e.which == 13) {
-                this.handleSubmit();
-            }
-        });
+        this.txtUsername
+            .keyup(e => e.which === 13 && this.handleSubmit())
+            .on("input", () => TipsyHelper.clear(this.txtUsername));
 
         this.$('#btn-submit').click(() => this.handleSubmit());
 
