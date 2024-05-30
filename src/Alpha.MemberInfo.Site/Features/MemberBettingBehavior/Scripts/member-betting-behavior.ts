@@ -84,7 +84,7 @@ class MemberBettingBehavior {
 
     exportExcel = (username: string) => {
         this.$("#txt-username-hidden").val(username);
-        this.$("#date-range").val(this.dateRange.selectedValue);
+        this.$("#date-range-hidden").val(this.dateRange.selectedValue);
         this.exportExcelForm.submit();
     };
 

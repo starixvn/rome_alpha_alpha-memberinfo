@@ -329,6 +329,7 @@
     <Compile Include="Criteria\Winloss\DailyEnteredSportCriteria.cs" />
     <Compile Include="Enumerations\Enumeration.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\HttpClientExtensions.cs" />
     <Compile Include="Extensions\NumberExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Features\CreateAccount\Criteria\ProductSettingInfoCriteria.cs" />
@@ -387,6 +388,7 @@
     <Compile Include="Features\MemberBettingBehavior\MemberBettingBehaviorService.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\BettingStatisticExportData.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\BettingStatisticExportRow.cs" />
+    <Compile Include="Features\MemberBettingBehavior\Models\CustomerAssociation.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\CustomerProfile.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\MemberBettingStatistic.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\SummaryStatistic.cs" />

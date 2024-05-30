@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Features.MemberBettingBehavior
 {
+    using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Criteria;
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
     using Alpha.MemberInfo.Services;
@@ -9,7 +10,9 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net.Http;
     using System.Threading.Tasks;
+    using Fanex.Logging.Extensions.Web;
 
     public interface MemberBettingBehaviorService
     {
@@ -36,16 +39,20 @@
 
         private readonly IPartialUMService partialUMService;
 
+        private readonly HttpClient httpClient;
+
         public MemberBettingBehaviorServiceImpl(
             IDynamicRepository dynamicRepository,
             ICacheService cacheService,
             IPartialUMService partialUMService,
-            CacheRefService refService)
+            CacheRefService refService,
+            HttpClient httpClient)
         {
             this.dynamicRepository = dynamicRepository;
             this.cacheService = cacheService;
             this.partialUMService = partialUMService;
             this.refService = refService;
+            this.httpClient = httpClient;
         }
 
         public async Task<CustomerProfile> GetCustomerProfile(int custId, string siteName)
@@ -57,7 +64,19 @@
             {
                 customerProfile.Status = refService.GetCustomerProfileStatus(customerProfile.CategoryID);
                 customerProfile.Level = refService.GetCustomerProfileLevel(customerProfile.CategoryID);
-                customerProfile.RelatedToOtherAccount = true;
+                customerProfile.RelatedToOtherAccount = customerProfile.IsProblemAccount;
+            }
+
+            if(!customerProfile.RelatedToOtherAccount)
+            {
+                try
+                {
+                    var customerAssociation = await httpClient.GetAsJsonAsync<CustomerAssociation>($"cts/Association/CheckByCustId?custId={custId}");
+                    customerProfile.RelatedToOtherAccount = customerAssociation.IsAssociated;
+                } catch(Exception ex)
+                {
+                    ExceptionHandler.Handle(ex);
+                }
             }
 
             return customerProfile;
