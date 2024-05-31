@@ -6,6 +6,7 @@ declare var TipsyHelper;
 
 class MemberBettingBehavior {
     private $: JQueryStatic;
+    private topWindow: any;
     private customerProfile: JQuery;
     private statisticBlock: JQuery;
     private summaryStatistic: JQuery;
@@ -19,9 +20,11 @@ class MemberBettingBehavior {
     constructor(
         $: JQueryStatic,
         dataRange: SingleSelectionDropdownComponent,
+        topWindow: any,
     ) {
         this.$ = $;
         this.dateRange = dataRange;
+        this.topWindow = topWindow;
     }
 
     init() {
@@ -31,6 +34,10 @@ class MemberBettingBehavior {
 
         this.dateRange.render(
             new SingleSelectionDropdownOption("DateRangeId", "DateRangeLevelId"));
+
+        setTimeout(() => {
+            this.topWindow.indexManager.initFeedbackFunction(9, undefined, 500);
+        }, 1000);
     }
 
     cacheDOMElements(): void {
@@ -219,6 +226,6 @@ class MemberBettingBehavior {
 }
 
 $(function () {
-    const memberBettingBehavior = new MemberBettingBehavior($, new SingleSelectionDropdownComponent($));
+    const memberBettingBehavior = new MemberBettingBehavior($, new SingleSelectionDropdownComponent($), window.top);
     memberBettingBehavior.init();
 })                                         
