@@ -27,59 +27,60 @@
 
 <div class="filter">
     <div class="form">
-        <input type="text" name="username" id="txt-username" autocomplete="off" maxlength="50" />
+        <input type="text" name="username" id="txt-username" autocomplete="off" maxlength="50" placeholder="Username " />
+        <button class="btn-search" id="btn-submit"><span class="icon-search"></span></button>
     </div>
-    <button class="btn-submit" id="btn-submit">@Resources.Submit</button>
 </div>
 
 <div id="customer-profile" hidden class="box-member">
     <div class="ttl-box-member">@Resources.CustomerProfile</div>
     <div class="body-box-member body-box-member-profile">
-        <div class="item">
+        <div class="item status">
             <div class="left-icon">
-                <span class="icon-account-circle"></span>
+                <span class="icon-user3"></span>
             </div>
-            <div>
+            <div class="right-text">
                 <div class="info">@Resources.Status</div>
                 <div class="value" id="customer-status"></div>
             </div>
         </div>
-        <div class="item">
+        <div class="item level">
             <div class="left-icon">
-                <span class="icon-bell"></span>
+                <span class="icon-warning"></span>
             </div>
-            <div>
+            <div class="right-text">
                 <div class="info">@Resources.Level</div>
                 <div class="value" id="customer-level"></div>
             </div>
         </div>
-        <div class="item">
+        <div class="item related-other-account">
             <div class="left-icon">
-                <span class="icon-link"></span>
+                <span class="icon-ulink"></span>
             </div>
-            <div>
+            <div class="right-text">
                 <div class="info">@Resources.RelatedToOtherAccounts</div>
                 <div class="value" id="customer-related-account"></div>
             </div>
         </div>
-        <div class="item" id="monitored-item">
+        <div class="item problem-account">
             <div class="left-icon">
-                <span class="icon-mywatchlist"></span>
+                <span class="icon-alert2"></span>
             </div>
-            <div class="">
-                <div class="info">@Resources.MonitoredMember</div>
-                <div class="value" id="monitored-member"></div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="left-icon">
-                <span class="icon-alert"></span>
-            </div>
-            <div class="">
+            <div class="right-text">
                 <div class="info">@Resources.ProblemAccount</div>
                 <div class="value" id="problem-account"></div>
             </div>
         </div>
+        <div class="item monitored" id="monitored-item">
+            <div class="left-icon">
+                <span class="icon-camera"></span>
+            </div>
+            <div class="right-text">
+                <div class="info">@Resources.MonitoredMember</div>
+                <div class="value" id="monitored-member">No <a class="add-watchlist" href="#"><span class="icon-plus-circle pc"></span><span class="sm text-add-watchlist">Add to my Watchlist</span></a></div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -92,13 +93,18 @@
                 <div class="form-group">
                     <div class="label">
                         <label>@Resources.DateRange</label>
-                        <span id="icon-excel" class="icon-excel" title="@Resources.ExportToExcel"></span>
+                        
                     </div>
-                    @Html.DropDownList("DateRangeId", Model.DateRange)
+                    <div>@Html.DropDownList("DateRangeId", Model.DateRange)<span id="icon-excel" class="icon-excel2" title="@Resources.ExportToExcel"></span></div>
+                    
                 </div>
 
             </div>
-            <div id="summary-statistic" hidden>
+            
+
+        </div>
+        <div class="chart space-between">
+            <div class="summary-statistic " id="summary-statistic" hidden>
                 <div class="item">
                     <div id="summary-turnover" class="number">73.1K</div>
                     <div class="text">@Resources.Turnover</div>
@@ -116,9 +122,6 @@
                     <div class="text">@Resources.BetCount</div>
                 </div>
             </div>
-
-        </div>
-        <div class="chart">
             <div class="turnover-by-sport-chart">
                 <canvas id="canvas-turnover-by-sport-chart" aria-label="@Resources.TurnoverBySport" role="img">
                     <p>@Resources.NoInformationIsAvailable</p>
@@ -129,7 +132,9 @@
                         data-live="@Resources.Live" data-nonlive="@Resources.NonLive" data-mix="@Resources.Mix" role="img">
                     <p>@Resources.NoInformationIsAvailable</p>
                 </canvas>
-            </div>
+            </div>            
+        </div>
+        <div class="chart">
             <div class="turnover-winloss-by-date-chart">
                 <canvas id="canvas-turnover-winloss-by-date-chart" aria-label="@Resources.TurnoverAndWinLossByDate"
                         data-turnover="@Resources.Turnover" data-winloss="@Resources.WinLoss" role="img">

@@ -23,17 +23,17 @@ class TurnoverByBetTypeChart {
                 {
                     label: canvas.getAttribute('data-live'),
                     data: lives,
-                    backgroundColor: 'rgb(54, 162, 235)'
+                    backgroundColor: 'rgb(46, 131, 204)'
                 },
                 {
                     label: canvas.getAttribute('data-nonlive'),
                     data: nonLives,
-                    backgroundColor: 'rgb(255, 159, 64)'
+                    backgroundColor: 'rgb(242, 99, 80)'
                 },
                 {
                     label: canvas.getAttribute('data-mix'),
                     data: mixes,
-                    backgroundColor: 'rgb(201, 203, 207)'
+                    backgroundColor: 'rgb(164, 164, 164)'
                 }
             ]
         };

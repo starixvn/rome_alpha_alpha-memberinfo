@@ -24,10 +24,10 @@ class TurnoverBySportChart {
                     data: turnovers,
                     //backgroundColor: ['#36a2eb', '#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0', '#9966ff', '#c9cbcf'],
                     backgroundColor: [
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 99, 132)',
-                        'rgb(255, 159, 64)',
-                        'rgb(255, 205, 86)',
+                        'rgb(46, 131, 204)',
+                        'rgb(242, 99, 80)',
+                        'rgb(154, 114, 176)',
+                        'rgb(164, 164, 164)',
                         'rgb(75, 192, 192)',
                         'rgb(153, 102, 255)',
                         'rgb(201, 203, 207)'
