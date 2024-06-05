@@ -34,6 +34,12 @@ class CopyAccount {
     $messageContainer: JQuery;
     $messageContent: JQuery;
 
+    $generalCopyBtn: JQuery;
+    $separatedCopyBtn: JQuery;
+    $userNames: JQuery;
+    $givenCredit: JQuery;
+    $domains: JQuery;
+
     topWindow: any;
     cleave: any;
     memberMaxCreditCleave: any;
@@ -74,6 +80,9 @@ class CopyAccount {
         live: (<HTMLInputElement>document.getElementById('Live')).value,
         creditHint: (<HTMLInputElement>document.getElementById('CreditHint')).value,
         memberMaxCreditHint: (<HTMLInputElement>document.getElementById('MemberMaxCreditHint')).value,
+        lblCredit: (<HTMLInputElement>document.getElementById('lbl-credit')).value,
+        lblUsername: (<HTMLInputElement>document.getElementById('lbl-username')).value,
+        lblDomain: (<HTMLInputElement>document.getElementById('lbl-domain')).value,
     }
 
     init = () => {
@@ -132,6 +141,7 @@ class CopyAccount {
         this.$creditHintTooltip = this.$("#credit-hint-tooltip");
         this.$memberCreditRange = this.$("#member-max-credit-range");
         this.$memberMaxCreditLabel = this.$("#member-credit-max-label");
+
     }
 
     formatNumber = (number: number) => {
@@ -142,8 +152,7 @@ class CopyAccount {
         this.changeEyeIcon(this.$showPass);
         if (this.$password.hasClass("input-pass")) {
             this.$password.removeClass("input-pass")
-        }
-        else {
+        } else {
             this.$password.addClass("input-pass")
         }
     }
@@ -152,8 +161,7 @@ class CopyAccount {
         if (eyeElm.hasClass("icon-eye-close")) {
             eyeElm.removeClass("icon-eye-close");
             eyeElm.addClass("icon-eye");
-        }
-        else {
+        } else {
             eyeElm.removeClass("icon-eye");
             eyeElm.addClass("icon-eye-close");
         }
@@ -218,10 +226,30 @@ class CopyAccount {
         this.$creditInput.focus(() => this.showTooltipError(this.$creditErrMsg));
 
         this.registerTooltip();
+
+
     }
 
+    handleCopyCustomerInfo = (isSingleCopy: boolean) => {
+        const userNames = this.$userNames.val();
+        const givenCredit = this.$givenCredit.val();
+        const domain = this.$domains.val();
+        const userInfo = (username: string, credit: string, domains: string) => {
+            return `${this.resource.lblUsername}: ${username}\n${this.resource.lblCredit}: ${credit}\n${this.resource.lblDomain}: ${domains}\n`;
+        }
+
+        const result = isSingleCopy ? userInfo(userNames, givenCredit, domain)
+            : userNames.replace(/\s/g, '').split(',').map(name => userInfo(name, givenCredit, domain)).join("\n");
+
+        window.navigator['clipboard'] && window.navigator['clipboard'].writeText(result)
+            .then(() => {
+                console.log("Text copied to clipboard successfully!");
+            }, () => {
+                console.error("Failed to copy text to clipboard!");
+            });
+    }
     registerTooltip = () => {
-        this.$('[data-toggle="tooltip"]').tooltip({ html: true });
+        this.$('[data-toggle="tooltip"]').tooltip({html: true});
 
         this.hideTooltipOnTouchOutInMobile();
     }
@@ -236,8 +264,7 @@ class CopyAccount {
 
             if (target.attr('data-toggle') === 'tooltip') {
                 target.tooltip('show');
-            }
-            else if (target.parent().attr('data-toggle') === 'tooltip') {
+            } else if (target.parent().attr('data-toggle') === 'tooltip') {
                 target.parent().tooltip('show');
             }
         });
@@ -370,6 +397,13 @@ class CopyAccount {
                     this.$result.append(data);
                     this.$result.removeClass("hidden");
                     this.$form.addClass("hidden");
+                    this.$generalCopyBtn = this.$("#general-copy-btn");
+                    this.$separatedCopyBtn = this.$("#separated-copy-btn");
+                    this.$userNames = this.$("#usernames");
+                    this.$givenCredit = this.$("#txtClonedCredit");
+                    this.$domains = this.$("#txtDomains");
+                    this.$generalCopyBtn.click(() => this.handleCopyCustomerInfo(true));
+                    this.$separatedCopyBtn.click(() => this.handleCopyCustomerInfo(false));
                     const self = this;
                     if (window.document.queryCommandSupported
                         && window.document.queryCommandSupported("copy")) {
@@ -394,7 +428,9 @@ class CopyAccount {
                 }
                 this.$.unblockUI();
             },
-            error: () => { this.$.unblockUI(); }
+            error: () => {
+                this.$.unblockUI();
+            }
         });
     }
 
@@ -412,7 +448,8 @@ class CopyAccount {
         var parsed;
         try {
             parsed = JSON.parse(json);
-        } catch (e) { }
+        } catch (e) {
+        }
 
         return parsed;
     }
@@ -426,7 +463,7 @@ class CopyAccount {
         this.$.ajax({
             method: "POST",
             headers: this.getHeadersForPostRequest(),
-            data: { custName: username },
+            data: {custName: username},
             dataType: 'json',
             url: "CopyAccount/CheckExistedCustomer",
             success: (result) => {
@@ -450,7 +487,7 @@ class CopyAccount {
             this.$.ajax({
                 method: "POST",
                 headers: this.getHeadersForPostRequest(),
-                data: { custName: sourceUsername },
+                data: {custName: sourceUsername},
                 dataType: 'json',
                 url: "CopyAccount/CheckUsername",
                 success: (result) => {
@@ -470,8 +507,7 @@ class CopyAccount {
                     this.validateInputs();
                 }
             });
-        }
-        else {
+        } else {
             this.resetValidationState();
         }
     }
@@ -482,7 +518,7 @@ class CopyAccount {
         this.$.ajax({
             method: "POST",
             headers: this.getHeadersForPostRequest(),
-            data: { custName: username },
+            data: {custName: username},
             dataType: 'json',
             url: "CopyAccount/GetCredit",
             success: result => {
@@ -507,7 +543,9 @@ class CopyAccount {
 
                 this.$.unblockUI();
             },
-            error: () => { this.$.unblockUI(); }
+            error: () => {
+                this.$.unblockUI();
+            }
         });
     }
 
