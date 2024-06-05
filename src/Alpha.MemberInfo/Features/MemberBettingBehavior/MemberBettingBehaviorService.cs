@@ -102,16 +102,13 @@
                 turnOverBybettypes.AddRange(memberStatisticCacheData.TurnoverByBettypes);
                 turnOverWinLossByDates.AddRange(memberStatisticCacheData.TurnoverWinLossByDates);
 
+                return new MemberBettingStatistic(summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates);
             } else {
                 var rawData = await dynamicRepository.FetchMultipleAsync<SummaryStatistic, TurnOverBySport, TurnoverByBettype, TurnoverWinLossByDate>(criteria);
                 summaryStatistic = rawData.Item1.FirstOrDefault();
                 turnOverBySports.AddRange(rawData.Item2);
                 turnOverBybettypes.AddRange(rawData.Item3);
                 turnOverWinLossByDates.AddRange(rawData.Item4);
-                await cacheService.SetAsync(
-                    cacheKey,
-                    new MemberBettingStatistic(summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates),
-                    new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(MinuteTimeCache)));
             }
             
             foreach (var item in turnOverBySports)
@@ -123,6 +120,11 @@
             {
                 item.Bettype = GetMemberStatisticBetTypeName(item.Bettype);
             }
+
+            await cacheService.SetAsync(
+                cacheKey,
+                new MemberBettingStatistic(summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates),
+                new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(MinuteTimeCache)));
 
             return new MemberBettingStatistic(summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates);
         }
@@ -142,15 +144,12 @@
             {
                 bettingStatisticExports.AddRange(memberStatisticExportCacheData.BettingStatisticExportRows);
                 total = memberStatisticExportCacheData.Total;
+                return new BettingStatisticExportData(bettingStatisticExports, total);
             } else
             {
                 var rawData = await dynamicRepository.FetchMultipleAsync<BettingStatisticExportRow, BettingStatisticExportRow>(criteria);
                 bettingStatisticExports.AddRange(rawData.Item1);
                 total = rawData.Item2.FirstOrDefault();
-                await cacheService.SetAsync(
-                   cacheKey,
-                   new BettingStatisticExportData(bettingStatisticExports, total),
-                   new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(MinuteTimeCache)));
             }
 
             foreach(var item in bettingStatisticExports)
@@ -158,6 +157,11 @@
                 item.Sporttype = GetMemberStatisticSportTypeName(item.Sporttype);
                 item.Bettype = GetMemberStatisticBetTypeName(item.Bettype);
             }
+
+            await cacheService.SetAsync(
+                  cacheKey,
+                  new BettingStatisticExportData(bettingStatisticExports, total),
+                  new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(MinuteTimeCache)));
 
             return new BettingStatisticExportData(bettingStatisticExports, total);
         }

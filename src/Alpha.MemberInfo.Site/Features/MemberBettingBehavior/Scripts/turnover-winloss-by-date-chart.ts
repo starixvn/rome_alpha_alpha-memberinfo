@@ -45,6 +45,8 @@ class TurnoverWinLossByDateChart {
             type: 'line',
             data: data,
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 interaction: {
                     mode: 'index',
                     intersect: false

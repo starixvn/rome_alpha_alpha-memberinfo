@@ -253,6 +253,7 @@
         font-size: 24px;
         margin-left: 12px;
         vertical-align: middle;
+        cursor: pointer;
     }
 
     .btn-group {
@@ -284,6 +285,10 @@
         .text {
             font-size: 16px;
             line-height: 18px;
+        }
+
+        .redText {
+            color: #DD3333 !important;
         }
 
         .number {
