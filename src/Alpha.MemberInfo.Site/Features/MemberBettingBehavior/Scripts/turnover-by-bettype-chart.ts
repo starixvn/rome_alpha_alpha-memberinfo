@@ -49,7 +49,12 @@ class TurnoverByBetTypeChart {
                         padding: {
                             bottom: 30
                         }
-                    }
+                    },
+                    legend: {
+                        labels: {
+                            usePointStyle: true,
+                        }
+                    },
                 },
                 scales: {
                     x: {

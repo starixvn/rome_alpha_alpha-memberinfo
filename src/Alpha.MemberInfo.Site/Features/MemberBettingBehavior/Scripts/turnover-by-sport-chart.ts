@@ -22,15 +22,12 @@ class TurnoverBySportChart {
             datasets: [
                 {
                     data: turnovers,
-                    //backgroundColor: ['#36a2eb', '#ff6384', '#ff9f40', '#ffcd56', '#4bc0c0', '#9966ff', '#c9cbcf'],
                     backgroundColor: [
                         'rgb(46, 131, 204)',
                         'rgb(242, 99, 80)',
                         'rgb(154, 114, 176)',
                         'rgb(164, 164, 164)',
                         'rgb(75, 192, 192)',
-                        'rgb(153, 102, 255)',
-                        'rgb(201, 203, 207)'
                     ]
                 }
             ]
@@ -53,6 +50,9 @@ class TurnoverBySportChart {
                             padding: {
                                 bottom: 2
                             }
+                        },
+                        labels: {
+                            usePointStyle: true,
                         }
                     },
                     datalabels: {
