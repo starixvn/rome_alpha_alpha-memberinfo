@@ -202,7 +202,7 @@
     display: flex;
     align-items: center;
     width: 300px;
-     
+
 
     > * {
         margin-right: 10px;
@@ -226,6 +226,10 @@
                 box-shadow: none;
                 background: transparent;
                 margin: 0;
+
+                &.multiselect {
+                    border: none;
+                }
             }
         }
     }

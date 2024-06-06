@@ -1,9 +1,480 @@
 ﻿.filter {
     margin-top: 10px;
-    padding: 10px;
-    background: #d1d1d1;
 
     .form {
         display: inline-block;
+        position: relative;
+
+        #txt-username {
+            box-shadow: none;
+            border: 1px solid #4F4F4F;
+            background: #292929;
+            border-radius: 5px;
+            padding-left: 32px;
+            width: 250px;
+            height: 28px;
+        }
+
+        .btn-search {
+            background: none;
+            border: 0;
+            appearance: none;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            position: absolute;
+            top: 2px;
+            left: 4px;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+
+            span {
+                display: block;
+            }
+        }
+    }
+}
+
+.box-member {
+    border: 1px solid #2F2F2F;
+    margin-top: 12px;
+    border-radius: 5px;
+    width: 1200px;
+}
+
+.ttl-box-member {
+    background: #263041;
+    color: #fff;
+    font-size: 13px;
+    padding: 6px 11px 7px;
+    border-radius: 4px 4px 0 0;
+    font-family: 'Roboto Bold';
+    font-weight: bold;
+}
+
+.body-box-member {
+    padding: 12px 11px 10px 11px;
+    background: #171717;
+    border-radius: 0 0 5px 5px;
+
+    &-profile {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 0;
+        gap: 12px;
+    }
+}
+
+.body-box-member-profile .item {
+    display: flex;
+    align-items: center;
+    min-width: 225px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 8px;
+
+    &.status {
+        background: #161D26;
+
+        .left-icon {
+            background: #2E83CC;
+        }
+
+        .value {
+            color: #2E83CC;
+        }
+    }
+
+    &.level {
+        background: #2C2318;
+
+        .left-icon {
+            background: #CC9C70;
+        }
+
+        .value {
+            color: #CC9C70;
+        }
+    }
+
+    &.related-other-account {
+        background: #381949;
+
+        .left-icon {
+            background: #9A72B0;
+        }
+
+        .info {
+            font-size: 10px;
+        }
+
+        .value {
+            color: #9A72B0;
+        }
+    }
+
+    &.problem-account {
+        background: #2C1818;
+
+        .left-icon {
+            background: #A51313;
+        }
+
+        .value {
+            color: #A51313;
+        }
+    }
+
+    &.monitored {
+        background: #212121;
+
+        .left-icon {
+            background: #A4A4A4;
+        }
+
+        .value {
+            color: #A4A4A4;
+        }
+    }
+
+
+
+    .left-icon {
+        margin-right: 10px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+    }
+
+    .right-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 100%;
+
+        .add-watchlist {
+            margin-left: 4px;
+        }
+
+        .sm {
+            display: none;
+        }
+
+        .icon-plus-circle {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 16px;
+            background: #0B599C;
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 20px;
+        }
+    }
+
+    .info {
+        color: #A4A4A4;
+    }
+
+    .value {
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+.body-box-member-chart {
+    padding-bottom: 30px;
+}
+
+.statistics {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.multiselect-selected-text {
+    text-transform: none;
+}
+
+.range {
+    display: flex;
+    align-items: center;
+    width: 300px;
+
+
+    > * {
+        margin-right: 10px;
+    }
+
+    .form-group {
+        margin-top: 0;
+        padding: 0;
+
+        .btn-group {
+            box-shadow: none;
+            border: 1px solid #4F4F4F;
+            border-radius: 5px;
+            margin: 0;
+
+            .multiselect .multiselect-selected-text {
+                width: 138px;
+            }
+
+            button {
+                box-shadow: none;
+                background: transparent;
+                margin: 0;
+
+                &.multiselect {
+                    border: none;
+                    background: #292929;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    select {
+        width: 150px;
+    }
+
+    .label {
+        display: flex;
+        align-items: center;
+        background: transparent;
+        padding: 0;
+    }
+
+    label {
+        font-size: 13px;
+        color: #EDEDED;
+        margin-bottom: 0;
+        font-weight: bold;
+        line-height: 24px;
+    }
+
+    .icon-excel2 {
+        font-size: 24px;
+        margin-left: 12px;
+        vertical-align: middle;
+    }
+
+    .btn-group {
+        margin-top: 0;
+    }
+}
+
+.summary-statistic {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 1px solid #4F4F4F;
+    border-radius: 5px;
+    padding: 3px 7px;
+
+    .item {
+        flex: 1;
+        width: 154px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-bottom: 1px solid #4F4F4F;
+
+        &:last-child {
+            border: 0;
+        }
+
+        .text {
+            font-size: 16px;
+            line-height: 18px;
+            color: #A4A4A4;
+        }
+
+        .number {
+            font-size: 24px;
+            line-height: 30px;
+            font-weight: bold;
+            font-family: 'Roboto bold';
+            color: #2E83CC;
+        }
+    }
+}
+
+.chart {
+    display: flex;
+    flex-wrap: wrap;
+
+    &.space-between {
+        justify-content: space-between;
+    }
+
+    + .chart {
+        margin-top: 12px;
+    }
+}
+
+.turnover-by-sport-chart {
+    width: 360px;
+    height: 317px;
+    border: 1px solid #4F4F4F;
+    padding: 11px;
+    border-radius: 5px;
+}
+
+.turnover-by-bettype-chart {
+    width: 622px;
+    height: 317px;
+    border: 1px solid #4F4F4F;
+    padding: 11px;
+    border-radius: 5px;
+}
+
+.turnover-winloss-by-date-chart {
+    border: 1px solid #4F4F4F;
+    padding: 11px;
+    border-radius: 5px;
+    width: 100%;
+    height: 353px;
+}
+
+@media only screen and (max-device-width: 767px) {
+    .box-member {
+        width: 100%;
+    }
+
+    .body-box-member-profile {
+        gap: 0;
+
+        .item {
+            width: 48%;
+            min-width: 48%;
+            margin-right: 4%;
+
+            &:nth-child(even) {
+                margin-right: 0;
+            }
+
+            &.monitored {
+                width: 100%;
+                margin-right: 0;
+
+                .value {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+
+            .right-text {
+                flex: 1;
+
+                .pc {
+                    display: none;
+                }
+
+                .sm {
+                    display: inline-block;
+                }
+
+                .text-add-watchlist {
+                    border: 1px solid #2E83CC;
+                    border-radius: 2px;
+                    color: #2E83CC;
+                    font-size: 13px;
+                    line-height: 18px;
+                    padding: 0 8px;
+                }
+            }
+        }
+    }
+
+    .range {
+        width: 100%;
+
+        .form-group {
+            width: 100%;
+            margin: 0;
+
+            .btn-group {
+                width: calc( 100% - 40px);
+
+                button {
+                    display: block;
+                    width: 100%;
+                }
+
+                .multiselect .multiselect-selected-text {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .summary-statistic {
+        width: 100%;
+        flex-direction: row;
+        margin-bottom: 12px;
+
+        .item {
+            width: 48.5%;
+            margin-right: 3%;
+            flex: auto;
+            height: 66px;
+            position: relative;
+
+            &:nth-child(even) {
+                margin-right: 0;
+            }
+
+            &:nth-child(3) {
+                border: 0;
+            }
+
+            &:nth-child(2n+1) {
+                &:after {
+                    position: absolute;
+                    content: "";
+                    top: 3px;
+                    right: -3%;
+                    height: calc(100% - 6px);
+                    width: 1px;
+                    background: #4F4F4F;
+                }
+            }
+
+         
+        }
+    }
+
+    .turnover-by-sport-chart {
+        width: 100%;
+        height: auto;
+        margin-bottom: 12px;
+    }
+
+    .turnover-by-bettype-chart {
+        width: 100%;
+        height: auto;
+
+        > * {
+            width: 100%;
+        }
+    }
+
+    .turnover-winloss-by-date-chart {
+        height: auto;
+    }
+
+    .body-box-member-chart {
+        padding-bottom: 70px;
     }
 }
