@@ -15,16 +15,19 @@
     {
 
         private const string IndexPath = "~/Features/MemberBettingBehavior/Views/Index.cshtml";
+        private readonly IUser viewer;
         private readonly ICustomerService customerService;
 
-        public MemberBettingBehaviorController(IMediator mediator, ICustomerService customerService) : base(mediator) 
+        public MemberBettingBehaviorController(IMediator mediator, ICustomerService customerService, IUser viewer) : base(mediator) 
         {
             this.customerService = customerService;
+            this.viewer = viewer;
         }
 
         public ActionResult Index()
         {
-            var viewModel = new MemberBettingBehaviorViewModel();
+            var isDarkMode = !string.IsNullOrWhiteSpace(viewer.DarkModeName);
+            var viewModel = new MemberBettingBehaviorViewModel(isDarkMode);
             return View(IndexPath, viewModel);
         }
 

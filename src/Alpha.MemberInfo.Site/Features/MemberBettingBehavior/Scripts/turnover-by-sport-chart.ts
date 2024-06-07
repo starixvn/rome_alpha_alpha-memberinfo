@@ -3,9 +3,11 @@
 class TurnoverBySportChart {
     private chart: any;
     private canvasId: string;
+    private isDarkMode: boolean;
 
-    constructor(canvasId = 'canvas-turnover-by-sport-chart') {
+    constructor(isDarkMode = false, canvasId = 'canvas-turnover-by-sport-chart') {
         this.canvasId = canvasId;
+        this.isDarkMode = isDarkMode;
     }
 
     draw(sportTypes: string[], turnovers: number[]) {
@@ -33,6 +35,7 @@ class TurnoverBySportChart {
             ]
         };
 
+        const darkTextColor = "#EDEDED";
         const config = {
             type: 'doughnut',
             data: data,
@@ -42,7 +45,8 @@ class TurnoverBySportChart {
                         text: chartTitle,
                         padding: {
                             bottom: 25
-                        }
+                        },
+                        color: this.isDarkMode && darkTextColor,
                     },
                     legend: {
                         title: {
@@ -52,6 +56,7 @@ class TurnoverBySportChart {
                             }
                         },
                         labels: {
+                            color: this.isDarkMode && darkTextColor,
                             usePointStyle: true,
                         }
                     },

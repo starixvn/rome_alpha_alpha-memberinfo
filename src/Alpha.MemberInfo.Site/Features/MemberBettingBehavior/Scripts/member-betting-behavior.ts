@@ -12,6 +12,7 @@ class MemberBettingBehavior {
     private summaryStatistic: JQuery;
     private exportExcelForm: JQuery;
     private txtUsername: JQuery;
+    private isDarkMode: JQuery;
     private dateRange: SingleSelectionDropdownComponent;
     private turnoverBySportChart: TurnoverBySportChart;
     private turnoverByBetTypeChart: TurnoverByBetTypeChart;
@@ -46,6 +47,7 @@ class MemberBettingBehavior {
         this.statisticBlock = this.$("#statisticId");
         this.summaryStatistic = this.$("#summary-statistic");
         this.txtUsername = this.$('#txt-username');
+        this.isDarkMode = this.$('#isDarkMode');
     }
 
     bindEvents(): void {
@@ -105,9 +107,10 @@ class MemberBettingBehavior {
         Chart.defaults.plugins.title.font.size = 16;
         Chart.defaults.plugins.tooltip.boxPadding = 5;
 
-        this.turnoverBySportChart = new TurnoverBySportChart();
-        this.turnoverByBetTypeChart = new TurnoverByBetTypeChart();
-        this.turnoverWinLossByDateChart = new TurnoverWinLossByDateChart();
+        const isDarkMode = this.isDarkMode.val() === "true";
+        this.turnoverBySportChart = new TurnoverBySportChart(isDarkMode);
+        this.turnoverByBetTypeChart = new TurnoverByBetTypeChart(isDarkMode);
+        this.turnoverWinLossByDateChart = new TurnoverWinLossByDateChart(isDarkMode);
     }
 
     getMemberProfile(username: string) {

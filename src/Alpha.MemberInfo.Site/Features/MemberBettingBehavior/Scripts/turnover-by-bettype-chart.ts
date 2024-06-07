@@ -3,9 +3,11 @@
 class TurnoverByBetTypeChart {
     private chart: any;
     private canvasId: string;
+    private isDarkMode: boolean;
 
-    constructor(canvasId = 'canvas-turnover-by-bettype-chart') {
+    constructor(isDarkMode = false, canvasId = 'canvas-turnover-by-bettype-chart') {
         this.canvasId = canvasId;
+        this.isDarkMode = isDarkMode;
     }
 
     draw(betTypes: string[], lives: number[], nonLives: number[], mixes: number[]) {
@@ -38,6 +40,7 @@ class TurnoverByBetTypeChart {
             ]
         };
 
+        const darkTextColor = "#EDEDED";
         const config = {
             type: 'bar',
             data: data,
@@ -48,10 +51,12 @@ class TurnoverByBetTypeChart {
                         text: chartTitle,
                         padding: {
                             bottom: 30
-                        }
+                        },
+                        color: this.isDarkMode && darkTextColor,
                     },
                     legend: {
                         labels: {
+                            color: this.isDarkMode && darkTextColor,
                             usePointStyle: true,
                         }
                     },
@@ -67,6 +72,10 @@ class TurnoverByBetTypeChart {
                         stacked: true,
                         ticks: {
                             callback: (value) => SiteHelper.FormatCompactNumber(value)
+                        },
+                        grid: {
+                            display: true,
+                            color: this.isDarkMode ? "#2F2F2F" : "#999"
                         }
                     }
                 }

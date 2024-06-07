@@ -3,9 +3,11 @@
 class TurnoverWinLossByDateChart {
     private chart: any;
     private canvasId: string;
+    private isDarkMode: boolean;
 
-    constructor(canvasId = 'canvas-turnover-winloss-by-date-chart') {
+    constructor(isDarkMode = false , canvasId = 'canvas-turnover-winloss-by-date-chart') {
         this.canvasId = canvasId;
+        this.isDarkMode = isDarkMode;
     }
 
     draw(dates: string[], turnovers: number[], winloss: number[]) {
@@ -41,6 +43,7 @@ class TurnoverWinLossByDateChart {
             ]
         };
 
+        const darkTextColor = "#EDEDED";
         const config = {
             type: 'line',
             data: data,
@@ -59,7 +62,13 @@ class TurnoverWinLossByDateChart {
                 plugins: {
                     title: {
                         text: chartTitle,
-                    }
+                        color: this.isDarkMode && darkTextColor
+                    },
+                    legend: {
+                        labels: {
+                            color: this.isDarkMode && darkTextColor
+                        }
+                    },
                 },
                 scales: {
                     x: {
@@ -74,11 +83,15 @@ class TurnoverWinLossByDateChart {
                             font: {
                                 size: 14,
                                 weight: 'bold'
-                            }
+                            },
+                            color: this.isDarkMode && darkTextColor
                         },
                         position: 'left',
                         ticks: {
                             callback: (value) => SiteHelper.FormatCompactNumber(value)
+                        },
+                        grid: {
+                            display: false
                         }
                     },
                     y1: {
@@ -88,11 +101,15 @@ class TurnoverWinLossByDateChart {
                             font: {
                                 size: 14,
                                 weight: 'bold'
-                            }
+                            },
+                            color: this.isDarkMode && darkTextColor
                         },
                         position: 'right',
                         ticks: {
                             callback: (value) => SiteHelper.FormatCompactNumber(value)
+                        },
+                        grid: {
+                            display: false
                         }
                     }
                 }

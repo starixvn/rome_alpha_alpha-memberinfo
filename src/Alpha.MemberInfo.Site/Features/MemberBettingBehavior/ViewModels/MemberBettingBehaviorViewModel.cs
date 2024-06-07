@@ -7,7 +7,9 @@
 
     public class MemberBettingBehaviorViewModel
     {
-        public MemberBettingBehaviorViewModel() { }
+        public MemberBettingBehaviorViewModel(bool isDarkMode) {
+            IsDarkMode = isDarkMode;
+        }
 
         public IEnumerable<SelectListItem> DateRange
         {
@@ -19,6 +21,8 @@
                 }
             }
         }
+
+        public bool IsDarkMode { get; }
     }
 
 }

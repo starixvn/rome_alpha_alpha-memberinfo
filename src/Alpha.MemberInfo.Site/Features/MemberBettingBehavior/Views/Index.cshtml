@@ -127,7 +127,7 @@
                         data-live="@Resources.Live" data-nonlive="@Resources.NonLive" data-mix="@Resources.Mix" role="img">
                     <p>@Resources.NoInformationIsAvailable</p>
                 </canvas>
-            </div>            
+            </div>
         </div>
         <div class="chart">
             <div class="turnover-winloss-by-date-chart">
@@ -146,4 +146,6 @@
 <input type="hidden" id="memberUserNameIsInvalidText" value="@Resources.MemberUsernameIsInvalid" />
 <input type="hidden" id="yesText" value="@Resources.Yes" />
 <input type="hidden" id="noText" value="@Resources.No2" />
+<input type="hidden" id="isDarkMode" value='@(Model.IsDarkMode ? "true" : "false")' />
+
 
