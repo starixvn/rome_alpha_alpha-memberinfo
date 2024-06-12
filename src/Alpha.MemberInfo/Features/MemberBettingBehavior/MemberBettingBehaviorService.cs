@@ -118,7 +118,9 @@
 
             foreach (var item in turnOverBybettypes)
             {
+                int.TryParse(item.ProductID, out int productId);
                 item.Bettype = GetMemberStatisticBetTypeName(item.Bettype);
+                item.ProductName = refService.GetProductName(productId);
             }
 
             await cacheService.SetAsync(

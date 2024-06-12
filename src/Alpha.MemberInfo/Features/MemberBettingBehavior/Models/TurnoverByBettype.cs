@@ -8,6 +8,8 @@
 
         public string ProductID { get; set; }
 
+        public string ProductName { get; set; }
+
         public decimal LiveTurnover { get; set; }
 
         public decimal NonLiveTurnover { get; set; }

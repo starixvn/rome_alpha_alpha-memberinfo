@@ -63,10 +63,10 @@ class TurnoverBySportChart {
                     datalabels: {
                         color: '#333',
                         font: {
-                            weight: 'bold'
+                            weight: 'bold',
+                            size: '12px'
                         },
-                        formatter: (value, ctx) => `${this.calculatePercentage(ctx, value)}%`,
-                        display: 'auto',
+                        formatter: (value, ctx) => this.calculatePercentage(ctx, value) >= 1 ? `${this.calculatePercentage(ctx, value)}%` : '',
                         labels: {
                             index: {
                                 anchor: (ctx) => this.getPercentagePosition(ctx),
@@ -89,7 +89,7 @@ class TurnoverBySportChart {
     }
 
     private getPercentagePosition(ctx) {
-        return this.calculatePercentage(ctx, ctx.dataset.data[ctx.dataIndex]) >= 4 ? 'center' : 'end';
+        return 'center';
     }
 
     private calculatePercentage(ctx, value: number) {

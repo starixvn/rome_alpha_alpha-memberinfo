@@ -206,7 +206,7 @@ class MemberBettingBehavior {
             const nonLives = [];
             const mixes = [];
             data.forEach((item) => {
-                betTypes.push(item.Bettype);
+                betTypes.push([item.Bettype, item.ProductName ? `(${item.ProductName})` : '']);
                 lives.push(item.LiveTurnover);
                 nonLives.push(item.NonLiveTurnover);
                 mixes.push(item.MixTurnover);

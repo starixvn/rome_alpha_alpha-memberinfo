@@ -60,13 +60,20 @@ class TurnoverByBetTypeChart {
                             usePointStyle: true,
                         }
                     },
+                    tooltip: {
+                        callbacks: {
+                            title: function (context) {
+                                return context[0].label.split(",")[0];
+                            }
+                        }
+                    }
                 },
                 scales: {
                     x: {
                         stacked: true,
                         grid: {
                             display: false
-                        }
+                        },
                     },
                     y: {
                         stacked: true,
