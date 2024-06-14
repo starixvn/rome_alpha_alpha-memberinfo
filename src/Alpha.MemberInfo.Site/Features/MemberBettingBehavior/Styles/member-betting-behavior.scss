@@ -63,7 +63,12 @@
         display: flex;
         flex-wrap: wrap;
         padding-bottom: 0;
-        gap: 12px;
+        .item{
+            margin-left: 12px;
+            &:first-child{
+                margin-left: 0;
+            }
+        } 
     }    
 }
 
