@@ -101,6 +101,8 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
                 viewer.Id,
                 viewer.SubAccId,
                 viewer.IP,
+                viewer.Site,
+                AppSettings.SiteLabel,
                 CreationModes.LiteMode,
                 viewer.Language,
                 request.UIBehavior)));
