@@ -196,6 +196,8 @@ class MemberBettingBehavior {
                 turnovers.push(item.MemberTurnover);
             })
             this.turnoverBySportChart.draw(sportTypes, turnovers);
+        } else {
+            this.$("#turnover-by-sport-chart-id").hide();
         }
     }
 
@@ -212,6 +214,8 @@ class MemberBettingBehavior {
                 mixes.push(item.MixTurnover);
             })
             this.turnoverByBetTypeChart.draw(betTypes, lives, nonLives, mixes);
+        } else {
+            this.$("#turnover-by-bettype-chart-id").hide();
         }
     }
 
@@ -226,6 +230,8 @@ class MemberBettingBehavior {
                 winloss.push(item.WinLoss);
                 this.turnoverWinLossByDateChart.draw(dates, turnover1s, winloss);
             })
+        } else {
+            this.$("#turnover-winloss-by-date-chart-id").hide();
         }
     }
 }
