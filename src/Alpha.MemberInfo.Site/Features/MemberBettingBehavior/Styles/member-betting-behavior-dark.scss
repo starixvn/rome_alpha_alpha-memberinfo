@@ -416,6 +416,7 @@
             width: 48%;
             min-width: 48%;
             margin-right: 4%;
+            margin-left: 0;
 
             &:nth-child(even) {
                 margin-right: 0;
@@ -508,8 +509,6 @@
                     background: #4F4F4F;
                 }
             }
-
-         
         }
     }
 
@@ -530,6 +529,11 @@
 
     .turnover-winloss-by-date-chart {
         height: auto;
+        min-height: 300px;
+
+        > * {
+            width: 100%;
+        }
     }
 
     .body-box-member-chart {
