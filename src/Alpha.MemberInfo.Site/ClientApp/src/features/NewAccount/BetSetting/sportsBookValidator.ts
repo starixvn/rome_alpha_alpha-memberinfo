@@ -41,11 +41,43 @@ export default class SportsBookValidator implements IBetSettingValidator<SportsB
     const { minBet, maxBet, maxPerMatch, maxPayoutPerMatch } = this.betSettings;
     if (maxPayoutPerMatch === null) {
       const betSettings = JSON.stringify([minBet, maxBet, maxPerMatch]);
-      return betSettings === JSON.stringify([0, 0, 0]) || betSettings === JSON.stringify([0, 0.1, 0.1]);
+      return (
+        betSettings === JSON.stringify([0, 0, 0]) ||
+        betSettings === JSON.stringify([0, 0.1, 0.1]) ||
+        (minBet === 0 &&
+          maxBet <= this.betSettingConfigs.maxBet &&
+          maxPerMatch <= this.betSettingConfigs.maxPerMatch &&
+          maxBet <= maxPerMatch) ||
+        (minBet === 0 && maxBet === 0 && maxPerMatch <= this.betSettingConfigs.maxPerMatch)
+      );
     }
 
     const betSettings = JSON.stringify([minBet, maxBet, maxPerMatch, maxPayoutPerMatch]);
-    return betSettings === JSON.stringify([0, 0, 0, 0]) || betSettings === JSON.stringify([0, 0.1, 0.1, 0.1]);
+    return (
+      betSettings === JSON.stringify([0, 0, 0, 0]) ||
+      betSettings === JSON.stringify([0, 0.1, 0.1, 0.1]) ||
+      (minBet === 0 &&
+        maxPayoutPerMatch !== undefined &&
+        this.betSettingConfigs.maxPayoutPerMatch !== undefined &&
+        maxBet <= this.betSettingConfigs.maxBet &&
+        maxPerMatch <= this.betSettingConfigs.maxPerMatch &&
+        maxPayoutPerMatch <= this.betSettingConfigs.maxPayoutPerMatch &&
+        maxBet <= maxPerMatch &&
+        maxPerMatch <= maxPayoutPerMatch) ||
+      (minBet === 0 &&
+        maxBet === 0 &&
+        maxPayoutPerMatch !== undefined &&
+        this.betSettingConfigs.maxPayoutPerMatch !== undefined &&
+        maxPerMatch <= this.betSettingConfigs.maxPerMatch &&
+        maxPayoutPerMatch <= this.betSettingConfigs.maxPayoutPerMatch &&
+        maxPerMatch <= maxPayoutPerMatch) ||
+      (minBet === 0 &&
+        maxBet === 0 &&
+        maxPerMatch === 0 &&
+        maxPayoutPerMatch !== undefined &&
+        this.betSettingConfigs.maxPayoutPerMatch !== undefined &&
+        maxPayoutPerMatch <= this.betSettingConfigs.maxPayoutPerMatch)
+    );
   }
 
   private validateMinBet(prop?: keyof SportsBookBetSettingItem) {
