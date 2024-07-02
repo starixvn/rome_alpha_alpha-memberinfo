@@ -781,8 +781,7 @@
     <Content Include="assets\styles\images\createAccount\default\zh-TW\light\lv4.img3.png" />
     <Content Include="assets\styles\images\not-reviewed.png" />
     <Content Include="assets\styles\images\open.png" />
-    <Content Include="ClientApp\dist\assets\createAccount-c5205fb8.css" />
-    <Content Include="ClientApp\dist\assets\createAccount-fd4aa92e.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-64544cbf.js" />
     <Content Include="ClientApp\dist\assets\index-06d353a9.css" />
     <Content Include="ClientApp\dist\assets\index-8dfb63e2.js" />
     <Content Include="ClientApp\dist\assets\productSettingInfo-19dc73f6.css" />
