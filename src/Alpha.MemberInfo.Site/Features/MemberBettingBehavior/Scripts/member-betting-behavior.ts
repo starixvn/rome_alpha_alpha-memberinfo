@@ -189,6 +189,7 @@ class MemberBettingBehavior {
 
     renderTurnoverBySportChart(data) {
         if (data.length > 0) {
+            this.$("#turnover-by-sport-chart-id").show();
             const sportTypes = [];
             const turnovers = [];
             data.forEach((item) => {
@@ -203,6 +204,7 @@ class MemberBettingBehavior {
 
     renderTurnoverByBettypeChart(data) {
         if (data.length > 0) {
+            this.$("#turnover-by-bettype-chart-id").show();
             const betTypes = [];
             const lives = [];
             const nonLives = [];
@@ -221,6 +223,7 @@ class MemberBettingBehavior {
 
     renderTurnoverWinLossByDatesChart(data) {
         if (data.length > 0) {
+            this.$("#turnover-winloss-by-date-chart-id").show();
             const dates = [];
             const turnover1s = [];
             const winloss = [];

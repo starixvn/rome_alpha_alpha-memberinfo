@@ -67,6 +67,7 @@ class TurnoverBySportChart {
                             size: '12px'
                         },
                         formatter: (value, ctx) => this.calculatePercentage(ctx, value) >= 1 ? `${this.calculatePercentage(ctx, value)}%` : '',
+                        display: "auto",
                         labels: {
                             index: {
                                 anchor: (ctx) => this.getPercentagePosition(ctx),
@@ -89,7 +90,7 @@ class TurnoverBySportChart {
     }
 
     private getPercentagePosition(ctx) {
-        return 'center';
+        return 'end';
     }
 
     private calculatePercentage(ctx, value: number) {
@@ -97,6 +98,6 @@ class TurnoverBySportChart {
         const dataArray = ctx.chart.data.datasets[0].data;
         dataArray.map(data => sum += data);
 
-        return Math.round((value * 100) / sum);
+        return Math.round((value * 100 * 100) / sum) / 100;
     }
 }
