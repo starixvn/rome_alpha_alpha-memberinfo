@@ -53,6 +53,7 @@ export default class RNGGamesValidator implements IBetSettingValidator<RNGGamesB
         maxPerMatch <= this.betSettingConfigs.maxPerMatch &&
         maxPerBall <= this.betSettingConfigs.maxPerBall &&
         maxBet <= maxPerMatch &&
+        maxPerBall >= maxBet &&
         maxPerBall <= maxPerMatch) ||
       (minBet === 0 &&
         maxBet === 0 &&
