@@ -179,10 +179,26 @@ class MemberBettingBehavior {
     }
 
     renderSummaryStatistic(data) {
-        this.$("#summary-turnover").text(`${SiteHelper.FormatCompactNumber(data.Turnover)}`).addClass(data.Turnover < 0 ? "redText" : "");
-        this.$("#summary-margin").text(`${data.Margin}%`).addClass(data.Margin < 0 ? "redText" : "");
-        this.$("#summary-winloss").text(`${SiteHelper.FormatCompactNumber(data.WinLoss)}`).addClass(data.WinLoss < 0 ? "redText" : "");
-        this.$("#summary-betcount").text(data.BetCount).addClass(data.BetCount < 0 ? "redText" : "");
+        this.$("#summary-turnover")
+            .text(`${SiteHelper.FormatCompactNumber(data.Turnover)}`)
+            .addClass(data.Turnover < 0 ? "redText" : "")
+            .removeClass(data.Turnover >= 0 ? "redText" : "");
+
+        this.$("#summary-margin")
+            .text(`${data.Margin}%`)
+            .addClass(data.Margin < 0 ? "redText" : "")
+            .removeClass(data.Margin >= 0 ? "redText" : "");
+
+        this.$("#summary-winloss")
+            .text(`${SiteHelper.FormatCompactNumber(data.WinLoss)}`)
+            .addClass(data.WinLoss < 0 ? "redText" : "")
+            .removeClass(data.WinLoss >= 0 ? "redText" : "");
+
+        this.$("#summary-betcount")
+            .text(data.BetCount)
+            .addClass(data.BetCount < 0 ? "redText" : "")
+            .removeClass(data.BetCount >= 0 ? "redText" : "");
+
         this.summaryStatistic.addClass("value");
         this.summaryStatistic.show();
     }
