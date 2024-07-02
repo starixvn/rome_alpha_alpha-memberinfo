@@ -1085,6 +1085,93 @@
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>您的上線已設置會員最高信用：{0}</value>
   </data>
+  <data name="MemberBettingBehavior" xml:space="preserve">
+    <value>會員投注模式</value>
+  </data>
+  <data name="CustomerProfile" xml:space="preserve">
+    <value>客戶簡介</value>
+  </data>
+  <data name="BettingStatistic" xml:space="preserve">
+    <value>投注統計</value>
+  </data>
+  <data name="DateRange" xml:space="preserve">
+    <value>日期範圍</value>
+  </data>
+  <data name="Last90Days" xml:space="preserve">
+    <value>過去 90 天</value>
+  </data>
+  <data name="Last60Days" xml:space="preserve">
+    <value>過去 60 天</value>
+  </data>
+  <data name="Last30Days" xml:space="preserve">
+    <value>過去 30 天</value>
+  </data>
+  <data name="TurnoverBySport" xml:space="preserve">
+    <value>按運動項目劃分的投注額</value>
+  </data>
+  <data name="TurnoverByBetType" xml:space="preserve">
+    <value>按投注類型劃分的投注額</value>
+  </data>
+  <data name="TurnoverAndWinLossByDate" xml:space="preserve">
+    <value>按日期劃分投注額和輸贏</value>
+  </data>
+  <data name="RelatedToOtherAccounts" xml:space="preserve">
+    <value>與其他帳號關聯</value>
+  </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>監控會員</value>
+  </data>
+  <data name="TotalTurnover" xml:space="preserve">
+    <value>總投注額</value>
+  </data>
+  <data name="NetTurnover" xml:space="preserve">
+    <value>淨投注額</value>
+  </data>
+  <data name="Average" xml:space="preserve">
+    <value>平均</value>
+  </data>
+  <data name="MemberUsernameIsInvalid" xml:space="preserve">
+    <value>會員賬號無效。</value>
+  </data>
+  <data name="Margin" xml:space="preserve">
+    <value>利潤率</value>
+  </data>
+  <data name="BetCount" xml:space="preserve">
+    <value>注單數額</value>
+  </data>
+  <data name="Bettype" xml:space="preserve">
+    <value>投注類別</value>
+  </data>
+  <data name="Stake" xml:space="preserve">
+    <value>投注額 </value>
+  </data>
+  <data name="WinLossText" xml:space="preserve">
+    <value>輸贏</value>
+  </data>
+  <data name="Win" xml:space="preserve">
+    <value>輸贏</value>
+  </data>
+  <data name="Lose" xml:space="preserve">
+    <value>輸</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>和</value>
+  </data>
+  <data name="Winning" xml:space="preserve">
+    <value>贏額</value>
+  </data>
+  <data name="Losing" xml:space="preserve">
+    <value>損失</value>
+  </data>
+  <data name="Sports" xml:space="preserve">
+    <value>體育</value>
+  </data>
+  <data name="NonLive" xml:space="preserve">
+    <value>非滾球</value>
+  </data>
+  <data name="Mix" xml:space="preserve">
+    <value>混合</value>
+  </data>
   <data name="MonitoredMember" xml:space="preserve">
     <value>監控會員</value>
   </data>

@@ -1074,7 +1074,7 @@ Notes: your password is cAsE sEnSiTiVe.</value>
     <value>Live</value>
   </data>
   <data name="Bettype" xml:space="preserve">
-    <value>Bettype</value>
+    <value>Bet Type</value>
   </data>
   <data name="Canceled" xml:space="preserve">
     <value>Canceled</value>
@@ -1092,13 +1092,13 @@ Notes: your password is cAsE sEnSiTiVe.</value>
     <value>Win</value>
   </data>
   <data name="TurnoverBySport" xml:space="preserve">
-    <value>Turnover By Sport</value>
+    <value>Turnover by Sport</value>
   </data>
   <data name="TurnoverByBetType" xml:space="preserve">
-    <value>Turnover By Bet Type</value>
+    <value>Turnover by Bet Type</value>
   </data>
   <data name="TurnoverAndWinLossByDate" xml:space="preserve">
-    <value>Turnover &amp; Win Loss By Date</value>
+    <value>Turnover &amp; Win/Loss by Date</value>
   </data>
   <data name="NonLive" xml:space="preserve">
     <value>Non-Live</value>
@@ -1125,7 +1125,7 @@ Notes: your password is cAsE sEnSiTiVe.</value>
     <value>Betting Statistic</value>
   </data>
   <data name="CustomerProfile" xml:space="preserve">
-    <value>Customer Profile</value>
+    <value>Member Profile</value>
   </data>
   <data name="DateRange" xml:space="preserve">
     <value>Date Range</value>
@@ -1146,7 +1146,7 @@ Notes: your password is cAsE sEnSiTiVe.</value>
     <value>Net Turnover</value>
   </data>
   <data name="RelatedToOtherAccounts" xml:space="preserve">
-    <value>Related to Other Accounts</value>
+    <value>Related to other accounts</value>
   </data>
   <data name="Stake" xml:space="preserve">
     <value>Stake</value>

@@ -456,7 +456,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bettype.
+        ///   Looks up a localized string similar to Bet Type.
         /// </summary>
         public static string Bettype {
             get {
@@ -789,7 +789,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Customer Profile.
+        ///   Looks up a localized string similar to Member Profile.
         /// </summary>
         public static string CustomerProfile {
             get {
@@ -2572,7 +2572,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Related to Other Accounts.
+        ///   Looks up a localized string similar to Related to other accounts.
         /// </summary>
         public static string RelatedToOtherAccounts {
             get {
@@ -3098,7 +3098,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turnover &amp; Win Loss By Date.
+        ///   Looks up a localized string similar to Turnover &amp; Win/Loss by Date.
         /// </summary>
         public static string TurnoverAndWinLossByDate {
             get {
@@ -3107,7 +3107,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turnover By Bet Type.
+        ///   Looks up a localized string similar to Turnover by Bet Type.
         /// </summary>
         public static string TurnoverByBetType {
             get {
@@ -3116,7 +3116,7 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turnover By Sport.
+        ///   Looks up a localized string similar to Turnover by Sport.
         /// </summary>
         public static string TurnoverBySport {
             get {
