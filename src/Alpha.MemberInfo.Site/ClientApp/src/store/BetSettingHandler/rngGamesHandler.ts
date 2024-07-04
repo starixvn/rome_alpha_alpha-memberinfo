@@ -23,7 +23,7 @@ export const copyRNGGamesBetSettings = (
         minBet: betSettingItem.minBet,
         maxBet: betSettingItem.maxBet,
         maxPerMatch: betSettingItem.maxPerMatch,
-        maxPerBall: item.maxPerBall === null ? null : betSettingItem.maxPerBall,
+        maxPerBall: betSettingItem.maxPerBall === null ? item.maxPerBall : betSettingItem.maxPerBall,
       };
     }
     return item;

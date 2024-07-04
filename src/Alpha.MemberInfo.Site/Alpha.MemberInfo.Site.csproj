@@ -553,18 +553,6 @@
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
       <DependentUpon>member-requests.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist-dark.css" />
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist-dark.min.css">
-      <DependentUpon>confirm-add-to-watchlist-dark.css</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.css" />
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.js" />
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.min.css">
-      <DependentUpon>confirm-add-to-watchlist.css</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.min.js">
-      <DependentUpon>confirm-add-to-watchlist.js</DependentUpon>
-    </Content>
     <Content Include="assets\bundles\problem-account\index-dark.css" />
     <Content Include="assets\bundles\problem-account\index-dark.min.css">
       <DependentUpon>index-dark.css</DependentUpon>
@@ -793,7 +781,19 @@
     <Content Include="assets\styles\images\createAccount\default\zh-TW\light\lv4.img3.png" />
     <Content Include="assets\styles\images\not-reviewed.png" />
     <Content Include="assets\styles\images\open.png" />
-    <Content Include="ClientApp\dist\assets\createAccount-c203214a.js" />
+    <Content Include="assets\styles\problem-account\index-dark.css">
+      <DependentUpon>index-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\index.css">
+      <DependentUpon>index.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\update-dark.css">
+      <DependentUpon>update-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\update.css">
+      <DependentUpon>update.scss</DependentUpon>
+    </Content>
+    <Content Include="ClientApp\dist\assets\createAccount-55c3b6db.js" />
     <Content Include="ClientApp\dist\assets\index-06d353a9.css" />
     <Content Include="ClientApp\dist\assets\index-8dfb63e2.js" />
     <Content Include="ClientApp\dist\assets\productSettingInfo-19dc73f6.css" />
@@ -1039,30 +1039,6 @@
     </Content>
     <Content Include="assets\styles\member-info.min.css">
       <DependentUpon>member-info.css</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\problem-account\index-dark.css">
-      <DependentUpon>index-dark.scss</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\problem-account\index-dark.min.css">
-      <DependentUpon>index-dark.css</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\problem-account\index.css">
-      <DependentUpon>index.scss</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\problem-account\index.min.css">
-      <DependentUpon>index.css</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\problem-account\update-dark.css">
-      <DependentUpon>update-dark.scss</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\problem-account\update-dark.min.css">
-      <DependentUpon>update-dark.css</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\problem-account\update.css">
-      <DependentUpon>update.scss</DependentUpon>
-    </Content>
-    <Content Include="assets\styles\problem-account\update.min.css">
-      <DependentUpon>update.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\quick-introduction.min.css">
       <DependentUpon>quick-introduction.css</DependentUpon>
@@ -1617,8 +1593,6 @@
     <Content Include="App_Code\Components\Pager.cshtml" />
     <Content Include="assets\styles\_columns-control.scss" />
     <Content Include="App_Data\SPNames\Local\DBCust.IPDB.BODBDownlineNet.xml" />
-    <Content Include="assets\styles\problem-account\index.scss" />
-    <Content Include="assets\styles\problem-account\update.scss" />
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\Master.xls" />
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\Agent.xls" />
     <Content Include="App_Data\ExcelTemplates\ProblemAccount\Member.xls" />
@@ -1635,8 +1609,6 @@
     <Content Include="assets\styles\abstracts\_variables.scss" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountList.xls" />
     <Content Include="App_Data\ExcelTemplates\DormantAccountList\DormantAccountListHideDateTime.xls" />
-    <Content Include="assets\styles\problem-account\index-dark.scss" />
-    <Content Include="assets\styles\problem-account\update-dark.scss" />
     <Content Include="assets\styles\_columns-control-dark.scss" />
     <Content Include="assets\styles\common-dark.scss" />
     <Content Include="assets\styles\credit-balance-dark.scss" />
@@ -1645,6 +1617,10 @@
     <Content Include="assets\styles\win-loss-limit-dark.scss" />
     <Content Include="App_Data\ExcelTemplates\MemberBettingBehavior\MemberBettingBehavior.xls" />
     <Content Include="App_Code\Components\DateRangePickerJQuery.cshtml" />
+    <Content Include="assets\styles\problem-account\index-dark.scss" />
+    <Content Include="assets\styles\problem-account\index.scss" />
+    <Content Include="assets\styles\problem-account\update-dark.scss" />
+    <Content Include="assets\styles\problem-account\update.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
