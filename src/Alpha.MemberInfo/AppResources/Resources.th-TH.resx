@@ -1204,6 +1204,18 @@
   <data name="WatchlistMemberSummary" xml:space="preserve">
     <value>สรุปรายการเฝ้าดู</value>
   </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Turnover_(Live)" xml:space="preserve">
+    <value>เงินหมุนเวียน (สด)</value>
+  </data>
+  <data name="Turnover_(NonLive)" xml:space="preserve">
+    <value>เงินหมุนเวียน (ไม่สด)</value>
+  </data>
+  <data name="MixTurnover" xml:space="preserve">
+    <value>เงินหมุนเวียนรวมกัน</value>
+  </data>
   <data name="CompactCopy" xml:space="preserve">
     <value>คัดลอกแบบรวบรัด</value>
   </data>

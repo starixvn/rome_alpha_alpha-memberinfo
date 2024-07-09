@@ -18,9 +18,9 @@
     {
         Task<CustomerProfile> GetCustomerProfile(int custId, string siteName);
 
-        Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics(int custId, DateTime startDate, DateTime endDate, string siteName);
+        Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics(int custId, DateTime startDate, DateTime endDate, string siteName, string language);
 
-        Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData(int custId, DateTime startDate, DateTime endDate, string siteName);
+        Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData(int custId, DateTime startDate, DateTime endDate, string siteName, string language);
     }
 
     public class MemberBettingBehaviorServiceImpl : MemberBettingBehaviorService
@@ -82,7 +82,7 @@
             return customerProfile;
         }
 
-        public async Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics(int custId, DateTime startDate, DateTime endDate, string siteName)
+        public async Task<MemberBettingStatistic> GetMemberBettingBehaviorStatistics(int custId, DateTime startDate, DateTime endDate, string siteName, string language)
         {
             var criteria = new GetMemberBettingStatisticsCriteria(custId, startDate, endDate);
             partialUMService.ThrowIfUM(criteria.GetSettingKey(), siteName);
@@ -92,7 +92,7 @@
             var turnOverBybettypes = new List<TurnoverByBettype>();
             var turnOverWinLossByDates = new List<TurnoverWinLossByDate>();
 
-            var cacheKey = $"{StatisticCacheKey}.{custId}.{startDate.Day}";
+            var cacheKey = $"{StatisticCacheKey}.{language}.{custId}.{startDate.Day}";
             var memberStatisticCacheData = await cacheService.GetAsync<MemberBettingStatistic>(cacheKey);
 
             if(memberStatisticCacheData != null)
@@ -131,7 +131,7 @@
             return new MemberBettingStatistic(summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates);
         }
 
-        public async Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData(int custId, DateTime startDate, DateTime endDate, string siteName)
+        public async Task<BettingStatisticExportData> GetMemberBettingStatisticExcelData(int custId, DateTime startDate, DateTime endDate, string siteName, string language)
         {
             var criteria = new GetMemberBettingStatisticsExportCriteria(custId, startDate, endDate);
             partialUMService.ThrowIfUM(criteria.GetSettingKey(), siteName);
@@ -139,7 +139,7 @@
             var bettingStatisticExports = new List<BettingStatisticExportRow>();
             BettingStatisticExportRow total;
 
-            var cacheKey = $"{StatisticExportCacheKey}.{custId}.{startDate.Day}";
+            var cacheKey = $"{StatisticExportCacheKey}.{language}.{custId}.{startDate.Day}";
             var memberStatisticExportCacheData = await cacheService.GetAsync<BettingStatisticExportData>(cacheKey);
 
             if(memberStatisticExportCacheData != null)

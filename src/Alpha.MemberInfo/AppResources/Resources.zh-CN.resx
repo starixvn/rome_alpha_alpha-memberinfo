@@ -1174,6 +1174,18 @@
   <data name="Mix" xml:space="preserve">
     <value>混合</value>
   </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Turnover_(Live)" xml:space="preserve">
+    <value>投注额 (现场)</value>
+  </data>
+  <data name="Turnover_(NonLive)" xml:space="preserve">
+    <value>投注额 (非现场)</value>
+  </data>
+  <data name="MixTurnover" xml:space="preserve">
+    <value>混合投注额</value>
+  </data>
   <data name="MonitoredMember" xml:space="preserve">
     <value>监控会员</value>
   </data>

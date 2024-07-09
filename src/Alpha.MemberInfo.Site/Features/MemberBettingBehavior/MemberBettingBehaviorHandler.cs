@@ -28,7 +28,7 @@
 
         public async Task<ExcelFileViewModel> Handle(MemberBettingBehaviorExcelQuery message)
         {
-            var memberBettingBehaviors = await service.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndState, message.Site);
+            var memberBettingBehaviors = await service.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndState, message.Site, message.LanguageKey);
 
             var fileContent = workbook
                 .SetData(memberBettingBehaviors.BettingStatisticExportRows, memberBettingBehaviors.Total)
@@ -92,6 +92,6 @@
         }
 
         public async Task<MemberBettingStatistic> Handle(MemberBettingStatisticQuery message)
-            => await service.GetMemberBettingBehaviorStatistics(message.MemberCustId, message.StartDate, message.EndState, message.Site);
+            => await service.GetMemberBettingBehaviorStatistics(message.MemberCustId, message.StartDate, message.EndState, message.Site, message.LanguageKey);
     }
 }

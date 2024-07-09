@@ -244,7 +244,7 @@ class MemberBettingBehavior {
             const turnover1s = [];
             const winloss = [];
             data.forEach((item) => {
-                dates.push(item.WinLostDate.length >= 5 ? item.WinLostDate.substring(0, 5) : item.WinLostDate);
+                dates.push(item.WinLostDate.length >= 10 ? item.WinLostDate.substring(0, 10) : item.WinLostDate);
                 turnover1s.push(item.Turnover);
                 winloss.push(item.WinLoss);
                 this.turnoverWinLossByDateChart.draw(dates, turnover1s, winloss);
