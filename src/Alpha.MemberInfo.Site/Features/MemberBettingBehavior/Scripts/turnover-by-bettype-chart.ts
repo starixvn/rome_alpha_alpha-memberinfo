@@ -81,7 +81,7 @@ class TurnoverByBetTypeChart {
                             callback: (value) => SiteHelper.FormatCompactNumber(value)
                         },
                         grid: {
-                            display: true,
+                            display: false,
                             color: this.isDarkMode ? "#2F2F2F" : "#999"
                         }
                     }
