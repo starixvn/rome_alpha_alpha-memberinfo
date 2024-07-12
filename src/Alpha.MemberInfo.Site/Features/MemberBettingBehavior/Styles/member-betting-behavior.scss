@@ -388,11 +388,28 @@
     width: 100%;
     height: 353px;
 }
+.nodata {
+    text-align: center;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        margin-bottom: 10px;
+    }
 
+    p {
+        font-size: 20px;
+        color: #537090;
+        font-weight: bold;
+        margin: 0;
+    }
+}
 @media only screen and (max-device-width: 767px) {
     .box-member {
         width: 100%;
     }
+
     .body-box-member-profile {
         gap: 0;
 
@@ -439,6 +456,7 @@
             }
         }
     }
+
     .range {
         width: 100%;
 
@@ -454,12 +472,13 @@
                     width: 100%;
                 }
 
-                .multiselect .multiselect-selected-text{
+                .multiselect .multiselect-selected-text {
                     width: 100%;
                 }
             }
         }
     }
+
     .summary-statistic {
         width: 100%;
         flex-direction: row;
@@ -493,6 +512,7 @@
             }
         }
     }
+
     .turnover-by-sport-chart {
         width: 100%;
         height: auto;
@@ -502,10 +522,12 @@
     .turnover-by-bettype-chart {
         width: 100%;
         height: auto;
-        > *{
+
+        > * {
             width: 100%;
         }
     }
+
     .turnover-winloss-by-date-chart {
         height: auto;
         min-height: 300px;
@@ -514,7 +536,12 @@
             width: 100%;
         }
     }
-    .body-box-member-chart{
+
+    .body-box-member-chart {
         padding-bottom: 70px;
+    }
+    .nodata {
+        padding: 40px 0 0;
+        height: auto;
     }
 }
