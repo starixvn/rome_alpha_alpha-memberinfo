@@ -1070,46 +1070,73 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Hạn Mức Tín Dụng Tối Đa Của Member Cấp Bởi Cấp Trên：{0}</value>
   </data>
   <data name="CustomerProfile" xml:space="preserve">
-    <value>Member Profile</value>
+    <value>Hồ Sơ Member</value>
   </data>
   <data name="MemberBettingBehavior" xml:space="preserve">
-    <value>Member Betting Behavior</value>
+    <value>Hành Vi Đặt Cược Member</value>
   </data>
   <data name="BettingStatistic" xml:space="preserve">
-    <value>Betting Statistic</value>
+    <value>Thống Kê Cược</value>
   </data>
   <data name="DateRange" xml:space="preserve">
-    <value>Date Range</value>
+    <value>Giai đoạn</value>
   </data>
   <data name="Last90Days" xml:space="preserve">
-    <value>Last 90 days</value>
+    <value>90 ngày trước</value>
   </data>
   <data name="Last60Days" xml:space="preserve">
-    <value>Last 60 days</value>
+    <value>60 ngày trước</value>
   </data>
   <data name="Last30Days" xml:space="preserve">
-    <value>Last 30 days</value>
+    <value>30 ngày trước</value>
   </data>
   <data name="TurnoverBySport" xml:space="preserve">
-    <value>Turnover by Sport</value>
+    <value>Tiền Cược Theo Môn Thể Thao</value>
   </data>
   <data name="TurnoverByBetType" xml:space="preserve">
-    <value>Turnover by Bet Type</value>
+    <value>Tiền Cược Theo Loại Cược</value>
   </data>
   <data name="TurnoverAndWinLossByDate" xml:space="preserve">
-    <value>Turnover &amp; Win/Loss by Date</value>
+    <value>Tiền Cược &amp; Thắng Thua Theo Ngày</value>
   </data>
   <data name="RelatedToOtherAccounts" xml:space="preserve">
-    <value>Related to other accounts</value>
+    <value>Liên quan đến tài khoản khác</value>
   </data>
   <data name="MonitoredMember" xml:space="preserve">
-    <value>Monitored Member</value>
+    <value>Đang theo dõi</value>
   </data>
   <data name="TotalTurnover" xml:space="preserve">
-    <value>Total Turnover</value>
+    <value>Tổng tiền cược</value>
   </data>
   <data name="WinLossText" xml:space="preserve">
     <value>Thắng thua</value>
+  </data>
+  <data name="NetTurnover" xml:space="preserve">
+    <value>Tiền cược thực</value>
+  </data>
+  <data name="Average" xml:space="preserve">
+    <value>Trung bình</value>
+  </data>
+  <data name="MemberUsernameIsInvalid" xml:space="preserve">
+    <value>Tên người dùng không đúng.</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Turnover_(Live)" xml:space="preserve">
+    <value>Tiền Cược (Trực Tiếp)</value>
+  </data>
+  <data name="Turnover_(NonLive)" xml:space="preserve">
+    <value>Tiền Cược (Chưa bắt đầu)</value>
+  </data>
+  <data name="MixTurnover" xml:space="preserve">
+    <value>Tiền cược tổng hợp</value>
+  </data>
+  <data name="BetCount" xml:space="preserve">
+    <value>Số lượng cược</value>
+  </data>
+  <data name="Margin" xml:space="preserve">
+    <value>Lợi nhuận</value>
   </data>
   <data name="introCopyNote" xml:space="preserve">
     <value>Nhấn 'Sao chép' để sao chép và chia sẻ thông tin tài khoản</value>

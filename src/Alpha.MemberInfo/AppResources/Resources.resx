@@ -1077,7 +1077,7 @@ Notes: your password is cAsE sEnSiTiVe.</value>
     <value>Bet Type</value>
   </data>
   <data name="Canceled" xml:space="preserve">
-    <value>Canceled</value>
+    <value>Cancelled</value>
   </data>
   <data name="Draw" xml:space="preserve">
     <value>Draw</value>
