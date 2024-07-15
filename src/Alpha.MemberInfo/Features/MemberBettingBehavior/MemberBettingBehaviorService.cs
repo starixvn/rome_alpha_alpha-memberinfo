@@ -92,7 +92,7 @@
             var turnOverBybettypes = new List<TurnoverByBettype>();
             var turnOverWinLossByDates = new List<TurnoverWinLossByDate>();
 
-            var cacheKey = $"{StatisticCacheKey}.{language}.{custId}.{startDate.Day}";
+            var cacheKey = $"{StatisticCacheKey}.{language}.{custId}.{startDate.Day}.{endDate.Day}";
             var memberStatisticCacheData = await cacheService.GetAsync<MemberBettingStatistic>(cacheKey);
 
             if(memberStatisticCacheData != null)
@@ -139,7 +139,7 @@
             var bettingStatisticExports = new List<BettingStatisticExportRow>();
             BettingStatisticExportRow total;
 
-            var cacheKey = $"{StatisticExportCacheKey}.{language}.{custId}.{startDate.Day}";
+            var cacheKey = $"{StatisticExportCacheKey}.{language}.{custId}.{startDate.Day}.{endDate.Day}";
             var memberStatisticExportCacheData = await cacheService.GetAsync<BettingStatisticExportData>(cacheKey);
 
             if(memberStatisticExportCacheData != null)

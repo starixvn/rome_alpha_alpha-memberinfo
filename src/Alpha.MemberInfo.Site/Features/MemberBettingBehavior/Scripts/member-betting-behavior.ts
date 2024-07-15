@@ -152,7 +152,18 @@ class MemberBettingBehavior {
                     this.$.unblockUI();
                     return;
                 }
+
+                if (memberStatistic.SummaryStatistic.BetCount === 0) {
+                    this.statisticBlock.show();
+                    this.$("#no-infomation").show();
+                    this.$("#statistic-chart-id").hide();
+                    this.$.unblockUI();
+                    return;
+                }
+                                                    
                 this.statisticBlock.show();
+                this.$("#no-infomation").hide();
+                this.$("#statistic-chart-id").show();
                 this.renderSummaryStatistic(memberStatistic.SummaryStatistic);
                 this.renderTurnoverBySportChart(memberStatistic.TurnOverBySports);
                 this.renderTurnoverByBettypeChart(memberStatistic.TurnoverByBettypes);
