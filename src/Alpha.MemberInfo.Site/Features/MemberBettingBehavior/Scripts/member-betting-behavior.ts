@@ -57,8 +57,6 @@ class MemberBettingBehavior {
 
         this.$('#btn-submit').click(() => this.handleSubmit());
 
-        this.txtUsername.focusout(() => this.handleSubmit());
-
         this.$("#DateRangeId").on("change", () => {
             const username = this.checkMemberUsername();
             if (username) {
