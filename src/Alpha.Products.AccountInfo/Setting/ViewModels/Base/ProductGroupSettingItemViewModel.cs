@@ -8,6 +8,9 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Base
         protected readonly ISearchAccountInfoRequest request;
         private const int ProductGroupStartIndex = 10;
 
+        private const int BitcoinProductId = 69;
+        private const int OtherGamesGroupId = 4;
+
         public ProductGroupSettingItemViewModel(ISearchAccountInfoRequest request, int productGroupId)
            : base(request, ProductGroupStartIndex + productGroupId)
         {
@@ -17,7 +20,7 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Base
 
         public int ProductGroupId { get; }
 
-        public override string Text => request.GetProductGroupName(ProductGroupId);
+        public override string Text => (ProductGroupId == OtherGamesGroupId ? request.GetProductName(BitcoinProductId) : request.GetProductGroupName(ProductGroupId));
 
         public override string Icon
             => request.GetData<bool>(DataKey.Actor.HasUpdateAccountPermission)

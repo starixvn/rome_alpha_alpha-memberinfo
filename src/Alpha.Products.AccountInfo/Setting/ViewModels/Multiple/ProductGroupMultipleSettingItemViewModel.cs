@@ -6,6 +6,10 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Multiple
 {
     public class ProductGroupMultipleSettingItemViewModel : ProductGroupSettingItemViewModel, ISettingItemMultipleViewModel
     {
+
+        private const int BitcoinProductId = 69;
+        private const int OtherGamesGroupId = 4;
+
         public ProductGroupMultipleSettingItemViewModel(ISearchAccountInfoRequest request, int productGroupId)
             : base(request, productGroupId)
         {
@@ -34,7 +38,8 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Multiple
            ["usernames"] = request.GetData<string>("usernames"),
        };
 
-        public override string Text => $"{request.GetResource("EditMultiple")} {request.GetProductGroupName(ProductGroupId)}";
+        public override string Text => $"{request.GetResource("EditMultiple")} " +
+            $"{(ProductGroupId == OtherGamesGroupId ? request.GetProductName(BitcoinProductId) : request.GetProductGroupName(ProductGroupId))}";
 
         public override string Icon => "icon-edit Enable";
 

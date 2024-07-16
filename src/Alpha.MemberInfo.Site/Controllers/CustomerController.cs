@@ -34,6 +34,7 @@ namespace Alpha.MemberInfo.Site.Controllers
         private readonly SessionManager sessionManager;
         private readonly IAesService aesService;
         private readonly ICustomerService customerService;
+        private const int otherGamesGroupId = 4;
 
         public CustomerController(
             Encryptor encryptor,
@@ -170,7 +171,25 @@ namespace Alpha.MemberInfo.Site.Controllers
                 return UnAuthorized();
             }
 
-            var response = await customerService.UpdateCustomer(
+            if (request.ProductGroups.Contains("[{\"id\":4,"))
+            {
+                return Content(await customerService.UpdateBitcoinCustomer(
+                    new UpdateCustomerParam(
+                        request.GeneralInfo,
+                        request.ProductGroups,
+                        request.ViewerId,
+                        request.SubAccId,
+                        request.CustId,
+                        request.CustName,
+                        request.RoleId,
+                        request.UplineRoleId,
+                        request.IP,
+                        request.Site,
+                        AppSettings.SiteLabel,
+                        request.Language)));
+            }
+
+            return Content(await customerService.UpdateCustomer(
                 new UpdateCustomerParam(
                     request.GeneralInfo,
                     request.ProductGroups,
@@ -183,9 +202,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                     request.IP,
                     request.Site,
                     AppSettings.SiteLabel,
-                    request.Language));
-
-            return Content(response);
+                    request.Language)));
         }
 
         [HttpPost, AntiXsrfFilter]
@@ -196,7 +213,26 @@ namespace Alpha.MemberInfo.Site.Controllers
                 return UnAuthorized();
             }
 
-            var response = await customerService.UpdateMultipleCustomers(
+            if (request.ProductGroups.Contains("[{\"id\":4,"))
+            {
+                return Content(await customerService.UpdateBitcoinMultipleCustomers(
+                    new UpdateMultipleCustomerParam(
+                        request.ProductGroups,
+                        request.ViewerId,
+                        request.SubAccId,
+                        request.CustId,
+                        request.CustName,
+                        request.RoleId,
+                        request.UplineRoleId,
+                        request.IP,
+                        request.CustomerIds,
+                        request.CustomerNames,
+                        request.Site,
+                        AppSettings.SiteLabel,
+                        request.Language)));
+            }
+
+            return Content(await customerService.UpdateMultipleCustomers(
                 new UpdateMultipleCustomerParam(
                     request.ProductGroups,
                     request.ViewerId,
@@ -210,13 +246,33 @@ namespace Alpha.MemberInfo.Site.Controllers
                     request.CustomerNames,
                     request.Site,
                     AppSettings.SiteLabel,
-                    request.Language));
-
-            return Content(response);
+                    request.Language)));
         }
 
         public async Task<ActionResult> GetCustomerSetting(GetCustomerSettingRequest request)
-            => Content(await customerService.GetCustomerSetting(request.CustId, request.RoleId, systemId, request.UplineRoleId, request.Language, request.IsGetUpLine, request.ProductGroupId, request.SiteLabel));
+        {
+            if (request.ProductGroupId == otherGamesGroupId)
+            {
+                return Content(await customerService.GetBitcoinCustomerSetting(
+                request.CustId,
+                request.RoleId,
+                systemId,
+                request.UplineRoleId,
+                request.Language,
+                request.SiteLabel));
+            }
+
+            return Content(await customerService.GetCustomerSetting(
+            request.CustId,
+            request.RoleId,
+            systemId,
+            request.UplineRoleId,
+            request.Language,
+            request.IsGetUpLine,
+            request.ProductGroupId,
+            request.SiteLabel));
+        }
+
 
         public async Task<ActionResult> GetCurrentWinLossAmount(CustomerWinLossAmountQuery request)
          => Content(await customerService.GetCustomerCurrentWinLossAmounts(request.CustId, request.SportType, request.BetType, request.Language));

@@ -38,6 +38,11 @@ namespace Alpha.Products.AccountInfo.Setting
 
         protected override ISettingItemViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)
         {
+            if (productItem.ProductId == 69)
+            {
+                return new ProductGroupSettingItemViewModel(request, 4);
+            }
+
             return new DynamicProductViewModel(request, productItem);
         }
     }
