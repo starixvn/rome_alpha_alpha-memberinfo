@@ -30,15 +30,16 @@
         {
             var memberBettingBehaviors = await service.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndState, message.Site, message.LanguageKey);
 
+            var fileName = $"{Resources.MemberBettingBehavior}-{message.UserName}-{message.StartDate.ToString("MM/dd/yyyy")}-{message.EndState.ToString("MM/dd/yyyy")}";
             var fileContent = workbook
                 .SetData(memberBettingBehaviors.BettingStatisticExportRows, memberBettingBehaviors.Total)
                 .SetRowMappers(GetNormalRowMapper(), GetTotalRowMapper())
                 .UseTemplate(GetTemplateInfo())
-                .Title(string.Empty)
+                .Title(fileName)
                 .Header(Resources.ResourceManager.GetString)
                 .ExportToBytes();
 
-            return new ExcelFileViewModel("MemberBettingBehavior", fileContent);
+            return new ExcelFileViewModel(fileName, fileContent);
         }
 
         private static Mapper<BettingStatisticExportRow> GetBodyRowMapper()

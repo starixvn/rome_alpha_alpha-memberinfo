@@ -1851,15 +1851,6 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monitored Member.
-        /// </summary>
-        public static string MonitoredMember {
-            get {
-                return ResourceManager.GetString("MonitoredMember", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The number of Members must not exceed 50.
         /// </summary>
         public static string MoreThan50UsernamesError {
