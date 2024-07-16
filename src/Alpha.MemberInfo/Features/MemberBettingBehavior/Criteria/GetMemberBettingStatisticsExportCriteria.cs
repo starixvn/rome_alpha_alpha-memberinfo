@@ -19,7 +19,7 @@
         public DateTime DateEnd { get; }
 
         public override string GetSettingKey()
-            => "Acc_Rpt_CustomerBettingBehavior_Statistic_Export";
+            => "Age_Rpt_CustomerBettingBehavior_Statistic_Export";
 
         public override bool IsValid()
             => CustId > 0;
