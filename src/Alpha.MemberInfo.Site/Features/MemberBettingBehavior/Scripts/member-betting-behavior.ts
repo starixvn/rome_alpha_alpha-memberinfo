@@ -183,6 +183,10 @@ class MemberBettingBehavior {
             this.$("#monitored-item").hide();
         } else {
             this.$("#monitored-member").text(memberProfile.IsMonitoredMember ? yesText : noText);
+            this.$("#monitored-member").on("click", () => {
+                const url = `${window.top.alpha.urls.memberInfoRootPath}/MyWatchlistAccounts/ManageWatchlistAccounts?usernames=${this.txtUsername.val()}`;
+                window.top["popupManager"].open(url, undefined, 820, 550, "modal-mobile-friendly");
+            })
             this.$("#monitored-item").show();
         }
         this.$("#problem-account").text(memberProfile.IsProblemAccount ? yesText : noText);
