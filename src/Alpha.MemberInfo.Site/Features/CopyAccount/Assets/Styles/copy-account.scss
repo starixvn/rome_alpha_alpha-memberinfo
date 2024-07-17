@@ -3,23 +3,23 @@
 }
 
 .tooltip {
-    background-color: transparent;
-    border-color: transparent;
+     background-color: transparent;
+     border-color: transparent;
 
-    .tooltip-inner {
-        padding: 8px;
-        background: #2E2E2E;
-        font-size: 12px;
-        line-height: 20px;
-        max-width: 250px;
-        color: #EDEDED;
-        text-align: inherit;
-    }
+     .tooltip-inner {
+         padding: 8px;
+         background: #2E2E2E;
+         font-size: 12px;
+         line-height: 20px;
+         max-width: 250px;
+         color: #EDEDED;
+         text-align: inherit;
+     }
 
-    .tooltip-arrow {
-        border-bottom-color: #2E2E2E !important;
-    }
-}
+     .tooltip-arrow {
+         border-bottom-color: #2E2E2E !important;
+     }
+ }
 
 .icon-credit {
     font-size: 20px;
@@ -782,4 +782,37 @@ select:-webkit-autofill:focus {
     padding: 2px 5px;
     margin-right: 3px;
     border-radius: 3px;
+}
+
+.btn-border {
+    padding: 2px 5px;
+    color: #0b589c;
+    background: transparent;
+    border: 1px solid #0b589c;
+    font-size: 13px;
+    outline: none;
+    border-radius: 3px;
+    &:hover{
+        color: #fff;
+        background: #0b589c;
+    }             
+}
+
+// result copy account
+.result {
+    .note {
+        font-size: 13px;
+    }
+
+    .form-value {
+        border: 1px solid #d1d1d1;
+        padding: 5px 7px;
+        background: #E6E6E6 !important;
+        border-radius: 3px;
+        min-height: 33px;
+        height: auto;
+        line-height: 22px;
+        width: 100% !important;
+        font-size: 13px!important;
+    }
 }

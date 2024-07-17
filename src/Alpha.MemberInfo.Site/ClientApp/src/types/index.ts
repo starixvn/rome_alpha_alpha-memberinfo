@@ -5,7 +5,11 @@ export interface Result {
   ErrMsg?: string;
 }
 
-export interface SubMessagesResult extends Result {
+export interface AvailableAlphaDomain extends Result {
+  availableAlphaDomain: string[];
+}
+
+export interface SubMessagesResult extends AvailableAlphaDomain {
   subMessages: {
     isLive: boolean;
     message: string;

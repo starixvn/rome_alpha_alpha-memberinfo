@@ -11,6 +11,5 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
         
         public int NoOfFailedAccount { get; set; }
         
-        public string Domains { get; set; } = string.Join(", ", "Domain1.com", "Domain2.com");
     }
 }

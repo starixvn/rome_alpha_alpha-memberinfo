@@ -29,12 +29,12 @@
     "src": "index.css"
   },
   "src/pages/createAccount.css": {
-    "file": "assets/createAccount-a50e7ae2.css",
+    "file": "assets/createAccount-c5205fb8.css",
     "src": "src/pages/createAccount.css"
   },
   "src/pages/createAccount.tsx": {
     "css": [
-      "assets/createAccount-a50e7ae2.css"
+      "assets/createAccount-c5205fb8.css"
     ],
     "file": "assets/createAccount-45d52c6c.js",
     "imports": [

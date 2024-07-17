@@ -346,6 +346,7 @@
       "assets/scripts/aes.js"
     ]
   },
+
   /************************** Dark Mode ************************/
   {
     "outputFileName": "assets/bundles/default-dark.css",
@@ -425,6 +426,24 @@
     "inputFiles": [
       "Features/CopyAccount/Assets/Styles/copy-account-dark.css",
       "Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/easy-autocomplete.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/account-info-tab.css",
+    "inputFiles": [
+      "assets/styles/account-info-tab.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/account-info-tab-dark.css",
+    "inputFiles": [
+      "assets/styles/account-info-tab-dark.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/account-info-tab/index.js",
+    "inputFiles": [
+      "assets/scripts/account-info-tab/index.js"
     ]
   }
 ]

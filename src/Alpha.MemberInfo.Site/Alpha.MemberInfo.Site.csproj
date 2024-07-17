@@ -138,8 +138,8 @@
     <Reference Include="Fanex.Cryptography.Aes, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Cryptography.Aes.1.0.0.5\lib\net461\Fanex.Cryptography.Aes.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Customer.Client, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Customer.Client.1.0.0.6\lib\netstandard2.0\Fanex.Customer.Client.dll</HintPath>
+    <Reference Include="Fanex.Customer.Client, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Customer.Client.1.0.0.7-beta01\lib\netstandard2.0\Fanex.Customer.Client.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Customer.Client.NETFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Customer.Client.NETFramework.1.0.0\lib\net461\Fanex.Customer.Client.NETFramework.dll</HintPath>
@@ -484,6 +484,19 @@
     <Content Include="App_Data\SPNames\UAT\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\SiteDB.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\UAT\SiteDB.CustDB.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\account-info-tab-dark.css" />
+    <Content Include="assets\bundles\account-info-tab-dark.min.css">
+      <DependentUpon>account-info-tab-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\account-info-tab.css" />
+    <Content Include="assets\bundles\account-info-tab.min.css">
+      <DependentUpon>account-info-tab.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\account-info-tab\index-dark.css" />
+    <Content Include="assets\bundles\account-info-tab\index.js" />
+    <Content Include="assets\bundles\account-info-tab\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\credit-balance-dark.css" />
     <Content Include="assets\bundles\credit-balance-dark.min.css">
       <DependentUpon>credit-balance-dark.css</DependentUpon>
@@ -578,6 +591,14 @@
     </Content>
     <Content Include="assets\scripts\aes.js" />
     <Content Include="assets\scripts\indirect-login-account\quick-introduction.js" />
+    <Content Include="assets\styles\account-info-tab-dark.scss" />
+    <Content Include="assets\styles\account-info-tab.css">
+      <DependentUpon>account-info-tab.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\account-info-tab.min.css">
+      <DependentUpon>account-info-tab.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\account-info-tab.scss" />
     <Content Include="assets\styles\images\createAccount\site789y\en-Us\dark\lv2.img1.png" />
     <Content Include="assets\styles\images\createAccount\site789y\en-Us\dark\lv2.img2.png" />
     <Content Include="assets\styles\images\createAccount\site789y\en-Us\dark\lv2.img3.png" />
@@ -761,7 +782,7 @@
     <Content Include="assets\styles\images\not-reviewed.png" />
     <Content Include="assets\styles\images\open.png" />
     <Content Include="ClientApp\dist\assets\createAccount-45d52c6c.js" />
-    <Content Include="ClientApp\dist\assets\createAccount-a50e7ae2.css" />
+    <Content Include="ClientApp\dist\assets\createAccount-c5205fb8.css" />
     <Content Include="ClientApp\dist\assets\index-06d353a9.css" />
     <Content Include="ClientApp\dist\assets\index-8dfb63e2.js" />
     <Content Include="ClientApp\dist\assets\productSettingInfo-19dc73f6.css" />
@@ -897,6 +918,7 @@
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
     <TypeScriptCompile Include="assets\scripts\components\daterangepicker-jquery.ts" />
+    <TypeScriptCompile Include="assets\scripts\account-info-tab\index.ts" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\edit-setting-popup.ts" />
     <TypeScriptCompile Include="assets\scripts\shared\customer-status-helper.ts" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
@@ -1356,6 +1378,7 @@
     <Compile Include="Features\CreateAccount\Requests\CreateAccountRequest.cs" />
     <Compile Include="Features\CreateAccount\Requests\CreatePTTemplateRequest.cs" />
     <Compile Include="Features\CreateAccount\Requests\EditPTTemplateRequest.cs" />
+    <Compile Include="Features\CreateAccount\ViewModels\AccountInfoViewModel.cs" />
     <Compile Include="Features\CreateAccount\ViewModels\CreateAccountViewModel.cs" />
     <Compile Include="Features\CreateAccount\ViewModels\ProductSettingInfoViewModel.cs" />
     <Compile Include="Features\CreateAccount\ViewModels\PTTemplateViewModel.cs" />
@@ -1397,6 +1420,7 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\DeletePersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\GlobalThresholdQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageGlobalThresholdQuery.cs" />
+    <Compile Include="Requests\Customer\AccountInfoQuery.cs" />
     <Compile Include="Requests\Customer\CreateCustomerQuery.cs" />
     <Compile Include="Requests\Customer\CreateCustomerRequest.cs" />
     <Compile Include="Requests\Customer\CustomerWinLossAmountQuery.cs" />
@@ -1523,6 +1547,7 @@
     <Compile Include="ViewModels\ProblemAccount\UpdateReviewStatusViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\WinLossLimit\WinLossLimitViewModel.cs" />
+    <Content Include="Views\Customer\AccountInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">

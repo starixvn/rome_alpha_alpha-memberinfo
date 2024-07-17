@@ -445,7 +445,7 @@
     <value>Tên tài khoản đã được dùng.</value>
   </data>
   <data name="Domain" xml:space="preserve">
-    <value>Domain</value>
+    <value>Tên Miền</value>
   </data>
   <data name="PleaseInputMemberCredit" xml:space="preserve">
     <value>Vui lòng nhập mức tín dụng của Member</value>
@@ -1062,6 +1062,15 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>Hạn Mức Tín Dụng Tối Đa Của Member Cấp Bởi Cấp Trên：{0}</value>
+  </data>
+  <data name="introCopyNote" xml:space="preserve">
+    <value>Nhấn 'Sao chép' để sao chép và chia sẻ thông tin tài khoản</value>
+  </data>
+  <data name="CompactCopy" xml:space="preserve">
+    <value>Sao chép gộp</value>
+  </data>
+  <data name="IndividualCopy" xml:space="preserve">
+    <value>Sao chép lẻ</value>
   </data>
   <data name="MonitoredMember" xml:space="preserve">
     <value>Đang theo dõi</value>
