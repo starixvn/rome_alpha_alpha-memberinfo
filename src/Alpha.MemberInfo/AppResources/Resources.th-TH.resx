@@ -268,10 +268,10 @@
     <value>คลิกขวาที่ด้านบนเพื่อแสดง / ซ่อนคอลัมน์</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>มี</value>
   </data>
   <data name="No2" xml:space="preserve">
-    <value>No</value>
+    <value>ไม่มี</value>
   </data>
   <data name="MemberWinLossLimit" xml:space="preserve">
     <value>จำกัด ได้/เสีย ของสมาชิก</value>
@@ -1080,5 +1080,35 @@
   </data>
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>เครดิตสมาชิกสูงสุดที่กำหนดโดยอัพไลน์ของคุณ: {0}</value>
+  </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>สมาชิกที่กำลังเฝ้าดู</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>ใช้งานอยู่</value>
+  </data>
+  <data name="AddedDate" xml:space="preserve">
+    <value>เพิ่มวันที่</value>
+  </data>
+  <data name="ClickToSetThresholds" xml:space="preserve">
+    <value>คลิกเพื่อตั้งค่าเกณฑ์</value>
+  </data>
+  <data name="Monitored" xml:space="preserve">
+    <value>เฝ้าดูอยู่</value>
+  </data>
+  <data name="ReachedLimitToday" xml:space="preserve">
+    <value>ถึงขีดจำกัดรายวัน</value>
+  </data>
+  <data name="UnlimitedThreshold" xml:space="preserve">
+    <value>เกณฑ์ไม่จำกัด</value>
+  </data>
+  <data name="UnlimitedThresholdNote" xml:space="preserve">
+    <value>เกณฑ์ไม่จำกัด หมายความว่าคุณเพิกเฉยต่อเกณฑ์และจะไม่ได้รับการแจ้งเตือน</value>
+  </data>
+  <data name="WatchlistDetails" xml:space="preserve">
+    <value>รายละเอียดรายการเฝ้าดู</value>
+  </data>
+  <data name="WatchlistMemberSummary" xml:space="preserve">
+    <value>สรุปรายการเฝ้าดู</value>
   </data>
 </root>

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Requests
+﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Requests
 {
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.ViewModels;
@@ -22,5 +20,7 @@ namespace Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Request
         public decimal? LosingThreshold { get; set; }
 
         public bool IsEdit { get; set; }
+
+        public bool MyWatchlistPage { get; set; }
     }
 }

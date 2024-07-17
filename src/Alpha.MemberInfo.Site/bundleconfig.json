@@ -24,12 +24,6 @@
     ]
   },
   {
-    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist.css",
-    "inputFiles": [
-      "assets/styles/problem-account/confirm-add-to-watchlist.css"
-    ]
-  },
-  {
     "outputFileName": "assets/bundles/problem-account/update.css",
     "inputFiles": [
       "assets/styles/problem-account/update.css"
@@ -72,12 +66,6 @@
       "assets/scripts/ProblemAccount/edit-setting-popup.js",
       "assets/scripts/shared/ajax-helper.js"
 
-    ]
-  },
-  {
-    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist.js",
-    "inputFiles": [
-      "assets/scripts/ProblemAccount/confirm-add-to-watchlist.js"
     ]
   },
   {
@@ -261,11 +249,14 @@
   {
     "outputFileName": "Features/MyWatchlist/MyWatchlistAccounts/Bundles/my-watchlist-accounts.js",
     "inputFiles": [
+      "assets/scripts/components/daterangepicker-jquery.js",
+      "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/shared/datatable-helper.js",
       "assets/scripts/shared/ajax-helper.js",
       "assets/scripts/shared/customer-status-helper.js",
       "Features/MyWatchlist/Shared/Scripts/my-watchlist-base.js",
       "Features/MyWatchlist/MyWatchlistAccounts/Scripts/edit-setting-popup.js",
+      "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-summary.js",
       "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts-datatable.js",
       "Features/MyWatchlist/MyWatchlistAccounts/Scripts/my-watchlist-accounts.js"
     ]
@@ -378,12 +369,6 @@
     "outputFileName": "assets/bundles/problem-account/index-dark.css",
     "inputFiles": [
       "assets/styles/problem-account/index-dark.css"
-    ]
-  },
-  {
-    "outputFileName": "assets/bundles/problem-account/confirm-add-to-watchlist-dark.css",
-    "inputFiles": [
-      "assets/styles/problem-account/confirm-add-to-watchlist-dark.css"
     ]
   },
   {

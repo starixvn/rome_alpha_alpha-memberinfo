@@ -1,11 +1,16 @@
 ﻿namespace Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Criteria
 {
+    using System;
     using Fanex.Data.Repository;
 
     public class SelectWatchlistAccountsCriteria : CriteriaBase
     {
         public SelectWatchlistAccountsCriteria(
-            int agentId, 
+            int agentId,
+            DateTime fromDate,
+            DateTime toDate,
+            string status,
+            byte problemAccount,
             string username, 
             byte sortType,
             bool isDesc,
@@ -14,6 +19,10 @@
             int sporttype = 0)
         {
             AgentId = agentId;
+            AddedFromDate = fromDate;
+            AddedToDate = toDate;
+            Status = status;
+            ProblemAccount = problemAccount;
             Username = username;
             SortType = sortType;
             IsDesc = isDesc;
@@ -23,6 +32,14 @@
         }
 
         public int AgentId { get; }
+
+        public DateTime AddedFromDate { get; }
+
+        public DateTime AddedToDate { get; }
+
+        public string Status { get; }
+
+        public byte ProblemAccount { get; }
 
         public string Username { get; }
 

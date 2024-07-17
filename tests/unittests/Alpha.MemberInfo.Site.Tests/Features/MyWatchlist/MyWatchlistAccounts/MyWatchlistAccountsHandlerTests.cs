@@ -41,8 +41,8 @@
            => new WatchlistAccountReport(
                   new List<WatchlistAccountModel>()
                   {
-                        new WatchlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), "Open", null, null, 0, 0, true),
-                        new WatchlistAccountModel(2, 2345, 0, "agent0102", new DateTime(), "Open", null, null, 0, 0, false),
+                        new WatchlistAccountModel(1, 1234, 0, "agent0101", new DateTime(), "Open", null, null, 0, 0, true, DateTime.Now),
+                        new WatchlistAccountModel(2, 2345, 0, "agent0102", new DateTime(), "Open", null, null, 0, 0, false, DateTime.Now),
                   },
               2);
 
@@ -51,7 +51,8 @@
         {
             // Arrange
             var myWatchlistAccountsMessage = new MyWatchlistAccountsQuery(user);
-            var watchlistAccountsMessage = new WatchlistAccountsQuery(user);
+            //var watchlistAccountsMessage = new WatchlistAccountsQuery(user);
+            var watchlistSummary = new WatchlistSummaryModel();
 
             var watchlistAccountReport = CreateWatchlistAccountReport();
             var globalThreshold = new GlobalThresholdModel(1000, 2000);
@@ -64,7 +65,7 @@
                 globalThreshold,
                 browserHelper.IsMobile(isOnlyTablet: false),
                 myWatchlistAccountsMessage.CanUpdateAccount,
-                new MyWatchlistAccountsPagingViewModel(watchlistAccountReport, watchlistAccountsMessage));
+                new MyWatchlistAccountsPagingViewModel(watchlistAccountReport, watchlistSummary));
 
             // Act
             var actualViewModel = await handler.Handle(myWatchlistAccountsMessage);
@@ -84,9 +85,10 @@
         {
             // Arrange
             var message = new WatchlistAccountsQuery(user);
+            var watchlistSummary = new WatchlistSummaryModel();
             var watchlistAccountReport = CreateWatchlistAccountReport();
             service.GetWatchlistAccounts(Arg.Any<SelectWatchlistAccountsParam>()).Returns(Task.FromResult(watchlistAccountReport));
-            var expectedViewModel = new MyWatchlistAccountsPagingViewModel(watchlistAccountReport, message);
+            var expectedViewModel = new MyWatchlistAccountsPagingViewModel(watchlistAccountReport, watchlistSummary);
 
             // Act
             var actualViewModel = await handler.Handle(message);
@@ -278,7 +280,8 @@
                 new PersonalPresetModel(1235, 0, "Preset2", 2000, 3000)
             };
             service.GetPresets(Arg.Any<SelectPresetsParam>()).Returns(Task.FromResult(presets));
-            var expectedViewModel = new ManageWatchlistAccountsViewModel(message, presets);
+            var threshold = new ThresholdViewModel(null, null);
+            var expectedViewModel = new ManageWatchlistAccountsViewModel(message, presets, threshold);
 
             // Act
             var actualViewModel = await handler.Handle(message);

@@ -1,0 +1,20 @@
+﻿@using Alpha.MemberInfo.Extensions;
+@using Alpha.MemberInfo.Site.ViewModels.Components;
+
+@helper Render(DateRangePickerJQueryViewModel model)
+{
+    <div class="form-group daterangepicker-container">
+        <label class="label-form-control">@model.DateRangeText</label>
+        <div class="input-group date datepicker">
+            <input type="text" class="form-control" id="daterange-picker" autocomplete="off" readonly
+                   data-mindate="@(model.MinDate == null ? string.Empty : model.MinDate.Value.ToShortDateWithSlash())"
+                   data-maxdate="@(model.MaxDate == null ? string.Empty : model.MaxDate.Value.ToShortDateWithSlash())"
+                   data-fromdate="@model.FromDate.ToShortDateWithSlash()"
+                   data-todate="@model.ToDate.ToShortDateWithSlash()"
+                   data-language="@model.Language" />
+            <label class="input-group-addon" for="daterange-picker">
+                <span class="icon-calendar"></span>
+            </label>
+        </div>
+    </div>
+}

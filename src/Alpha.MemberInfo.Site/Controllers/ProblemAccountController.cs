@@ -1,6 +1,5 @@
 ﻿namespace Alpha.MemberInfo.Site.Controllers
 {
-    using System.Threading.Tasks;
     using System.Web.Mvc;
     using System.Web.SessionState;
     using Alpha.MemberInfo.Site.Requests.ProblemAccount;
@@ -16,9 +15,6 @@
         {
         }
 
-        public async Task<ActionResult> ConfirmAddToWatchlist(ConfirmAddToWatchlistQuery message)
-            => await ViewAsync(message, ConfirmAddToWatchlistPath);
-
         public ActionResult Index(IndexRequest message)
             => View(message, "Index");
 
@@ -26,7 +22,6 @@
         public ActionResult Update(UpdateProblemAccountRequest message)
             => View(message, "Update");
         
-
         public ActionResult GetProblemAccounts(GetProblemAccountRequest message)
             => Json(message);
 

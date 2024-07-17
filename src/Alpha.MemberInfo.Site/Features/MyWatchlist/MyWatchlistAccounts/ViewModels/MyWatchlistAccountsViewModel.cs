@@ -1,12 +1,15 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.ViewModels
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+    using Alpha.MemberInfo.AppResources;
     using Alpha.MemberInfo.Configurations;
+    using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Models;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.MyWatchlistAccounts.Requests;
+    using Alpha.MemberInfo.Site.ViewModels.Components;
     using Alpha.Web.Helpers;
-    using Fanex.Common.Extensions;
-    using AlphaPlus.User.Models;
-    using System;
 
     public class MyWatchlistAccountsViewModel
     {
@@ -24,8 +27,11 @@
             MyWatchListAccountPagingViewModel = myWatchListAccountPagingViewModel;
             IsShowLastLoginColumn = request.IsShowLastLoginColumn;
             CustLevel = request.CustLevel.DisplayName;
-            IsOpenFromProblemAccount = request.IsOpenFromProblemAccount;
-            CustIds = request.CustIds;
+            DateRangePicker = new DateRangePickerJQueryViewModel(
+                Resources.AddedDate,
+                request.Language,
+                request.FromDate,
+                request.ToDate);
         }
 
         public int SearchAccountId { get; }
@@ -41,10 +47,26 @@
         public string CustLevel { get; }
 
         public bool CanUpdateAccount { get; }
-        public bool IsOpenFromProblemAccount { get; }
-        public string CustIds { get; }
 
-        public DateTime MinDate => DateTime.Today.AddMonths(-3).FirstDayOfMonth();
+        public DateRangePickerJQueryViewModel DateRangePicker { get; }
+
+        public IEnumerable<SelectListItem> Status
+            => ReachedThresholdStatusConstants.Items.Select(s => new SelectListItem
+            {
+                Text = Resources.ResourceManager.GetString(s.Value),
+                Value = s.Key.ToString(),
+                Selected = s.Key == ReachedThresholdStatusConstants.All
+            });
+
+        public IEnumerable<SelectListItem> ProblemAccounts
+        {
+            get
+            {
+                yield return new SelectListItem { Text = Resources.All, Value = "2", Selected = true };
+                yield return new SelectListItem { Text = Resources.Yes, Value = "1" };
+                yield return new SelectListItem { Text = Resources.No2, Value = "0" };
+            }
+        }
 
         public string UserGuideLink => AppSettings.IsSiteLabel789y ?
             MicroSites.MessageUrl("~/StaticMessage/Guide?id=179067") :

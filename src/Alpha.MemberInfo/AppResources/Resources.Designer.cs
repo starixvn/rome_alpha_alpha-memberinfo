@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -133,6 +133,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You can use Auto Transfer because upline has disabled All Day Balance Transfer for you. The page will refresh automatically..
         /// </summary>
         public static string ADBTOffError {
@@ -156,6 +165,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Add {
             get {
                 return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Added Date.
+        /// </summary>
+        public static string AddedDate {
+            get {
+                return ResourceManager.GetString("AddedDate", resourceCulture);
             }
         }
         
@@ -471,6 +489,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string ClearedGivenCredit {
             get {
                 return ResourceManager.GetString("ClearedGivenCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to Set thresholds.
+        /// </summary>
+        public static string ClickToSetThresholds {
+            get {
+                return ResourceManager.GetString("ClickToSetThresholds", resourceCulture);
             }
         }
         
@@ -1618,6 +1645,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monitored.
+        /// </summary>
+        public static string Monitored {
+            get {
+                return ResourceManager.GetString("Monitored", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monitored Member.
+        /// </summary>
+        public static string MonitoredMember {
+            get {
+                return ResourceManager.GetString("MonitoredMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The number of Members must not exceed 50.
         /// </summary>
         public static string MoreThan50UsernamesError {
@@ -2276,6 +2321,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reached Limit Today.
+        /// </summary>
+        public static string ReachedLimitToday {
+            get {
+                return ResourceManager.GetString("ReachedLimitToday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reached Threshold.
         /// </summary>
         public static string ReachedThreshold {
@@ -2775,6 +2829,24 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unlimited Threshold.
+        /// </summary>
+        public static string UnlimitedThreshold {
+            get {
+                return ResourceManager.GetString("UnlimitedThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unlimited threshold means you ignore the threshold and do not receive notifications..
+        /// </summary>
+        public static string UnlimitedThresholdNote {
+            get {
+                return ResourceManager.GetString("UnlimitedThresholdNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update.
         /// </summary>
         public static string Update {
@@ -2870,6 +2942,24 @@ namespace Alpha.MemberInfo.AppResources {
         public static string WasAddedWatchlistAlreadyError {
             get {
                 return ResourceManager.GetString("WasAddedWatchlistAlreadyError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Watchlist Details.
+        /// </summary>
+        public static string WatchlistDetails {
+            get {
+                return ResourceManager.GetString("WatchlistDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Watchlist Member Summary.
+        /// </summary>
+        public static string WatchlistMemberSummary {
+            get {
+                return ResourceManager.GetString("WatchlistMemberSummary", resourceCulture);
             }
         }
         

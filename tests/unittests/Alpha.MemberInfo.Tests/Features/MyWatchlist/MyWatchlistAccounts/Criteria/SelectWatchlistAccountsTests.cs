@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Tests.Features.MyWatchlist.MyWatchlistAccounts.Criteria
 {
+    using System;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Criteria;
     using Xunit;
 
@@ -18,7 +19,8 @@
             int pageSize = 100;
 
             // Act
-            var criteria = new SelectWatchlistAccountsCriteria(agentId, username, sortType, isDesc, pageIndex, pageSize);
+            var criteria = new SelectWatchlistAccountsCriteria(
+                agentId, DateTime.Now, DateTime.Now, string.Empty, 2 ,username, sortType, isDesc, pageIndex, pageSize);
 
             // Assert
             Assert.True(
@@ -37,7 +39,7 @@
         {
             // Arrange
             var expectedSettingKey = "Acc_WLMonitored_Player_WatchList_Sel";
-            var criteria = new SelectWatchlistAccountsCriteria(1234, "agent01",  0, true, 1, 100);
+            var criteria = new SelectWatchlistAccountsCriteria(1234, DateTime.Now, DateTime.Now, string.Empty, 2, "agent01",  0, true, 1, 100);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -53,7 +55,7 @@
         public void IsValid_Always_ReturnCorrectValue(int agentId, bool expectedValue)
         {
             // Arrange
-            var criteria = new SelectWatchlistAccountsCriteria(agentId, "agent01", 0, true, 1, 100);
+            var criteria = new SelectWatchlistAccountsCriteria(agentId, DateTime.Now, DateTime.Now, string.Empty, 2, "agent01", 0, true, 1, 100);
 
             // Act
             var actualValue = criteria.IsValid();

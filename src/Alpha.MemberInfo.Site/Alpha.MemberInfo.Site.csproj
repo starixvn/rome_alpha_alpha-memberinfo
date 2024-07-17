@@ -540,18 +540,6 @@
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
       <DependentUpon>member-requests.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist-dark.css" />
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist-dark.min.css">
-      <DependentUpon>confirm-add-to-watchlist-dark.css</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.css" />
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.js" />
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.min.css">
-      <DependentUpon>confirm-add-to-watchlist.css</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\problem-account\confirm-add-to-watchlist.min.js">
-      <DependentUpon>confirm-add-to-watchlist.js</DependentUpon>
-    </Content>
     <Content Include="assets\bundles\problem-account\index-dark.css" />
     <Content Include="assets\bundles\problem-account\index-dark.min.css">
       <DependentUpon>index-dark.css</DependentUpon>
@@ -772,10 +760,6 @@
     <Content Include="assets\styles\images\createAccount\default\zh-TW\light\lv4.img3.png" />
     <Content Include="assets\styles\images\not-reviewed.png" />
     <Content Include="assets\styles\images\open.png" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.css" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.min.css" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.css" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.min.css" />
     <Content Include="ClientApp\dist\assets\createAccount-8769a10f.js" />
     <Content Include="ClientApp\dist\assets\createAccount-a50e7ae2.css" />
     <Content Include="ClientApp\dist\assets\index-06d353a9.css" />
@@ -830,6 +814,7 @@
     </Content>
     <Content Include="Features\CreateAccount\Styles\quick-introduction.scss" />
     <Content Include="Features\CreateAccount\Views\ProductSettingInfo.cshtml" />
+    <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-summary.ts" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.js" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.min.js">
       <DependentUpon>reached-threshold-datatable.js</DependentUpon>
@@ -839,7 +824,6 @@
     <Content Include="IbcKeys\Web.config" />
     <Content Include="Views\Customer\SportBookInformation-Debug.cshtml" />
     <Content Include="Views\Customer\SportBookInformation.cshtml" />
-    <Content Include="Views\ProblemAccount\ConfirmAddToWatchlist.cshtml" />
     <Content Include="Web.AppSettings.pro4.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
@@ -912,6 +896,7 @@
     <Content Include="Web.pro5.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="assets\scripts\components\daterangepicker-jquery.ts" />
     <TypeScriptCompile Include="assets\scripts\ProblemAccount\edit-setting-popup.ts" />
     <TypeScriptCompile Include="assets\scripts\shared\customer-status-helper.ts" />
     <Content Include="assets\scripts\tests\libs\bootstrap\button.js" />
@@ -1229,8 +1214,6 @@
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account.scss" />
     <Content Include="Features\CopyAccount\Assets\Styles\copy-account-dark.scss" />
     <Content Include="Features\CopyAccount\Views\_CopyResult.cshtml" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist.scss" />
-    <Content Include="assets\styles\problem-account\confirm-add-to-watchlist-dark.scss" />
     <Content Include="deployment.pro4.ignore" />
     <Content Include="Features\CreateAccount\Views\Index.cshtml" />
     <Content Include="Features\CreateAccount\Views\PTTemplate.cshtml" />
@@ -1423,7 +1406,6 @@
     <Compile Include="Requests\Customer\UpdateCustomerRequest.cs" />
     <Compile Include="Requests\Customer\SportBookInformationQuery.cs" />
     <Compile Include="Requests\Customer\UpdateMultipleCustomerRequest.cs" />
-    <Compile Include="Requests\ProblemAccount\ConfirmAddToWatchlistQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManagePersonalThresholdPresetQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageWatchlistAccountsQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\MyWatchlistAccountsQuery.cs" />
@@ -1519,6 +1501,7 @@
     <Compile Include="Requests\ProblemAccount\UpdateProblemAccountRequest.cs" />
     <Compile Include="Requests\ProblemAccount\GetProblemAccountRequest.cs" />
     <Compile Include="Requests\WinLossLimit\WinLossLimitQuery.cs" />
+    <Compile Include="ViewModels\Components\DateRangePickerJQueryViewModel.cs" />
     <Compile Include="ViewModels\Components\DateRangePickerViewModel.cs" />
     <Compile Include="ViewModels\Components\PagerViewModel.cs" />
     <Compile Include="ViewModels\Components\ProductMultiSelectionViewModel.cs" />
@@ -1536,7 +1519,6 @@
     <Compile Include="ViewModels\IndirectLoginAccount\UpdatePasswordViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
-    <Compile Include="ViewModels\ProblemAccount\ConfirmAddToWatchlistViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\ProblemAccountReportViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\UpdateReviewStatusViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -1591,6 +1573,7 @@
     <Content Include="assets\styles\indirect-login-account-dark.scss" />
     <Content Include="assets\styles\member-info-dark.scss" />
     <Content Include="assets\styles\win-loss-limit-dark.scss" />
+    <Content Include="App_Code\Components\DateRangePickerJQuery.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -1783,7 +1766,6 @@
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyThresholds\Scripts\my-thresholds-settings.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyThresholds\Scripts\my-thresholds.ts" />
-    <TypeScriptCompile Include="assets\scripts\ProblemAccount\confirm-add-to-watchlist.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\Shared\Scripts\threshold-inputs-base.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\manage-global-threshold.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\manage-presets.ts" />

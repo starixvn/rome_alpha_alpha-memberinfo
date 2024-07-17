@@ -1,18 +1,16 @@
-﻿namespace Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Criteria
-{
-    using Fanex.Data.Repository;
+﻿//namespace Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts.Criteria
+//{
+//    using Fanex.Data.Repository;
 
-    public class SelectMultipleWatchlistCriteria : CriteriaBase 
-    {
-        public SelectMultipleWatchlistCriteria(string custList)
-        {
-            CustList = custList;
-        }
+//    public class SelectMultipleWatchlistCriteria : CriteriaBase 
+//    {
+//        public SelectMultipleWatchlistCriteria(string custIds)
+//            => CustList = custIds;
 
-        public string CustList { get; }
+//        public string CustList { get; }
 
-        public override string GetSettingKey() => "Acc_WLMonitored_CheckExistSettingByCust";
+//        public override string GetSettingKey() => "Acc_WLMonitored_CheckExistSettingByCust";
 
-        public override bool IsValid() => !string.IsNullOrWhiteSpace(CustList);
-    }
-}
+//        public override bool IsValid() => !string.IsNullOrWhiteSpace(CustList);
+//    }
+//}

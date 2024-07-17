@@ -58,7 +58,8 @@
 
         public DateTime LastLogged { get; set; }
 
-        public string LastLoggedString => LastLogged.ToLongDateTime12hWithHyphen();
+        public string LastLoggedString
+            => LastLogged == DateTime.MinValue ? "-" : LastLogged.ToLongDateTime12hWithHyphen();
 
         public DateTime LastReachedDate { get; set; }
 

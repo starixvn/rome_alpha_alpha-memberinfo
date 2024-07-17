@@ -1073,6 +1073,33 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="Live" xml:space="preserve">
     <value>Live</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AddedDate" xml:space="preserve">
+    <value>Added Date</value>
+  </data>
+  <data name="ClickToSetThresholds" xml:space="preserve">
+    <value>Click to Set thresholds</value>
+  </data>
+  <data name="Monitored" xml:space="preserve">
+    <value>Monitored</value>
+  </data>
+  <data name="ReachedLimitToday" xml:space="preserve">
+    <value>Reached Limit Today</value>
+  </data>
+  <data name="UnlimitedThreshold" xml:space="preserve">
+    <value>Unlimited Threshold</value>
+  </data>
+  <data name="UnlimitedThresholdNote" xml:space="preserve">
+    <value>Unlimited threshold means you ignore the threshold and do not receive notifications.</value>
+  </data>
+  <data name="WatchlistDetails" xml:space="preserve">
+    <value>Watchlist Details</value>
+  </data>
+  <data name="WatchlistMemberSummary" xml:space="preserve">
+    <value>Watchlist Member Summary</value>
+  </data>
   <data name="Min" xml:space="preserve">
     <value>Min</value>
   </data>
@@ -1084,5 +1111,8 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   </data>
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>The Maximum Member Credit set by your upline: {0}</value>
+  </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>Monitored Member</value>
   </data>
 </root>
