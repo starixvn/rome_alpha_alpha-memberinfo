@@ -5,13 +5,15 @@ export interface Result {
   ErrMsg?: string;
 }
 
-export interface AvailableAlphaDomain extends Result {
-  availableAlphaDomain: string[];
-}
-
-export interface SubMessagesResult extends AvailableAlphaDomain {
+export interface SubMessagesResult extends Result {
   subMessages: {
     isLive: boolean;
     message: string;
   }[];
+}
+
+export interface CreateAccountResult extends SubMessagesResult {
+  availableAlphaDomain?: string[];
+  newUserName: string;
+  userName: string;
 }

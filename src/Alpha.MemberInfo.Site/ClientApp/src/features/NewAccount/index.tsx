@@ -24,7 +24,7 @@ import styles from './NewAccount.module.scss';
 import NewAccountSuccessPopup from './NewAccountPopup/NewAccountSuccessPopup';
 import Popup from './NewAccountPopup/Popup';
 import TransferCondition from './TransferCondition';
-import { formatNumber } from "@/utils/number-format.ts";
+
 
 export default function NewAccount() {
   const { t } = useTranslation();
@@ -172,7 +172,7 @@ export default function NewAccount() {
       showPopup(
         <NewAccountSuccessPopup
           username={generalInfo.userName}
-          domain={result.availableAlphaDomain.slice(0,3).join(', ')}
+          domain={result.availableAlphaDomain?.slice(0,3).join(', ') || ''}
           credit={generalInfo.maxCredit?.toLocaleString("en-US", {
             style: "decimal",
             maximumFractionDigits: 2
