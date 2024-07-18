@@ -492,7 +492,6 @@
     <Content Include="assets\bundles\account-info-tab.min.css">
       <DependentUpon>account-info-tab.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\account-info-tab\index-dark.css" />
     <Content Include="assets\bundles\account-info-tab\index.js" />
     <Content Include="assets\bundles\account-info-tab\index.min.js">
       <DependentUpon>index.js</DependentUpon>
