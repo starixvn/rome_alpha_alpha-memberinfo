@@ -177,18 +177,30 @@ class MemberBettingBehavior {
         this.$("#customer-status").text(memberProfile.Status);
         this.$("#customer-level").text(memberProfile.Level);
         this.$("#customer-related-account").text(memberProfile.RelatedToOtherAccount ? yesText : noText);
-        if (memberProfile.IsMonitoredMember === null) {
-            this.$("#monitored-item").hide();
-        } else {
-            this.$("#monitored-member").text(memberProfile.IsMonitoredMember ? yesText : noText);
-            this.$("#monitored-member").on("click", () => {
-                const url = `${window.top.alpha.urls.memberInfoRootPath}/MyWatchlistAccounts/ManageWatchlistAccounts?usernames=${this.txtUsername.val()}`;
-                window.top["popupManager"].open(url, undefined, 820, 550, "modal-mobile-friendly");
-            })
-            this.$("#monitored-item").show();
-        }
+        this.showMonitoredMember(memberProfile.IsMonitoredMember);
         this.$("#problem-account").text(memberProfile.IsProblemAccount ? yesText : noText);
         this.customerProfile.show();
+    }
+
+    showMonitoredMember(isMonitoredMember) {
+        if (isMonitoredMember === null) {
+            this.$("#monitored-item").hide();
+            return;
+        }
+
+        if (isMonitoredMember) {
+            this.$("#monitored-member-yes").show();
+            this.$("#monitored-member-no").hide();
+            return;
+        }
+
+        this.$("#monitored-member-yes").hide();
+        this.$("#monitored-member-no").show();
+        this.$("#btn-add-watchlist").on("click", () => {
+            const url = `${window.top.alpha.urls.memberInfoRootPath}/MyWatchlistAccounts/ManageWatchlistAccounts?usernames=${this.txtUsername.val()}`;
+            window.top["popupManager"].open(url, undefined, 820, 550, "modal-mobile-friendly");
+        })
+        this.$("#monitored-item").show();
     }
 
     renderSummaryStatistic(data) {

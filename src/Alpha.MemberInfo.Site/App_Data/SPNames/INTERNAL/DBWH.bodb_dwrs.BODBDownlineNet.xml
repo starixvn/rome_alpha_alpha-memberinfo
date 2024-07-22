@@ -1,6 +1,0 @@
-﻿<Functions SiteId="105" SiteName="Member Information">
-	<Function Name="Member Betting Behavior">
-		<Setting Key="Acc_Rpt_CustomerBettingBehavior_Statistic_Sel" SpName="Acc_Rpt_CustomerBettingBehavior_Statistic_Sel" DbName="DBWH.bodb_dwrs.wsv_alpv" Plain="0"/>
-		<Setting Key="Acc_Rpt_CustomerBettingBehavior_Statistic_Export" SpName="Acc_Rpt_CustomerBettingBehavior_Statistic_Export" DbName="DBWH.bodb_dwrs.wsv_alpv" Plain="0"/>
-	</Function>
-</Functions>
