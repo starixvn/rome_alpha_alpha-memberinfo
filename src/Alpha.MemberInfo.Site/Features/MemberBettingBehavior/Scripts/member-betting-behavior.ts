@@ -177,14 +177,14 @@ class MemberBettingBehavior {
         this.$("#customer-status").text(memberProfile.Status);
         this.$("#customer-level").text(memberProfile.Level);
         this.$("#customer-related-account").text(memberProfile.RelatedToOtherAccount ? yesText : noText);
-        this.showMonitoredMember(memberProfile.IsMonitoredMember);
+        this.showMonitoredMember(memberProfile.IsMonitoredMember,() => this.handleClosePopup());
         this.$("#problem-account").text(memberProfile.IsProblemAccount ? yesText : noText);
         this.customerProfile.show();
     }
 
-    showMonitoredMember(isMonitoredMember) {
+    showMonitoredMember(isMonitoredMember, handleClosePopup) {
         if (isMonitoredMember === null) {
-            this.$("#monitored-item").hide();
+            this.$("#monitored-item").hide();                                                           
             return;
         }
 
@@ -197,10 +197,25 @@ class MemberBettingBehavior {
         this.$("#monitored-member-yes").hide();
         this.$("#monitored-member-no").show();
         this.$("#btn-add-watchlist").on("click", () => {
+            let addMyWatchList = window.top['addMyWatchListPopup'];
+            if (window.top['addMyWatchListPopup'] === null || window.top['addMyWatchListPopup'] === undefined) {
+                addMyWatchList = window.top.ageWnd.createInstance();
+                addMyWatchList.onClosing = function () {
+                    handleClosePopup()
+                }
+            }
+            window.top['addMyWatchListPopup'] = addMyWatchList;
+            window.top["reloadMyWatchlistDataTable"] = () => {
+                window.top['addMyWatchListPopup'].close();
+            };
             const url = `${window.top.alpha.urls.memberInfoRootPath}/MyWatchlistAccounts/ManageWatchlistAccounts?usernames=${this.txtUsername.val()}`;
-            window.top["popupManager"].open(url, undefined, 820, 550, "modal-mobile-friendly");
+            window.top["popupManager"].openWithHanlder(window.top['addMyWatchListPopup'], url, undefined, 820, 550, "modal-mobile-friendly");      
         })
         this.$("#monitored-item").show();
+    }
+
+    handleClosePopup() {
+        this.getMemberProfile(this.checkMemberUsername());
     }
 
     renderSummaryStatistic(data) {
