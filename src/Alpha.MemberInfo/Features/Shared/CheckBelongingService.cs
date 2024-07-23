@@ -11,6 +11,8 @@
         BelongingInfo GetBelongingInfo(CheckBelongingParam param);
 
         Task<BelongingInfo> GetBelongingInfoAsync(CheckBelongingParam param);
+
+        Task<DownlineInfo> CheckBelongingByUsername(int custId, int subAccountId, string username);
     }
 
     public class CheckBelongingServiceImpl : CheckBelongingService
@@ -38,6 +40,13 @@
             await dynamicRepository.ExecuteAsync(command);
 
             return new BelongingInfo(command.IsActive, command.RoleId, command.Username);
+        }
+
+        public async Task<DownlineInfo> CheckBelongingByUsername(int custId, int subAccountId, string username)
+        {
+            var command = new CheckBelongingByUsernameCommand(custId, username, subAccountId);
+            await dynamicRepository.ExecuteAsync(command);
+            return new DownlineInfo(command.IsActive, command.CustId, command.IsSubAcc, command.RoleId);
         }
     }
 }

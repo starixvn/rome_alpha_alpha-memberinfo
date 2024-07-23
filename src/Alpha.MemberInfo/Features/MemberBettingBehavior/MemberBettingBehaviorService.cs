@@ -60,24 +60,24 @@
             var criteria = new GetCustomerProfileCriteria(custId);
             partialUMService.ThrowIfUM(criteria.GetSettingKey(), siteName);
             var customerProfile = await dynamicRepository.GetAsync<CustomerProfile>(criteria);
-            if(criteria.ErrCode == 0)
+            if(customerProfile != null)
             {
                 customerProfile.Status = refService.GetCustomerProfileStatus(customerProfile.CategoryID);
                 customerProfile.Level = refService.GetCustomerProfileLevel(customerProfile.CategoryID);
                 customerProfile.RelatedToOtherAccount = customerProfile.IsProblemAccount;
-            }
-
-            if(!customerProfile.RelatedToOtherAccount)
-            {
-                try
+                if(!customerProfile.RelatedToOtherAccount)
                 {
-                    var customerAssociation = await httpClient.GetAsJsonAsync<CustomerAssociation>($"cts/Association/CheckByCustId?custId={custId}");
-                    customerProfile.RelatedToOtherAccount = customerAssociation.IsAssociated;
-                } catch(Exception ex)
-                {
-                    ExceptionHandler.Handle(ex);
+                    try
+                    {
+                        var customerAssociation = await httpClient.GetAsJsonAsync<CustomerAssociation>($"cts/Association/CheckByCustId?custId={custId}");
+                        customerProfile.RelatedToOtherAccount = customerAssociation.IsAssociated;
+                    } catch(Exception ex)
+                    {
+                        ExceptionHandler.Handle(ex);
+                    }
                 }
             }
+
 
             return customerProfile;
         }

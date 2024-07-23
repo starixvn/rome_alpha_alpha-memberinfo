@@ -446,6 +446,7 @@
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectFirstLoginByQRCodeCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Criteria\SelectCreditAndStatusCriteria.cs" />
     <Compile Include="Features\Shared\CheckBelongingService.cs" />
+    <Compile Include="Features\Shared\Criteria\CheckBelongingByUsernameCommand.cs" />
     <Compile Include="Features\Shared\Criteria\CheckBelongingInDBCustCommand.cs" />
     <Compile Include="Features\Shared\Criteria\SelectAutoSuggestionCriteria.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\Models\PasswordModel.cs" />
@@ -454,6 +455,7 @@
     <Compile Include="Features\QRCodeMemberSignIn\Models\ResultCreateMemberQRCode.cs" />
     <Compile Include="Features\Shared\Models\BelongingInfo.cs" />
     <Compile Include="Features\Shared\Models\CustInfo.cs" />
+    <Compile Include="Features\Shared\Models\DownlineInfo.cs" />
     <Compile Include="Features\Shared\Models\StatusNames.cs" />
     <Compile Include="Features\Shared\Models\UsernameSuggestion.cs" />
     <Compile Include="Features\QRCodeMemberSignIn\PasswordService.cs">

@@ -17,18 +17,20 @@
         IAsyncRequestHandler<MemberBettingStatisticQuery, MemberBettingStatistic>,
         IAsyncRequestHandler<MemberBettingBehaviorExcelQuery, ExcelFileViewModel>
     {
-        private readonly MemberBettingBehaviorService service;
+        private readonly MemberBettingBehaviorService bettingBeharviorService;
         private readonly MemberBettingBehaviorWorkbook workbook;
 
-        public MemberBettingBehaviorHandler(MemberBettingBehaviorService service, MemberBettingBehaviorWorkbook workbook)
+        public MemberBettingBehaviorHandler(
+            MemberBettingBehaviorService bettingBeharviorService,
+            MemberBettingBehaviorWorkbook workbook)
         {
-            this.service = service;
+            this.bettingBeharviorService = bettingBeharviorService;
             this.workbook = workbook;            
         }
 
         public async Task<ExcelFileViewModel> Handle(MemberBettingBehaviorExcelQuery message)
         {
-            var memberBettingBehaviors = await service.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndState, message.Site, message.LanguageKey);
+            var memberBettingBehaviors = await bettingBeharviorService.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndState, message.Site, message.LanguageKey);
 
             var fileName = $"{Resources.MemberBettingBehavior}-{message.UserName}-{message.StartDate.ToString("MM/dd/yyyy")}-{message.EndState.ToString("MM/dd/yyyy")}";
             var fileContent = workbook
@@ -84,15 +86,16 @@
 
         public async Task<CustomerProfile> Handle(MemberProfileQuery message)
         {
-            var profile = await service.GetCustomerProfile(message.MemberCustId, message.Site);
+            var profile = await bettingBeharviorService.GetCustomerProfile(message.MemberCustId, message.Site);
             if(message.ViewerLevelId != UserLevelConstant.Agent)
             {
                 profile.IsMonitoredMember = null;
             }
+
             return profile;
         }
 
         public async Task<MemberBettingStatistic> Handle(MemberBettingStatisticQuery message)
-            => await service.GetMemberBettingBehaviorStatistics(message.MemberCustId, message.StartDate, message.EndState, message.Site, message.LanguageKey);
+            => await bettingBeharviorService.GetMemberBettingBehaviorStatistics(message.MemberCustId, message.StartDate, message.EndState, message.Site, message.LanguageKey);
     }
 }

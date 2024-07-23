@@ -1,11 +1,11 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior
 {
     using Alpha.MemberInfo.Constants;
+    using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Controllers;
     using Alpha.MemberInfo.Site.Features.MemberBettingBehavior.Requests;
     using Alpha.MemberInfo.Site.Features.MemberBettingBehavior.ViewModels;
-    using Fanex.Customer.Client.Services;
     using MediatR;
     using Newtonsoft.Json;
     using System.Threading.Tasks;
@@ -16,11 +16,11 @@
 
         private const string IndexPath = "~/Features/MemberBettingBehavior/Views/Index.cshtml";
         private readonly IUser viewer;
-        private readonly ICustomerService customerService;
+        private readonly CheckBelongingService checkBelongingService;
 
-        public MemberBettingBehaviorController(IMediator mediator, ICustomerService customerService, IUser viewer) : base(mediator) 
+        public MemberBettingBehaviorController(IMediator mediator, CheckBelongingService checkBelongingService, IUser viewer) : base(mediator) 
         {
-            this.customerService = customerService;
+            this.checkBelongingService = checkBelongingService;
             this.viewer = viewer;
         }
 
@@ -34,8 +34,8 @@
         [HttpGet]
         public async Task<ActionResult> MemberProfile(MemberProfileQuery message)
         {
-            var memberCustId = await GetMemberCustId(message.CustId, message.SubAccId, message.UserName);
-            if(memberCustId > 0)
+            var memberCustId = await GetMemberDownlineCustId(message.CustId, message.SubAccId, message.UserName);
+            if (memberCustId > 0)
             {
                 message.MemberCustId = memberCustId;
                 return await JsonAsync(message);
@@ -46,7 +46,7 @@
         [HttpGet]
         public async Task<ActionResult> MemberBettingStatistic(MemberBettingStatisticQuery message)
         {
-            var memberCustId = await GetMemberCustId(message.CustId, message.SubAccId, message.UserName);
+            var memberCustId = await GetMemberDownlineCustId(message.CustId, message.SubAccId, message.UserName);
             if (memberCustId > 0)
             {
                 message.MemberCustId = memberCustId;
@@ -59,7 +59,7 @@
         [HttpGet]
         public async Task<ActionResult> Excel(MemberBettingBehaviorExcelQuery message)
         {
-            var memberCustId = await GetMemberCustId(message.CustId, message.SubAccId, message.UserName);
+            var memberCustId = await GetMemberDownlineCustId(message.CustId, message.SubAccId, message.UserName);
             if (memberCustId > 0)
             {
                 message.MemberCustId = memberCustId;
@@ -68,12 +68,12 @@
             return Content(JsonConvert.SerializeObject(Result.CreateErrorResult("")));
         }
 
-        private async Task<int> GetMemberCustId(int custId, int subAccId, string username)
+        private async Task<int> GetMemberDownlineCustId(int custId, int subAccId, string username)
         {
-            var customer = await customerService.GetDownlineByUsername(custId, subAccId, username);
-            if (customer.CustId > 0 && customer.RoleId == UserLevelConstant.Member)
+            var downlineInfo = await checkBelongingService.CheckBelongingByUsername(custId, subAccId, username);
+            if (downlineInfo.CustId > 0 && downlineInfo.RoleId == UserLevelConstant.Member)
             {
-                return customer.CustId;
+                return downlineInfo.CustId;
             }
 
             return 0;
