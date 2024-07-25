@@ -89,6 +89,16 @@
 <div class="box-member" id="statisticId" hidden>
     <div class="ttl-box-member">@Resources.BettingStatistic</div>
     <div class="body-box-member body-box-member-chart">
+        <div class="statistics">
+            <div class="range">
+                <div class="form-group">
+                    <div class="label">
+                        <label>@Resources.DateRange</label>
+                    </div>
+                    <div>@Html.DropDownList("DateRangeId", Model.DateRange)<span id="icon-excel" class="icon-excel2" title="@Resources.ExportToExcel"></span></div>
+                </div>
+            </div>
+        </div>
         <div hidden id="no-infomation">
             <div class="nodata">
                 <div>
@@ -145,18 +155,9 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="statistic-chart-id">
-            <div class="statistics">
-                <div class="range">
-                    <div class="form-group">
-                        <div class="label">
-                            <label>@Resources.DateRange</label>
-                        </div>
-                        <div>@Html.DropDownList("DateRangeId", Model.DateRange)<span id="icon-excel" class="icon-excel2" title="@Resources.ExportToExcel"></span></div>
-                    </div>
-                </div>
-            </div>
+
             <div class="chart space-between">
                 <div class="summary-statistic " id="summary-statistic" hidden>
                     <div class="item">
