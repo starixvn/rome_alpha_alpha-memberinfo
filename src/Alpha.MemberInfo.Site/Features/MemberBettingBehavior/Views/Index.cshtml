@@ -16,7 +16,6 @@
     @StaticResources.RenderScripts("~/Features/MemberBettingBehavior/Bundles/member-betting-behavior")
 }
 
-
 <div class="page-title">@Resources.MemberBettingBehavior</div>
 
 @using (Html.BeginForm("Excel", "MemberBettingBehavior", FormMethod.Get, new { id = "export-excel-form" }))
@@ -27,7 +26,7 @@
 
 <div class="filter">
     <div class="form">
-        <input type="text" name="username" id="txt-username" autocomplete="off" maxlength="50" placeholder="Username" autofocus />
+        <input type="text" name="username" id="txt-username" autocomplete="off" maxlength="50" placeholder="@Resources.lblUsername" autofocus />
         <button class="btn-search" id="btn-submit"><span class="icon-search"></span></button>
     </div>
 </div>
@@ -81,10 +80,8 @@
                 <div class="value" id="monitored-member-no" hidden>@Resources.No2 <a id="btn-add-watchlist" class="add-watchlist" data-tooltip="Add to my Watchlist" href="#"><span class="icon-plus-circle pc"></span><span class="sm text-add-watchlist">Add to my Watchlist</span></a></div>
             </div>
         </div>
-
     </div>
 </div>
-
 
 <div class="box-member" id="statisticId" hidden>
     <div class="ttl-box-member">@Resources.BettingStatistic</div>
@@ -157,7 +154,6 @@
         </div>
 
         <div id="statistic-chart-id">
-
             <div class="chart space-between">
                 <div class="summary-statistic " id="summary-statistic" hidden>
                     <div class="item">
@@ -207,5 +203,3 @@
 <input type="hidden" id="yesText" value="@Resources.Yes" />
 <input type="hidden" id="noText" value="@Resources.No2" />
 <input type="hidden" id="isDarkMode" value='@(Model.IsDarkMode ? "true" : "false")' />
-
-
