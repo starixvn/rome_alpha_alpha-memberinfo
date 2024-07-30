@@ -409,4 +409,13 @@
   <data name="Commission" xml:space="preserve">
     <value>手数料</value>
   </data>
+  <data name="CompactCopy" xml:space="preserve">
+    <value>Compact Copy</value>
+  </data>
+  <data name="IndividualCopy" xml:space="preserve">
+    <value>Individual Copy</value>
+  </data>
+  <data name="introCopyNote" xml:space="preserve">
+    <value>Click 'Copy' to copy and share the account details</value>
+  </data>
 </root>

@@ -1111,4 +1111,13 @@
   <data name="WatchlistMemberSummary" xml:space="preserve">
     <value>监控列表会员摘要</value>
   </data>
+  <data name="IndividualCopy" xml:space="preserve">
+    <value>單一复制</value>
+  </data>
+  <data name="CompactCopy" xml:space="preserve">
+    <value>简洁复制</value>
+  </data>
+  <data name="introCopyNote" xml:space="preserve">
+    <value>点击“复制”即可复制并分享账号详情</value>
+  </data>
 </root>

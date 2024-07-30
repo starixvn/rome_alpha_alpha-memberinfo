@@ -1109,4 +1109,13 @@
   <data name="WatchlistMemberSummary" xml:space="preserve">
     <value>監控列表會員摘要</value>
   </data>
+  <data name="IndividualCopy" xml:space="preserve">
+    <value>单一複製</value>
+  </data>
+  <data name="CompactCopy" xml:space="preserve">
+    <value>簡潔複製</value>
+  </data>
+  <data name="introCopyNote" xml:space="preserve">
+    <value>點擊“複製”即可複製並分享賬號詳情</value>
+  </data>
 </root>

@@ -1111,4 +1111,13 @@
   <data name="WatchlistMemberSummary" xml:space="preserve">
     <value>สรุปรายการเฝ้าดู</value>
   </data>
+  <data name="CompactCopy" xml:space="preserve">
+    <value>คัดลอกแบบรวบรัด</value>
+  </data>
+  <data name="IndividualCopy" xml:space="preserve">
+    <value>คัดลอกรายบุคคล</value>
+  </data>
+  <data name="introCopyNote" xml:space="preserve">
+    <value>คลิก 'คัดลอก' เพื่อคัดลอกและแบ่งปันรายละเอียดบัญชี</value>
+  </data>
 </root>

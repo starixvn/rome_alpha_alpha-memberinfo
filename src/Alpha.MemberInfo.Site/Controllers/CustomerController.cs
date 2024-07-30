@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Alpha.MemberInfo.AppResources;
 using Alpha.MemberInfo.Configurations;
 using Alpha.MemberInfo.Models;
+using Alpha.MemberInfo.Site.Features.CreateAccount.ViewModels;
 using Alpha.MemberInfo.Site.Requests.Customer;
 using Alpha.MemberInfo.Site.ViewModels.Customer;
 using Alpha.Web;
@@ -83,6 +84,17 @@ namespace Alpha.MemberInfo.Site.Controllers
               HttpContext.IsDebuggingEnabled
                   ? "~/Views/Customer/EditCustomer-Debug.cshtml"
                   : "~/Views/Customer/EditCustomer.cshtml", viewModel);
+        }
+
+        public async Task<ActionResult> AccountInfo(AccountInfoQuery query)
+        {
+            var accountInfo = await customerService.GetAccountInfo(query.CustId);
+            return View("~/Views/Customer/AccountInfo.cshtml", new AccountInfoViewModel
+            {
+                Credit = accountInfo.MaxCredit,
+                Usernames = accountInfo.UserName,
+                Domains = accountInfo.domains
+            });
         }
 
         public ActionResult EditMultiple(EditMultipleCustomersQuery query)
@@ -224,6 +236,8 @@ namespace Alpha.MemberInfo.Site.Controllers
         public async Task<ActionResult> CheckExistedCustomer(string username)
            => Json(await customerService.CheckExistedCustomer(username), JsonRequestBehavior.AllowGet);
 
+        
+        
         private string GetApplicationPath()
         {
             var applicationPath = Response.ApplyAppPathModifier(Request.ApplicationPath);

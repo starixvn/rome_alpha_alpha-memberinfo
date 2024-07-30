@@ -1,6 +1,5 @@
 ﻿declare var Cleave: any;
 declare var numeral: any;
-declare var Clipboard: any;
 
 interface Math {
     trunc(number: number): number;
@@ -47,7 +46,6 @@ class CopyAccount {
 
     $btnSwitchVersion: JQuery;
     oldVersionUrl: string;
-    clipboardUsernames: any;
     hashKey: string;
 
     $sourceAccountErrMsg: JQuery;
@@ -56,15 +54,13 @@ class CopyAccount {
     $creditHintTooltip: JQuery;
     $memberCreditRange: JQuery;
     $memberMaxCreditLabel: JQuery;
-
+    
     constructor(
         $: JQueryStatic,
         encryptor: Encryptor,
-        topWindow: any,
-        clipboardUsernames: any) {
+        topWindow: any) {
         this.$ = $;
         this.topWindow = topWindow;
-        this.clipboardUsernames = clipboardUsernames;
         this.encryptor = encryptor;
     }
 
@@ -74,6 +70,9 @@ class CopyAccount {
         live: (<HTMLInputElement>document.getElementById('Live')).value,
         creditHint: (<HTMLInputElement>document.getElementById('CreditHint')).value,
         memberMaxCreditHint: (<HTMLInputElement>document.getElementById('MemberMaxCreditHint')).value,
+        lblCredit: (<HTMLInputElement>document.getElementById('lbl-credit')).value,
+        lblUsername: (<HTMLInputElement>document.getElementById('lbl-username')).value,
+        lblDomain: (<HTMLInputElement>document.getElementById('lbl-domain')).value,
     }
 
     init = () => {
@@ -132,6 +131,7 @@ class CopyAccount {
         this.$creditHintTooltip = this.$("#credit-hint-tooltip");
         this.$memberCreditRange = this.$("#member-max-credit-range");
         this.$memberMaxCreditLabel = this.$("#member-credit-max-label");
+
     }
 
     formatNumber = (number: number) => {
@@ -142,8 +142,7 @@ class CopyAccount {
         this.changeEyeIcon(this.$showPass);
         if (this.$password.hasClass("input-pass")) {
             this.$password.removeClass("input-pass")
-        }
-        else {
+        } else {
             this.$password.addClass("input-pass")
         }
     }
@@ -152,8 +151,7 @@ class CopyAccount {
         if (eyeElm.hasClass("icon-eye-close")) {
             eyeElm.removeClass("icon-eye-close");
             eyeElm.addClass("icon-eye");
-        }
-        else {
+        } else {
             eyeElm.removeClass("icon-eye");
             eyeElm.addClass("icon-eye-close");
         }
@@ -218,10 +216,83 @@ class CopyAccount {
         this.$creditInput.focus(() => this.showTooltipError(this.$creditErrMsg));
 
         this.registerTooltip();
+
+
+    }
+
+    formatUserInfo(username: string, credit: string, domain: string) {
+        const lblUsername = this.$('#lbl-username').val();
+        const lblCredit = this.$('#lbl-credit').val();
+        const lblDomain = this.$('#lbl-domain').val();
+
+        return `${lblUsername}: ${username}\n${lblCredit}: ${credit}\n${lblDomain}: ${domain}\n`;
+    }
+    
+    buildAccountInfoText = (isCompactFormat: boolean) => {
+        const userNames = this.$("#usernames").text();
+        const givenCredit = this.$("#txtClonedCredit").val();
+        const domain = this.$("#txtDomains").text();
+
+        const formatUserInfo = this.formatUserInfo;
+
+        return isCompactFormat
+            ? formatUserInfo(userNames, givenCredit, domain)
+            : userNames.replace(/\s/g, '')
+                .split(',')
+                .map((name: string) => formatUserInfo(name, givenCredit, domain))
+                .join("\n")
+    }
+
+    copyAndShowTooltip(elementSelector: string, textToCopy: string, successMessage = 'Copied!') {
+        const element = this.$(elementSelector);
+        
+        function handleCopy() {
+            if (copyToClipboard(textToCopy)) {
+                showTooltip(successMessage);
+            }
+        }
+
+        function createHiddenTextArea(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "absolute";
+            textArea.style.left = "-999999px";
+            return textArea;
+        }
+        
+        function copyToClipboard(text) {
+            try {
+                if (window.navigator["clipboard"] && window.isSecureContext) {
+                    return window.navigator["clipboard"].writeText(text)
+                } else {
+                    const textArea = createHiddenTextArea(text);
+                    document.body.prepend(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    textArea.remove();
+                }
+                return true;
+            } catch (err) {
+                console.log('Failed to copy text:', err);
+                return false;
+            }
+        }
+        
+        function showTooltip(message) {
+            element.attr('data-original-title', message);
+            element.tooltip('show');
+
+            setTimeout(() => {
+                element.tooltip('hide');
+                element.removeAttr('data-original-title');
+            }, 1500);
+        }
+        
+        element.on('click', handleCopy);
     }
 
     registerTooltip = () => {
-        this.$('[data-toggle="tooltip"]').tooltip({ html: true });
+        this.$('[data-toggle="tooltip"]').tooltip({html: true});
 
         this.hideTooltipOnTouchOutInMobile();
     }
@@ -236,8 +307,7 @@ class CopyAccount {
 
             if (target.attr('data-toggle') === 'tooltip') {
                 target.tooltip('show');
-            }
-            else if (target.parent().attr('data-toggle') === 'tooltip') {
+            } else if (target.parent().attr('data-toggle') === 'tooltip') {
                 target.parent().tooltip('show');
             }
         });
@@ -370,49 +440,30 @@ class CopyAccount {
                     this.$result.append(data);
                     this.$result.removeClass("hidden");
                     this.$form.addClass("hidden");
-                    const self = this;
-                    if (window.document.queryCommandSupported
-                        && window.document.queryCommandSupported("copy")) {
-                        this.clipboardUsernames
-                            .on("success", function (e) {
-                                self.completeCopy(self.$(e.trigger))
-                                self.$(e.trigger).tooltip("show");
-                            })
-                            .on("error", function (e) {
-                                self.$(e.trigger).remove();
-                                window.console.error("Action:", e.action);
-                                window.console.error("Trigger:", e.trigger);
-                            });
-                    }
-
-                    this.$('textarea').each(function () {
-                        this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-                    }).on('input', function () {
-                        this.style.height = 'auto';
-                        this.style.height = (this.scrollHeight) + 'px';
-                    });
+                    this.registerCopyEvenHandler();
                 }
                 this.$.unblockUI();
             },
-            error: () => { this.$.unblockUI(); }
+            error: () => {
+                this.$.unblockUI();
+            }
         });
     }
 
-    completeCopy = ($elm) => {
-        $elm.attr('title', this.$('#copied').val());
-        $elm.tooltip('show');
-
-        setTimeout(() => {
-            $elm.tooltip('hide');
-            $elm.attr('title', this.$('#copy').val());
-        }, 3000);
-    };
+    registerCopyEvenHandler = () => {
+        const compactData = this.buildAccountInfoText(true);
+        const individualData = this.buildAccountInfoText(false);
+        const tooltipMess = this.$('#lbl-copied').val();
+        this.copyAndShowTooltip('#compact-copy-btn', compactData, tooltipMess);
+        this.copyAndShowTooltip('#individual-copy-btn', individualData, tooltipMess);
+    }
 
     safelyParseJSON = (json) => {
         var parsed;
         try {
             parsed = JSON.parse(json);
-        } catch (e) { }
+        } catch (e) {
+        }
 
         return parsed;
     }
@@ -426,7 +477,7 @@ class CopyAccount {
         this.$.ajax({
             method: "POST",
             headers: this.getHeadersForPostRequest(),
-            data: { custName: username },
+            data: {custName: username},
             dataType: 'json',
             url: "CopyAccount/CheckExistedCustomer",
             success: (result) => {
@@ -450,7 +501,7 @@ class CopyAccount {
             this.$.ajax({
                 method: "POST",
                 headers: this.getHeadersForPostRequest(),
-                data: { custName: sourceUsername },
+                data: {custName: sourceUsername},
                 dataType: 'json',
                 url: "CopyAccount/CheckUsername",
                 success: (result) => {
@@ -470,8 +521,7 @@ class CopyAccount {
                     this.validateInputs();
                 }
             });
-        }
-        else {
+        } else {
             this.resetValidationState();
         }
     }
@@ -482,7 +532,7 @@ class CopyAccount {
         this.$.ajax({
             method: "POST",
             headers: this.getHeadersForPostRequest(),
-            data: { custName: username },
+            data: {custName: username},
             dataType: 'json',
             url: "CopyAccount/GetCredit",
             success: result => {
@@ -507,7 +557,9 @@ class CopyAccount {
 
                 this.$.unblockUI();
             },
-            error: () => { this.$.unblockUI(); }
+            error: () => {
+                this.$.unblockUI();
+            }
         });
     }
 
@@ -599,7 +651,7 @@ class CopyAccount {
     }
 }
 
-const copyAccount = new CopyAccount($, new Encryptor(), window.top, new Clipboard(".icon-content-copy"));
+const copyAccount = new CopyAccount($, new Encryptor(), window.top);
 
 $(() => {
     copyAccount.init();

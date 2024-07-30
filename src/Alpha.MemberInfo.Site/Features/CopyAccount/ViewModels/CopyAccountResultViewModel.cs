@@ -10,5 +10,6 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
         public int NumberOfAccounts { get; set; }
         
         public int NoOfFailedAccount { get; set; }
+        
     }
 }

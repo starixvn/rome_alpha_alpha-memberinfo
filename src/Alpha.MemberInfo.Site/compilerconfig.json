@@ -130,5 +130,13 @@
   {
     "outputFile": "Features/CreateAccount/Styles/quick-introduction.css",
     "inputFile": "Features/CreateAccount/Styles/quick-introduction.scss"
+  },
+  {
+    "outputFile": "assets/styles/account-info-tab.css",
+    "inputFile": "assets/styles/account-info-tab.scss"
+  },
+  {
+    "outputFile": "assets/styles/account-info-tab-dark.css",
+    "inputFile": "assets/styles/account-info-tab-dark.scss"
   }
 ]
