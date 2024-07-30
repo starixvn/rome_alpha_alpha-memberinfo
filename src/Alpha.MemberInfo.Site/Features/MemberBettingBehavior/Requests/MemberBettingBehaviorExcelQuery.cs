@@ -17,8 +17,15 @@
 
         public int DateRange { get; set; }
 
-        public DateTime EndState => DateTime.Now.AddDays(-1);
+        public DateTime EndState => DateTime.Now.AddDays(-2);
 
-        public DateTime StartDate => EndState.AddDays(-DateRange) > viewer.LimitedDateToShowInfo ? EndState.AddDays(-DateRange) : viewer.LimitedDateToShowInfo;
+        public DateTime StartDate
+        {
+            get
+            {
+                var range = DateRange > 90 ? 90 : DateRange;
+                return EndState.AddDays(-range) > viewer.LimitedDateToShowInfo ? EndState.AddDays(-range) : viewer.LimitedDateToShowInfo;
+            }
+        }
     }
 }
