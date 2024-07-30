@@ -760,7 +760,7 @@
     <Content Include="assets\styles\images\createAccount\default\zh-TW\light\lv4.img3.png" />
     <Content Include="assets\styles\images\not-reviewed.png" />
     <Content Include="assets\styles\images\open.png" />
-    <Content Include="ClientApp\dist\assets\createAccount-8769a10f.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-45d52c6c.js" />
     <Content Include="ClientApp\dist\assets\createAccount-a50e7ae2.css" />
     <Content Include="ClientApp\dist\assets\index-06d353a9.css" />
     <Content Include="ClientApp\dist\assets\index-8dfb63e2.js" />
