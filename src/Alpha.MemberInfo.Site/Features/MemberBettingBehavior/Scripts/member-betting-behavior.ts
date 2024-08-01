@@ -92,7 +92,7 @@ class MemberBettingBehavior {
     }
 
     exportExcel = (username: string) => {
-        this.$("#txt-username-hidden").val(username);
+        this.$("#txt-username-hidden").val(encodeURIComponent(username));
         this.$("#date-range-hidden").val(this.dateRange.selectedValue);
         this.exportExcelForm.submit();
     };
@@ -117,7 +117,7 @@ class MemberBettingBehavior {
             url,
             'GET',
             {
-                username
+                username: encodeURIComponent(username)
             },
             memberProfile => {
                 if (memberProfile.IsFailed) {
@@ -139,7 +139,7 @@ class MemberBettingBehavior {
             url,
             'GET',
             {
-                username,
+                username: encodeURIComponent(username),
                 dateRange
             },
             memberStatistic => {
