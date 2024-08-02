@@ -67,7 +67,8 @@ class TurnoverWinLossByDateChart {
                     legend: {
                         labels: {
                             color: this.isDarkMode && darkTextColor
-                        }
+                        },
+                        onClick: (e) => e.stopPropagation()
                     },
                 },
                 scales: {

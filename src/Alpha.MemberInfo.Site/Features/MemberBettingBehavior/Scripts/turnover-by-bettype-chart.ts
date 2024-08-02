@@ -58,7 +58,8 @@ class TurnoverByBetTypeChart {
                         labels: {
                             color: this.isDarkMode && darkTextColor,
                             usePointStyle: true,
-                        }
+                        },
+                        onClick: (e) => e.stopPropagation()
                     },
                     tooltip: {
                         callbacks: {

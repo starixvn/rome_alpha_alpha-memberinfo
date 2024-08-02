@@ -58,10 +58,11 @@ class TurnoverBySportChart {
                         labels: {
                             color: this.isDarkMode && darkTextColor,
                             usePointStyle: true,
-                        }
+                        },
+                        onClick: (e) => e.stopPropagation()
                     },
                     datalabels: {
-                        color: '#333',
+                        color: this.isDarkMode ? '#EDEDED' : '#333',
                         font: {
                             weight: 'bold',
                             size: '12px'
