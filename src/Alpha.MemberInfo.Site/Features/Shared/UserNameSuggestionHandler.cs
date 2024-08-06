@@ -7,7 +7,8 @@
     using System.Collections.Generic;
 
     public class UserNameSuggestionHandler :
-        IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>
+        IRequestHandler<UserNameSuggestionQuery, IEnumerable<UsernameSuggestion>>,
+        IRequestHandler<UserNameSuggestionByRoleQuery, IEnumerable<UsernameSuggestion>>
     {
         private readonly UsernameSuggestionService usernameSuggestionService;
 
@@ -23,5 +24,8 @@
                 message.IsInternal,
                 message.DirectDownlines,
                 message.IsAccInfo);
+
+        public IEnumerable<UsernameSuggestion> Handle(UserNameSuggestionByRoleQuery message)
+            => usernameSuggestionService.GetUsernameSuggestionByRole(message.CustId, message.SuggestionQuery, message.RoleId);
     }
 }

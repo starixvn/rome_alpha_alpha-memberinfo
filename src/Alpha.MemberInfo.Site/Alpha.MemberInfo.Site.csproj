@@ -1453,6 +1453,7 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\DeletePersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\GlobalThresholdQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageGlobalThresholdQuery.cs" />
+    <Compile Include="Features\Shared\Requests\UserNameSuggestionByRoleQuery.cs" />
     <Compile Include="Requests\Customer\AccountInfoQuery.cs" />
     <Compile Include="Requests\Customer\CreateCustomerQuery.cs" />
     <Compile Include="Requests\Customer\CreateCustomerRequest.cs" />

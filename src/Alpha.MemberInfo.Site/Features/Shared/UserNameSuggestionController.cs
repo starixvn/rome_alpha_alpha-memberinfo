@@ -17,5 +17,9 @@
         [HttpGet]
         public ActionResult GetUsernamesSuggestion(UserNameSuggestionQuery message)
             => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+
+        [HttpGet]
+        public ActionResult GetUsernamesSuggestionByRole(UserNameSuggestionByRoleQuery message)
+            => Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
     }
 }

@@ -33,7 +33,7 @@ class MemberBettingBehavior {
         this.bindEvents();
 
         const baseUrl = this.$('#member-info-url').val();
-        this.initUsernameAutoSuggestion(baseUrl, '117834958');
+        this.initUsernameAutoSuggestion(baseUrl);
 
         this.initCharts();
 
@@ -55,7 +55,7 @@ class MemberBettingBehavior {
     }
 
     bindEvents(): void {
-        this.txtUsername
+        this.$('#form-id')
             .keyup(e => e.which === 13 && this.handleSubmit())
             .on("input", () => TipsyHelper.clear(this.txtUsername));
 
@@ -239,7 +239,7 @@ class MemberBettingBehavior {
             .removeClass(data.WinLoss >= 0 ? "redText" : "");
 
         this.$("#summary-betcount")
-            .text(data.BetCount)
+            .text(data.BetCount.toLocaleString('en-US'))
             .addClass(data.BetCount < 0 ? "redText" : "")
             .removeClass(data.BetCount >= 0 ? "redText" : "");
 
@@ -298,9 +298,9 @@ class MemberBettingBehavior {
         }
     }
 
-    initUsernameAutoSuggestion(baseUrl: string, searchAccountId: string) {
+    initUsernameAutoSuggestion(baseUrl: string) {
         this.$('#txt-username').easyAutocomplete({
-            url: phrase => `${baseUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&CustId=${searchAccountId}&DirectDownlines=true&IsAccInfo=false`,
+            url: phrase => `${baseUrl}UserNameSuggestion/GetUsernamesSuggestionByRole?SuggestionQuery=${phrase}&roleId=1`,
             getValue: 'UserName',
             requestDelay: 200,
             minCharNumber: 2,

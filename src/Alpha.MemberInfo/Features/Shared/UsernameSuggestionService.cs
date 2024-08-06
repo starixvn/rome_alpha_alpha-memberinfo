@@ -14,6 +14,8 @@
             bool isInternal,
             bool directDownline,
             bool isAccInfo);
+
+        IEnumerable<UsernameSuggestion> GetUsernameSuggestionByRole(int custId, string username, byte roleId);
     }
 
     public class UsernameSuggestionServiceImpl : UsernameSuggestionService
@@ -38,5 +40,9 @@
                   isInternal,
                   directDownline,
                   isAccInfo)).OrderBy(item => item.UserName);
+
+        public IEnumerable<UsernameSuggestion> GetUsernameSuggestionByRole(int custId, string username, byte roleId)
+            => dynamicRepository.Fetch<UsernameSuggestion>(new UsernameSuggestionByRoleCriteria(
+                custId, username, roleId));
     }
 }
