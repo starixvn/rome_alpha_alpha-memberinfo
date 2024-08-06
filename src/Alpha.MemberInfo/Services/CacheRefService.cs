@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Services
 {
     using System.Threading;
+    using Alpha.MemberInfo.Configurations;
     using Fanex.RemotingRef;
 
     public interface CacheRefService
@@ -26,6 +27,7 @@
     {
         private readonly IRemotingRefService remotingRefService;
         private const string ProductRefId = "Product";
+        private const string ProductRefId777 = "Product_Saba";
         private const string ProductGroupRefId = "ProductGroup";
         private const string SubGroupRefId = "SubGroup";
         private const string DummySportRefId = "DummySport";
@@ -50,11 +52,21 @@
                 LanguageCode, string.Empty);
         
         public string GetProductName(int productId)
-            => remotingRefService.GetResourceDataByRefIdAndResourceId(
-                ProductRefId,
-                productId.ToString(),
+        {
+            var productName = remotingRefService.GetResourceDataByRefIdAndResourceId(ProductRefId, productId.ToString(),
                 LanguageCode,
                 string.Empty);
+
+            if(AppSettings.IsSiteLabel777)
+            {
+                var productNameSite777 = remotingRefService.GetResourceDataByRefIdAndResourceId(ProductRefId777, productId.ToString(),
+                    LanguageCode,
+                    string.Empty);
+                return string.IsNullOrEmpty(productNameSite777) ? productName : productNameSite777;
+            }
+
+            return productName;
+        }
 
         public string GetSportTypeName(int sportTypeId)
         {
