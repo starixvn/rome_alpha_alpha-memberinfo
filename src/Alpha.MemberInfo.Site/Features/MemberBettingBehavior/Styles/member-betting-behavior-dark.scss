@@ -1,9 +1,14 @@
-﻿.filter {
+﻿@import "../../../assets/styles/abstracts/_variables-dark.scss";
+.filter {
     margin-top: 10px;
-
     .form {
         display: inline-block;
         position: relative;
+
+        .easy-autocomplete-container {
+            margin-top: 2px;
+            z-index: 9999;
+        }
 
         #txt-username {
             box-shadow: none;
@@ -13,6 +18,7 @@
             padding-left: 32px;
             width: 250px;
             height: 28px;
+            color: #ededed;
         }
 
         .btn-search {
@@ -415,6 +421,23 @@
         color: #537090;
         font-weight: bold;
         margin: 0;
+    }
+}
+.easy-autocomplete-container {
+    margin-top: 2px;
+    z-index: 9999;
+
+    ul {
+        background-color: $autocomplete-background-color;
+        border-top-color: $autocomplete-border-color;
+
+        li {
+            border-color: $autocomplete-border-color;
+
+            &.selected {
+                background-color: $autocomplete-selected-color;
+            }
+        }
     }
 }
 @media only screen and (max-device-width: 767px) {
