@@ -31,6 +31,10 @@ class MemberBettingBehavior {
     init() {
         this.cacheDOMElements();
         this.bindEvents();
+
+        const baseUrl = this.$('#member-info-url').val();
+        this.initUsernameAutoSuggestion(baseUrl, '117834958');
+
         this.initCharts();
 
         this.dateRange.render(
@@ -292,6 +296,25 @@ class MemberBettingBehavior {
         } else {
             this.$("#turnover-winloss-by-date-chart-id").hide();
         }
+    }
+
+    initUsernameAutoSuggestion(baseUrl: string, searchAccountId: string) {
+        this.$('#txt-username').easyAutocomplete({
+            url: phrase => `${baseUrl}UserNameSuggestion/GetUsernamesSuggestion?SuggestionQuery=${phrase}&CustId=${searchAccountId}&DirectDownlines=true&IsAccInfo=false`,
+            getValue: 'UserName',
+            requestDelay: 200,
+            minCharNumber: 2,
+            template: {
+                type: "custom",
+                method: (value, item) => {
+                    const nickname = item.UserName2 === null || item.UserName2 === '' ? '' : `(${item.UserName2})`;
+                    return `<div class='suggestion'>${value} ${nickname}<div>${item.FirstName} ${item.LastName}</div></div>`;
+                }
+            },
+            list: {
+                maxNumberOfElements: 10
+            }
+        });
     }
 }
 
