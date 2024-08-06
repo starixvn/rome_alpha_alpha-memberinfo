@@ -793,11 +793,12 @@
     <Content Include="assets\styles\problem-account\update.css">
       <DependentUpon>update.scss</DependentUpon>
     </Content>
-    <Content Include="ClientApp\dist\assets\createAccount-55c3b6db.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-a38b021c.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-c5205fb8.css" />
     <Content Include="ClientApp\dist\assets\index-06d353a9.css" />
     <Content Include="ClientApp\dist\assets\index-8dfb63e2.js" />
     <Content Include="ClientApp\dist\assets\productSettingInfo-19dc73f6.css" />
-    <Content Include="ClientApp\dist\assets\productSettingInfo-bafa3649.js" />
+    <Content Include="ClientApp\dist\assets\productSettingInfo-43740177.js" />
     <Content Include="ClientApp\dist\assets\PTSelect-13f830b9.css" />
     <Content Include="ClientApp\dist\assets\PTSelect-de37a276.js" />
     <Content Include="ClientApp\dist\assets\ptTemplate-5f025410.css" />
