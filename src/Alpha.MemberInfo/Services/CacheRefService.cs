@@ -90,7 +90,19 @@
             => remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileLevel, categoryID.ToString(), LanguageCode, string.Empty);
         
         public string GetCustBetBehavior(string id)
-            => remotingRefService.GetResourceDataByRefIdAndResourceId(CustBetBehavior, id, LanguageCode, string.Empty);
+        {
+            if (AppSettings.IsSiteLabel777)
+            {
+                var custBetBehavior777Name = remotingRefService.GetResourceDataByRefIdAndResourceId(
+                    CustBetBehavior, $"{id}_{AppSettings.SiteLabel}", LanguageCode, string.Empty);
+
+                return string.IsNullOrEmpty(custBetBehavior777Name) 
+                    ? remotingRefService.GetResourceDataByRefIdAndResourceId(CustBetBehavior, id, LanguageCode, string.Empty)
+                    : custBetBehavior777Name;
+            }
+
+            return remotingRefService.GetResourceDataByRefIdAndResourceId(CustBetBehavior, id, LanguageCode, string.Empty);
+        }
         
 
         private static string LanguageCode
