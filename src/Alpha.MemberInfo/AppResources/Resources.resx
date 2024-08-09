@@ -1220,6 +1220,15 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="MonitoredMember" xml:space="preserve">
     <value>Monitored Member</value>
   </data>
+  <data name="DateRangeNote" xml:space="preserve">
+    <value>Data is summarized from {0} to {1}</value>
+  </data>
+  <data name="BehaviorCategory" xml:space="preserve">
+    <value>Behavior Category</value>
+  </data>
+  <data name="RiskLevel" xml:space="preserve">
+    <value>Risk Level</value>
+  </data>
   <data name="CompactCopy" xml:space="preserve">
     <value>Compact Copy</value>
   </data>

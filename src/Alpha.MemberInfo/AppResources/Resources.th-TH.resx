@@ -1216,6 +1216,15 @@
   <data name="MixTurnover" xml:space="preserve">
     <value>เงินหมุนเวียนรวมกัน</value>
   </data>
+  <data name="DateRangeNote" xml:space="preserve">
+    <value>ข้อมูลสรุปตั้งแต่ {0} ถึง {1}</value>
+  </data>
+  <data name="BehaviorCategory" xml:space="preserve">
+    <value>หมวดหมู่พฤติกรรม</value>
+  </data>
+  <data name="RiskLevel" xml:space="preserve">
+    <value>ระดับความเสี่ยง</value>
+  </data>
   <data name="CompactCopy" xml:space="preserve">
     <value>คัดลอกแบบรวบรัด</value>
   </data>

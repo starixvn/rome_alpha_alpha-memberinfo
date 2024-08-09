@@ -40,7 +40,7 @@
                 <span class="icon-user3"></span>
             </div>
             <div class="right-text">
-                <div class="info">@Resources.Status</div>
+                <div class="info">@Resources.BehaviorCategory</div>
                 <div class="value" id="customer-status"></div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                 <span class="icon-warning"></span>
             </div>
             <div class="right-text">
-                <div class="info">@Resources.Level</div>
+                <div class="info">@Resources.RiskLevel</div>
                 <div class="value" id="customer-level"></div>
             </div>
         </div>
@@ -87,13 +87,17 @@
 <div class="box-member" id="statisticId" hidden>
     <div class="ttl-box-member">@Resources.BettingStatistic</div>
     <div class="body-box-member body-box-member-chart">
-        <div class="statistics">
+        <div class="statistics" width="100%">
             <div class="range">
                 <div class="form-group">
                     <div class="label">
                         <label>@Resources.DateRange</label>
                     </div>
-                    <div>@Html.DropDownList("DateRangeId", Model.DateRange)<span id="icon-excel" class="icon-excel2" title="@Resources.ExportToExcel"></span></div>
+                    <div style="display: inline-block">
+                        @Html.DropDownList("DateRangeId", Model.DateRange)
+                        <span id="icon-excel" class="icon-excel2" title="@Resources.ExportToExcel"></span>
+                    </div>
+                    <span id="dateRangeNote"></span>
                 </div>
             </div>
         </div>
@@ -204,3 +208,7 @@
 <input type="hidden" id="yesText" value="@Resources.Yes" />
 <input type="hidden" id="noText" value="@Resources.No2" />
 <input type="hidden" id="isDarkMode" value='@(Model.IsDarkMode ? "true" : "false")' />
+<input type="hidden" id="dateRangeNoteText30" value="@string.Format(Resources.DateRangeNote, string.Format("{0:#,0.##}", Model.EndDate.AddDays(-30).ToString("MM/dd/yyyy")), string.Format("{0:#,0.##}", Model.EndDate.ToString("MM/dd/yyyy")))" />
+<input type="hidden" id="dateRangeNoteText60" value="@string.Format(Resources.DateRangeNote, string.Format("{0:#,0.##}", Model.EndDate.AddDays(-60).ToString("MM/dd/yyyy")), string.Format("{0:#,0.##}", Model.EndDate.ToString("MM/dd/yyyy")))" />
+<input type="hidden" id="dateRangeNoteText90" value="@string.Format(Resources.DateRangeNote, string.Format("{0:#,0.##}", Model.EndDate.AddDays(-90).ToString("MM/dd/yyyy")), string.Format("{0:#,0.##}", Model.EndDate.ToString("MM/dd/yyyy")))" />
+

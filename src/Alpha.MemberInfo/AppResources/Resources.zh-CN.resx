@@ -1216,6 +1216,15 @@
   <data name="WatchlistMemberSummary" xml:space="preserve">
     <value>监控列表会员摘要</value>
   </data>
+  <data name="DateRangeNote" xml:space="preserve">
+    <value>数据总结是从 {0} 至 {1}</value>
+  </data>
+  <data name="BehaviorCategory" xml:space="preserve">
+    <value>行为类别</value>
+  </data>
+  <data name="RiskLevel" xml:space="preserve">
+    <value>风险等级</value>
+  </data>
   <data name="IndividualCopy" xml:space="preserve">
     <value>單一复制</value>
   </data>

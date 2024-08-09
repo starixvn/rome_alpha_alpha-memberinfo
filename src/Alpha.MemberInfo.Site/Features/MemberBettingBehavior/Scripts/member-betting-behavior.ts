@@ -40,6 +40,8 @@ class MemberBettingBehavior {
         this.dateRange.render(
             new SingleSelectionDropdownOption("DateRangeId", "DateRangeLevelId"));
 
+        this.setDateRangeNote(this.dateRange.selectedValue);
+
         setTimeout(() => {
             this.topWindow.indexManager.initFeedbackFunction(9, undefined, 500);
         }, 1000);
@@ -62,6 +64,7 @@ class MemberBettingBehavior {
         this.$('#btn-submit').click(() => this.handleSubmit());
 
         this.$("#DateRangeId").on("change", () => {
+            this.setDateRangeNote(this.dateRange.selectedValue);
             const username = this.checkMemberUsername();
             if (username) {
                 this.getMemberStatistic(username, Number(this.dateRange.selectedValue));
@@ -74,6 +77,10 @@ class MemberBettingBehavior {
                 this.exportExcel(username)
             }
         });
+    }
+
+    setDateRangeNote = (dateRange) => {
+        this.$('#dateRangeNote').text(this.$(`#dateRangeNoteText${dateRange}`).val())
     }
 
     handleSubmit = () => {

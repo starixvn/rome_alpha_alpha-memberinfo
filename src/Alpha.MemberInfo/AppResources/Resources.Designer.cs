@@ -18,7 +18,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -407,6 +407,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string BBINNote {
             get {
                 return ResourceManager.GetString("BBINNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Behavior Category.
+        /// </summary>
+        public static string BehaviorCategory {
+            get {
+                return ResourceManager.GetString("BehaviorCategory", resourceCulture);
             }
         }
         
@@ -821,6 +830,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string DateRange {
             get {
                 return ResourceManager.GetString("DateRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data is summarized from {0} to {1}.
+        /// </summary>
+        public static string DateRangeNote {
+            get {
+                return ResourceManager.GetString("DateRangeNote", resourceCulture);
             }
         }
         
@@ -1833,20 +1851,20 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monitored Member.
-        /// </summary>
-        public static string MonitoredMember {
-            get {
-                return ResourceManager.GetString("MonitoredMember", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Monitored.
         /// </summary>
         public static string Monitored {
             get {
                 return ResourceManager.GetString("Monitored", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monitored Member.
+        /// </summary>
+        public static string MonitoredMember {
+            get {
+                return ResourceManager.GetString("MonitoredMember", resourceCulture);
             }
         }
         
@@ -2667,6 +2685,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string ReviewStatus {
             get {
                 return ResourceManager.GetString("ReviewStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Risk Level.
+        /// </summary>
+        public static string RiskLevel {
+            get {
+                return ResourceManager.GetString("RiskLevel", resourceCulture);
             }
         }
         

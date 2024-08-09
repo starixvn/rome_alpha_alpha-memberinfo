@@ -30,9 +30,9 @@
 
         public async Task<ExcelFileViewModel> Handle(MemberBettingBehaviorExcelQuery message)
         {
-            var memberBettingBehaviors = await bettingBeharviorService.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndState, message.Site, message.LanguageKey);
+            var memberBettingBehaviors = await bettingBeharviorService.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndDate, message.Site, message.LanguageKey);
 
-            var fileName = $"{Resources.MemberBettingBehavior}-{message.UserName}-{message.StartDate.ToString("MM/dd/yyyy")}-{message.EndState.ToString("MM/dd/yyyy")}";
+            var fileName = $"{Resources.MemberBettingBehavior}-{message.UserName}-{message.StartDate.ToString("MM/dd/yyyy")}-{message.EndDate.ToString("MM/dd/yyyy")}";
             var fileContent = workbook
                 .SetData(memberBettingBehaviors.BettingStatisticExportRows, memberBettingBehaviors.Total)
                 .SetRowMappers(GetNormalRowMapper(), GetTotalRowMapper())
@@ -96,6 +96,6 @@
         }
 
         public async Task<MemberBettingStatistic> Handle(MemberBettingStatisticQuery message)
-            => await bettingBeharviorService.GetMemberBettingBehaviorStatistics(message.MemberCustId, message.StartDate, message.EndState, message.Site, message.LanguageKey);
+            => await bettingBeharviorService.GetMemberBettingBehaviorStatistics(message.MemberCustId, message.StartDate, message.EndDate, message.Site, message.LanguageKey);
     }
 }

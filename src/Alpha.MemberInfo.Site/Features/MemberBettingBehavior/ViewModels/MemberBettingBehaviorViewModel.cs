@@ -1,6 +1,7 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior.ViewModels
 {
     using Alpha.MemberInfo.Constants;
+    using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
 
@@ -23,6 +24,7 @@
         }
 
         public bool IsDarkMode { get; }
-    }
 
+        public DateTime EndDate => DateTime.Now.AddDays(-2);
+    }
 }
