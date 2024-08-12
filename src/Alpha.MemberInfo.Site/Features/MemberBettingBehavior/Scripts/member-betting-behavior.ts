@@ -162,7 +162,7 @@ class MemberBettingBehavior {
                     return;
                 }
 
-                if (memberStatistic.SummaryStatistic.BetCount === 0) {
+                if (!memberStatistic.SummaryStatistic || memberStatistic.SummaryStatistic.BetCount === 0) {
                     this.statisticBlock.show();
                     this.$("#no-infomation").show();
                     this.$("#statistic-chart-id").hide();

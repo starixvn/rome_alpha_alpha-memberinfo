@@ -32,7 +32,7 @@
         {
             var memberBettingBehaviors = await bettingBeharviorService.GetMemberBettingStatisticExcelData(message.MemberCustId, message.StartDate, message.EndDate, message.Site, message.LanguageKey);
 
-            var fileName = $"{Resources.MemberBettingBehavior}-{message.UserName}-{message.StartDate.ToString("MM/dd/yyyy")}-{message.EndDate.ToString("MM/dd/yyyy")}";
+            var fileName = $"{Resources.MemberBettingBehavior}-{message.UserName}-{message.EndDate.AddDays(-message.DateRange).ToString("MM/dd/yyyy")}-{message.EndDate.ToString("MM/dd/yyyy")}";
             var fileContent = workbook
                 .SetData(memberBettingBehaviors.BettingStatisticExportRows, memberBettingBehaviors.Total)
                 .SetRowMappers(GetNormalRowMapper(), GetTotalRowMapper())

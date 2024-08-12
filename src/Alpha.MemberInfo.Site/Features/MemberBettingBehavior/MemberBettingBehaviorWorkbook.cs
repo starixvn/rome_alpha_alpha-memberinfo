@@ -101,5 +101,25 @@
             totalRow.CopyCellsFrom(TotalRowTemplate);
             FillCells(totalRow, Total, TotalMapper.Mappings);
         }
+
+        protected override void FillNoInfoRow(Sheet sheet)
+        {
+            if (sheet == null)
+            {
+                throw new ArgumentNullException(nameof(sheet), "Sheet cannot be null");
+            }
+
+            var rowIndex = TemplateInfo.BodyStartIndex;
+            var colIndex = Column.GetColIndex(TemplateInfo.ColumnStartName);
+
+            sheet.SetCellRangeValue(
+                rowIndex,
+                colIndex,
+                rowIndex,
+                16,
+                TemplateInfo.NoInfomationText);
+
+            sheet.GetCell(rowIndex, colIndex).SetCenterHorizontalAlignment();
+        }
     }
 }
