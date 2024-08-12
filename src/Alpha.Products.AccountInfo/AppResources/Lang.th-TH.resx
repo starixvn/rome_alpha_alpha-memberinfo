@@ -145,6 +145,9 @@
     <value>&lt;div style="font-weight:normal"&gt;&lt;b&gt;หมายเหตุ: &lt;/b&gt;การเปิดใช้งานการโอนยอดคงเหลือทั้งวันจะทำให้การโอนอัตโนมัติถูกปิดลงและจะล้างค่ากำหนดการการโอนอัตโนมัติทั้งหมดที่กำหนดโดย {0} สำหรับดาวน์ไลน์&lt;/div&gt;</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>ล่าสุด</value>
+    <value>อัปเดต</value>
+  </data>
+  <data name="EditMultipleSportsbook" xml:space="preserve">
+    <value>แก้ไขกีฬาหลายรายการ</value>
   </data>
 </root>

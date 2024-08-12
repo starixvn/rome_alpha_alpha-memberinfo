@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Alpha.Products.AccountInfo.AppResources;
 using Alpha.Products.AccountInfo.Requests;
 using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
 
@@ -34,7 +35,8 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Multiple
            ["usernames"] = request.GetData<string>("usernames"),
        };
 
-        public override string Text => $"{request.GetResource("EditMultiple")} {request.GetProductGroupName(ProductGroupId)}";
+        public override string Text =>
+           ProductGroupId == 1 ? Lang.EditMultipleSportsbook : $"{request.GetResource("EditMultiple")} {request.GetProductGroupName(ProductGroupId)}";
 
         public override string Icon => "icon-edit Enable";
 

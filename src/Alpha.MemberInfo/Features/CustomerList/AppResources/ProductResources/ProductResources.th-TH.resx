@@ -124,16 +124,16 @@
     <value>เปิด</value>
   </data>
   <data name="Agent" xml:space="preserve">
-    <value>ตัวแทน</value>
+    <value>เอเย่นต์</value>
   </data>
   <data name="AgentList" xml:space="preserve">
-    <value>รายชื่อ เอเจนต์</value>
+    <value>รายชื่อเอเย่นต์</value>
   </data>
   <data name="AgentOutstanding" xml:space="preserve">
-    <value>เอเย่นต์ยอดคงค้าง</value>
+    <value>เดิมพันที่ยังไม่สิ้นสุดของเอเย่นต์</value>
   </data>
   <data name="Agents" xml:space="preserve">
-    <value>เอเย่นต์ (เปิด/ปิด/ถูกระงับ)</value>
+    <value>เอเย่นต์ (ใช้งานอยู่/ปิด/ถูกระงับ)</value>
   </data>
   <data name="And" xml:space="preserve">
     <value>และ</value>
@@ -145,10 +145,10 @@
     <value>ข้อมูลยอดเงินคงเหลือ</value>
   </data>
   <data name="BetCredit" xml:space="preserve">
-    <value>เครดิตสำหรับการวางเดิมพัน</value>
+    <value>เครดิตสำหรับเดิมพัน</value>
   </data>
   <data name="BetList" xml:space="preserve">
-    <value>รายการวางเดิมพัน</value>
+    <value>รายการเดิมพัน</value>
   </data>
   <data name="BetSettingViewModelText" xml:space="preserve">
     <value>การกำหนดการวางเดิมพัน</value>
@@ -178,7 +178,7 @@
     <value>คุณแน่ใจหรือว่าต้องการเปิดการใช้งานฟังก์ชันแบ่งสู้อัตโนมัติของมาสเตอร์</value>
   </data>
   <data name="ConfirmAllowAutoMasterPTViewModelText" xml:space="preserve">
-    <value>อนุญาตให้มีแบ่งสู้อัตโนมัติ</value>
+    <value>อนุญาตให้ใช้ค่าความเสี่ยงอัตโนมัติ</value>
   </data>
   <data name="ConfirmAllowOutrightViewModelInCaseDisabledMessage" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าไม่อนุญาตให้ลูกค้าท่านนี้พนันเอาท์ไรท์</value>
@@ -250,7 +250,7 @@
     <value>ลูกค้า</value>
   </data>
   <data name="DownlineList" xml:space="preserve">
-    <value>รายชื่อลูกค้า</value>
+    <value>รายชื่อดาวน์ไลน์</value>
   </data>
   <data name="EditInfoViewModelText" xml:space="preserve">
     <value>ข้อมูล</value>
@@ -262,10 +262,10 @@
     <value>เข้าสู่ระบบคิวอาร์โค้ดครั้งแรก</value>
   </data>
   <data name="GivenCredit" xml:space="preserve">
-    <value>เครดิตทั้งหมด</value>
+    <value>เครดิตที่ได้รับ</value>
   </data>
   <data name="GivenCreditPopupTitle" xml:space="preserve">
-    <value>อัพเดท เครดิตใหม่</value>
+    <value>อัปเดตเครดิตที่ได้รับ</value>
   </data>
   <data name="IP" xml:space="preserve">
     <value>ไอพี</value>
@@ -280,34 +280,34 @@
     <value>ข้อมูลการเข้าสู่ระบบ</value>
   </data>
   <data name="LoginIP" xml:space="preserve">
-    <value>IP สุดท้ายที่เข้าระบบ</value>
+    <value>ไอพีที่เข้าระบบ</value>
   </data>
   <data name="LoginTime" xml:space="preserve">
-    <value>เวลาเข้าระบบ</value>
+    <value>เวลาเข้าสู่ระบบ</value>
   </data>
   <data name="Master" xml:space="preserve">
-    <value>ตัวแทนหลัก</value>
+    <value>มาสเตอร์</value>
   </data>
   <data name="MasterOutstanding" xml:space="preserve">
-    <value>การเดิมพันที่ยังไม่สิ้นสุดของ Master</value>
+    <value>เดิมพันที่ยังไม่สิ้นสุดของมาสเตอร์</value>
   </data>
   <data name="Member" xml:space="preserve">
     <value>สมาชิก</value>
   </data>
   <data name="MemberList" xml:space="preserve">
-    <value>รายชื่อลูกค้า</value>
+    <value>รายชื่อสมาชิก</value>
   </data>
   <data name="MemberMaxCredit" xml:space="preserve">
-    <value>เครดิตโอนเงินสูงสุดของสมาชิก</value>
+    <value>เครดิตสูงสุดของสมาชิก</value>
   </data>
   <data name="Members" xml:space="preserve">
-    <value>สมาชิก (เปิด/ปิด/ถูกระงับ)</value>
+    <value>สมาชิก ( ใช้งานอยู่/ปิด/ถูกระงับ)</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>ชื่อ</value>
   </data>
   <data name="NetPosition" xml:space="preserve">
-    <value>สถานะเงินลงทุนสุทธิ</value>
+    <value>ยอดรวมสุทธิ</value>
   </data>
   <data name="Nickname" xml:space="preserve">
     <value>ชื่อเล่น</value>
@@ -334,7 +334,7 @@
     <value>ต้นสายปิดการใช้งาน เดิมพัน Outright</value>
   </data>
   <data name="Outstanding" xml:space="preserve">
-    <value>การเดิมพันที่ยังไม่สิ้นสุด</value>
+    <value>เดิมพันที่ยังไม่สิ้นสุด</value>
   </data>
   <data name="Page" xml:space="preserve">
     <value>หน้า</value>
@@ -352,7 +352,7 @@
     <value>แก้ไขรหัส</value>
   </data>
   <data name="ResetSecurityCodeViewModelText" xml:space="preserve">
-    <value>Reset Security Code</value>
+    <value>ตั้งค่ารหัสรักษาความปลอดภัยใหม่</value>
   </data>
   <data name="Setting" xml:space="preserve">
     <value>ตั้งค่า</value>
@@ -367,13 +367,13 @@
     <value>แบ่งสู้ สปอตร์</value>
   </data>
   <data name="Statement" xml:space="preserve">
-    <value>บัญชี</value>
+    <value>รายการเดินบัญชี</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>สถานะ</value>
   </data>
   <data name="Submit" xml:space="preserve">
-    <value>ตกลง</value>
+    <value>ส่ง</value>
   </data>
   <data name="Super" xml:space="preserve">
     <value>ที่สูงสุด ที่มีประสิทธิภาพ</value>
@@ -409,7 +409,7 @@
     <value>ยกเลิกการระงับ &lt;username&gt;</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>ล่าสุด</value>
+    <value>อัปเดต</value>
   </data>
   <data name="UpdateSuccessfully" xml:space="preserve">
     <value>อัปเดตสำเร็จแล้ว!</value>
@@ -433,7 +433,7 @@
     <value>แก้ไข หน้ากีฬาแบบหลายบัญชี 2</value>
   </data>
   <data name="EditMultipleSportsbookText" xml:space="preserve">
-    <value>แก้ไขรายการของกีฬาหลายฝ่าย</value>
+    <value>แก้ไขกีฬาหลายรายการ</value>
   </data>
   <data name="EditMultipleLiveCasinoText" xml:space="preserve">
     <value>Edit Multiple Live Casino</value>

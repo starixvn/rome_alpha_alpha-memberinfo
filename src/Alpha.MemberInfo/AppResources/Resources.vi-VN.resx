@@ -283,10 +283,10 @@
     <value>Mức thắng lớn nhất (dựa trên hạn mức được cấp)</value>
   </data>
   <data name="CurrentWinLimit" xml:space="preserve">
-    <value>Hạn mức thắng (%) hiện tại</value>
+    <value>Hạn mức thắng hiện tại (%)</value>
   </data>
   <data name="CurrentLossLimit" xml:space="preserve">
-    <value>Giới hạn thua hiện tại (%)</value>
+    <value>Hạn mức thua hiện tại (%)</value>
   </data>
   <data name="MaximumLoss" xml:space="preserve">
     <value>Tiền thua cược lớn nhất</value>
@@ -343,7 +343,7 @@
     <value>Lưa chọn</value>
   </data>
   <data name="Member" xml:space="preserve">
-    <value>Thành viên</value>
+    <value>Member</value>
   </data>
   <data name="SelectedAccounts" xml:space="preserve">
     <value>Tài khoản đã chọn:</value>
