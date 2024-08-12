@@ -1133,8 +1133,8 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="Losing" xml:space="preserve">
     <value>Losing</value>
   </data>
-  <data name="Margin" xml:space="preserve">
-    <value>Margin</value>
+  <data name="ProfitMargin" xml:space="preserve">
+    <value>Profit Margin</value>
   </data>
   <data name="MixTurnover" xml:space="preserve">
     <value>Mix Turnover</value>
@@ -1217,7 +1217,7 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>The Maximum Member Credit set by your upline: {0}</value>
   </data>
-  <data name="MonitoredMember" xml:space="preserve">
+  <data name="MonitoredMember_Duplicate[1]" xml:space="preserve">
     <value>Monitored Member</value>
   </data>
   <data name="DateRangeNote" xml:space="preserve">

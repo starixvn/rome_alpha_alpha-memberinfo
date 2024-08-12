@@ -1133,7 +1133,7 @@
   <data name="MemberUsernameIsInvalid" xml:space="preserve">
     <value>會員賬號無效。</value>
   </data>
-  <data name="Margin" xml:space="preserve">
+  <data name="ProfitMargin" xml:space="preserve">
     <value>利潤率</value>
   </data>
   <data name="BetCount" xml:space="preserve">
@@ -1184,7 +1184,7 @@
   <data name="MixTurnover" xml:space="preserve">
     <value>混合投注額</value>
   </data>
-  <data name="MonitoredMember" xml:space="preserve">
+  <data name="MonitoredMember_Duplicate[1]" xml:space="preserve">
     <value>監控會員</value>
   </data>
   <data name="Active" xml:space="preserve">

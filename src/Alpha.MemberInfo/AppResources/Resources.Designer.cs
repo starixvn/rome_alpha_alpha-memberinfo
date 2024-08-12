@@ -18,7 +18,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -1653,15 +1653,6 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Margin.
-        /// </summary>
-        public static string Margin {
-            get {
-                return ResourceManager.GetString("Margin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Mark as Reviewed.
         /// </summary>
         public static string MarkAsReviewed {
@@ -1865,6 +1856,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string MonitoredMember {
             get {
                 return ResourceManager.GetString("MonitoredMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monitored Member.
+        /// </summary>
+        public static string MonitoredMember_Duplicate_1_ {
+            get {
+                return ResourceManager.GetString("MonitoredMember_Duplicate[1]", resourceCulture);
             }
         }
         
@@ -2405,6 +2405,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string ProblemMemberAccounts {
             get {
                 return ResourceManager.GetString("ProblemMemberAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profit Margin.
+        /// </summary>
+        public static string ProfitMargin {
+            get {
+                return ResourceManager.GetString("ProfitMargin", resourceCulture);
             }
         }
         

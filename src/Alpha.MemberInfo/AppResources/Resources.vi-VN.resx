@@ -121,7 +121,7 @@
     <value>Hạn mức khả dụng</value>
   </data>
   <data name="NoInformationIsAvailable" xml:space="preserve">
-    <value>Thông tin chưa được cập nhật</value>
+    <value>Không có dữ liệu</value>
   </data>
   <data name="Outstanding" xml:space="preserve">
     <value>Tiền chưa xử lý</value>
@@ -268,7 +268,7 @@
     <value>Tên đăng nhập hoặc Tên/Họ</value>
   </data>
   <data name="NoDataFound" xml:space="preserve">
-    <value>Thông tin chưa được cập nhật</value>
+    <value>Không có dữ liệu</value>
   </data>
   <data name="AllAgent" xml:space="preserve">
     <value>Tất cả Agent</value>
@@ -1049,10 +1049,10 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Hoa hồng</value>
   </data>
   <data name="Live" xml:space="preserve">
-    <value>Trực Tuyến</value>
+    <value>Trực tiếp</value>
   </data>
   <data name="Turnover" xml:space="preserve">
-    <value>Tiền Cược</value>
+    <value>Tiền cược</value>
   </data>
   <data name="WinLoss" xml:space="preserve">
     <value>Thắng thua</value>
@@ -1124,10 +1124,10 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Hủy</value>
   </data>
   <data name="Turnover_(Live)" xml:space="preserve">
-    <value>Tiền Cược (Trực Tiếp)</value>
+    <value>Tiền Cược (Trực tiếp)</value>
   </data>
   <data name="Turnover_(NonLive)" xml:space="preserve">
-    <value>Tiền Cược (Chưa bắt đầu)</value>
+    <value>Tiền Cược (Không trực tiếp)</value>
   </data>
   <data name="MixTurnover" xml:space="preserve">
     <value>Tiền cược tổng hợp</value>
@@ -1135,9 +1135,10 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="BetCount" xml:space="preserve">
     <value>Số lượng cược</value>
   </data>
-  <data name="Margin" xml:space="preserve">
-    <value>Lợi nhuận</value>
+  <data name="ProfitMargin" xml:space="preserve">
+    <value>Biên lợi nhuận</value>
   </data>
+  <data name="MonitoredMember_Duplicate[1]" xml:space="preserve">
   <data name="introCopyNote" xml:space="preserve">
     <value>Nhấn 'Sao chép' để sao chép và chia sẻ thông tin tài khoản</value>
   </data>
@@ -1176,5 +1177,20 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="WatchlistMemberSummary" xml:space="preserve">
     <value>Tổng Hợp Danh Sách Theo Dõi Member</value>
+  </data>
+  <data name="DateRangeNote" xml:space="preserve">
+    <value>Dữ liệu được tổng hợp từ ngày {0} đến {1}</value>
+  </data>
+  <data name="BehaviorCategory" xml:space="preserve">
+    <value>Phân loại hành vi</value>
+  </data>
+  <data name="RiskLevel" xml:space="preserve">
+    <value>Mức độ rủi ro</value>
+  </data>
+  <data name="NonLive" xml:space="preserve">
+    <value>Không trực tiếp</value>
+  </data>
+  <data name="Mix" xml:space="preserve">
+    <value>Tổng hợp</value>
   </data>
 </root>
