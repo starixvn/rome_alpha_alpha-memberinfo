@@ -17,7 +17,12 @@
     @StaticResources.RenderScripts("~/Features/QRCodeMemberSignIn/Scripts/EasyAutocomplete/jquery.easy-autocomplete")
 }
 
-<div class="page-title">@Resources.MemberBettingBehavior</div>
+<div class="page-title">
+    <span style="margin-right: 5px">
+      @Resources.MemberBettingBehavior
+    </span>
+    <a href="@Model.UserGuideLink" target="_blank"><span class="icon icon-book"></span></a>
+</div>
 
 @using (Html.BeginForm("Excel", "MemberBettingBehavior", FormMethod.Get, new { id = "export-excel-form" }))
 {

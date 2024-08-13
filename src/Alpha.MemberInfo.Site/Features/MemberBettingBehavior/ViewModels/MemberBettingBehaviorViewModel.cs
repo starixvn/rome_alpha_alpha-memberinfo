@@ -1,6 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior.ViewModels
 {
+    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Constants;
+    using Alpha.Web.Helpers;
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
@@ -26,5 +28,9 @@
         public bool IsDarkMode { get; }
 
         public DateTime EndDate => DateTime.Now.AddDays(-2);
+
+        public string UserGuideLink => AppSettings.IsMBCSite
+           ? MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=204089")
+           : MicroSites.MessageUrl("~/StaticMessage/Guide?id=204089");
     }
 }

@@ -34,7 +34,7 @@
         [HttpGet]
         public async Task<ActionResult> MemberProfile(MemberProfileQuery message)
         {
-            var memberCustId = await GetMemberDownlineCustId(message.CustId, message.SubAccId, message.UserName);
+            var memberCustId = await GetMemberDownlineCustId(message.ViewerId, message.SubAccId, message.UserName);
             if (memberCustId > 0)
             {
                 message.MemberCustId = memberCustId;
@@ -46,7 +46,7 @@
         [HttpGet]
         public async Task<ActionResult> MemberBettingStatistic(MemberBettingStatisticQuery message)
         {
-            var memberCustId = await GetMemberDownlineCustId(message.CustId, message.SubAccId, message.UserName);
+            var memberCustId = await GetMemberDownlineCustId(message.ViewerId, message.SubAccId, message.UserName);
             if (memberCustId > 0)
             {
                 message.MemberCustId = memberCustId;
@@ -59,7 +59,7 @@
         [HttpGet]
         public async Task<ActionResult> Excel(MemberBettingBehaviorExcelQuery message)
         {
-            var memberCustId = await GetMemberDownlineCustId(message.CustId, message.SubAccId, message.UserName);
+            var memberCustId = await GetMemberDownlineCustId(message.ViewerId, message.SubAccId, message.UserName);
             if (memberCustId > 0)
             {
                 message.MemberCustId = memberCustId;
