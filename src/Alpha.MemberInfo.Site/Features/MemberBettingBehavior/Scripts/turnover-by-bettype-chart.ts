@@ -75,11 +75,15 @@ class TurnoverByBetTypeChart {
                         grid: {
                             display: false
                         },
+                        ticks: {
+                            color: this.isDarkMode && darkTextColor,
+                        }
                     },
                     y: {
                         stacked: true,
                         ticks: {
-                            callback: (value) => SiteHelper.FormatCompactNumber(value)
+                            callback: (value) => SiteHelper.FormatCompactNumber(value),
+                            color: this.isDarkMode && darkTextColor,
                         },
                         grid: {
                             display: false,

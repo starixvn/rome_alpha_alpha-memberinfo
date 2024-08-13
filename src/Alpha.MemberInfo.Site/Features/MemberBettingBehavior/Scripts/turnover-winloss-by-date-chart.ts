@@ -75,6 +75,9 @@ class TurnoverWinLossByDateChart {
                     x: {
                         grid: {
                             display: false
+                        },
+                        ticks: {
+                            color: this.isDarkMode && darkTextColor,
                         }
                     },
                     y: {
@@ -89,7 +92,8 @@ class TurnoverWinLossByDateChart {
                         },
                         position: 'left',
                         ticks: {
-                            callback: (value) => SiteHelper.FormatCompactNumber(value)
+                            callback: (value) => SiteHelper.FormatCompactNumber(value),
+                            color: this.isDarkMode && darkTextColor,
                         },
                         grid: {
                             display: false
@@ -107,7 +111,8 @@ class TurnoverWinLossByDateChart {
                         },
                         position: 'right',
                         ticks: {
-                            callback: (value) => SiteHelper.FormatCompactNumber(value)
+                            callback: (value) => SiteHelper.FormatCompactNumber(value),
+                            color: this.isDarkMode && darkTextColor,
                         },
                         grid: {
                             display: false
