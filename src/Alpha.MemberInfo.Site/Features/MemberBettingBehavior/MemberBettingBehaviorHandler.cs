@@ -87,7 +87,8 @@
         public async Task<CustomerProfile> Handle(MemberProfileQuery message)
         {
             var profile = await bettingBeharviorService.GetCustomerProfile(message.MemberCustId, message.Site);
-            if(message.ViewerLevelId != UserLevelConstant.Agent || !message.CanUpdateAccount)
+            profile.CanUpdateAccount = message.CanUpdateAccount;
+            if(message.ViewerLevelId != UserLevelConstant.Agent)
             {
                 profile.IsMonitoredMember = null;
             }

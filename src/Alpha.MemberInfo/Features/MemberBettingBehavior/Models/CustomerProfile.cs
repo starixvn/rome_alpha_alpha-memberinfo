@@ -15,5 +15,7 @@
         public string Level { get; set; }
 
         public bool RelatedToOtherAccount { get; set; }
+
+        public bool CanUpdateAccount { get; set; }
     }
 }

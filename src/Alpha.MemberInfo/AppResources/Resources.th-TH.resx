@@ -1091,7 +1091,7 @@
     <value>พฤติกรรมการเดิมพันของสมาชิก</value>
   </data>
   <data name="CustomerProfile" xml:space="preserve">
-    <value>โปรไฟล์ลูกค้า</value>
+    <value>โปรไฟล์สมาชิก</value>
   </data>
   <data name="BettingStatistic" xml:space="preserve">
     <value>สถิติการเดิมพัน</value>

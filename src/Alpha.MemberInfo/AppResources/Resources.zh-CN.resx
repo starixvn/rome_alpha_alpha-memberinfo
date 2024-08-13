@@ -1091,7 +1091,7 @@
     <value>会员投注模式</value>
   </data>
   <data name="CustomerProfile" xml:space="preserve">
-    <value>客户简介</value>
+    <value>会员资料</value>
   </data>
   <data name="BettingStatistic" xml:space="preserve">
     <value>投注统计</value>

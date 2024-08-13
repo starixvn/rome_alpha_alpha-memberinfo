@@ -1138,7 +1138,6 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="ProfitMargin" xml:space="preserve">
     <value>Biên lợi nhuận</value>
   </data>
-  <data name="MonitoredMember_Duplicate[1]" xml:space="preserve">
   <data name="introCopyNote" xml:space="preserve">
     <value>Nhấn 'Sao chép' để sao chép và chia sẻ thông tin tài khoản</value>
   </data>
