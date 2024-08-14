@@ -1,10 +1,12 @@
 ﻿namespace Alpha.MemberInfo.Site.App_Start
 {
     using Alpha.CopyAccount.App_Start;
+    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Features.CreateAccount;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources;
     using Alpha.MemberInfo.Features.DormantAccountList;
+    using Alpha.MemberInfo.Features.MemberBettingBehavior;
     using Alpha.MemberInfo.Features.MyWatchlist.MyThresholds;
     using Alpha.MemberInfo.Features.MyWatchlist.MyWatchlistAccounts;
     using Alpha.MemberInfo.Features.MyWatchlist.ReachedThreshold;
@@ -12,6 +14,7 @@
     using Alpha.MemberInfo.Features.Shared;
     using Alpha.MemberInfo.Services.IndirectLoginAccount;
     using Alpha.MemberInfo.Site.Features.DormantAccountList;
+    using Alpha.MemberInfo.Site.Features.MemberBettingBehavior;
     using Alpha.MemberInfo.Site.Features.MyWatchlist.ReachedThreshold;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn;
     using Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.Helpers;
@@ -63,8 +66,6 @@
     using Sunplus.Agent.Utilities;
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Net;
     using System.Net.Http;
     using System.Reflection;
     using System.Resources;
@@ -168,6 +169,15 @@
 
             container.RegisterPerWebRequest<DormantAccountService, DormantAccountServiceImpl>();
             container.RegisterPerWebRequest<DormantAccountWorkbook, DormantAccountWorkbookImpl>();
+            container.RegisterPerWebRequest<MemberBettingBehaviorWorkbook, MemberBettingBehaviorWorkbookImpl>();
+            container.RegisterPerWebRequest<MemberBettingBehaviorService>(
+                () => new MemberBettingBehaviorServiceImpl(
+                    container.GetInstance<IDynamicRepository>(),
+                    container.GetInstance<ICacheService>(),
+                    container.GetInstance<IPartialUMService>(),
+                    container.GetInstance<CacheRefService>(),
+                    CreateCtsHttpClient()
+                    ));
             container.RegisterCopyAccountServices("CloneAccount:BaseUri", "CloneAccount:ApiKey");
 
             container.RegisterPerWebRequest<CheckBelongingService, CheckBelongingServiceImpl>();
@@ -221,6 +231,14 @@
             container.Register<ILogger, NetThrottling.Utils.Logger>(Lifestyle.Scoped);
             container.Register<ICacheServiceFactory, CacheServiceFactory>(Lifestyle.Scoped);
             container.Register<IResolver, BaseResolver>(Lifestyle.Scoped);
+        }
+        private static HttpClient CreateCtsHttpClient()
+        {
+            var ctsClient = HttpClientFactory.Create();
+            ctsClient.BaseAddress = AppSettings.CTSApiUri;
+            ctsClient.DefaultRequestHeaders.Add("Accept-Language", Thread.CurrentThread.CurrentCulture.Name);
+
+            return ctsClient;
         }
     }
 }

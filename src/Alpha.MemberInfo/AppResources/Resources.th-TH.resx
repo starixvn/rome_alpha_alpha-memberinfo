@@ -1069,6 +1069,12 @@
   <data name="Live" xml:space="preserve">
     <value>สด</value>
   </data>
+  <data name="Turnover" xml:space="preserve">
+    <value>เงินหมุนเวียน</value>
+  </data>
+  <data name="WinLoss" xml:space="preserve">
+    <value>ชนะ</value>
+  </data>
   <data name="Min" xml:space="preserve">
     <value>ต่ำสุด</value>
   </data>
@@ -1081,7 +1087,94 @@
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>เครดิตสมาชิกสูงสุดที่กำหนดโดยอัพไลน์ของคุณ: {0}</value>
   </data>
+  <data name="MemberBettingBehavior" xml:space="preserve">
+    <value>พฤติกรรมการเดิมพันของสมาชิก</value>
+  </data>
+  <data name="CustomerProfile" xml:space="preserve">
+    <value>โปรไฟล์สมาชิก</value>
+  </data>
+  <data name="BettingStatistic" xml:space="preserve">
+    <value>สถิติการเดิมพัน</value>
+  </data>
+  <data name="DateRange" xml:space="preserve">
+    <value>ช่วงของข้อมูล</value>
+  </data>
+  <data name="Last90Days" xml:space="preserve">
+    <value>90 วันที่ผ่านมา</value>
+  </data>
+  <data name="Last60Days" xml:space="preserve">
+    <value>60 วันที่ผ่านมา</value>
+  </data>
+  <data name="Last30Days" xml:space="preserve">
+    <value>30 วันที่ผ่านมา</value>
+  </data>
+  <data name="TurnoverBySport" xml:space="preserve">
+    <value>มูลค่าการเดิมพันตามกีฬา</value>
+  </data>
+  <data name="TurnoverByBetType" xml:space="preserve">
+    <value>มูลค่าการเดิมพันตามชนิดการเดิมพัน</value>
+  </data>
+  <data name="TurnoverAndWinLossByDate" xml:space="preserve">
+    <value>มูลค่าการเดิมพันและยอดแพ้ชนะตามวันที่</value>
+  </data>
+  <data name="RelatedToOtherAccounts" xml:space="preserve">
+    <value>เกี่ยวข้องกับบัญชีอื่นๆ</value>
+  </data>
   <data name="MonitoredMember" xml:space="preserve">
+    <value>สมาชิกที่กำลังเฝ้าดู</value>
+  </data>
+  <data name="TotalTurnover" xml:space="preserve">
+    <value>มูลค่าการเดิมพันรวม</value>
+  </data>
+  <data name="NetTurnover" xml:space="preserve">
+    <value>เงินหมุนเวียน</value>
+  </data>
+  <data name="Average" xml:space="preserve">
+    <value>เฉลี่ย</value>
+  </data>
+  <data name="MemberUsernameIsInvalid" xml:space="preserve">
+    <value>ชื่อผู้ใช้สมาชิกไม่ถูกต้อง</value>
+  </data>
+  <data name="ProfitMargin" xml:space="preserve">
+    <value>อัตรากำไร </value>
+  </data>
+  <data name="BetCount" xml:space="preserve">
+    <value>จำนวนเดิมพัน</value>
+  </data>
+  <data name="Bettype" xml:space="preserve">
+    <value>ประเภทการเดิมพัน</value>
+  </data>
+  <data name="Stake" xml:space="preserve">
+    <value>เงินเดิมพัน </value>
+  </data>
+  <data name="WinLossText" xml:space="preserve">
+    <value>ชนะ</value>
+  </data>
+  <data name="Win" xml:space="preserve">
+    <value>ชนะ</value>
+  </data>
+  <data name="Lose" xml:space="preserve">
+    <value>เสีย</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>เสมอ</value>
+  </data>
+  <data name="Winning" xml:space="preserve">
+    <value>การชนะ</value>
+  </data>
+  <data name="Losing" xml:space="preserve">
+    <value>เสียไป</value>
+  </data>
+  <data name="Sports" xml:space="preserve">
+    <value>กีฬา</value>
+  </data>
+  <data name="NonLive" xml:space="preserve">
+    <value>ก่อนเริ่มแข่ง</value>
+  </data>
+  <data name="Mix" xml:space="preserve">
+    <value>รวมกัน</value>
+  </data>
+  <data name="MonitoredMember_Duplicate[1]" xml:space="preserve">
     <value>สมาชิกที่กำลังเฝ้าดู</value>
   </data>
   <data name="Active" xml:space="preserve">
@@ -1110,6 +1203,27 @@
   </data>
   <data name="WatchlistMemberSummary" xml:space="preserve">
     <value>สรุปรายการเฝ้าดู</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Turnover_(Live)" xml:space="preserve">
+    <value>เงินหมุนเวียน (สด)</value>
+  </data>
+  <data name="Turnover_(NonLive)" xml:space="preserve">
+    <value>เงินหมุนเวียน (ไม่สด)</value>
+  </data>
+  <data name="MixTurnover" xml:space="preserve">
+    <value>เงินหมุนเวียนรวมกัน</value>
+  </data>
+  <data name="DateRangeNote" xml:space="preserve">
+    <value>ข้อมูลสรุปตั้งแต่ {0} ถึง {1}</value>
+  </data>
+  <data name="BehaviorCategory" xml:space="preserve">
+    <value>หมวดหมู่พฤติกรรม</value>
+  </data>
+  <data name="RiskLevel" xml:space="preserve">
+    <value>ระดับความเสี่ยง</value>
   </data>
   <data name="CompactCopy" xml:space="preserve">
     <value>คัดลอกแบบรวบรัด</value>

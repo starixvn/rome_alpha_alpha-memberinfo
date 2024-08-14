@@ -330,6 +330,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
@@ -834,6 +835,32 @@
     </Content>
     <Content Include="Features\CreateAccount\Styles\quick-introduction.scss" />
     <Content Include="Features\CreateAccount\Views\ProductSettingInfo.cshtml" />
+    <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior-dark.css" />
+    <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior-dark.min.css">
+      <DependentUpon>member-betting-behavior-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior.css" />
+    <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior.js" />
+    <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior.min.css">
+      <DependentUpon>member-betting-behavior.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MemberBettingBehavior\Bundles\member-betting-behavior.min.js">
+      <DependentUpon>member-betting-behavior.js</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="Features\MemberBettingBehavior\Scripts\turnover-by-bettype-chart.ts" />
+    <TypeScriptCompile Include="Features\MemberBettingBehavior\Scripts\turnover-by-sport-chart.ts" />
+    <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior-dark.css">
+      <DependentUpon>member-betting-behavior-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior-dark.min.css">
+      <DependentUpon>member-betting-behavior-dark.css</DependentUpon>
+    </Content>
+    <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior.css">
+      <DependentUpon>member-betting-behavior.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior.min.css">
+      <DependentUpon>member-betting-behavior.css</DependentUpon>
+    </Content>
     <TypeScriptCompile Include="Features\MyWatchlist\MyWatchlistAccounts\Scripts\my-watchlist-summary.ts" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.js" />
     <Content Include="Features\MyWatchlist\ReachedThreshold\Bundles\reached-threshold-datatable.min.js">
@@ -1404,6 +1431,13 @@
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountExcelQuery.cs" />
     <Compile Include="Features\DormantAccountList\Requests\DormantAccountQuery.cs" />
     <Compile Include="Features\DormantAccountList\ViewModels\DormantAccountViewModel.cs" />
+    <Compile Include="Features\MemberBettingBehavior\MemberBettingBehaviorController.cs" />
+    <Compile Include="Features\MemberBettingBehavior\MemberBettingBehaviorHandler.cs" />
+    <Compile Include="Features\MemberBettingBehavior\MemberBettingBehaviorWorkbook.cs" />
+    <Compile Include="Features\MemberBettingBehavior\Requests\MemberBettingStatisticQuery.cs" />
+    <Compile Include="Features\MemberBettingBehavior\Requests\MemberProfileQuery.cs" />
+    <Compile Include="Features\MemberBettingBehavior\Requests\MemberBettingBehaviorExcelQuery.cs" />
+    <Compile Include="Features\MemberBettingBehavior\ViewModels\MemberBettingBehaviorViewModel.cs" />
     <Compile Include="Features\MyWatchlist\MyThresholds\MyThresholdsController.cs" />
     <Compile Include="Features\MyWatchlist\MyThresholds\MyThresholdsHandler.cs" />
     <Compile Include="Features\MyWatchlist\MyThresholds\Requests\MyThresholdCommand.cs" />
@@ -1419,6 +1453,7 @@
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\DeletePersonalPresetCommand.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\GlobalThresholdQuery.cs" />
     <Compile Include="Features\MyWatchlist\MyWatchlistAccounts\Requests\ManageGlobalThresholdQuery.cs" />
+    <Compile Include="Features\Shared\Requests\UserNameSuggestionByRoleQuery.cs" />
     <Compile Include="Requests\Customer\AccountInfoQuery.cs" />
     <Compile Include="Requests\Customer\CreateCustomerQuery.cs" />
     <Compile Include="Requests\Customer\CreateCustomerRequest.cs" />
@@ -1597,6 +1632,7 @@
     <Content Include="assets\styles\indirect-login-account-dark.scss" />
     <Content Include="assets\styles\member-info-dark.scss" />
     <Content Include="assets\styles\win-loss-limit-dark.scss" />
+    <Content Include="App_Data\ExcelTemplates\MemberBettingBehavior\MemberBettingBehavior.xls" />
     <Content Include="App_Code\Components\DateRangePickerJQuery.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1728,6 +1764,11 @@
     <Content Include="Features\CustomerList\Styles\customer-list-dark.scss" />
     <Content Include="Features\DormantAccountList\Styles\dormant-account-list-dark.scss" />
     <Content Include="Features\QRCodeMemberSignIn\Styles\qr-code-member-sign-in-dark.scss" />
+    <Content Include="Features\MemberBettingBehavior\Views\Index.cshtml" />
+    <Content Include="Features\MemberBettingBehavior\Views\Web.config" />
+    <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior.scss" />
+    <Content Include="Feature" />
+    <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior-dark.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">
@@ -1788,6 +1829,8 @@
     <TypeScriptCompile Include="Features\CustomerList\Scripts\muliple-double-comm.ts" />
     <TypeScriptCompile Include="Features\CustomerList\Scripts\unlock.ts" />
     <TypeScriptCompile Include="Features\DormantAccountList\Scripts\dormant-account-list.ts" />
+    <TypeScriptCompile Include="Features\MemberBettingBehavior\Scripts\member-betting-behavior.ts" />
+    <TypeScriptCompile Include="Features\MemberBettingBehavior\Scripts\turnover-winloss-by-date-chart.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyThresholds\Scripts\my-thresholds-settings.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\MyThresholds\Scripts\my-thresholds.ts" />
     <TypeScriptCompile Include="Features\MyWatchlist\Shared\Scripts\threshold-inputs-base.ts" />
@@ -1827,6 +1870,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Shared\Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

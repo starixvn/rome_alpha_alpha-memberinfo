@@ -134,5 +134,9 @@
         }
 
         public static bool IsOfferCreateAccountLiteMode => GetConfigValue("CreateNewAccount:OfferLiteMode") == "1";
+
+        public static Uri CTSApiUri => new Uri(GetConfigValue("CTS_API"));
+
+        public static bool IsSiteLabel777 => GetConfigValue("SiteLabel") == "777";
     }
 }

@@ -121,7 +121,7 @@
     <value>Hạn mức khả dụng</value>
   </data>
   <data name="NoInformationIsAvailable" xml:space="preserve">
-    <value>Thông tin chưa được cập nhật</value>
+    <value>Không có dữ liệu</value>
   </data>
   <data name="Outstanding" xml:space="preserve">
     <value>Tiền chưa xử lý</value>
@@ -268,7 +268,7 @@
     <value>Tên đăng nhập hoặc Tên/Họ</value>
   </data>
   <data name="NoDataFound" xml:space="preserve">
-    <value>Thông tin chưa được cập nhật</value>
+    <value>Không có dữ liệu</value>
   </data>
   <data name="AllAgent" xml:space="preserve">
     <value>Tất cả Agent</value>
@@ -1049,7 +1049,13 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Hoa hồng</value>
   </data>
   <data name="Live" xml:space="preserve">
-    <value>Trực Tuyến</value>
+    <value>Trực tiếp</value>
+  </data>
+  <data name="Turnover" xml:space="preserve">
+    <value>Tiền cược</value>
+  </data>
+  <data name="WinLoss" xml:space="preserve">
+    <value>Thắng thua</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>Nhỏ nhất</value>
@@ -1062,6 +1068,75 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>Hạn Mức Tín Dụng Tối Đa Của Member Cấp Bởi Cấp Trên：{0}</value>
+  </data>
+  <data name="CustomerProfile" xml:space="preserve">
+    <value>Hồ Sơ Member</value>
+  </data>
+  <data name="MemberBettingBehavior" xml:space="preserve">
+    <value>Hành Vi Đặt Cược Member</value>
+  </data>
+  <data name="BettingStatistic" xml:space="preserve">
+    <value>Thống Kê Cược</value>
+  </data>
+  <data name="DateRange" xml:space="preserve">
+    <value>Giai đoạn</value>
+  </data>
+  <data name="Last90Days" xml:space="preserve">
+    <value>90 ngày trước</value>
+  </data>
+  <data name="Last60Days" xml:space="preserve">
+    <value>60 ngày trước</value>
+  </data>
+  <data name="Last30Days" xml:space="preserve">
+    <value>30 ngày trước</value>
+  </data>
+  <data name="TurnoverBySport" xml:space="preserve">
+    <value>Tiền Cược Theo Môn Thể Thao</value>
+  </data>
+  <data name="TurnoverByBetType" xml:space="preserve">
+    <value>Tiền Cược Theo Loại Cược</value>
+  </data>
+  <data name="TurnoverAndWinLossByDate" xml:space="preserve">
+    <value>Tiền Cược &amp; Thắng Thua Theo Ngày</value>
+  </data>
+  <data name="RelatedToOtherAccounts" xml:space="preserve">
+    <value>Liên quan đến tài khoản khác</value>
+  </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>Đang theo dõi</value>
+  </data>
+  <data name="TotalTurnover" xml:space="preserve">
+    <value>Tổng tiền cược</value>
+  </data>
+  <data name="WinLossText" xml:space="preserve">
+    <value>Thắng thua</value>
+  </data>
+  <data name="NetTurnover" xml:space="preserve">
+    <value>Tiền cược thực</value>
+  </data>
+  <data name="Average" xml:space="preserve">
+    <value>Trung bình</value>
+  </data>
+  <data name="MemberUsernameIsInvalid" xml:space="preserve">
+    <value>Tên người dùng không đúng.</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Turnover_(Live)" xml:space="preserve">
+    <value>Tiền Cược (Trực tiếp)</value>
+  </data>
+  <data name="Turnover_(NonLive)" xml:space="preserve">
+    <value>Tiền Cược (Không trực tiếp)</value>
+  </data>
+  <data name="MixTurnover" xml:space="preserve">
+    <value>Tiền cược tổng hợp</value>
+  </data>
+  <data name="BetCount" xml:space="preserve">
+    <value>Số lượng cược</value>
+  </data>
+  <data name="ProfitMargin" xml:space="preserve">
+    <value>Biên lợi nhuận</value>
   </data>
   <data name="introCopyNote" xml:space="preserve">
     <value>Nhấn 'Sao chép' để sao chép và chia sẻ thông tin tài khoản</value>
@@ -1101,5 +1176,20 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="WatchlistMemberSummary" xml:space="preserve">
     <value>Tổng Hợp Danh Sách Theo Dõi Member</value>
+  </data>
+  <data name="DateRangeNote" xml:space="preserve">
+    <value>Dữ liệu được tổng hợp từ ngày {0} đến {1}</value>
+  </data>
+  <data name="BehaviorCategory" xml:space="preserve">
+    <value>Phân loại hành vi</value>
+  </data>
+  <data name="RiskLevel" xml:space="preserve">
+    <value>Mức độ rủi ro</value>
+  </data>
+  <data name="NonLive" xml:space="preserve">
+    <value>Không trực tiếp</value>
+  </data>
+  <data name="Mix" xml:space="preserve">
+    <value>Tổng hợp</value>
   </data>
 </root>

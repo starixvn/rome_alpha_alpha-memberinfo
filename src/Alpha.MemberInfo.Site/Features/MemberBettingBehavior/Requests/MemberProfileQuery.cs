@@ -1,0 +1,18 @@
+﻿namespace Alpha.MemberInfo.Site.Features.MemberBettingBehavior.Requests
+{
+    using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
+    using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Site.Requests;
+    using MediatR;
+
+    public class MemberProfileQuery : MemberInfoBaseQuery, IAsyncRequest<CustomerProfile>
+    {
+        public MemberProfileQuery(IUser viewer) : base(viewer)
+        {
+        }
+
+        public int MemberCustId { get; set; }
+
+        public string UserName { get; set; }
+    }
+}

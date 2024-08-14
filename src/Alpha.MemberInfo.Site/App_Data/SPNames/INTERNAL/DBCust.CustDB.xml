@@ -1,6 +1,7 @@
 ﻿<Functions>
   <Function Name="Check Belonging in DBCUST">
     <Setting Key="Age_CustomerSelCheckBelonging_DBCUST" SpName="Age_CustomerSelCheckBelonging" DbName="DBCUST.CustDB.wsv_alpv" Plain="0" />
+    <Setting Key="Age_CustomerSelCheckBelonging_ByUsername" SpName="Age_CustomerSelCheckBelonging_ByUsername" DbName="DBAGE.bodb02.wsv_alpv" Plain="0" />
   </Function>
   <Function Name="Transfer">
     <Setting Key="Acc_CustomerSelTransferOption" SpName="Acc_CustomerSelTransferOption" DbName="DBCUST.CustDB.wsv_alpv" Plain="0" />
@@ -124,5 +125,8 @@
   </Function>
   <Function Name="Create Account">
     <Setting Key="Acc_LiteMode_CustSetting_ProductListInfoSel" SpName="Acc_LiteMode_CustSetting_ProductListInfoSel" DbName="DBAGE.bodb02.wsv_alpv" Plain="0" />
+  </Function>
+  <Function Name="Member Betting Behavior">
+    <Setting Key="Age_CustomerBehaviorProfile_Sel" SpName="Age_CustomerBehaviorProfile_Sel" DbName="DBCust.CustDB.wsv_alpv" Plain="0" />
   </Function>
 </Functions>

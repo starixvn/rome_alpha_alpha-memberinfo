@@ -1073,6 +1073,111 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="Live" xml:space="preserve">
     <value>Live</value>
   </data>
+  <data name="Bettype" xml:space="preserve">
+    <value>Bet Type</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="Lose" xml:space="preserve">
+    <value>Lose</value>
+  </data>
+  <data name="Sports" xml:space="preserve">
+    <value>Sports</value>
+  </data>
+  <data name="Win" xml:space="preserve">
+    <value>Win</value>
+  </data>
+  <data name="TurnoverBySport" xml:space="preserve">
+    <value>Turnover by Sport</value>
+  </data>
+  <data name="TurnoverByBetType" xml:space="preserve">
+    <value>Turnover by Bet Type</value>
+  </data>
+  <data name="TurnoverAndWinLossByDate" xml:space="preserve">
+    <value>Turnover &amp; Win/Loss by Date</value>
+  </data>
+  <data name="NonLive" xml:space="preserve">
+    <value>Non-Live</value>
+  </data>
+  <data name="Turnover" xml:space="preserve">
+    <value>Turnover</value>
+  </data>
+  <data name="WinLoss" xml:space="preserve">
+    <value>Win/Loss</value>
+  </data>
+  <data name="Mix" xml:space="preserve">
+    <value>Mix</value>
+  </data>
+  <data name="MemberBettingBehavior" xml:space="preserve">
+    <value>Member Betting Behavior</value>
+  </data>
+  <data name="Average" xml:space="preserve">
+    <value>Average</value>
+  </data>
+  <data name="BetCount" xml:space="preserve">
+    <value>Bet Count</value>
+  </data>
+  <data name="BettingStatistic" xml:space="preserve">
+    <value>Betting Statistic</value>
+  </data>
+  <data name="CustomerProfile" xml:space="preserve">
+    <value>Member Profile</value>
+  </data>
+  <data name="DateRange" xml:space="preserve">
+    <value>Date Range</value>
+  </data>
+  <data name="Losing" xml:space="preserve">
+    <value>Losing</value>
+  </data>
+  <data name="ProfitMargin" xml:space="preserve">
+    <value>Profit Margin</value>
+  </data>
+  <data name="MixTurnover" xml:space="preserve">
+    <value>Mix Turnover</value>
+  </data>
+  <data name="MonitoredMember" xml:space="preserve">
+    <value>Monitored Member</value>
+  </data>
+  <data name="NetTurnover" xml:space="preserve">
+    <value>Net Turnover</value>
+  </data>
+  <data name="RelatedToOtherAccounts" xml:space="preserve">
+    <value>Related to other accounts</value>
+  </data>
+  <data name="Stake" xml:space="preserve">
+    <value>Stake</value>
+  </data>
+  <data name="TotalTurnover" xml:space="preserve">
+    <value>Total Turnover</value>
+  </data>
+  <data name="Turnover_(Live)" xml:space="preserve">
+    <value>Turnover (Live)</value>
+  </data>
+  <data name="Turnover_(NonLive)" xml:space="preserve">
+    <value>Turnover (Non-Live)</value>
+  </data>
+  <data name="Winning" xml:space="preserve">
+    <value>Winning</value>
+  </data>
+  <data name="WinLossText" xml:space="preserve">
+    <value>Win Loss</value>
+  </data>
+  <data name="MemberUsernameIsInvalid" xml:space="preserve">
+    <value>Member username is invalid</value>
+  </data>
+  <data name="Last30Days" xml:space="preserve">
+    <value>Last 30 days</value>
+  </data>
+  <data name="Last60Days" xml:space="preserve">
+    <value>Last 60 days</value>
+  </data>
+  <data name="Last90Days" xml:space="preserve">
+    <value>Last 90 days</value>
+  </data>
   <data name="Active" xml:space="preserve">
     <value>Active</value>
   </data>
@@ -1112,8 +1217,17 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>The Maximum Member Credit set by your upline: {0}</value>
   </data>
-  <data name="MonitoredMember" xml:space="preserve">
+  <data name="MonitoredMember_Duplicate[1]" xml:space="preserve">
     <value>Monitored Member</value>
+  </data>
+  <data name="DateRangeNote" xml:space="preserve">
+    <value>Data is summarized from {0} to {1}</value>
+  </data>
+  <data name="BehaviorCategory" xml:space="preserve">
+    <value>Behavior Category</value>
+  </data>
+  <data name="RiskLevel" xml:space="preserve">
+    <value>Risk Level</value>
   </data>
   <data name="CompactCopy" xml:space="preserve">
     <value>Compact Copy</value>
