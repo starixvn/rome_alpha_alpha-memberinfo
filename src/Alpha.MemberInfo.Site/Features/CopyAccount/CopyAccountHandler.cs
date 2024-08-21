@@ -100,6 +100,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
                 message.Site,
                 false,
                 message.IP,
+                message.CustDBGroupId,
                 message.Language));
         }
 

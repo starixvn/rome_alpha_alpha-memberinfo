@@ -103,6 +103,7 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
                 viewer.IP,
                 viewer.Site,
                 AppSettings.SiteLabel,
+                viewer.CustDBGroupId,
                 CreationModes.LiteMode,
                 viewer.Language,
                 request.UIBehavior)));

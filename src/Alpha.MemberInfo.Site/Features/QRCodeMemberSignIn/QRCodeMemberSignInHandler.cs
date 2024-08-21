@@ -119,6 +119,7 @@
                     message.Site,
                     true,
                     message.IP,
+                    message.CustDBGroupId,
                     message.Language)
                 {
                     FirstName = message.FirstName

@@ -156,6 +156,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                 request.IP,
                 request.Site,
                 AppSettings.SiteLabel,
+                request.CustDBGroupId,
                 CreationModes.FullMode,
                 request.Language));
 
@@ -181,6 +182,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                     request.RoleId,
                     request.UplineRoleId,
                     request.IP,
+                    request.CustDBGroupId,
                     request.Site,
                     AppSettings.SiteLabel,
                     request.Language));
@@ -206,6 +208,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                     request.RoleId,
                     request.UplineRoleId,
                     request.IP,
+                    request.CustDBGroupId,
                     request.CustomerIds,
                     request.CustomerNames,
                     request.Site,
