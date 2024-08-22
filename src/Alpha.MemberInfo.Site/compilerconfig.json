@@ -146,5 +146,13 @@
   {
     "outputFile": "assets/styles/account-info-tab-dark.css",
     "inputFile": "assets/styles/account-info-tab-dark.scss"
+  },
+  {
+    "outputFile": "assets/styles/licensee-signup.css",
+    "inputFile": "assets/styles/licensee-signup.scss"
+  },
+  {
+    "outputFile": "assets/styles/licensee-signup-dark.css",
+    "inputFile": "assets/styles/licensee-signup-dark.scss"
   }
 ]

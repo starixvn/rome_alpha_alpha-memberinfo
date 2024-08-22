@@ -1,5 +1,4 @@
-﻿
-/// Adds a browser prefix to the property
+﻿/// Adds a browser prefix to the property
 /// @param {*} $property Property
 /// @param {*} $value Value
 
@@ -27,7 +26,6 @@
     @include css3-prefix('box-shadow', $string);
 }
 
-
 /// Box Sizing
 /// @param {*} $type [border-box] - Type
 /// @require {mixin} css3-prefix
@@ -49,7 +47,6 @@
 /// @require {mixin} css3-prefix
 
 @mixin transition($properties...) {
-
     @if length($properties) >= 1 {
         @include css3-prefix('transition', $properties);
     }

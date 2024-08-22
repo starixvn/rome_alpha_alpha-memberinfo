@@ -471,5 +471,17 @@
     "inputFiles": [
       "assets/scripts/account-info-tab/index.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/licensee-signup.css",
+    "inputFiles": [
+      "assets/styles/licensee-signup.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/licensee-signup-dark.css",
+    "inputFiles": [
+      "assets/styles/licensee-signup-dark.css"
+    ]
   }
 ]

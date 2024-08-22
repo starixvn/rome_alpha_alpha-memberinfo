@@ -549,6 +549,14 @@
     <Content Include="assets\bundles\indirect-login-account\update-account.min.js">
       <DependentUpon>update-account.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\licensee-signup-dark.css" />
+    <Content Include="assets\bundles\licensee-signup-dark.min.css">
+      <DependentUpon>licensee-signup-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\licensee-signup.css" />
+    <Content Include="assets\bundles\licensee-signup.min.css">
+      <DependentUpon>licensee-signup.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\member-requests\member-requests.js" />
     <Content Include="assets\bundles\member-requests\member-requests.min.js">
       <DependentUpon>member-requests.js</DependentUpon>
@@ -591,6 +599,12 @@
     </Content>
     <Content Include="assets\scripts\aes.js" />
     <Content Include="assets\scripts\indirect-login-account\quick-introduction.js" />
+    <Content Include="assets\styles\account-info-tab-dark.css">
+      <DependentUpon>account-info-tab-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\account-info-tab-dark.min.css">
+      <DependentUpon>account-info-tab-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\account-info-tab-dark.scss" />
     <Content Include="assets\styles\account-info-tab.css">
       <DependentUpon>account-info-tab.scss</DependentUpon>
@@ -781,6 +795,21 @@
     <Content Include="assets\styles\images\createAccount\default\zh-TW\light\lv4.img3.png" />
     <Content Include="assets\styles\images\not-reviewed.png" />
     <Content Include="assets\styles\images\open.png" />
+    <Content Include="assets\styles\licensee-signup-dark.css">
+      <DependentUpon>licensee-signup-dark.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\licensee-signup-dark.min.css">
+      <DependentUpon>licensee-signup-dark.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\licensee-signup.css">
+      <DependentUpon>licensee-signup.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\licensee-signup.min.css">
+      <DependentUpon>licensee-signup.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\win-loss-limit.min.css">
+      <DependentUpon>win-loss-limit.css</DependentUpon>
+    </Content>
     <Content Include="ClientApp\dist\assets\createAccount-0c1c6bde.js" />
     <Content Include="ClientApp\dist\assets\createAccount-c5205fb8.css" />
     <Content Include="ClientApp\dist\assets\index-06d353a9.css" />
@@ -1382,6 +1411,7 @@
     </Compile>
     <Compile Include="Constants\LanguageCode.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\LicenseeSignupController.cs" />
     <Compile Include="Features\CopyAccount\ViewModels\CopyAccountResultViewModel.cs" />
     <Compile Include="Features\CreateAccount\CreateAccountController.cs" />
     <Compile Include="Controllers\CreditBalanceController.cs" />
@@ -1549,6 +1579,7 @@
     <Compile Include="Requests\IndirectLoginAccount\UpdatePasswordCommand.cs" />
     <Compile Include="Requests\IndirectLoginAccount\UpdatePasswordQuery.cs" />
     <Compile Include="Requests\IndirectLoginAccount\ValidateAccountQuery.cs" />
+    <Compile Include="Requests\LicenseeSignup\LicenseeSignupQuery.cs" />
     <Compile Include="Requests\MemberRequest\ProductQuery.cs" />
     <Compile Include="Requests\MemberRequest\MemberRequestQuery.cs" />
     <Compile Include="Requests\MemberInfoBaseQuery.cs" />
@@ -1575,6 +1606,7 @@
     <Compile Include="ViewModels\IndirectLoginAccount\ManageAccountViewModel.cs" />
     <Compile Include="ViewModels\IndirectLoginAccount\NewAccountViewModel.cs" />
     <Compile Include="ViewModels\IndirectLoginAccount\UpdatePasswordViewModel.cs" />
+    <Compile Include="ViewModels\LicenseeSignup\LicenseeSignupViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\ProductsViewModel.cs" />
     <Compile Include="ViewModels\MemberRequest\MemberRequestViewModel.cs" />
     <Compile Include="ViewModels\ProblemAccount\ProblemAccountReportViewModel.cs" />
@@ -1634,6 +1666,9 @@
     <Content Include="assets\styles\win-loss-limit-dark.scss" />
     <Content Include="App_Data\ExcelTemplates\MemberBettingBehavior\MemberBettingBehavior.xls" />
     <Content Include="App_Code\Components\DateRangePickerJQuery.cshtml" />
+    <Content Include="assets\styles\_mixins.scss" />
+    <Content Include="assets\styles\licensee-signup.scss" />
+    <Content Include="assets\styles\licensee-signup-dark.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -1769,6 +1804,7 @@
     <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior.scss" />
     <Content Include="Feature" />
     <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior-dark.scss" />
+    <Content Include="Views\LicenseeSignup\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">

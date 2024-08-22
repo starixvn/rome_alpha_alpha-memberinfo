@@ -1,0 +1,58 @@
+﻿@model Alpha.MemberInfo.Site.ViewModels.LicenseeSignup.LicenseeSignupViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/common/common-{Model.ActorLevel.DisplayName}")
+    @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/licensee-signup")
+}
+
+<div class="page-title">
+    <span class="pull-left">@Resources.LicenseeSignup</span>
+</div>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="intro">Register today to initiate the operation of your personalized gaming platform. Kindly fill in the information below and our experts will contact you shortly.</div>
+                <form class="form-validation form-contact">
+                    <div class="form-group">
+                        <label for="inputName">@Resources.Name</label>
+                        <input type="text" class="form-input" id="inputName" placeholder="Name Sample">
+                    </div>
+                    <div class="form-group">
+                        <label for="selectCountry">@Resources.Country</label>
+                        <select class="form-select" id="selectCountry">
+                            <option value="Thailand">Thailand</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNumber">@Resources.ContactNumber</label>
+                        <div class="contact-number">
+                            <span class="prefix">+66</span>
+                            <input type="number" id="inputNumber" class="form-input" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectMessenger">@Resources.PreferredContactMethod</label>
+                        <div class="contact-method">
+                            <select class="form-select" id="selectMessenger">
+                                <option value="Telegram">Telegram</option>
+                            </select>
+                            <input type="text" class="form-input" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="additionalInformation">@Resources.AdditionalInformation</label>
+                        <textarea id="additionalInformation" class="form-input"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn-submit">@Resources.Submit</button>
+                    </div>
+                </form>
+                <div class="note">*By submitting this form, you are hereby acknowledging that all information submitted is true and complete. Information received will be kept private and confidential.</div>
+            </div>
+        </div>
+    </div>
+</div>
