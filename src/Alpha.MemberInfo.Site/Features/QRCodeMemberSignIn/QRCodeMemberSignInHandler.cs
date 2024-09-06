@@ -117,6 +117,7 @@
                     message.CreditMax,
                     custIdCopyFrom,
                     message.Site,
+                    0,
                     true,
                     message.IP,
                     message.CustDBGroupId,

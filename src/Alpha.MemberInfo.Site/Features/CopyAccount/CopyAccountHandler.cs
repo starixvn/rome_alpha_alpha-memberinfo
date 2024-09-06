@@ -98,6 +98,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
                 sourceCustId,
                 message.NumberOfAccounts,
                 message.Site,
+                0,
                 false,
                 message.IP,
                 message.CustDBGroupId,
