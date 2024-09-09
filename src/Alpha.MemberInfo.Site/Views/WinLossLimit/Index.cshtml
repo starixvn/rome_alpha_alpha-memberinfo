@@ -38,7 +38,7 @@
                                 data-product-id="@product.ProductId"
                                 data-sport-type="@product.SportType"
                                 data-bet-type="@product.BetType"
-                                @(Model.Equals($"{product.ProductId}-{product.SportType}") ? " selected=\"selected\"" : string.Empty)>
+                                @(Model.UserSelectedId.Equals($"{product.ProductId}-{product.SportType}") ? " selected=\"selected\"" : string.Empty)>
                             @product.ProductName
                         </option>
                     }

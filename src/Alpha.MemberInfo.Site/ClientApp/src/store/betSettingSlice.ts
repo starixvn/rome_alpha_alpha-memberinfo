@@ -113,8 +113,8 @@ const createBetSettingSlice: StateCreator<BetSettingSlice, [], [], BetSettingSli
     const copyItemIndex = rngGamesGroupItems.findIndex(
       (item) => item.sportTypeId === Number(sportTypeId) && item.betTypeId === Number(betTypeId),
     );
-
     const errorName = validateRNGGames(site === site789y, upLineItem, rngGamesGroupItems[copyItemIndex]);
+
     if (errorName) {
       set({ betSettingErrors: [`${sportTypeId}-${betTypeId}-${errorName}`] });
       return false;

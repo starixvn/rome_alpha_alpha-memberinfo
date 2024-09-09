@@ -14,15 +14,15 @@ import { BetSettingProps } from './type';
 import { useCopyBetSetting } from './useCopyBetSetting';
 import { getErrorMessageTranslate } from './utils';
 
-const RNGGameBetSettingProps: ReadonlyArray<keyof RNGGamesBetSettingItem> = ['minBet', 'maxBet', 'maxPerMatch'];
-const RNGGamesBetSettingSubTypeProps: { [key: number]: (keyof RNGGamesBetSettingItem | '')[] } = {
-  1: [...RNGGameBetSettingProps, ''],
-  2: [...RNGGameBetSettingProps, 'maxPerBall'],
-};
+const RNGGameBetSettingProps: ReadonlyArray<keyof RNGGamesBetSettingItem> = [
+  'minBet',
+  'maxBet',
+  'maxPerMatch',
+  'maxPerBall',
+];
 
-const LotteryKey = '220-1024';
-const NumberGameKey = '161-81';
-const RngGamesCopyLabel: ReadonlyArray<string> = [LotteryKey, NumberGameKey];
+const LotteryKey = '169-3611';
+const RngGamesCopyLabel: ReadonlyArray<string> = [LotteryKey];
 
 export default function RNGGamesBetSetting({
   is789y,
@@ -68,28 +68,20 @@ export default function RNGGamesBetSetting({
 
   return (
     <Block title={t('BetSetting')} isCollapse={{ collapse: error.length === 0, resetCollapse: submitCount }}>
-      {Object.keys(RNGGamesBetSettingSubTypeProps).map((subType) => {
-        const subTypeNumber = Number(subType);
-        const properties = [...RNGGamesBetSettingSubTypeProps[subTypeNumber]];
-        const subGroupItems = groupItems.filter((groupItem) => groupItem.subType === subTypeNumber);
-
-        return (
-          <React.Fragment key={subType}>
-            <BetSettingHeading key={subType} subType={subType} properties={properties} />
-            {subGroupItems.map((subGroupItem, index) => (
-              <BetSettingRow
-                key={`${subGroupItem.sportTypeId}-${subGroupItem.betTypeId}`}
-                groupTypeId={groupTypeId}
-                groupItem={subGroupItem}
-                label={renderLabel(subGroupItem)}
-                properties={[...RNGGamesBetSettingSubTypeProps[Number(subType)]]}
-                validate={validate}
-                isCoping={isCopingRow(subGroupItems, index)}
-              />
-            ))}
-          </React.Fragment>
-        );
-      })}
+      <React.Fragment>
+        <BetSettingHeading properties={[...RNGGameBetSettingProps]} />
+        {groupItems.map((item, index) => (
+          <BetSettingRow
+            key={`${item.sportTypeId}-${item.betTypeId}`}
+            groupTypeId={groupTypeId}
+            groupItem={item}
+            label={renderLabel(item)}
+            properties={[...RNGGameBetSettingProps]}
+            validate={validate}
+            isCoping={isCopingRow(groupItems, index)}
+          />
+        ))}
+      </React.Fragment>
     </Block>
   );
 }

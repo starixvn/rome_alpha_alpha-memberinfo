@@ -31,11 +31,44 @@ export default class RNGGamesValidator implements IBetSettingValidator<RNGGamesB
     const { minBet, maxBet, maxPerBall, maxPerMatch } = this.betSettings;
     if (maxPerBall === null) {
       const betSettings = JSON.stringify([minBet, maxBet, maxPerMatch]);
-      return betSettings === JSON.stringify([0, 0, 0]) || betSettings === JSON.stringify([0, 0.1, 0.1]);
+      return (
+        betSettings === JSON.stringify([0, 0, 0]) ||
+        betSettings === JSON.stringify([0, 0.1, 0.1]) ||
+        (minBet === 0 &&
+          maxBet <= this.betSettingConfigs.maxBet &&
+          maxPerMatch <= this.betSettingConfigs.maxPerMatch &&
+          maxBet <= maxPerMatch) ||
+        (minBet === 0 && maxBet === 0 && maxPerMatch <= this.betSettingConfigs.maxPerMatch)
+      );
     }
 
     const betSettings = JSON.stringify([minBet, maxBet, maxPerMatch, maxPerBall]);
-    return betSettings === JSON.stringify([0, 0, 0, 0]) || betSettings === JSON.stringify([0, 0.1, 0.1, 0.1]);
+    return (
+      betSettings === JSON.stringify([0, 0, 0, 0]) ||
+      betSettings === JSON.stringify([0, 0.1, 0.1, 0.1]) ||
+      (minBet === 0 &&
+        maxPerBall !== undefined &&
+        this.betSettingConfigs.maxPerBall !== undefined &&
+        maxBet <= this.betSettingConfigs.maxBet &&
+        maxPerMatch <= this.betSettingConfigs.maxPerMatch &&
+        maxPerBall <= this.betSettingConfigs.maxPerBall &&
+        maxBet <= maxPerMatch &&
+        maxPerBall >= maxBet &&
+        maxPerBall <= maxPerMatch) ||
+      (minBet === 0 &&
+        maxBet === 0 &&
+        maxPerBall !== undefined &&
+        this.betSettingConfigs.maxPerBall !== undefined &&
+        maxPerMatch <= this.betSettingConfigs.maxPerMatch &&
+        maxPerBall <= this.betSettingConfigs.maxPerBall &&
+        maxPerBall <= maxPerMatch) ||
+      (minBet === 0 &&
+        maxBet === 0 &&
+        maxPerBall === 0 &&
+        maxPerMatch !== undefined &&
+        this.betSettingConfigs.maxPerMatch !== undefined &&
+        maxPerMatch <= this.betSettingConfigs.maxPerMatch)
+    );
   }
 
   private validateMinBet(prop?: keyof RNGGamesBetSettingItem) {

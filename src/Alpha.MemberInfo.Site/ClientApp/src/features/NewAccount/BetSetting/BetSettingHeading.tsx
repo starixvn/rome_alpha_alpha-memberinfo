@@ -4,14 +4,13 @@ import { BlockColumn, BlockRow } from '@/features/Shared/Block';
 
 import MaxPayoutSettingInformationNote from './MaxPayoutSettingInformationNote';
 
-export default function BetSettingHeading({ properties, subType = '' }: { properties: string[]; subType?: string }) {
+export default function BetSettingHeading({ properties }: { properties: string[] }) {
   const { t } = useTranslation();
   return (
     <BlockRow isHeaderRow>
-      {[...properties].map((property, index) => {
-        const key = `${index}-${subType}-${property}`;
+      {[...properties].map((property) => {
         return (
-          <BlockColumn key={key}>
+          <BlockColumn key={property}>
             {t(property)} {property === 'maxPayoutPerMatch' && <MaxPayoutSettingInformationNote />}
           </BlockColumn>
         );
