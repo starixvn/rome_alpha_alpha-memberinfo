@@ -388,6 +388,8 @@
     <Compile Include="Features\MemberBettingBehavior\MemberBettingBehaviorService.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\BettingStatisticExportData.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\BettingStatisticExportRow.cs" />
+    <Compile Include="Features\MemberBettingBehavior\Models\CTSCustomerClassCategoryResult.cs" />
+    <Compile Include="Features\MemberBettingBehavior\Models\CustomerClassCategory.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\CustomerAssociation.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\CustomerProfile.cs" />
     <Compile Include="Features\MemberBettingBehavior\Models\MemberBettingStatistic.cs" />

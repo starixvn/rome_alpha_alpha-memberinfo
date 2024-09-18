@@ -45,35 +45,26 @@
         }
 
         private static Mapper<BettingStatisticExportRow> GetBodyRowMapper()
-        {
-            var mapper = new Mapper<BettingStatisticExportRow>()
+            => new Mapper<BettingStatisticExportRow>()
                 .Map(C, bettingStatistics => bettingStatistics.WinBetCount)
                 .Map(D, bettingStatistics => bettingStatistics.LoseBetCount)
                 .Map(E, bettingStatistics => bettingStatistics.DrawBetCount)
-                .Map(F, bettingStatistics => bettingStatistics.CanceledBetCount)
-                .Map(G, bettingStatistics => bettingStatistics.TotalBetCount)
-                .Map(H, bettingStatistics => bettingStatistics.WinningWinLoss)
-                .Map(I, bettingStatistics => bettingStatistics.LosingWinLoss)
-                .Map(J, bettingStatistics => bettingStatistics.TotalWinLoss)
-                .Map(K, bettingStatistics => bettingStatistics.Margin)
-                .Map(L, bettingStatistics => bettingStatistics.AverageTurnover)
-                .Map(M, bettingStatistics => bettingStatistics.LiveTurnover)
-                .Map(N, bettingStatistics => bettingStatistics.NonLiveTurnover)
-                .Map(O, bettingStatistics => bettingStatistics.MixTurnover)
-                .Map(P, bettingStatistics => bettingStatistics.Turnover)
-                .Map(Q, bettingStatistics => bettingStatistics.NetTurnOver);
-
-            return mapper;
-        }
+                .Map(F, bettingStatistics => bettingStatistics.TotalBetCount)
+                .Map(G, bettingStatistics => bettingStatistics.WinningWinLoss)
+                .Map(H, bettingStatistics => bettingStatistics.LosingWinLoss)
+                .Map(I, bettingStatistics => bettingStatistics.TotalWinLoss)
+                .Map(J, bettingStatistics => bettingStatistics.Margin)
+                .Map(K, bettingStatistics => bettingStatistics.AverageTurnover)
+                .Map(L, bettingStatistics => bettingStatistics.LiveTurnover)
+                .Map(M, bettingStatistics => bettingStatistics.NonLiveTurnover)
+                .Map(N, bettingStatistics => bettingStatistics.MixTurnover)
+                .Map(O, bettingStatistics => bettingStatistics.Turnover)
+                .Map(P, bettingStatistics => bettingStatistics.NetTurnOver);
 
         private static Mapper<BettingStatisticExportRow> GetNormalRowMapper()
-        {
-            var mapper = GetBodyRowMapper()
+            => GetBodyRowMapper()
                 .Map(A, bettingStatistics => bettingStatistics.Sporttype)
                 .Map(B, bettingStatistics => bettingStatistics.Bettype);
-
-            return mapper;
-        }
 
         private static Mapper<BettingStatisticExportRow> GetTotalRowMapper()
             => GetBodyRowMapper().Map(A, total => Resources.Total);
@@ -81,14 +72,14 @@
         private TemplateInfo GetTemplateInfo()
             => new TemplateInfo(GetExcelTemplatePath("MemberBettingBehavior"), Resources.NoInformationIsAvailable, bodyStartIndex: 4);
 
-        protected override string GetExcelTemplateDir()
-            => "~/App_Data/ExcelTemplates/MemberBettingBehavior";
+        protected override string GetExcelTemplateDir() => "~/App_Data/ExcelTemplates/MemberBettingBehavior";
 
         public async Task<CustomerProfile> Handle(MemberProfileQuery message)
         {
             var profile = await bettingBeharviorService.GetCustomerProfile(message.MemberCustId, message.Site);
             profile.CanUpdateAccount = message.CanUpdateAccount;
-            if(message.ViewerLevelId != UserLevelConstant.Agent)
+
+            if (message.ViewerLevelId != UserLevelConstant.Agent)
             {
                 profile.IsMonitoredMember = null;
             }
@@ -96,7 +87,12 @@
             return profile;
         }
 
-        public async Task<MemberBettingStatistic> Handle(MemberBettingStatisticQuery message)
-            => await bettingBeharviorService.GetMemberBettingBehaviorStatistics(message.MemberCustId, message.StartDate, message.EndDate, message.Site, message.LanguageKey);
+        public Task<MemberBettingStatistic> Handle(MemberBettingStatisticQuery message)
+            => bettingBeharviorService.GetMemberBettingBehaviorStatistics(
+                message.MemberCustId,
+                message.StartDate,
+                message.EndDate,
+                message.Site,
+                message.LanguageKey);
     }
 }

@@ -14,8 +14,6 @@
 
         public int DrawBetCount { get; set; }
 
-        public int CanceledBetCount { get; set; }
-
         public int TotalBetCount { get; set; }
 
         public decimal WinningWinLoss { get; set; }

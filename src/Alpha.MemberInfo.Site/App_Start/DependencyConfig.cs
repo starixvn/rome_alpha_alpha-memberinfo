@@ -176,8 +176,7 @@
                     container.GetInstance<ICacheService>(),
                     container.GetInstance<IPartialUMService>(),
                     container.GetInstance<CacheRefService>(),
-                    CreateCtsHttpClient()
-                    ));
+                    CreateCtsHttpClient()));
             container.RegisterCopyAccountServices("CloneAccount:BaseUri", "CloneAccount:ApiKey");
 
             container.RegisterPerWebRequest<CheckBelongingService, CheckBelongingServiceImpl>();
@@ -232,6 +231,7 @@
             container.Register<ICacheServiceFactory, CacheServiceFactory>(Lifestyle.Scoped);
             container.Register<IResolver, BaseResolver>(Lifestyle.Scoped);
         }
+
         private static HttpClient CreateCtsHttpClient()
         {
             var ctsClient = HttpClientFactory.Create();
