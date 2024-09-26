@@ -22,8 +22,8 @@ if (linkLength > 0)
                     else
                     {
                         <li>
-                            <a class="breadcrumb-link"
-                               href="@(viewModel.BuildBreadcrumbLink(custinfo, currentRequestUrl, breadcrumbParamByLevel, linkIndex))">
+                            <a class="breadcrumb-link view-downline"
+                               data-url="@(viewModel.BuildBreadcrumbLink(custinfo, currentRequestUrl, breadcrumbParamByLevel, linkIndex))">
                                 @(custinfo.CustName)
                             </a>
                         </li>

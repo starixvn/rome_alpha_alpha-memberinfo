@@ -364,8 +364,8 @@ class CustomerListDataTable {
 
         const viewDownlineLink = `${this.viewModel.MemberInfoUrl}CustomerList/${this.viewModel.DownlineLevelName}?${this.$.param(queryString)}&BreadcrumbLevelJson=${this.viewModel.BreadcrumbLevelJson}`;
         return item.Locked
-            ? `<div class='col-username' title='${this.$('#usernameTooltipText').val()}'><a href="${viewDownlineLink}" >${content}</a>${this.renderLockedIcon(item)}</div>`
-            : `<div title='${this.$('#usernameTooltipText').val()}'><a href="${viewDownlineLink}" >${content}</a></div>`;
+            ? `<div class='col-username' title='${this.$('#usernameTooltipText').val()}'><a class="view-downline" data-url="${viewDownlineLink}">${content}</a>${this.renderLockedIcon(item)}</div>`
+            : `<div title='${this.$('#usernameTooltipText').val()}'><a class="view-downline" data-url="${viewDownlineLink}">${content}</a></div>`;
     }
 
     private renderLockedIcon = item => {
@@ -511,7 +511,8 @@ class CustomerListDataTable {
     private detailCallBack = () => {
         this.$('.login-ip').unbind().bind('click', event => this.customerListPopup.openProductPopup(event.currentTarget));
 
-        this.$('.icon-statement').unbind().bind('click', event => this.viewStatement(event));
+        this.$('.icon-statement').unbind().bind('click', event => this.viewDataURL(event));
+        this.$('.view-downline').unbind().bind('click', event => this.viewDataURL(event));
 
         this.editSingleSetting.bindingEvent();
 
@@ -551,7 +552,7 @@ class CustomerListDataTable {
         this.$('thead tr th.control').parent().removeClass("parent");
     }
 
-    private viewStatement = event => {
+    private viewDataURL = event => {
         event.preventDefault();
 
         const mainFrame = this.topWindow.$('#main');

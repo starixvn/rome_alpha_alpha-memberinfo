@@ -154,7 +154,7 @@
     }
     else
     {
-        <a href="?custId=@item.CustId&custLevelId=@Model.DownlineLevel.Value&statusId=@Model.StatusId&PageSize=@pageSize" class="link">@item.UserName</a>
+        <a data-url="@Alpha.Web.Helpers.MicroSites.MemberInfoUrl("~/CreditBalance")?custId=@item.CustId&custLevelId=@Model.DownlineLevel.Value&statusId=@Model.StatusId&PageSize=@pageSize" class="view-downline link">@item.UserName</a>
     }
 }
 
@@ -218,7 +218,7 @@
 {
     if (Model.CanViewBetListsFromOutstanding)
     {
-        <a href="@Model.GetRunningBetListLink(item)" class="link">@HtmlHelpers.FormatDecimal(item.Outstanding)</a>
+        <a data-url="@Model.GetRunningBetListLink(item)" class="link view-downline">@HtmlHelpers.FormatDecimal(item.Outstanding)</a>
     }
     else
     {

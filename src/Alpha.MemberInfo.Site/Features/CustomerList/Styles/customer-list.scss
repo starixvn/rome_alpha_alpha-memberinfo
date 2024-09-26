@@ -76,7 +76,6 @@ body:not(.modal-open) {
 .dataTable {
     width: 99.5% !important;
     //overflow: hidden;
-
     .status-popup {
         span:first-child {
             cursor: pointer;
@@ -162,6 +161,10 @@ body:not(.modal-open) {
     .login-ip, .icon-statement {
         cursor: pointer;
     }
+}
+
+.view-downline {
+    cursor: pointer;
 }
 
 .modal-content .modal-header {
