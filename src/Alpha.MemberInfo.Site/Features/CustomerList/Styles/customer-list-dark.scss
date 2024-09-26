@@ -191,7 +191,7 @@ table.dataTable {
         background-color: #4B5425 !important;
     }
 
-    .login-ip, .icon-statement, .view-downline {
+    .login-ip, .icon-statement {
         cursor: pointer;
     }
 
@@ -202,6 +202,10 @@ table.dataTable {
     .locked-falsePassword {
         background-color: #6E654E !important;
     }
+}
+
+.view-downline {
+    cursor: pointer;
 }
 
 .icon-statement:before {

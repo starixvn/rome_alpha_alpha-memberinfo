@@ -31,7 +31,7 @@
 
         @if (!string.IsNullOrWhiteSpace(Request.Url.Query))
         {
-            @Breadcrumb.Render(new BreadcrumbLevelViewModel(Model.BreadcrumbLevel, Model.BreadcrumbLevelJson), Request.Url.Query, null)
+            @Breadcrumb.Render(new BreadcrumbLevelViewModel(Model.BreadcrumbLevel, Model.BreadcrumbLevelJson), Request.Url.PathAndQuery, null)
         }
     </div>
 
