@@ -9,7 +9,5 @@
         public decimal WinLoss { get; set; }
 
         public decimal Margin { get; set; }
-
-        public int BetCount { get; set; }
     }
 }

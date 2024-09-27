@@ -162,7 +162,8 @@ class MemberBettingBehavior {
                     return;
                 }
 
-                if (!memberStatistic.SummaryStatistic || memberStatistic.SummaryStatistic.BetCount === 0) {
+                if (!memberStatistic.SummaryStatistic ||
+                    (memberStatistic.SummaryStatistic.Turnover === 0 && memberStatistic.SummaryStatistic.Margin === 0 && memberStatistic.SummaryStatistic.WinLoss === 0)) {
                     this.statisticBlock.show();
                     this.$("#no-infomation").show();
                     this.$("#statistic-chart-id").hide();
@@ -251,11 +252,6 @@ class MemberBettingBehavior {
             .text(`${SiteHelper.FormatCompactNumber(data.WinLoss)}`)
             .addClass(data.WinLoss < 0 ? "redText" : "")
             .removeClass(data.WinLoss >= 0 ? "redText" : "");
-
-        this.$("#summary-betcount")
-            .text(data.BetCount.toLocaleString('en-US'))
-            .addClass(data.BetCount < 0 ? "redText" : "")
-            .removeClass(data.BetCount >= 0 ? "redText" : "");
 
         this.summaryStatistic.addClass("value");
         this.summaryStatistic.show();
