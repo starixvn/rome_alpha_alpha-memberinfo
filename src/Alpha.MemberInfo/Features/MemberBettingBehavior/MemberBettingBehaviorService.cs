@@ -26,19 +26,14 @@
     public class MemberBettingBehaviorServiceImpl : MemberBettingBehaviorService
     {
         private const string StatisticCacheKey = "Alpha.MemberInfo.Features.MemberBettingBehavior.Statistic";
-
         private const string StatisticExportCacheKey = "Alpha.MemberInfo.Features.MemberBettingBehavior.StatisticExport";
-
         private const byte MinuteTimeCache = 5;
+        private const string FormatDateForCache = "yyyyMMdd";
 
         private readonly IDynamicRepository dynamicRepository;
-
         private readonly ICacheService cacheService;
-
         private readonly CacheRefService refService;
-
         private readonly IPartialUMService partialUMService;
-
         private readonly HttpClient httpClient;
 
         public MemberBettingBehaviorServiceImpl(
@@ -87,7 +82,7 @@
             var turnOverBybettypes = new List<TurnoverByBettype>();
             var turnOverWinLossByDates = new List<TurnoverWinLossByDate>();
 
-            var cacheKey = $"{StatisticCacheKey}.{language}.{custId}.{startDate.Day}.{endDate.Day}";
+            var cacheKey = $"{StatisticCacheKey}.{language}.{custId}.{startDate.ToString(FormatDateForCache)}.{endDate.ToString(FormatDateForCache)}";
             var memberStatisticCacheData = await cacheService.GetAsync<MemberBettingStatistic>(cacheKey);
 
             if (memberStatisticCacheData != null)
@@ -136,7 +131,7 @@
             var bettingStatisticExports = new List<BettingStatisticExportRow>();
             BettingStatisticExportRow total;
 
-            var cacheKey = $"{StatisticExportCacheKey}.{language}.{custId}.{startDate.Day}.{endDate.Day}";
+            var cacheKey = $"{StatisticExportCacheKey}.{language}.{custId}.{startDate.ToString(FormatDateForCache)}.{endDate.ToString(FormatDateForCache)}";
             var memberStatisticExportCacheData = await cacheService.GetAsync<BettingStatisticExportData>(cacheKey);
 
             if (memberStatisticExportCacheData != null)
