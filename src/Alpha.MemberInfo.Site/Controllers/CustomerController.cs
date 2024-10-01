@@ -236,8 +236,9 @@ namespace Alpha.MemberInfo.Site.Controllers
         public async Task<ActionResult> CheckExistedCustomer(string username)
            => Json(await customerService.CheckExistedCustomer(username), JsonRequestBehavior.AllowGet);
 
-        
-        
+        public async Task<ActionResult> GetWinLossLimitInformation(SportBookInformationQuery request)
+           => Content(await customerService.GetWinLossLimitInformation(request.CustId, request.Site, AppSettings.SiteLabel, request.Currency, request.Language));
+
         private string GetApplicationPath()
         {
             var applicationPath = Response.ApplyAppPathModifier(Request.ApplicationPath);
