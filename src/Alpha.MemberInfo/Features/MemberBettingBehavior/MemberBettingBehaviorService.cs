@@ -1,5 +1,10 @@
 ﻿namespace Alpha.MemberInfo.Features.MemberBettingBehavior
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.Extensions;
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Criteria;
     using Alpha.MemberInfo.Features.MemberBettingBehavior.Models;
@@ -7,11 +12,6 @@
     using AlphaPlus.PartialUM.Services;
     using Fanex.Caching;
     using Fanex.Data.Repository;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using Fanex.Logging.Extensions.Web;
 
     public interface MemberBettingBehaviorService
@@ -26,19 +26,14 @@
     public class MemberBettingBehaviorServiceImpl : MemberBettingBehaviorService
     {
         private const string StatisticCacheKey = "Alpha.MemberInfo.Features.MemberBettingBehavior.Statistic";
-
         private const string StatisticExportCacheKey = "Alpha.MemberInfo.Features.MemberBettingBehavior.StatisticExport";
-
         private const byte MinuteTimeCache = 5;
+        private const string FormatDateForCache = "yyyyMMdd";
 
         private readonly IDynamicRepository dynamicRepository;
-
         private readonly ICacheService cacheService;
-
         private readonly CacheRefService refService;
-
         private readonly IPartialUMService partialUMService;
-
         private readonly HttpClient httpClient;
 
         public MemberBettingBehaviorServiceImpl(
@@ -59,25 +54,20 @@
         {
             var criteria = new GetCustomerProfileCriteria(custId);
             partialUMService.ThrowIfUM(criteria.GetSettingKey(), siteName);
+
             var customerProfile = await dynamicRepository.GetAsync<CustomerProfile>(criteria);
-            if(customerProfile != null)
+
+            if (customerProfile != null)
             {
+                customerProfile.CategoryID = await GetCTSCategoryId(custId, customerProfile.CustomerClass);
                 customerProfile.Status = refService.GetCustomerProfileStatus(customerProfile.CategoryID);
                 customerProfile.Level = refService.GetCustomerProfileLevel(customerProfile.CategoryID);
                 customerProfile.RelatedToOtherAccount = customerProfile.IsProblemAccount;
-                if(!customerProfile.RelatedToOtherAccount)
+                if (!customerProfile.RelatedToOtherAccount)
                 {
-                    try
-                    {
-                        var customerAssociation = await httpClient.GetAsJsonAsync<CustomerAssociation>($"cts/Association/CheckByCustId?custId={custId}");
-                        customerProfile.RelatedToOtherAccount = customerAssociation.IsAssociated;
-                    } catch(Exception ex)
-                    {
-                        ExceptionHandler.Handle(ex);
-                    }
+                    customerProfile.RelatedToOtherAccount = await GetCTSIsAssociated(custId);
                 }
             }
-
 
             return customerProfile;
         }
@@ -92,10 +82,10 @@
             var turnOverBybettypes = new List<TurnoverByBettype>();
             var turnOverWinLossByDates = new List<TurnoverWinLossByDate>();
 
-            var cacheKey = $"{StatisticCacheKey}.{language}.{custId}.{startDate.Day}.{endDate.Day}";
+            var cacheKey = $"{StatisticCacheKey}.{language}.{custId}.{startDate.ToString(FormatDateForCache)}.{endDate.ToString(FormatDateForCache)}";
             var memberStatisticCacheData = await cacheService.GetAsync<MemberBettingStatistic>(cacheKey);
 
-            if(memberStatisticCacheData != null)
+            if (memberStatisticCacheData != null)
             {
                 summaryStatistic = memberStatisticCacheData.SummaryStatistic;
                 turnOverBySports.AddRange(memberStatisticCacheData.TurnOverBySports);
@@ -103,14 +93,16 @@
                 turnOverWinLossByDates.AddRange(memberStatisticCacheData.TurnoverWinLossByDates);
 
                 return new MemberBettingStatistic(summaryStatistic, turnOverBySports, turnOverBybettypes, turnOverWinLossByDates);
-            } else {
+            }
+            else
+            {
                 var rawData = await dynamicRepository.FetchMultipleAsync<SummaryStatistic, TurnOverBySport, TurnoverByBettype, TurnoverWinLossByDate>(criteria);
                 summaryStatistic = rawData.Item1.FirstOrDefault();
                 turnOverBySports.AddRange(rawData.Item2);
                 turnOverBybettypes.AddRange(rawData.Item3);
                 turnOverWinLossByDates.AddRange(rawData.Item4);
             }
-            
+
             foreach (var item in turnOverBySports)
             {
                 item.SportType = GetMemberStatisticSportTypeName(item.SportType);
@@ -139,22 +131,23 @@
             var bettingStatisticExports = new List<BettingStatisticExportRow>();
             BettingStatisticExportRow total;
 
-            var cacheKey = $"{StatisticExportCacheKey}.{language}.{custId}.{startDate.Day}.{endDate.Day}";
+            var cacheKey = $"{StatisticExportCacheKey}.{language}.{custId}.{startDate.ToString(FormatDateForCache)}.{endDate.ToString(FormatDateForCache)}";
             var memberStatisticExportCacheData = await cacheService.GetAsync<BettingStatisticExportData>(cacheKey);
 
-            if(memberStatisticExportCacheData != null)
+            if (memberStatisticExportCacheData != null)
             {
                 bettingStatisticExports.AddRange(memberStatisticExportCacheData.BettingStatisticExportRows);
                 total = memberStatisticExportCacheData.Total;
                 return new BettingStatisticExportData(bettingStatisticExports, total);
-            } else
+            }
+            else
             {
                 var rawData = await dynamicRepository.FetchMultipleAsync<BettingStatisticExportRow, BettingStatisticExportRow>(criteria);
                 bettingStatisticExports.AddRange(rawData.Item1);
                 total = rawData.Item2.FirstOrDefault();
             }
 
-            foreach(var item in bettingStatisticExports)
+            foreach (var item in bettingStatisticExports)
             {
                 item.Sporttype = GetMemberStatisticSportTypeName(item.Sporttype);
                 item.Bettype = GetMemberStatisticBetTypeName(item.Bettype);
@@ -180,6 +173,45 @@
             int.TryParse(betType, out int betTypeId);
             var betTypeName = refService.GetBetTypeName(betTypeId);
             return betTypeName != "" ? betTypeName : refService.GetCustBetBehavior(betType);
+        }
+
+        private async Task<bool> GetCTSIsAssociated(int custId)
+        {
+            try
+            {
+                var customerAssociation = await httpClient.GetAsJsonAsync<CustomerAssociation>($"cts/Association/CheckByCustId?custId={custId}");
+
+                return customerAssociation.IsAssociated;
+            }
+            catch (Exception ex)
+            {
+                await ExceptionHandler.HandleAsync(ex);
+            }
+
+            return false;
+        }
+
+        private async Task<int> GetCTSCategoryId(int custId, int? customerClass)
+        {
+            try
+            {
+                var result = await httpClient.GetAsJsonAsync<CTSCustomerClassCategoryResult>($"cts/GetCustomerClassCategoryByCustID?custid={custId}");
+
+                if (result?.Detail?.Count() > 0)
+                {
+                    var customerClassCategory = result.Detail
+                        .OrderByDescending(c => c.Date)
+                        .FirstOrDefault(c => c.CC == (customerClass ?? 0)) ?? result.Detail.First();
+
+                    return customerClassCategory.CategoryId;
+                }
+            }
+            catch (Exception ex)
+            {
+                await ExceptionHandler.HandleAsync(ex);
+            }
+
+            return 0;
         }
     }
 }

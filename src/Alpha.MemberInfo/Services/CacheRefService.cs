@@ -84,10 +84,10 @@
         }
 
         public string GetCustomerProfileStatus(int categoryID)
-            => remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileStatus, categoryID.ToString(), LanguageCode, string.Empty);
+            => remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileStatus, categoryID.ToString(), LanguageCode, "N/A");
 
         public string GetCustomerProfileLevel(int categoryID)
-            => remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileLevel, categoryID.ToString(), LanguageCode, string.Empty);
+            => remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileLevel, categoryID.ToString(), LanguageCode, "N/A");
         
         public string GetCustBetBehavior(string id)
         {

@@ -57,10 +57,6 @@ class MemberBettingBehavior {
     }
 
     bindEvents(): void {
-        this.$('#form-id')
-            .keyup(e => e.which === 13 && this.handleSubmit())
-            .on("input", () => TipsyHelper.clear(this.txtUsername));
-
         this.$('#btn-submit').click(() => this.handleSubmit());
 
         this.$("#DateRangeId").on("change", () => {
@@ -95,7 +91,7 @@ class MemberBettingBehavior {
         const username = this.$.trim(this.$(("#txt-username")).val());
         if (!username.length) {
             const mustEnterUsernameText = this.$("#mustEnterUserNameText").val();
-            TipsyHelper.showError(this.txtUsername, mustEnterUsernameText);
+            TipsyHelper.showError(this.txtUsername, mustEnterUsernameText, "w");
             return "";
         }
 
@@ -134,7 +130,7 @@ class MemberBettingBehavior {
                 if (memberProfile.IsFailed) {
                     this.customerProfile.hide();
                     const memberUsernameInvalidText = this.$("#memberUserNameIsInvalidText").val();
-                    TipsyHelper.showError(this.txtUsername, memberUsernameInvalidText);
+                    TipsyHelper.showError(this.txtUsername, memberUsernameInvalidText, "w");
                     this.$.unblockUI();
                     return;
                 }
@@ -157,12 +153,13 @@ class MemberBettingBehavior {
                 if (memberStatistic.IsFailed) {
                     this.statisticBlock.hide();
                     const memberUsernameInvalidText = this.$("#memberUserNameIsInvalidText").val();
-                    TipsyHelper.showError(this.txtUsername, memberUsernameInvalidText);
+                    TipsyHelper.showError(this.txtUsername, memberUsernameInvalidText, "w");
                     this.$.unblockUI();
                     return;
                 }
 
-                if (!memberStatistic.SummaryStatistic || memberStatistic.SummaryStatistic.BetCount === 0) {
+                if (!memberStatistic.SummaryStatistic ||
+                    (memberStatistic.SummaryStatistic.Turnover === 0 && memberStatistic.SummaryStatistic.Margin === 0 && memberStatistic.SummaryStatistic.WinLoss === 0)) {
                     this.statisticBlock.show();
                     this.$("#no-infomation").show();
                     this.$("#statistic-chart-id").hide();
@@ -252,11 +249,6 @@ class MemberBettingBehavior {
             .addClass(data.WinLoss < 0 ? "redText" : "")
             .removeClass(data.WinLoss >= 0 ? "redText" : "");
 
-        this.$("#summary-betcount")
-            .text(data.BetCount.toLocaleString('en-US'))
-            .addClass(data.BetCount < 0 ? "redText" : "")
-            .removeClass(data.BetCount >= 0 ? "redText" : "");
-
         this.summaryStatistic.addClass("value");
         this.summaryStatistic.show();
     }
@@ -329,6 +321,21 @@ class MemberBettingBehavior {
                 maxNumberOfElements: 10
             }
         });
+
+        let hitEnterTextboxUsername = false;
+        this.txtUsername.keypress((e) => {
+            const key = e.which || e.keyCode;
+            if (key === 13) {
+                hitEnterTextboxUsername = true;
+                this.handleSubmit()
+            }
+        }).blur(() => {
+            if (hitEnterTextboxUsername) {
+                hitEnterTextboxUsername = false;
+            } else {
+                setTimeout(() => this.handleSubmit(), 300);
+            }
+        }).on("input", () => TipsyHelper.clear(this.txtUsername));
     }
 }
 
