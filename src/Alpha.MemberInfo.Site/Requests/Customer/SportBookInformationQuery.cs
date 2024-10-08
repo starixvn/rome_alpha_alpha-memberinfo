@@ -73,11 +73,12 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
             url = MicroSites.MemberInfoUrl("~/Customer/GetProductCategories?custId=" + CustId + "&site=" + Site + "&currency=" + Currency),
             isActive = TabIndex == 4,
         };
-        
+
         private object WinLossLimitTab => new
         {
             name = "WinLossLimit",
             id = "WinLossLimitTab",
+            url = MicroSites.MemberInfoUrl("~/Customer/GetWinLossLimitInformation?custId=" + CustId + "&site=" + Site + "&currency=" + Currency),
             isActive = TabIndex == 5,
         };
     }
