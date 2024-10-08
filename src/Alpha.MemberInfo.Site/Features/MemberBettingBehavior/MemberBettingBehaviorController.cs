@@ -27,7 +27,7 @@
         public ActionResult Index()
         {
             var isDarkMode = !string.IsNullOrWhiteSpace(viewer.DarkModeName);
-            var viewModel = new MemberBettingBehaviorViewModel(isDarkMode);
+            var viewModel = new MemberBettingBehaviorViewModel(isDarkMode, viewer.Language);
             return View(IndexPath, viewModel);
         }
 

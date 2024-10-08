@@ -7,11 +7,12 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
 
-
     public class MemberBettingBehaviorViewModel
     {
-        public MemberBettingBehaviorViewModel(bool isDarkMode) {
+        public MemberBettingBehaviorViewModel(bool isDarkMode, string language)
+        {
             IsDarkMode = isDarkMode;
+            Language = language;
         }
 
         public IEnumerable<SelectListItem> DateRange
@@ -32,5 +33,7 @@
         public string UserGuideLink => AppSettings.IsMBCSite
            ? MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=204089")
            : MicroSites.MessageUrl("~/StaticMessage/Guide?id=204089");
+
+        public string Language { get; }
     }
 }

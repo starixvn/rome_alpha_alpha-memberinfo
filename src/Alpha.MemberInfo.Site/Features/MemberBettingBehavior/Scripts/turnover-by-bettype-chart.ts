@@ -18,6 +18,7 @@ class TurnoverByBetTypeChart {
 
         const canvas = document.getElementById(this.canvasId);
         const chartTitle = canvas.getAttribute('aria-label');
+        const language = canvas.getAttribute('data-language') || 'en-US';
 
         const data = {
             labels: betTypes,
@@ -77,6 +78,18 @@ class TurnoverByBetTypeChart {
                         },
                         ticks: {
                             color: this.isDarkMode && darkTextColor,
+                            callback: function (value) {
+                                const labelArray = this.getLabelForValue(value as number);
+                                if (Array.isArray(labelArray) && labelArray.length === 2) {
+                                    const maxLabelLength = language === 'zh-TW' || language === 'zh-CN' ? 7 : 15;
+                                    return [
+                                        labelArray[0].length > maxLabelLength ? `${labelArray[0].substring(0, maxLabelLength)}...` : labelArray[0],
+                                        labelArray[1]
+                                    ];
+                                }
+
+                                return labelArray;
+                            }
                         }
                     },
                     y: {
