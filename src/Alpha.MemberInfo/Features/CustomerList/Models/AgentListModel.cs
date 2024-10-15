@@ -37,7 +37,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          decimal groupB,
          decimal groupC,
          decimal groupD,
-         decimal discountMyanmarOdds,
          byte locked,
          bool autoTransfer)
             : base(custId,
@@ -71,7 +70,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             GroupB = groupB;
             GroupC = groupC;
             GroupD = groupD;
-            DiscountMyanmarOdds = discountMyanmarOdds;
         }
 
         public decimal GroupA { get; set; }
@@ -81,7 +79,5 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
         public decimal GroupC { get; set; }
 
         public decimal GroupD { get; set; }
-
-        public decimal DiscountMyanmarOdds { get; set; }
     }
 }

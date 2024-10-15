@@ -61,7 +61,6 @@
                    query.TotalPages = totalPages;
                });
 
-
             var actualModel = service.FectchMasterList(param);
 
             Assert.True(compareLogic.Compare(actualModel, expectedModel).AreEqual);
@@ -149,7 +148,6 @@
             Assert.True(compareLogic.Compare(actualModel, result).AreEqual);
         }
 
-
         private CustomerListDTO FectchMasterList(CustomerListParam param) =>
             new CustomerListDTO(FakeMasterList(), 100, 2);
 
@@ -174,7 +172,6 @@
                 1,
                 false,
                 false,
-                true,
                 0);
 
         private IEnumerable<MasterListModel> FakeMasterList() =>
@@ -211,7 +208,6 @@
                       (decimal)0.05,
                       (decimal)0.05,
                       true,
-                      (decimal)0.05,
                       0,
                       false)
             };
@@ -249,7 +245,6 @@
                       (decimal)0.05,
                       (decimal)0.05,
                       (decimal)0.05,
-                      (decimal)0.05,
                       0,
                       false)
            };
@@ -281,8 +276,6 @@
                       true,
                       true,
                       true,
-                      (decimal)0.05,
-                      (decimal)0.05,
                       (decimal)0.05,
                       (decimal)0.05,
                       (decimal)0.05,

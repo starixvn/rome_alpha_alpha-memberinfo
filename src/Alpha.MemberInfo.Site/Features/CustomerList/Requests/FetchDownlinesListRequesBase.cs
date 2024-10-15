@@ -11,7 +11,6 @@
             DoubleComm = 2;
             AllowAutoTransfer = 2;
             LimitedDateToShowInfo = viewer.LimitedDateToShowInfo != default(DateTime);
-            IsShowMyanmarOdds = viewer.IsShowMyanmarOdds;
             CanViewReports = viewer.CanViewReports;
         }
 
@@ -40,8 +39,6 @@
             => Status.Equals(5);
 
         public bool LimitedDateToShowInfo { get; }
-
-        public bool IsShowMyanmarOdds { get; }
 
         public bool ShowNickname => ViewerLevelId == CustLevelId;
 

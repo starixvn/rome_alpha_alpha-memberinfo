@@ -62,15 +62,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Myanmar Odds.
-        /// </summary>
-        public static string AccountMyanmarOdds {
-            get {
-                return ResourceManager.GetString("AccountMyanmarOdds", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A Comm 1.
         /// </summary>
         public static string AComm1 {
@@ -404,15 +395,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Myanmar Odds.
-        /// </summary>
-        public static string MyanmarOdds {
-            get {
-                return ResourceManager.GetString("MyanmarOdds", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Nickname.
         /// </summary>
         public static string NickName {
@@ -517,15 +499,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string PComm3 {
             get {
                 return ResourceManager.GetString("PComm3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to P Myanmar Odds.
-        /// </summary>
-        public static string PlayerMyanmarOdds {
-            get {
-                return ResourceManager.GetString("PlayerMyanmarOdds", resourceCulture);
             }
         }
         

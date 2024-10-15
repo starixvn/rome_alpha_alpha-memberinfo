@@ -60,8 +60,6 @@
 
         bool AllowedTotalBalanceTransfer { get; }
 
-        bool IsShowMyanmarOdds { get; }
-
         bool CanViewReports { get; }
 
         bool IsOfferProtectedMode { get; }
@@ -72,11 +70,11 @@
 
         string SiteDBGroupIp { get; }
         string Currency { get; }
-        
+
         int CurrencyId { get; }
-        
+
         bool IsSubAcc { get; }
-        
+
         PageAccess SubPageAccess { get; }
 
         string AGIP { get; }

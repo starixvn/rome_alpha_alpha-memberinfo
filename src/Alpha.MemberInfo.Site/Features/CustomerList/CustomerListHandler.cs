@@ -148,7 +148,6 @@
                     message.PageIndex,
                     message.LimitedDateToShowInfo,
                     message.ShowNickname,
-                    message.IsShowMyanmarOdds,
                     message.AllowAutoTransfer);
 
             return new CustomerListPagingViewModel(customerListService.GetCustomerList(param), message, ipService);

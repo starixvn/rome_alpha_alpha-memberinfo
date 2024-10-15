@@ -258,13 +258,6 @@ class CustomerListDataTable {
                     "data": "DiscountCS"
                 });
 
-            if (this.viewModel.IsShowMyanmarOdds) {
-                columns.push({
-                    "className": 'center',
-                    "data": 'AdiscountMyanmarOdds'
-                });
-            }
-
             columns.push({
                 "className": 'left',
                 "data": "PlayerDiscount"
@@ -277,13 +270,6 @@ class CustomerListDataTable {
                     "className": 'left',
                     "data": "PlayerDiscountCS"
                 });
-
-            if (this.viewModel.IsShowMyanmarOdds) {
-                columns.push({
-                    "className": 'center',
-                    "data": 'PlayerDiscountMyanmarOdds'
-                });
-            }
         }
         else {
             columns.push({
@@ -291,20 +277,18 @@ class CustomerListDataTable {
                 "data": 'GroupA'
             });
 
-            if (!this.viewModel.IsShowMyanmarOdds) {
-                columns.push({
+            columns.push({
+                "className": 'center',
+                "data": 'GroupB'
+            },
+                {
                     "className": 'center',
-                    "data": 'GroupB'
+                    "data": 'GroupC'
                 },
-                    {
-                        "className": 'center',
-                        "data": 'GroupC'
-                    },
-                    {
-                        "className": 'center',
-                        "data": 'GroupD'
-                    });
-            }
+                {
+                    "className": 'center',
+                    "data": 'GroupD'
+                });
 
             columns.push({
                 "className": 'center',
@@ -314,13 +298,6 @@ class CustomerListDataTable {
                     "className": 'center',
                     "data": 'DiscountCS'
                 });
-
-            if (this.viewModel.IsShowMyanmarOdds) {
-                columns.push({
-                    "className": 'center',
-                    "data": 'DiscountMyanmarOdds'
-                });
-            }
         }
 
         if (!this.viewModel.LimitedDateToShowInfo) {

@@ -270,15 +270,6 @@
   <data name="UnuspendStatusPopupHeader" xml:space="preserve">
     <value>ยกเลิกการระงับ &lt;username&gt;</value>
   </data>
-  <data name="AccountMyanmarOdds" xml:space="preserve">
-    <value>A ราคาเมียนมาร์</value>
-  </data>
-  <data name="MyanmarOdds" xml:space="preserve">
-    <value>ราคาเมียนมาร์</value>
-  </data>
-  <data name="PlayerMyanmarOdds" xml:space="preserve">
-    <value>P緬甸盤</value>
-  </data>
   <data name="Group" xml:space="preserve">
     <value>กลุ่ม</value>
   </data>

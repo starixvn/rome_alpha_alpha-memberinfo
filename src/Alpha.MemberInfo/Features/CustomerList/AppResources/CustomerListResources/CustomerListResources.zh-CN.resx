@@ -270,15 +270,6 @@
   <data name="UnuspendStatusPopupHeader" xml:space="preserve">
     <value>取消暂停 &lt;username&gt;</value>
   </data>
-  <data name="AccountMyanmarOdds" xml:space="preserve">
-    <value>A缅甸盘</value>
-  </data>
-  <data name="MyanmarOdds" xml:space="preserve">
-    <value>缅甸盘</value>
-  </data>
-  <data name="PlayerMyanmarOdds" xml:space="preserve">
-    <value>P缅甸盘</value>
-  </data>
   <data name="Group" xml:space="preserve">
     <value>组别</value>
   </data>

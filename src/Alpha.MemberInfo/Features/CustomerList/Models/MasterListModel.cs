@@ -38,7 +38,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
          decimal groupC,
          decimal groupD,
          bool disableAutoMPT,
-         decimal discountMyanmarOdds,
          byte locked,
          bool autoTransfer)
             : base(custId,
@@ -69,7 +68,6 @@ namespace Alpha.MemberInfo.Features.CustomerList.Models
             groupB,
             groupC,
             groupD,
-            discountMyanmarOdds,
             locked,
             autoTransfer)
         {
