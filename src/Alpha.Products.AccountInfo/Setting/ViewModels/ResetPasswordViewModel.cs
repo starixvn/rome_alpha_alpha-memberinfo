@@ -1,9 +1,8 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting.ViewModels
 {
-    using Alpha.Products.AccountInfo.Requests;
-    using Alpha.Products.Core.Shared;
-    using Base;
     using System.Collections.Generic;
+    using Alpha.Products.AccountInfo.Requests;
+    using Base;
 
     public class ResetPasswordViewModel : SettingItemViewModel
     {
