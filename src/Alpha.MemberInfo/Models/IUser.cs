@@ -80,5 +80,7 @@
         PageAccess SubPageAccess { get; }
 
         string AGIP { get; }
+
+        int CustDBGroupId { get; }
     }
 }

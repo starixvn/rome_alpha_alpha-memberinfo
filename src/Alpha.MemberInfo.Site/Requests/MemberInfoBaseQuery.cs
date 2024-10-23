@@ -73,6 +73,8 @@
 
         public string AGIP => viewer.AGIP;
 
+        public int CustDBGroupId => viewer.CustDBGroupId;
+
         public virtual bool IsValid()
             => CustId > 0
             && !string.IsNullOrWhiteSpace(CustName)

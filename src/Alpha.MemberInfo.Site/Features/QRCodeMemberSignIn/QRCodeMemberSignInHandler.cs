@@ -117,8 +117,10 @@
                     message.CreditMax,
                     custIdCopyFrom,
                     message.Site,
+                    0,
                     true,
                     message.IP,
+                    message.CustDBGroupId,
                     message.Language)
                 {
                     FirstName = message.FirstName
