@@ -8,9 +8,8 @@
     ViewBag.Title = "Customer List";
 
     var commissionGroupClass = Model.IsMobileView || (Model.SearchAccountLevel.IsAgentLevel() && Model.Language.Equals("th-TH")) ? "none" : "desktop";
-    var userguideLink = AppSettings.IsSiteLabel789y ?
-        MicroSites.MessageUrl("~/StaticMessage/Guide?id=137130") :
-        MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=137130");
+
+    var userguideLink = Model.GetUserGuideLink();
 }
 
 @section Styles {

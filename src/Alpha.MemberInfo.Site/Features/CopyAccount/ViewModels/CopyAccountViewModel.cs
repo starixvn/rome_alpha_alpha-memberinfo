@@ -2,6 +2,7 @@
 using Alpha.MemberInfo.Configurations;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Features.CopyAccount.Request;
+using Alpha.Web.Helpers;
 
 namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
 {
@@ -62,5 +63,18 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount.ViewModels
         public bool IsDarkMode { get; }
 
         public bool IsOfferLiteMode => AppSettings.IsOfferCreateAccountLiteMode;
+
+        public string GetUserGuideLink()
+        {
+            if (AppSettings.SupportedNewHandbook)
+            {
+                var handbookPath = Constants.UserLevel.GetDisplayName(ActorLevel.GetDirectDownLineLevel().Value).ToLowerInvariant();
+                return MicroSites.HowToUseUrl($"~/Default/GetBySlug?slug=create-new-{handbookPath}");
+            }
+
+            return AppSettings.IsSiteLabel789y
+                ? MicroSites.MessageUrl("~/StaticMessage/Guide?id=179159")
+                : MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179159");
+        }
     }
 }

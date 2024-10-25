@@ -1,10 +1,7 @@
-﻿@using Alpha.MemberInfo.Configurations;
-@using Alpha.MemberInfo.Site.ViewModels.Customer;
+﻿@using Alpha.MemberInfo.Site.ViewModels.Customer;
 @model CreateCustomerViewModel
 @{
-    var userguideLink = AppSettings.IsSiteLabel789y ?
-        MicroSites.MessageUrl("~/StaticMessage/Guide?id=179159") :
-        MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179159");
+    var userguideLink = Model.GetUserGuideLink();
 }
 <div class="page-title">
     @Model.PageTitle

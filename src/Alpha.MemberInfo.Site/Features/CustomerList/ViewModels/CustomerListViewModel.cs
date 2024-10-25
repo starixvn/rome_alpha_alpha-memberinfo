@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Resources;
+    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Enumerations;
     using Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResources;
     using Alpha.MemberInfo.Features.Shared.Models;
@@ -10,6 +11,7 @@
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
     using Alpha.MemberInfo.Site.Helpers;
     using Alpha.Products.Core.Services;
+    using Alpha.Web.Helpers;
 
     public class CustomerListViewModel
     {
@@ -154,6 +156,22 @@
                 };
 
         public CustomerListPagingViewModel CustomerListPagingViewModel { get; }
+
+        public string GetUserGuideLink()
+        {
+            if (AppSettings.SupportedNewHandbook)
+            {
+                var handbookPath =
+                    UplineRoleId == UserLevel.Super.Value ? "master-agent-list"
+                    : UplineRoleId == UserLevel.Master.Value ? "agent-list"
+                    : "member-list";
+                return MicroSites.HowToUseUrl($"~/Default/GetBySlug?slug={handbookPath}");
+            }
+
+            return AppSettings.IsSiteLabel789y ?
+                MicroSites.MessageUrl("~/StaticMessage/Guide?id=137130") :
+                MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=137130");
+        }
     }
 
     public class CustomerListOption

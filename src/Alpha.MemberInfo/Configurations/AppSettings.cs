@@ -138,5 +138,28 @@
         public static Uri CTSApiUri => new Uri(GetConfigValue("CTS_API"));
 
         public static bool IsSiteLabel777 => GetConfigValue("SiteLabel") == "777";
+
+        public static bool SupportedNewHandbook
+        {
+            get
+            {
+                var marketsSupportedNewHandbook = GetConfigValue("MarketsSupportedNewHandbook");
+                if (string.IsNullOrWhiteSpace(marketsSupportedNewHandbook))
+                {
+                    return false;
+                }
+
+                if (string.Equals("*", marketsSupportedNewHandbook, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+
+                var label = GetConfigValue("SiteLabel");
+
+                return marketsSupportedNewHandbook
+                    .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Any(s => string.Equals(s, label, StringComparison.OrdinalIgnoreCase));
+            }
+        }
     }
 }

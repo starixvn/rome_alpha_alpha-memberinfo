@@ -42,8 +42,20 @@
 
         public IEnumerable<ReachHistoryModel> MyThresholdHistory { get; }
 
-        public string UserGuideLink => AppSettings.IsMBCSite
-            ? MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179067")
-            : MicroSites.MessageUrl("~/StaticMessage/Guide?id=179067");
+        public string UserGuideLink
+        {
+            get
+            {
+                if (AppSettings.SupportedNewHandbook)
+                {
+                    var handbookPath = CustLevel.IsSuperLevel() ? "my-thresholds" : "my-watchlist";
+                    return MicroSites.HowToUseUrl($"~/Default/GetBySlug?slug={handbookPath}");
+                }
+
+                return AppSettings.IsMBCSite
+                    ? MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179067")
+                    : MicroSites.MessageUrl("~/StaticMessage/Guide?id=179067");
+            }
+        }
     }
 }

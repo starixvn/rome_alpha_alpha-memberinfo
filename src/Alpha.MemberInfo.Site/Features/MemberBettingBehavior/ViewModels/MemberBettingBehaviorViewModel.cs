@@ -19,7 +19,7 @@
         {
             get
             {
-                foreach(var item in MemberStatisticDateRange.Items)
+                foreach (var item in MemberStatisticDateRange.Items)
                 {
                     yield return new SelectListItem { Text = AppResources.Resources.ResourceManager.GetString(item.Key), Value = item.Value.ToString() };
                 }
@@ -30,9 +30,20 @@
 
         public DateTime EndDate => DateTime.Now.AddDays(-2);
 
-        public string UserGuideLink => AppSettings.IsMBCSite
-           ? MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=204089")
-           : MicroSites.MessageUrl("~/StaticMessage/Guide?id=204089");
+        public string UserGuideLink
+        {
+            get
+            {
+                if (AppSettings.SupportedNewHandbook)
+                {
+                    return MicroSites.HowToUseUrl($"~/Default/GetBySlug?slug=member-betting-behavior");
+                }
+
+                return AppSettings.IsMBCSite
+                   ? MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=204089")
+                   : MicroSites.MessageUrl("~/StaticMessage/Guide?id=204089");
+            }
+        }
 
         public string Language { get; }
     }
