@@ -151,7 +151,7 @@
     <value>รายการเดิมพัน</value>
   </data>
   <data name="BetSettingViewModelText" xml:space="preserve">
-    <value>การกำหนดการวางเดิมพัน</value>
+    <value>การตั้งค่าเดิมพัน</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>ยกเลิก</value>
