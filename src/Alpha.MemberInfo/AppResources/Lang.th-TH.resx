@@ -124,10 +124,10 @@
     <value>ราคาต่อรองแบบแต้มต่อ สูงต่ำ และ คี่ คู่</value>
   </data>
   <data name="LabelHandicapFC" xml:space="preserve">
-    <value>ราคาต่อรอง</value>
+    <value>แฮนดิแคป</value>
   </data>
   <data name="LabelOddEven" xml:space="preserve">
-    <value>คู่/คี่</value>
+    <value>คี่/คู่</value>
   </data>
   <data name="LabelOtherTypes" xml:space="preserve">
     <value>การเดิมพันชนิดอื่นอื่น</value>
@@ -169,7 +169,7 @@
     <value>วันพุธ</value>
   </data>
   <data name="Unlimited" xml:space="preserve">
-    <value>ไม่จำกัด</value>
+    <value>ไม่จำกัดค่า</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>คุณไม่มีอำนาจในการเข้าใช้งานฟังก์ชันนี้</value>

@@ -157,7 +157,7 @@
     <value>没有产品</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>编号.</value>
+    <value>编号</value>
   </data>
   <data name="PlayForFunMemberRequest" xml:space="preserve">
     <value>免费试玩 - 会员要求</value>
@@ -250,7 +250,7 @@
     <value>最后登入IP</value>
   </data>
   <data name="YesterdayBalance" xml:space="preserve">
-    <value>昨天餘額</value>
+    <value>昨天余额</value>
   </data>
   <data name="Of" xml:space="preserve">
     <value>之第</value>
@@ -301,7 +301,7 @@
     <value>目前输赢数额</value>
   </data>
   <data name="MaximumWin" xml:space="preserve">
-    <value>Maximum Win  (on given credit)</value>
+    <value>最高赢额 (根据信用额度)</value>
   </data>
   <data name="CurrentWinLimit" xml:space="preserve">
     <value>目前赢额（%）</value>
@@ -814,7 +814,7 @@
     <value>更改</value>
   </data>
   <data name="Add" xml:space="preserve">
-    <value>增加</value>
+    <value>添加</value>
   </data>
   <data name="EditMultiple" xml:space="preserve">
     <value>多项编辑</value>
@@ -1139,7 +1139,7 @@
     <value>利润率</value>
   </data>
   <data name="BetCount" xml:space="preserve">
-    <value>注单数额</value>
+    <value>投注统计</value>
   </data>
   <data name="Bettype" xml:space="preserve">
     <value>投注类别</value>

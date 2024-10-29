@@ -147,4 +147,7 @@
   <data name="Update" xml:space="preserve">
     <value>更改</value>
   </data>
+  <data name="EditMultipleSportsbook" xml:space="preserve">
+    <value>修改多重账号 体育博彩</value>
+  </data>
 </root>

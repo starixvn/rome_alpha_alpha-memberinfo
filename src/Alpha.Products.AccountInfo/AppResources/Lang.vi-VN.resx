@@ -147,4 +147,7 @@
   <data name="Update" xml:space="preserve">
     <value>Cập nhật</value>
   </data>
+  <data name="EditMultipleSportsbook" xml:space="preserve">
+    <value>Tuỳ chỉnh đồng loạt</value>
+  </data>
 </root>

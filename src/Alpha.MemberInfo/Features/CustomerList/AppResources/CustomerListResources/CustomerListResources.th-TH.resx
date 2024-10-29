@@ -127,7 +127,7 @@
     <value>คอมมิชชั่นของAgent สำหรับประเภทการเดิมพันชนิดที่ 3</value>
   </data>
   <data name="AgentList" xml:space="preserve">
-    <value>รายชื่อ เอเจนต์</value>
+    <value>รายชื่อเอเย่นต์</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>ทั้งหมด</value>
@@ -187,19 +187,19 @@
     <value>นามสกุล</value>
   </data>
   <data name="LoginIP" xml:space="preserve">
-    <value>เข้าสู่ระบบ IP</value>
+    <value>ไอพีที่เข้าระบบ</value>
   </data>
   <data name="MasterAgentList" xml:space="preserve">
     <value>รายชื่อตัวแทนหลัก</value>
   </data>
   <data name="MemberList" xml:space="preserve">
-    <value>รายชื่อลูกค้า</value>
+    <value>รายชื่อสมาชิก</value>
   </data>
   <data name="NickName" xml:space="preserve">
     <value>ชื่อเล่น</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No.</value>
+    <value>ลำดับที่ </value>
   </data>
   <data name="None" xml:space="preserve">
     <value>ไม่ใช่</value>
@@ -235,7 +235,7 @@
     <value>เลือก</value>
   </data>
   <data name="Statement" xml:space="preserve">
-    <value>บัญชี</value>
+    <value>รายการเดินบัญชี</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>สถานะ</value>
@@ -250,7 +250,7 @@
     <value>Unconfirmed Setting</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>ชื่อผู้ใช้ระบบ</value>
+    <value>ชื่อผู้ใช้</value>
   </data>
   <data name="UsernamePlaceHolder" xml:space="preserve">
     <value>ยูเซอร์เนม/ชื่อเล่น หรือ ชื่อ/นามสุกล</value>
