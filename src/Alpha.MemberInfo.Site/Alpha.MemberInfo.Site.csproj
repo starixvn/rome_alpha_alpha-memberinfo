@@ -1759,6 +1759,7 @@
     <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior.scss" />
     <Content Include="Feature" />
     <Content Include="Features\MemberBettingBehavior\Styles\member-betting-behavior-dark.scss" />
+    <Content Include="Views\Customer\CreateDirectMember.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpha.MemberInfo\Alpha.MemberInfo.csproj">

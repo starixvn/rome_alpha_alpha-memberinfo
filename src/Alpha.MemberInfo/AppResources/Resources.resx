@@ -1217,9 +1217,6 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="memberMaxCreditHint" xml:space="preserve">
     <value>The Maximum Member Credit set by your upline: {0}</value>
   </data>
-  <data name="MonitoredMember_Duplicate[1]" xml:space="preserve">
-    <value>Monitored Member</value>
-  </data>
   <data name="DateRangeNote" xml:space="preserve">
     <value>Data is summarized from {0} to {1}</value>
   </data>
@@ -1237,5 +1234,8 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   </data>
   <data name="introCopyNote" xml:space="preserve">
     <value>Click 'Copy' to copy and share the account details</value>
+  </data>
+  <data name="CreateDirectMember" xml:space="preserve">
+    <value>Create Direct Member</value>
   </data>
 </root>

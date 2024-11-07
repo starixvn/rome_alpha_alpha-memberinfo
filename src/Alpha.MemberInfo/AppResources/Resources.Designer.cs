@@ -718,6 +718,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Direct Member.
+        /// </summary>
+        public static string CreateDirectMember {
+            get {
+                return ResourceManager.GetString("CreateDirectMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Member with QR Code.
         /// </summary>
         public static string CreateMemberWithQRCode {
@@ -1857,15 +1866,6 @@ namespace Alpha.MemberInfo.AppResources {
         public static string MonitoredMember {
             get {
                 return ResourceManager.GetString("MonitoredMember", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Monitored Member.
-        /// </summary>
-        public static string MonitoredMember_Duplicate_1_ {
-            get {
-                return ResourceManager.GetString("MonitoredMember_Duplicate[1]", resourceCulture);
             }
         }
         

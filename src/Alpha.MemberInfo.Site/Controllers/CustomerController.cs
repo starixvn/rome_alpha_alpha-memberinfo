@@ -52,6 +52,23 @@ namespace Alpha.MemberInfo.Site.Controllers
 
         private string CDNUri => sessionManager.Get<string>(DCSStaticSessionKey) ?? ConfigurationManager.AppSettings["Fanex.Customer:CdnUri"];
 
+        public async Task<ActionResult> CreateDirectMember(CreateCustomerQuery query)
+        {
+            var limitedRulesResult = await customerService.CheckAllLimitedRules(query.ViewerId, query.ViewerLevelId, query.ActorUsername, query.Language);
+
+            var viewModel = limitedRulesResult.IsFailed
+                ? new CreateCustomerViewModel(query, true, limitedRulesResult.Message)
+                : new CreateCustomerViewModel(
+                query,
+                new AppConfiguration(GetApplicationPath(), systemId),
+                CDNUri,
+                GetAssetsVersion(),
+                GetHashKey(),
+                await customerService.GetSuggestUsername(query.CustName, query.ViewerLevelId));
+
+            return View("~/Views/Customer/CreateDirectMember.cshtml", viewModel);
+        }
+
         public async Task<ActionResult> Create(CreateCustomerQuery query)
         {
             var limitedRulesResult = await customerService.CheckAllLimitedRules(query.ViewerId, query.ViewerLevelId, query.ActorUsername, query.Language);
