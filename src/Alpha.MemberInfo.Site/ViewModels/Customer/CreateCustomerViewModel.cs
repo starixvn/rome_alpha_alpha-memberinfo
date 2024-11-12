@@ -2,6 +2,7 @@
 using Alpha.MemberInfo.Configurations;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Requests.Customer;
+using Alpha.Web.Helpers;
 using Newtonsoft.Json;
 
 namespace Alpha.MemberInfo.Site.ViewModels.Customer
@@ -54,5 +55,18 @@ namespace Alpha.MemberInfo.Site.ViewModels.Customer
         public bool IsLimitNewDownline { get; }
 
         public string Message { get; }
+
+        public string GetUserGuideLink()
+        {
+            if (AppSettings.SupportedNewHandbook)
+            {
+                var handbookPath = Constants.UserLevel.GetDisplayName(ActorLevel.GetDirectDownLineLevel().Value).ToLowerInvariant();
+                return MicroSites.HowToUseUrl($"~/Default/GetBySlug?slug=create-new-{handbookPath}");
+            }
+
+            return AppSettings.IsSiteLabel789y
+                ? MicroSites.MessageUrl("~/StaticMessage/Guide?id=179159")
+                : MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179159");
+        }
     }
 }

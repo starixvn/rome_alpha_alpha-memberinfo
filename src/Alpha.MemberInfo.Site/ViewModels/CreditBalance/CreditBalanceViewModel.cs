@@ -4,10 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-    using Alpha.MemberInfo.Configurations;
     using Alpha.MemberInfo.Models.Winloss;
     using AppResources;
-    using Constants;
     using MemberInfo.Models;
     using MemberInfo.Models.CreditBalance;
     using Requests.CreditBalance;
@@ -77,11 +75,11 @@
         {
             get
             {
-                yield return BuildSelectListItem(Resources.All, StatusIdentity.All);
-                yield return BuildSelectListItem(Resources.Open, StatusIdentity.Open);
-                yield return BuildSelectListItem(Resources.Suspended, StatusIdentity.Suspended);
-                yield return BuildSelectListItem(Resources.Closed, StatusIdentity.Closed);
-                yield return BuildSelectListItem(Resources.Disabled, StatusIdentity.Disabled);
+                yield return BuildSelectListItem(Resources.All, MemberInfo.Constants.StatusIdentity.All);
+                yield return BuildSelectListItem(Resources.Open, MemberInfo.Constants.StatusIdentity.Open);
+                yield return BuildSelectListItem(Resources.Suspended, MemberInfo.Constants.StatusIdentity.Suspended);
+                yield return BuildSelectListItem(Resources.Closed, MemberInfo.Constants.StatusIdentity.Closed);
+                yield return BuildSelectListItem(Resources.Disabled, MemberInfo.Constants.StatusIdentity.Disabled);
             }
         }
 

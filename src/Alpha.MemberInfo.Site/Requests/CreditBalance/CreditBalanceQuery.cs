@@ -2,7 +2,6 @@
 {
     using System;
     using System.Net;
-    using Constants;
     using Enumerations;
     using MediatR;
     using MemberInfo.Models;
@@ -78,7 +77,7 @@
         {
             get
             {
-                return statusId ?? StatusIdentity.Open;
+                return statusId ?? MemberInfo.Constants.StatusIdentity.Open;
             }
             set
             {

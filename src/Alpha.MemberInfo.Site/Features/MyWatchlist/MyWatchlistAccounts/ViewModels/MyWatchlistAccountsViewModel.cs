@@ -68,8 +68,19 @@
             }
         }
 
-        public string UserGuideLink => AppSettings.IsSiteLabel789y ?
-            MicroSites.MessageUrl("~/StaticMessage/Guide?id=179067") :
-            MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179067");
+        public string UserGuideLink
+        {
+            get
+            {
+                if (AppSettings.SupportedNewHandbook)
+                {
+                    return MicroSites.HowToUseUrl($"~/Default/GetBySlug?slug=my-watchlist");
+                }
+
+                return AppSettings.IsSiteLabel789y ?
+                    MicroSites.MessageUrl("~/StaticMessage/Guide?id=179067") :
+                    MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179067");
+            }
+        }
     }
 }

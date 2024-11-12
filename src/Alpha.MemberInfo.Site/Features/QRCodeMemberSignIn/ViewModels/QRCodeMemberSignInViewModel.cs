@@ -25,11 +25,14 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
                 : (request.CustLevel.IsMasterLevel() ? Resources.AddNewAgent : Resources.AddNewMember);
             Language = request.Language;
             IsDarkMode = request.IsDarkMode;
+            ActorLevel = request.CustLevel;
         }
 
         public string MemberNameCopyFrom { get; }
 
         public string ActorName { get; }
+
+        public UserLevel ActorLevel { get; }
 
         public decimal Credit { get; }
 
@@ -63,5 +66,18 @@ namespace Alpha.MemberInfo.Site.Features.QRCodeMemberSignIn.ViewModels
         public bool IsDarkMode { get; }
 
         public bool IsOfferLiteMode => AppSettings.IsOfferCreateAccountLiteMode;
+
+        public string GetUserGuideLink()
+        {
+            if (AppSettings.SupportedNewHandbook)
+            {
+                var handbookPath = Constants.UserLevel.GetDisplayName(ActorLevel.GetDirectDownLineLevel().Value).ToLowerInvariant();
+                return MicroSites.HowToUseUrl($"~/Default/GetBySlug?slug=create-new-{handbookPath}");
+            }
+
+            return AppSettings.IsSiteLabel789y
+                ? MicroSites.MessageUrl("~/StaticMessage/Guide?id=179159")
+                : MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179159");
+        }
     }
 }

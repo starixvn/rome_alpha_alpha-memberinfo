@@ -1,9 +1,7 @@
 ﻿@model CreateAccountViewModel
 @{
     Layout = "~/Features/CreateAccount/Views/_Layout.cshtml";
-    var userguideLink = AppSettings.IsSiteLabel789y ?
-        MicroSites.MessageUrl("~/StaticMessage/Guide?id=179159") :
-        MicroSites.HowToUseUrl("~/Index.aspx?linktomessagesite=179159");
+    var userguideLink = Model.GetUserGuideLink();
 }
 
 @section Styles {

@@ -1369,7 +1369,9 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Constants\LanguageCode.cs" />
+    <Compile Include="Constants\UserLevel.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\SettingHandbookController.cs" />
     <Compile Include="Features\CopyAccount\ViewModels\CopyAccountResultViewModel.cs" />
     <Compile Include="Features\CreateAccount\CreateAccountController.cs" />
     <Compile Include="Controllers\CreditBalanceController.cs" />
