@@ -23,7 +23,5 @@
         public decimal MixTurnover { get; set; }
 
         public decimal Turnover { get; set; }
-
-        public decimal NetTurnOver { get; set; }
     }
 }

@@ -53,8 +53,7 @@
                 .Map(G, bettingStatistics => bettingStatistics.LiveTurnover)
                 .Map(H, bettingStatistics => bettingStatistics.NonLiveTurnover)
                 .Map(I, bettingStatistics => bettingStatistics.MixTurnover)
-                .Map(J, bettingStatistics => bettingStatistics.Turnover)
-                .Map(K, bettingStatistics => bettingStatistics.NetTurnOver);
+                .Map(J, bettingStatistics => bettingStatistics.Turnover);
 
         private static Mapper<BettingStatisticExportRow> GetNormalRowMapper()
             => GetBodyRowMapper()
