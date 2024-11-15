@@ -57,14 +57,14 @@ namespace Alpha.MemberInfo.Site.Controllers
             var limitedRulesResult = await customerService.CheckAllLimitedRules(query.ViewerId, query.ViewerLevelId, query.ActorUsername, query.Language);
 
             var viewModel = limitedRulesResult.IsFailed
-                ? new CreateCustomerViewModel(query, true, limitedRulesResult.Message)
-                : new CreateCustomerViewModel(
+                ? new CreateDirectMemberViewModel(query, true, limitedRulesResult.Message)
+                : new CreateDirectMemberViewModel(
                 query,
                 new AppConfiguration(GetApplicationPath(), systemId),
                 CDNUri,
                 GetAssetsVersion(),
                 GetHashKey(),
-                await customerService.GetSuggestUsername(query.CustName, query.ViewerLevelId));
+                await customerService.GetSuggestDirectMemberUsername(query.CustName));
 
             return View("~/Views/Customer/CreateDirectMember.cshtml", viewModel);
         }
@@ -238,8 +238,14 @@ namespace Alpha.MemberInfo.Site.Controllers
             return Content(response);
         }
 
+        public async Task<ActionResult> SearchSuggestDirectMembers(DirectMemberSuggestionQuery request)
+            => Json(await customerService.SearchSuggestDirectMembers(request.ViewerId, request.SearchUsername), JsonRequestBehavior.AllowGet);
+
+        public async Task<int> CheckDirectMemberUserName(DirectMemberSuggestionQuery request)
+            => await customerService.CheckDirectMemberUserName(request.ViewerId, request.SearchUsername);
+
         public async Task<ActionResult> GetCustomerSetting(GetCustomerSettingRequest request)
-            => Content(await customerService.GetCustomerSetting(request.CustId, request.RoleId, systemId, request.UplineRoleId, request.Language, request.IsGetUpLine, request.ProductGroupId, request.SiteLabel));
+            => Content(await customerService.GetCustomerSetting(request.CustId, request.RoleId, systemId, request.UplineRoleId, request.Language, request.IsGetUpLine, request.ProductGroupId, request.SiteLabel, request.IsDirectMember));
 
         public async Task<ActionResult> GetCurrentWinLossAmount(CustomerWinLossAmountQuery request)
          => Content(await customerService.GetCustomerCurrentWinLossAmounts(request.CustId, request.SportType, request.BetType, request.Language));

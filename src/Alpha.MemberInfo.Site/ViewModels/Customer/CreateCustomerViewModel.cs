@@ -1,5 +1,6 @@
 ﻿using Alpha.MemberInfo.AppResources;
 using Alpha.MemberInfo.Configurations;
+using Alpha.MemberInfo.Constants;
 using Alpha.MemberInfo.Models;
 using Alpha.MemberInfo.Site.Requests.Customer;
 using Alpha.Web.Helpers;
@@ -26,7 +27,13 @@ namespace Alpha.MemberInfo.Site.ViewModels.Customer
             : base(appConfig, cndUri, assetsVersion)
         {
             SecretKey = secretKey;
-            Params = JsonConvert.SerializeObject(new { uplineId = query.CustId, uplineRoleId = query.CustLevelId, suggestUsername }, jsonSerializerSettings);
+            Params = JsonConvert.SerializeObject(new
+            {
+                uplineId = query.CustId,
+                uplineRoleId = query.CustLevelId,
+                suggestUsername,
+                productGroupId = ProductGroupConstants.Sportsbook
+            }, jsonSerializerSettings);
             ActorId = query.ViewerId;
             SubAccId = query.SubAccId;
             ActorLevel = query.ActorLevel;

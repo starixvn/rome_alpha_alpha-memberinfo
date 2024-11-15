@@ -8,7 +8,7 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         {
         }
 
-        public int ProductGroupId { get; set; } = 1;
+        public int ProductGroupId { get; set; } = 0;
 
         public bool IsGetUpLine { get; set; } = false;
 
@@ -17,5 +17,7 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         public byte UplineRoleId { get; set; }
 
         public string SiteLabel { get; set; }
+
+        public bool IsDirectMember { get; set; }
     }
 }
