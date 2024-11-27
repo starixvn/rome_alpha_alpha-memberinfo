@@ -104,7 +104,8 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
                 viewer.Site,
                 AppSettings.SiteLabel,
                 viewer.CustDBGroupId,
-                request.Group,
+                false,
+                1,
                 CreationModes.LiteMode,
                 viewer.Language,
                 request.UIBehavior)));

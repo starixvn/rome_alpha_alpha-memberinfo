@@ -28,7 +28,8 @@ namespace Alpha.MemberInfo.Site.ViewModels.Customer
                 uplineId = query.CustId,
                 uplineRoleId = query.CustLevelId,
                 suggestUsername,
-                productGroupId = 0
+                productGroupId = 0,
+                isDirectMember = true
             }, jsonSerializerSettings);
             ActorLevel = query.ActorLevel;
         }

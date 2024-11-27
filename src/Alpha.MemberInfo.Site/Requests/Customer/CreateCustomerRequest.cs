@@ -16,6 +16,10 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
 
         public string ProductGroups { get; set; }
 
+        public bool IsDirectMember { get; set; } = false;
+
+        public int NumberOfAccounts { get; set; } = 1;
+
         public override bool IsValid()
             => base.IsValid()
             && GeneralInfo != null

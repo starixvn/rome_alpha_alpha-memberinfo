@@ -174,7 +174,8 @@ namespace Alpha.MemberInfo.Site.Controllers
                 request.Site,
                 AppSettings.SiteLabel,
                 request.CustDBGroupId,
-                request.Group,
+                request.IsDirectMember,
+                request.NumberOfAccounts,
                 CreationModes.FullMode,
                 request.Language));
 
@@ -203,7 +204,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                     request.CustDBGroupId,
                     request.Site,
                     AppSettings.SiteLabel,
-                    request.Group,
+                    request.IsDirectMember,
                     request.Language));
 
             return Content(response);
