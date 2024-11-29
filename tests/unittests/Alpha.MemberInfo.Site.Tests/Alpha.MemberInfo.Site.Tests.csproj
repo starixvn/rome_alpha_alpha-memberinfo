@@ -40,7 +40,7 @@
       <HintPath>..\..\..\packages\Alpha.CopyAccount.1.0.0.4\lib\net461\Alpha.CopyAccount.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.Products.Core, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Alpha.Products.Core.1.0.1.7-RemoveBitcoin02\lib\net461\Alpha.Products.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\Alpha.Products.Core.1.0.1.7\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SecurityCode, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.SecurityCode.4.0.0\lib\net461\Alpha.SecurityCode.dll</HintPath>
