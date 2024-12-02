@@ -204,8 +204,8 @@ namespace Alpha.MemberInfo.Site.Controllers
                     request.CustDBGroupId,
                     request.Site,
                     AppSettings.SiteLabel,
-                    request.IsDirectMember,
-                    request.Language));
+                    isDirectMemner: request.IsDirectMember,
+                    language: request.Language));
 
             return Content(response);
         }
@@ -246,7 +246,7 @@ namespace Alpha.MemberInfo.Site.Controllers
             => await customerService.CheckDirectMemberUserName(request.ViewerId, request.SearchUsername);
 
         public async Task<ActionResult> GetCustomerSetting(GetCustomerSettingRequest request)
-            => Content(await customerService.GetCustomerSetting(request.CustId, request.RoleId, systemId, request.UplineRoleId, request.Language, request.IsGetUpLine, request.ProductGroupId, request.SiteLabel, request.IsDirectMember));
+            => Content(await customerService.GetCustomerSetting(request.CustId, request.RoleId, systemId, request.UplineRoleId, request.Language, request.IsGetUpLine, request.ProductGroupId, request.SiteLabel, isDirectMember: request.IsDirectMember));
 
         public async Task<ActionResult> GetCurrentWinLossAmount(CustomerWinLossAmountQuery request)
          => Content(await customerService.GetCustomerCurrentWinLossAmounts(request.CustId, request.SportType, request.BetType, request.Language));

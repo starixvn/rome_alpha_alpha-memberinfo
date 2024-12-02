@@ -6,7 +6,14 @@
 
 @section Styles {
     @StaticResources.AssetStyles.RenderWithDarkMode($"/bundles/common/common-{Model.ActorLevel.DisplayName}")
-    <link rel="stylesheet" href="http://localhost:4210/src/styles.scss" />
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <link rel="stylesheet" href="http://localhost:4210/src/styles.scss" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="@(Model.CdnUri)direct-member/create/index.css?version=@(Model.AssetsVersion)" />
+    }
 }
 
 <div class="page-title">
@@ -25,19 +32,27 @@
         <input type="hidden" id="SecretKey" value="@Model.SecretKey" />
         <div id="root"></div>
         @section Scripts{
-            <script type="module">
-                import RefreshRuntime from "http://localhost:4210/@@react-refresh";
-                RefreshRuntime.injectIntoGlobalHook(window);
-                window.$RefreshReg$ = () => { };
-                window.$RefreshSig$ = () => (type) => type;
-                window.__vite_plugin_react_preamble_installed__ = true;
-            </script>
-            <script type="module" src=@("http://localhost:4210/@vite/client")></script>
             <script type="text/javascript">
                 const appConfig = @Html.Raw(Model.AppConfig);
                 const params = @Html.Raw(Model.Params);
             </script>
-            <script type="module" src="http://localhost:4210/src/main.tsx"></script>
+            @if (HttpContext.Current.IsDebuggingEnabled)
+            {
+                <script type="module">
+                    import RefreshRuntime from "http://localhost:4210/@@react-refresh";
+                    RefreshRuntime.injectIntoGlobalHook(window);
+                    window.$RefreshReg$ = () => { };
+                    window.$RefreshSig$ = () => (type) => type;
+                    window.__vite_plugin_react_preamble_installed__ = true;
+                </script>
+                <script type="module" src=@("http://localhost:4210/@vite/client")></script>
+
+                <script type="module" src="http://localhost:4210/src/main.tsx"></script>
+            }
+            else
+            {
+                <script type="module" src="@(Model.CdnUri)direct-member/create/index.js?version=@(Model.AssetsVersion)"></script>
+            }
             @StaticResources.RenderScripts("~/assets/bundles/customer/create-customer")
         }
     }
