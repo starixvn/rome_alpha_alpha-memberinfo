@@ -13,7 +13,9 @@ namespace Alpha.MemberInfo.Site.Controllers
                 + "&roleId=" + query.RoleId
                 + "&site=" + query.Site
                 + "&siteLabel=" + query.SiteLabel
-                + "&currency=" + query.Currency;
+                + "&currency=" + query.Currency
+                + "&lng=" + query.Language;
+
             return Redirect(url);
         }
     }
