@@ -1,17 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.Requests
 {
     using Alpha.MemberInfo.Models;
-    using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using MediatR;
 
     public class MultipleDoubleCommRequest : FetchDownlinesListRequesBase, IRequest<MultipleDoubleCommViewModel>
     {
-        private readonly IUser viewer;
-
         public MultipleDoubleCommRequest(IUser viewer) : base(viewer)
         {
-            this.viewer = viewer;
         }
 
         public override bool IsValid() => !string.IsNullOrEmpty(SearchAccountIds) && viewer.LevelId == SearchAccountRoleId + 1;

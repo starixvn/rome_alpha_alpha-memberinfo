@@ -15,7 +15,6 @@ class CustomerListViewModel {
     AccountInfoUrl: string;
     LimitedDateToShowInfo: boolean;
     CustomerListResources: any;
-    IsShowMyanmarOdds: boolean;
     CanViewReport: boolean;
     CanUpdateAccount: boolean;
     CustomerListData: any;
@@ -34,7 +33,6 @@ class CustomerListViewModel {
         memberInfoUrl: string,
         accountInfoUrl: string,
         limitedDateToShowInfo: boolean,
-        isShowMyanmarOdds: boolean,
         canViewReport: boolean,
         canUpdateAccount: boolean,
         customerListResources: any,
@@ -52,7 +50,6 @@ class CustomerListViewModel {
         this.MemberInfoUrl = memberInfoUrl;
         this.AccountInfoUrl = accountInfoUrl;
         this.LimitedDateToShowInfo = limitedDateToShowInfo;
-        this.IsShowMyanmarOdds = isShowMyanmarOdds;
         this.CanViewReport = canViewReport;
         this.CanUpdateAccount = canUpdateAccount;
         this.CustomerListResources = customerListResources;

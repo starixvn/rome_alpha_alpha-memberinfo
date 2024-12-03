@@ -18,7 +18,6 @@
             int pageIndex,
             bool limitedDateToShowInfo,
             bool showNickname,
-            bool isShowMyanmarOdds,
             int allowAutoTransfer)
         {
             UserId = userId;
@@ -34,7 +33,6 @@
             PageIndex = pageIndex;
             LimitedDateToShowInfo = limitedDateToShowInfo;
             ShowNickname = showNickname;
-            IsShowMyanmarOdds = isShowMyanmarOdds;
             AllowAutoTransfer = allowAutoTransfer;
         }
 
@@ -63,8 +61,6 @@
         public bool LimitedDateToShowInfo { get; }
 
         public bool ShowNickname { get; }
-
-        public bool IsShowMyanmarOdds { get; }
 
         public int AllowAutoTransfer { get; }
     }

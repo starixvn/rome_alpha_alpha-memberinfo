@@ -6,6 +6,7 @@
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services;
     using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
@@ -17,13 +18,11 @@
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Services;
     using Alpha.Products.Core.ViewModels;
-    using AlphaPlus.Utilities.IP;
+    using Alpha.SecurityCode.Services;
     using Alpha.Web.Helpers;
+    using AlphaPlus.Utilities.IP;
     using Fanex.Common;
     using MediatR;
-    using Alpha.SecurityCode.Services;
-    using Alpha.MemberInfo.Services;
-    using Alpha.Products.Core.Shared;
 
     public class CustomerListHandler :
         IRequestHandler<CustomerListRequest, CustomerListViewModel>,
@@ -148,7 +147,6 @@
                     message.PageIndex,
                     message.LimitedDateToShowInfo,
                     message.ShowNickname,
-                    message.IsShowMyanmarOdds,
                     message.AllowAutoTransfer);
 
             return new CustomerListPagingViewModel(customerListService.GetCustomerList(param), message, ipService);

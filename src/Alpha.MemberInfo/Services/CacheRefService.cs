@@ -11,8 +11,8 @@
         string GetProductGroupName(int productGroupId);
 
         string GetProductName(int productId);
-        
-        string GetSubGroupName(int productId);
+
+        string GetSubGroupName(int subGroupRefId);
 
         string GetSportTypeName(int sportTypeId);
 
@@ -45,19 +45,19 @@
 
         public string GetProductGroupName(int productGroupId)
             => remotingRefService.GetResourceDataByRefIdAndResourceId(ProductGroupRefId, productGroupId.ToString(),
-                LanguageCode, productGroupId.ToString());        
-        
+                LanguageCode, productGroupId.ToString());
+
         public string GetSubGroupName(int subGroupRefId)
             => remotingRefService.GetResourceDataByRefIdAndResourceId(SubGroupRefId, subGroupRefId.ToString(),
                 LanguageCode, string.Empty);
-        
+
         public string GetProductName(int productId)
         {
             var productName = remotingRefService.GetResourceDataByRefIdAndResourceId(ProductRefId, productId.ToString(),
                 LanguageCode,
                 string.Empty);
 
-            if(AppSettings.IsSiteLabel777)
+            if (AppSettings.IsSiteLabel777)
             {
                 var productNameSite777 = remotingRefService.GetResourceDataByRefIdAndResourceId(ProductRefId777, productId.ToString(),
                     LanguageCode,
@@ -88,7 +88,7 @@
 
         public string GetCustomerProfileLevel(int categoryID)
             => remotingRefService.GetResourceDataByRefIdAndResourceId(CustomerProfileLevel, categoryID.ToString(), LanguageCode, "N/A");
-        
+
         public string GetCustBetBehavior(string id)
         {
             if (AppSettings.IsSiteLabel777)
@@ -96,14 +96,13 @@
                 var custBetBehavior777Name = remotingRefService.GetResourceDataByRefIdAndResourceId(
                     CustBetBehavior, $"{id}_{AppSettings.SiteLabel}", LanguageCode, string.Empty);
 
-                return string.IsNullOrEmpty(custBetBehavior777Name) 
+                return string.IsNullOrEmpty(custBetBehavior777Name)
                     ? remotingRefService.GetResourceDataByRefIdAndResourceId(CustBetBehavior, id, LanguageCode, string.Empty)
                     : custBetBehavior777Name;
             }
 
             return remotingRefService.GetResourceDataByRefIdAndResourceId(CustBetBehavior, id, LanguageCode, string.Empty);
         }
-        
 
         private static string LanguageCode
             => Thread.CurrentThread.CurrentCulture.Name;

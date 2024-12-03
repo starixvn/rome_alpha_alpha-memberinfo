@@ -270,15 +270,6 @@
   <data name="UnuspendStatusPopupHeader" xml:space="preserve">
     <value>Huỷ đình chỉ &lt;username&gt;</value>
   </data>
-  <data name="AccountMyanmarOdds" xml:space="preserve">
-    <value>A Tỷ Lệ Cược Myanmar</value>
-  </data>
-  <data name="MyanmarOdds" xml:space="preserve">
-    <value>Tỷ Lệ Cược Myanmar</value>
-  </data>
-  <data name="PlayerMyanmarOdds" xml:space="preserve">
-    <value>P Tỷ Lệ Cược Myanmar</value>
-  </data>
   <data name="Group" xml:space="preserve">
     <value>Nhóm</value>
   </data>

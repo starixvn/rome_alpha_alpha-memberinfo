@@ -6,13 +6,9 @@
 
     public class CustomerNonProductStatusCommand : CustomerStatusQueryBase, IRequest<Result>
     {
-        private readonly IUser viewer;
-
         public CustomerNonProductStatusCommand(IUser viewer) : base(viewer)
         {
-            this.viewer = viewer;
         }
-
 
         public bool StatusValue { get; set; }
 

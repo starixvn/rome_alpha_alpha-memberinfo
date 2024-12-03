@@ -6,7 +6,6 @@
     using MediatR;
     using MemberInfo.Models;
     using NSubstitute;
-    using AlphaPlus.User.Models;
     using Xunit;
 
     [Trait("Category", "CustomerList")]

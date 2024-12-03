@@ -1,17 +1,13 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.Requests
 {
-    using Alpha.MemberInfo.Models;
-    using Alpha.MemberInfo.Services.Transfer;
-    using MediatR;
     using System.Collections.Generic;
+    using Alpha.MemberInfo.Models;
+    using MediatR;
 
     public class UpdateMultipleDoubleCommCommand : CustomerStatusQueryBase, IRequest<IEnumerable<Result>>
     {
-        private readonly IUser viewer;
-
         public UpdateMultipleDoubleCommCommand(IUser viewer) : base(viewer)
         {
-            this.viewer = viewer;
         }
 
         public override bool IsValid()

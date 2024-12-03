@@ -18,7 +18,6 @@
     using Alpha.Products.AccountInfo.Setting;
     using Alpha.Products.AccountInfo.Setting.ViewModels;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
-    using Alpha.Products.AccountInfo.Setting.ViewModels.Products;
     using Alpha.Products.AccountInfo.Status;
     using Alpha.Products.AccountInfo.Status.ViewModels;
     using Alpha.Products.AccountInfo.Status.ViewModels.Base;
@@ -328,10 +327,8 @@
                                   productId: 5,
                                   sportType: 12,
                                   betType: 24,
-                                  isSync: true,
                                   isHidden: true,
                                   isDisabled: true,
-                                  isSyncedUpline: true,
                                   isHiddenUpline: true,
                                   isDisabledUpline: true,
                                   hasDownline: true,
@@ -340,10 +337,8 @@
                                   productId: 6,
                                   sportType: 13,
                                   betType: 26,
-                                  isSync: true,
                                   isHidden: true,
                                   isDisabled: true,
-                                  isSyncedUpline: true,
                                   isHiddenUpline: true,
                                   isDisabledUpline: true,
                                   hasDownline: true,

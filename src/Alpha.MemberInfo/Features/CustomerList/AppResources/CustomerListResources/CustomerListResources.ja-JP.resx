@@ -270,15 +270,6 @@
   <data name="UnuspendStatusPopupHeader" xml:space="preserve">
     <value>Unsuspend &lt;username&gt;</value>
   </data>
-  <data name="AccountMyanmarOdds" xml:space="preserve">
-    <value>A Myanmar Odds</value>
-  </data>
-  <data name="MyanmarOdds" xml:space="preserve">
-    <value>Myanmar Odds</value>
-  </data>
-  <data name="PlayerMyanmarOdds" xml:space="preserve">
-    <value>P Myanmar Odds</value>
-  </data>
   <data name="Group" xml:space="preserve">
     <value>グループ</value>
   </data>

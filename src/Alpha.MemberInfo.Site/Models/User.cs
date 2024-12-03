@@ -78,8 +78,6 @@
 
         public bool AllowedTotalBalanceTransfer => userSession.IsAllowedTotalBalanceTransfer;
 
-        public bool IsShowMyanmarOdds => UserPermission.IsShowMyanmarOdds;
-
         public bool CanViewReports => userSession.SubPageAccess.ViewReports;
 
         public bool IsOfferProtectedMode => userSession.IsOfferProtectedMode;

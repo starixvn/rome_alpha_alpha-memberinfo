@@ -9,10 +9,8 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         {
         }
 
-        public int CustId { get; set; }
-        
         public int SportType { get; set; }
-        
+
         public int BetType { get; set; }
     }
 }

@@ -7,7 +7,6 @@ namespace Alpha.Products.AccountInfo.Setting
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.ViewModels;
     using ViewModels.Base;
-    using ViewModels.Products;
 
     // TODO: simple first, better later
     public class SettingViewModelFactory : GenericViewModelFactory<ISearchAccountInfoRequest, ISettingItemViewModel>
@@ -34,11 +33,6 @@ namespace Alpha.Products.AccountInfo.Setting
         protected override ISettingItemViewModel GetProductGroupViewModel(int productGroupId, ISearchAccountInfoRequest request)
         {
             return new ProductGroupSettingItemViewModel(request, productGroupId);
-        }
-
-        protected override ISettingItemViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)
-        {
-            return new DynamicProductViewModel(request, productItem);
         }
     }
 }

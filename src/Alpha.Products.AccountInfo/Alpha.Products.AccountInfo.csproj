@@ -40,8 +40,8 @@
     <Reference Include="Alpha.PartialUM, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.PartialUM.2.0.0\lib\net461\Alpha.PartialUM.dll</HintPath>
     </Reference>
-    <Reference Include="Alpha.Products.Core, Version=1.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Products.Core.1.0.1.6\lib\net461\Alpha.Products.Core.dll</HintPath>
+    <Reference Include="Alpha.Products.Core, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Products.Core.1.0.1.7\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SubAccount, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.SubAccount.1.0.0.1\lib\net40\Alpha.SubAccount.dll</HintPath>
@@ -258,14 +258,9 @@
     <Compile Include="Setting\ViewModels\Multiple\AutoTransferMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\ProtectedMultipleViewModel.cs" />
     <Compile Include="Setting\ViewModels\Multiple\SuspendedMultipleViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductMultipleViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Base\ProductSettingItemViewModel.cs">
-      <SonarQubeExclude>true</SonarQubeExclude>
-    </Compile>
     <Compile Include="Setting\ViewModels\RemoveOtpViewModel.cs" />
     <Compile Include="Setting\ViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="Setting\ViewModels\TransferViewModel.cs" />
-    <Compile Include="Setting\ViewModels\Products\DynamicProduct\DynamicProductViewModel.cs" />
     <Compile Include="Setting\ViewModels\EditInfoViewModel.cs" />
     <Compile Include="Setting\ViewModels\Base\SettingItemViewModel.cs">
       <SonarQubeExclude>true</SonarQubeExclude>

@@ -97,20 +97,11 @@
                 @if (Model.SearchAccountLevel.IsAgentLevel())
                 {
                     <th></th>
-
-                    if (Model.IsShowMyanmarOdds)
-                    {
-                        <th></th>
-                        <th></th>
-                    }
                 }
                 else
                 {
-                    if (!Model.IsShowMyanmarOdds)
-                    {
-                        <th></th>
-                        <th></th>
-                    }
+                    <th></th>
+                    <th></th>
                 }
                 <th></th>
                 <th></th>
@@ -252,7 +243,6 @@
     <input type="hidden" id="reportsUrl" value='@MicroSites.ReportsUrl()'>
     <input type="hidden" id="memberInfoUrl" value='@MicroSites.MemberInfoUrl()'>
     <input type="hidden" id="limitedDateToShowInfo" value='@(Model.LimitedDateToShowInfo ? "true" : "false")'>
-    <input type="hidden" id="isShowMyanmarOdds" value='@(Model.IsShowMyanmarOdds ? "true" : "false")'>
     <input type="hidden" id="canViewReport" value='@(Model.CanViewReport ? "true" : "false")'>
     <input type="hidden" id="canUpdateAccount" value='@(Model.CanUpdateAccount ? "true" : "false")'>
     <input type="hidden" id="customerListResources" value='@Model.Resources'>
@@ -291,30 +281,22 @@
     <th class="header @commissionGroupClass commission startGroup">
         @CustomerListResources.GroupA
     </th>
-    if (!Model.IsShowMyanmarOdds)
-    {
-        <th class="header @commissionGroupClass commission">
-            @CustomerListResources.GroupB
-        </th>
-        <th class="header @commissionGroupClass commission">
-            @CustomerListResources.GroupC
-        </th>
-        <th class="header @commissionGroupClass commission">
-            @CustomerListResources.GroupD
-        </th>
-    }
+    <th class="header @commissionGroupClass commission">
+        @CustomerListResources.GroupB
+    </th>
+    <th class="header @commissionGroupClass commission">
+        @CustomerListResources.GroupC
+    </th>
+    <th class="header @commissionGroupClass commission">
+        @CustomerListResources.GroupD
+    </th>
     <th class="header @commissionGroupClass commission">
         @CustomerListResources.Group1X2
     </th>
-    <th class="header @commissionGroupClass commission @(Model.IsShowMyanmarOdds ? string.Empty : "endGroup") ">
+    <th class="header @commissionGroupClass commission endGroup">
         @CustomerListResources.Other
     </th>
-    if (Model.IsShowMyanmarOdds)
-    {
-        <th class="header @commissionGroupClass commission @(Model.IsShowMyanmarOdds ? "endGroup" : string.Empty) ">
-            @CustomerListResources.MyanmarOdds
-        </th>
-    }
+
 }
 
 @helper RenderMemberHeader(string commissionGroupClass)
@@ -328,25 +310,13 @@
     <th class="header commission @commissionGroupClass">
         @CustomerListResources.AComm3
     </th>
-    if (Model.IsShowMyanmarOdds)
-    {
-        <th class="header commission @commissionGroupClass">
-            @CustomerListResources.AccountMyanmarOdds
-        </th>
-    }
     <th class="header commission @commissionGroupClass">
         @CustomerListResources.PComm1
     </th>
     <th class="header commission @commissionGroupClass">
         @CustomerListResources.PComm2
     </th>
-    <th class="header commission @commissionGroupClass @(Model.IsShowMyanmarOdds ? string.Empty : "endGroup") ">
+    <th class="header commission @commissionGroupClass endGroup">
         @CustomerListResources.PComm3
     </th>
-    if (Model.IsShowMyanmarOdds)
-    {
-        <th class="header commission @commissionGroupClass" @(Model.IsShowMyanmarOdds ? "endGroup" : string.Empty)>
-            @CustomerListResources.PlayerMyanmarOdds
-        </th>
-    }
 }

@@ -44,10 +44,5 @@ namespace Alpha.Products.AccountInfo.Setting
         {
             return new ProductGroupMultipleSettingItemViewModel(request, productGroupId);
         }
-
-        protected override ISettingItemMultipleViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)
-        {
-            return new DynamicProductMultipleViewModel(request, productItem);
-        }
     }
 }

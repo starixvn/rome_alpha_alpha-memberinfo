@@ -39,8 +39,8 @@
     <Reference Include="Alpha.CopyAccount, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.CopyAccount.1.0.0.4\lib\net461\Alpha.CopyAccount.dll</HintPath>
     </Reference>
-    <Reference Include="Alpha.Products.Core, Version=1.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Alpha.Products.Core.1.0.1.6\lib\net461\Alpha.Products.Core.dll</HintPath>
+    <Reference Include="Alpha.Products.Core, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Alpha.Products.Core.1.0.1.7\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SecurityCode, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Alpha.SecurityCode.4.0.0\lib\net461\Alpha.SecurityCode.dll</HintPath>
@@ -280,10 +280,6 @@
     </Reference>
     <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\System.Text.Json.8.0.0\lib\netstandard2.0\System.Text.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>

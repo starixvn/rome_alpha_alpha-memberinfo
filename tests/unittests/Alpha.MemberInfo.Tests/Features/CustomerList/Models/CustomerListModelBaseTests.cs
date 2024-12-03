@@ -53,7 +53,6 @@
                       (decimal)0.05,
                       (decimal)0.05,
                       true,
-                      (decimal)0.05,
                       0,
                       false);
 

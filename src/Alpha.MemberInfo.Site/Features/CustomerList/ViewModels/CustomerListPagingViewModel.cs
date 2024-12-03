@@ -20,24 +20,6 @@
                          downline.UserName2 = string.Empty;
                      }
 
-                     if (!message.IsShowMyanmarOdds)
-                     {
-                         if (message.CustLevel.IsAgentLevel())
-                         {
-                             var memberList = downline as MemberListModel;
-                             memberList.PlayerDiscountMyanmarOdds = 0;
-                             memberList.AdiscountMyanmarOdds = 0;
-                         }
-                         else if (message.CustLevel.IsMasterLevel())    
-                         {
-                             (downline as AgentListModel).DiscountMyanmarOdds = 0;
-                         }
-                         else
-                         {
-                             (downline as MasterListModel).DiscountMyanmarOdds = 0;
-                         }
-                     }
-
                      var formatedIP = ipService.FormatIP(downline.LastLoginIP, message.IsAdminCanViewVNIP);
 
                      downline.LastLoginIP = formatedIP.IP;
