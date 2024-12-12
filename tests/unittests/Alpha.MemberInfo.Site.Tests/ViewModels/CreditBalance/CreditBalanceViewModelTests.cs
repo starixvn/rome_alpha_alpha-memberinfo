@@ -47,7 +47,8 @@
                 0,
                 new DateTime(2018, 8, 7, 4, 47, 0),
                 new DateTime(2018, 8, 7, 4, 47, 0),
-                "192.168.1.1");
+                "192.168.1.1",
+                false);
             pagedCreditBalances = new PagedCreditBalance(1, 500, 1, new List<CreditBalanceItem> { creditBalanceItem });
 
             message = new CreditBalanceQuery(user);

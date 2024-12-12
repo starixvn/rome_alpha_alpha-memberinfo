@@ -24,6 +24,7 @@
                 EnabledTest,
                 ClosedTest,
                 SuspendedTest,
+                0,
                 PageIndexTest,
                 PageSizeTest);
             var expected = "Age_CustomerSelCreditBalanceList_Mag";

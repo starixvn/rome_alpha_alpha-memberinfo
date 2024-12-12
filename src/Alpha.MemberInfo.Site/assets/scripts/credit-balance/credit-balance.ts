@@ -16,6 +16,7 @@ class CreditBalance {
     pager: PagerComponent;
     columnsControl: ColumnsControlComponent;
     statusComponent: SingleSelectionDropdownComponent
+    levelComponent: SingleSelectionDropdownComponent;
     submitButton: JQuery;
 
     constructor(
@@ -23,12 +24,14 @@ class CreditBalance {
         topWindow: any,
         pager: PagerComponent,
         columnsControl: ColumnsControlComponent,
-        statusComponent: SingleSelectionDropdownComponent) {
+        statusComponent: SingleSelectionDropdownComponent,
+        levelComponent: SingleSelectionDropdownComponent) {
         this.$ = $;
         this.topWindow = topWindow;
         this.pager = pager;
         this.columnsControl = columnsControl;
         this.statusComponent = statusComponent;
+        this.levelComponent = levelComponent;
     }
 
     init = () => {
@@ -40,6 +43,8 @@ class CreditBalance {
 
         this.statusComponent.render(
             new SingleSelectionDropdownOption("StatusId", "HiddenStatusId"));
+        this.levelComponent.render(
+            new SingleSelectionDropdownOption("ddl-levelType", "HiddenLevelType"));
 
         this.pager.render(new PagerOption(
             () => {
@@ -194,6 +199,7 @@ $(() => {
         $, window.top,
         new PagerComponent($),
         new ColumnsControlComponent($, window.document),
+        new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($));
     creditBalance.init();
 });

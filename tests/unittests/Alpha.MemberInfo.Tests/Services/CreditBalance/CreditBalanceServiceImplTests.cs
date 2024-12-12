@@ -46,6 +46,7 @@
                 UserLevel.Super,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -69,7 +70,8 @@
                     0,
                     new DateTime(2018, 8, 6, 23, 35, 0),
                     new DateTime(2018, 8, 6, 23, 35, 0),
-                    "10.18.200.119"),
+                    "10.18.200.119",
+                    false),
             };
 
             dynamicRepository.FetchAsync<CreditBalanceItem>(Arg.Any<GetSuperCreditBalanceCriteria>())
@@ -97,6 +99,7 @@
                 UserLevel.Master,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -120,7 +123,8 @@
                     0,
                     new DateTime(2018, 8, 6, 23, 35, 0),
                     new DateTime(2018, 8, 6, 23, 35, 0),
-                    "10.18.200.119"),
+                    "10.18.200.119",
+                    false),
             };
             dynamicRepository.FetchAsync<CreditBalanceItem>(Arg.Any<GetMasterCreditBalanceCriteria>())
                 .Returns(creditBalances);
@@ -145,6 +149,7 @@
                 UserLevel.Agent,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -168,7 +173,8 @@
                     0,
                     new DateTime(2018, 8, 6, 23, 35, 0),
                     new DateTime(2018, 8, 6, 23, 35, 0),
-                    "10.18.200.119"),
+                    "10.18.200.119",
+                    false),
             };
             dynamicRepository.FetchAsync<CreditBalanceItem>(Arg.Any<GetAgentCreditBalanceCriteria>())
                 .Returns(creditBalances);
@@ -200,6 +206,7 @@
                 UserLevel.Super,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -223,7 +230,8 @@
                     0,
                     new DateTime(2018, 8, 6, 23, 35, 0),
                     new DateTime(2018, 8, 6, 23, 35, 0),
-                    "10.18.200.119"),
+                    "10.18.200.119",
+                    false),
             };
             dynamicRepository.FetchAsync<CreditBalanceItem>(Arg.Any<GetSuperCreditBalanceCriteria>())
                 .Returns(creditBalances);
@@ -244,6 +252,7 @@
                 UserLevel.Master,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -267,7 +276,8 @@
                     0,
                     new DateTime(2018, 8, 6, 23, 35, 0),
                     new DateTime(2018, 8, 6, 23, 35, 0),
-                    "10.18.200.119"),
+                    "10.18.200.119",
+                    false),
             };
             dynamicRepository.FetchAsync<CreditBalanceItem>(Arg.Any<GetMasterCreditBalanceCriteria>())
                 .Returns(creditBalances);
@@ -288,6 +298,7 @@
                 UserLevel.Agent,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -311,7 +322,8 @@
                     0,
                     new DateTime(2018, 8, 6, 23, 35, 0),
                     new DateTime(2018, 8, 6, 23, 35, 0),
-                    "10.18.200.119"),
+                    "10.18.200.119",
+                    false),
             };
             dynamicRepository.FetchAsync<CreditBalanceItem>(Arg.Any<GetAgentCreditBalanceCriteria>())
                 .Returns(creditBalances);
@@ -332,6 +344,7 @@
                 UserLevel.Member,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -353,6 +366,7 @@
                 UserLevel.Super,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -384,6 +398,7 @@
                 UserLevel.Master,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -415,6 +430,7 @@
                 UserLevel.Agent,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -446,6 +462,7 @@
                 UserLevel.Member,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -470,6 +487,7 @@
                 UserLevel.Agent,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,
@@ -503,6 +521,7 @@
                 UserLevel.Super,
                 UserNameTest,
                 StatusIdTest,
+                0,
                 PageIndexTest,
                 PageSizeTest,
                 IsAdminCanViewVNIPTest,

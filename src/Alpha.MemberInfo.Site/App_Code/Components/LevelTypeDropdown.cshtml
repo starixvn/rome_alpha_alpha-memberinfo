@@ -1,0 +1,22 @@
+﻿@using Alpha.MemberInfo.AppResources;
+@using Alpha.MemberInfo.Models;
+
+@helper Render(UserLevel custLevel, byte selected)
+{
+    if (custLevel.IsMasterOrSuperLevel())
+    {
+        <div class="form-group level-multiselect-container">
+            <label>@Resources.Level</label>
+            @LevelTypeDropdown.BuildLevelTypeSelect(custLevel, selected)
+        </div>
+    }
+}
+
+@helper BuildLevelTypeSelect(UserLevel custLevel, byte selected)
+{
+    <select id="ddl-levelType" name="levelType">
+        <option value="0" @(selected == 0 ? "selected" : string.Empty)>@Resources.All</option>
+        <option value="1" @(selected == 1 ? "selected" : string.Empty)>@(custLevel.IsSuperLevel() ? Resources.MasterAgent : Resources.Agent)</option>
+        <option value="2" @(selected == 2 ? "selected" : string.Empty)>@Resources.DirectMember</option>
+    </select>
+}

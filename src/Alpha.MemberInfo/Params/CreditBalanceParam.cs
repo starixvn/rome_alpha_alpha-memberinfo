@@ -10,6 +10,7 @@
             UserLevel custLevel,
             string userName,
             byte statusId,
+            byte levelType,
             int pageIndex,
             int pageSize,
             bool isAdminCanViewVNIP,
@@ -19,6 +20,7 @@
             CustLevel = custLevel;
             UserName = userName;
             MapStatusIdToParam(statusId);
+            LevelType = levelType;
             PageIndex = pageIndex;
             PageSize = pageSize;
             IsAdminCanViewVNIP = isAdminCanViewVNIP;
@@ -36,6 +38,8 @@
         public bool? Closed { get; private set; }
 
         public bool? Suspended { get; private set; }
+
+        public byte LevelType { get; }
 
         public int PageIndex { get; }
 

@@ -34,22 +34,22 @@
             PagedCreditBalances = pagedCreditBalances;
             TransferCondition = transferCondition;
 
+            ActorLevel = message.ActorLevel;
             CustId = message.CustId;
             CustLevelId = message.CustLevelId;
             CustLevel = message.CustLevel;
             UserName = message.UserName;
             StatusId = message.StatusId.Value;
+            LevelType = message.LevelType;
 
             DownlineLevel = message.CustLevel.GetDirectDownLineLevel();
             IsViewingMemberList = DownlineLevel.IsMemberLevel();
             ActorIsAgent = message.ActorLevel.IsAgentLevel();
             CanUpdateAccount = message.CanUpdateAccount;
-            var showTransferPopup = !isAllDayBalTransfer
-                && ActorIsAgent
-                && message.CanTransfer;
+            var showTransferPopup = !isAllDayBalTransfer && message.CanTransfer;
             CanTransferOnBalanceColumn = showTransferPopup && message.IsAllowedTotalBalanceTransfer;
             CanTransferOnYesterdayBalanceColumn = showTransferPopup && !message.IsAllowedTotalBalanceTransfer;
-            CanViewBetListsFromOutstanding = IsViewingMemberList && message.CanViewBetLists;
+            CanViewBetLists = message.CanViewBetLists;
             IsShowDateTimeColumn = message.LimitedDateToShowInfo == default(DateTime);
             CookiePrefix = Encryption.PearsonEncode(string.Concat(message.LoggedInUserId, message.ActorId, message.SubAccId, "CreditBalance"));
             EnteredSportResult = enteredSportResult;
@@ -60,6 +60,8 @@
         public PagedCreditBalance PagedCreditBalances { get; }
 
         public string TransferCondition { get; }
+
+        public UserLevel ActorLevel { get; }
 
         public int CustId { get; }
 
@@ -86,6 +88,8 @@
         private SelectListItem BuildSelectListItem(string text, byte value)
             => new SelectListItem { Text = text, Value = value.ToString(), Selected = value == StatusId };
 
+        public byte LevelType { get; }
+
         public UserLevel DownlineLevel { get; }
 
         public bool IsViewingMemberList { get; }
@@ -98,7 +102,7 @@
 
         public bool CanTransferOnYesterdayBalanceColumn { get; }
 
-        public bool CanViewBetListsFromOutstanding { get; }
+        public bool CanViewBetLists { get; }
 
         public bool IsShowDateTimeColumn { get; }
 

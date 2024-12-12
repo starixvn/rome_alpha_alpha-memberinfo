@@ -1,4 +1,5 @@
 ﻿@using Alpha.MemberInfo.Extensions
+@using Alpha.MemberInfo.Models
 @using Alpha.MemberInfo.Models.CreditBalance
 @using Alpha.MemberInfo.Site.Helpers
 @using Alpha.MemberInfo.Site.ViewModels.Components
@@ -52,6 +53,7 @@
         <label>@Resources.Status</label>
         @Html.DropDownList("StatusId", Model.Status)
     </div>
+    @LevelTypeDropdown.Render(Model.CustLevel, Model.LevelType)
     <div class="form-group">
         <button type="submit" class="btn-submit" id="btn-submit">@Resources.Submit</button>
     </div>
@@ -77,9 +79,18 @@
                 }
                 else
                 {
-                    <th class="column-bl">@Resources.Cash</th>
-                    <th class="column-yb">@Resources.YesterdayCashBalance</th>
-                    <th class="column-bc">@Resources.AvailableCredit</th>
+                    <th class="column-bl column-icon">
+                        @Resources.Cash/ @Resources.Balance
+                        <span class="icon icon-information-outline"></span>
+                    </th>
+                    <th class="column-yb column-icon">
+                        @Resources.YesterdayCash/<br /> @Resources.YesterdayBalance
+                        <span class="icon icon-information-outline"></span>
+                    </th>
+                    <th class="column-bc column-icon">
+                        @Resources.AvailableCredit/<br /> @Resources.BetCredit
+                        <span class="icon icon-information-outline"></span>
+                    </th>
                 }
                 <th class="column-ot">@Resources.Outstanding</th>
                 <th class="column-pta">@Resources.pendingTransfer3rd</th>
@@ -107,7 +118,7 @@
                         <td class="text-right column-bl">@RenderBalanceColumn(item)</td>
                         <td class="text-right column-yb">@RenderYesterdayBalanceColumn(item)</td>
                         <td class="text-right column-bc">@RenderBetCreditColumn(item)</td>
-                        <td class="text-right column-ot">@renderOutstandingColumn(item)</td>
+                        <td class="text-right column-ot">@RenderOutstandingColumn(item)</td>
                         <td class="text-right column-pta">@HtmlHelpers.FormatDecimal(item.PendingTransfer3rd)</td>
                         @if (Model.IsShowDateTimeColumn)
                         {
@@ -148,13 +159,13 @@
 @Html.Partial(Model.LegendView, Model)
 @helper RenderUsernameColumn(CreditBalanceItem item, int pageSize)
 {
-    if (Model.IsViewingMemberList)
+    if (Model.IsViewingMemberList || item.IsDirectMember)
     {
         @item.UserName
     }
     else
     {
-        <a data-url="@Alpha.Web.Helpers.MicroSites.MemberInfoUrl("~/CreditBalance")?custId=@item.CustId&custLevelId=@Model.DownlineLevel.Value&statusId=@Model.StatusId&PageSize=@pageSize" class="view-downline link">@item.UserName</a>
+        <a data-url="@Alpha.Web.Helpers.MicroSites.MemberInfoUrl("~/CreditBalance")?custId=@item.CustId&custLevelId=@Model.DownlineLevel.Value&statusId=@Model.StatusId&LevelType=@Model.LevelType&PageSize=@pageSize" class="view-downline link">@item.UserName</a>
     }
 }
 
@@ -166,7 +177,7 @@
            class="link creditlink"
            data-custid="@item.CustId"
            data-username="@item.UserName"
-           data-levelid="@Model.DownlineLevel.Value">@HtmlHelpers.FormatDecimal(item.Credit)</a>
+           data-levelid="@(item.IsDirectMember ? UserLevel.Member.Value : Model.DownlineLevel.Value)">@HtmlHelpers.FormatDecimal(item.Credit)</a>
     }
     else
     {
@@ -176,7 +187,7 @@
 
 @helper RenderBalanceColumn(CreditBalanceItem item)
 {
-    if (Model.CanTransferOnBalanceColumn && item.Balance != 0)
+    if (item.Balance != 0 && Model.CanTransferOnBalanceColumn && ((item.IsDirectMember && Model.ActorLevel == Model.CustLevel) || Model.ActorIsAgent))
     {
         <a href="javascript:;"
            class="link balancelink"
@@ -190,7 +201,7 @@
 
 @helper RenderYesterdayBalanceColumn(CreditBalanceItem item)
 {
-    if (Model.CanTransferOnYesterdayBalanceColumn && item.Yesterday_Balance != 0)
+    if (item.Yesterday_Balance != 0 && Model.CanTransferOnYesterdayBalanceColumn && ((item.IsDirectMember && Model.ActorLevel == Model.CustLevel) || Model.ActorIsAgent))
     {
         <a href="javascript:;"
            class="link yesterdaybalancelink"
@@ -204,7 +215,7 @@
 
 @helper RenderBetCreditColumn(CreditBalanceItem item)
 {
-    if (Model.IsViewingMemberList)
+    if (item.IsDirectMember || Model.IsViewingMemberList)
     {
         <a href="@Model.GetMemberBalanceInfoLink(item.UserName)" class="link betcreditlink">@HtmlHelpers.FormatDecimal(item.BetCredit)</a>
     }
@@ -214,9 +225,9 @@
     }
 }
 
-@helper renderOutstandingColumn(CreditBalanceItem item)
+@helper RenderOutstandingColumn(CreditBalanceItem item)
 {
-    if (Model.CanViewBetListsFromOutstanding)
+    if (Model.CanViewBetLists && (item.IsDirectMember || Model.IsViewingMemberList))
     {
         <a data-url="@Model.GetRunningBetListLink(item)" class="link view-downline">@HtmlHelpers.FormatDecimal(item.Outstanding)</a>
     }
@@ -225,7 +236,6 @@
         @HtmlHelpers.FormatDecimal(item.Outstanding)
     }
 }
-
 
 @section Styles {
     @StaticResources.RenderStylesWithDarkMode("~/assets/bundles/credit-balance")

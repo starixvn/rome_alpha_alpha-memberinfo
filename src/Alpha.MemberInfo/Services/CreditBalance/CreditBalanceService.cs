@@ -86,7 +86,7 @@
                     Enumerable.Empty<CreditBalanceItem>());
             }
 
-            var creditBalances = await repository.FetchAsync<CreditBalanceItem>(criteria);
+            var creditBalances = await repository.FetchAsync<CreditBalanceItem>(criteria, param.AGIP);
 
             return new PagedCreditBalance(
                 criteria.PageIndex,
@@ -107,6 +107,7 @@
                 param.Enabled,
                 param.Closed,
                 param.Suspended,
+                param.LevelType,
                 param.PageIndex,
                 param.PageSize);
 
@@ -117,6 +118,7 @@
                 param.Enabled,
                 param.Closed,
                 param.Suspended,
+                param.LevelType,
                 param.PageIndex,
                 param.PageSize);
 

@@ -4,6 +4,7 @@
     let pager: PagerComponent;
     let columnsControl: ColumnsControlComponent;
     let statusComponent: SingleSelectionDropdownComponent;
+    let levelComponent: SingleSelectionDropdownComponent;
     let creditBalance: CreditBalance;
 
     let template: any = {
@@ -162,7 +163,8 @@
         pager = new PagerComponent($);
         columnsControl = new ColumnsControlComponent($, window.document);
         statusComponent = new SingleSelectionDropdownComponent($);
-        creditBalance = new CreditBalance(jQueryFake, topWindow, pager, columnsControl, statusComponent);
+        levelComponent = new SingleSelectionDropdownComponent($);
+        creditBalance = new CreditBalance(jQueryFake, topWindow, pager, columnsControl, statusComponent, levelComponent);
     });
 
     describe("_init", () => {

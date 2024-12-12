@@ -15,6 +15,6 @@
         }
 
         public override string GetSettingKey()
-            => "Age_CustomerSelCreditBalanceList_Ag";
+            => "SiteDB_Age_CustomerSelCreditBalanceList_Ag";
     }
 }

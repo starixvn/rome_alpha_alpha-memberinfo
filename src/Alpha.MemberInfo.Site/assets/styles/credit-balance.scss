@@ -54,7 +54,9 @@
         display: block;
     }
 }
-
+.columns-control-container .columns-control-hint{
+    z-index: 10;
+}
 #tbl-container {
     position: relative;
 }
@@ -75,6 +77,20 @@
 
     .text-sm {
         font-size: 8pt;
+    }
+
+    .column-icon {
+        padding-right: 27px;
+        position: relative;
+
+        .icon {
+            position: absolute;
+            right: 2px;
+            margin: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+        }
     }
 }
 

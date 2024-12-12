@@ -57,7 +57,8 @@
                 0,
                 new DateTime(2018, 8, 7, 4, 47, 0),
                 lastLogged,
-                "192.168.1.1");
+                "192.168.1.1",
+                false);
             model.ClosedReason = 2;
 
             // Act & Assert
@@ -102,7 +103,8 @@
                 0,
                 new DateTime(2018, 8, 7, 4, 47, 0),
                 new DateTime(2018, 8, 7, 4, 47, 0),
-                "192.168.1.1");
+                "192.168.1.1",
+                false);
 
             // Act & Assert
             Assert.True(model.Status == Resources.Disabled);
@@ -129,7 +131,8 @@
                 0,
                 new DateTime(2018, 8, 7, 4, 47, 0),
                 new DateTime(2018, 8, 7, 4, 47, 0),
-                "192.168.1.1");
+                "192.168.1.1",
+                false);
 
             // Act & Assert
             Assert.True(model.Status == Resources.Closed);
@@ -156,7 +159,8 @@
                 0,
                 new DateTime(2018, 8, 7, 4, 47, 0),
                 new DateTime(2018, 8, 7, 4, 47, 0),
-                "192.168.1.1");
+                "192.168.1.1",
+                false);
 
             // Act & Assert
             Assert.True(model.Status == Resources.Suspended);
@@ -183,7 +187,8 @@
                 0,
                 new DateTime(2018, 8, 7, 4, 47, 0),
                 new DateTime(2018, 8, 7, 4, 47, 0),
-                "192.168.1.1");
+                "192.168.1.1",
+                false);
 
             // Act & Assert
             Assert.True(model.Status == Resources.Open);

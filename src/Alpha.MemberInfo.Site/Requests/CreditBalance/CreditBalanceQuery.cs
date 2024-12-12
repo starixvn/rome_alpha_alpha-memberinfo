@@ -85,6 +85,8 @@
             }
         }
 
+        public byte LevelType { get; set; }
+
         public int PageIndex
         {
             get

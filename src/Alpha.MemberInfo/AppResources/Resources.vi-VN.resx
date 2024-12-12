@@ -298,7 +298,7 @@
     <value>Số dư</value>
   </data>
   <data name="YesterdayCashBalance" xml:space="preserve">
-    <value>Số dư tài khoản đến hết  hôm qua</value>
+    <value>Số dư tài khoản đến hết hôm qua</value>
   </data>
   <data name="Balance" xml:space="preserve">
     <value>Số dư</value>
@@ -1188,5 +1188,8 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   </data>
   <data name="Mix" xml:space="preserve">
     <value>Tổng hợp</value>
+  </data>
+  <data name="YesterdayCash" xml:space="preserve">
+    <value>Số dư tài khoản đến hết hôm qua</value>
   </data>
 </root>

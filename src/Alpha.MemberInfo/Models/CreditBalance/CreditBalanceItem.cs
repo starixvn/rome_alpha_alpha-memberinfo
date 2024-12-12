@@ -26,7 +26,8 @@
             decimal pendingTransfer3rd,
             DateTime createdDate,
             DateTime lastLogged,
-            string ipLogin)
+            string ipLogin,
+            bool isDirectMember)
         {
             RowNumber = rowNumber;
             Enabled = enabled;
@@ -46,6 +47,7 @@
             LastLogged = lastLogged;
             CreatedDate = createdDate;
             IPLogin = ipLogin;
+            IsDirectMember = isDirectMember;
         }
 
         public int RowNumber { get; set; }
@@ -108,5 +110,7 @@
                 return Resources.Open;
             }
         }
+
+        public bool IsDirectMember { get; set; }
     }
 }

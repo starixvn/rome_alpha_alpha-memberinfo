@@ -1626,6 +1626,7 @@
     <Content Include="assets\styles\problem-account\index.scss" />
     <Content Include="assets\styles\problem-account\update-dark.scss" />
     <Content Include="assets\styles\problem-account\update.scss" />
+    <Content Include="App_Code\Components\LevelTypeDropdown.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>

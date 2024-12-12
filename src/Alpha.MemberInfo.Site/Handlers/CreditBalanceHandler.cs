@@ -33,6 +33,7 @@
                 message.CustLevel,
                 message.UserName,
                 message.StatusId.Value,
+                message.LevelType,
                 message.PageIndex,
                 message.PageSize,
                 message.IsAdminCanViewVNIP,

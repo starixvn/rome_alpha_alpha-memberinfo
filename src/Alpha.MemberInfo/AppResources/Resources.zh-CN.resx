@@ -1231,4 +1231,7 @@
   <data name="introCopyNote" xml:space="preserve">
     <value>点击“复制”即可复制并分享账号详情</value>
   </data>
+  <data name="YesterdayCash" xml:space="preserve">
+    <value>昨天馀额</value>
+  </data>
 </root>
