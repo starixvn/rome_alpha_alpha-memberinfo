@@ -17,7 +17,8 @@ namespace Alpha.MemberInfo.Site.ViewModels.Customer
                 custId = query.CustId,
                 roleId = query.RoleId,
                 uplineRoleId = query.ViewerLevelId,
-                productGroupId = query.ProductGroupId
+                productGroupId = query.ProductGroupId,
+                agentId = query.AgentId
             }, jsonSerializerSettings);
         }
     }
