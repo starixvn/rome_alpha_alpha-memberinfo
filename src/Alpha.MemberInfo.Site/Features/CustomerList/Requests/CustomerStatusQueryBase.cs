@@ -23,6 +23,8 @@
 
         public byte UplineRoleId { get; set; }
 
+        public int AgentId { get; set; }
+
         public int ActorId => viewer.Id;
 
         public byte ActorRoleId => viewer.LevelId;

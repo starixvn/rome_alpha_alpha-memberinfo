@@ -34,6 +34,7 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Base
              ["productGroupId"] = ProductGroupId.ToString(),
              ["custId"] = SearchAccount.Id.ToString(),
              ["roleId"] = SearchAccount.CusomerLevelValue.ToString(),
+             ["agentId"] = SearchAccount.AgentId.ToString(),
              ["lng"] = request.Language,
              ["isDarkMode"] = request.IsDarkMode.ToString().ToLowerInvariant()
          };

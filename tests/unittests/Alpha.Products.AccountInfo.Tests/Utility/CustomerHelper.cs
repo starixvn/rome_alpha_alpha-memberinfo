@@ -51,7 +51,7 @@
         {
             customerProductStatus = customerProductStatus ?? CreateCustomerProductStatus();
             var upline = new Customer(custId, subAccountId, $"username{1}", (byte)(customerLevelValue + 1), customerProductStatus);
-            var customer = new Customer(custId, subAccountId, $"username{1}", customerLevelValue, customerProductStatus, customerLevelValue.Equals(4) ? null : upline);
+            var customer = new Customer(custId, subAccountId, $"username{1}", customerLevelValue, 0, customerProductStatus, customerLevelValue.Equals(4) ? null : upline);
 
             return customer;
         }
@@ -64,7 +64,7 @@
         {
             var customerProductStatus = CreateCustomerProductStatus(productIds);
             var upline = new Customer(custId, subAccountId, $"username{1}", (byte)(customerLevelValue + 1), customerProductStatus);
-            var customer = new Customer(custId, subAccountId, $"username{1}", customerLevelValue, customerProductStatus, customerLevelValue.Equals(4) ? null : upline);
+            var customer = new Customer(custId, subAccountId, $"username{1}", customerLevelValue, 0, customerProductStatus, customerLevelValue.Equals(4) ? null : upline);
 
             return customer;
         }

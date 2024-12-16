@@ -218,6 +218,7 @@
                message.SubAccountId,
                message.SearchAccountName,
                message.SearchAccountRoleId,
+               message.AgentId,
                BuildSearchAccountProductStatus(customerStatusModel.DCSProducts.ToList()),
                upline);
 
@@ -249,6 +250,7 @@
                message.SubAccountId,
                message.SearchAccountName,
                message.SearchAccountRoleId,
+               message.AgentId,
                BuildSearchAccountProductStatus(customerStatusModel.DCSProducts.ToList()),
                upline);
 

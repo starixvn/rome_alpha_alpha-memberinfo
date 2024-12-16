@@ -80,8 +80,8 @@
     <Reference Include="Alpha.PartialUM, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.PartialUM.2.0.0\lib\net461\Alpha.PartialUM.dll</HintPath>
     </Reference>
-    <Reference Include="Alpha.Products.Core, Version=1.0.1.9, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alpha.Products.Core.1.0.1.9\lib\net461\Alpha.Products.Core.dll</HintPath>
+    <Reference Include="Alpha.Products.Core, Version=1.0.1.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Products.Core.1.0.1.8-DirectMember01\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
     <Reference Include="Alpha.SecurityCode, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.SecurityCode.4.0.0\lib\net461\Alpha.SecurityCode.dll</HintPath>
