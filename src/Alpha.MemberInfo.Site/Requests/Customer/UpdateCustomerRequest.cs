@@ -20,6 +20,6 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
 
         public byte UplineRoleId { get; set; }
 
-        public bool IsDirectMember { get; set; } = false;
+        public int AgentId { get; set; } = 0;
     }
 }
