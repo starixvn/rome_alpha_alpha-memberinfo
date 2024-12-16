@@ -29,8 +29,8 @@ namespace Alpha.MemberInfo.Site.ViewModels.Customer
                 uplineRoleId = query.CustLevelId,
                 suggestUsername,
                 productGroupId = 0,
-                isDirectMember = true
-            }, jsonSerializerSettings);
+                agentId = query.ActorLevel.IsSuperLevel() ? -4 : -3
+            }, jsonSerializerSettings); ;
             ActorLevel = query.ActorLevel;
         }
 

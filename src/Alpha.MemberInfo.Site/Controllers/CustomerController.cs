@@ -246,7 +246,16 @@ namespace Alpha.MemberInfo.Site.Controllers
             => await customerService.CheckDirectMemberUserName(request.ViewerId, request.SearchUsername);
 
         public async Task<ActionResult> GetCustomerSetting(GetCustomerSettingRequest request)
-            => Content(await customerService.GetCustomerSetting(request.CustId, request.RoleId, systemId, request.UplineRoleId, request.Language, request.IsGetUpLine, request.ProductGroupId, request.SiteLabel, isDirectMember: request.IsDirectMember));
+            => Content(await customerService.GetCustomerSetting(
+                request.CustId,
+                request.RoleId,
+                systemId,
+                request.UplineRoleId,
+                request.Language,
+                request.IsGetUpLine,
+                request.ProductGroupId,
+                request.SiteLabel,
+                agentId: request.AgentId));
 
         public async Task<ActionResult> GetCurrentWinLossAmount(CustomerWinLossAmountQuery request)
          => Content(await customerService.GetCustomerCurrentWinLossAmounts(request.CustId, request.SportType, request.BetType, request.Language));

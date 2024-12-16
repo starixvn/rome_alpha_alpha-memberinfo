@@ -18,6 +18,6 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
 
         public string SiteLabel { get; set; }
 
-        public bool IsDirectMember { get; set; }
+        public int AgentId { get; set; } = 0;
     }
 }
