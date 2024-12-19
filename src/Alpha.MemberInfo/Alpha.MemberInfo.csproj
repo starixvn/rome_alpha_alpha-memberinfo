@@ -367,6 +367,7 @@
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
     <Compile Include="Features\CustomerList\SPs\Criteria\SelectMasterListCriteria.cs" />
+    <Compile Include="Features\CustomerList\SPs\Criteria\SelectScheduleOptionCommand.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\UpdateDisableOutrightStatusCommand.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\UpdateAllowAutoTransferStatusCommand.cs" />
     <Compile Include="Features\CustomerList\SPs\Criteria\UpdateUnlockerdCommandy.cs" />

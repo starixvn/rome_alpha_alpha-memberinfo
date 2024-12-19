@@ -270,7 +270,6 @@
                 new ConfirmClosedViewModel(request),
                 new ConfirmDoubleCommViewModel(request),
                 new ConfirmSuspendedViewModel(request),
-                new  ProductStatusItemViewModel(request, configItem)
             }
              .Where(status => status.Visible)
              .OrderBy(status => status.DisplayOrder);

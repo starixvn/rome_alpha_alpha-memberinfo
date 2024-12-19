@@ -78,6 +78,11 @@
                     new SelectClosedReasonCriteria(custId, roleId));
                 customerStatusModel.NonProduct.IsProtectedMode = closedReasonAndIsProtectedMode != null
                     && closedReasonAndIsProtectedMode.IsProtectedMode;
+
+                var scheduleOptionCommand = new SelectScheduleOptionCommand(custId);
+                dynamicRepository.Execute(scheduleOptionCommand);
+                customerStatusModel.NonProduct.IsAllowAutoTransfer = scheduleOptionCommand.IsAllowAutoTransfer;
+                customerStatusModel.NonProduct.ScheduleWeekDays = scheduleOptionCommand.ScheduleWeekDays;
             }
 
             return customerStatusModel;

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions SiteId="105" SiteName="Member Information">
   <Function Name="Check Belonging in DBCUST">
     <Setting Key="Age_CustomerSelCheckBelonging_DBCUST" SpName="Age_CustomerSelCheckBelonging" DbName="DBCUST.CustDB.wsv_alp" Plain="0" />
@@ -71,6 +72,7 @@
     <Setting Key="Acc_CustomerUpdDisableOutright" SpName="Acc_CustomerUpdDisableOutright" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
     <Setting Key="Acc_CustomerUpdDoubleCommLosing" SpName="Acc_CustomerUpdDoubleCommLosing" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
     <Setting Key="Acc_CustomerUpdLocked" SpName="Acc_CustomerUpdLocked" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
+    <Setting Key="Acc_CustomerSelScheduleOption" SpName="Acc_CustomerSelScheduleOption" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
   </Function>
   <Function Name="Parlay Max Payout">
     <Setting Key="Acc_CustSetting_MaxPayoutSelect" SpName="Acc_CustSetting_MaxPayoutSelect" DbName="DBCust.CustDB.wsv_alp" Plain="0">

@@ -71,6 +71,7 @@
     <Setting Key="Acc_CustomerUpdDisableOutright" SpName="Acc_CustomerUpdDisableOutright" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
     <Setting Key="Acc_CustomerUpdDoubleCommLosing" SpName="Acc_CustomerUpdDoubleCommLosing" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
     <Setting Key="Acc_CustomerUpdLocked" SpName="Acc_CustomerUpdLocked" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
+    <Setting Key="Acc_CustomerSelScheduleOption" SpName="Acc_CustomerSelScheduleOption" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
   </Function>
   <Function Name="Parlay Max Payout">
     <Setting Key="Acc_CustSetting_MaxPayoutSelect" SpName="Acc_CustSetting_MaxPayoutSelect" DbName="DBCust.CustDB.wsv_alp" Plain="0">
@@ -125,6 +126,6 @@
     <Setting Key="Acc_LiteMode_CustSetting_ProductListInfoSel" SpName="Acc_LiteMode_CustSetting_ProductListInfoSel" DbName="DBAGE.bodb02.wsv_alp" Plain="0" />
   </Function>
   <Function Name="Member Betting Behavior">
-	 <Setting Key="Age_CustomerBehaviorProfile_Sel" SpName="Age_CustomerBehaviorProfile_Sel" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
+    <Setting Key="Age_CustomerBehaviorProfile_Sel" SpName="Age_CustomerBehaviorProfile_Sel" DbName="DBCust.CustDB.wsv_alp" Plain="0" />
   </Function>
 </Functions>

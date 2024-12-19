@@ -279,7 +279,6 @@
     <Compile Include="Status\ViewModels\ConfirmTransferBalanceDailyViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmDoubleCommViewModel.cs" />
     <Compile Include="Status\ViewModels\Base\IStatusItemViewModel.cs" />
-    <Compile Include="Status\ViewModels\Base\ProductStatusItemViewModel.cs" />
     <Compile Include="Status\ViewModels\Base\StatusItemViewModel.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>

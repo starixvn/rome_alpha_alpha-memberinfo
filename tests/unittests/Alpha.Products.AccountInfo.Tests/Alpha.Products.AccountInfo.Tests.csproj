@@ -193,7 +193,6 @@
     <Compile Include="Setting\ViewModels\ResetPasswordViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\ResetSecurityCodeViewModelTests.cs" />
     <Compile Include="Setting\ViewModels\TransferViewModelTests.cs" />
-    <Compile Include="Status\Base\ProductStatusItemViewModelTests.cs" />
     <Compile Include="Status\ConfirmAllowAutoTransferViewModelTests.cs" />
     <Compile Include="Status\ConfirmAllowAutoPTViewModelTests.cs" />
     <Compile Include="Status\ConfirmAllowOutrightViewModelTests.cs" />
