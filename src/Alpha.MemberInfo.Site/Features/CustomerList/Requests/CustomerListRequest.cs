@@ -12,5 +12,7 @@
         }
 
         public IUser Viewer { get; }
+
+        public byte LevelType { get; set; } = 1;
     }
 }

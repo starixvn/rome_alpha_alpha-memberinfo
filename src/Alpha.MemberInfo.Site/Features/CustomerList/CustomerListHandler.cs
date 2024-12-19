@@ -147,7 +147,8 @@
                     message.PageIndex,
                     message.LimitedDateToShowInfo,
                     message.ShowNickname,
-                    message.AllowAutoTransfer);
+                    message.AllowAutoTransfer,
+                    message.LevelType == 2);
 
             return new CustomerListPagingViewModel(customerListService.GetCustomerList(param), message, ipService);
         }

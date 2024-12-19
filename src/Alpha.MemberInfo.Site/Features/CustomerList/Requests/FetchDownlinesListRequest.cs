@@ -9,5 +9,7 @@
         public FetchDownlinesListRequest(IUser viewer) : base(viewer)
         {
         }
+
+        public byte LevelType { get; set; }
     }
 }

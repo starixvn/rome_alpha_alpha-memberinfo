@@ -1,5 +1,4 @@
 ﻿@using Newtonsoft.Json
-@using Alpha.MemberInfo.Configurations;
 @using Alpha.MemberInfo.Features.CustomerList.AppResources.ProductResources
 @model CustomerListViewModel
 
@@ -69,6 +68,7 @@
                 </select>
             </div>
         }
+        @LevelTypeDropdown.Render(Model.SearchAccountLevel, Model.LevelType, false)
         <div class="form-group btn-box">
             <input type="submit" value="@Resources.Submit" class="btn-submit" />
         </div>

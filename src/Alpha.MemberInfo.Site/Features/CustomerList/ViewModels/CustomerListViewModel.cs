@@ -71,6 +71,8 @@
             EnableAllDayBalanceTransfer = request.EnableAllDayBalanceTransfer.HasValue && request.EnableAllDayBalanceTransfer.Value;
         }
 
+        public byte LevelType { get; }
+
         public bool HideEditMultiple { get; }
 
         public byte UplineRoleId { get; }
