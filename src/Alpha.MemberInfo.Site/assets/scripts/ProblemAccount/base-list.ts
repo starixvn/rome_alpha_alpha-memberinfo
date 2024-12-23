@@ -284,6 +284,7 @@ class ViewResources {
     public EditSettingText: string;
     public LockedText: string;
     public MonitoredMemberText: string;
+    public DirectMember: string;
 
     constructor($: JQueryStatic) {
         this.$ = $;
@@ -296,6 +297,7 @@ class ViewResources {
         this.EditSettingText = this.$('#editSettingText').val();
         this.LockedText = this.$("#text-locked").val();
         this.MonitoredMemberText = this.$("#MonitoredMemberText").val();
+        this.DirectMember = this.$("#DirectMemberText").val();
     }
 }
 

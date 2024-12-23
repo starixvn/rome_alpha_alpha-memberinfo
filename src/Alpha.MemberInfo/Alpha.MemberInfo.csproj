@@ -282,6 +282,7 @@
     <Compile Include="Constants\CloseReasonConstants.cs">
       <SonarQubeExclude>true</SonarQubeExclude>
     </Compile>
+    <Compile Include="Constants\DirectMemberAgentIds.cs" />
     <Compile Include="Constants\ProductGroupConstants.cs" />
     <Compile Include="Constants\MemberStatisticDateRange.cs" />
     <Compile Include="Constants\UserLevelConstant.cs" />

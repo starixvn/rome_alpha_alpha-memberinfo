@@ -63,6 +63,15 @@ class CustomerListHelper {
             : `${item.UserName}`;
     }
 
+    private renderUsernameForSuperMaster = item => {
+        let html = item.UserName;
+        if (item.IsDirectMember) {
+            html += `<span class="right-icon"><span class="icon-directmember" title="${this.viewResources.DirectMember}"></span></span>`
+        }
+
+        return html;
+    }
+
     private renderStatusColumn = item => {
         const className = item.Status === 1 ? "open-button" : "";
         const attrs = {
@@ -116,7 +125,7 @@ class CustomerListHelper {
                 Visibile: isAgentLogin && this.canUpdateAccount
             },
             {
-                Content: isAgentLogin ? this.renderUsernameColumn(customer) : UserName,
+                Content: isAgentLogin ? this.renderUsernameColumn(customer) : this.renderUsernameForSuperMaster(customer),
                 Attributes: [{ Name: 'class', Value: isMember ? '' : ' link view-downline' }].concat(commonAttributesJson),
                 Visibile: true
             },
