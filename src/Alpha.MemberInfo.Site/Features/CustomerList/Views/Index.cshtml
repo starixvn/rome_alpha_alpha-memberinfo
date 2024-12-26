@@ -94,7 +94,7 @@
                     <th></th>
                 }
                 <th></th>
-                @if (Model.SearchAccountLevel.IsAgentLevel())
+                @if (Model.SearchAccountLevel.IsAgentLevel() || Model.IsDirectMember)
                 {
                     <th></th>
                 }
@@ -152,7 +152,7 @@
                 <th rowspan="2" class="header  @(Model.IsMobileView ? "none" : string.Empty)">
                     @CustomerListResources.FirstLastName
                 </th>
-                @if (Model.SearchAccountRoleId == 2)
+                @if (Model.SearchAccountRoleId == 2 || Model.IsDirectMember)
                 {
                     <th rowspan="2" class="header ugroup @commissionGroupClass">
                         @CustomerListResources.Group
@@ -174,13 +174,20 @@
                 </th>
             </tr>
             <tr class="thead-row2">
-                @if (Model.SearchAccountLevel.IsAgentLevel())
+                @if (Model.IsDirectMember)
                 {
-                    @RenderMemberHeader(commissionGroupClass)
+                    @RenderDirectMemberHeader(commissionGroupClass, Model.SearchAccountLevel.IsSuperLevel())
                 }
                 else
                 {
-                    @RenderMasterAgentHeader(commissionGroupClass)
+                    if (Model.SearchAccountLevel.IsAgentLevel() || Model.IsDirectMember)
+                    {
+                        @RenderMemberHeader(commissionGroupClass)
+                    }
+                    else
+                    {
+                        @RenderMasterAgentHeader(commissionGroupClass)
+                    }
                 }
             </tr>
         </thead>
@@ -226,6 +233,7 @@
     </div>
 
     @Html.AntiForgeryToken()
+    @Html.Hidden("IsDirectMember", Model.IsDirectMember ? "true" : "false")
     @Html.Hidden("StatusId", Model.Status)
     @Html.Hidden("DoubleCommId", Model.DoubleComm)
     @Html.Hidden("AllowAutoTransfer", Model.AllowAutoTransfer)
@@ -310,6 +318,43 @@
     <th class="header commission @commissionGroupClass">
         @CustomerListResources.AComm3
     </th>
+    <th class="header commission @commissionGroupClass">
+        @CustomerListResources.PComm1
+    </th>
+    <th class="header commission @commissionGroupClass">
+        @CustomerListResources.PComm2
+    </th>
+    <th class="header commission @commissionGroupClass endGroup">
+        @CustomerListResources.PComm3
+    </th>
+}
+
+@helper RenderDirectMemberHeader(string commissionGroupClass, bool isSuper)
+{
+    if (isSuper)
+    {
+        <th class="header commission startGroup @commissionGroupClass">
+            @CustomerListResources.SComm1
+        </th>
+        <th class="header commission @commissionGroupClass">
+            @CustomerListResources.SComm2
+        </th>
+        <th class="header commission @commissionGroupClass">
+            @CustomerListResources.SComm3
+        </th>
+    }
+    else
+    {
+        <th class="header commission startGroup @commissionGroupClass">
+            @CustomerListResources.MComm1
+        </th>
+        <th class="header commission @commissionGroupClass">
+            @CustomerListResources.MComm2
+        </th>
+        <th class="header commission @commissionGroupClass">
+            @CustomerListResources.MComm3
+        </th>
+    }
     <th class="header commission @commissionGroupClass">
         @CustomerListResources.PComm1
     </th>

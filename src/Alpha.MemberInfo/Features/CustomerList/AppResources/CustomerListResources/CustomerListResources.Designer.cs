@@ -386,6 +386,33 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to M Comm 1.
+        /// </summary>
+        public static string MComm1 {
+            get {
+                return ResourceManager.GetString("MComm1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M Comm 2.
+        /// </summary>
+        public static string MComm2 {
+            get {
+                return ResourceManager.GetString("MComm2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M Comm 3.
+        /// </summary>
+        public static string MComm3 {
+            get {
+                return ResourceManager.GetString("MComm3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Member List.
         /// </summary>
         public static string MemberList {
@@ -499,6 +526,33 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         public static string PComm3 {
             get {
                 return ResourceManager.GetString("PComm3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S Comm 1.
+        /// </summary>
+        public static string SComm1 {
+            get {
+                return ResourceManager.GetString("SComm1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S Comm 2.
+        /// </summary>
+        public static string SComm2 {
+            get {
+                return ResourceManager.GetString("SComm2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S Comm 3.
+        /// </summary>
+        public static string SComm3 {
+            get {
+                return ResourceManager.GetString("SComm3", resourceCulture);
             }
         }
         

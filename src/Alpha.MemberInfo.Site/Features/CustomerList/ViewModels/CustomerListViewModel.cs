@@ -69,9 +69,12 @@
             AllowAutoTransfer = request.AllowAutoTransfer;
             EnableAutoTransfer = request.SupportAutoTransfer;
             EnableAllDayBalanceTransfer = request.EnableAllDayBalanceTransfer.HasValue && request.EnableAllDayBalanceTransfer.Value;
+            LevelType = request.LevelType;
         }
 
         public byte LevelType { get; }
+
+        public bool IsDirectMember => LevelType == 2;
 
         public bool HideEditMultiple { get; }
 

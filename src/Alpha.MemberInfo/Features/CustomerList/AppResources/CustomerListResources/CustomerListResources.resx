@@ -309,4 +309,22 @@
   <data name="Enabled" xml:space="preserve">
     <value>Enabled</value>
   </data>
+  <data name="SComm1" xml:space="preserve">
+    <value>S Comm 1</value>
+  </data>
+  <data name="SComm2" xml:space="preserve">
+    <value>S Comm 2</value>
+  </data>
+  <data name="SComm3" xml:space="preserve">
+    <value>S Comm 3</value>
+  </data>
+  <data name="MComm1" xml:space="preserve">
+    <value>M Comm 1</value>
+  </data>
+  <data name="MComm2" xml:space="preserve">
+    <value>M Comm 2</value>
+  </data>
+  <data name="MComm3" xml:space="preserve">
+    <value>M Comm 3</value>
+  </data>
 </root>

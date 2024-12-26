@@ -46,8 +46,15 @@
         }
 
         public CustomerListDTO GetCustomerList(CustomerListParam param)
-            => fetchData.ContainsKey(param.DirectUplineCustLevel) ? fetchData[param.DirectUplineCustLevel](param) :
+        {
+            if (param.IsDirectMember)
+            {
+                return FetchMemberList(param);
+            }
+
+            return fetchData.ContainsKey(param.DirectUplineCustLevel) ? fetchData[param.DirectUplineCustLevel](param) :
                 new CustomerListDTO(Enumerable.Empty<CustomerListModelBase>(), 0, 0);
+        }
 
         public CustomerStatusModel GetCustomerStatus(int custId, byte roleId)
         {

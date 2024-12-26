@@ -117,7 +117,8 @@
                     PageSize = message.PageSize,
                     AllowAutoTransfer = message.AllowAutoTransfer,
                     AutoTransferAffect = transferService.IsAutoTransferAffect(message.Viewer, offerCurrencies),
-                    SupportAutoTransfer = transferService.IsEnableAutoTransfer(message.Viewer, offerCurrencies)
+                    SupportAutoTransfer = transferService.IsEnableAutoTransfer(message.Viewer, offerCurrencies),
+                    LevelType = message.LevelType
                 }
              );
 
