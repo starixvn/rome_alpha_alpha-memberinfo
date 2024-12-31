@@ -4,6 +4,7 @@ namespace Alpha.Products.AccountInfo.Setting
     using System.Collections.Generic;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting.ViewModels;
+    using Alpha.Products.AccountInfo.Setting.ViewModels.Products;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.ViewModels;
     using ViewModels.Base;
@@ -33,6 +34,11 @@ namespace Alpha.Products.AccountInfo.Setting
         protected override ISettingItemViewModel GetProductGroupViewModel(int productGroupId, ISearchAccountInfoRequest request)
         {
             return new ProductGroupSettingItemViewModel(request, productGroupId);
+        }
+
+        protected override ISettingItemViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
