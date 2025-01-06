@@ -35,12 +35,13 @@
 
         internal IDictionary<string, object> Params =>
             new Dictionary<string, object>
-                    {
-                        {"SearchAccountId", SearchAccount.Id.ToString()},
-                        {"SearchAccountName", SearchAccount.Username},
-                        {"SearchAccountRoleId", SearchAccount.CusomerLevelValue.ToString()},
-                        {"StatusName", StatusName},
-                        {"StatusValue", StatusValue}
-                    };
+            {
+                {"SearchAccountId", SearchAccount.Id.ToString()},
+                {"SearchAccountName", SearchAccount.Username},
+                {"SearchAccountRoleId", SearchAccount.CusomerLevelValue.ToString()},
+                {"StatusName", StatusName},
+                {"StatusValue", StatusValue},
+                {"AgentId", SearchAccount.AgentId }
+            };
     }
 }
