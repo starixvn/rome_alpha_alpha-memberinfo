@@ -784,8 +784,14 @@
     <Content Include="assets\styles\problem-account\index-dark.css">
       <DependentUpon>index-dark.scss</DependentUpon>
     </Content>
+    <Content Include="assets\styles\problem-account\index-dark.min.css">
+      <DependentUpon>index-dark.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\problem-account\index.css">
       <DependentUpon>index.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\problem-account\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\problem-account\update-dark.css">
       <DependentUpon>update-dark.scss</DependentUpon>

@@ -376,6 +376,15 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to For Direct Member accounts the column shown is Bet Credit. For all other levels, the column shown is Available Credit.
+        /// </summary>
+        public static string AvailableCreditBetCreditNote {
+            get {
+                return ResourceManager.GetString("AvailableCreditBetCreditNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Available Given Credit.
         /// </summary>
         public static string AvailableGivenCredit {
@@ -525,6 +534,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string Cash {
             get {
                 return ResourceManager.GetString("Cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For Direct Member accounts the column shown is Balance. For all other levels, the column shown is Cash.
+        /// </summary>
+        public static string CashBalanceNote {
+            get {
+                return ResourceManager.GetString("CashBalanceNote", resourceCulture);
             }
         }
         
@@ -3410,6 +3428,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string YesterdayCashBalance {
             get {
                 return ResourceManager.GetString("YesterdayCashBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For Direct Member accounts the column shown is Yesterday Balance. For all other levels, the column shown is Yesterday Cash.
+        /// </summary>
+        public static string YesterdayCashYesterdayBalanceNote {
+            get {
+                return ResourceManager.GetString("YesterdayCashYesterdayBalanceNote", resourceCulture);
             }
         }
         

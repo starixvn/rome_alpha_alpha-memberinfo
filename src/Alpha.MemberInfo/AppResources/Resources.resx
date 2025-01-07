@@ -1247,4 +1247,13 @@ Notes: your password is cAsE sEnSiTiVe.</value>
   <data name="YesterdayCash" xml:space="preserve">
     <value>Yesterday Cash</value>
   </data>
+  <data name="AvailableCreditBetCreditNote" xml:space="preserve">
+    <value>For Direct Member accounts the column shown is Bet Credit. For all other levels, the column shown is Available Credit</value>
+  </data>
+  <data name="CashBalanceNote" xml:space="preserve">
+    <value>For Direct Member accounts the column shown is Balance. For all other levels, the column shown is Cash</value>
+  </data>
+  <data name="YesterdayCashYesterdayBalanceNote" xml:space="preserve">
+    <value>For Direct Member accounts the column shown is Yesterday Balance. For all other levels, the column shown is Yesterday Cash</value>
+  </data>
 </root>
