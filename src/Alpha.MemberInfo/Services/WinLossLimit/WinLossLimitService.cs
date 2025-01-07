@@ -81,7 +81,8 @@
                     param.AgentId,
                     param.PageIndex,
                     param.PageSize,
-                    null));
+                    null,
+                    param.IsDirectMember));
             }
 
             foreach (var playerId in playerIds)
@@ -96,7 +97,8 @@
                     param.AgentId,
                     param.PageIndex,
                     param.PageSize,
-                    playerId));
+                    playerId,
+                    param.IsDirectMember));
             }
 
             if (!result.WinLossLimitDetail.Any())

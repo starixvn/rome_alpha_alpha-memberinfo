@@ -16,7 +16,8 @@
             int agentId,
             int pageIndex,
             int pageSize,
-            int? playerId)
+            int? playerId,
+            bool isDirectMember)
         {
             PlayerId = playerId;
 
@@ -29,6 +30,7 @@
             AgentId = agentId;
             PageIndex = pageIndex;
             PageSize = pageSize;
+            IsDirectDownline = isDirectMember;
         }
 
         public int ProductId { get; set; }
@@ -57,6 +59,8 @@
         public int TotalRows { get; set; }
 
         public byte SettingStatus => AppSettings.SettingStatus;
+
+        public bool IsDirectDownline { get; set; }
 
         public override string GetSettingKey()
             => "Age_CustomerSelCustWinlimit";

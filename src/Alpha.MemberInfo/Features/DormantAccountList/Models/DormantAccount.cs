@@ -26,7 +26,9 @@
         public DormantAccount(DormantAccountEntity entity, decimal yesterdayBalance)
         {
             Username = entity.Username;
-            RoleName = Enumeration.FromValue<UserLevel>(entity.RoleId).DisplayNameViaResource;
+            RoleName = entity.AgentId == DirectMemberAgentIds.Super || entity.AgentId == DirectMemberAgentIds.Master
+                ? Resources.DirectMember
+                : Enumeration.FromValue<UserLevel>(entity.RoleId).DisplayNameViaResource;
             Status = GetStatus(entity.StatusId, entity.IsWarningTicket);
             ArchiveStage = GetArchiveStage(entity.StageId);
             ToBeClearedGivenCredit = entity.ToBeClearedGivenCredit;

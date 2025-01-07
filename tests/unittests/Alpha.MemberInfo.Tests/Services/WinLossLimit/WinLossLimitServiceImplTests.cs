@@ -79,7 +79,7 @@
         public void GetWinLossLimitPage_NotHaveWinLossLimits_ReturnCorrectValue()
         {
             // Arrange
-            var param = new WinLossLimitParam(1, 0, 1, 1, string.Empty, "123", 1, 1, 1, 1, string.Empty);
+            var param = new WinLossLimitParam(1, 0, 1, 1, string.Empty, "123", 1, 1, 1, 1, false, string.Empty);
             //winLossLimitDataAccess.GetWinLossLimits(Arg.Any<GetCustWinLossLimitCriteria>()).Returns(new WinLossLimitPage());
             var expectedValue = new WinLossLimitPage();
 
@@ -94,7 +94,7 @@
         public void GetWinLossLimitPage_HaveWinLossLimitsAndNotPokerGames_ReturnCorrectValue()
         {
             // Arrange
-            var param = new WinLossLimitParam(1, 0, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1, string.Empty);
+            var param = new WinLossLimitParam(1, 0, 1, 1, string.Empty, string.Empty, 1, 1, 1, 1, false, string.Empty);
             var winLossLimits = new List<WinLossLimitDetail> {
                 new WinLossLimitDetail { CustId = 1 },
                 new WinLossLimitDetail { CustId = 2 },
@@ -125,7 +125,7 @@
         public void GetWinLossLimitPage_HaveWinLossLimits_ReturnCorrectValue()
         {
             // Arrange
-            var param = new WinLossLimitParam(1, 0, 1, 1, "123", string.Empty, 1, 1, 1, 1, string.Empty);
+            var param = new WinLossLimitParam(1, 0, 1, 1, "123", string.Empty, 1, 1, 1, 1, false, string.Empty);
             var winLossLimits = new List<WinLossLimitDetail> {
                 new WinLossLimitDetail { CustId = 1 },
                 new WinLossLimitDetail { CustId = 2 },

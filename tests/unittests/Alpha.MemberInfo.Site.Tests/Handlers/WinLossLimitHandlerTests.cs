@@ -55,6 +55,7 @@
                 0,
                 message.PageSize,
                 message.PageIndex,
+                false,
                 string.Empty);
             var expectedViewModel = new WinLossLimitViewModel(
                 message,

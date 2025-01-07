@@ -453,7 +453,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\SPNames\Local\DBONUSER.ON_USER.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\Local\SiteDB.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Local\SiteDB.bodb02.BODBDownlineNet.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\SPNames\Local\SiteDB.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Pro\DBACC.bodb02.BODBDownlineNet.xml" />

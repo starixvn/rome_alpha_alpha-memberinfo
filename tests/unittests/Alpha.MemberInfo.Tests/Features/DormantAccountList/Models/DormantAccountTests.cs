@@ -25,6 +25,7 @@
                 null,
                 null,
                 false,
+                0,
                 0);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -53,6 +54,7 @@
                 null,
                 null,
                 true,
+                0,
                 0);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -81,6 +83,7 @@
                 null,
                 null,
                 false,
+                0,
                 0);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -109,6 +112,7 @@
                 null,
                 null,
                 false,
+                0,
                 0);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -137,6 +141,7 @@
                 null,
                 null,
                 false,
+                0,
                 0);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -165,6 +170,7 @@
                 null,
                 null,
                 false,
+                0,
                 0);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -194,6 +200,7 @@
                 null,
                 null,
                 false,
+                0,
                 0);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -222,6 +229,7 @@
                 null,
                 null,
                 false,
+                0,
                 0);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -251,6 +259,7 @@
                 null,
                 null,
                 false,
+                0,
                 0);
             var dormantAccount = new DormantAccount(entity, 0);
 
@@ -280,6 +289,7 @@
                 null,
                 null,
                 false,
+                0,
                 0);
             var dormantAccount = new DormantAccount(entity, 0);
 

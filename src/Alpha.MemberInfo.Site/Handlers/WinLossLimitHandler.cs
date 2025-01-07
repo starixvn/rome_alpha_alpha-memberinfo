@@ -1,6 +1,8 @@
 ﻿namespace Alpha.MemberInfo.Site.Handlers
 {
+    using System.Collections.Generic;
     using System.Linq;
+    using Alpha.MemberInfo.AppResources;
     using MediatR;
     using MemberInfo.Models;
     using MemberInfo.Models.WinLossLimit;
@@ -9,34 +11,42 @@
     using Services.WinLossLimit;
     using ViewModels.WinLossLimit;
 
-    public class WinLossLimitHandler :
-        IRequestHandler<WinLossLimitQuery, WinLossLimitViewModel>
+    public class WinLossLimitHandler : IRequestHandler<WinLossLimitQuery, WinLossLimitViewModel>
     {
-        private readonly WinLossLimitService service;
+        private readonly WinLossLimitService winLossLimitService;
 
-        public WinLossLimitHandler(WinLossLimitService service)
+        public WinLossLimitHandler(WinLossLimitService winLossLimitService)
         {
-            this.service = service;
+            this.winLossLimitService = winLossLimitService;
         }
 
         public WinLossLimitViewModel Handle(WinLossLimitQuery message)
         {
-            var products = service.GetWinLossLimitProducts(message.CustId).ToList();
+            var products = winLossLimitService.GetWinLossLimitProducts(message.CustId).ToList();
             var firstProduct = products?.FirstOrDefault()?.Products?.FirstOrDefault();
 
-            var masterList = message.ActorLevel.IsSuperLevel() ? service.GetMasterList(message.CustId) : Enumerable.Empty<CustomerInfo>();
             var actorLevel = message.ActorLevel;
+            var masterList = new List<CustomerInfo>();
+            if (actorLevel.IsSuperLevel())
+            {
+                masterList = winLossLimitService.GetMasterList(message.CustId).ToList();
+                masterList.Insert(0, new CustomerInfo(Resources.DirectMember, 0));
+            }
+
             var masterId = message.MasterId != 0 ? message.MasterId
-                : actorLevel.IsSuperLevel() ? masterList.FirstOrDefault()?.CustId
+                : actorLevel.IsSuperLevel() ? masterList[0].CustId
                 : actorLevel.IsMasterLevel() ? message.CustId
                 : 0;
+            var agentList = masterId == 0 ? new List<CustomerInfo>() : winLossLimitService.GetAgentList(masterId).ToList();
+            if (actorLevel.IsMasterLevel())
+            {
+                agentList.Insert(0, new CustomerInfo(Resources.DirectMember, 0));
+            }
 
-            var agentList = masterId == null ? Enumerable.Empty<CustomerInfo>() : service.GetAgentList(masterId.Value);
             var agentId = message.AgentId != 0 ? message.AgentId
-                : actorLevel.IsMasterLevel() ? agentList.FirstOrDefault()?.CustId
+                : actorLevel.IsMasterLevel() ? agentList[0].CustId
                 : actorLevel.IsAgentLevel() ? message.CustId
                 : 0;
-
             var param = new WinLossLimitParam(
                 message.UserSelectedProductId == 0 && firstProduct != null ? firstProduct.ProductId : message.UserSelectedProductId,
                 message.CustId,
@@ -44,19 +54,33 @@
                 message.SportType == 0 && firstProduct != null ? firstProduct.SportType : message.SportType,
                 message.Username,
                 message.PlayerId,
-                masterId ?? 0,
-                agentId ?? 0,
+                masterId,
+                agentId,
                 message.PageSize,
                 message.PageIndex,
+                GetIsDirectMemberParam(actorLevel, masterId, agentId),
                 message.AGIP);
 
-            var noNeedGetData = actorLevel.IsMasterOrSuperLevel() && !agentList.Any();
-
-            var winLossLimitPage = noNeedGetData ? new WinLossLimitPage() : service.GetWinLossLimitPage(param);
-
+            var noNeedGetData = !param.IsDirectMember && actorLevel.IsMasterOrSuperLevel() && !agentList.Any();
+            var winLossLimitPage = noNeedGetData ? new WinLossLimitPage() : winLossLimitService.GetWinLossLimitPage(param);
             var viewModel = new WinLossLimitViewModel(message, products, masterList, agentList, winLossLimitPage, param);
 
             return viewModel;
+        }
+
+        private static bool GetIsDirectMemberParam(UserLevel actorLevel, int masterId, int agentId)
+        {
+            if (actorLevel.IsSuperLevel())
+            {
+                return masterId == 0;
+            }
+
+            if (actorLevel.IsMasterLevel())
+            {
+                return agentId == 0;
+            }
+
+            return false;
         }
     }
 }

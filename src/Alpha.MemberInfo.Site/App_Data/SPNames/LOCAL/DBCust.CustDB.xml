@@ -14,9 +14,9 @@
     <Setting Key="Age_CustomerSelCreditBalClosedReason_SAg" SpName="Age_CustomerSelCreditBalClosedReason_SAg" DbName="DBCUST.CustDB.wsv_alp" Plain="0" />
   </Function>
   <Function Name="Win Loss Limit">
-    <Setting Key="Age_CustomerSelMAgentList" SpName="Age_CustomerSelMAgentList" DbName="DBCUST.CustDB.wsv_alp" Plain="0" />
-    <Setting Key="Age_CustomerSelAgentList" SpName="Age_CustomerSelAgentList" DbName="DBCUST.CustDB.wsv_alp" Plain="0" />
-    <Setting Key="Age_CustomerSelCustWinlimit" SpName="Age_CustomerSelCustWinlimit" DbName="DBCUST.CustDB.wsv_alp" Plain="0" />
+    <Setting Key="Age_CustomerSelMAgentList" SpName="Age_CustomerSelMAgentList_uat2" DbName="DBCUST.CustDB.wsv_alp" Plain="0" />
+    <Setting Key="Age_CustomerSelAgentList" SpName="Age_CustomerSelAgentList_uat2" DbName="DBCUST.CustDB.wsv_alp" Plain="0" />
+    <Setting Key="Age_CustomerSelCustWinlimit" SpName="Age_CustomerSelCustWinlimit_uat2" DbName="DBCUST.CustDB.wsv_alp" Plain="0" />
     <Setting Key="Age_CustomerSelByPlayerId" SpName="Age_CustomerSelByPlayerId" DbName="DBCust.CustDB.wsv_alp" />
   </Function>
   <Function Name="Problem Account">
@@ -61,7 +61,7 @@
     <Setting Key="Age_CustomerSelByMAg" SpName="Age_CustomerSelByMAg" DbName="DBCUST.CustDB.wsv_alp" Plain="0">
       <Mapping DataField="IsAllowAutoTransfer" ObjectProperty="AutoTransfer" />
     </Setting>
-    <Setting Key="Age_CustomerSelByAg" SpName="Age_CustomerSelByAg" DbName="DBCUST.CustDB.wsv_alp" Plain="0">
+    <Setting Key="Age_CustomerSelByAg" SpName="Age_CustomerSelByAg_uat2" DbName="DBCUST.CustDB.wsv_alp" Plain="0">
       <Mapping DataField="IsAllowAutoTransfer" ObjectProperty="AutoTransfer" />
     </Setting>
   </Function>
