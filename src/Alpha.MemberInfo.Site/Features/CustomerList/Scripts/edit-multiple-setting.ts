@@ -45,7 +45,8 @@ class EditMultipleSetting {
             UplineRoleId: this.viewModel.SearchAccountRoleId,
             SearchAccountRoleId: this.viewModel.SearchAccountRoleId - 1,
             custids: custids.join(','),
-            usernames: usernames.join(',')
+            usernames: usernames.join(','),
+            isDirectMember: this.viewModel.IsDirectMember
         };
 
         if (custids.length > 0) {
@@ -81,7 +82,6 @@ class EditMultipleSetting {
     private buildPopupHtml = settings => {
         let html = ['<ul>'];
         this.$.each(settings, (key, item) => {
-
             const attrs = {
                 'class': `edit-multiple-settings ${item.Icon}`,
                 'data-title': item.Title || item.Text,

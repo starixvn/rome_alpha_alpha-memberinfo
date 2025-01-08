@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Features.CustomerList.Requests
 {
+    using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Models;
     using Alpha.MemberInfo.Site.Features.Shared.Requests;
     using AlphaPlus.User.Models;
@@ -23,7 +24,9 @@
 
         public byte UplineRoleId { get; set; }
 
-        public int AgentId { get; set; }
+        public bool IsDirectMember { get; set; }
+
+        public int AgentId => IsDirectMember ? (UplineRoleId == UserLevel.Super.Value ? DirectMemberAgentIds.Super : DirectMemberAgentIds.Master) : 0;
 
         public int ActorId => viewer.Id;
 

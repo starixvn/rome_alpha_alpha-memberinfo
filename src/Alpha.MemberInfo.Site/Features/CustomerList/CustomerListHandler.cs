@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.Shared.Models;

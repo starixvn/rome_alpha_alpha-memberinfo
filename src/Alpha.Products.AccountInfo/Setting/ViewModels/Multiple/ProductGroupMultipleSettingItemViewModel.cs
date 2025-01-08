@@ -33,6 +33,7 @@ namespace Alpha.Products.AccountInfo.Setting.ViewModels.Multiple
            ["isDarkMode"] = request.IsDarkMode.ToString().ToLowerInvariant(),
            ["custIds"] = request.GetData<string>("customerIds"),
            ["usernames"] = request.GetData<string>("usernames"),
+           ["agentId"] = SearchAccount.AgentId.ToString()
        };
 
         public override string Text =>
