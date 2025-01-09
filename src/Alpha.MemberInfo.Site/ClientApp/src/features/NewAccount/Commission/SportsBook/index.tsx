@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { UserLevel } from '@/constants';
@@ -42,7 +41,7 @@ function SMASportsBookCommission({ uplineCommissions, commissions, handleCommiss
 function MemberSportsBookCommission({ uplineCommissions, commissions, handleCommissionChange }: ICommissionProps) {
   const { t } = useTranslation();
   const asianHDPCommValue = useNewAccountStore((state) => {
-    const commissionGroup = state.generalInfo.group;
+    const commissionGroup = state.group;
     const lastChar = commissionGroup[commissionGroup.length - 1];
     return state.generalInfo.commissions.find((e) => e.name === commissionGroup || e.name === lastChar)?.discount || 0;
   });

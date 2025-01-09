@@ -39,7 +39,9 @@ export default function GeneralInformation() {
   const { t } = useTranslation();
   const submitCount = useNewAccountStore((state) => state.submitCount);
   const generalInfo = useNewAccountStore((state) => state.generalInfo);
+  const group = useNewAccountStore((state) => state.group);
   const updateGeneralInfo = useNewAccountStore((state) => state.updateGeneralInfo);
+  const updateGroup = useNewAccountStore((state) => state.updateGroup);
   const updateSportsBookCommissions = useNewAccountStore((state) => state.updateSportsBookCommissions);
   const { uplineUserName, newUserName, uplineRoleId, uplineMaxCredit, memberMaxCredit, uplineMemberMaxCredit } =
     generalInfo;
@@ -306,10 +308,10 @@ export default function GeneralInformation() {
           {uplineRoleId === UserLevel.Agent && (
             <BlockItem label={t('Group')}>
               <CommissionGroup
-                value={generalInfo.group}
+                value={group}
                 onChange={(e) => {
                   const newCommissionGroup = e.target.value;
-                  updateGeneralInfo({ group: newCommissionGroup });
+                  updateGroup(e.target.value);
                   const lastChar = newCommissionGroup[newCommissionGroup.length - 1];
                   const newCommission =
                     generalInfo.commissions.find((e) => e.name === newCommissionGroup || e.name === lastChar)
