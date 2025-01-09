@@ -157,6 +157,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                 request.Site,
                 AppSettings.SiteLabel,
                 request.CustDBGroupId,
+                request.Group,
                 CreationModes.FullMode,
                 request.Language));
 
@@ -185,6 +186,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                     request.CustDBGroupId,
                     request.Site,
                     AppSettings.SiteLabel,
+                    request.Group,
                     request.Language));
 
             return Content(response);
@@ -213,6 +215,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                     request.CustomerNames,
                     request.Site,
                     AppSettings.SiteLabel,
+                    request.Group,
                     request.Language));
 
             return Content(response);
