@@ -13,6 +13,8 @@ export default function CommissionGroup({ value, onChange }: IProps) {
   let groups: string[];
   if (site === '76666B') {
     groups = ['a'];
+  } else if (site === 'INDO') {
+    groups = ['a', 'b', 'c', 'd'];
   } else if (currency === currencyWon) {
     groups = ['dea', 'deb', 'dec', 'ded'];
   } else {

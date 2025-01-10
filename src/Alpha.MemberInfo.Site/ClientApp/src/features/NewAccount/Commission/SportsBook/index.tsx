@@ -7,6 +7,7 @@ import useNewAccountStore from '@/store/newAccountStore';
 import { CommissionItem } from '@/types/new-account';
 
 import CommissionSelect from '../CommissionSelect';
+import CommissionGroup from './CommissionGroup';
 import styles from './SportsBookCommission.module.scss';
 
 interface ICommissionProps {
@@ -45,9 +46,32 @@ function MemberSportsBookCommission({ uplineCommissions, commissions, handleComm
     const lastChar = commissionGroup[commissionGroup.length - 1];
     return state.generalInfo.commissions.find((e) => e.name === commissionGroup || e.name === lastChar)?.discount || 0;
   });
+  const generalInfo = useNewAccountStore((state) => state.generalInfo);
+  const group = useNewAccountStore((state) => state.group);
+  const updateGroup = useNewAccountStore((state) => state.updateGroup);
+  const updateSportsBookCommissions = useNewAccountStore((state) => state.updateSportsBookCommissions);
 
   return (
     <>
+      <BlockRow label={t('Group')}>
+        <BlockColumn>
+          {generalInfo && group && (
+            <CommissionGroup
+              value={group}
+              onChange={(e) => {
+                const newCommissionGroup = e.target.value;
+                updateGroup(e.target.value);
+                const lastChar = newCommissionGroup[newCommissionGroup.length - 1];
+                const newCommission =
+                  generalInfo.commissions.find((e) => e.name === newCommissionGroup || e.name === lastChar)?.discount ??
+                  0;
+                updateSportsBookCommissions(1, 1, newCommission);
+              }}
+            />
+          )}
+        </BlockColumn>
+        <BlockColumn>{''}</BlockColumn>
+      </BlockRow>
       <BlockRow isHeaderRow>
         <BlockColumn>{t('lblCommissionForAgent')}</BlockColumn>
         <BlockColumn>{t('lblCommissionForMember')}</BlockColumn>
