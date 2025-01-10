@@ -22,7 +22,7 @@ export default function CommissionGroup({ value, onChange }: IProps) {
   }
 
   return (
-    <select value={value} onChange={onChange}>
+    <select value={value} onChange={onChange} style={{ fontSize: '13px' }}>
       {groups.map((group) => (
         <option key={group} value={group}>
           {group}
