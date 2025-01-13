@@ -12,6 +12,9 @@ namespace Alpha.Products.AccountInfo.Requests
     /// </summary>
     public abstract class SearchAccountRequest : ExtendedRequest, ISearchAccountInfoRequest
     {
+        private const int DirectMemberOfMasterAgentId = -3;
+        private const int DirectMemberOfSuperAgentId = -4;
+
         protected SearchAccountRequest(
             ICustomer actor,
             ICustomer searchAccount,
@@ -47,7 +50,11 @@ namespace Alpha.Products.AccountInfo.Requests
             && SearchAccount != null
             && Actor.IsUplineOf(SearchAccount);
 
-        public bool ActorIsEdittingDirectDownline => Actor.IsDirectUplineOf(SearchAccount);
+        public bool ActorIsEdittingDirectDownline => Actor.IsDirectUplineOf(SearchAccount) || IsDirectMemberOfActor;
+
+        private bool IsDirectMemberOfActor 
+            => (Actor.IsSuper && SearchAccount.AgentId == DirectMemberOfSuperAgentId) 
+            || (Actor.IsMaster && SearchAccount.AgentId == DirectMemberOfMasterAgentId);
 
         public bool ActorIsNotEdittingDirectDownline => !ActorIsEdittingDirectDownline;
 
