@@ -174,6 +174,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                 request.Site,
                 AppSettings.SiteLabel,
                 request.CustDBGroupId,
+                request.Group,
                 request.NumberOfAccounts,
                 CreationModes.FullMode,
                 request.Language));
@@ -203,6 +204,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                     request.CustDBGroupId,
                     request.Site,
                     AppSettings.SiteLabel,
+                    request.Group,
                     agentId: request.AgentId,
                     language: request.Language));
 
@@ -232,6 +234,7 @@ namespace Alpha.MemberInfo.Site.Controllers
                     request.CustomerNames,
                     request.Site,
                     AppSettings.SiteLabel,
+                    request.Group,
                     agentId: request.AgentId,
                     language: request.Language));
 
