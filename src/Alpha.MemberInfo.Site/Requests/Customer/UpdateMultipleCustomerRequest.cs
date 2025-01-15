@@ -9,6 +9,8 @@ namespace Alpha.MemberInfo.Site.Requests.Customer
         {
         }
 
+        public string Group { get; set; }
+
         public string ProductGroups { get; set; }
 
         public string CustomerIds { get; set; }

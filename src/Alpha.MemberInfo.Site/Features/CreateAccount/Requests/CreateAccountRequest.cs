@@ -8,6 +8,8 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount.Requests
 
         public GeneralInfo GeneralInfo { get; set; }
 
+        public string Group { get; set; }
+
         public string ProductGroups { get; set; }
     }
 }

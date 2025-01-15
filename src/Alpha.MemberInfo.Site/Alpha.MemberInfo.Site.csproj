@@ -138,8 +138,8 @@
     <Reference Include="Fanex.Cryptography.Aes, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Cryptography.Aes.1.0.0.5\lib\net461\Fanex.Cryptography.Aes.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Customer.Client, Version=1.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Customer.Client.1.0.1.6\lib\netstandard2.0\Fanex.Customer.Client.dll</HintPath>
+    <Reference Include="Fanex.Customer.Client, Version=1.0.1.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Customer.Client.1.0.1.9\lib\netstandard2.0\Fanex.Customer.Client.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Customer.Client.NETFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Customer.Client.NETFramework.1.0.0\lib\net461\Fanex.Customer.Client.NETFramework.dll</HintPath>
@@ -793,16 +793,16 @@
     <Content Include="assets\styles\problem-account\update.css">
       <DependentUpon>update.scss</DependentUpon>
     </Content>
-    <Content Include="ClientApp\dist\assets\createAccount-a38b021c.js" />
+    <Content Include="ClientApp\dist\assets\createAccount-7da9f894.js" />
     <Content Include="ClientApp\dist\assets\createAccount-c5205fb8.css" />
     <Content Include="ClientApp\dist\assets\index-06d353a9.css" />
     <Content Include="ClientApp\dist\assets\index-8dfb63e2.js" />
     <Content Include="ClientApp\dist\assets\productSettingInfo-19dc73f6.css" />
-    <Content Include="ClientApp\dist\assets\productSettingInfo-43740177.js" />
+    <Content Include="ClientApp\dist\assets\productSettingInfo-9468c7fe.js" />
     <Content Include="ClientApp\dist\assets\PTSelect-13f830b9.css" />
     <Content Include="ClientApp\dist\assets\PTSelect-de37a276.js" />
+    <Content Include="ClientApp\dist\assets\ptTemplate-4c412a2a.js" />
     <Content Include="ClientApp\dist\assets\ptTemplate-5f025410.css" />
-    <Content Include="ClientApp\dist\assets\ptTemplate-ef86a8e9.js" />
     <Content Include="ClientApp\dist\assets\Trans-c823c5de.js" />
     <Content Include="ClientApp\dist\images\daily.png" />
     <Content Include="ClientApp\dist\images\icon-select.svg" />
