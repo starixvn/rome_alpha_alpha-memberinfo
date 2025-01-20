@@ -115,7 +115,7 @@ class CustomerListDataTable {
                             DoubleComm: this.doubleComm,
                             AllowAutoTransfer: this.allowAutoTransfer,
                             EnableAllDayBalanceTransfer: this.enableAllDayBalanceTransfer,
-                            LevelType: this.levelType,
+                            LevelType: this.viewModel.IsDirectMember ? 2 : 1,
                         };
 
                         this.enableAllDayBalanceTransfer = undefined;
