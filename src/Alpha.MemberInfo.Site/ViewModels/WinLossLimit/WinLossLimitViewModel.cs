@@ -34,7 +34,7 @@
             Username = message.Username ?? string.Empty;
             PlayerId = message.PlayerId ?? string.Empty;
             MasterId = param.MasterId;
-            AgentId = param.AgentId;
+            RecommendId = param.AgentId;
 
             GroupProducts = groupProducts;
             MasterList = masterList;
@@ -56,7 +56,7 @@
 
         public int MasterId { get; }
 
-        public int AgentId { get; }
+        public int RecommendId { get; }
 
         public string Username { get; }
 

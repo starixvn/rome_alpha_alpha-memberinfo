@@ -43,7 +43,7 @@
                 agentList.Insert(0, new CustomerInfo(Resources.DirectMember, 0));
             }
 
-            var agentId = message.AgentId != 0 ? message.AgentId
+            var agentId = message.RecommendId != 0 ? message.RecommendId
                 : actorLevel.IsMasterLevel() ? agentList[0].CustId
                 : actorLevel.IsAgentLevel() ? message.CustId
                 : 0;

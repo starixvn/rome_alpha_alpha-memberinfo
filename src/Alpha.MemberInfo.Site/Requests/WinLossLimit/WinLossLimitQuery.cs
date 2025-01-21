@@ -18,7 +18,7 @@
 
         public int MasterId { get; set; }
 
-        public int AgentId { get; set; }
+        public int RecommendId { get; set; }
 
         public string Username { get; set; }
 

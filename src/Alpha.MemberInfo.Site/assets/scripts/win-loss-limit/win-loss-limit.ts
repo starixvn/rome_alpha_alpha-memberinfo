@@ -72,7 +72,7 @@ class WinLossLimit {
         this.$agentList = this.$("#dropdown-agent");
 
         this.$masterId = this.$("#MasterId");
-        this.$agentId = this.$("#AgentId");
+        this.$agentId = this.$("#RecommendId");
         this.$username = this.$("#txt-username");
         this.$playerId = this.$("#txt-player-id");
         this.$tableReport = this.$("#tbl-report");

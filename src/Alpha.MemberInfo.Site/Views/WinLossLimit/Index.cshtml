@@ -79,7 +79,7 @@
 
                     foreach (var agent in Model.AgentList)
                     {
-                        <option value="@agent.CustId" @(Model.AgentId == agent.CustId ? " selected=\"selected\"" : string.Empty)>@agent.Username</option>
+                        <option value="@agent.CustId" @(Model.RecommendId == agent.CustId ? " selected=\"selected\"" : string.Empty)>@agent.Username</option>
                     }
                 }
                 else
@@ -196,7 +196,7 @@
     @Html.Hidden("SportType", Model.SportType)
     @Html.Hidden("BetType", Model.BetType)
     @Html.Hidden("MasterId", Model.MasterId)
-    @Html.Hidden("AgentId", Model.AgentId)
+    @Html.Hidden("RecommendId", Model.RecommendId)
 </form>
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/win-loss-limit/win-loss-limit")
