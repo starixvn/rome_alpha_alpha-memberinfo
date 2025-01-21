@@ -1366,8 +1366,6 @@
     <Content Include="Views\CreditBalance\Legend.zh-TW.cshtml" />
     <Content Include="Views\CreditBalance\Legend.th-TH.cshtml" />
     <Content Include="Views\CreditBalance\Legend.vi-VN.cshtml" />
-    <Content Include="Views\CreditBalance\Legend.ko-KR.cshtml" />
-    <Content Include="Views\CreditBalance\Legend.ja-JP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfig.cs">

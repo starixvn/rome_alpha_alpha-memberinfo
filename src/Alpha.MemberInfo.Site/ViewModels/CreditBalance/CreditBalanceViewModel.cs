@@ -30,7 +30,7 @@
             EnteredSportResult enteredSportResult,
             bool isAllDayBalTransfer)
         {
-            LegendView = $"Legend.{message.Language}";
+            LegendView = GetLegendViewByLanguage(message.Language);
             PagedCreditBalances = pagedCreditBalances;
             TransferCondition = transferCondition;
 
@@ -119,5 +119,21 @@
             => MicroSites.AccountInfoUrl($"~/SearchAccount/GetMemberBalanceInfo?custname={custName}");
 
         public EnteredSportResult EnteredSportResult { get; }
+
+        private static string GetLegendViewByLanguage(string language)
+        {
+            const string viewName = "Legend";
+            switch (language)
+            {
+                case "zh-TW":
+                case "zh-CN":
+                case "th-TH":
+                case "vi-VN":
+                    return $"{viewName}.{language}";
+
+                default:
+                    return $"{viewName}.en-US";
+            }
+        }
     }
 }
