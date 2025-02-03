@@ -3,11 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.Features.CustomerList.Criteria;
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Features.CustomerList.SPs.Criteria;
     using Alpha.MemberInfo.Features.Shared.Models;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using Fanex.Data.Repository;
@@ -16,7 +18,7 @@
     {
         CustomerListDTO GetCustomerList(CustomerListParam param);
 
-        CustomerStatusModel GetCustomerStatus(int custId, byte roleId);
+        Task<CustomerStatusModel> GetCustomerStatus(int custId, byte roleId, int uplineId);
 
         Result UpdateCustomerStatus(UpdateCustomerStatusParam param);
     }
@@ -25,17 +27,20 @@
     {
         private readonly IDynamicRepository dynamicRepository;
         private readonly IDictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>> fetchData;
+        private readonly TransferService transferService;
 
-        public CustomerListServiceImpl(IDynamicRepository dynamicRepository)
-            : this(dynamicRepository, null)
+        public CustomerListServiceImpl(IDynamicRepository dynamicRepository, TransferService transferService)
+            : this(dynamicRepository, transferService, null)
         {
         }
 
         internal CustomerListServiceImpl(
             IDynamicRepository dynamicRepository,
+            TransferService transferService,
             IDictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>> fetchData)
         {
             this.dynamicRepository = dynamicRepository;
+            this.transferService = transferService;
             this.fetchData = fetchData ??
                 new Dictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>>
                 {
@@ -56,10 +61,10 @@
                 new CustomerListDTO(Enumerable.Empty<CustomerListModelBase>(), 0, 0);
         }
 
-        public CustomerStatusModel GetCustomerStatus(int custId, byte roleId)
+        public async Task<CustomerStatusModel> GetCustomerStatus(int custId, byte roleId, int uplineId)
         {
             var (customerStatus, dcsProducts)
-                = dynamicRepository.FetchMultiple<NonProductStatusModel, DCSProductStatusModel>(
+                = await dynamicRepository.FetchMultipleAsync<NonProductStatusModel, DCSProductStatusModel>(
                     new SelectCustomerAllStatusModelCriteria(custId));
 
             var customerStatusModel = new CustomerStatusModel(
@@ -81,15 +86,16 @@
 
             if (customerStatusModel.NonProduct != null)
             {
-                var closedReasonAndIsProtectedMode = dynamicRepository.Get<ClosedReasonAndIsProtectedMode>(
+                var closedReasonAndIsProtectedMode = await dynamicRepository.GetAsync<ClosedReasonAndIsProtectedMode>(
                     new SelectClosedReasonCriteria(custId, roleId));
                 customerStatusModel.NonProduct.IsProtectedMode = closedReasonAndIsProtectedMode != null
                     && closedReasonAndIsProtectedMode.IsProtectedMode;
 
                 var scheduleOptionCommand = new SelectScheduleOptionCommand(custId);
-                dynamicRepository.Execute(scheduleOptionCommand);
+                await dynamicRepository.ExecuteAsync(scheduleOptionCommand);
                 customerStatusModel.NonProduct.IsAllowAutoTransfer = scheduleOptionCommand.IsAllowAutoTransfer;
                 customerStatusModel.NonProduct.ScheduleWeekDays = scheduleOptionCommand.ScheduleWeekDays;
+                customerStatusModel.NonProduct.TransferOption = await transferService.GetTransferOption(uplineId);
             }
 
             return customerStatusModel;

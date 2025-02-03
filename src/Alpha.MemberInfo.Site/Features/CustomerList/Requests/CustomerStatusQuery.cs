@@ -4,7 +4,7 @@
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using MediatR;
 
-    public class CustomerStatusQuery : CustomerStatusQueryBase, IRequest<CustomerStatusViewModel>
+    public class CustomerStatusQuery : CustomerStatusQueryBase, IAsyncRequest<CustomerStatusViewModel>
     {
         public CustomerStatusQuery(IUser viewer) : base(viewer)
         {

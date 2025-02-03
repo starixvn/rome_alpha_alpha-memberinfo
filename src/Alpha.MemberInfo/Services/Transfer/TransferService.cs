@@ -11,12 +11,16 @@
 
     public interface TransferService
     {
+        Task<string> GetTransferOption(int custId);
+
         Task<string> GetAllowTransfer(int custId);
 
         Task<bool> IsAllDayBalanceTransferAsync(int custId);
 
         bool IsAllDayBalanceTransfer(int custId);
+
         bool IsAutoTransferAffect(IUser viewer, string offerCurrencies);
+
         bool IsEnableAutoTransfer(IUser viewer, string offerCurrencies);
     }
 
@@ -80,7 +84,7 @@
             return transferTime;
         }
 
-        private async Task<string> GetTransferOption(int custId)
+        public async Task<string> GetTransferOption(int custId)
         {
             var criteria = new GetTransferOptionCriteria(custId);
 

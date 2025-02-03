@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.Constants;
     using Alpha.MemberInfo.Features.CustomerList;
     using Alpha.MemberInfo.Features.CustomerList.Models;
@@ -28,8 +29,8 @@
     public class CustomerListHandler :
         IRequestHandler<CustomerListRequest, CustomerListViewModel>,
         IRequestHandler<FetchDownlinesListRequest, CustomerListPagingViewModel>,
-        IRequestHandler<CustomerStatusQuery, CustomerStatusViewModel>,
-        IRequestHandler<CustomerStatusMultipleQuery, IEnumerable<ISettingItemMultipleViewModel>>,
+        IAsyncRequestHandler<CustomerStatusQuery, CustomerStatusViewModel>,
+        IAsyncRequestHandler<CustomerStatusMultipleQuery, IEnumerable<ISettingItemMultipleViewModel>>,
         IRequestHandler<CustomerNonProductStatusCommand, Result>,
         IRequestHandler<MultipleDoubleCommRequest, MultipleDoubleCommViewModel>,
         IRequestHandler<UpdateMultipleDoubleCommCommand, IEnumerable<Result>>
@@ -155,10 +156,10 @@
             return new CustomerListPagingViewModel(customerListService.GetCustomerList(param), message, ipService);
         }
 
-        public CustomerStatusViewModel Handle(CustomerStatusQuery message)
+        public Task<CustomerStatusViewModel> Handle(CustomerStatusQuery message)
             => BuildCustomerStatus(message);
 
-        public IEnumerable<ISettingItemMultipleViewModel> Handle(CustomerStatusMultipleQuery message)
+        public Task<IEnumerable<ISettingItemMultipleViewModel>> Handle(CustomerStatusMultipleQuery message)
            => BuildCustomerStatusMultiple(message);
 
         public Result Handle(CustomerNonProductStatusCommand message)
@@ -197,9 +198,9 @@
             return results;
         }
 
-        internal CustomerStatusViewModel BuildCustomerStatus(CustomerStatusQuery message)
+        internal async Task<CustomerStatusViewModel> BuildCustomerStatus(CustomerStatusQuery message)
         {
-            var customerStatusModel = customerListService.GetCustomerStatus(message.SearchAccountId, message.SearchAccountRoleId);
+            var customerStatusModel = await customerListService.GetCustomerStatus(message.SearchAccountId, message.SearchAccountRoleId, message.UplineId);
             var isAllDayBalTransfer = transferService.IsAllDayBalanceTransfer(message.ActorId);
 
             var actor = new Customer(
@@ -230,9 +231,9 @@
                 BuildCustomerProductSettings(actor, searchAccount, message, customerStatusModel));
         }
 
-        internal IEnumerable<ISettingItemMultipleViewModel> BuildCustomerStatusMultiple(CustomerStatusMultipleQuery message)
+        internal async Task<IEnumerable<ISettingItemMultipleViewModel>> BuildCustomerStatusMultiple(CustomerStatusMultipleQuery message)
         {
-            var customerStatusModel = customerListService.GetCustomerStatus(message.SearchAccountId, message.SearchAccountRoleId);
+            var customerStatusModel = await customerListService.GetCustomerStatus(message.SearchAccountId, message.SearchAccountRoleId, message.UplineId);
 
             var actor = new Customer(
                message.ActorId,

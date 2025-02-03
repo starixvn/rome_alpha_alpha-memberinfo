@@ -5,6 +5,7 @@
     using Alpha.MemberInfo.Features.CustomerList.Criteria;
     using Alpha.MemberInfo.Features.CustomerList.Models;
     using Alpha.MemberInfo.Models;
+    using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Features.CustomerList.Params;
     using Alpha.MemberInfo.Site.Features.CustomerList.ViewModels;
     using Alpha.MemberInfo.Tests.Fixtures;
@@ -13,12 +14,14 @@
     using NSubstitute;
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Xunit;
 
     [Trait("Category", "CustomerList")]
     [Collection("AnyValueCreatorCollection")]
     public class CustomerListServiceTests
     {
+        private readonly TransferService transferService;
         private readonly IDynamicRepository repository;
         private readonly CustomerListServiceImpl service;
         private readonly IDictionary<UserLevel, Func<CustomerListParam, CustomerListDTO>> fetchData;
@@ -36,7 +39,8 @@
             };
 
             repository = Substitute.For<IDynamicRepository>();
-            service = new CustomerListServiceImpl(repository);
+            transferService = Substitute.For<TransferService>();
+            service = new CustomerListServiceImpl(repository, transferService);
         }
 
         [Fact]
@@ -121,7 +125,7 @@
         }
 
         [Fact]
-        public void GetCustomerStatus_Always_ReturnsCorrectModel()
+        public async Task GetCustomerStatus_Always_ReturnsCorrectModel()
         {
             var data = anyValueCreatorFixture.Create<CustomerStatusModel>();
 
@@ -129,7 +133,7 @@
             //    .GetCustomerStatus(Arg.Any<SelectCustomerAllStatusModelCriteria>())
             //    .Returns(data);
 
-            var actualModel = service.GetCustomerStatus(2, Arg.Any<byte>());
+            var actualModel = await service.GetCustomerStatus(2, Arg.Any<byte>(), 1);
 
             Assert.True(compareLogic.Compare(actualModel, data).AreEqual);
         }

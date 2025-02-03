@@ -6,7 +6,7 @@
     using Fanex.Common;
     using MediatR;
 
-    public class CustomerStatusMultipleQuery : CustomerStatusQueryBase, IRequest<IEnumerable<ISettingItemMultipleViewModel>>
+    public class CustomerStatusMultipleQuery : CustomerStatusQueryBase, IAsyncRequest<IEnumerable<ISettingItemMultipleViewModel>>
     {
         public CustomerStatusMultipleQuery(IUser viewer) : base(viewer)
         {

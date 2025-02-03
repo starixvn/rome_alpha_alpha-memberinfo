@@ -1,5 +1,6 @@
 ﻿namespace Alpha.MemberInfo.Site.Tests.Controllers
 {
+    using System.Threading.Tasks;
     using Alpha.MemberInfo.Services.Transfer;
     using Alpha.MemberInfo.Site.Features.CustomerList;
     using Alpha.MemberInfo.Site.Features.CustomerList.Requests;
@@ -61,7 +62,7 @@
         }
 
         [Fact]
-        public void MultipleEditPopup_Always_CallsMediatorCustomerStatusMultipleQuery()
+        public async Task MultipleEditPopup_Always_CallsMediatorCustomerStatusMultipleQuery()
         {
             // Arrange
             var message = new CustomerStatusMultipleQuery(user)
@@ -74,10 +75,10 @@
             };
 
             // Act
-            controller.MultipleEditPopup(message);
+            await controller.MultipleEditPopup(message);
 
             // Assert
-            mediator.Received().Send(message);
+            await mediator.Received().SendAsync(message);
         }
 
         [Fact]

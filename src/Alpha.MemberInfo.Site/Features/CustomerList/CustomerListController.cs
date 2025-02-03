@@ -9,6 +9,7 @@
     using Alpha.Web.Filters;
     using MediatR;
     using AlphaPlus.User.Models;
+    using System.Threading.Tasks;
 
     public class CustomerListController : SiteBaseController
     {
@@ -65,7 +66,7 @@
             return Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetCustomerAllStatus(CustomerStatusQuery message)
+        public async Task<ActionResult> GetCustomerAllStatus(CustomerStatusQuery message)
         {
             if (!message.IsValid())
             {
@@ -74,11 +75,11 @@
 
             message.SupportAutoTransfer = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
             message.AutoTransferAffect = transferService.IsAutoTransferAffect(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
-            return Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+            return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public ActionResult MultipleEditPopup(CustomerStatusMultipleQuery message)
+        public async Task<ActionResult> MultipleEditPopup(CustomerStatusMultipleQuery message)
         {
             if (!message.IsValid())
             {
@@ -87,7 +88,7 @@
 
             message.SupportAutoTransfer = transferService.IsEnableAutoTransfer(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
             message.AutoTransferAffect = transferService.IsAutoTransferAffect(viewer, Alpha.MemberInfo.Configurations.AppSettings.GetConfigValue("OfferAutoTransfer.Currencies"));
-            return Json(mediator.Send(message), JsonRequestBehavior.AllowGet);
+            return Json(await mediator.SendAsync(message), JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost, AntiXsrfFilter]

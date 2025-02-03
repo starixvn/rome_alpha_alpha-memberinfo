@@ -36,6 +36,7 @@
     using NSubstitute;
     using Xunit;
     using Alpha.SecurityCode.Services;
+    using System.Threading.Tasks;
 
     [Trait("Category", "CustomerList")]
     [Collection("UserCollection")]
@@ -163,7 +164,7 @@
             var expectedStatus = StubStatusViewModel();
 
             var model = fixture.Create<CustomerStatusModel>();
-            service.GetCustomerStatus(Arg.Any<int>(), Arg.Any<byte>()).Returns(model);
+            service.GetCustomerStatus(Arg.Any<int>(), Arg.Any<byte>(), Arg.Any<int>()).Returns(Task.FromResult(model));
             var expectedViewModel = new CustomerStatusViewModel(expectedStatus, expectedSetting);
 
             var actualViewModel = handler.Handle(message);
