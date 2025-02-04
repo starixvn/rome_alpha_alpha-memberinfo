@@ -112,7 +112,7 @@ namespace Alpha.MemberInfo.Site.Features.CreateAccount
         }
 
         public async Task<ActionResult> GetCustomerInfo()
-            => Content(await customerService.GetCustomerSetting(viewer.Id, viewer.LevelId, 4, viewer.LevelId, viewer.Language, false, 0));
+            => Content(await customerService.GetCustomerSetting(viewer.Id, viewer.LevelId, 4, viewer.LevelId, viewer.Language, false, 0, AppSettings.SiteLabel, agentId: 0));
 
         private ActionResult UnAuthorized()
            => Content(JsonConvert.SerializeObject(Result.CreateErrorResult(Lang.NotAuthorized), new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
