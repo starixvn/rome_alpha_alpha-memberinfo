@@ -1254,7 +1254,7 @@ Notes: your password is cAsE sEnSiTiVe.</value>
     <value>For Direct Member accounts the column shown is Balance. For all other levels, the column shown is Cash</value>
   </data>
   <data name="YesterdayCashYesterdayBalanceNote" xml:space="preserve">
-    <value>For Direct Member accounts the column shown is Yesterday Balance. For all other levels, the column shown is Yesterday Cash</value>
+    <value>For Direct Members, the data represents Yesterday Balance. For other downlines, it represents Yesterday Cash</value>
   </data>
   <data name="SelectDirectDownline" xml:space="preserve">
     <value>Select Direct Downline</value>

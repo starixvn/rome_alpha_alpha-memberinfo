@@ -372,9 +372,6 @@
   <data name="Status" xml:space="preserve">
     <value>狀態</value>
   </data>
-  <data name="String" xml:space="preserve">
-    <value>暂停</value>
-  </data>
   <data name="Submit" xml:space="preserve">
     <value>提交</value>
   </data>

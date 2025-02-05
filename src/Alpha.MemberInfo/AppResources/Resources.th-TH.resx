@@ -1234,4 +1234,19 @@
   <data name="YesterdayCash" xml:space="preserve">
     <value>เงินสดเมื่อวาน</value>
   </data>
+  <data name="CreateDirectMember" xml:space="preserve">
+    <value>สร้างสมาชิกโดยตรง</value>
+  </data>
+  <data name="DirectMember" xml:space="preserve">
+    <value>สมาชิกโดยตรง</value>
+  </data>
+  <data name="MasterAgent" xml:space="preserve">
+    <value>รายชื่อตัวแทนหลัก</value>
+  </data>
+  <data name="SelectDirectDownline" xml:space="preserve">
+    <value>เลือกดาวน์ไลน์โดยตรง</value>
+  </data>
+  <data name="YesterdayCashYesterdayBalanceNote" xml:space="preserve">
+    <value>สำหรับบัญชีสมาชิกโดยตรง คอลัมน์ที่แสดงคือยอดคงเหลือเมื่อวาน สำหรับระดับอื่น ๆ คอลัมน์ที่แสดงคือยอดเงินสดถึงเมื่อวาน</value>
+  </data>
 </root>
