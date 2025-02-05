@@ -1204,4 +1204,19 @@ Lưu ý:  Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
   <data name="YesterdayCashYesterdayBalanceNote" xml:space="preserve">
     <value>Đối với Member Trực Tiếp, giá trị hiển thị là Số Dư Đến Hết Hôm Qua. Với các cấp dưới khác, giá trị hiển thị là Tiền Khả Dụng Đến Hết Hôm Qua.</value>
   </data>
+  <data name="AvailableCreditBetCredit" xml:space="preserve">
+    <value>Hạn Mức Khả Dụng/&lt;br/&gt;Hạn Mức Cược</value>
+  </data>
+  <data name="AvailableCreditBetCreditNote" xml:space="preserve">
+    <value>Đối với Member Trực Tiếp, giá trị hiển thị là Hạn Mức Cược. Với các cấp dưới khác, giá trị hiển thị là Hạn Mức Khả Dụng.</value>
+  </data>
+  <data name="CashBalance" xml:space="preserve">
+    <value>Tiền Khả Dụng/&lt;br/&gt;Số Dư</value>
+  </data>
+  <data name="CashBalanceNote" xml:space="preserve">
+    <value>Đối với Member Trực Tiếp, giá trị hiển thị là Số Dư. Với các cấp dưới khác, giá trị hiển thị là Tiền Khả Dụng.</value>
+  </data>
+  <data name="YesterdayCashYesterdayBalance" xml:space="preserve">
+    <value>Tiền Khả Dụng Đến Hết Hôm Qua/&lt;br/&gt;Số Dư Đến Hết Hôm Qua</value>
+  </data>
 </root>

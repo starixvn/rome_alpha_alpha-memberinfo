@@ -1249,4 +1249,19 @@
   <data name="YesterdayCashYesterdayBalanceNote" xml:space="preserve">
     <value>สำหรับบัญชีสมาชิกโดยตรง คอลัมน์ที่แสดงคือยอดคงเหลือเมื่อวาน สำหรับระดับอื่น ๆ คอลัมน์ที่แสดงคือยอดเงินสดถึงเมื่อวาน</value>
   </data>
+  <data name="AvailableCreditBetCredit" xml:space="preserve">
+    <value>เครดิตที่มีอยู่/&lt;br/&gt;เครดิตสำหรับเดิมพัน</value>
+  </data>
+  <data name="AvailableCreditBetCreditNote" xml:space="preserve">
+    <value>สำหรับบัญชีสมาชิกโดยตรง คอลัมน์ที่แสดงคือเครดิตสำหรับเดิมพัน สำหรับระดับอื่น ๆ คอลัมน์ที่แสดงคือเครดิตที่มีอยู่</value>
+  </data>
+  <data name="CashBalance" xml:space="preserve">
+    <value>เงินสด/&lt;br/&gt;บัญชีคงเหลือ</value>
+  </data>
+  <data name="CashBalanceNote" xml:space="preserve">
+    <value>สำหรับบัญชีสมาชิกโดยตรง คอลัมน์ที่แสดงคือบัญชีคงเหลือ สำหรับบัญชีระดับอื่น ๆ คอลัมน์ที่แสดงคือเงินสด</value>
+  </data>
+  <data name="YesterdayCashYesterdayBalance" xml:space="preserve">
+    <value>เงินสดเมื่อวาน/&lt;br/&gt;ยอดคงเหลือเมื่อวาน</value>
+  </data>
 </root>

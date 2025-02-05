@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -376,7 +376,16 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to For Direct Member accounts the column shown is Bet Credit. For all other levels, the column shown is Available Credit.
+        ///   Looks up a localized string similar to Available Credit/&lt;br/&gt;Bet Credit.
+        /// </summary>
+        public static string AvailableCreditBetCredit {
+            get {
+                return ResourceManager.GetString("AvailableCreditBetCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For Direct Members, the data represents Bet Credit. For other downlines, it represents Available Credit..
         /// </summary>
         public static string AvailableCreditBetCreditNote {
             get {
@@ -538,7 +547,16 @@ namespace Alpha.MemberInfo.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to For Direct Member accounts the column shown is Balance. For all other levels, the column shown is Cash.
+        ///   Looks up a localized string similar to Cash/&lt;br/&gt;Balance.
+        /// </summary>
+        public static string CashBalance {
+            get {
+                return ResourceManager.GetString("CashBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For Direct Members, the data represents Balance. For other downlines, it represents Cash..
         /// </summary>
         public static string CashBalanceNote {
             get {
@@ -3437,6 +3455,15 @@ namespace Alpha.MemberInfo.AppResources {
         public static string YesterdayCashBalance {
             get {
                 return ResourceManager.GetString("YesterdayCashBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yesterday Cash/&lt;br/&gt;Yesterday Balance.
+        /// </summary>
+        public static string YesterdayCashYesterdayBalance {
+            get {
+                return ResourceManager.GetString("YesterdayCashYesterdayBalance", resourceCulture);
             }
         }
         

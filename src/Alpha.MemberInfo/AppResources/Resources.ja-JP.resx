@@ -457,4 +457,13 @@
   <data name="introCopyNote" xml:space="preserve">
     <value>Click 'Copy' to copy and share the account details</value>
   </data>
+  <data name="AvailableCreditBetCredit" xml:space="preserve">
+    <value>利用可能なクレジット/&lt;br/&gt;ベットクレジット</value>
+  </data>
+  <data name="CashBalance" xml:space="preserve">
+    <value>残高/&lt;br/&gt;残高</value>
+  </data>
+  <data name="YesterdayCashYesterdayBalance" xml:space="preserve">
+    <value>昨日までの口座残高/&lt;br/&gt;昨日の残高</value>
+  </data>
 </root>
