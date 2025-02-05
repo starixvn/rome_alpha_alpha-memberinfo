@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AComm1" xml:space="preserve">
-    <value>代理佣金 (1)</value>
+    <value>A 傭金 (1)</value>
   </data>
   <data name="AComm2" xml:space="preserve">
-    <value>代理佣金 (2)</value>
+    <value>A 傭金 (2)</value>
   </data>
   <data name="AComm3" xml:space="preserve">
-    <value>代理佣金 (3)</value>
+    <value>A 傭金 (3)</value>
   </data>
   <data name="AgentList" xml:space="preserve">
     <value>代理名單</value>
@@ -223,13 +223,13 @@
     <value>頁面範圍</value>
   </data>
   <data name="PComm1" xml:space="preserve">
-    <value>会员佣金 (1)</value>
+    <value>P 傭金 (1)</value>
   </data>
   <data name="PComm2" xml:space="preserve">
-    <value>会员佣金 (2)</value>
+    <value>P 傭金 (2)</value>
   </data>
   <data name="PComm3" xml:space="preserve">
-    <value>会员佣金 (3)</value>
+    <value>P 傭金 (3)</value>
   </data>
   <data name="Select" xml:space="preserve">
     <value>選擇</value>
@@ -308,5 +308,23 @@
   </data>
   <data name="AutoTransfer" xml:space="preserve">
     <value>自動轉賬</value>
+  </data>
+  <data name="SComm1" xml:space="preserve">
+    <value>S 傭金 (1)</value>
+  </data>
+  <data name="SComm2" xml:space="preserve">
+    <value>S 傭金 (2)</value>
+  </data>
+  <data name="SComm3" xml:space="preserve">
+    <value>S 傭金 (3)</value>
+  </data>
+  <data name="MComm1" xml:space="preserve">
+    <value>M 傭金 (1)</value>
+  </data>
+  <data name="MComm2" xml:space="preserve">
+    <value>M 傭金 (2)</value>
+  </data>
+  <data name="MComm3" xml:space="preserve">
+    <value>M 傭金 (3)</value>
   </data>
 </root>

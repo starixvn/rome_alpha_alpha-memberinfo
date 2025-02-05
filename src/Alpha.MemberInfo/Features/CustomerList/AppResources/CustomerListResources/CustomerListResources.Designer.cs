@@ -19,7 +19,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class CustomerListResources {
@@ -62,7 +62,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Comm 1.
+        ///   Looks up a localized string similar to A Comm (1).
         /// </summary>
         public static string AComm1 {
             get {
@@ -71,7 +71,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Comm 2.
+        ///   Looks up a localized string similar to A Comm (2).
         /// </summary>
         public static string AComm2 {
             get {
@@ -80,7 +80,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Comm 3.
+        ///   Looks up a localized string similar to A Comm (3).
         /// </summary>
         public static string AComm3 {
             get {
@@ -386,7 +386,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to M Comm 1.
+        ///   Looks up a localized string similar to M Comm (1).
         /// </summary>
         public static string MComm1 {
             get {
@@ -395,7 +395,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to M Comm 2.
+        ///   Looks up a localized string similar to M Comm (2).
         /// </summary>
         public static string MComm2 {
             get {
@@ -404,7 +404,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to M Comm 3.
+        ///   Looks up a localized string similar to M Comm (3).
         /// </summary>
         public static string MComm3 {
             get {
@@ -503,7 +503,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to P Comm 1.
+        ///   Looks up a localized string similar to P Comm (1).
         /// </summary>
         public static string PComm1 {
             get {
@@ -512,7 +512,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to P Comm 2.
+        ///   Looks up a localized string similar to P Comm (2).
         /// </summary>
         public static string PComm2 {
             get {
@@ -521,7 +521,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to P Comm 3.
+        ///   Looks up a localized string similar to P Comm (3).
         /// </summary>
         public static string PComm3 {
             get {
@@ -530,7 +530,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to S Comm 1.
+        ///   Looks up a localized string similar to S Comm (1).
         /// </summary>
         public static string SComm1 {
             get {
@@ -539,7 +539,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to S Comm 2.
+        ///   Looks up a localized string similar to S Comm (2).
         /// </summary>
         public static string SComm2 {
             get {
@@ -548,7 +548,7 @@ namespace Alpha.MemberInfo.Features.CustomerList.AppResources.CustomerListResour
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to S Comm 3.
+        ///   Looks up a localized string similar to S Comm (3).
         /// </summary>
         public static string SComm3 {
             get {

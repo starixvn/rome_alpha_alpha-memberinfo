@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AComm1" xml:space="preserve">
-    <value>A Comm 1</value>
+    <value>A Comm (1)</value>
   </data>
   <data name="AComm2" xml:space="preserve">
-    <value>A Comm 2</value>
+    <value>A Comm (2)</value>
   </data>
   <data name="AComm3" xml:space="preserve">
-    <value>A Comm 3</value>
+    <value>A Comm (3)</value>
   </data>
   <data name="AgentList" xml:space="preserve">
     <value>Agent List</value>
@@ -220,13 +220,13 @@
     <value>Page Size</value>
   </data>
   <data name="PComm1" xml:space="preserve">
-    <value>P Comm 1</value>
+    <value>P Comm (1)</value>
   </data>
   <data name="PComm2" xml:space="preserve">
-    <value>P Comm 2</value>
+    <value>P Comm (2)</value>
   </data>
   <data name="PComm3" xml:space="preserve">
-    <value>P Comm 3</value>
+    <value>P Comm (3)</value>
   </data>
   <data name="Select" xml:space="preserve">
     <value>Select</value>
@@ -310,21 +310,21 @@
     <value>Enabled</value>
   </data>
   <data name="SComm1" xml:space="preserve">
-    <value>S Comm 1</value>
+    <value>S Comm (1)</value>
   </data>
   <data name="SComm2" xml:space="preserve">
-    <value>S Comm 2</value>
+    <value>S Comm (2)</value>
   </data>
   <data name="SComm3" xml:space="preserve">
-    <value>S Comm 3</value>
+    <value>S Comm (3)</value>
   </data>
   <data name="MComm1" xml:space="preserve">
-    <value>M Comm 1</value>
+    <value>M Comm (1)</value>
   </data>
   <data name="MComm2" xml:space="preserve">
-    <value>M Comm 2</value>
+    <value>M Comm (2)</value>
   </data>
   <data name="MComm3" xml:space="preserve">
-    <value>M Comm 3</value>
+    <value>M Comm (3)</value>
   </data>
 </root>
