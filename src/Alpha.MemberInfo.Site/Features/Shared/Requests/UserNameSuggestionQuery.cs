@@ -19,8 +19,10 @@
 
         public bool IsAccInfo { get; set; } = true;
 
-        public override bool IsValid() =>
-            base.IsValid() &&
-            !string.IsNullOrEmpty(SuggestionQuery);
+        public bool ExcludeMember { get; set; }
+
+        public bool IsAgent => ActorLevel.IsAgentLevel();
+
+        public override bool IsValid() => !string.IsNullOrEmpty(SuggestionQuery) && base.IsValid();
     }
 }

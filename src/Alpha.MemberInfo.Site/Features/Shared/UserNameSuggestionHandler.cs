@@ -23,7 +23,8 @@
                 message.SuggestionQuery,
                 message.IsInternal,
                 message.DirectDownlines,
-                message.IsAccInfo);
+                message.IsAccInfo,
+                excludeMember: message.IsAgent ? false: message.ExcludeMember);
 
         public IEnumerable<UsernameSuggestion> Handle(UserNameSuggestionByRoleQuery message)
             => usernameSuggestionService.GetUsernameSuggestionByRole(message.CustId, message.SuggestionQuery, message.RoleId);

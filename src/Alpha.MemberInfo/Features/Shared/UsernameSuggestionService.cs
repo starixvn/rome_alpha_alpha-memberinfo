@@ -13,7 +13,8 @@
             string suggestionQuery,
             bool isInternal,
             bool directDownline,
-            bool isAccInfo);
+            bool isAccInfo,
+            bool excludeMember);
 
         IEnumerable<UsernameSuggestion> GetUsernameSuggestionByRole(int custId, string username, byte roleId);
     }
@@ -32,17 +33,21 @@
             string suggestionQuery,
             bool isInternal,
             bool directDownline,
-            bool isAccInfo)
-            => dynamicRepository.Fetch<UsernameSuggestion>(
-              new SelectAutoSuggestionCriteria(
-                  actorId,
-                  suggestionQuery,
-                  isInternal,
-                  directDownline,
-                  isAccInfo)).OrderBy(item => item.UserName);
+            bool isAccInfo,
+            bool excludeMember)
+        {
+            var criteria = new SelectAutoSuggestionCriteria(
+                actorId,
+                suggestionQuery,
+                isInternal,
+                directDownline,
+                isAccInfo,
+                excludeMember);
+
+            return dynamicRepository.Fetch<UsernameSuggestion>(criteria).OrderBy(item => item.UserName);
+        }
 
         public IEnumerable<UsernameSuggestion> GetUsernameSuggestionByRole(int custId, string username, byte roleId)
-            => dynamicRepository.Fetch<UsernameSuggestion>(new UsernameSuggestionByRoleCriteria(
-                custId, username, roleId));
+            => dynamicRepository.Fetch<UsernameSuggestion>(new UsernameSuggestionByRoleCriteria(custId, username, roleId));
     }
 }

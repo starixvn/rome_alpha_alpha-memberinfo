@@ -11,7 +11,7 @@
         {
             // Arrange
             var expectedSettingKey = "Age_CustomerSelUserSearch";
-            var criteria = new SelectAutoSuggestionCriteria(8, "Test", true, true, false);
+            var criteria = new SelectAutoSuggestionCriteria(8, "Test", true, true, false, false);
 
             // Act
             var actualSettingKey = criteria.GetSettingKey();
@@ -26,7 +26,7 @@
         public void IsValid_WhenAllActorId_ReturnsCorrectValue(int actorId, bool expectedIsValid)
         {
             // Arrange
-            var criteria = new SelectAutoSuggestionCriteria(actorId, "Test", true, true, false);
+            var criteria = new SelectAutoSuggestionCriteria(actorId, "Test", true, true, false, false);
 
             // Act
             var actualValue = criteria.IsValid();
@@ -42,7 +42,7 @@
         public void IsValid_WhenAllSuggestionQuery_ReturnsCorrectValue(string suggestionQuery, bool expectedIsValid)
         {
             // Arrange
-            var criteria = new SelectAutoSuggestionCriteria(1, suggestionQuery, true, true, false);
+            var criteria = new SelectAutoSuggestionCriteria(1, suggestionQuery, true, true, false, false);
 
             // Act
             var actualValue = criteria.IsValid();
