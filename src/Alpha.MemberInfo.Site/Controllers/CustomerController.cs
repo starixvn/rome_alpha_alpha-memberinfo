@@ -54,7 +54,7 @@ namespace Alpha.MemberInfo.Site.Controllers
 
         public async Task<ActionResult> CreateDirectMember(CreateCustomerQuery query)
         {
-            var limitedRulesResult = await customerService.CheckAllLimitedRules(query.ViewerId, query.ViewerLevelId, query.ActorUsername, query.Language);
+            var limitedRulesResult = await customerService.CheckAllLimitedRules(query.ViewerId, UserLevel.Agent.Value, query.ActorUsername, query.Language);
 
             var viewModel = limitedRulesResult.IsFailed
                 ? new CreateDirectMemberViewModel(query, true, limitedRulesResult.Message)
