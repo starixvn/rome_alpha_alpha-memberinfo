@@ -65,14 +65,14 @@
                 ErrorMessage = string.Empty
             };
 
-            customerService.CheckAllLimitedRules(message.ViewerId, message.ViewerLevelId, message.ActorUsername, message.Language).Returns(Task.FromResult(new Fanex.Customer.Client.Models.Result(){Code = 0, Message = "Success"}));
+            customerService.CheckAllLimitedRules(message.ViewerId, message.ViewerLevelId, message.ActorUsername, false, message.Language).Returns(Task.FromResult(new Fanex.Customer.Client.Models.Result() { Code = 0, Message = "Success" }));
             customerService.GetSuggestUsername(Arg.Any<string>(), Arg.Any<byte>()).Returns(Task.FromResult("Suggestion Name"));
-      
+
             var expectedViewModel = new QRCodeMemberSignInViewModel(
                 message,
                 "Suggestion Name",
                 true);
-            
+
             // Act
             var actualViewModel = await handler.Handle(message);
 
@@ -100,7 +100,7 @@
 
             var custIdCopyFrom = 999;
 
-            customerService.CheckAllLimitedRules(message.ViewerId, message.ViewerLevelId, message.ActorUsername, message.Language).Returns(Task.FromResult(new Fanex.Customer.Client.Models.Result()));
+            customerService.CheckAllLimitedRules(message.ViewerId, message.ViewerLevelId, message.ActorUsername, false, message.Language).Returns(Task.FromResult(new Fanex.Customer.Client.Models.Result()));
 
             qrCodeMemberSignInService.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
 
@@ -155,7 +155,7 @@
 
             var invalidCustIdCopyFrom = -1;
             qrCodeMemberSignInService.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
-         
+
             customerService.GetDownlineByUsername(
                 Arg.Any<int>(),
                 Arg.Any<int>(),
@@ -164,7 +164,6 @@
                 {
                     CustId = invalidCustIdCopyFrom,
                 }));
-          
 
             var result = new ResultCreateMemberQRCode
             {
@@ -234,7 +233,7 @@
             qrCodeMemberSignInService.GetCreditAndStatus(Arg.Any<string>()).Returns(new CreditAndStatusModel(100, 10, 1000, "Open"));
             customerService.GetDownlineByUsername(message.CustId, message.SubAccId, message.UsernameCopyFrom)
                 .Returns(new Downline() { CustId = custIdCopyFrom, IsActive = false, IsSubAcc = false, RoleId = 1 });
-                
+
             // customerService.CheckLimitNewDownline(message.ViewerId, message.ViewerLevelId, message.Language, message.ActorUsername).Returns(new Result());
             //
             // customerService.CheckBelongingByUsername(
@@ -269,7 +268,7 @@
             };
 
             var model = new CreditAndStatusModel(100, 10, 1000, "open");
-            customerService.GetDownlineByUsername(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<string>()) .Returns(new Downline() { CustId = 1, IsActive = false, IsSubAcc = false, RoleId = 1 });
+            customerService.GetDownlineByUsername(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<string>()).Returns(new Downline() { CustId = 1, IsActive = false, IsSubAcc = false, RoleId = 1 });
             qrCodeMemberSignInService.GetCreditAndStatus(Arg.Any<string>()).Returns(model);
             //qrCodeMemberSignInService.CheckBelongingByUsername(
             //  Arg.Any<int>(),
@@ -310,7 +309,7 @@
                new QRCodeLoginConfigs("192.468.1.1", domains, 1, 3600));
 
             passwordService.CreateMemberPasswordRandom().Returns(new PasswordModel("ABC", "abcd"));
-       
+
             var expectedViewModel = new ShowQRCodeViewModel(
                 message.Credit,
                 message.CreditMin,
@@ -333,7 +332,7 @@
              Arg.Any<int>()).Returns("linktest.com");
             // Act
             var actualViewModel = handler.Handle(message);
-            
+
             // Assert
             AssertExtension.Equal(expectedViewModel.Credit, actualViewModel.Credit);
             AssertExtension.Equal(expectedViewModel.CreditMin, actualViewModel.CreditMin);
@@ -435,7 +434,7 @@
               Arg.Any<int>(),
               Arg.Any<int>(),
               Arg.Any<string>()).Returns(
-              new Downline(){CustId = custId,IsActive = true,IsSubAcc = false,RoleId = roleId});
+              new Downline() { CustId = custId, IsActive = true, IsSubAcc = false, RoleId = roleId });
 
             // Act
             var actualResult = await handler.IsValidBelongingByUsername(custId, "test", roleId);

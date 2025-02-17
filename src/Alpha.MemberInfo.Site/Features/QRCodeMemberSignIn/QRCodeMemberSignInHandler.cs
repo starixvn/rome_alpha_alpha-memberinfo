@@ -69,6 +69,7 @@
                     message.ViewerId,
                     message.ViewerLevelId,
                     message.ActorUsername,
+                    false,
                     message.Language);
                 onlyShowErrorMessage = limitNewDownlineResult.IsFailed;
                 message.ErrorMessage = limitNewDownlineResult.Message;

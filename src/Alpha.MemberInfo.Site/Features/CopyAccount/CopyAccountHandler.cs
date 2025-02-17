@@ -47,6 +47,7 @@ namespace Alpha.MemberInfo.Site.Features.CopyAccount
                    message.ViewerId,
                    message.ViewerLevelId,
                    message.CustName,
+                   false,
                    message.Language);
 
             if (limitNewDownlineResult.IsFailed)
