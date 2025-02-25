@@ -96,7 +96,7 @@ class ColumnsControlComponent {
         this.columnsShowHide.each((index: number, th: any) => {
             const element: JQuery = this.$(th);
             const id: string = "chk-" + index;
-            const className: string = element.attr("class");
+            const className: string = element.data("target") || element.attr("class");
 
             html.push('<li>');
             html.push('<input type="checkbox" class="columns-control-checkbox" id="');
