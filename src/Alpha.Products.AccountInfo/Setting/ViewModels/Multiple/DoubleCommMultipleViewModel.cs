@@ -21,7 +21,8 @@
               => new Dictionary<string, string>
               {
                   ["SearchAccountIds"] = Request.GetData<string>("customerIds"),
-                  ["SearchAccountRoleId"] = SearchAccount.CusomerLevelValue.ToString()
+                  ["SearchAccountRoleId"] = SearchAccount.CusomerLevelValue.ToString(),
+                  ["AgentId"] = SearchAccount.AgentId.ToString(),
               };
     }
 }

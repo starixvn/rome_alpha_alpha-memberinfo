@@ -37,7 +37,8 @@
         const data = {
             SearchAccountIds: this.$('#searchAccountIds').val(),
             SearchAccountRoleId: this.$('#searchAccountRoleId').val(),
-            EnabledDoubleComm: this.$('input[name=mulitpleDoubleComm]:checked').val()
+            EnabledDoubleComm: this.$('input[name=mulitpleDoubleComm]:checked').val(),
+            AgentId: this.$('#agentId').val()
         };
 
         this.$.ajax({
@@ -60,7 +61,6 @@
                     if (isSuccessful) {
                         isSuccessful = item.IsSuccessful;
                     }
-
                 })
 
                 if (isSuccessful) {
