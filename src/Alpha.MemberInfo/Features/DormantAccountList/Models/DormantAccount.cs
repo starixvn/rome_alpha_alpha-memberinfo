@@ -26,7 +26,7 @@
         public DormantAccount(DormantAccountEntity entity, decimal yesterdayBalance)
         {
             Username = entity.Username;
-            RoleName = entity.AgentId == DirectMemberAgentIds.Super || entity.AgentId == DirectMemberAgentIds.Master
+            RoleName = entity.Recommend == DirectMemberAgentIds.Super || entity.Recommend == DirectMemberAgentIds.Master
                 ? Resources.DirectMember
                 : Enumeration.FromValue<UserLevel>(entity.RoleId).DisplayNameViaResource;
             Status = GetStatus(entity.StatusId, entity.IsWarningTicket);

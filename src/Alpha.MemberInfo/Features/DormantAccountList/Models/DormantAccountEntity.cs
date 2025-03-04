@@ -23,7 +23,7 @@
             DateTime? accountDeletedDate,
             bool isWarningTicket,
             int rowNumber,
-            int agentId)
+            int recommend)
         {
             CustId = custId;
             Username = username;
@@ -39,7 +39,7 @@
             AccountDeletedDate = accountDeletedDate;
             IsWarningTicket = isWarningTicket;
             RowNumber = rowNumber;
-            AgentId = agentId;
+            Recommend = recommend;
         }
 
         public int CustId { get; set; }
@@ -70,6 +70,6 @@
 
         public int RowNumber { get; set; }
 
-        public int AgentId { get; set; }
+        public int Recommend { get; set; }
     }
 }
