@@ -143,7 +143,7 @@ namespace Alpha.MemberInfo.Site.Controllers
 
             var generalInfo = request.GeneralInfo;
             var rawPassword = aesService.Decrypt(generalInfo.Password, sessionManager.Get<string>(HashKeySessionKey));
-            generalInfo.Password = encryptor.CfsEnCode(rawPassword);
+            generalInfo.Password = rawPassword;
             generalInfo.UpLineRoleId = request.ViewerLevelId;
             generalInfo.Site = request.Site;
             generalInfo.SiteLabel = AppSettings.SiteLabel;
