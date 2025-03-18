@@ -293,7 +293,17 @@
     align-items: center;
     justify-content: space-between;
 
+    &.text-icon-left {
+        justify-content: flex-start;
+
+        .icon-directmember {
+            position: relative;
+            top: -1px;
+        }
+    }
+
     [class^="icon-"], [class*=" icon-"] {
         font-size: 18px;
+        margin-left: 5px;
     }
 }

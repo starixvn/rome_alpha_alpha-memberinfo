@@ -64,7 +64,7 @@ class CustomerListHelper {
     }
 
     private renderUsernameForSuperMaster = item => {
-        let html = `<div class="text-icon"> `;
+        let html = `<div class="text-icon text-icon-left"> `;
             html += item.UserName;
         if (item.IsDirectMember) {
             html += `<span class="icon-directmember" title="${this.viewResources.DirectMember}"></span>`
